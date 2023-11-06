@@ -16,6 +16,7 @@ Operations:
 
 - Clean up files
 - More tests
+- Counterexample output
 - Intersection, difference, and XOR operations in the NetKAT AST
 - Lambdas in the checker language
 - Partial dups
