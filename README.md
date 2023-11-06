@@ -14,6 +14,7 @@ Operations:
 
 ## Potential improvements
 
+- Clean up files
 - More tests
 - Intersection, difference, and XOR operations in the NetKAT AST
 - Lambdas in the checker language
