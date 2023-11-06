@@ -1,0 +1,3 @@
+import "../../examples/topologyzoo/Shentel_topo.nkpl"
+import "../../examples/topologyzoo/Shentel_routing.nkpl"
+check (@sw=N25 ∧ @dst=N12)?⋅((main⋅(top⋅δ))⋆⋅@sw=N12?) ≢ ∅

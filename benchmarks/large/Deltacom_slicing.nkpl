@@ -1,0 +1,3 @@
+import "../../examples/topologyzoo/Deltacom_topo.nkpl"
+import "../../examples/topologyzoo/Deltacom_sliced_routing.nkpl"
+check ((main1∪main2)⋅(top⋅δ))⋆ ≡ (main1⋅(top⋅δ))⋆∪(main2⋅(top⋅δ))⋆

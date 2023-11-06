@@ -1,0 +1,463 @@
+<?xml version='1.0' encoding='utf-8'?>
+<graphml xmlns="http://graphml.graphdrawing.org/xmlns" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:schemaLocation="http://graphml.graphdrawing.org/xmlns http://graphml.graphdrawing.org/xmlns/1.0/graphml.xsd">
+  <key attr.name="name" attr.type="string" for="graph" id="d8" />
+  <key attr.name="id" attr.type="string" for="node" id="d7" />
+  <key attr.name="dst_port" attr.type="string" for="edge" id="d6" />
+  <key attr.name="capacity" attr.type="string" for="edge" id="d5" />
+  <key attr.name="cost" attr.type="string" for="edge" id="d4" />
+  <key attr.name="src_port" attr.type="string" for="edge" id="d3" />
+  <key attr.name="type" attr.type="string" for="node" id="d2" />
+  <key attr.name="mac" attr.type="string" for="node" id="d1" />
+  <key attr.name="ip" attr.type="string" for="node" id="d0" />
+  <graph edgedefault="undirected">
+    <node id="h8">
+      <data key="d0">"111.0.0.8"</data>
+      <data key="d1">"0:0:0:0:0:8"</data>
+      <data key="d2">host</data>
+    </node>
+    <node id="h9">
+      <data key="d0">"111.0.0.9"</data>
+      <data key="d1">"0:0:0:0:0:9"</data>
+      <data key="d2">host</data>
+    </node>
+    <node id="h2">
+      <data key="d0">"111.0.0.2"</data>
+      <data key="d1">"0:0:0:0:0:2"</data>
+      <data key="d2">host</data>
+    </node>
+    <node id="h3">
+      <data key="d0">"111.0.0.3"</data>
+      <data key="d1">"0:0:0:0:0:3"</data>
+      <data key="d2">host</data>
+    </node>
+    <node id="h1">
+      <data key="d0">"111.0.0.1"</data>
+      <data key="d1">"0:0:0:0:0:1"</data>
+      <data key="d2">host</data>
+    </node>
+    <node id="h6">
+      <data key="d0">"111.0.0.6"</data>
+      <data key="d1">"0:0:0:0:0:6"</data>
+      <data key="d2">host</data>
+    </node>
+    <node id="h7">
+      <data key="d0">"111.0.0.7"</data>
+      <data key="d1">"0:0:0:0:0:7"</data>
+      <data key="d2">host</data>
+    </node>
+    <node id="h4">
+      <data key="d0">"111.0.0.4"</data>
+      <data key="d1">"0:0:0:0:0:4"</data>
+      <data key="d2">host</data>
+    </node>
+    <node id="h5">
+      <data key="d0">"111.0.0.5"</data>
+      <data key="d1">"0:0:0:0:0:5"</data>
+      <data key="d2">host</data>
+    </node>
+    <node id="s9">
+      <data key="d2">switch</data>
+      <data key="d7">9</data>
+    </node>
+    <node id="s8">
+      <data key="d2">switch</data>
+      <data key="d7">8</data>
+    </node>
+    <node id="s3">
+      <data key="d2">switch</data>
+      <data key="d7">3</data>
+    </node>
+    <node id="s2">
+      <data key="d2">switch</data>
+      <data key="d7">2</data>
+    </node>
+    <node id="s1">
+      <data key="d2">switch</data>
+      <data key="d7">1</data>
+    </node>
+    <node id="s7">
+      <data key="d2">switch</data>
+      <data key="d7">7</data>
+    </node>
+    <node id="s6">
+      <data key="d2">switch</data>
+      <data key="d7">6</data>
+    </node>
+    <node id="s5">
+      <data key="d2">switch</data>
+      <data key="d7">5</data>
+    </node>
+    <node id="s4">
+      <data key="d2">switch</data>
+      <data key="d7">4</data>
+    </node>
+    <node id="s19">
+      <data key="d2">switch</data>
+      <data key="d7">19</data>
+    </node>
+    <node id="s18">
+      <data key="d2">switch</data>
+      <data key="d7">18</data>
+    </node>
+    <node id="s13">
+      <data key="d2">switch</data>
+      <data key="d7">13</data>
+    </node>
+    <node id="s12">
+      <data key="d2">switch</data>
+      <data key="d7">12</data>
+    </node>
+    <node id="s11">
+      <data key="d2">switch</data>
+      <data key="d7">11</data>
+    </node>
+    <node id="s10">
+      <data key="d2">switch</data>
+      <data key="d7">10</data>
+    </node>
+    <node id="s17">
+      <data key="d2">switch</data>
+      <data key="d7">17</data>
+    </node>
+    <node id="s16">
+      <data key="d2">switch</data>
+      <data key="d7">16</data>
+    </node>
+    <node id="s15">
+      <data key="d2">switch</data>
+      <data key="d7">15</data>
+    </node>
+    <node id="s14">
+      <data key="d2">switch</data>
+      <data key="d7">14</data>
+    </node>
+    <node id="h10">
+      <data key="d0">"111.0.0.10"</data>
+      <data key="d1">"0:0:0:0:0:a"</data>
+      <data key="d2">host</data>
+    </node>
+    <node id="h11">
+      <data key="d0">"111.0.0.11"</data>
+      <data key="d1">"0:0:0:0:0:b"</data>
+      <data key="d2">host</data>
+    </node>
+    <node id="h12">
+      <data key="d0">"111.0.0.12"</data>
+      <data key="d1">"0:0:0:0:0:c"</data>
+      <data key="d2">host</data>
+    </node>
+    <node id="h13">
+      <data key="d0">"111.0.0.13"</data>
+      <data key="d1">"0:0:0:0:0:d"</data>
+      <data key="d2">host</data>
+    </node>
+    <node id="h14">
+      <data key="d0">"111.0.0.14"</data>
+      <data key="d1">"0:0:0:0:0:e"</data>
+      <data key="d2">host</data>
+    </node>
+    <node id="h15">
+      <data key="d0">"111.0.0.15"</data>
+      <data key="d1">"0:0:0:0:0:f"</data>
+      <data key="d2">host</data>
+    </node>
+    <node id="h16">
+      <data key="d0">"111.0.0.16"</data>
+      <data key="d1">"0:0:0:0:0:10"</data>
+      <data key="d2">host</data>
+    </node>
+    <node id="s20">
+      <data key="d2">switch</data>
+      <data key="d7">20</data>
+    </node>
+    <edge source="h8" target="s12">
+      <data key="d3">0</data>
+      <data key="d4">1</data>
+      <data key="d5">"1Gbps"</data>
+      <data key="d6">3</data>
+    </edge>
+    <edge source="h9" target="s15">
+      <data key="d3">0</data>
+      <data key="d4">1</data>
+      <data key="d5">"1Gbps"</data>
+      <data key="d6">2</data>
+    </edge>
+    <edge source="h2" target="s7">
+      <data key="d3">0</data>
+      <data key="d4">1</data>
+      <data key="d5">"1Gbps"</data>
+      <data key="d6">3</data>
+    </edge>
+    <edge source="h3" target="s8">
+      <data key="d3">0</data>
+      <data key="d4">1</data>
+      <data key="d5">"1Gbps"</data>
+      <data key="d6">2</data>
+    </edge>
+    <edge source="h1" target="s7">
+      <data key="d3">0</data>
+      <data key="d4">1</data>
+      <data key="d5">"1Gbps"</data>
+      <data key="d6">2</data>
+    </edge>
+    <edge source="h6" target="s11">
+      <data key="d3">0</data>
+      <data key="d4">1</data>
+      <data key="d5">"1Gbps"</data>
+      <data key="d6">3</data>
+    </edge>
+    <edge source="h7" target="s12">
+      <data key="d3">0</data>
+      <data key="d4">1</data>
+      <data key="d5">"1Gbps"</data>
+      <data key="d6">2</data>
+    </edge>
+    <edge source="h4" target="s8">
+      <data key="d3">0</data>
+      <data key="d4">1</data>
+      <data key="d5">"1Gbps"</data>
+      <data key="d6">3</data>
+    </edge>
+    <edge source="h5" target="s11">
+      <data key="d3">0</data>
+      <data key="d4">1</data>
+      <data key="d5">"1Gbps"</data>
+      <data key="d6">2</data>
+    </edge>
+    <edge source="s9" target="s2">
+      <data key="d3">1</data>
+      <data key="d4">1</data>
+      <data key="d5">"1Gbps"</data>
+      <data key="d6">1</data>
+    </edge>
+    <edge source="s9" target="s1">
+      <data key="d3">0</data>
+      <data key="d4">1</data>
+      <data key="d5">"1Gbps"</data>
+      <data key="d6">1</data>
+    </edge>
+    <edge source="s9" target="s11">
+      <data key="d3">2</data>
+      <data key="d4">1</data>
+      <data key="d5">"1Gbps"</data>
+      <data key="d6">0</data>
+    </edge>
+    <edge source="s9" target="s12">
+      <data key="d3">3</data>
+      <data key="d4">1</data>
+      <data key="d5">"1Gbps"</data>
+      <data key="d6">0</data>
+    </edge>
+    <edge source="s8" target="s5">
+      <data key="d3">0</data>
+      <data key="d4">1</data>
+      <data key="d5">"1Gbps"</data>
+      <data key="d6">3</data>
+    </edge>
+    <edge source="s8" target="s6">
+      <data key="d3">1</data>
+      <data key="d4">1</data>
+      <data key="d5">"1Gbps"</data>
+      <data key="d6">3</data>
+    </edge>
+    <edge source="s3" target="s10">
+      <data key="d3">1</data>
+      <data key="d4">1</data>
+      <data key="d5">"1Gbps"</data>
+      <data key="d6">0</data>
+    </edge>
+    <edge source="s3" target="s6">
+      <data key="d3">0</data>
+      <data key="d4">1</data>
+      <data key="d5">"1Gbps"</data>
+      <data key="d6">0</data>
+    </edge>
+    <edge source="s3" target="s18">
+      <data key="d3">3</data>
+      <data key="d4">1</data>
+      <data key="d5">"1Gbps"</data>
+      <data key="d6">0</data>
+    </edge>
+    <edge source="s3" target="s14">
+      <data key="d3">2</data>
+      <data key="d4">1</data>
+      <data key="d5">"1Gbps"</data>
+      <data key="d6">0</data>
+    </edge>
+    <edge source="s2" target="s13">
+      <data key="d3">2</data>
+      <data key="d4">1</data>
+      <data key="d5">"1Gbps"</data>
+      <data key="d6">1</data>
+    </edge>
+    <edge source="s2" target="s17">
+      <data key="d3">3</data>
+      <data key="d4">1</data>
+      <data key="d5">"1Gbps"</data>
+      <data key="d6">1</data>
+    </edge>
+    <edge source="s2" target="s5">
+      <data key="d3">0</data>
+      <data key="d4">1</data>
+      <data key="d5">"1Gbps"</data>
+      <data key="d6">1</data>
+    </edge>
+    <edge source="s1" target="s13">
+      <data key="d3">2</data>
+      <data key="d4">1</data>
+      <data key="d5">"1Gbps"</data>
+      <data key="d6">0</data>
+    </edge>
+    <edge source="s1" target="s17">
+      <data key="d3">3</data>
+      <data key="d4">1</data>
+      <data key="d5">"1Gbps"</data>
+      <data key="d6">0</data>
+    </edge>
+    <edge source="s1" target="s5">
+      <data key="d3">0</data>
+      <data key="d4">1</data>
+      <data key="d5">"1Gbps"</data>
+      <data key="d6">0</data>
+    </edge>
+    <edge source="s7" target="s6">
+      <data key="d3">1</data>
+      <data key="d4">1</data>
+      <data key="d5">"1Gbps"</data>
+      <data key="d6">2</data>
+    </edge>
+    <edge source="s7" target="s5">
+      <data key="d3">0</data>
+      <data key="d4">1</data>
+      <data key="d5">"1Gbps"</data>
+      <data key="d6">2</data>
+    </edge>
+    <edge source="s6" target="s4">
+      <data key="d3">1</data>
+      <data key="d4">1</data>
+      <data key="d5">"1Gbps"</data>
+      <data key="d6">0</data>
+    </edge>
+    <edge source="s4" target="s18">
+      <data key="d3">3</data>
+      <data key="d4">1</data>
+      <data key="d5">"1Gbps"</data>
+      <data key="d6">1</data>
+    </edge>
+    <edge source="s4" target="s10">
+      <data key="d3">1</data>
+      <data key="d4">1</data>
+      <data key="d5">"1Gbps"</data>
+      <data key="d6">1</data>
+    </edge>
+    <edge source="s4" target="s14">
+      <data key="d3">2</data>
+      <data key="d4">1</data>
+      <data key="d5">"1Gbps"</data>
+      <data key="d6">1</data>
+    </edge>
+    <edge source="s19" target="h14">
+      <data key="d3">3</data>
+      <data key="d4">1</data>
+      <data key="d5">"1Gbps"</data>
+      <data key="d6">0</data>
+    </edge>
+    <edge source="s19" target="h13">
+      <data key="d3">2</data>
+      <data key="d4">1</data>
+      <data key="d5">"1Gbps"</data>
+      <data key="d6">0</data>
+    </edge>
+    <edge source="s19" target="s17">
+      <data key="d3">0</data>
+      <data key="d4">1</data>
+      <data key="d5">"1Gbps"</data>
+      <data key="d6">2</data>
+    </edge>
+    <edge source="s19" target="s18">
+      <data key="d3">1</data>
+      <data key="d4">1</data>
+      <data key="d5">"1Gbps"</data>
+      <data key="d6">2</data>
+    </edge>
+    <edge source="s18" target="s20">
+      <data key="d3">3</data>
+      <data key="d4">1</data>
+      <data key="d5">"1Gbps"</data>
+      <data key="d6">1</data>
+    </edge>
+    <edge source="s13" target="s16">
+      <data key="d3">3</data>
+      <data key="d4">1</data>
+      <data key="d5">"1Gbps"</data>
+      <data key="d6">0</data>
+    </edge>
+    <edge source="s13" target="s15">
+      <data key="d3">2</data>
+      <data key="d4">1</data>
+      <data key="d5">"1Gbps"</data>
+      <data key="d6">0</data>
+    </edge>
+    <edge source="s12" target="s10">
+      <data key="d3">1</data>
+      <data key="d4">1</data>
+      <data key="d5">"1Gbps"</data>
+      <data key="d6">3</data>
+    </edge>
+    <edge source="s11" target="s10">
+      <data key="d3">1</data>
+      <data key="d4">1</data>
+      <data key="d5">"1Gbps"</data>
+      <data key="d6">2</data>
+    </edge>
+    <edge source="s17" target="s20">
+      <data key="d3">3</data>
+      <data key="d4">1</data>
+      <data key="d5">"1Gbps"</data>
+      <data key="d6">0</data>
+    </edge>
+    <edge source="s16" target="h11">
+      <data key="d3">2</data>
+      <data key="d4">1</data>
+      <data key="d5">"1Gbps"</data>
+      <data key="d6">0</data>
+    </edge>
+    <edge source="s16" target="h12">
+      <data key="d3">3</data>
+      <data key="d4">1</data>
+      <data key="d5">"1Gbps"</data>
+      <data key="d6">0</data>
+    </edge>
+    <edge source="s16" target="s14">
+      <data key="d3">1</data>
+      <data key="d4">1</data>
+      <data key="d5">"1Gbps"</data>
+      <data key="d6">3</data>
+    </edge>
+    <edge source="s15" target="h10">
+      <data key="d3">3</data>
+      <data key="d4">1</data>
+      <data key="d5">"1Gbps"</data>
+      <data key="d6">0</data>
+    </edge>
+    <edge source="s15" target="s14">
+      <data key="d3">1</data>
+      <data key="d4">1</data>
+      <data key="d5">"1Gbps"</data>
+      <data key="d6">2</data>
+    </edge>
+    <edge source="h15" target="s20">
+      <data key="d3">0</data>
+      <data key="d4">1</data>
+      <data key="d5">"1Gbps"</data>
+      <data key="d6">2</data>
+    </edge>
+    <edge source="h16" target="s20">
+      <data key="d3">0</data>
+      <data key="d4">1</data>
+      <data key="d5">"1Gbps"</data>
+      <data key="d6">3</data>
+    </edge>
+    <data key="d8">G</data>
+  </graph>
+</graphml>

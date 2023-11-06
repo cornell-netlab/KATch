@@ -1,0 +1,1 @@
+main = @sw=s3?⋅(@dst=h1?⋅@pt←1∪@dst=h2?⋅@pt←0)∪@sw=s4?⋅(@dst=h1?⋅@pt←0∪@dst=h2?⋅@pt←1)∪@sw=s5?⋅(@dst=h1?⋅@pt←1∪@dst=h2?⋅@pt←0)∪@sw=h1?⋅(@dst=h2?⋅@pt←0∪@dst=h1?⋅@pt←-1)∪@sw=s1?⋅(@dst=h1?⋅@pt←0∪@dst=h2?⋅@pt←1)∪@sw=s2?⋅(@dst=h1?⋅@pt←0∪@dst=h2?⋅@pt←1)∪@sw=h2?⋅(@dst=h1?⋅@pt←0∪@dst=h2?⋅@pt←-1)

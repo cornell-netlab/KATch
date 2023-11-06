@@ -1,0 +1,3 @@
+import "../../examples/trees/ft6_topo.nkpl"
+import "../../examples/trees/ft6_hrouting.nkpl"
+check (@sw=h1∧@dst=h54)?⋅((main⋅(top⋅δ))⋆⋅@sw=h54?) ≢ ∅

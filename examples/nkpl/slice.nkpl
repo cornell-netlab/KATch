@@ -1,0 +1,4 @@
+slice = λ p ⇒ λ inpred ⇒ λ outpred ⇒ λ w ⇒
+  let pre = @tag=0?⋅inpred?⋅@tag←w ∪ @tag=w?
+  let post = outpred? ⋅ @tag←0 ∪ ¬outpred?
+  pre⋅p⋅post

@@ -1,0 +1,122 @@
+package nkpl
+
+import nkpl.Parser.Stmt
+import nkpl.Parser.Expr
+
+object Runner {
+  type Env = Map[String, Either[NK, Int]]
+  def evalNK(env: Env, v: Parser.NK): NK =
+    v match {
+      case Parser.Dup => Dup
+      case Parser.Test(x, v) => Test(x, evalVal(env, v))
+      case Parser.Mut(x, v) => Mut(x, evalVal(env, v))
+      case Parser.Seq(es) => Seq(es.map(evalNK(env, _)))
+      case Parser.Sum(es) => Sum(es.map(evalNK(env, _)))
+      case Parser.Star(e) => Star(evalNK(env, e))
+      case Parser.VarName(x) =>
+        if !env.contains(x) then throw new Throwable(s"Variable $x not found in $env\n")
+        env(x) match {
+          case Left(v) => v
+          case Right(v) => throw new Throwable(s"Expected a netkat expression, but got a value: $v\n")
+        }
+    }
+
+  def evalVal(env: Env, v: Parser.SVal): Int =
+    v match {
+      case Left(v) => v
+      case Right(x) =>
+        if !env.contains(x) then throw new Throwable(s"Variable $x not found in $env\n")
+        env(x) match {
+          case Left(v) => throw new Throwable(s"Expected a value, but got a netkat expression: $v\n")
+          case Right(v) => v
+        }
+    }
+
+  def eval(env: Env, e: Parser.Expr): Either[NK, Int] =
+    e match {
+      case Parser.Expr.NKExpr(e) => Left(evalNK(env, e))
+      case Parser.Expr.ValExpr(v) => Right(evalVal(env, v))
+    }
+
+  def runStmt(env: Env, stmt: Parser.Stmt, path: String, line: Int): Env =
+    stmt match {
+      case Stmt.Check(op, e1, e2) => {
+        def assertNK(e: Parser.Expr): NK =
+          e match {
+            case Parser.Expr.NKExpr(e) => evalNK(env, e)
+            case Parser.Expr.ValExpr(v) => throw new Throwable(s"Expected a netkat expression, but got a value: $v\n")
+          }
+        val v1 = assertNK(e1)
+        val v2 = assertNK(e2)
+        val result = Bisim.bisim(v1, v2)
+        assert(op == "≡" || op == "≢")
+        if result == (op == "≡") then {
+          println(s"Check passed in $path:${line + 1}")
+        } else {
+          throw new Throwable(s"!!! Check failed in $path:${line + 1} !!!")
+        }
+        env
+      }
+      case Stmt.Let(x, e) => env + (x -> eval(env, e))
+      case Stmt.Import(path2) =>
+        // Here path2 is relative to path
+        val path3 = path.split("/").dropRight(1).mkString("/") + "/" + path2
+        runFile(env, path3)
+    }
+
+  // Runs a whole file
+  // Checks if the whole input was parsed, and gives an error otherwise
+  // Also returns an error if the file could not be read
+  def runFile(env: Env, path: String): Env =
+    var env2 = env
+    try {
+      val input = scala.io.Source.fromFile(path).mkString.split("\n")
+      // Iterate over each line
+      for (i <- input.indices) {
+        val line = input(i)
+        if line.startsWith("--") || line.trim.isEmpty then ()
+        else
+          // Parse the line
+          Parser.parseStmt(line) match {
+            case Left(stmt, n) =>
+              // Check if everything was parsed
+              if n == line.length then {
+                // Run the statement
+                env2 = runStmt(env2, stmt, path, i)
+              } else {
+                // First split the input at the point where we stopped parsing
+                val (left, right) = line.splitAt(n)
+                throw new Throwable(s"Could not parse $path:${i + 1}: $left[!!!]$right\n")
+              }
+            case Right(msg) => throw new Throwable(s"Could not parse line $path:${i + 1}: ${msg}\n")
+          }
+      }
+    } catch {
+      case e: java.io.FileNotFoundException =>
+        throw new Throwable(s"File $path not found\n")
+      // case e: Throwable =>
+      // print(e)
+    }
+    env2
+
+  import java.io.FileWriter
+
+  def runTopLevel(path: String) = {
+    println("Running " + path)
+    val startTime = System.nanoTime()
+    runFile(Map(), path)
+    val endTime = System.nanoTime()
+    val duration = (endTime - startTime) / 1_000_000_000.0
+    val filename = path.split("/").last
+    val msg = s"Execution time of $filename: $duration s"
+    println(msg)
+
+    // Append msg to benchresults.txt
+    val fw = new FileWriter("benchresults.txt", true) // true to append
+    try {
+      fw.write(msg + "\n")
+    } finally {
+      fw.close()
+    }
+  }
+}

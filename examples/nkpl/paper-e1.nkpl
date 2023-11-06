@@ -1,0 +1,4 @@
+import "examples/nkpl/popl14.nkpl"
+
+main
+  ((s₁∪s₂)⋅top⋅δ)⋆

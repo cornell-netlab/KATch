@@ -1,0 +1,30 @@
+import "examples/nkpl/slice.nkpl"
+
+A = 0
+B = 1
+
+-- Sample topology
+top = (@sw=A?⋅@pt=5?⋅@sw←B⋅@pt←6) ∪
+      (@sw=B?⋅@pt=6?⋅@sw←A⋅@pt←5) ∪
+      (@sw=A?⋅@pt=1?) ∪
+      (@sw=A?⋅@pt=3?) ∪
+      (@sw=B?⋅@pt=2?) ∪
+      (@sw=B?⋅@pt=4?)
+
+-- Sliced policies from §6 of POPL'14 paper:
+pa₁ = @sw=A?⋅(@pt=5?⋅@pt←1 ∪ @pt=1?⋅@pt←5)
+pa₂ = @sw=A?⋅(@pt=5?⋅@pt←3 ∪ @pt=3?⋅@pt←5)
+pb₁ = @sw=B?⋅(@pt=6?⋅@pt←2 ∪ @pt=2?⋅@pt←6)
+pb₂ = @sw=B?⋅(@pt=6?⋅@pt←4 ∪ @pt=4?⋅@pt←6)
+p₁ = pa₁ ∪ pb₁
+p₂ = pa₂ ∪ pb₂
+
+in₁ = @sw=A∧@pt=1 ∨ @sw=B∧@pt=2
+out₁ = @sw=A∧@pt=1 ∨ @sw=B∧@pt=2
+
+s₁ = slice p₁ in₁ out₁ 1
+
+in₂ = @sw=A∧@pt=3 ∨ @sw=B∧@pt=4
+out₂ = @sw=A∧@pt=3 ∨ @sw=B∧@pt=4
+
+s₂ = slice p₂ in₂ out₂ 2

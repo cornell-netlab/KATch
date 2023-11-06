@@ -1,0 +1,38 @@
+-- import "examples/nkpl/e11.nkpl"
+
+top = ε
+
+cfg = ε
+
+upf = ε
+
+system = (cfg ⋅ upf ⋅ top ⋅ δ) ⋆
+
+
+
+
+
+
+t₁ = x≟1
+t₂ = x≟2
+
+s₁ = x←1
+s₂ = x←2
+
+main
+  loop log
+    any
+      t₁ ; (s₂ | skip)
+      local
+        let thing = (s₂ ∪ ε)
+            blah = thing
+        t₁ ⋅ blah ∪ ∅
+      δ
+      do
+        t₂
+        any
+          t₁
+          skip
+
+
+

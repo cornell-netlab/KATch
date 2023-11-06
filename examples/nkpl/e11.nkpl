@@ -1,0 +1,6 @@
+main
+  do
+    log x←2
+    loop do
+      log x←3
+      log x←2

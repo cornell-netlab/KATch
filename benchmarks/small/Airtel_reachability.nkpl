@@ -1,0 +1,4 @@
+import "../../examples/topologyzoo/Airtel_topo.nkpl"
+import "../../examples/topologyzoo/Airtel_routing.nkpl"
+check @sw=N15?⋅@dst=N0?⋅((main⋅(top⋅δ))⋆⋅@sw=N0?) ≢ ∅
+-- check @sw=N15?⋅((main⋅(top⋅δ))⋆⋅@sw=N0?) ≢ ∅

@@ -1,0 +1,3 @@
+import "../../examples/topologyzoo/Missouri_topo.nkpl"
+import "../../examples/topologyzoo/Missouri_routing.nkpl"
+check (@sw=N66∧@dst=N0)?⋅((main⋅(top⋅δ))⋆⋅@sw=N0?) ≢ ∅

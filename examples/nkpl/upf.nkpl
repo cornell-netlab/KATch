@@ -1,0 +1,99 @@
+import "examples/nkpl/2x2-fabric.nkpl"
+
+---------------------- Flags: ----------------------
+
+-- @forward --
+DROP=0
+FWD=1
+
+-- @user --
+NONE = 0
+USER1 = 1
+USER2 = 2
+USER3 = 3
+USER4 = 4
+
+-- @dir --
+DOWNLINK = 0
+UPLINK = 1
+
+---------------- Forwarding tables:  ---------------
+-- SPINE --
+spine_all_down = @user=USER1?⋅@pt←1 ∪
+                 @user=USER2?⋅@pt←1 ∪
+                 @user=USER3?⋅@pt←2 ∪
+                 @user=USER4?⋅@pt←2
+
+spine_u1_down = @user=USER1?⋅@pt←1
+spine_u2_down = @user=USER2?⋅@pt←1
+spine_u3_down = @user=USER3?⋅@pt←2
+spine_u4_down = @user=USER4?⋅@pt←2
+
+spine_up = @pt←3
+
+
+-- LEAVES --
+leaves_up_all = @sw=L1?⋅(@pt=3?⋅@user←USER1 ∪
+                         @pt=4?⋅@user←USER2)⋅@pt←1 ∪
+                @sw=L2?⋅(@pt=4?⋅@user←USER3 ∪
+                         @pt=3?⋅@user←USER4)⋅@pt←2
+
+leaves_down_all = @user=USER1?⋅@pt←3 ∪
+                  @user=USER2?⋅@pt←4 ∪
+                  @user=USER3?⋅@pt←4 ∪
+                  @user=USER4?⋅@pt←3
+
+leaves_up_u1 = @sw=L1?⋅@pt=3?⋅@user←USER1⋅@pt←1
+leaves_down_u1 = @user=USER1?⋅@pt←3
+
+leaves_up_u2 = @sw=L1?⋅@pt=4?⋅@user←USER2⋅@pt←1
+leaves_down_u2 = @user=USER2?⋅@pt←4
+
+leaves_up_u3 = @sw=L2?⋅@pt=4?⋅@user←USER3⋅@pt←2
+leaves_down_u3 = @user=USER3?⋅@pt←4
+
+leaves_up_u4 = @sw=L2?⋅@pt=3?⋅@user←USER4⋅@pt←2
+leaves_down_u4 = @user=USER4?⋅@pt←3
+
+fwd = λ ulink ⇒ λ dlink ⇒
+  @dir=UPLINK?⋅ulink ∪ @dir=DOWNLINK?⋅dlink
+
+
+-------------------- Policies:  --------------------
+-- SPINE --
+
+hₛ = @sw=S1? ∪ @sw=S2?
+
+PDR = -- Packet Detection Rule
+  @user≠NONE?⋅@forward←FWD ∪
+  @user=NONE?⋅@forward←DROP
+
+FAR = -- Forwarding Action Rules
+  λ ulink ⇒ λ dlink ⇒
+    @forward=FWD?⋅(fwd ulink dlink)  ∪
+    @forward=DROP?⋅∅
+
+pₛ_all = hₛ⋅PDR⋅(FAR spine_up spine_all_down)
+pₛ_u1 = hₛ⋅PDR⋅(FAR spine_up spine_u1_down)
+pₛ_u2 = hₛ⋅PDR⋅(FAR spine_up spine_u2_down)
+pₛ_u3 = hₛ⋅PDR⋅(FAR spine_up spine_u3_down)
+pₛ_u4 = hₛ⋅PDR⋅(FAR spine_up spine_u4_down)
+
+-- LEAVES --
+
+hₗ = @sw=L1? ∪ @sw=L2?
+
+pₗ = λ ulink ⇒ λ dlink ⇒ 
+    hₗ⋅(fwd ulink dlink)
+
+pₗ_all = pₗ leaves_up_all leaves_down_all
+pₗ_u1 = pₗ leaves_up_u1 leaves_down_u1
+pₗ_u2 = pₗ leaves_up_u2 leaves_down_u2
+pₗ_u3 = pₗ leaves_up_u3 leaves_down_u3
+pₗ_u4 = pₗ leaves_up_u4 leaves_down_u4
+
+p_all = pₛ_all ∪ pₗ_all
+p_u1 = pₛ_u1 ∪ pₗ_u1
+p_u2 = pₛ_u2 ∪ pₗ_u2
+p_u3 = pₛ_u3 ∪ pₗ_u3
+p_u4 = pₛ_u4 ∪ pₗ_u4

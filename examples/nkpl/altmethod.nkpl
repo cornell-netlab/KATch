@@ -1,0 +1,128 @@
+import "examples/nkpl/slice.nkpl"
+          
+--TOPOLOGY:                            
+--                ₁\ /₂                
+--                  D                  
+--    \            ³|            /     
+--    ²\           ₃|           /₂     
+--      A___________C__________B       
+--    ₁/ ³         ¹ ²       ³  \₁     
+--    /                          \     
+--                                     
+
+-- Constants for switch names:
+A = 0
+B = 1
+C = 2
+D = 3
+-- Constants for slice tags:
+w₁ = 1
+w₂ = 2
+w₃ = 3
+w₄ = 4
+
+top = @sw=A?⋅(@pt=3?⋅@sw←C⋅@pt←1 ∪ @pt=1? ∪ @pt=2?) ∪
+      @sw=B?⋅(@pt=3?⋅@sw←C⋅@pt←2 ∪ @pt=1? ∪ @pt=2?) ∪
+      @sw=C?⋅(@pt=1?⋅@sw←A⋅@pt←3 ∪ @pt=2?⋅@sw←B⋅@pt←3 ∪ @pt=3?⋅@sw←D) ∪
+      @sw=D?⋅(@pt=3?⋅@sw←C ∪ @pt=1? ∪ @pt=2?)
+
+--SLICES:                              
+--        slice3\ ₁\ /₂ /slice4  slice2
+--        |      |  D  |      / /      
+--      \ \______| ³|  |_____/ /       
+--    ²\ \_________₃|_________/ /₂     
+--      A___________C__________B       
+--    ₁/ ³         ¹ ²       ³  \₁     
+--        ____________________         
+--       /   slice1           \        
+
+p₁ =  @sw=A?⋅(@pt=1?⋅@pt←3 ∪ @pt=3?⋅@pt←1) ∪
+      @sw=C?⋅(@pt=1?⋅@pt←2 ∪ @pt=2?⋅@pt←1) ∪
+      @sw=B?⋅(@pt=1?⋅@pt←3 ∪ @pt=3?⋅@pt←1)
+
+b₁ = (@sw=A∧@pt=1)∨(@sw=B∧@pt=1)
+
+p₂ =  @sw=A?⋅(@pt=2?⋅@pt←3 ∪ @pt=3?⋅@pt←2) ∪
+      @sw=C?⋅(@pt=1?⋅@pt←2 ∪ @pt=2?⋅@pt←1) ∪
+      @sw=B?⋅(@pt=2?⋅@pt←3 ∪ @pt=3?⋅@pt←2)
+
+b₂ = (@sw=A∧@pt=2)∨(@sw=B∧@pt=2)
+
+p₃ = @sw=A?⋅(@pt=2?⋅@pt←3 ∪ @pt=3?⋅@pt←2) ∪
+     @sw=C?⋅(@pt=1?⋅@pt←3 ∪ @pt=3?⋅@pt←1) ∪
+     @sw=D?⋅(@pt=1?⋅@pt←3 ∪ @pt=3?⋅@pt←1)
+
+b₃ = (@sw=A∧@pt=2)∨(@sw=D∧@pt=1)
+    
+p₄ = @sw=B?⋅(@pt=2?⋅@pt←3 ∪ @pt=3?⋅@pt←2) ∪
+     @sw=C?⋅(@pt=2?⋅@pt←3 ∪ @pt=3?⋅@pt←2) ∪
+     @sw=D?⋅(@pt=2?⋅@pt←3 ∪ @pt=3?⋅@pt←2)
+
+b₄ = (@sw=B∧@pt=2)∨(@sw=D∧@pt=2)
+
+s₁ = slice p₁ b₁ b₁ w₁
+s₂ = slice p₂ b₂ b₂ w₂
+s₃ = slice p₃ b₃ b₃ w₃
+s₄ = slice p₄ b₄ b₄ w₄
+
+-- Making no attempt at slicing, we see that we do not automatically get any
+-- isolation guarantee:
+check ((p₁∪p₂)⋅top⋅δ)⋆ ≢ (p₁⋅top⋅δ)⋆ ∪ (p₂⋅top⋅δ)⋆
+check ((p₁∪p₃)⋅top⋅δ)⋆ ≢ (p₁⋅top⋅δ)⋆ ∪ (p₃⋅top⋅δ)⋆
+check ((p₁∪p₄)⋅top⋅δ)⋆ ≢ (p₁⋅top⋅δ)⋆ ∪ (p₄⋅top⋅δ)⋆
+check ((p₂∪p₃)⋅top⋅δ)⋆ ≢ (p₂⋅top⋅δ)⋆ ∪ (p₃⋅top⋅δ)⋆
+check ((p₂∪p₄)⋅top⋅δ)⋆ ≢ (p₂⋅top⋅δ)⋆ ∪ (p₄⋅top⋅δ)⋆
+check ((p₃∪p₄)⋅top⋅δ)⋆ ≢ (p₃⋅top⋅δ)⋆ ∪ (p₄⋅top⋅δ)⋆
+
+-- Using the slice mechanism from Anderson et al (POPL '14), we see that we can
+-- get slice isolation guarantees for some of the combinations of slices:
+check ((s₁∪s₂)⋅top⋅δ)⋆ ≡ (s₁⋅top⋅δ)⋆ ∪ (s₂⋅top⋅δ)⋆
+--XXX FAILS:
+check ((s₁∪s₃)⋅top⋅δ)⋆ ≡ (s₁⋅top⋅δ)⋆ ∪ (s₃⋅top⋅δ)⋆
+check ((s₁∪s₄)⋅top⋅δ)⋆ ≡ (s₁⋅top⋅δ)⋆ ∪ (s₄⋅top⋅δ)⋆
+check ((s₃∪s₄)⋅top⋅δ)⋆ ≡ (s₃⋅top⋅δ)⋆ ∪ (s₄⋅top⋅δ)⋆
+
+-- But we note that slice 2 is incompatible with both slice 3 and slice 4 since
+-- b₂ overlaps with b₃ and b₄ (which violates the assumptions of the slicing
+-- mechanism, so neither slices 2 & 3 nor 2 & 4 should enjoy isolation:
+check ((s₂∪s₃)⋅top⋅δ)⋆ ≢ (s₂⋅top⋅δ)⋆ ∪ (s₃⋅top⋅δ)⋆
+check ((s₂∪s₄)⋅top⋅δ)⋆ ≢ (s₂⋅top⋅δ)⋆ ∪ (s₄⋅top⋅δ)⋆
+
+-- We even can do a ternary slice of 1, 3, and 4:
+--XXX FAILS:
+check ((s₁∪s₃∪s₄)⋅top⋅δ)⋆ ≡ (s₁⋅top⋅δ)⋆ ∪ (s₃⋅top⋅δ)⋆ ∪ (s₄⋅top⋅δ)⋆
+
+-- Now we rewrite slices 3 and 4 to check the tags at switch C and remove them
+-- for the final leg from C to D, and conversely, to apply the tags when coming
+-- from D. An equivalent formulation of this is that we are doing standard
+-- slicing but moving the egress up to switch C and adding the final hop outside
+-- of the compiled slice.
+
+q₃ = @sw=A?⋅(@pt=2?⋅@pt←3 ∪ @pt=3?⋅@pt←2) ∪
+     @sw=C?⋅(@pt=1?⋅@pt←3 ∪ @pt=3?⋅@pt←1)
+
+c₃ = (@sw=A∧@pt=2)∨(@sw=C∧@pt=3)
+
+t₃ = (slice q₃ c₃ c₃ w₃)∪(@sw=D?⋅(@pt=1?⋅@pt←3 ∪ @pt=3?⋅@pt←1))
+
+q₄ = @sw=B?⋅(@pt=2?⋅@pt←3 ∪ @pt=3?⋅@pt←2) ∪
+     @sw=C?⋅(@pt=2?⋅@pt←3 ∪ @pt=3?⋅@pt←2)
+
+c₄ = (@sw=B∧@pt=2)∨(@sw=C∧@pt=3)
+
+t₄ = (slice q₄ c₄ c₄ w₄)∪(@sw=D?⋅(@pt=2?⋅@pt←3 ∪ @pt=3?⋅@pt←2))
+
+-- Slicing with access control at C is valid for 1 & 3 or 1 & 4
+check ((s₁∪t₃)⋅top⋅δ)⋆ ≡ (s₁⋅top⋅δ)⋆ ∪ (t₃⋅top⋅δ)⋆
+check ((s₁∪t₄)⋅top⋅δ)⋆ ≡ (s₁⋅top⋅δ)⋆ ∪ (t₄⋅top⋅δ)⋆
+
+-- But these slices do not compose with each other!
+-- The problem is that packets in the C-D region cannot be distinguished: When
+-- composed only with slice 1, this is not a problem, since slice 1 does not
+-- send packets to that area of the network.
+--XXX FAILS:
+check ((t₃∪t₄)⋅top⋅δ)⋆ ≢ (t₃⋅top⋅δ)⋆ ∪ (t₄⋅top⋅δ)⋆
+
+-- Moreover, the ternary slice also does not work.
+--XXX FAILS:
+check ((s₁∪t₃∪t₄)⋅top⋅δ)⋆ ≢ (s₁⋅top⋅δ)⋆ ∪ (t₃⋅top⋅δ)⋆ ∪ (t₄⋅top⋅δ)⋆

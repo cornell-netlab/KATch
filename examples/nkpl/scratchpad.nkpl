@@ -1,0 +1,12 @@
+-- check @A=1?⋅@A←2⋅δ ∪ @A=2?⋅@A←1⋅δ ≡ @A=1?⋅@A←2⋅δ ∪ @A=2?⋅@A←1⋅δ -- ∪ ∅
+-- check (@a=3?⋅δ)⋅(@a=3?⋅δ)⋆ ≡ (@a=3?⋅δ)⋆⋅(@a=3?⋅δ)
+-- check (@a=3?⋅δ)⋅(@a=3?⋅δ)⋆ ≢ ∅
+-- check (@a=3?⋅δ)⋅(@a=3?⋅δ)⋆ ≢ ∅
+-- check (@x←3⋅δ)⋆⋅@x=3? ≡ @x←3⋅δ ∪ @x=3?
+-- check δ⋆ ≡ δ⋆
+-- check ((p₁∪p₂)⋅top⋅δ)⋆ ≢ (p₁⋅top⋅δ)⋆∪(p₂⋅top⋅δ)⋆
+
+import "examples/nkpl/2x2-fabric-slice.nkpl"
+check ((p₁∪p₂)⋅top⋅δ)⋆ ≢ (p₁⋅top⋅δ)⋆∪(p₂⋅top⋅δ)⋆
+
+

@@ -1,0 +1,3 @@
+import "examples/trees/t6_topo.nkpl"
+import "examples/trees/t6_routing.nkpl"
+check @sw=h1?⋅((main⋅(top⋅δ))⋆⋅@sw=h64?) ≢ ∅

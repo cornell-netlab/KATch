@@ -1,0 +1,3 @@
+import "../../examples/trees/t5_topo.nkpl"
+import "../../examples/trees/t5_hrouting.nkpl"
+check ((routing116 ∪ routing1732)⋅top⋅δ)⋆ ≡ (routing116⋅top⋅δ)⋆ ∪ (routing1732⋅top⋅δ)⋆

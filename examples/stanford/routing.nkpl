@@ -1,0 +1,34 @@
+import "examples/stanford/bbra_rtr.nkpl"
+import "examples/stanford/bbrb_rtr.nkpl"
+import "examples/stanford/boza_rtr.nkpl"
+import "examples/stanford/bozb_rtr.nkpl"
+import "examples/stanford/coza_rtr.nkpl"
+import "examples/stanford/cozb_rtr.nkpl"
+import "examples/stanford/goza_rtr.nkpl"
+import "examples/stanford/gozb_rtr.nkpl"
+import "examples/stanford/poza_rtr.nkpl"
+import "examples/stanford/pozb_rtr.nkpl"
+import "examples/stanford/roza_rtr.nkpl"
+import "examples/stanford/rozb_rtr.nkpl"
+import "examples/stanford/soza_rtr.nkpl"
+import "examples/stanford/sozb_rtr.nkpl"
+import "examples/stanford/yoza_rtr.nkpl"
+import "examples/stanford/yozb_rtr.nkpl"
+
+routing = bbra_routing ∪
+	  bbrb_routing ∪
+	  boza_routing ∪
+	  bozb_routing ∪
+	  coza_routing ∪
+	  cozb_routing ∪
+	  goza_routing ∪
+	  gozb_routing ∪
+	  poza_routing ∪
+	  pozb_routing ∪
+	  roza_routing ∪
+	  rozb_routing ∪
+	  soza_routing ∪
+	  sozb_routing ∪
+	  yoza_routing ∪
+	  yoza_routing
+

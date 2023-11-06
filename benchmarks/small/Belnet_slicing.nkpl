@@ -1,0 +1,3 @@
+import "../../examples/topologyzoo/Belnet_topo.nkpl"
+import "../../examples/topologyzoo/Belnet_sliced_routing.nkpl"
+check ((main1∪main2)⋅(top⋅δ))⋆ ≡ (main1⋅(top⋅δ))⋆∪(main2⋅(top⋅δ))⋆

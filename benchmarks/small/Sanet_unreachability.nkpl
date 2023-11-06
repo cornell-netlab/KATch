@@ -1,0 +1,3 @@
+import "../../examples/topologyzoo/Sanet_topo.nkpl"
+import "../../examples/topologyzoo/Sanet_routing.nkpl"
+check @sw=N42?⋅((main⋅(top⋅δ))⋆⋅@sw=1000?) ≡ ∅

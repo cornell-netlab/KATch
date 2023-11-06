@@ -1,0 +1,9 @@
+Topology,Nodes,Edges,Size (KB)
+Airtel_unreachability.nkpl,16,37,8.3
+Belnet_unreachability.nkpl,23,43,14.2
+Compuserv_unreachability.nkpl,14,17,5.7
+Layer42_unreachability.nkpl,6,7,1.5
+t4_h_reachability.nkpl,,,24.5
+t4_near_reachability.nkpl,,,23.5
+t4_reachability.nkpl,,,23.5
+t4_slicing.nkpl,,,23.5

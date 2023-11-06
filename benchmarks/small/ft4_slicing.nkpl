@@ -1,0 +1,3 @@
+import "../../examples/trees/ft4_topo.nkpl"
+import "../../examples/trees/ft4_hrouting.nkpl"
+check ((routing18 ∪ routing916)⋅top⋅δ)⋆ ≡ (routing18⋅top⋅δ)⋆ ∪ (routing916⋅top⋅δ)⋆

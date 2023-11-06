@@ -1,0 +1,17 @@
+import "examples/nkpl/2x2-fabric.nkpl"
+import "examples/nkpl/slice.nkpl"
+
+in₁ = @sw=L1∧(@pt=3 ∨ @pt=4)
+out₁ = @sw=S1∧@pt=3
+p₁ = @sw=L1?⋅(@pt=3?⋅@pt←1 ∪ @pt=1?⋅@pt←3  ∪ @pt=4?⋅@pt←2∪ @pt=2?⋅@pt←4) ∪
+     @sw=S1?⋅((@pt=1? ∪ @pt=0?)⋅@pt←3 ∪ @pt=3?⋅(@pt←1 ∪ @pt←0)) ∪
+     @sw=S2?⋅(@pt=1?⋅@pt←0 ∪ @pt=0?⋅@pt←1)
+
+in₂ = @sw=L2∧(@pt=3 ∨ @pt=4)
+out₂ = @sw=S2∧@pt=3
+p₂ = @sw=L2?⋅(@pt=3?⋅@pt←2 ∪ @pt=2?⋅@pt←3 ∪  @pt=4?⋅@pt←1 ∪ @pt=1?⋅@pt←4) ∪
+     @sw=S1?⋅(@pt=2?⋅@pt←0 ∪ @pt=0?⋅@pt←2) ∪
+     @sw=S2?⋅((@pt=2? ∪ @pt=0?)⋅@pt←3 ∪ @pt=3?⋅(@pt←2 ∪ @pt←0))
+
+s₁ = slice p₁ in₁ out₁ 1
+s₂ = slice p₂ in₂ out₂ 2

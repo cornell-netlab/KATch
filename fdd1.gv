@@ -1,0 +1,12 @@
+digraph G {
+0 [label="y = ?", style=filled, fillcolor="#f6c80f"]
+1 [shape=box, label="{x ← 1}\n{}"]
+0 -> 1 [label="3", color="#00c429", fontcolor="#00c429"]
+2 [label="z = ?", style=filled, fillcolor="#0bc820"]
+3 [shape=box, label="{x ← 1; y ← 3}\n{}"]
+2 -> 3 [label="0", color="#003fbd", fontcolor="#003fbd"]
+4 [shape=box, label="{}"]
+2 -> 4 [label="*", color="#000000", fontcolor="#000000"]
+0 -> 2 [label="6", color="#0039ef", fontcolor="#0039ef"]
+0 -> 2 [label="*", color="#000000", fontcolor="#000000"]
+}

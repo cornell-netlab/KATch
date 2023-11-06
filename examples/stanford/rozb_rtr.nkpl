@@ -1,0 +1,1911 @@
+rozb_routing = filter (@switch = 11);
+ (@vlanId ← 0;
+ (filter ((@vlanId = 1 ∨
+           @vlanId = 0 ∧
+           ¬
+           ((@port = 1200001 ∨ @port = 1200002 ∨ @port = 1200003 ∨
+             @port = 1200004 ∨ @port = 1200005 ∨ @port = 1200006 ∨
+             @port = 1200007 ∨ @port = 1200008) ∧
+            (@ipDst0 = 172 ∧ @ipDst1 = 20 ∧ @ipDst2 = 0 ∧ @ipDst3 = 5))) ∧
+          (@vlanId = 1 ∨
+           @vlanId = 0 ∧
+           ¬
+           ((@port = 1200001 ∨ @port = 1200002 ∨ @port = 1200003 ∨
+             @port = 1200004 ∨ @port = 1200005 ∨ @port = 1200006 ∨
+             @port = 1200007 ∨ @port = 1200008) ∧
+            (@ipDst0 = 172 ∧ @ipDst1 = 20 ∧ @ipDst2 = 0 ∧ @ipDst3 = 66))));
+  ((filter (@vlanId = 1) |
+    filter (@vlanId = 0);
+    (filter ((@port = 1200001 ∨ @port = 1200002 ∨ @port = 1200003 ∨
+              @port = 1200004 ∨ @port = 1200005 ∨ @port = 1200006 ∨
+              @port = 1200007 ∨ @port = 1200008) ∧
+             (@ipDst0 = 172 ∧ @ipDst1 = 20 ∧ @ipDst2 = 0 ∧ @ipDst3 = 67));
+     (@vlanId ← 1; @port ← 1200006) |
+     filter (¬ ((@port = 1200001 ∨ @port = 1200002 ∨ @port = 1200003 ∨
+                   @port = 1200004 ∨ @port = 1200005 ∨ @port = 1200006 ∨
+                   @port = 1200007 ∨ @port = 1200008) ∧
+                  (@ipDst0 = 172 ∧ @ipDst1 = 20 ∧ @ipDst2 = 0 ∧ @ipDst3 = 67)))));
+   ((filter (@vlanId = 1) |
+     filter (@vlanId = 0);
+     (filter ((@port = 1200001 ∨ @port = 1200002 ∨ @port = 1200003 ∨
+               @port = 1200004 ∨ @port = 1200005 ∨ @port = 1200006 ∨
+               @port = 1200007 ∨ @port = 1200008) ∧
+              (@ipDst0 = 192 ∧ @ipDst1 = 168 ∧ @ipDst2 = 209 ∧ @ipDst3 = 16));
+      (@vlanId ← 1; @port ← 1200006) |
+      filter (¬ ((@port = 1200001 ∨ @port = 1200002 ∨ @port = 1200003 ∨
+                    @port = 1200004 ∨ @port = 1200005 ∨ @port = 1200006 ∨
+                    @port = 1200007 ∨ @port = 1200008) ∧
+                   (@ipDst0 = 192 ∧ @ipDst1 = 168 ∧ @ipDst2 = 209 ∧ @ipDst3 = 16)))));
+    ((filter (@vlanId = 1) |
+      filter (@vlanId = 0);
+      (filter ((@port = 1200001 ∨ @port = 1200002 ∨ @port = 1200003 ∨
+                @port = 1200004 ∨ @port = 1200005 ∨ @port = 1200006 ∨
+                @port = 1200007 ∨ @port = 1200008) ∧
+               (@ipDst0 = 192 ∧ @ipDst1 = 168 ∧ @ipDst2 = 209 ∧ @ipDst3 = 20));
+       (@vlanId ← 1; @port ← 1200008) |
+       filter (¬ ((@port = 1200001 ∨ @port = 1200002 ∨ @port = 1200003 ∨
+                     @port = 1200004 ∨ @port = 1200005 ∨ @port = 1200006 ∨
+                     @port = 1200007 ∨ @port = 1200008) ∧
+                    (@ipDst0 = 192 ∧ @ipDst1 = 168 ∧ @ipDst2 = 209 ∧ @ipDst3 = 20)))));
+     ((filter (@vlanId = 1) |
+       filter (@vlanId = 0);
+       (filter ((@port = 1200001 ∨ @port = 1200002 ∨ @port = 1200003 ∨
+                 @port = 1200004 ∨ @port = 1200005 ∨ @port = 1200006 ∨
+                 @port = 1200007 ∨ @port = 1200008) ∧
+                (@ipDst0 = 192 ∧ @ipDst1 = 168 ∧ @ipDst2 = 209 ∧ @ipDst3 = 204));
+        (@vlanId ← 1; @port ← 1200003) |
+        filter (¬ ((@port = 1200001 ∨ @port = 1200002 ∨ @port = 1200003 ∨
+                      @port = 1200004 ∨ @port = 1200005 ∨ @port = 1200006 ∨
+                      @port = 1200007 ∨ @port = 1200008) ∧
+                     (@ipDst0 = 192 ∧ @ipDst1 = 168 ∧ @ipDst2 = 209 ∧ @ipDst3 = 204)))));
+      ((filter (@vlanId = 1) |
+        filter (@vlanId = 0);
+        (filter ((@port = 1200001 ∨ @port = 1200002 ∨ @port = 1200003 ∨
+                  @port = 1200004 ∨ @port = 1200005 ∨ @port = 1200006 ∨
+                  @port = 1200007 ∨ @port = 1200008) ∧
+                 ((@ipDst0 = 172 ∧ @ipDst1 = 26 ∧ @ipDst2 = 4 ∧ @ipDst3 = 80) ∨ (@ipDst0 = 172 ∧ @ipDst1 = 26 ∧ @ipDst2 = 4 ∧ @ipDst3 = 81)));
+         (@vlanId ← 1; @port ← 1200002) |
+         filter (¬ ((@port = 1200001 ∨ @port = 1200002 ∨ @port = 1200003 ∨
+                       @port = 1200004 ∨ @port = 1200005 ∨ @port = 1200006 ∨
+                       @port = 1200007 ∨ @port = 1200008) ∧
+                      ((@ipDst0 = 172 ∧ @ipDst1 = 26 ∧ @ipDst2 = 4 ∧ @ipDst3 = 80) ∨ (@ipDst0 = 172 ∧ @ipDst1 = 26 ∧ @ipDst2 = 4 ∧ @ipDst3 = 81))))));
+       ((filter (@vlanId = 1) |
+         filter (@vlanId = 0);
+         (filter ((@port = 1200001 ∨ @port = 1200002 ∨ @port = 1200003 ∨
+                   @port = 1200004 ∨ @port = 1200005 ∨ @port = 1200006 ∨
+                   @port = 1200007 ∨ @port = 1200008) ∧
+                  ((@ipDst0 = 172 ∧ @ipDst1 = 26 ∧ @ipDst2 = 4 ∧ @ipDst3 = 88) ∨ (@ipDst0 = 172 ∧ @ipDst1 = 26 ∧ @ipDst2 = 4 ∧ @ipDst3 = 89)));
+          (@vlanId ← 1; (@port ← 1200002 | @port ← 1200006)) |
+          filter (¬ ((@port = 1200001 ∨ @port = 1200002 ∨ @port = 1200003 ∨
+                        @port = 1200004 ∨ @port = 1200005 ∨ @port = 1200006 ∨
+                        @port = 1200007 ∨ @port = 1200008) ∧
+                       ((@ipDst0 = 172 ∧ @ipDst1 = 26 ∧ @ipDst2 = 4 ∧ @ipDst3 = 88) ∨ (@ipDst0 = 172 ∧ @ipDst1 = 26 ∧ @ipDst2 = 4 ∧ @ipDst3 = 89))))));
+        ((filter (@vlanId = 1) |
+          filter (@vlanId = 0);
+          (filter ((@port = 1200001 ∨ @port = 1200002 ∨ @port = 1200003 ∨
+                    @port = 1200004 ∨ @port = 1200005 ∨ @port = 1200006 ∨
+                    @port = 1200007 ∨ @port = 1200008) ∧
+                   ((@ipDst0 = 171 ∧ @ipDst1 = 66 ∧ @ipDst2 = 66 ∧ @ipDst3 = 80) ∨ (@ipDst0 = 171 ∧ @ipDst1 = 66 ∧ @ipDst2 = 66 ∧ @ipDst3 = 81)));
+           (@vlanId ← 1; @port ← 1200006) |
+           filter (¬ ((@port = 1200001 ∨ @port = 1200002 ∨ @port = 1200003 ∨
+                         @port = 1200004 ∨ @port = 1200005 ∨ @port = 1200006 ∨
+                         @port = 1200007 ∨ @port = 1200008) ∧
+                        ((@ipDst0 = 171 ∧ @ipDst1 = 66 ∧ @ipDst2 = 66 ∧ @ipDst3 = 80) ∨ (@ipDst0 = 171 ∧ @ipDst1 = 66 ∧ @ipDst2 = 66 ∧ @ipDst3 = 81))))));
+         ((filter (@vlanId = 1) |
+           filter (@vlanId = 0);
+           (filter ((@port = 1200001 ∨ @port = 1200002 ∨ @port = 1200003 ∨
+                     @port = 1200004 ∨ @port = 1200005 ∨ @port = 1200006 ∨
+                     @port = 1200007 ∨ @port = 1200008) ∧
+                    ((@ipDst0 = 171 ∧ @ipDst1 = 66 ∧ @ipDst2 = 66 ∧ @ipDst3 = 96) ∨ (@ipDst0 = 171 ∧ @ipDst1 = 66 ∧ @ipDst2 = 66 ∧ @ipDst3 = 97)));
+            (@vlanId ← 1; (@port ← 1200002 | @port ← 1200006)) |
+            filter (¬ ((@port = 1200001 ∨ @port = 1200002 ∨ @port = 1200003 ∨
+                          @port = 1200004 ∨ @port = 1200005 ∨ @port = 1200006 ∨
+                          @port = 1200007 ∨ @port = 1200008) ∧
+                         ((@ipDst0 = 171 ∧ @ipDst1 = 66 ∧ @ipDst2 = 66 ∧ @ipDst3 = 96) ∨ (@ipDst0 = 171 ∧ @ipDst1 = 66 ∧ @ipDst2 = 66 ∧ @ipDst3 = 97))))));
+          ((filter (@vlanId = 1) |
+            filter (@vlanId = 0);
+            (filter ((@port = 1200001 ∨ @port = 1200002 ∨ @port = 1200003 ∨
+                      @port = 1200004 ∨ @port = 1200005 ∨ @port = 1200006 ∨
+                      @port = 1200007 ∨ @port = 1200008) ∧
+                     (@ipDst0 = 171 ∧ @ipDst1 = 67 ∧ @ipDst2 = 0 ∧ @ipDst3 = 240));
+             (@vlanId ← 1; @port ← 1200005) |
+             filter (¬ ((@port = 1200001 ∨ @port = 1200002 ∨ @port = 1200003 ∨
+                           @port = 1200004 ∨ @port = 1200005 ∨ @port = 1200006 ∨
+                           @port = 1200007 ∨ @port = 1200008) ∧
+                          (@ipDst0 = 171 ∧ @ipDst1 = 67 ∧ @ipDst2 = 0 ∧ @ipDst3 = 240)))));
+           ((filter (@vlanId = 1) |
+             filter (@vlanId = 0);
+             (filter ((@port = 1200001 ∨ @port = 1200002 ∨ @port = 1200003 ∨
+                       @port = 1200004 ∨ @port = 1200005 ∨ @port = 1200006 ∨
+                       @port = 1200007 ∨ @port = 1200008) ∧
+                      (@ipDst0 = 171 ∧ @ipDst1 = 67 ∧ @ipDst2 = 230 ∧ @ipDst3 = 192));
+              (@vlanId ← 1; @port ← 1200006) |
+              filter (¬ ((@port = 1200001 ∨ @port = 1200002 ∨ @port = 1200003 ∨
+                            @port = 1200004 ∨ @port = 1200005 ∨ @port = 1200006 ∨
+                            @port = 1200007 ∨ @port = 1200008) ∧
+                           (@ipDst0 = 171 ∧ @ipDst1 = 67 ∧ @ipDst2 = 230 ∧ @ipDst3 = 192)))));
+            ((filter (@vlanId = 1) |
+              filter (@vlanId = 0);
+              (filter ((@port = 1200001 ∨ @port = 1200002 ∨ @port = 1200003 ∨
+                        @port = 1200004 ∨ @port = 1200005 ∨ @port = 1200006 ∨
+                        @port = 1200007 ∨ @port = 1200008) ∧
+                       ((@ipDst0 = 172 ∧ @ipDst1 = 26 ∧ @ipDst2 = 66 ∧ @ipDst3 = 96) ∨ (@ipDst0 = 172 ∧ @ipDst1 = 26 ∧ @ipDst2 = 66 ∧ @ipDst3 = 97)));
+               (@vlanId ← 1; (@port ← 1200002 | @port ← 1200006)) |
+               filter (¬ ((@port = 1200001 ∨ @port = 1200002 ∨ @port = 1200003 ∨
+                             @port = 1200004 ∨ @port = 1200005 ∨ @port = 1200006 ∨
+                             @port = 1200007 ∨ @port = 1200008) ∧
+                            ((@ipDst0 = 172 ∧ @ipDst1 = 26 ∧ @ipDst2 = 66 ∧ @ipDst3 = 96) ∨ (@ipDst0 = 172 ∧ @ipDst1 = 26 ∧ @ipDst2 = 66 ∧ @ipDst3 = 97))))));
+             ((filter (@vlanId = 1) |
+               filter (@vlanId = 0);
+               (filter ((@port = 1200001 ∨ @port = 1200002 ∨ @port = 1200003 ∨
+                         @port = 1200004 ∨ @port = 1200005 ∨ @port = 1200006 ∨
+                         @port = 1200007 ∨ @port = 1200008) ∧
+                        (@ipDst0 = 171 ∧ @ipDst1 = 64 ∧ @ipDst2 = 2 ∧ @ipDst3 = 128));
+                (@vlanId ← 1; @port ← 1200006) |
+                filter (¬ ((@port = 1200001 ∨ @port = 1200002 ∨
+                              @port = 1200003 ∨ @port = 1200004 ∨
+                              @port = 1200005 ∨ @port = 1200006 ∨
+                              @port = 1200007 ∨ @port = 1200008) ∧
+                             (@ipDst0 = 171 ∧ @ipDst1 = 64 ∧ @ipDst2 = 2 ∧ @ipDst3 = 128)))));
+              (filter (@vlanId = 1 ∨
+                       @vlanId = 0 ∧
+                       ¬
+                       ((@port = 1200001 ∨ @port = 1200002 ∨ @port = 1200003 ∨
+                         @port = 1200004 ∨ @port = 1200005 ∨ @port = 1200006 ∨
+                         @port = 1200007 ∨ @port = 1200008) ∧
+                        (@ipDst0 = 171 ∧ @ipDst1 = 66 ∧ @ipDst2 = 4 ∧ @ipDst3 = 64)));
+               ((filter (@vlanId = 1) |
+                 filter (@vlanId = 0);
+                 (filter ((@port = 1200001 ∨ @port = 1200002 ∨ @port = 1200003 ∨
+                           @port = 1200004 ∨ @port = 1200005 ∨ @port = 1200006 ∨
+                           @port = 1200007 ∨ @port = 1200008) ∧
+                          (@ipDst0 = 171 ∧ @ipDst1 = 67 ∧ @ipDst2 = 106 ∧ @ipDst3 = 0));
+                  (@vlanId ← 1; @port ← 1200006) |
+                  filter (¬ ((@port = 1200001 ∨ @port = 1200002 ∨
+                                @port = 1200003 ∨ @port = 1200004 ∨
+                                @port = 1200005 ∨ @port = 1200006 ∨
+                                @port = 1200007 ∨ @port = 1200008) ∧
+                               (@ipDst0 = 171 ∧ @ipDst1 = 67 ∧ @ipDst2 = 106 ∧ @ipDst3 = 0)))));
+                ((filter (@vlanId = 1) |
+                  filter (@vlanId = 0);
+                  (filter ((@port = 1200001 ∨ @port = 1200002 ∨ @port = 1200003 ∨
+                            @port = 1200004 ∨ @port = 1200005 ∨ @port = 1200006 ∨
+                            @port = 1200007 ∨ @port = 1200008) ∧
+                           (@ipDst0 = 171 ∧ @ipDst1 = 67 ∧ @ipDst2 = 230 ∧ @ipDst3 = 224));
+                   (@vlanId ← 1; @port ← 1200006) |
+                   filter (¬ ((@port = 1200001 ∨ @port = 1200002 ∨
+                                 @port = 1200003 ∨ @port = 1200004 ∨
+                                 @port = 1200005 ∨ @port = 1200006 ∨
+                                 @port = 1200007 ∨ @port = 1200008) ∧
+                                (@ipDst0 = 171 ∧ @ipDst1 = 67 ∧ @ipDst2 = 230 ∧ @ipDst3 = 224)))));
+                 ((filter (@vlanId = 1) |
+                   filter (@vlanId = 0);
+                   (filter ((@port = 1200001 ∨ @port = 1200002 ∨ @port = 1200003 ∨
+                             @port = 1200004 ∨ @port = 1200005 ∨ @port = 1200006 ∨
+                             @port = 1200007 ∨ @port = 1200008) ∧
+                            ((@ipDst0 = 172 ∧ @ipDst1 = 20 ∧ @ipDst2 = 10 ∧ @ipDst3 = 64) ∨ (@ipDst0 = 172 ∧ @ipDst1 = 20 ∧ @ipDst2 = 10 ∧ @ipDst3 = 94)));
+                    (@vlanId ← 1;
+                     (@port ← 1200002 | (@port ← 1200004 | @port ← 1200006))) |
+                    filter (¬ ((@port = 1200001 ∨ @port = 1200002 ∨
+                                  @port = 1200003 ∨ @port = 1200004 ∨
+                                  @port = 1200005 ∨ @port = 1200006 ∨
+                                  @port = 1200007 ∨ @port = 1200008) ∧
+                                 ((@ipDst0 = 172 ∧ @ipDst1 = 20 ∧ @ipDst2 = 10 ∧ @ipDst3 = 64) ∨ (@ipDst0 = 172 ∧ @ipDst1 = 20 ∧ @ipDst2 = 10 ∧ @ipDst3 = 94))))));
+                  ((filter (@vlanId = 1) |
+                    filter (@vlanId = 0);
+                    (filter ((@port = 1200001 ∨ @port = 1200002 ∨
+                              @port = 1200003 ∨ @port = 1200004 ∨
+                              @port = 1200005 ∨ @port = 1200006 ∨
+                              @port = 1200007 ∨ @port = 1200008) ∧
+                             (@ipDst0 = 172 ∧ @ipDst1 = 24 ∧ @ipDst2 = 2 ∧ @ipDst3 = 128));
+                     (@vlanId ← 1; @port ← 1200006) |
+                     filter (¬ ((@port = 1200001 ∨ @port = 1200002 ∨
+                                   @port = 1200003 ∨ @port = 1200004 ∨
+                                   @port = 1200005 ∨ @port = 1200006 ∨
+                                   @port = 1200007 ∨ @port = 1200008) ∧
+                                  (@ipDst0 = 172 ∧ @ipDst1 = 24 ∧ @ipDst2 = 2 ∧ @ipDst3 = 128)))));
+                   (filter (@vlanId = 1 ∨
+                            @vlanId = 0 ∧
+                            ¬
+                            ((@port = 1200001 ∨ @port = 1200002 ∨
+                              @port = 1200003 ∨ @port = 1200004 ∨
+                              @port = 1200005 ∨ @port = 1200006 ∨
+                              @port = 1200007 ∨ @port = 1200008) ∧
+                             ((@ipDst0 = 172 ∧ @ipDst1 = 26 ∧ @ipDst2 = 4 ∧ @ipDst3 = 64) ∨ (@ipDst0 = 172 ∧ @ipDst1 = 26 ∧ @ipDst2 = 4 ∧ @ipDst3 = 80) ∨
+                              (@ipDst0 = 172 ∧ @ipDst1 = 26 ∧ @ipDst2 = 4 ∧ @ipDst3 = 81) ∨ (@ipDst0 = 172 ∧ @ipDst1 = 26 ∧ @ipDst2 = 4 ∧ @ipDst3 = 88) ∨
+                              (@ipDst0 = 172 ∧ @ipDst1 = 26 ∧ @ipDst2 = 4 ∧ @ipDst3 = 89))));
+                    ((filter (@vlanId = 1) |
+                      filter (@vlanId = 0);
+                      (filter ((@port = 1200001 ∨ @port = 1200002 ∨
+                                @port = 1200003 ∨ @port = 1200004 ∨
+                                @port = 1200005 ∨ @port = 1200006 ∨
+                                @port = 1200007 ∨ @port = 1200008) ∧
+                               (@ipDst0 = 172 ∧ @ipDst1 = 27 ∧ @ipDst2 = 230 ∧ @ipDst3 = 224));
+                       (@vlanId ← 1; @port ← 1200006) |
+                       filter (¬ ((@port = 1200001 ∨ @port = 1200002 ∨
+                                     @port = 1200003 ∨ @port = 1200004 ∨
+                                     @port = 1200005 ∨ @port = 1200006 ∨
+                                     @port = 1200007 ∨ @port = 1200008) ∧
+                                    (@ipDst0 = 172 ∧ @ipDst1 = 27 ∧ @ipDst2 = 230 ∧ @ipDst3 = 224)))));
+                     ((filter (@vlanId = 1) |
+                       filter (@vlanId = 0);
+                       (filter ((@port = 1200001 ∨ @port = 1200002 ∨
+                                 @port = 1200003 ∨ @port = 1200004 ∨
+                                 @port = 1200005 ∨ @port = 1200006 ∨
+                                 @port = 1200007 ∨ @port = 1200008) ∧
+                                (@ipDst0 = 171 ∧ @ipDst1 = 64 ∧ @ipDst2 = 2 ∧ @ipDst3 = 0));
+                        (@vlanId ← 1; @port ← 1200006) |
+                        filter (¬ ((@port = 1200001 ∨ @port = 1200002 ∨
+                                      @port = 1200003 ∨ @port = 1200004 ∨
+                                      @port = 1200005 ∨ @port = 1200006 ∨
+                                      @port = 1200007 ∨ @port = 1200008) ∧
+                                     (@ipDst0 = 171 ∧ @ipDst1 = 64 ∧ @ipDst2 = 2 ∧ @ipDst3 = 0)))));
+                      ((filter (@vlanId = 1) |
+                        filter (@vlanId = 0);
+                        (filter ((@port = 1200001 ∨ @port = 1200002 ∨
+                                  @port = 1200003 ∨ @port = 1200004 ∨
+                                  @port = 1200005 ∨ @port = 1200006 ∨
+                                  @port = 1200007 ∨ @port = 1200008) ∧
+                                 (@ipDst0 = 171 ∧ @ipDst1 = 66 ∧ @ipDst2 = 250 ∧ @ipDst3 = 128));
+                         (@vlanId ← 1; @port ← 1200006) |
+                         filter (¬ ((@port = 1200001 ∨ @port = 1200002 ∨
+                                       @port = 1200003 ∨ @port = 1200004 ∨
+                                       @port = 1200005 ∨ @port = 1200006 ∨
+                                       @port = 1200007 ∨ @port = 1200008) ∧
+                                      (@ipDst0 = 171 ∧ @ipDst1 = 66 ∧ @ipDst2 = 250 ∧ @ipDst3 = 128)))));
+                       ((filter (@vlanId = 1) |
+                         filter (@vlanId = 0);
+                         (filter ((@port = 1200001 ∨ @port = 1200002 ∨
+                                   @port = 1200003 ∨ @port = 1200004 ∨
+                                   @port = 1200005 ∨ @port = 1200006 ∨
+                                   @port = 1200007 ∨ @port = 1200008) ∧
+                                  (@ipDst0 = 171 ∧ @ipDst1 = 66 ∧ @ipDst2 = 255 ∧ @ipDst3 = 128));
+                          (@vlanId ← 1; @port ← 1200005) |
+                          filter (¬ ((@port = 1200001 ∨ @port = 1200002 ∨
+                                        @port = 1200003 ∨ @port = 1200004 ∨
+                                        @port = 1200005 ∨ @port = 1200006 ∨
+                                        @port = 1200007 ∨ @port = 1200008) ∧
+                                       (@ipDst0 = 171 ∧ @ipDst1 = 66 ∧ @ipDst2 = 255 ∧ @ipDst3 = 128)))));
+                        ((filter (@vlanId = 1) |
+                          filter (@vlanId = 0);
+                          (filter ((@port = 1200001 ∨ @port = 1200002 ∨
+                                    @port = 1200003 ∨ @port = 1200004 ∨
+                                    @port = 1200005 ∨ @port = 1200006 ∨
+                                    @port = 1200007 ∨ @port = 1200008) ∧
+                                   ((@ipDst0 = 171 ∧ @ipDst1 = 67 ∧ @ipDst2 = 230 ∧ @ipDst3 = 128) ∨
+                                    (@ipDst0 = 171 ∧ @ipDst1 = 67 ∧ @ipDst2 = 230 ∧ @ipDst3 = 129)));
+                           (@vlanId ← 1; (@port ← 1200002 | @port ← 1200006)) |
+                           filter (¬ ((@port = 1200001 ∨ @port = 1200002 ∨
+                                         @port = 1200003 ∨ @port = 1200004 ∨
+                                         @port = 1200005 ∨ @port = 1200006 ∨
+                                         @port = 1200007 ∨ @port = 1200008) ∧
+                                        ((@ipDst0 = 171 ∧ @ipDst1 = 67 ∧ @ipDst2 = 230 ∧ @ipDst3 = 128) ∨
+                                         (@ipDst0 = 171 ∧ @ipDst1 = 67 ∧ @ipDst2 = 230 ∧ @ipDst3 = 129))))));
+                         ((filter (@vlanId = 1) |
+                           filter (@vlanId = 0);
+                           (filter ((@port = 1200001 ∨ @port = 1200002 ∨
+                                     @port = 1200003 ∨ @port = 1200004 ∨
+                                     @port = 1200005 ∨ @port = 1200006 ∨
+                                     @port = 1200007 ∨ @port = 1200008) ∧
+                                    (@ipDst0 = 172 ∧ @ipDst1 = 24 ∧ @ipDst2 = 2 ∧ @ipDst3 = 0));
+                            (@vlanId ← 1; @port ← 1200006) |
+                            filter (¬ ((@port = 1200001 ∨ @port = 1200002 ∨
+                                          @port = 1200003 ∨ @port = 1200004 ∨
+                                          @port = 1200005 ∨ @port = 1200006 ∨
+                                          @port = 1200007 ∨ @port = 1200008) ∧
+                                         (@ipDst0 = 172 ∧ @ipDst1 = 24 ∧ @ipDst2 = 2 ∧ @ipDst3 = 0)))));
+                          ((filter (@vlanId = 1) |
+                            filter (@vlanId = 0);
+                            (filter ((@port = 1200001 ∨ @port = 1200002 ∨
+                                      @port = 1200003 ∨ @port = 1200004 ∨
+                                      @port = 1200005 ∨ @port = 1200006 ∨
+                                      @port = 1200007 ∨ @port = 1200008) ∧
+                                     (@ipDst0 = 172 ∧ @ipDst1 = 27 ∧ @ipDst2 = 36 ∧ @ipDst3 = 64));
+                             (@vlanId ← 1; @port ← 1200006) |
+                             filter (¬ ((@port = 1200001 ∨ @port = 1200002 ∨
+                                           @port = 1200003 ∨ @port = 1200004 ∨
+                                           @port = 1200005 ∨ @port = 1200006 ∨
+                                           @port = 1200007 ∨ @port = 1200008) ∧
+                                          (@ipDst0 = 172 ∧ @ipDst1 = 27 ∧ @ipDst2 = 36 ∧ @ipDst3 = 64)))));
+                           ((filter (@vlanId = 1) |
+                             filter (@vlanId = 0);
+                             (filter ((@port = 1200001 ∨ @port = 1200002 ∨
+                                       @port = 1200003 ∨ @port = 1200004 ∨
+                                       @port = 1200005 ∨ @port = 1200006 ∨
+                                       @port = 1200007 ∨ @port = 1200008) ∧
+                                      (@ipDst0 = 171 ∧ @ipDst1 = 67 ∧ @ipDst2 = 230 ∧ @ipDst3 = 0));
+                              (@vlanId ← 1; @port ← 1200006) |
+                              filter (¬ ((@port = 1200001 ∨ @port = 1200002 ∨
+                                            @port = 1200003 ∨ @port = 1200004 ∨
+                                            @port = 1200005 ∨ @port = 1200006 ∨
+                                            @port = 1200007 ∨ @port = 1200008) ∧
+                                           (@ipDst0 = 171 ∧ @ipDst1 = 67 ∧ @ipDst2 = 230 ∧ @ipDst3 = 0)))));
+                            ((filter (@vlanId = 1) |
+                              filter (@vlanId = 0);
+                              (filter ((@port = 1200001 ∨ @port = 1200002 ∨
+                                        @port = 1200003 ∨ @port = 1200004 ∨
+                                        @port = 1200005 ∨ @port = 1200006 ∨
+                                        @port = 1200007 ∨ @port = 1200008) ∧
+                                       (@ipDst0 = 171 ∧ @ipDst1 = 67 ∧ @ipDst2 = 231 ∧ @ipDst3 = 0));
+                               (@vlanId ← 1; @port ← 1200006) |
+                               filter (¬ ((@port = 1200001 ∨ @port = 1200002 ∨
+                                             @port = 1200003 ∨ @port = 1200004 ∨
+                                             @port = 1200005 ∨ @port = 1200006 ∨
+                                             @port = 1200007 ∨ @port = 1200008) ∧
+                                            (@ipDst0 = 171 ∧ @ipDst1 = 67 ∧ @ipDst2 = 231 ∧ @ipDst3 = 0)))));
+                             ((filter (@vlanId = 1) |
+                               filter (@vlanId = 0);
+                               (filter ((@port = 1200001 ∨ @port = 1200002 ∨
+                                         @port = 1200003 ∨ @port = 1200004 ∨
+                                         @port = 1200005 ∨ @port = 1200006 ∨
+                                         @port = 1200007 ∨ @port = 1200008) ∧
+                                        (@ipDst0 = 172 ∧ @ipDst1 = 27 ∧ @ipDst2 = 230 ∧ @ipDst3 = 0));
+                                (@vlanId ← 1; @port ← 1200006) |
+                                filter (¬ ((@port = 1200001 ∨ @port = 1200002 ∨
+                                              @port = 1200003 ∨ @port = 1200004 ∨
+                                              @port = 1200005 ∨ @port = 1200006 ∨
+                                              @port = 1200007 ∨ @port = 1200008) ∧
+                                             (@ipDst0 = 172 ∧ @ipDst1 = 27 ∧ @ipDst2 = 230 ∧ @ipDst3 = 0)))));
+                              ((filter (@vlanId = 1) |
+                                filter (@vlanId = 0);
+                                (filter ((@port = 1200001 ∨ @port = 1200002 ∨
+                                          @port = 1200003 ∨ @port = 1200004 ∨
+                                          @port = 1200005 ∨ @port = 1200006 ∨
+                                          @port = 1200007 ∨ @port = 1200008) ∧
+                                         (@ipDst0 = 172 ∧ @ipDst1 = 27 ∧ @ipDst2 = 231 ∧ @ipDst3 = 0));
+                                 (@vlanId ← 1; @port ← 1200006) |
+                                 filter (¬ ((@port = 1200001 ∨ @port = 1200002 ∨
+                                               @port = 1200003 ∨ @port = 1200004 ∨
+                                               @port = 1200005 ∨ @port = 1200006 ∨
+                                               @port = 1200007 ∨ @port = 1200008) ∧
+                                              (@ipDst0 = 172 ∧ @ipDst1 = 27 ∧ @ipDst2 = 231 ∧ @ipDst3 = 0)))));
+                               ((filter (@vlanId = 1) |
+                                 filter (@vlanId = 0);
+                                 (filter ((@port = 1200001 ∨ @port = 1200002 ∨
+                                           @port = 1200003 ∨ @port = 1200004 ∨
+                                           @port = 1200005 ∨ @port = 1200006 ∨
+                                           @port = 1200007 ∨ @port = 1200008) ∧
+                                          (@ipDst0 = 171 ∧ @ipDst1 = 64 ∧ @ipDst2 = 102 ∧ @ipDst3 = 0));
+                                  (@vlanId ← 1; @port ← 1200006) |
+                                  filter (¬ ((@port = 1200001 ∨
+                                                @port = 1200002 ∨
+                                                @port = 1200003 ∨
+                                                @port = 1200004 ∨
+                                                @port = 1200005 ∨
+                                                @port = 1200006 ∨
+                                                @port = 1200007 ∨
+                                                @port = 1200008) ∧
+                                               (@ipDst0 = 171 ∧ @ipDst1 = 64 ∧ @ipDst2 = 102 ∧ @ipDst3 = 0)))));
+                                ((filter (@vlanId = 1) |
+                                  filter (@vlanId = 0);
+                                  (filter ((@port = 1200001 ∨ @port = 1200002 ∨
+                                            @port = 1200003 ∨ @port = 1200004 ∨
+                                            @port = 1200005 ∨ @port = 1200006 ∨
+                                            @port = 1200007 ∨ @port = 1200008) ∧
+                                           ((@ipDst0 = 171 ∧ @ipDst1 = 64 ∧ @ipDst2 = 103 ∧ @ipDst3 = 0) ∨
+                                            (@ipDst0 = 171 ∧ @ipDst1 = 64 ∧ @ipDst2 = 103 ∧ @ipDst3 = 1)));
+                                   (@vlanId ← 1;
+                                    (@port ← 1200002 |
+                                     (@port ← 1200006 | @port ← 1200007))) |
+                                   filter (¬ ((@port = 1200001 ∨
+                                                 @port = 1200002 ∨
+                                                 @port = 1200003 ∨
+                                                 @port = 1200004 ∨
+                                                 @port = 1200005 ∨
+                                                 @port = 1200006 ∨
+                                                 @port = 1200007 ∨
+                                                 @port = 1200008) ∧
+                                                ((@ipDst0 = 171 ∧ @ipDst1 = 64 ∧ @ipDst2 = 103 ∧ @ipDst3 = 0) ∨
+                                                 (@ipDst0 = 171 ∧ @ipDst1 = 64 ∧ @ipDst2 = 103 ∧ @ipDst3 = 1))))));
+                                 ((filter (@vlanId = 1) |
+                                   filter (@vlanId = 0);
+                                   (filter ((@port = 1200001 ∨ @port = 1200002 ∨
+                                             @port = 1200003 ∨ @port = 1200004 ∨
+                                             @port = 1200005 ∨ @port = 1200006 ∨
+                                             @port = 1200007 ∨ @port = 1200008) ∧
+                                            (@ipDst0 = 171 ∧ @ipDst1 = 64 ∧ @ipDst2 = 104 ∧ @ipDst3 = 0));
+                                    (@vlanId ← 1; @port ← 1200006) |
+                                    filter (¬ ((@port = 1200001 ∨
+                                                  @port = 1200002 ∨
+                                                  @port = 1200003 ∨
+                                                  @port = 1200004 ∨
+                                                  @port = 1200005 ∨
+                                                  @port = 1200006 ∨
+                                                  @port = 1200007 ∨
+                                                  @port = 1200008) ∧
+                                                 (@ipDst0 = 171 ∧ @ipDst1 = 64 ∧ @ipDst2 = 104 ∧ @ipDst3 = 0)))));
+                                  ((filter (@vlanId = 1) |
+                                    filter (@vlanId = 0);
+                                    (filter ((@port = 1200001 ∨ @port = 1200002 ∨
+                                              @port = 1200003 ∨ @port = 1200004 ∨
+                                              @port = 1200005 ∨ @port = 1200006 ∨
+                                              @port = 1200007 ∨ @port = 1200008) ∧
+                                             ((@ipDst0 = 171 ∧ @ipDst1 = 64 ∧ @ipDst2 = 115 ∧ @ipDst3 = 0) ∨
+                                              (@ipDst0 = 171 ∧ @ipDst1 = 64 ∧ @ipDst2 = 115 ∧ @ipDst3 = 1)));
+                                     (@vlanId ← 1;
+                                      (@port ← 1200002 | @port ← 1200006)) |
+                                     filter (¬ ((@port = 1200001 ∨
+                                                   @port = 1200002 ∨
+                                                   @port = 1200003 ∨
+                                                   @port = 1200004 ∨
+                                                   @port = 1200005 ∨
+                                                   @port = 1200006 ∨
+                                                   @port = 1200007 ∨
+                                                   @port = 1200008) ∧
+                                                  ((@ipDst0 = 171 ∧ @ipDst1 = 64 ∧ @ipDst2 = 115 ∧ @ipDst3 = 0) ∨
+                                                   (@ipDst0 = 171 ∧ @ipDst1 = 64 ∧ @ipDst2 = 115 ∧ @ipDst3 = 1))))));
+                                   ((filter (@vlanId = 1) |
+                                     filter (@vlanId = 0);
+                                     (filter ((@port = 1200001 ∨ @port = 1200002 ∨
+                                               @port = 1200003 ∨ @port = 1200004 ∨
+                                               @port = 1200005 ∨ @port = 1200006 ∨
+                                               @port = 1200007 ∨ @port = 1200008) ∧
+                                              (@ipDst0 = 171 ∧ @ipDst1 = 67 ∧ @ipDst2 = 88 ∧ @ipDst3 = 0));
+                                      (@vlanId ← 1; @port ← 1200006) |
+                                      filter (¬ ((@port = 1200001 ∨
+                                                    @port = 1200002 ∨
+                                                    @port = 1200003 ∨
+                                                    @port = 1200004 ∨
+                                                    @port = 1200005 ∨
+                                                    @port = 1200006 ∨
+                                                    @port = 1200007 ∨
+                                                    @port = 1200008) ∧
+                                                   (@ipDst0 = 171 ∧ @ipDst1 = 67 ∧ @ipDst2 = 88 ∧ @ipDst3 = 0)))));
+                                    ((filter (@vlanId = 1) |
+                                      filter (@vlanId = 0);
+                                      (filter ((@port = 1200001 ∨
+                                                @port = 1200002 ∨
+                                                @port = 1200003 ∨
+                                                @port = 1200004 ∨
+                                                @port = 1200005 ∨
+                                                @port = 1200006 ∨
+                                                @port = 1200007 ∨
+                                                @port = 1200008) ∧
+                                               ((@ipDst0 = 171 ∧ @ipDst1 = 67 ∧ @ipDst2 = 108 ∧ @ipDst3 = 0) ∨
+                                                (@ipDst0 = 171 ∧ @ipDst1 = 67 ∧ @ipDst2 = 108 ∧ @ipDst3 = 1)));
+                                       (@vlanId ← 1;
+                                        (@port ← 1200002 | @port ← 1200006)) |
+                                       filter (¬ ((@port = 1200001 ∨
+                                                     @port = 1200002 ∨
+                                                     @port = 1200003 ∨
+                                                     @port = 1200004 ∨
+                                                     @port = 1200005 ∨
+                                                     @port = 1200006 ∨
+                                                     @port = 1200007 ∨
+                                                     @port = 1200008) ∧
+                                                    ((@ipDst0 = 171 ∧ @ipDst1 = 67 ∧ @ipDst2 = 108 ∧ @ipDst3 = 0) ∨
+                                                     (@ipDst0 = 171 ∧ @ipDst1 = 67 ∧ @ipDst2 = 108 ∧ @ipDst3 = 1))))));
+                                     ((filter (@vlanId = 1) |
+                                       filter (@vlanId = 0);
+                                       (filter ((@port = 1200001 ∨
+                                                 @port = 1200002 ∨
+                                                 @port = 1200003 ∨
+                                                 @port = 1200004 ∨
+                                                 @port = 1200005 ∨
+                                                 @port = 1200006 ∨
+                                                 @port = 1200007 ∨
+                                                 @port = 1200008) ∧
+                                                (@ipDst0 = 171 ∧ @ipDst1 = 67 ∧ @ipDst2 = 204 ∧ @ipDst3 = 0));
+                                        (@vlanId ← 1; @port ← 1200006) |
+                                        filter (¬ ((@port = 1200001 ∨
+                                                      @port = 1200002 ∨
+                                                      @port = 1200003 ∨
+                                                      @port = 1200004 ∨
+                                                      @port = 1200005 ∨
+                                                      @port = 1200006 ∨
+                                                      @port = 1200007 ∨
+                                                      @port = 1200008) ∧
+                                                     (@ipDst0 = 171 ∧ @ipDst1 = 67 ∧ @ipDst2 = 204 ∧ @ipDst3 = 0)))));
+                                      ((filter (@vlanId = 1) |
+                                        filter (@vlanId = 0);
+                                        (filter ((@port = 1200001 ∨
+                                                  @port = 1200002 ∨
+                                                  @port = 1200003 ∨
+                                                  @port = 1200004 ∨
+                                                  @port = 1200005 ∨
+                                                  @port = 1200006 ∨
+                                                  @port = 1200007 ∨
+                                                  @port = 1200008) ∧
+                                                 (@ipDst0 = 172 ∧ @ipDst1 = 24 ∧ @ipDst2 = 52 ∧ @ipDst3 = 0));
+                                         (@vlanId ← 1; @port ← 1200006) |
+                                         filter (¬ ((@port = 1200001 ∨
+                                                       @port = 1200002 ∨
+                                                       @port = 1200003 ∨
+                                                       @port = 1200004 ∨
+                                                       @port = 1200005 ∨
+                                                       @port = 1200006 ∨
+                                                       @port = 1200007 ∨
+                                                       @port = 1200008) ∧
+                                                      (@ipDst0 = 172 ∧ @ipDst1 = 24 ∧ @ipDst2 = 52 ∧ @ipDst3 = 0)))));
+                                       ((filter (@vlanId = 1) |
+                                         filter (@vlanId = 0);
+                                         (filter ((@port = 1200001 ∨
+                                                   @port = 1200002 ∨
+                                                   @port = 1200003 ∨
+                                                   @port = 1200004 ∨
+                                                   @port = 1200005 ∨
+                                                   @port = 1200006 ∨
+                                                   @port = 1200007 ∨
+                                                   @port = 1200008) ∧
+                                                  (@ipDst0 = 172 ∧ @ipDst1 = 24 ∧ @ipDst2 = 54 ∧ @ipDst3 = 0));
+                                          (@vlanId ← 1; @port ← 1200006) |
+                                          filter (¬ ((@port = 1200001 ∨
+                                                        @port = 1200002 ∨
+                                                        @port = 1200003 ∨
+                                                        @port = 1200004 ∨
+                                                        @port = 1200005 ∨
+                                                        @port = 1200006 ∨
+                                                        @port = 1200007 ∨
+                                                        @port = 1200008) ∧
+                                                       (@ipDst0 = 172 ∧ @ipDst1 = 24 ∧ @ipDst2 = 54 ∧ @ipDst3 = 0)))));
+                                        ((filter (@vlanId = 1) |
+                                          filter (@vlanId = 0);
+                                          (filter ((@port = 1200001 ∨
+                                                    @port = 1200002 ∨
+                                                    @port = 1200003 ∨
+                                                    @port = 1200004 ∨
+                                                    @port = 1200005 ∨
+                                                    @port = 1200006 ∨
+                                                    @port = 1200007 ∨
+                                                    @port = 1200008) ∧
+                                                   (@ipDst0 = 172 ∧ @ipDst1 = 24 ∧ @ipDst2 = 56 ∧ @ipDst3 = 0));
+                                           (@vlanId ← 1; @port ← 1200006) |
+                                           filter (¬ ((@port = 1200001 ∨
+                                                         @port = 1200002 ∨
+                                                         @port = 1200003 ∨
+                                                         @port = 1200004 ∨
+                                                         @port = 1200005 ∨
+                                                         @port = 1200006 ∨
+                                                         @port = 1200007 ∨
+                                                         @port = 1200008) ∧
+                                                        (@ipDst0 = 172 ∧ @ipDst1 = 24 ∧ @ipDst2 = 56 ∧ @ipDst3 = 0)))));
+                                         ((filter (@vlanId = 1) |
+                                           filter (@vlanId = 0);
+                                           (filter ((@port = 1200001 ∨
+                                                     @port = 1200002 ∨
+                                                     @port = 1200003 ∨
+                                                     @port = 1200004 ∨
+                                                     @port = 1200005 ∨
+                                                     @port = 1200006 ∨
+                                                     @port = 1200007 ∨
+                                                     @port = 1200008) ∧
+                                                    (@ipDst0 = 172 ∧ @ipDst1 = 24 ∧ @ipDst2 = 60 ∧ @ipDst3 = 0));
+                                            (@vlanId ← 1; @port ← 1200006) |
+                                            filter (¬ ((@port = 1200001 ∨
+                                                          @port = 1200002 ∨
+                                                          @port = 1200003 ∨
+                                                          @port = 1200004 ∨
+                                                          @port = 1200005 ∨
+                                                          @port = 1200006 ∨
+                                                          @port = 1200007 ∨
+                                                          @port = 1200008) ∧
+                                                         (@ipDst0 = 172 ∧ @ipDst1 = 24 ∧ @ipDst2 = 60 ∧ @ipDst3 = 0)))));
+                                          ((filter (@vlanId = 1) |
+                                            filter (@vlanId = 0);
+                                            (filter ((@port = 1200001 ∨
+                                                      @port = 1200002 ∨
+                                                      @port = 1200003 ∨
+                                                      @port = 1200004 ∨
+                                                      @port = 1200005 ∨
+                                                      @port = 1200006 ∨
+                                                      @port = 1200007 ∨
+                                                      @port = 1200008) ∧
+                                                     (@ipDst0 = 172 ∧ @ipDst1 = 24 ∧ @ipDst2 = 84 ∧ @ipDst3 = 0));
+                                             (@vlanId ← 1; @port ← 1200006) |
+                                             filter (¬ ((@port = 1200001 ∨
+                                                           @port = 1200002 ∨
+                                                           @port = 1200003 ∨
+                                                           @port = 1200004 ∨
+                                                           @port = 1200005 ∨
+                                                           @port = 1200006 ∨
+                                                           @port = 1200007 ∨
+                                                           @port = 1200008) ∧
+                                                          (@ipDst0 = 172 ∧ @ipDst1 = 24 ∧ @ipDst2 = 84 ∧ @ipDst3 = 0)))));
+                                           ((filter (@vlanId = 1) |
+                                             filter (@vlanId = 0);
+                                             (filter ((@port = 1200001 ∨
+                                                       @port = 1200002 ∨
+                                                       @port = 1200003 ∨
+                                                       @port = 1200004 ∨
+                                                       @port = 1200005 ∨
+                                                       @port = 1200006 ∨
+                                                       @port = 1200007 ∨
+                                                       @port = 1200008) ∧
+                                                      (@ipDst0 = 172 ∧ @ipDst1 = 24 ∧ @ipDst2 = 102 ∧ @ipDst3 = 0));
+                                              (@vlanId ← 1; @port ← 1200006) |
+                                              filter (¬ ((@port = 1200001 ∨
+                                                            @port = 1200002 ∨
+                                                            @port = 1200003 ∨
+                                                            @port = 1200004 ∨
+                                                            @port = 1200005 ∨
+                                                            @port = 1200006 ∨
+                                                            @port = 1200007 ∨
+                                                            @port = 1200008) ∧
+                                                           (@ipDst0 = 172 ∧ @ipDst1 = 24 ∧ @ipDst2 = 102 ∧ @ipDst3 = 0)))));
+                                            ((filter (@vlanId = 1) |
+                                              filter (@vlanId = 0);
+                                              (filter ((@port = 1200001 ∨
+                                                        @port = 1200002 ∨
+                                                        @port = 1200003 ∨
+                                                        @port = 1200004 ∨
+                                                        @port = 1200005 ∨
+                                                        @port = 1200006 ∨
+                                                        @port = 1200007 ∨
+                                                        @port = 1200008) ∧
+                                                       ((@ipDst0 = 172 ∧ @ipDst1 = 24 ∧ @ipDst2 = 103 ∧ @ipDst3 = 0) ∨
+                                                        (@ipDst0 = 172 ∧ @ipDst1 = 24 ∧ @ipDst2 = 103 ∧ @ipDst3 = 1)));
+                                               (@vlanId ← 1;
+                                                (@port ← 1200002 |
+                                                 (@port ← 1200006 |
+                                                  @port ← 1200007))) |
+                                               filter (¬ ((@port = 1200001 ∨
+                                                             @port = 1200002 ∨
+                                                             @port = 1200003 ∨
+                                                             @port = 1200004 ∨
+                                                             @port = 1200005 ∨
+                                                             @port = 1200006 ∨
+                                                             @port = 1200007 ∨
+                                                             @port = 1200008) ∧
+                                                            ((@ipDst0 = 172 ∧ @ipDst1 = 24 ∧ @ipDst2 = 103 ∧ @ipDst3 = 0) ∨
+                                                             (@ipDst0 = 172 ∧ @ipDst1 = 24 ∧ @ipDst2 = 103 ∧ @ipDst3 = 1))))));
+                                             ((filter (@vlanId = 1) |
+                                               filter (@vlanId = 0);
+                                               (filter ((@port = 1200001 ∨
+                                                         @port = 1200002 ∨
+                                                         @port = 1200003 ∨
+                                                         @port = 1200004 ∨
+                                                         @port = 1200005 ∨
+                                                         @port = 1200006 ∨
+                                                         @port = 1200007 ∨
+                                                         @port = 1200008) ∧
+                                                        (@ipDst0 = 172 ∧ @ipDst1 = 24 ∧ @ipDst2 = 104 ∧ @ipDst3 = 0));
+                                                (@vlanId ← 1; @port ← 1200006) |
+                                                filter (¬ ((@port = 1200001 ∨
+                                                              @port = 1200002 ∨
+                                                              @port = 1200003 ∨
+                                                              @port = 1200004 ∨
+                                                              @port = 1200005 ∨
+                                                              @port = 1200006 ∨
+                                                              @port = 1200007 ∨
+                                                              @port = 1200008) ∧
+                                                             (@ipDst0 = 172 ∧ @ipDst1 = 24 ∧ @ipDst2 = 104 ∧ @ipDst3 = 0)))));
+                                              ((filter (@vlanId = 1) |
+                                                filter (@vlanId = 0);
+                                                (filter ((@port = 1200001 ∨
+                                                          @port = 1200002 ∨
+                                                          @port = 1200003 ∨
+                                                          @port = 1200004 ∨
+                                                          @port = 1200005 ∨
+                                                          @port = 1200006 ∨
+                                                          @port = 1200007 ∨
+                                                          @port = 1200008) ∧
+                                                         (@ipDst0 = 172 ∧ @ipDst1 = 24 ∧ @ipDst2 = 108 ∧ @ipDst3 = 0));
+                                                 (@vlanId ← 1; @port ← 1200006) |
+                                                 filter (¬ ((@port = 1200001 ∨
+                                                               @port = 1200002 ∨
+                                                               @port = 1200003 ∨
+                                                               @port = 1200004 ∨
+                                                               @port = 1200005 ∨
+                                                               @port = 1200006 ∨
+                                                               @port = 1200007 ∨
+                                                               @port = 1200008) ∧
+                                                              (@ipDst0 = 172 ∧ @ipDst1 = 24 ∧ @ipDst2 = 108 ∧ @ipDst3 = 0)))));
+                                               ((filter (@vlanId = 1) |
+                                                 filter (@vlanId = 0);
+                                                 (filter ((@port = 1200001 ∨
+                                                           @port = 1200002 ∨
+                                                           @port = 1200003 ∨
+                                                           @port = 1200004 ∨
+                                                           @port = 1200005 ∨
+                                                           @port = 1200006 ∨
+                                                           @port = 1200007 ∨
+                                                           @port = 1200008) ∧
+                                                          (@ipDst0 = 172 ∧ @ipDst1 = 24 ∧ @ipDst2 = 110 ∧ @ipDst3 = 0));
+                                                  (@vlanId ← 1; @port ← 1200006) |
+                                                  filter (¬ ((@port = 1200001 ∨
+                                                                @port = 1200002 ∨
+                                                                @port = 1200003 ∨
+                                                                @port = 1200004 ∨
+                                                                @port = 1200005 ∨
+                                                                @port = 1200006 ∨
+                                                                @port = 1200007 ∨
+                                                                @port = 1200008) ∧
+                                                               (@ipDst0 = 172 ∧ @ipDst1 = 24 ∧ @ipDst2 = 110 ∧ @ipDst3 = 0)))));
+                                                ((filter (@vlanId = 1) |
+                                                  filter (@vlanId = 0);
+                                                  (filter ((@port = 1200001 ∨
+                                                            @port = 1200002 ∨
+                                                            @port = 1200003 ∨
+                                                            @port = 1200004 ∨
+                                                            @port = 1200005 ∨
+                                                            @port = 1200006 ∨
+                                                            @port = 1200007 ∨
+                                                            @port = 1200008) ∧
+                                                           (@ipDst0 = 172 ∧ @ipDst1 = 24 ∧ @ipDst2 = 112 ∧ @ipDst3 = 0));
+                                                   (@vlanId ← 1;
+                                                    @port ← 1200006) |
+                                                   filter (¬ ((@port = 1200001 ∨
+                                                                 @port = 1200002 ∨
+                                                                 @port = 1200003 ∨
+                                                                 @port = 1200004 ∨
+                                                                 @port = 1200005 ∨
+                                                                 @port = 1200006 ∨
+                                                                 @port = 1200007 ∨
+                                                                 @port = 1200008) ∧
+                                                                (@ipDst0 = 172 ∧ @ipDst1 = 24 ∧ @ipDst2 = 112 ∧ @ipDst3 = 0)))));
+                                                 ((filter (@vlanId = 1) |
+                                                   filter (@vlanId = 0);
+                                                   (filter ((@port = 1200001 ∨
+                                                             @port = 1200002 ∨
+                                                             @port = 1200003 ∨
+                                                             @port = 1200004 ∨
+                                                             @port = 1200005 ∨
+                                                             @port = 1200006 ∨
+                                                             @port = 1200007 ∨
+                                                             @port = 1200008) ∧
+                                                            ((@ipDst0 = 172 ∧ @ipDst1 = 24 ∧ @ipDst2 = 115 ∧ @ipDst3 = 0) ∨
+                                                             (@ipDst0 = 172 ∧ @ipDst1 = 24 ∧ @ipDst2 = 115 ∧ @ipDst3 = 1)));
+                                                    (@vlanId ← 1;
+                                                     (@port ← 1200002 |
+                                                      @port ← 1200006)) |
+                                                    filter (¬ ((@port = 1200001 ∨
+                                                                  @port = 1200002 ∨
+                                                                  @port = 1200003 ∨
+                                                                  @port = 1200004 ∨
+                                                                  @port = 1200005 ∨
+                                                                  @port = 1200006 ∨
+                                                                  @port = 1200007 ∨
+                                                                  @port = 1200008) ∧
+                                                                 ((@ipDst0 = 172 ∧ @ipDst1 = 24 ∧ @ipDst2 = 115 ∧ @ipDst3 = 0) ∨
+                                                                  (@ipDst0 = 172 ∧ @ipDst1 = 24 ∧ @ipDst2 = 115 ∧ @ipDst3 = 1))))));
+                                                  ((filter (@vlanId = 1) |
+                                                    filter (@vlanId = 0);
+                                                    (filter ((@port = 1200001 ∨
+                                                              @port = 1200002 ∨
+                                                              @port = 1200003 ∨
+                                                              @port = 1200004 ∨
+                                                              @port = 1200005 ∨
+                                                              @port = 1200006 ∨
+                                                              @port = 1200007 ∨
+                                                              @port = 1200008) ∧
+                                                             (@ipDst0 = 172 ∧ @ipDst1 = 24 ∧ @ipDst2 = 116 ∧ @ipDst3 = 0));
+                                                     (@vlanId ← 1;
+                                                      @port ← 1200006) |
+                                                     filter (¬ ((@port = 1200001 ∨
+                                                                   @port = 1200002 ∨
+                                                                   @port = 1200003 ∨
+                                                                   @port = 1200004 ∨
+                                                                   @port = 1200005 ∨
+                                                                   @port = 1200006 ∨
+                                                                   @port = 1200007 ∨
+                                                                   @port = 1200008) ∧
+                                                                  (@ipDst0 = 172 ∧ @ipDst1 = 24 ∧ @ipDst2 = 116 ∧ @ipDst3 = 0)))));
+                                                   ((filter (@vlanId = 1) |
+                                                     filter (@vlanId = 0);
+                                                     (filter ((@port = 1200001 ∨
+                                                               @port = 1200002 ∨
+                                                               @port = 1200003 ∨
+                                                               @port = 1200004 ∨
+                                                               @port = 1200005 ∨
+                                                               @port = 1200006 ∨
+                                                               @port = 1200007 ∨
+                                                               @port = 1200008) ∧
+                                                              (@ipDst0 = 172 ∧ @ipDst1 = 24 ∧ @ipDst2 = 120 ∧ @ipDst3 = 0));
+                                                      (@vlanId ← 1;
+                                                       @port ← 1200006) |
+                                                      filter (¬ ((@port = 1200001 ∨
+                                                                    @port = 1200002 ∨
+                                                                    @port = 1200003 ∨
+                                                                    @port = 1200004 ∨
+                                                                    @port = 1200005 ∨
+                                                                    @port = 1200006 ∨
+                                                                    @port = 1200007 ∨
+                                                                    @port = 1200008) ∧
+                                                                   (@ipDst0 = 172 ∧ @ipDst1 = 24 ∧ @ipDst2 = 120 ∧ @ipDst3 = 0)))));
+                                                    ((filter (@vlanId = 1) |
+                                                      filter (@vlanId = 0);
+                                                      (filter ((@port = 1200001 ∨
+                                                                @port = 1200002 ∨
+                                                                @port = 1200003 ∨
+                                                                @port = 1200004 ∨
+                                                                @port = 1200005 ∨
+                                                                @port = 1200006 ∨
+                                                                @port = 1200007 ∨
+                                                                @port = 1200008) ∧
+                                                               (@ipDst0 = 172 ∧ @ipDst1 = 24 ∧ @ipDst2 = 122 ∧ @ipDst3 = 0));
+                                                       (@vlanId ← 1;
+                                                        @port ← 1200006) |
+                                                       filter (¬ ((
+                                                                    @port = 1200001 ∨
+                                                                    @port = 1200002 ∨
+                                                                    @port = 1200003 ∨
+                                                                    @port = 1200004 ∨
+                                                                    @port = 1200005 ∨
+                                                                    @port = 1200006 ∨
+                                                                    @port = 1200007 ∨
+                                                                    @port = 1200008) ∧
+                                                                    (@ipDst0 = 172 ∧ @ipDst1 = 24 ∧ @ipDst2 = 122 ∧ @ipDst3 = 0)))));
+                                                     ((filter (@vlanId = 1) |
+                                                       filter (@vlanId = 0);
+                                                       (filter ((@port = 1200001 ∨
+                                                                 @port = 1200002 ∨
+                                                                 @port = 1200003 ∨
+                                                                 @port = 1200004 ∨
+                                                                 @port = 1200005 ∨
+                                                                 @port = 1200006 ∨
+                                                                 @port = 1200007 ∨
+                                                                 @port = 1200008) ∧
+                                                                (@ipDst0 = 172 ∧ @ipDst1 = 24 ∧ @ipDst2 = 124 ∧ @ipDst3 = 0));
+                                                        (@vlanId ← 1;
+                                                         @port ← 1200006) |
+                                                        filter (¬ (
+                                                                    (
+                                                                    @port = 1200001 ∨
+                                                                    @port = 1200002 ∨
+                                                                    @port = 1200003 ∨
+                                                                    @port = 1200004 ∨
+                                                                    @port = 1200005 ∨
+                                                                    @port = 1200006 ∨
+                                                                    @port = 1200007 ∨
+                                                                    @port = 1200008) ∧
+                                                                    (@ipDst0 = 172 ∧ @ipDst1 = 24 ∧ @ipDst2 = 124 ∧ @ipDst3 = 0)))));
+                                                      ((filter (@vlanId = 1) |
+                                                        filter (@vlanId = 0);
+                                                        (filter ((@port = 1200001 ∨
+                                                                  @port = 1200002 ∨
+                                                                  @port = 1200003 ∨
+                                                                  @port = 1200004 ∨
+                                                                  @port = 1200005 ∨
+                                                                  @port = 1200006 ∨
+                                                                  @port = 1200007 ∨
+                                                                  @port = 1200008) ∧
+                                                                 (@ipDst0 = 172 ∧ @ipDst1 = 24 ∧ @ipDst2 = 126 ∧ @ipDst3 = 0));
+                                                         (@vlanId ← 1;
+                                                          @port ← 1200006) |
+                                                         filter (¬ 
+                                                                 ((@port = 1200001 ∨
+                                                                   @port = 1200002 ∨
+                                                                   @port = 1200003 ∨
+                                                                   @port = 1200004 ∨
+                                                                   @port = 1200005 ∨
+                                                                   @port = 1200006 ∨
+                                                                   @port = 1200007 ∨
+                                                                   @port = 1200008) ∧
+                                                                  (@ipDst0 = 172 ∧ @ipDst1 = 24 ∧ @ipDst2 = 126 ∧ @ipDst3 = 0)))));
+                                                       ((filter (@vlanId = 1) |
+                                                         filter (@vlanId = 0);
+                                                         (filter ((@port = 1200001 ∨
+                                                                   @port = 1200002 ∨
+                                                                   @port = 1200003 ∨
+                                                                   @port = 1200004 ∨
+                                                                   @port = 1200005 ∨
+                                                                   @port = 1200006 ∨
+                                                                   @port = 1200007 ∨
+                                                                   @port = 1200008) ∧
+                                                                  (@ipDst0 = 172 ∧ @ipDst1 = 24 ∧ @ipDst2 = 160 ∧ @ipDst3 = 0));
+                                                          (@vlanId ← 1;
+                                                           @port ← 1200006) |
+                                                          filter (¬ 
+                                                                  ((@port = 1200001 ∨
+                                                                    @port = 1200002 ∨
+                                                                    @port = 1200003 ∨
+                                                                    @port = 1200004 ∨
+                                                                    @port = 1200005 ∨
+                                                                    @port = 1200006 ∨
+                                                                    @port = 1200007 ∨
+                                                                    @port = 1200008) ∧
+                                                                   (@ipDst0 = 172 ∧ @ipDst1 = 24 ∧ @ipDst2 = 160 ∧ @ipDst3 = 0)))));
+                                                        ((filter (@vlanId = 1) |
+                                                          filter (@vlanId = 0);
+                                                          (filter ((@port = 1200001 ∨
+                                                                    @port = 1200002 ∨
+                                                                    @port = 1200003 ∨
+                                                                    @port = 1200004 ∨
+                                                                    @port = 1200005 ∨
+                                                                    @port = 1200006 ∨
+                                                                    @port = 1200007 ∨
+                                                                    @port = 1200008) ∧
+                                                                   (@ipDst0 = 172 ∧ @ipDst1 = 24 ∧ @ipDst2 = 162 ∧ @ipDst3 = 0));
+                                                           (@vlanId ← 1;
+                                                            @port ← 1200006) |
+                                                           filter (¬ 
+                                                                   ((
+                                                                    @port = 1200001 ∨
+                                                                    @port = 1200002 ∨
+                                                                    @port = 1200003 ∨
+                                                                    @port = 1200004 ∨
+                                                                    @port = 1200005 ∨
+                                                                    @port = 1200006 ∨
+                                                                    @port = 1200007 ∨
+                                                                    @port = 1200008) ∧
+                                                                    (@ipDst0 = 172 ∧ @ipDst1 = 24 ∧ @ipDst2 = 162 ∧ @ipDst3 = 0)))));
+                                                         ((filter (@vlanId = 1) |
+                                                           filter (@vlanId = 0);
+                                                           (filter ((
+                                                                    @port = 1200001 ∨
+                                                                    @port = 1200002 ∨
+                                                                    @port = 1200003 ∨
+                                                                    @port = 1200004 ∨
+                                                                    @port = 1200005 ∨
+                                                                    @port = 1200006 ∨
+                                                                    @port = 1200007 ∨
+                                                                    @port = 1200008) ∧
+                                                                    (@ipDst0 = 172 ∧ @ipDst1 = 24 ∧ @ipDst2 = 164 ∧ @ipDst3 = 0));
+                                                            (@vlanId ← 1;
+                                                             @port ← 1200006) |
+                                                            filter (¬ 
+                                                                    (
+                                                                    (
+                                                                    @port = 1200001 ∨
+                                                                    @port = 1200002 ∨
+                                                                    @port = 1200003 ∨
+                                                                    @port = 1200004 ∨
+                                                                    @port = 1200005 ∨
+                                                                    @port = 1200006 ∨
+                                                                    @port = 1200007 ∨
+                                                                    @port = 1200008) ∧
+                                                                    (@ipDst0 = 172 ∧ @ipDst1 = 24 ∧ @ipDst2 = 164 ∧ @ipDst3 = 0)))));
+                                                          ((filter (@vlanId = 1) |
+                                                            filter (@vlanId = 0);
+                                                            (filter (
+                                                             (@port = 1200001 ∨
+                                                              @port = 1200002 ∨
+                                                              @port = 1200003 ∨
+                                                              @port = 1200004 ∨
+                                                              @port = 1200005 ∨
+                                                              @port = 1200006 ∨
+                                                              @port = 1200007 ∨
+                                                              @port = 1200008) ∧
+                                                             (@ipDst0 = 172 ∧ @ipDst1 = 27 ∧ @ipDst2 = 80 ∧ @ipDst3 = 0));
+                                                             (@vlanId ← 1;
+                                                              @port ← 1200006) |
+                                                             filter (
+                                                             ¬ ((@port = 1200001 ∨
+                                                                   @port = 1200002 ∨
+                                                                   @port = 1200003 ∨
+                                                                   @port = 1200004 ∨
+                                                                   @port = 1200005 ∨
+                                                                   @port = 1200006 ∨
+                                                                   @port = 1200007 ∨
+                                                                   @port = 1200008) ∧
+                                                                  (@ipDst0 = 172 ∧ @ipDst1 = 27 ∧ @ipDst2 = 80 ∧ @ipDst3 = 0)))));
+                                                           ((filter (
+                                                             @vlanId = 1) |
+                                                             filter (
+                                                             @vlanId = 0);
+                                                             (filter (
+                                                              (@port = 1200001 ∨
+                                                               @port = 1200002 ∨
+                                                               @port = 1200003 ∨
+                                                               @port = 1200004 ∨
+                                                               @port = 1200005 ∨
+                                                               @port = 1200006 ∨
+                                                               @port = 1200007 ∨
+                                                               @port = 1200008) ∧
+                                                              (@ipDst0 = 172 ∧ @ipDst1 = 27 ∧ @ipDst2 = 84 ∧ @ipDst3 = 0));
+                                                              (@vlanId ← 1;
+                                                               @port ← 1200006) |
+                                                              filter (
+                                                              ¬ ((@port = 1200001 ∨
+                                                                    @port = 1200002 ∨
+                                                                    @port = 1200003 ∨
+                                                                    @port = 1200004 ∨
+                                                                    @port = 1200005 ∨
+                                                                    @port = 1200006 ∨
+                                                                    @port = 1200007 ∨
+                                                                    @port = 1200008) ∧
+                                                                   (@ipDst0 = 172 ∧ @ipDst1 = 27 ∧ @ipDst2 = 84 ∧ @ipDst3 = 0)))));
+                                                            ((filter (
+                                                              @vlanId = 1) |
+                                                              filter (
+                                                              @vlanId = 0);
+                                                              (filter (
+                                                               (@port = 1200001 ∨
+                                                                @port = 1200002 ∨
+                                                                @port = 1200003 ∨
+                                                                @port = 1200004 ∨
+                                                                @port = 1200005 ∨
+                                                                @port = 1200006 ∨
+                                                                @port = 1200007 ∨
+                                                                @port = 1200008) ∧
+                                                               (@ipDst0 = 172 ∧ @ipDst1 = 27 ∧ @ipDst2 = 88 ∧ @ipDst3 = 0));
+                                                               (@vlanId ← 1;
+                                                                @port ← 1200006) |
+                                                               filter (
+                                                               ¬ ((
+                                                                    @port = 1200001 ∨
+                                                                    @port = 1200002 ∨
+                                                                    @port = 1200003 ∨
+                                                                    @port = 1200004 ∨
+                                                                    @port = 1200005 ∨
+                                                                    @port = 1200006 ∨
+                                                                    @port = 1200007 ∨
+                                                                    @port = 1200008) ∧
+                                                                    (@ipDst0 = 172 ∧ @ipDst1 = 27 ∧ @ipDst2 = 88 ∧ @ipDst3 = 0)))));
+                                                             ((filter (
+                                                               @vlanId = 1) |
+                                                               filter (
+                                                               @vlanId = 0);
+                                                               (filter (
+                                                                (@port = 1200001 ∨
+                                                                 @port = 1200002 ∨
+                                                                 @port = 1200003 ∨
+                                                                 @port = 1200004 ∨
+                                                                 @port = 1200005 ∨
+                                                                 @port = 1200006 ∨
+                                                                 @port = 1200007 ∨
+                                                                 @port = 1200008) ∧
+                                                                (@ipDst0 = 172 ∧ @ipDst1 = 27 ∧ @ipDst2 = 100 ∧ @ipDst3 = 0));
+                                                                (@vlanId ← 1;
+                                                                 @port ← 1200006) |
+                                                                filter (
+                                                                ¬ (
+                                                                    (
+                                                                    @port = 1200001 ∨
+                                                                    @port = 1200002 ∨
+                                                                    @port = 1200003 ∨
+                                                                    @port = 1200004 ∨
+                                                                    @port = 1200005 ∨
+                                                                    @port = 1200006 ∨
+                                                                    @port = 1200007 ∨
+                                                                    @port = 1200008) ∧
+                                                                    (@ipDst0 = 172 ∧ @ipDst1 = 27 ∧ @ipDst2 = 100 ∧ @ipDst3 = 0)))));
+                                                              ((filter (
+                                                                @vlanId = 1) |
+                                                                filter (
+                                                                @vlanId = 0);
+                                                                (filter (
+                                                                 (@port = 1200001 ∨
+                                                                  @port = 1200002 ∨
+                                                                  @port = 1200003 ∨
+                                                                  @port = 1200004 ∨
+                                                                  @port = 1200005 ∨
+                                                                  @port = 1200006 ∨
+                                                                  @port = 1200007 ∨
+                                                                  @port = 1200008) ∧
+                                                                 (@ipDst0 = 172 ∧ @ipDst1 = 27 ∧ @ipDst2 = 104 ∧ @ipDst3 = 0));
+                                                                 (@vlanId ← 1;
+                                                                  @port ← 1200006) |
+                                                                 filter (
+                                                                 ¬ 
+                                                                 ((@port = 1200001 ∨
+                                                                   @port = 1200002 ∨
+                                                                   @port = 1200003 ∨
+                                                                   @port = 1200004 ∨
+                                                                   @port = 1200005 ∨
+                                                                   @port = 1200006 ∨
+                                                                   @port = 1200007 ∨
+                                                                   @port = 1200008) ∧
+                                                                  (@ipDst0 = 172 ∧ @ipDst1 = 27 ∧ @ipDst2 = 104 ∧ @ipDst3 = 0)))));
+                                                               ((filter (
+                                                                 @vlanId = 1) |
+                                                                 filter (
+                                                                 @vlanId = 0);
+                                                                 (filter (
+                                                                  (@port = 1200001 ∨
+                                                                   @port = 1200002 ∨
+                                                                   @port = 1200003 ∨
+                                                                   @port = 1200004 ∨
+                                                                   @port = 1200005 ∨
+                                                                   @port = 1200006 ∨
+                                                                   @port = 1200007 ∨
+                                                                   @port = 1200008) ∧
+                                                                  ((@ipDst0 = 172 ∧ @ipDst1 = 27 ∧ @ipDst2 = 108 ∧ @ipDst3 = 0) ∨
+                                                                   (@ipDst0 = 172 ∧ @ipDst1 = 27 ∧ @ipDst2 = 108 ∧ @ipDst3 = 1)));
+                                                                  (@vlanId ← 1;
+                                                                   (@port ← 1200002 |
+                                                                    @port ← 1200006)) |
+                                                                  filter (
+                                                                  ¬ 
+                                                                  ((@port = 1200001 ∨
+                                                                    @port = 1200002 ∨
+                                                                    @port = 1200003 ∨
+                                                                    @port = 1200004 ∨
+                                                                    @port = 1200005 ∨
+                                                                    @port = 1200006 ∨
+                                                                    @port = 1200007 ∨
+                                                                    @port = 1200008) ∧
+                                                                   ((@ipDst0 = 172 ∧ @ipDst1 = 27 ∧ @ipDst2 = 108 ∧ @ipDst3 = 0) ∨
+                                                                    (@ipDst0 = 172 ∧ @ipDst1 = 27 ∧ @ipDst2 = 108 ∧ @ipDst3 = 1))))));
+                                                                ((filter (
+                                                                  @vlanId = 1) |
+                                                                  filter (
+                                                                  @vlanId = 0);
+                                                                  (filter (
+                                                                   (@port = 1200001 ∨
+                                                                    @port = 1200002 ∨
+                                                                    @port = 1200003 ∨
+                                                                    @port = 1200004 ∨
+                                                                    @port = 1200005 ∨
+                                                                    @port = 1200006 ∨
+                                                                    @port = 1200007 ∨
+                                                                    @port = 1200008) ∧
+                                                                   (@ipDst0 = 172 ∧ @ipDst1 = 27 ∧ @ipDst2 = 204 ∧ @ipDst3 = 0));
+                                                                   (@vlanId ← 1;
+                                                                    @port ← 1200006) |
+                                                                   filter (
+                                                                   ¬ 
+                                                                   ((
+                                                                    @port = 1200001 ∨
+                                                                    @port = 1200002 ∨
+                                                                    @port = 1200003 ∨
+                                                                    @port = 1200004 ∨
+                                                                    @port = 1200005 ∨
+                                                                    @port = 1200006 ∨
+                                                                    @port = 1200007 ∨
+                                                                    @port = 1200008) ∧
+                                                                    (@ipDst0 = 172 ∧ @ipDst1 = 27 ∧ @ipDst2 = 204 ∧ @ipDst3 = 0)))));
+                                                                 ((filter (
+                                                                   @vlanId = 1) |
+                                                                   filter (
+                                                                   @vlanId = 0);
+                                                                   (filter (
+                                                                    (
+                                                                    @port = 1200001 ∨
+                                                                    @port = 1200002 ∨
+                                                                    @port = 1200003 ∨
+                                                                    @port = 1200004 ∨
+                                                                    @port = 1200005 ∨
+                                                                    @port = 1200006 ∨
+                                                                    @port = 1200007 ∨
+                                                                    @port = 1200008) ∧
+                                                                    (
+                                                                    (@ipDst0 = 192 ∧ @ipDst1 = 168 ∧ @ipDst2 = 1 ∧ @ipDst3 = 0) ∨
+                                                                    (@ipDst0 = 192 ∧ @ipDst1 = 168 ∧ @ipDst2 = 1 ∧ @ipDst3 = 4)));
+                                                                    (
+                                                                    @vlanId ← 1;
+                                                                    @port ← 1200006) |
+                                                                    filter (
+                                                                    ¬ 
+                                                                    (
+                                                                    (
+                                                                    @port = 1200001 ∨
+                                                                    @port = 1200002 ∨
+                                                                    @port = 1200003 ∨
+                                                                    @port = 1200004 ∨
+                                                                    @port = 1200005 ∨
+                                                                    @port = 1200006 ∨
+                                                                    @port = 1200007 ∨
+                                                                    @port = 1200008) ∧
+                                                                    (
+                                                                    (@ipDst0 = 192 ∧ @ipDst1 = 168 ∧ @ipDst2 = 1 ∧ @ipDst3 = 0) ∨
+                                                                    (@ipDst0 = 192 ∧ @ipDst1 = 168 ∧ @ipDst2 = 1 ∧ @ipDst3 = 4))))));
+                                                                  ((filter (
+                                                                    @vlanId = 1) |
+                                                                    filter (
+                                                                    @vlanId = 0);
+                                                                    (
+                                                                    filter (
+                                                                    (
+                                                                    @port = 1200001 ∨
+                                                                    @port = 1200002 ∨
+                                                                    @port = 1200003 ∨
+                                                                    @port = 1200004 ∨
+                                                                    @port = 1200005 ∨
+                                                                    @port = 1200006 ∨
+                                                                    @port = 1200007 ∨
+                                                                    @port = 1200008) ∧
+                                                                    (@ipDst0 = 171 ∧ @ipDst1 = 64 ∧ @ipDst2 = 10 ∧ @ipDst3 = 0));
+                                                                    (
+                                                                    @vlanId ← 1;
+                                                                    @port ← 1200005) |
+                                                                    filter (
+                                                                    ¬ 
+                                                                    (
+                                                                    (
+                                                                    @port = 1200001 ∨
+                                                                    @port = 1200002 ∨
+                                                                    @port = 1200003 ∨
+                                                                    @port = 1200004 ∨
+                                                                    @port = 1200005 ∨
+                                                                    @port = 1200006 ∨
+                                                                    @port = 1200007 ∨
+                                                                    @port = 1200008) ∧
+                                                                    (@ipDst0 = 171 ∧ @ipDst1 = 64 ∧ @ipDst2 = 10 ∧ @ipDst3 = 0)))));
+                                                                   ((
+                                                                    filter (
+                                                                    @vlanId = 1) |
+                                                                    filter (
+                                                                    @vlanId = 0);
+                                                                    (
+                                                                    filter (
+                                                                    (
+                                                                    @port = 1200001 ∨
+                                                                    @port = 1200002 ∨
+                                                                    @port = 1200003 ∨
+                                                                    @port = 1200004 ∨
+                                                                    @port = 1200005 ∨
+                                                                    @port = 1200006 ∨
+                                                                    @port = 1200007 ∨
+                                                                    @port = 1200008) ∧
+                                                                    (@ipDst0 = 171 ∧ @ipDst1 = 64 ∧ @ipDst2 = 112 ∧ @ipDst3 = 0));
+                                                                    (
+                                                                    @vlanId ← 1;
+                                                                    @port ← 1200006) |
+                                                                    filter (
+                                                                    ¬ 
+                                                                    (
+                                                                    (
+                                                                    @port = 1200001 ∨
+                                                                    @port = 1200002 ∨
+                                                                    @port = 1200003 ∨
+                                                                    @port = 1200004 ∨
+                                                                    @port = 1200005 ∨
+                                                                    @port = 1200006 ∨
+                                                                    @port = 1200007 ∨
+                                                                    @port = 1200008) ∧
+                                                                    (@ipDst0 = 171 ∧ @ipDst1 = 64 ∧ @ipDst2 = 112 ∧ @ipDst3 = 0)))));
+                                                                    (
+                                                                    (
+                                                                    filter (
+                                                                    @vlanId = 1) |
+                                                                    filter (
+                                                                    @vlanId = 0);
+                                                                    (
+                                                                    filter (
+                                                                    (
+                                                                    @port = 1200001 ∨
+                                                                    @port = 1200002 ∨
+                                                                    @port = 1200003 ∨
+                                                                    @port = 1200004 ∨
+                                                                    @port = 1200005 ∨
+                                                                    @port = 1200006 ∨
+                                                                    @port = 1200007 ∨
+                                                                    @port = 1200008) ∧
+                                                                    (@ipDst0 = 171 ∧ @ipDst1 = 67 ∧ @ipDst2 = 104 ∧ @ipDst3 = 0));
+                                                                    (
+                                                                    @vlanId ← 1;
+                                                                    @port ← 1200006) |
+                                                                    filter (
+                                                                    ¬ 
+                                                                    (
+                                                                    (
+                                                                    @port = 1200001 ∨
+                                                                    @port = 1200002 ∨
+                                                                    @port = 1200003 ∨
+                                                                    @port = 1200004 ∨
+                                                                    @port = 1200005 ∨
+                                                                    @port = 1200006 ∨
+                                                                    @port = 1200007 ∨
+                                                                    @port = 1200008) ∧
+                                                                    (@ipDst0 = 171 ∧ @ipDst1 = 67 ∧ @ipDst2 = 104 ∧ @ipDst3 = 0)))));
+                                                                    (
+                                                                    (
+                                                                    filter (
+                                                                    @vlanId = 1) |
+                                                                    filter (
+                                                                    @vlanId = 0);
+                                                                    (
+                                                                    filter (
+                                                                    (
+                                                                    @port = 1200001 ∨
+                                                                    @port = 1200002 ∨
+                                                                    @port = 1200003 ∨
+                                                                    @port = 1200004 ∨
+                                                                    @port = 1200005 ∨
+                                                                    @port = 1200006 ∨
+                                                                    @port = 1200007 ∨
+                                                                    @port = 1200008) ∧
+                                                                    (@ipDst0 = 172 ∧ @ipDst1 = 20 ∧ @ipDst2 = 6 ∧ @ipDst3 = 0));
+                                                                    (
+                                                                    @vlanId ← 1;
+                                                                    @port ← 1200005) |
+                                                                    filter (
+                                                                    ¬ 
+                                                                    (
+                                                                    (
+                                                                    @port = 1200001 ∨
+                                                                    @port = 1200002 ∨
+                                                                    @port = 1200003 ∨
+                                                                    @port = 1200004 ∨
+                                                                    @port = 1200005 ∨
+                                                                    @port = 1200006 ∨
+                                                                    @port = 1200007 ∨
+                                                                    @port = 1200008) ∧
+                                                                    (@ipDst0 = 172 ∧ @ipDst1 = 20 ∧ @ipDst2 = 6 ∧ @ipDst3 = 0)))));
+                                                                    (
+                                                                    (
+                                                                    filter (
+                                                                    @vlanId = 1) |
+                                                                    filter (
+                                                                    @vlanId = 0);
+                                                                    (
+                                                                    filter (
+                                                                    (
+                                                                    @port = 1200001 ∨
+                                                                    @port = 1200002 ∨
+                                                                    @port = 1200003 ∨
+                                                                    @port = 1200004 ∨
+                                                                    @port = 1200005 ∨
+                                                                    @port = 1200006 ∨
+                                                                    @port = 1200007 ∨
+                                                                    @port = 1200008) ∧
+                                                                    (@ipDst0 = 172 ∧ @ipDst1 = 24 ∧ @ipDst2 = 118 ∧ @ipDst3 = 0));
+                                                                    (
+                                                                    @vlanId ← 1;
+                                                                    @port ← 1200006) |
+                                                                    filter (
+                                                                    ¬ 
+                                                                    (
+                                                                    (
+                                                                    @port = 1200001 ∨
+                                                                    @port = 1200002 ∨
+                                                                    @port = 1200003 ∨
+                                                                    @port = 1200004 ∨
+                                                                    @port = 1200005 ∨
+                                                                    @port = 1200006 ∨
+                                                                    @port = 1200007 ∨
+                                                                    @port = 1200008) ∧
+                                                                    (@ipDst0 = 172 ∧ @ipDst1 = 24 ∧ @ipDst2 = 118 ∧ @ipDst3 = 0)))));
+                                                                    (
+                                                                    (
+                                                                    filter (
+                                                                    @vlanId = 1) |
+                                                                    filter (
+                                                                    @vlanId = 0);
+                                                                    (
+                                                                    filter (
+                                                                    (
+                                                                    @port = 1200001 ∨
+                                                                    @port = 1200002 ∨
+                                                                    @port = 1200003 ∨
+                                                                    @port = 1200004 ∨
+                                                                    @port = 1200005 ∨
+                                                                    @port = 1200006 ∨
+                                                                    @port = 1200007 ∨
+                                                                    @port = 1200008) ∧
+                                                                    (@ipDst0 = 172 ∧ @ipDst1 = 24 ∧ @ipDst2 = 166 ∧ @ipDst3 = 0));
+                                                                    (
+                                                                    @vlanId ← 1;
+                                                                    @port ← 1200006) |
+                                                                    filter (
+                                                                    ¬ 
+                                                                    (
+                                                                    (
+                                                                    @port = 1200001 ∨
+                                                                    @port = 1200002 ∨
+                                                                    @port = 1200003 ∨
+                                                                    @port = 1200004 ∨
+                                                                    @port = 1200005 ∨
+                                                                    @port = 1200006 ∨
+                                                                    @port = 1200007 ∨
+                                                                    @port = 1200008) ∧
+                                                                    (@ipDst0 = 172 ∧ @ipDst1 = 24 ∧ @ipDst2 = 166 ∧ @ipDst3 = 0)))));
+                                                                    (
+                                                                    (
+                                                                    filter (
+                                                                    @vlanId = 1) |
+                                                                    filter (
+                                                                    @vlanId = 0);
+                                                                    (
+                                                                    filter (
+                                                                    (
+                                                                    @port = 1200001 ∨
+                                                                    @port = 1200002 ∨
+                                                                    @port = 1200003 ∨
+                                                                    @port = 1200004 ∨
+                                                                    @port = 1200005 ∨
+                                                                    @port = 1200006 ∨
+                                                                    @port = 1200007 ∨
+                                                                    @port = 1200008) ∧
+                                                                    (@ipDst0 = 172 ∧ @ipDst1 = 27 ∧ @ipDst2 = 86 ∧ @ipDst3 = 0));
+                                                                    (
+                                                                    @vlanId ← 1;
+                                                                    @port ← 1200006) |
+                                                                    filter (
+                                                                    ¬ 
+                                                                    (
+                                                                    (
+                                                                    @port = 1200001 ∨
+                                                                    @port = 1200002 ∨
+                                                                    @port = 1200003 ∨
+                                                                    @port = 1200004 ∨
+                                                                    @port = 1200005 ∨
+                                                                    @port = 1200006 ∨
+                                                                    @port = 1200007 ∨
+                                                                    @port = 1200008) ∧
+                                                                    (@ipDst0 = 172 ∧ @ipDst1 = 27 ∧ @ipDst2 = 86 ∧ @ipDst3 = 0)))));
+                                                                    (
+                                                                    (
+                                                                    filter (
+                                                                    @vlanId = 1) |
+                                                                    filter (
+                                                                    @vlanId = 0);
+                                                                    (
+                                                                    filter (
+                                                                    (
+                                                                    @port = 1200001 ∨
+                                                                    @port = 1200002 ∨
+                                                                    @port = 1200003 ∨
+                                                                    @port = 1200004 ∨
+                                                                    @port = 1200005 ∨
+                                                                    @port = 1200006 ∨
+                                                                    @port = 1200007 ∨
+                                                                    @port = 1200008) ∧
+                                                                    (@ipDst0 = 171 ∧ @ipDst1 = 64 ∧ @ipDst2 = 84 ∧ @ipDst3 = 0));
+                                                                    (
+                                                                    @vlanId ← 1;
+                                                                    @port ← 1200006) |
+                                                                    filter (
+                                                                    ¬ 
+                                                                    (
+                                                                    (
+                                                                    @port = 1200001 ∨
+                                                                    @port = 1200002 ∨
+                                                                    @port = 1200003 ∨
+                                                                    @port = 1200004 ∨
+                                                                    @port = 1200005 ∨
+                                                                    @port = 1200006 ∨
+                                                                    @port = 1200007 ∨
+                                                                    @port = 1200008) ∧
+                                                                    (@ipDst0 = 171 ∧ @ipDst1 = 64 ∧ @ipDst2 = 84 ∧ @ipDst3 = 0)))));
+                                                                    (
+                                                                    (
+                                                                    filter (
+                                                                    @vlanId = 1) |
+                                                                    filter (
+                                                                    @vlanId = 0);
+                                                                    (
+                                                                    filter (
+                                                                    (
+                                                                    @port = 1200001 ∨
+                                                                    @port = 1200002 ∨
+                                                                    @port = 1200003 ∨
+                                                                    @port = 1200004 ∨
+                                                                    @port = 1200005 ∨
+                                                                    @port = 1200006 ∨
+                                                                    @port = 1200007 ∨
+                                                                    @port = 1200008) ∧
+                                                                    (@ipDst0 = 171 ∧ @ipDst1 = 64 ∧ @ipDst2 = 108 ∧ @ipDst3 = 0));
+                                                                    (
+                                                                    @vlanId ← 1;
+                                                                    @port ← 1200006) |
+                                                                    filter (
+                                                                    ¬ 
+                                                                    (
+                                                                    (
+                                                                    @port = 1200001 ∨
+                                                                    @port = 1200002 ∨
+                                                                    @port = 1200003 ∨
+                                                                    @port = 1200004 ∨
+                                                                    @port = 1200005 ∨
+                                                                    @port = 1200006 ∨
+                                                                    @port = 1200007 ∨
+                                                                    @port = 1200008) ∧
+                                                                    (@ipDst0 = 171 ∧ @ipDst1 = 64 ∧ @ipDst2 = 108 ∧ @ipDst3 = 0)))));
+                                                                    (
+                                                                    (
+                                                                    filter (
+                                                                    @vlanId = 1) |
+                                                                    filter (
+                                                                    @vlanId = 0);
+                                                                    (
+                                                                    filter (
+                                                                    (
+                                                                    @port = 1200001 ∨
+                                                                    @port = 1200002 ∨
+                                                                    @port = 1200003 ∨
+                                                                    @port = 1200004 ∨
+                                                                    @port = 1200005 ∨
+                                                                    @port = 1200006 ∨
+                                                                    @port = 1200007 ∨
+                                                                    @port = 1200008) ∧
+                                                                    (@ipDst0 = 171 ∧ @ipDst1 = 64 ∧ @ipDst2 = 116 ∧ @ipDst3 = 0));
+                                                                    (
+                                                                    @vlanId ← 1;
+                                                                    @port ← 1200006) |
+                                                                    filter (
+                                                                    ¬ 
+                                                                    (
+                                                                    (
+                                                                    @port = 1200001 ∨
+                                                                    @port = 1200002 ∨
+                                                                    @port = 1200003 ∨
+                                                                    @port = 1200004 ∨
+                                                                    @port = 1200005 ∨
+                                                                    @port = 1200006 ∨
+                                                                    @port = 1200007 ∨
+                                                                    @port = 1200008) ∧
+                                                                    (@ipDst0 = 171 ∧ @ipDst1 = 64 ∧ @ipDst2 = 116 ∧ @ipDst3 = 0)))));
+                                                                    (
+                                                                    (
+                                                                    filter (
+                                                                    @vlanId = 1) |
+                                                                    filter (
+                                                                    @vlanId = 0);
+                                                                    (
+                                                                    filter (
+                                                                    (
+                                                                    @port = 1200001 ∨
+                                                                    @port = 1200002 ∨
+                                                                    @port = 1200003 ∨
+                                                                    @port = 1200004 ∨
+                                                                    @port = 1200005 ∨
+                                                                    @port = 1200006 ∨
+                                                                    @port = 1200007 ∨
+                                                                    @port = 1200008) ∧
+                                                                    (@ipDst0 = 171 ∧ @ipDst1 = 67 ∧ @ipDst2 = 100 ∧ @ipDst3 = 0));
+                                                                    (
+                                                                    @vlanId ← 1;
+                                                                    @port ← 1200006) |
+                                                                    filter (
+                                                                    ¬ 
+                                                                    (
+                                                                    (
+                                                                    @port = 1200001 ∨
+                                                                    @port = 1200002 ∨
+                                                                    @port = 1200003 ∨
+                                                                    @port = 1200004 ∨
+                                                                    @port = 1200005 ∨
+                                                                    @port = 1200006 ∨
+                                                                    @port = 1200007 ∨
+                                                                    @port = 1200008) ∧
+                                                                    (@ipDst0 = 171 ∧ @ipDst1 = 67 ∧ @ipDst2 = 100 ∧ @ipDst3 = 0)))));
+                                                                    (
+                                                                    (
+                                                                    filter (
+                                                                    @vlanId = 1) |
+                                                                    filter (
+                                                                    @vlanId = 0);
+                                                                    (
+                                                                    filter (
+                                                                    (
+                                                                    @port = 1200001 ∨
+                                                                    @port = 1200002 ∨
+                                                                    @port = 1200003 ∨
+                                                                    @port = 1200004 ∨
+                                                                    @port = 1200005 ∨
+                                                                    @port = 1200006 ∨
+                                                                    @port = 1200007 ∨
+                                                                    @port = 1200008) ∧
+                                                                    (@ipDst0 = 172 ∧ @ipDst1 = 24 ∧ @ipDst2 = 48 ∧ @ipDst3 = 0));
+                                                                    (
+                                                                    @vlanId ← 1;
+                                                                    @port ← 1200006) |
+                                                                    filter (
+                                                                    ¬ 
+                                                                    (
+                                                                    (
+                                                                    @port = 1200001 ∨
+                                                                    @port = 1200002 ∨
+                                                                    @port = 1200003 ∨
+                                                                    @port = 1200004 ∨
+                                                                    @port = 1200005 ∨
+                                                                    @port = 1200006 ∨
+                                                                    @port = 1200007 ∨
+                                                                    @port = 1200008) ∧
+                                                                    (@ipDst0 = 172 ∧ @ipDst1 = 24 ∧ @ipDst2 = 48 ∧ @ipDst3 = 0)))));
+                                                                    (
+                                                                    (
+                                                                    filter (
+                                                                    @vlanId = 1) |
+                                                                    filter (
+                                                                    @vlanId = 0);
+                                                                    (
+                                                                    filter (
+                                                                    (
+                                                                    @port = 1200001 ∨
+                                                                    @port = 1200002 ∨
+                                                                    @port = 1200003 ∨
+                                                                    @port = 1200004 ∨
+                                                                    @port = 1200005 ∨
+                                                                    @port = 1200006 ∨
+                                                                    @port = 1200007 ∨
+                                                                    @port = 1200008) ∧
+                                                                    (@ipDst0 = 171 ∧ @ipDst1 = 64 ∧ @ipDst2 = 120 ∧ @ipDst3 = 0));
+                                                                    (
+                                                                    @vlanId ← 1;
+                                                                    @port ← 1200006) |
+                                                                    filter (
+                                                                    ¬ 
+                                                                    (
+                                                                    (
+                                                                    @port = 1200001 ∨
+                                                                    @port = 1200002 ∨
+                                                                    @port = 1200003 ∨
+                                                                    @port = 1200004 ∨
+                                                                    @port = 1200005 ∨
+                                                                    @port = 1200006 ∨
+                                                                    @port = 1200007 ∨
+                                                                    @port = 1200008) ∧
+                                                                    (@ipDst0 = 171 ∧ @ipDst1 = 64 ∧ @ipDst2 = 120 ∧ @ipDst3 = 0)))));
+                                                                    (
+                                                                    (
+                                                                    filter (
+                                                                    @vlanId = 1) |
+                                                                    filter (
+                                                                    @vlanId = 0);
+                                                                    (
+                                                                    filter (
+                                                                    (
+                                                                    @port = 1200001 ∨
+                                                                    @port = 1200002 ∨
+                                                                    @port = 1200003 ∨
+                                                                    @port = 1200004 ∨
+                                                                    @port = 1200005 ∨
+                                                                    @port = 1200006 ∨
+                                                                    @port = 1200007 ∨
+                                                                    @port = 1200008) ∧
+                                                                    (@ipDst0 = 171 ∧ @ipDst1 = 64 ∧ @ipDst2 = 160 ∧ @ipDst3 = 0));
+                                                                    (
+                                                                    @vlanId ← 1;
+                                                                    @port ← 1200006) |
+                                                                    filter (
+                                                                    ¬ 
+                                                                    (
+                                                                    (
+                                                                    @port = 1200001 ∨
+                                                                    @port = 1200002 ∨
+                                                                    @port = 1200003 ∨
+                                                                    @port = 1200004 ∨
+                                                                    @port = 1200005 ∨
+                                                                    @port = 1200006 ∨
+                                                                    @port = 1200007 ∨
+                                                                    @port = 1200008) ∧
+                                                                    (@ipDst0 = 171 ∧ @ipDst1 = 64 ∧ @ipDst2 = 160 ∧ @ipDst3 = 0)))));
+                                                                    (
+                                                                    (
+                                                                    filter (
+                                                                    @vlanId = 1) |
+                                                                    filter (
+                                                                    @vlanId = 0);
+                                                                    (
+                                                                    filter (
+                                                                    (
+                                                                    @port = 1200001 ∨
+                                                                    @port = 1200002 ∨
+                                                                    @port = 1200003 ∨
+                                                                    @port = 1200004 ∨
+                                                                    @port = 1200005 ∨
+                                                                    @port = 1200006 ∨
+                                                                    @port = 1200007 ∨
+                                                                    @port = 1200008) ∧
+                                                                    (@ipDst0 = 171 ∧ @ipDst1 = 67 ∧ @ipDst2 = 80 ∧ @ipDst3 = 0));
+                                                                    (
+                                                                    @vlanId ← 1;
+                                                                    @port ← 1200006) |
+                                                                    filter (
+                                                                    ¬ 
+                                                                    (
+                                                                    (
+                                                                    @port = 1200001 ∨
+                                                                    @port = 1200002 ∨
+                                                                    @port = 1200003 ∨
+                                                                    @port = 1200004 ∨
+                                                                    @port = 1200005 ∨
+                                                                    @port = 1200006 ∨
+                                                                    @port = 1200007 ∨
+                                                                    @port = 1200008) ∧
+                                                                    (@ipDst0 = 171 ∧ @ipDst1 = 67 ∧ @ipDst2 = 80 ∧ @ipDst3 = 0)))));
+                                                                    (
+                                                                    (
+                                                                    filter (
+                                                                    @vlanId = 1) |
+                                                                    filter (
+                                                                    @vlanId = 0);
+                                                                    (
+                                                                    filter (
+                                                                    (
+                                                                    @port = 1200001 ∨
+                                                                    @port = 1200002 ∨
+                                                                    @port = 1200003 ∨
+                                                                    @port = 1200004 ∨
+                                                                    @port = 1200005 ∨
+                                                                    @port = 1200006 ∨
+                                                                    @port = 1200007 ∨
+                                                                    @port = 1200008) ∧
+                                                                    (@ipDst0 = 10 ∧ @ipDst1 = 62 ∧ @ipDst2 = 32 ∧ @ipDst3 = 0));
+                                                                    (
+                                                                    @vlanId ← 1;
+                                                                    @port ← 1200006) |
+                                                                    filter (
+                                                                    ¬ 
+                                                                    (
+                                                                    (
+                                                                    @port = 1200001 ∨
+                                                                    @port = 1200002 ∨
+                                                                    @port = 1200003 ∨
+                                                                    @port = 1200004 ∨
+                                                                    @port = 1200005 ∨
+                                                                    @port = 1200006 ∨
+                                                                    @port = 1200007 ∨
+                                                                    @port = 1200008) ∧
+                                                                    (@ipDst0 = 10 ∧ @ipDst1 = 62 ∧ @ipDst2 = 32 ∧ @ipDst3 = 0)))));
+                                                                    (
+                                                                    (
+                                                                    filter (
+                                                                    @vlanId = 1) |
+                                                                    filter (
+                                                                    @vlanId = 0);
+                                                                    (
+                                                                    filter (
+                                                                    (
+                                                                    @port = 1200001 ∨
+                                                                    @port = 1200002 ∨
+                                                                    @port = 1200003 ∨
+                                                                    @port = 1200004 ∨
+                                                                    @port = 1200005 ∨
+                                                                    @port = 1200006 ∨
+                                                                    @port = 1200007 ∨
+                                                                    @port = 1200008) ∧
+                                                                    (@ipDst0 = 10 ∧ @ipDst1 = 63 ∧ @ipDst2 = 32 ∧ @ipDst3 = 0));
+                                                                    (
+                                                                    @vlanId ← 1;
+                                                                    @port ← 1200008) |
+                                                                    filter (
+                                                                    ¬ 
+                                                                    (
+                                                                    (
+                                                                    @port = 1200001 ∨
+                                                                    @port = 1200002 ∨
+                                                                    @port = 1200003 ∨
+                                                                    @port = 1200004 ∨
+                                                                    @port = 1200005 ∨
+                                                                    @port = 1200006 ∨
+                                                                    @port = 1200007 ∨
+                                                                    @port = 1200008) ∧
+                                                                    (@ipDst0 = 10 ∧ @ipDst1 = 63 ∧ @ipDst2 = 32 ∧ @ipDst3 = 0)))));
+                                                                    (
+                                                                    (
+                                                                    filter (
+                                                                    @vlanId = 1) |
+                                                                    filter (
+                                                                    @vlanId = 0);
+                                                                    (
+                                                                    filter (
+                                                                    (
+                                                                    @port = 1200001 ∨
+                                                                    @port = 1200002 ∨
+                                                                    @port = 1200003 ∨
+                                                                    @port = 1200004 ∨
+                                                                    @port = 1200005 ∨
+                                                                    @port = 1200006 ∨
+                                                                    @port = 1200007 ∨
+                                                                    @port = 1200008) ∧
+                                                                    (@ipDst0 = 171 ∧ @ipDst1 = 64 ∧ @ipDst2 = 48 ∧ @ipDst3 = 0));
+                                                                    (
+                                                                    @vlanId ← 1;
+                                                                    @port ← 1200006) |
+                                                                    filter (
+                                                                    ¬ 
+                                                                    (
+                                                                    (
+                                                                    @port = 1200001 ∨
+                                                                    @port = 1200002 ∨
+                                                                    @port = 1200003 ∨
+                                                                    @port = 1200004 ∨
+                                                                    @port = 1200005 ∨
+                                                                    @port = 1200006 ∨
+                                                                    @port = 1200007 ∨
+                                                                    @port = 1200008) ∧
+                                                                    (@ipDst0 = 171 ∧ @ipDst1 = 64 ∧ @ipDst2 = 48 ∧ @ipDst3 = 0)))));
+                                                                    (
+                                                                    (
+                                                                    filter (
+                                                                    @vlanId = 1) |
+                                                                    filter (
+                                                                    @vlanId = 0);
+                                                                    (
+                                                                    filter (
+                                                                    (
+                                                                    @port = 1200001 ∨
+                                                                    @port = 1200002 ∨
+                                                                    @port = 1200003 ∨
+                                                                    @port = 1200004 ∨
+                                                                    @port = 1200005 ∨
+                                                                    @port = 1200006 ∨
+                                                                    @port = 1200007 ∨
+                                                                    @port = 1200008) ∧
+                                                                    (@ipDst0 = 172 ∧ @ipDst1 = 16 ∧ @ipDst2 = 64 ∧ @ipDst3 = 0));
+                                                                    (
+                                                                    @vlanId ← 1;
+                                                                    @port ← 1200006) |
+                                                                    filter (
+                                                                    ¬ 
+                                                                    (
+                                                                    (
+                                                                    @port = 1200001 ∨
+                                                                    @port = 1200002 ∨
+                                                                    @port = 1200003 ∨
+                                                                    @port = 1200004 ∨
+                                                                    @port = 1200005 ∨
+                                                                    @port = 1200006 ∨
+                                                                    @port = 1200007 ∨
+                                                                    @port = 1200008) ∧
+                                                                    (@ipDst0 = 172 ∧ @ipDst1 = 16 ∧ @ipDst2 = 64 ∧ @ipDst3 = 0)))));
+                                                                    (
+                                                                    (
+                                                                    filter (
+                                                                    @vlanId = 1) |
+                                                                    filter (
+                                                                    @vlanId = 0);
+                                                                    (
+                                                                    filter (
+                                                                    (
+                                                                    @port = 1200001 ∨
+                                                                    @port = 1200002 ∨
+                                                                    @port = 1200003 ∨
+                                                                    @port = 1200004 ∨
+                                                                    @port = 1200005 ∨
+                                                                    @port = 1200006 ∨
+                                                                    @port = 1200007 ∨
+                                                                    @port = 1200008) ∧
+                                                                    (@ipDst0 = 172 ∧ @ipDst1 = 16 ∧ @ipDst2 = 128 ∧ @ipDst3 = 0));
+                                                                    (
+                                                                    @vlanId ← 1;
+                                                                    @port ← 1200006) |
+                                                                    filter (
+                                                                    ¬ 
+                                                                    (
+                                                                    (
+                                                                    @port = 1200001 ∨
+                                                                    @port = 1200002 ∨
+                                                                    @port = 1200003 ∨
+                                                                    @port = 1200004 ∨
+                                                                    @port = 1200005 ∨
+                                                                    @port = 1200006 ∨
+                                                                    @port = 1200007 ∨
+                                                                    @port = 1200008) ∧
+                                                                    (@ipDst0 = 172 ∧ @ipDst1 = 16 ∧ @ipDst2 = 128 ∧ @ipDst3 = 0)))));
+                                                                    (
+                                                                    filter (
+                                                                    (
+                                                                    @vlanId = 1 ∨
+                                                                    @vlanId = 0 ∧
+                                                                    ¬
+                                                                    (
+                                                                    (
+                                                                    @port = 1200001 ∨
+                                                                    @port = 1200002 ∨
+                                                                    @port = 1200003 ∨
+                                                                    @port = 1200004 ∨
+                                                                    @port = 1200005 ∨
+                                                                    @port = 1200006 ∨
+                                                                    @port = 1200007 ∨
+                                                                    @port = 1200008) ∧
+                                                                    (@ipDst0 = 0 ∧ @ipDst1 = 0 ∧ @ipDst2 = 0 ∧ @ipDst3 = 0))) ∧
+                                                                    (
+                                                                    @vlanId = 1 ∨
+                                                                    @vlanId = 0 ∧
+                                                                    ¬
+                                                                    (
+                                                                    (
+                                                                    @port = 1200001 ∨
+                                                                    @port = 1200002 ∨
+                                                                    @port = 1200003 ∨
+                                                                    @port = 1200004 ∨
+                                                                    @port = 1200005 ∨
+                                                                    @port = 1200006 ∨
+                                                                    @port = 1200007 ∨
+                                                                    @port = 1200008) ∧
+                                                                    (@ipDst0 = 127 ∧ @ipDst1 = 0 ∧ @ipDst2 = 0 ∧ @ipDst3 = 0))) ∧
+                                                                    (
+                                                                    @vlanId = 1 ∨
+                                                                    @vlanId = 0 ∧
+                                                                    ¬
+                                                                    (
+                                                                    (
+                                                                    @port = 1200001 ∨
+                                                                    @port = 1200002 ∨
+                                                                    @port = 1200003 ∨
+                                                                    @port = 1200004 ∨
+                                                                    @port = 1200005 ∨
+                                                                    @port = 1200006 ∨
+                                                                    @port = 1200007 ∨
+                                                                    @port = 1200008) ∧
+                                                                    (@ipDst0 = 224 ∧ @ipDst1 = 0 ∧ @ipDst2 = 0 ∧ @ipDst3 = 0))));
+                                                                    (
+                                                                    filter (
+                                                                    @vlanId = 1) |
+                                                                    filter (
+                                                                    @vlanId = 0 ∧
+                                                                    (
+                                                                    @port = 1200001 ∨
+                                                                    @port = 1200002 ∨
+                                                                    @port = 1200003 ∨
+                                                                    @port = 1200004 ∨
+                                                                    @port = 1200005 ∨
+                                                                    @port = 1200006 ∨
+                                                                    @port = 1200007 ∨
+                                                                    @port = 1200008));
+                                                                    @port ← 1200001))))))))))))))))))))))))))))))))))))))))))))))))))))))))))))))))))))))))))))))))))))))))

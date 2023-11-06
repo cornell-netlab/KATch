@@ -1,0 +1,3 @@
+import "../../examples/topologyzoo/Belnet_topo.nkpl"
+import "../../examples/topologyzoo/Belnet_routing.nkpl"
+check @sw=N8?⋅((main⋅(top⋅δ))⋆⋅@sw=100?) ≡ ∅
