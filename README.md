@@ -23,6 +23,6 @@ Operations:
 - Better error messages
 - Better pretty printing and graphviz output
 - Optimizations (the current implementation is very naive)
-- Product automaton construction
+- Product automaton construction (perhaps subsumed by XOR? -- test `A XOR B ≡ ∅` instead of `A ≡ B`)
 - Documentation
 - Reimplement in Rust
