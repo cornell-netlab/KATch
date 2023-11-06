@@ -51,9 +51,9 @@ object Runner {
         val result = Bisim.bisim(v1, v2)
         assert(op == "≡" || op == "≢")
         if result == (op == "≡") then {
-          println(s"Check passed in $path:${line + 1}")
+          println(s"\u001b[32mCheck passed in $path:${line + 1}\u001b[0m")
         } else {
-          throw new Throwable(s"!!! Check failed in $path:${line + 1} !!!")
+          throw new Throwable(s"\u001b[31m!!! Check failed in $path:${line + 1} !!!\u001b[0m")
         }
         env
       }
@@ -82,7 +82,12 @@ object Runner {
               // Check if everything was parsed
               if n == line.length then {
                 // Run the statement
+                // try {
                 env2 = runStmt(env2, stmt, path, i)
+                // } catch {
+                // case e: Throwable =>
+                // println(s"Error in $path:${i + 1}: ${e.getMessage}\n")
+                // }
               } else {
                 // First split the input at the point where we stopped parsing
                 val (left, right) = line.splitAt(n)
@@ -112,7 +117,7 @@ object Runner {
     println(msg)
 
     // Append msg to benchresults.txt
-    val fw = new FileWriter("benchresults.txt", true) // true to append
+    val fw = new FileWriter("benchresults/benchresults.txt", true) // true to append
     try {
       fw.write(msg + "\n")
     } finally {

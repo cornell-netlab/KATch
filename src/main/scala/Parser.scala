@@ -27,6 +27,12 @@ object Parser {
   def value[$: P]: P[SVal] = P(integer.map(Left.apply) | varName.map(Right.apply))
 
   val varSubsts = Map("sw" -> "A", "pt" -> "B", "dst" -> "C")
+  // val varSubsts = Map("sw" -> "A", "pt" -> "C", "dst" -> "B")
+  // val varSubsts = Map("sw" -> "B", "pt" -> "A", "dst" -> "C")
+  // val varSubsts = Map("sw" -> "B", "pt" -> "C", "dst" -> "A")
+  // val varSubsts = Map("sw" -> "C", "pt" -> "A", "dst" -> "B")
+  // val varSubsts = Map("sw" -> "C", "pt" -> "B", "dst" -> "A")
+  // val varSubsts = Map("sw" -> "A", "pt" -> "C", "dst" -> "B")
   // Parse a field name, like @pt, @dst, etc.
   def field[$: P]: P[String] = P("@" ~~ CharIn("a-zA-Z").rep(1).!).map { case x => varSubsts.getOrElse(x, x) }
 

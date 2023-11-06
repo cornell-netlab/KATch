@@ -17,10 +17,10 @@ def findFiles(startDir: Path, extension: String): List[Path] = {
     "benchmarks/tiny",
     "benchmarks/small",
     "benchmarks/medium",
-    "benchmarks/large"
-    // "nkpl"
+    "benchmarks/large",
+    "nkpl"
   )
-  val nkplFiles = directories.flatMap(dir => findFiles(Paths.get(dir), ".nkpl"))
+  val nkplFiles = directories.flatMap(dir => findFiles(Paths.get(dir), ".nkpl")).sortBy(_.getFileName.toString)
   // val nkplFiles = List("benchmarks/large/Telcove_slicing.nkpl")
   // val nkplFiles = List("benchmarks/large/ft8_reachability.nkpl")
   // .filter(_.toString.endsWith(".nkpl"))
@@ -36,7 +36,7 @@ def findFiles(startDir: Path, extension: String): List[Path] = {
   // Runner.runTopLevel("nkpl/test.nkpl")
 
   // Append msg to benchresults.txt
-  val fw = new FileWriter("benchresults.txt", true) // true to append
+  val fw = new FileWriter("benchresults/benchresults.txt", true) // true to append
   try {
     fw.write("\n")
   } finally {

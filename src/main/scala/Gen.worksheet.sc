@@ -1,9 +1,43 @@
 import nkpl._
 
-class Tester(vals: Map[Var, Set[Val]]):
-  val packets = genComb(vals.map { (v, s) => v -> (s ++ Set(-1)) }).toList
-  val sps = genSP(vals.toList.sortBy { (v, s) => v }).toList.sortBy(sizeSP)
-  val spps = genSPP(vals.toList.sortBy { (v, s) => v }).toList.sortBy(sizeSPP)
+class Tester(vals: Map[Var, Set[Val]], random: Boolean = false):
+  val sortedVals = vals.toList.sortBy { (v, s) => v }
+  val packets =
+    if false then (1 to 100).map { _ => randPacket() }.toSet
+    else genComb(vals.map { (v, s) => v -> (s ++ Set(-1)) }).toList
+  val sps =
+    if random then (1 to 100).map { _ => randSP(sortedVals) }.toList.sortBy(sizeSP)
+    else genSP(sortedVals).toList.sortBy(sizeSP)
+  val spps =
+    if random then (1 to 100).map { _ => randSPP(sortedVals) }.toList.sortBy(sizeSPP)
+    else genSPP(sortedVals).toList.sortBy(sizeSPP)
+
+  def randPacket(): Map[Var, Val] =
+    vals.map { (v, s) => v -> s.toList(util.Random.nextInt(s.size)) }
+
+  def randSubset[A](xs: Set[A]): Set[A] =
+    xs.filter { _ => util.Random.nextBoolean() }
+
+  def randSP(vals: List[(Var, Set[Val])]): SP =
+    if vals.isEmpty then if util.Random.nextBoolean() then SP.False else SP.True
+    else
+      val (x, vs) = vals.head
+      val rest = vals.tail
+      val branches = randSubset(vs).map { v => v -> randSP(rest) }.toMap
+      val other = randSP(rest)
+      SP.Test(x, branches, other)
+
+  def randSPP(vals: List[(Var, Set[Val])]): SPP =
+    if vals.isEmpty then if util.Random.nextBoolean() then SPP.False else SPP.Diag
+    else
+      val (x, vs) = vals.head
+      val rest = vals.tail
+      val branches = randSubset(vs).map { v =>
+        v -> randSubset(vs).map { v => v -> randSPP(rest) }.toMap
+      }.toMap
+      val other = randSubset(vs).map { v => v -> randSPP(rest) }.toMap
+      val id = randSPP(rest)
+      SPP.TestMut(x, branches, other, id)
 
   def genComb[A, B](xs: Map[A, Set[B]]): Set[Map[A, B]] =
     if xs.isEmpty then return Set(Map.empty)
@@ -87,17 +121,6 @@ class Tester(vals: Map[Var, Set[Val]]):
       case SPP.TestMut(x, branches, other, id) =>
         1 + branches.values.map { muts => muts.values.map(sizeSPP).sum + 1 }.sum + other.values.map(sizeSPP).sum + sizeSPP(id)
 
-  def check_P_SP_SPP(f: (Map[Var, Val], SP, SPP) => Boolean): Boolean =
-    for
-      spp <- spps
-      sp <- sps
-      packet <- packets
-    do
-      if !f(packet, sp, spp) then
-        println(s"Failed for \n val spp = $spp \n val sp = $sp \n val packet = $packet")
-        return false
-    true
-
   def check_SPP_SP(f: (SPP, SP) => Boolean): Boolean =
     for
       spp <- spps
@@ -152,11 +175,45 @@ class Tester(vals: Map[Var, Set[Val]]):
         return false
     true
 
+  def check_SP_SP(f: (SP, SP) => Boolean): Boolean =
+    for
+      sp1 <- sps
+      sp2 <- sps
+    do
+      if !f(sp1, sp2) then
+        println(s"Failed for \n val sp1 = $sp1 \n val sp2 = $sp2")
+        return false
+    true
+
+  def check_SP_SP_P(f: (SP, SP, Map[Var, Val]) => Boolean): Boolean =
+    for
+      sp1 <- sps
+      sp2 <- sps
+      packet <- packets
+    do
+      if !f(sp1, sp2, packet) then
+        println(s"Failed for \n val sp1 = $sp1 \n val sp2 = $sp2 \n val packet = $packet")
+        return false
+    true
+
+  def check_SP_P(f: (SP, Map[Var, Val]) => Boolean): Boolean =
+    for
+      sp <- sps
+      packet <- packets
+    do
+      if !f(sp, packet) then
+        println(s"Failed for \n val sp = $sp \n val packet = $packet")
+        return false
+    true
+
   import scala.math.pow
   val spsSize = pow(2, vals.map { (v, s) => s.size + 1 }.product)
   val spssSize = pow(2, vals.map { (v, s) => s.size * s.size + s.size + 1 }.product)
 
-val T = Tester(Map("x" -> Set(0, 1)))
+import SPP._
+
+val T = Tester(Map("x" -> Set(0, 1), "y" -> Set(0, 1), "z" -> Set(3)), random = true)
+// val T = Tester(Map("x" -> Set(0, 1), "y" -> Set(0)), random = true)
 // val T = Tester(Map("x" -> Set(0), "y" -> Set(0)))
 
 val x = "x"
@@ -169,6 +226,37 @@ T.spps.size
 T.spssSize
 T.packets.size
 
+////////////////////// SP //////////////////////
+
+// Check that SPs are correctly canonicalized
+T.check_SP_SP { (sp1, sp2) =>
+  if T.packets.forall { packet => SP.elemOf(packet, sp1) == SP.elemOf(packet, sp2) }
+  then sp1 eq sp2
+  else true
+}
+
+// Check SP.union
+T.check_SP_SP_P { (sp1, sp2, packet) =>
+  SP.elemOf(packet, SP.union(sp1, sp2)) == (SP.elemOf(packet, sp1) || SP.elemOf(packet, sp2))
+}
+
+// Check SP.difference
+T.check_SP_SP_P { (sp1, sp2, packet) =>
+  SP.elemOf(packet, SP.difference(sp1, sp2)) == (SP.elemOf(packet, sp1) && !SP.elemOf(packet, sp2))
+}
+
+// Check SP.intersection
+T.check_SP_SP_P { (sp1, sp2, packet) =>
+  SP.elemOf(packet, SP.intersection(sp1, sp2)) == (SP.elemOf(packet, sp1) && SP.elemOf(packet, sp2))
+}
+
+// Check SP.negate
+T.check_SP_P { (sp, packet) =>
+  SP.elemOf(packet, SP.negate(sp)) == !SP.elemOf(packet, sp)
+}
+
+////////////////////// SPP //////////////////////
+
 // // Check that SPPs are correctly canonicalized
 // T.check_SPP_SPP { (spp1, spp2) =>
 //   // Check that two spps are eq if they have the same run1 action on packets
@@ -176,8 +264,6 @@ T.packets.size
 //   then spp1 eq spp2
 //   else true
 // }
-
-// import SPP._
 
 // // Check SPP.run
 // T.check_SPP_SP { (spp, sp) =>

@@ -62,6 +62,8 @@ object SMap {
   def seqSPP(x: SPP, y: => SMap): SMap =
     if x eq SPP.False then return SZero
     canonicalize(y.map { case (e, spp) => (e, SPP.seq(x, spp)) })
+  def assertDisjoint(x: SMap) =
+    for (e1, spp1) <- x do for (e2, spp2) <- x do if e1 != e2 then assert(SPP.intersection(spp1, spp2) eq SPP.False)
 }
 
 def logBisim(msg: String): Unit = ()
@@ -111,7 +113,9 @@ object Bisim {
   }
 
   def δ(e: NK): SMap =
-    benchmark(s"δ", { δ0(e) })
+    val result = benchmark(s"δ", { δ0(e) })
+    SMap.assertDisjoint(result) // FIXME: remove this when we are sure that the invariant is maintained
+    result
 
   def ε(e: NK): SPP =
     benchmark(s"ε", { ε0(e) })
@@ -123,32 +127,36 @@ object Bisim {
     var i = 0
     val limit = 100000
     while (todo.nonEmpty && i < limit) {
-      println(s"Iteration $i")
+      println(s"\u001B[34mIteration $i \u001B[0m")
       i += 1
       val (e1, sp, e2) = todo.dequeue()
       // println(s"Testing equivalence of ($e1, $sp, $e2)")
       val done12 = done.getOrElse((e1, e2), SP.False)
-      val sp2 = SP.difference(sp, done12)
-      if !(sp2 eq SP.False) then
-        done = done.updated((e1, e2), SP.union(done12, sp2))
+      val spRest = SP.difference(sp, done12)
+      if !(spRest eq SP.False) then
+        done = done.updated((e1, e2), SP.union(done12, spRest))
         // println(s"done: $done")
         // Check for ε equivalence
         val εe1 = ε(e1)
         val εe2 = ε(e2)
-        val cmp = SPP.equivAt(sp2, εe1, εe2)
-        // println(s"SPP.equivAt($sp2, $εe1, $εe2) = $cmp")
+        val cmp = SPP.equivAt(spRest, εe1, εe2)
+        // println(s"SPP.equivAt($spRest, $εe1, $εe2) = $cmp")
         if !cmp then return false
-        // Run the packet through the automata
-        val δe1 = δ(e1).map { case (e, spp) => (e, SPP.run(sp2, spp)) }
-        val δe2 = δ(e2).map { case (e, spp) => (e, SPP.run(sp2, spp)) }
+        def enq(a: NK, sp: SP, b: NK) =
+          if !(sp eq SP.False) then
+            todo.enqueue((a, sp, b))
+            // println(s"Enqueued ($a, $sp, $b)")
         // Add all pairs to the queue
-        for (e1, sp1) <- δe1 do for (e2, sp2) <- δe2 do todo.enqueue((e1, SP.intersection(sp1, sp2), e2))
-        val all1 = δe1.map { (e, sp) => sp }.foldLeft(SP.False: SP)(SP.union(_, _))
-        val all2 = δe2.map { (e, sp) => sp }.foldLeft(SP.False: SP)(SP.union(_, _))
+        // println("Adding all pairs to the queue")
+        for (e1, spp1) <- δ(e1) do for (e2, spp2) <- δ(e2) do enq(e1, SPP.run(spRest, SPP.intersection(spp1, spp2)), e2)
+        val all1 = δ(e1).map { (e, sp) => sp }.foldLeft(SPP.False: SPP)(SPP.union(_, _))
+        val all2 = δ(e2).map { (e, sp) => sp }.foldLeft(SPP.False: SPP)(SPP.union(_, _))
         // println(s"all1: $all1, all2: $all2, sp2: $sp2")
         // println(s"δe1: $δe1, δe2: $δe2")
-        for (e1, sp1) <- δe1 do todo.enqueue((e1, SP.difference(sp1, all2), Zero))
-        for (e2, sp2) <- δe2 do todo.enqueue((Zero, SP.difference(sp2, all1), e2))
+        // println("Adding right zeroes")
+        for (e1, spp1) <- δ(e1) do enq(e1, SPP.run(spRest, SPP.difference(spp1, all2)), Zero)
+        // println("Adding left zeroes")
+        for (e2, spp2) <- δ(e2) do enq(Zero, SPP.run(spRest, SPP.difference(spp2, all1)), e2)
     }
     if i == limit then throw new Throwable("Limit exceeded")
     true

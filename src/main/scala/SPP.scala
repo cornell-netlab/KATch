@@ -174,6 +174,8 @@ object SPP {
         var branchesC = unionMapSP(branchesA, branchesB)
         // We go to id only if the input packet is not matched by branches or other.
         for v <- (branches.keySet ++ other.keySet) -- branchesC.keySet do branchesC = branchesC.updated(v, SP.False)
+        val spid = run(SP.True, id)
+        for v <- branchesC.keySet -- (branches.keySet ++ other.keySet) do branchesC = branchesC.updated(v, SP.union(branchesC(v), spid))
         SP.Test(x, branchesC.toMap, run(SP.True, id))
       case (SP.Test(x, ys, default), TestMut(x2, branches, other, id)) =>
         if x == x2 then
@@ -249,7 +251,7 @@ object SPP {
       case (_, Diag) => toTest(sp)
       case (SP.Test(x, ys, default), TestMut(x2, branches, other, id)) =>
         if x == x2 then
-          val branches2 = (ys.keySet ++ branches.keySet).map { case v =>
+          val branches2 = (ys.keySet ++ branches.keySet ++ other.keySet).map { case v =>
             val y = ys.getOrElse(v, default)
             val b = branches.getOrElse(v, if other.contains(v) then other else other + (v -> id))
             v -> b.map { (v2, spp) => v2 -> seqSP(y, spp) }
@@ -258,14 +260,25 @@ object SPP {
           val id2 = seqSP(default, id)
           TestMut(x, branches2, other2, id2)
         else if x < x2 then
-          val branches2 = ys.map { (v, sp) => v -> Map(v -> seqSP(sp, spp)) }
-          TestMut(x, branches2, Map(), seqSP(default, spp))
-        else
-          val branches2 = branches.map { (v, muts) =>
-            v -> muts.map { (v2, spp) => v2 -> seqSP(sp, spp) }
-          }
-          val other2 = other.map { (v, spp) => v -> seqSP(sp, spp) }
-          TestMut(x2, branches2, other2, seqSP(sp, id))
+          seqSP(sp, new TestMut(x, Map(), Map(), spp))
+          // val branches2 = ys.map { (v, sp) => v -> Map(v -> seqSP(sp, spp)) }
+          // TestMut(x, branches2, Map(), seqSP(default, spp))
+        else seqSP(new SP.Test(x2, Map(), sp), spp)
+      // val branches2 = branches.map { (v, muts) =>
+      //   v -> muts.map { (v2, spp) => v2 -> seqSP(sp, spp) }
+      // }
+      // val other2 = other.map { (v, spp) => v -> seqSP(sp, spp) }
+      // TestMut(x2, branches2, other2, seqSP(sp, id))
+    }
+
+  def get(x: SPP, v: Val): Map[Val, SPP] =
+    x match {
+      case TestMut(x, branches, other, id) =>
+        if branches.contains(v) then branches(v)
+        else if other.contains(v) || (id eq False) then other
+        else other + (v -> id)
+      case False => Map()
+      case Diag => Map(v -> Diag)
     }
 
   def union(x: SPP, y: SPP): SPP =
@@ -275,34 +288,33 @@ object SPP {
       case (False, _) => y
       case (_, False) => x
       case (Diag, TestMut(x, branches, other, id)) =>
-        var branches2 = branches.map { (v, muts) =>
-          // Add Diag to the diagonal
-          v -> muts.updated(v, union(Diag, muts.getOrElse(v, False)))
-        }
-        // Also add Diag to all the values in other
-        // We need to turn them into tests for this
-        for (v, spp) <- other do
-          if !branches2.contains(v)
-          then branches2 = branches2.updated(v, other.updated(v, union(Diag, spp)))
-        val id2 = union(Diag, id)
-        TestMut(x, branches2, other, id2)
+        union(new TestMut(x, Map(), Map(), Diag), y)
+      // var branches2 = branches.map { (v, muts) =>
+      //   // Add Diag to the diagonal
+      //   v -> muts.updated(v, union(Diag, muts.getOrElse(v, False)))
+      // }
+      // // Also add Diag to all the values in other
+      // // We need to turn them into tests for this
+      // for (v, spp) <- other do
+      //   if !branches2.contains(v)
+      //   then branches2 = branches2.updated(v, other.updated(v, union(Diag, spp)))
+      // val id2 = union(Diag, id)
+      // TestMut(x, branches2, other, id2)
       case (TestMut(xL, branchesL, mutsL, idL), TestMut(xR, branchesR, mutsR, idR)) =>
         if xL == xR then
-          val branches = (branchesL.keySet ++ branchesR.keySet).map { v =>
-            v -> unionMap(
-              branchesL.getOrElse(v, if mutsL.contains(v) then mutsL else mutsL + (v -> idL)),
-              branchesR.getOrElse(v, if mutsR.contains(v) then mutsR else mutsR + (v -> idR))
-            )
+          val branches = (branchesL.keySet ++ branchesR.keySet ++ mutsL.keySet ++ mutsR.keySet).map { v =>
+            v -> unionMap(get(x, v), get(y, v))
           }.toMap
           val muts = unionMap(mutsL, mutsR)
           val id = union(idL, idR)
           TestMut(xL, branches, muts, id)
         else if xL < xR then
-          var branches = branchesL.map { (v, muts) => v -> (muts + (v -> union(muts.getOrElse(v, False), y))) }
-          for (v, spp) <- mutsL do if !branches.contains(v) then branches = branches.updated(v, Map(v -> union(spp, y)))
-          val muts = mutsL
-          val id = union(idL, y)
-          TestMut(xL, branches, muts, id)
+          union(x, new TestMut(xL, Map(), Map(), y))
+          // var branches = branchesL.map { (v, muts) => v -> (muts + (v -> union(muts.getOrElse(v, False), y))) }
+          // for (v, spp) <- mutsL do if !branches.contains(v) then branches = branches.updated(v, Map(v -> union(spp, y)))
+          // val muts = mutsL
+          // val id = union(idL, y)
+          // TestMut(xL, branches, muts, id)
         else union(y, x)
       case _ => union(y, x)
     }
@@ -340,54 +352,53 @@ object SPP {
           //    - The idL continues through branchesR/mutsR/idR
 
           // First, we look at branchesL
-          val branchesA = branchesL.map { (v, muts) =>
-            v -> unionMaps(muts.map { (v2, spp) =>
-              (if branchesR.contains(v2) then branchesR(v2)
-               else if mutsR.contains(v2) then mutsR
-               else mutsR + (v2 -> idR)) .map { (v2, spp2) => v2 -> seq(spp, spp2) }
-            })
-          }
-          val branchesB = (mutsL.keySet -- branchesL.keySet).map { v =>
-            v -> unionMaps(mutsL.map { (v2, spp) =>
-              (if branchesR.contains(v2) then branchesR(v2)
-               else if mutsR.contains(v2) then mutsR
-               else mutsR + (v2 -> idR)) .map { (v2, spp2) => v2 -> seq(spp, spp2) }
-            })
-          }
-          // Second, we look at branchesR, which goes through idL
-          // However, only packets that do not match branchesL nor mutsL go through idL
-          val branchesC = ((branchesR -- branchesL.keySet) -- mutsL.keySet).map { (v, muts) =>
-            v -> unionMap(
-              branchesR(v).map { (v2, spp) => v2 -> seq(idL, spp) },
-              unionMaps(mutsL.map { (v2, spp) =>
-                (if branchesR.contains(v2) then branchesR(v2)
-                 else if mutsR.contains(v2) then mutsR
-                 else mutsR + (v2 -> idR)) .map { (v2, spp2) => v2 -> seq(spp, spp2) }
-              })
-            )
-          }
-          // We have now handled all packets with input field in branchesL.keySet ++ (branchesR.keySet -- mutsL.keySet)
-          // A few categories of packets remain: those with input field in mutsL.keySet -- branchesL.keySet, and remaining packets that do not match branchesR
-          // Now we look at mutsL (this is only reached if the input packet's xL value is not in branchesL.keySet)
+          // val branchesA = branchesL.map { (v, muts) =>
+          //   v -> unionMaps(muts.map { (v2, spp) =>
+          //     (if branchesR.contains(v2) then branchesR(v2)
+          //      else if mutsR.contains(v2) then mutsR
+          //      else mutsR + (v2 -> idR)) .map { (v2, spp2) => v2 -> seq(spp, spp2) }
+          //   })
+          // }
+          // val branchesB = (mutsL.keySet -- branchesL.keySet).map { v =>
+          //   v -> unionMaps(mutsL.map { (v2, spp) =>
+          //     (if branchesR.contains(v2) then branchesR(v2)
+          //      else if mutsR.contains(v2) then mutsR
+          //      else mutsR + (v2 -> idR)) .map { (v2, spp2) => v2 -> seq(spp, spp2) }
+          //   })
+          // }
+          // // Second, we look at branchesR, which goes through idL
+          // // However, only packets that do not match branchesL nor mutsL go through idL
+          // val branchesC = ((branchesR -- branchesL.keySet) -- mutsL.keySet).map { (v, muts) =>
+          //   v -> unionMap(
+          //     branchesR(v).map { (v2, spp) => v2 -> seq(idL, spp) },
+          //     unionMaps(mutsL.map { (v2, spp) =>
+          //       (if branchesR.contains(v2) then branchesR(v2)
+          //        else if mutsR.contains(v2) then mutsR
+          //        else mutsR + (v2 -> idR)) .map { (v2, spp2) => v2 -> seq(spp, spp2) }
+          //     })
+          //   )
+          // }
           val mutsA = unionMaps(mutsL.map { (v2, spp) =>
-            (if branchesR.contains(v2) then branchesR(v2)
-             else if mutsR.contains(v2) || (idR eq False) then mutsR
-             else mutsR + (v2 -> idR)) .map { (v2, spp2) => v2 -> seq(spp, spp2) }
+            get(y, v2).map { (v2, spp2) => v2 -> seq(spp, spp2) }
           })
-          val mutsB = mutsR.map { (v2, spp) => v2 -> seq(idL, spp) }.filterNot { (v2, spp) => spp eq False }
-          SPP.TestMut(xL, branchesA ++ branchesB ++ branchesC, unionMap(mutsA, mutsB), seq(idL, idR))
+          val branches = (branchesL.keySet ++ branchesR.keySet ++ mutsL.keySet ++ mutsR.keySet ++ mutsA.keySet).map { v =>
+            v -> unionMaps(get(x, v).map { (v2, spp) => get(y, v2).map { (v3, spp2) => v3 -> seq(spp, spp2) } })
+          }.toMap
+          val mutsB = mutsR.map { (v2, spp) => v2 -> seq(idL, spp) }
+          SPP.TestMut(xL, branches, unionMap(mutsA, mutsB), seq(idL, idR))
         else if xL < xR then
-          val branches2 = branchesL.map { (v, muts) =>
-            v -> muts.map { (v2, spp) => v2 -> seq(spp, y) }
-          }
-          val muts2 = mutsL.map { (v2, spp) => v2 -> seq(spp, y) }
-          SPP.TestMut(xL, branches2, muts2, seq(idL, y))
-        else
-          val branches2 = branchesR.map { (v, muts) =>
-            v -> muts.map { (v2, spp) => v2 -> seq(x, spp) }
-          }
-          val muts2 = mutsR.map { (v2, spp) => v2 -> seq(x, spp) }
-          SPP.TestMut(xR, branches2, muts2, seq(x, idR))
+          seq(x, new TestMut(xL, Map(), Map(), y))
+          // val branches2 = branchesL.map { (v, muts) =>
+          //   v -> muts.map { (v2, spp) => v2 -> seq(spp, y) }
+          // }
+          // val muts2 = mutsL.map { (v2, spp) => v2 -> seq(spp, y) }
+          // SPP.TestMut(xL, branches2, muts2, seq(idL, y))
+        else seq(new TestMut(xR, Map(), Map(), x), y)
+      // val branches2 = branchesR.map { (v, muts) =>
+      //   v -> muts.map { (v2, spp) => v2 -> seq(x, spp) }
+      // }
+      // val muts2 = mutsR.map { (v2, spp) => v2 -> seq(x, spp) }
+      // SPP.TestMut(xR, branches2, muts2, seq(x, idR))
     }
 
   def intersection(x: SPP, y: SPP): SPP =
@@ -396,31 +407,30 @@ object SPP {
     (x, y) match {
       case (False, _) => False
       case (Diag, TestMut(x, branches, other, id)) =>
-        val branches2 = branches.map { (v, muts) =>
-          v -> (if muts.contains(v)
-                then Map(v -> intersection(Diag, muts(v)))
-                else Map())
-        } ++ (other -- branches.keySet).map { (v, spp) => v -> Map(v -> intersection(Diag, spp)) }
-        val id2 = intersection(Diag, id)
-        TestMut(x, branches2, Map(), id2)
+        intersection(new TestMut(x, Map(), Map(), Diag), y)
+      // val branches2 = branches.map { (v, muts) =>
+      //   v -> (if muts.contains(v)
+      //         then Map(v -> intersection(Diag, muts(v)))
+      //         else Map())
+      // } ++ (other -- branches.keySet).map { (v, spp) => v -> Map(v -> intersection(Diag, spp)) }
+      // val id2 = intersection(Diag, id)
+      // TestMut(x, branches2, Map(), id2)
       case (TestMut(xL, branchesL, mutsL, idL), TestMut(xR, branchesR, mutsR, idR)) =>
         if xL == xR then
           // FIXME: potentially inefficient
           val branches = (branchesL.keySet ++ branchesR.keySet ++ mutsL.keySet ++ mutsR.keySet).map { v =>
-            v -> intersectionMap(
-              branchesL.getOrElse(v, if mutsL.contains(v) then mutsL else mutsL + (v -> idL)),
-              branchesR.getOrElse(v, if mutsR.contains(v) then mutsR else mutsR + (v -> idR))
-            )
+            v -> intersectionMap(get(x, v), get(y, v))
           }.toMap
           val muts = intersectionMap(mutsL, mutsR)
           val id = intersection(idL, idR)
           TestMut(xL, branches, muts, id)
         else if xL < xR then
-          val branches = branchesL.map { (v, muts) =>
-            v -> (if muts.contains(v) then Map(v -> intersection(muts(v), y)) else Map())
-          } ++ (mutsL -- branchesL.keySet).map { (v, spp) => v -> Map(v -> intersection(spp, y)) }
-          val id = intersection(idL, y)
-          TestMut(xL, branches, Map(), id)
+          intersection(x, new TestMut(xL, Map(), Map(), y))
+          // val branches = branchesL.map { (v, muts) =>
+          //   v -> (if muts.contains(v) then Map(v -> intersection(muts(v), y)) else Map())
+          // } ++ (mutsL -- branchesL.keySet).map { (v, spp) => v -> Map(v -> intersection(spp, y)) }
+          // val id = intersection(idL, y)
+          // TestMut(xL, branches, Map(), id)
         else intersection(y, x)
       case _ => intersection(y, x)
     }
@@ -439,10 +449,7 @@ object SPP {
       case (TestMut(xL, branchesL, mutsL, idL), TestMut(xR, branchesR, mutsR, idR)) =>
         if xL == xR then
           val branches = (branchesL.keySet ++ branchesR.keySet ++ mutsL.keySet ++ mutsR.keySet).map { v =>
-            v -> differenceMap(
-              branchesL.getOrElse(v, if mutsL.contains(v) then mutsL else mutsL + (v -> idL)),
-              branchesR.getOrElse(v, if mutsR.contains(v) then mutsR else mutsR + (v -> idR))
-            )
+            v -> differenceMap(get(x, v), get(y, v))
           }.toMap
           val muts = differenceMap(mutsL, mutsR)
           val id = difference(idL, idR)
