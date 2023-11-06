@@ -1,7 +1,0 @@
-Execution time of Deltacom_unreachability.nkpl: 12.08710962 s
-Execution time of ft6_reachability.nkpl: 6.404114424 s
-Execution time of Deltacom_reachability.nkpl: 0.263615907 s
-Execution time of Missouri_slicing.nkpl: 3.6404184 s
-Execution time of ft6_slicing.nkpl: 5.410749018 s
-Execution time of ft8_reachability.nkpl: 49.745907347 s
-Execution time of Telcove_slicing.nkpl: 16.620673661 s
