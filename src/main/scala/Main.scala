@@ -28,17 +28,18 @@ def findFiles(startDir: Path, extension: String): List[Path] = {
   // .map(_.asInstanceOf[Path])
   // .toSeq
 
-  for (file <- nkplFiles) {
-    Runner.runTopLevel(file.toString)
-  }
-  // Runner.runTopLevel("benchmarks/tiny/t4_near_reachability.nkpl")
-  // Runner.runTopLevel("benchmarks/tiny/t4_slicing.nkpl")
-  // Runner.runTopLevel("nkpl/test.nkpl")
+  for (i <- 1 to 5)
+    for (file <- nkplFiles) {
+      Runner.runTopLevel(file.toString)
+    }
+    // Runner.runTopLevel("benchmarks/tiny/t4_near_reachability.nkpl")
+    // Runner.runTopLevel("benchmarks/tiny/t4_slicing.nkpl")
+    // Runner.runTopLevel("nkpl/test.nkpl")
 
-  // Append msg to benchresults.txt
-  val fw = new FileWriter("benchresults/benchresults.txt", true) // true to append
-  try {
-    fw.write("\n")
-  } finally {
-    fw.close()
-  }
+    // Append msg to benchresults.txt
+    val fw = new FileWriter("benchresults/benchresults.txt", true) // true to append
+    try {
+      fw.write("\n")
+    } finally {
+      fw.close()
+    }

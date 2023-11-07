@@ -5,7 +5,10 @@ class SP
 object SP {
   case object True extends SP
   case object False extends SP
-  case class Test(x: Var, ys: Map[Val, SP], default: SP) extends SP
+  case class Test(x: Var, ys: Map[Val, SP], default: SP) extends SP {
+    // Cache the hashcode
+    override val hashCode = x.hashCode + ys.hashCode + default.hashCode
+  }
 
   object Test {
     val cache = scala.collection.mutable.WeakHashMap.empty[Test, Test]
@@ -93,7 +96,10 @@ object SPP {
 
   case object Diag extends SPP
   case object False extends SPP
-  case class TestMut(x: Var, branches: Map[Val, Map[Val, SPP]], other: Map[Val, SPP], id: SPP) extends SPP
+  case class TestMut(x: Var, branches: Map[Val, Map[Val, SPP]], other: Map[Val, SPP], id: SPP) extends SPP {
+    // Cache the hashcode
+    override val hashCode = x.hashCode + branches.hashCode + other.hashCode + id.hashCode
+  }
   object TestMut {
     // FIXME: try the Java hashmap here, and use identity hash
     val cache = scala.collection.mutable.WeakHashMap.empty[TestMut, TestMut]
@@ -285,13 +291,33 @@ object SPP {
       case Diag => Map(v -> Diag)
     }
 
-  def union(x: SPP, y: SPP): SPP =
+  def logSummary(msg: String, spp1: SPP, spp2: SPP): Unit =
+    (spp1, spp2) match {
+      case (TestMut(xL, branchesL, mutsL, idL), TestMut(xR, branchesR, mutsR, idR)) =>
+        val ls = branchesL.size
+        val lls = branchesL.map { (_, a) => a.size }.sum
+        val rs = branchesR.size
+        val rrs = branchesR.map { (_, a) => a.size }.sum
+        val lm = mutsL.size
+        val rm = mutsR.size
+        val idls = if idL eq False then "F" else if idL eq Diag then "D" else "?"
+        val idrs = if idR eq False then "F" else if idR eq Diag then "D" else "?"
+        val isin = if (branchesR.size == 1) && !branchesL.contains(branchesR.head._1) && mutsR.size == 0 && idL == False && idR == False then "Y" else ""
+        println(s"$msg ($xL,$ls/$lls,$lm,$idls), ($xR,$rs/$rrs,$rm,$idrs) $isin")
+      case _ => ()
+    }
+
+  // def union(x: SPP, y: SPP): SPP =
+  lazy val union: (SPP, SPP) => SPP = memoize2 { (x, y) => unionPrim(x, y) }
+  def unionPrim(x: SPP, y: SPP): SPP =
     // logSPP(s"union($x, $y)")
     if x == y then return x
+
     (x, y) match {
       case (False, _) => y
       case (_, False) => x
       case (Diag, TestMut(x, branches, other, id)) =>
+        // println("union Diag")
         union(new TestMut(x, Map(), Map(), Diag), y)
       // var branches2 = branches.map { (v, muts) =>
       //   // Add Diag to the diagonal
@@ -306,18 +332,10 @@ object SPP {
       // TestMut(x, branches2, other, id2)
       case (TestMut(xL, branchesL, mutsL, idL), TestMut(xR, branchesR, mutsR, idR)) =>
         if xL == xR then
-          if mutsL.size == 0 && (idL eq False) && branchesR.size == 1 && !branchesL.contains(branchesR.head._1) && mutsR.size == 0 && (idR eq False) then return TestMut.mk(xL, branchesL.updated(branchesR.head._1, branchesR.head._2), mutsL, idL)
-          if branchesL.size == 0 && (idL eq False) && branchesR.size == 0 && mutsR.size == 1 && (idR eq False) && !mutsL.contains(mutsR.head._1) then return TestMut.mk(xL, branchesL, mutsL.updated(mutsR.head._1, mutsR.head._2), idL)
-          // val ls = branchesL.size
-          // val lls = branchesL.map { (_, a) => a.size }.sum
-          // val rs = branchesR.size
-          // val rrs = branchesR.map { (_, a) => a.size }.sum
-          // val lm = mutsL.size
-          // val rm = mutsR.size
-          // val idls = if idL eq False then "F" else if idL eq Diag then "D" else "?"
-          // val idrs = if idR eq False then "F" else if idR eq Diag then "D" else "?"
-          // val isin = if (branchesR.size == 1) && !branchesL.contains(branchesR.head._1) && mutsR.size == 0 && idL == False && idR == False then "Y" else ""
-          // println(s"union ($xL,$ls/$lls,$lm,$idls), ($xR,$rs/$rrs,$rm,$idrs) $isin")
+          if (idL eq False) && (idR eq False) then if mutsL.size == 0 && branchesR.size == 1 && !branchesL.contains(branchesR.head._1) && mutsR.size == 0 then return TestMut.mk(xL, branchesL.updated(branchesR.head._1, branchesR.head._2), mutsL, idL)
+          if (idL eq False) && (idR eq False) then if branchesL.size == 0 && branchesR.size == 0 && mutsR.size == 1 && !mutsL.contains(mutsR.head._1) then return TestMut.mk(xL, branchesL, mutsL.updated(mutsR.head._1, mutsR.head._2), idL)
+          // else return TestMut.mk(xL, branchesL, mutsL.updated(mutsR.head._1, union(mutsR.head._2, mutsL(mutsR.head._1))), idL)
+          // logSummary("union=", x, y)
           val branches = (branchesL.keySet ++ branchesR.keySet ++ mutsL.keySet ++ mutsR.keySet).map { v =>
             v -> unionMap(get(x, v), get(y, v))
           }.toMap
@@ -325,6 +343,7 @@ object SPP {
           val id = union(idL, idR)
           TestMut(xL, branches, muts, id)
         else if xL < xR then
+          // logSummary("union<", x, y)
           union(x, new TestMut(xL, Map(), Map(), y))
           // var branches = branchesL.map { (v, muts) => v -> (muts + (v -> union(muts.getOrElse(v, False), y))) }
           // for (v, spp) <- mutsL do if !branches.contains(v) then branches = branches.updated(v, Map(v -> union(spp, y)))
@@ -349,8 +368,8 @@ object SPP {
       else m(v) = spp
     m.toMap
 
-  def seq(x: SPP, y: SPP): SPP =
-    // logSPP(s"seq($x, $y)")
+  lazy val seq: (SPP, SPP) => SPP = memoize2 { (x, y) => seqPrim(x, y) }
+  def seqPrim(x: SPP, y: SPP): SPP =
     (x, y) match {
       case (False, _) => False
       case (_, False) => False
@@ -358,42 +377,7 @@ object SPP {
       case (_, Diag) => x
       case (TestMut(xL, branchesL, mutsL, idL), TestMut(xR, branchesR, mutsR, idR)) =>
         if xL == xR then
-          // There are a quite a few cases here:
-          // * The input packet can match one of the branches of the lhs
-          //    - If so, the output value might match one of the branches of the rhs
-          //    - Or not, and in that case goes to mutsR/idR
-          // * The input packet might not match one of the branches of the lhs.
-          //    If so, we go to mutsL/idL
-          //    - The value set by mutsL might match branchesR or not
-          //    - The idL continues through branchesR/mutsR/idR
-
-          // First, we look at branchesL
-          // val branchesA = branchesL.map { (v, muts) =>
-          //   v -> unionMaps(muts.map { (v2, spp) =>
-          //     (if branchesR.contains(v2) then branchesR(v2)
-          //      else if mutsR.contains(v2) then mutsR
-          //      else mutsR + (v2 -> idR)) .map { (v2, spp2) => v2 -> seq(spp, spp2) }
-          //   })
-          // }
-          // val branchesB = (mutsL.keySet -- branchesL.keySet).map { v =>
-          //   v -> unionMaps(mutsL.map { (v2, spp) =>
-          //     (if branchesR.contains(v2) then branchesR(v2)
-          //      else if mutsR.contains(v2) then mutsR
-          //      else mutsR + (v2 -> idR)) .map { (v2, spp2) => v2 -> seq(spp, spp2) }
-          //   })
-          // }
-          // // Second, we look at branchesR, which goes through idL
-          // // However, only packets that do not match branchesL nor mutsL go through idL
-          // val branchesC = ((branchesR -- branchesL.keySet) -- mutsL.keySet).map { (v, muts) =>
-          //   v -> unionMap(
-          //     branchesR(v).map { (v2, spp) => v2 -> seq(idL, spp) },
-          //     unionMaps(mutsL.map { (v2, spp) =>
-          //       (if branchesR.contains(v2) then branchesR(v2)
-          //        else if mutsR.contains(v2) then mutsR
-          //        else mutsR + (v2 -> idR)) .map { (v2, spp2) => v2 -> seq(spp, spp2) }
-          //     })
-          //   )
-          // }
+          // logSummary("seq=", x, y)
           val mutsA = unionMaps(mutsL.map { (v2, spp) =>
             get(y, v2).map { (v2, spp2) => v2 -> seq(spp, spp2) }
           })
@@ -403,21 +387,28 @@ object SPP {
           val mutsB = mutsR.map { (v2, spp) => v2 -> seq(idL, spp) }
           SPP.TestMut(xL, branches, unionMap(mutsA, mutsB), seq(idL, idR))
         else if xL < xR then
-          seq(x, new TestMut(xL, Map(), Map(), y))
-          // val branches2 = branchesL.map { (v, muts) =>
-          //   v -> muts.map { (v2, spp) => v2 -> seq(spp, y) }
-          // }
-          // val muts2 = mutsL.map { (v2, spp) => v2 -> seq(spp, y) }
-          // SPP.TestMut(xL, branches2, muts2, seq(idL, y))
-        else seq(new TestMut(xR, Map(), Map(), x), y)
-      // val branches2 = branchesR.map { (v, muts) =>
-      //   v -> muts.map { (v2, spp) => v2 -> seq(x, spp) }
-      // }
-      // val muts2 = mutsR.map { (v2, spp) => v2 -> seq(x, spp) }
-      // SPP.TestMut(xR, branches2, muts2, seq(x, idR))
+          // logSummary("seq<", x, y)
+          // seq(x, new TestMut(xL, Map(), Map(), y))
+          val mutsA = mutsL.map { (v2, spp) =>
+            v2 -> seq(spp, y)
+          }
+          val branches = (branchesL.keySet ++ mutsL.keySet).map { v =>
+            v -> unionMaps(get(x, v).map { (v2, spp) => Map(v2 -> seq(spp, y)) })
+          }.toMap
+          SPP.TestMut(xL, branches, mutsA, seq(idL, y))
+        else
+          // seq(new TestMut(xR, Map(), Map(), x), y)
+          val mutsB = mutsR.map { (v2, spp) => v2 -> seq(x, spp) }
+          // if branchesR.isEmpty && (idR eq False) then return SPP.TestMut(xR, branchesR, mutsB, idR)
+          // logSummary("seq>", x, y)
+          val branches = (branchesR.keySet ++ mutsR.keySet).map { v =>
+            v -> get(y, v).map { (v3, spp2) => v3 -> seq(x, spp2) }
+          }.toMap
+          SPP.TestMut(xR, branches, mutsB, seq(x, idR))
     }
 
-  def intersection(x: SPP, y: SPP): SPP =
+  lazy val intersection: (SPP, SPP) => SPP = memoize2 { (x, y) => intersectionPrim(x, y) }
+  def intersectionPrim(x: SPP, y: SPP): SPP =
     // logSPP(s"intersection($x, $y)")
     if x eq y then return x
     (x, y) match {
@@ -454,7 +445,8 @@ object SPP {
   def intersectionMap(xs: Map[Val, SPP], ys: Map[Val, SPP]): Map[Val, SPP] =
     (xs.keySet ++ ys.keySet).map { v => v -> intersection(xs.getOrElse(v, False), ys.getOrElse(v, False)) }.toMap
 
-  def difference(x: SPP, y: SPP): SPP =
+  lazy val difference: (SPP, SPP) => SPP = memoize2 { (x, y) => differencePrim(x, y) }
+  def differencePrim(x: SPP, y: SPP): SPP =
     // logSPP(s"difference($x, $y)")
     if x eq y then return False
     (x, y) match {

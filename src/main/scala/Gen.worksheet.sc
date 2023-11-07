@@ -1,15 +1,17 @@
 import nkpl._
 
+val n = 100
+
 class Tester(vals: Map[Var, Set[Val]], random: Boolean = false):
   val sortedVals = vals.toList.sortBy { (v, s) => v }
   val packets =
-    if false then (1 to 100).map { _ => randPacket() }.toSet
+    if false then (1 to n).map { _ => randPacket() }.toSet
     else genComb(vals.map { (v, s) => v -> (s ++ Set(-1)) }).toList
   val sps =
-    if random then (1 to 100).map { _ => randSP(sortedVals) }.toList.sortBy(sizeSP)
+    if random then (1 to n).map { _ => randSP(sortedVals) }.toList.sortBy(sizeSP)
     else genSP(sortedVals).toList.sortBy(sizeSP)
   val spps =
-    if random then (1 to 100).map { _ => randSPP(sortedVals) }.toList.sortBy(sizeSPP)
+    if random then (1 to n).map { _ => randSPP(sortedVals) }.toList.sortBy(sizeSPP)
     else genSPP(sortedVals).toList.sortBy(sizeSPP)
 
   def randPacket(): Map[Var, Val] =
