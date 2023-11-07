@@ -106,22 +106,22 @@ object Runner {
 
   import java.io.FileWriter
 
-  def runTopLevel(path: String) = {
+  def runTopLevel(path: String) =
+    clearCaches()
     println("Running " + path)
     val startTime = System.nanoTime()
     runFile(Map(), path)
     val endTime = System.nanoTime()
     val duration = (endTime - startTime) / 1_000_000_000.0
     val filename = path.split("/").last
-    val msg = s"Execution time of $filename: $duration s"
+    val msg = f"Execution time of $filename: ${duration}%.2f s \n"
     println(msg)
 
     // Append msg to benchresults.txt
     val fw = new FileWriter("benchresults/benchresults.txt", true) // true to append
     try {
-      fw.write(msg + "\n")
+      fw.write(msg)
     } finally {
       fw.close()
     }
-  }
 }

@@ -77,8 +77,13 @@ object Star {
 val Zero = Sum(Set())
 val One = Seq(List())
 
+var clearCachesFns = List[() => Unit]()
+def clearCaches(): Unit =
+  clearCachesFns.foreach { f => f() }
+
 def memoize[A, B](f: A => B): A => B =
   val cache = scala.collection.mutable.Map.empty[A, B]
+  clearCachesFns = (() => cache.clear()) :: clearCachesFns
   (a: A) => cache.getOrElseUpdate(a, f(a))
 
 // Memoizes functions that take more arguments.

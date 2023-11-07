@@ -19,4 +19,10 @@ Bisim.ε(y)
 Bisim.δ(x)
 // Map((@e=5∪(δ⋅@e=5)) -> TestMut(e,Map(5 -> Map(5 -> Diag)),Map(),False), (δ⋅@e=5) -> TestMut(e,Map(5 -> Map()),Map(),Diag), @e=5 -> TestMut(e,Map(5 -> Map()),Map(5 -> Diag),False))
 Bisim.δ(y)
-// Map((ε∪(@e=5⋅δ)) -> TestMut(e,Map(5 -> Map(5 -> Diag)),Map(),False), (@e=5⋅δ) -> TestMut(e,Map(5 -> Map()),Map(),Diag), ε -> TestMut(e,Map(5 -> Map()),Map(5 -> Diag),False)) 
+// Map((ε∪(@e=5⋅δ)) -> TestMut(e,Map(5 -> Map(5 -> Diag)),Map(),False), (@e=5⋅δ) -> TestMut(e,Map(5 -> Map()),Map(),Diag), ε -> TestMut(e,Map(5 -> Map()),Map(5 -> Diag),False))
+
+val m = scala.collection.mutable.Map.empty[String, Int]
+m("hi") = 4
+println(m)
+m.clear()
+println(m)

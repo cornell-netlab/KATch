@@ -8,7 +8,7 @@ object SP {
   case class Test(x: Var, ys: Map[Val, SP], default: SP) extends SP
 
   object Test {
-    private val cache = scala.collection.mutable.WeakHashMap.empty[Test, Test]
+    val cache = scala.collection.mutable.WeakHashMap.empty[Test, Test]
     def apply(x: Var, ys: Map[Val, SP], default: SP) =
       val ys2 = ys.filterNot { (v, y) => y eq default }
       if ys2.isEmpty then default
@@ -95,7 +95,8 @@ object SPP {
   case object False extends SPP
   case class TestMut(x: Var, branches: Map[Val, Map[Val, SPP]], other: Map[Val, SPP], id: SPP) extends SPP
   object TestMut {
-    private val cache = scala.collection.mutable.WeakHashMap.empty[TestMut, TestMut]
+    // FIXME: try the Java hashmap here, and use identity hash
+    val cache = scala.collection.mutable.WeakHashMap.empty[TestMut, TestMut]
     def apply(x: Var, branches: Map[Val, Map[Val, SPP]], other: Map[Val, SPP], id: SPP): SPP =
       // Remove redundant branches
       // A branch is redundant if sending the value to other/id would do the same thing
@@ -117,6 +118,9 @@ object SPP {
       val v = new TestMut(x, branches3, other2, id)
       // val v = new TestMut(x, branches, other, id)
       cache.getOrElseUpdate(v, v)
+    def mk(x: Var, branches: Map[Val, Map[Val, SPP]], other: Map[Val, SPP], id: SPP): SPP =
+      val v = new TestMut(x, branches, other, id)
+      cache.getOrElseUpdate(v, v)
   }
 
   // Semantics:
@@ -130,7 +134,7 @@ object SPP {
   // It is only used for testing / explanation purposes.
 
   def run1(p: Map[Var, Val], spp: SPP): Set[Map[Var, Val]] =
-    logSPP(s"run1($p, $spp)")
+    // logSPP(s"run1($p, $spp)")
     spp match {
       case Diag => Set(p)
       case False => Set()
@@ -157,7 +161,7 @@ object SPP {
 
   // Runs a symbolic packet through an SPP, and returns the symbolic packet that results.
   def run(sp: SP, spp: SPP): SP =
-    logSPP(s"run($sp, $spp)")
+    // logSPP(s"run($sp, $spp)")
     (sp, spp) match {
       case (SP.False, _) => SP.False
       case (_, False) => SP.False
@@ -243,7 +247,7 @@ object SPP {
   // Composes a test represented as a SP with a SPP.
   // We could implement this by converting the SP to a SPP and then composing the SPPs.
   def seqSP(sp: SP, spp: SPP): SPP =
-    logSPP(s"seqSP($sp, $spp)")
+    // logSPP(s"seqSP($sp, $spp)")
     (sp, spp) match {
       case (SP.False, _) => False
       case (SP.True, _) => spp
@@ -282,7 +286,7 @@ object SPP {
     }
 
   def union(x: SPP, y: SPP): SPP =
-    logSPP(s"union($x, $y)")
+    // logSPP(s"union($x, $y)")
     if x == y then return x
     (x, y) match {
       case (False, _) => y
@@ -302,6 +306,18 @@ object SPP {
       // TestMut(x, branches2, other, id2)
       case (TestMut(xL, branchesL, mutsL, idL), TestMut(xR, branchesR, mutsR, idR)) =>
         if xL == xR then
+          if mutsL.size == 0 && (idL eq False) && branchesR.size == 1 && !branchesL.contains(branchesR.head._1) && mutsR.size == 0 && (idR eq False) then return TestMut.mk(xL, branchesL.updated(branchesR.head._1, branchesR.head._2), mutsL, idL)
+          if branchesL.size == 0 && (idL eq False) && branchesR.size == 0 && mutsR.size == 1 && (idR eq False) && !mutsL.contains(mutsR.head._1) then return TestMut.mk(xL, branchesL, mutsL.updated(mutsR.head._1, mutsR.head._2), idL)
+          // val ls = branchesL.size
+          // val lls = branchesL.map { (_, a) => a.size }.sum
+          // val rs = branchesR.size
+          // val rrs = branchesR.map { (_, a) => a.size }.sum
+          // val lm = mutsL.size
+          // val rm = mutsR.size
+          // val idls = if idL eq False then "F" else if idL eq Diag then "D" else "?"
+          // val idrs = if idR eq False then "F" else if idR eq Diag then "D" else "?"
+          // val isin = if (branchesR.size == 1) && !branchesL.contains(branchesR.head._1) && mutsR.size == 0 && idL == False && idR == False then "Y" else ""
+          // println(s"union ($xL,$ls/$lls,$lm,$idls), ($xR,$rs/$rrs,$rm,$idrs) $isin")
           val branches = (branchesL.keySet ++ branchesR.keySet ++ mutsL.keySet ++ mutsR.keySet).map { v =>
             v -> unionMap(get(x, v), get(y, v))
           }.toMap
@@ -334,7 +350,7 @@ object SPP {
     m.toMap
 
   def seq(x: SPP, y: SPP): SPP =
-    logSPP(s"seq($x, $y)")
+    // logSPP(s"seq($x, $y)")
     (x, y) match {
       case (False, _) => False
       case (_, False) => False
@@ -402,7 +418,7 @@ object SPP {
     }
 
   def intersection(x: SPP, y: SPP): SPP =
-    logSPP(s"intersection($x, $y)")
+    // logSPP(s"intersection($x, $y)")
     if x eq y then return x
     (x, y) match {
       case (False, _) => False
@@ -439,7 +455,7 @@ object SPP {
     (xs.keySet ++ ys.keySet).map { v => v -> intersection(xs.getOrElse(v, False), ys.getOrElse(v, False)) }.toMap
 
   def difference(x: SPP, y: SPP): SPP =
-    logSPP(s"difference($x, $y)")
+    // logSPP(s"difference($x, $y)")
     if x eq y then return False
     (x, y) match {
       case (False, _) => False
@@ -462,7 +478,7 @@ object SPP {
     (xs.keySet ++ ys.keySet).map { v => v -> difference(xs.getOrElse(v, False), ys.getOrElse(v, False)) }.toMap
 
   def star(spp: SPP): SPP =
-    logSPP(s"star($spp)")
+    // logSPP(s"star($spp)")
     var x: SPP = False
     var y: SPP = Diag
     while (true) {
@@ -478,6 +494,6 @@ object SPP {
 
   // TODO: optimize this by not constructing intermediate SPPs
   def equivAt(sp: SP, x: SPP, y: SPP): Boolean =
-    logSPP(s"equivAt($sp, $x, $y)")
+    // logSPP(s"equivAt($sp, $x, $y)")
     equiv(seqSP(sp, x), seqSP(sp, y))
 }

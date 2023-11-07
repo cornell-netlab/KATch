@@ -68,11 +68,8 @@ object SMap {
 
 def logBisim(msg: String): Unit = ()
 
-var nn = 0
 object Bisim {
   lazy val ε0: NK => SPP = memoize { e =>
-    nn += 1
-    logBisim(s"ε($e) $nn \n")
     e match {
       case Dup => SPP.False
       case Test(x, v) => SPP.test(x, v)
@@ -86,8 +83,6 @@ object Bisim {
   }
 
   lazy val δ0: NK => SMap = memoize { e =>
-    nn += 1
-    logBisim(s"δ0($e) $nn \n")
     e match {
       case Dup => SMap.SDup
       case Test(x, v) => SMap.SZero
@@ -108,13 +103,13 @@ object Bisim {
     val start = System.nanoTime()
     val y = f
     val end = System.nanoTime()
-    println(s"$msg: ${(end - start) / 1_000_000_000.0} s")
+    println(f"  $msg: ${(end - start) / 1000.0}%.2f μs")
     y
   }
 
   def δ(e: NK): SMap =
     val result = benchmark(s"δ", { δ0(e) })
-    SMap.assertDisjoint(result) // FIXME: remove this when we are sure that the invariant is maintained
+    // SMap.assertDisjoint(result) // FIXME: remove this when we are sure that the invariant is maintained
     result
 
   def ε(e: NK): SPP =

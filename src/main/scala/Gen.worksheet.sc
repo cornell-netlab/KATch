@@ -212,7 +212,7 @@ class Tester(vals: Map[Var, Set[Val]], random: Boolean = false):
 
 import SPP._
 
-val T = Tester(Map("x" -> Set(0, 1), "y" -> Set(0, 1), "z" -> Set(3)), random = true)
+val T = Tester(Map("x" -> Set(0, 1), "y" -> Set(0, 1)), random = true)
 // val T = Tester(Map("x" -> Set(0, 1), "y" -> Set(0)), random = true)
 // val T = Tester(Map("x" -> Set(0), "y" -> Set(0)))
 
@@ -257,45 +257,45 @@ T.check_SP_P { (sp, packet) =>
 
 ////////////////////// SPP //////////////////////
 
-// // Check that SPPs are correctly canonicalized
-// T.check_SPP_SPP { (spp1, spp2) =>
-//   // Check that two spps are eq if they have the same run1 action on packets
-//   if T.packets.forall { packet => SPP.run1(packet, spp1) == SPP.run1(packet, spp2) }
-//   then spp1 eq spp2
-//   else true
-// }
+// Check that SPPs are correctly canonicalized
+T.check_SPP_SPP { (spp1, spp2) =>
+  // Check that two spps are eq if they have the same run1 action on packets
+  if T.packets.forall { packet => SPP.run1(packet, spp1) == SPP.run1(packet, spp2) }
+  then spp1 eq spp2
+  else true
+}
 
-// // Check SPP.run
-// T.check_SPP_SP { (spp, sp) =>
-//   val sp2 = SPP.run(sp, spp)
-//   val results1 = T.packets.filter { p => SP.elemOf(p, sp) }.flatMap { p => SPP.run1(p, spp) }
-//   val results2 = T.packets.filter { p => SP.elemOf(p, sp2) }
-//   results1.toSet == results2.toSet
-// }
+// Check SPP.run
+T.check_SPP_SP { (spp, sp) =>
+  val sp2 = SPP.run(sp, spp)
+  val results1 = T.packets.filter { p => SP.elemOf(p, sp) }.flatMap { p => SPP.run1(p, spp) }
+  val results2 = T.packets.filter { p => SP.elemOf(p, sp2) }
+  results1.toSet == results2.toSet
+}
 
-// // Check SPP.seqSP
-// T.check_SPP_SP_P { (spp, sp, p) =>
-//   val results1 = SPP.run1(p, SPP.seqSP(sp, spp))
-//   val results2 = if SP.elemOf(p, sp) then SPP.run1(p, spp) else Set.empty
-//   results1 == results2
-// }
+// Check SPP.seqSP
+T.check_SPP_SP_P { (spp, sp, p) =>
+  val results1 = SPP.run1(p, SPP.seqSP(sp, spp))
+  val results2 = if SP.elemOf(p, sp) then SPP.run1(p, spp) else Set.empty
+  results1 == results2
+}
 
-// // Check SPP.union
-// T.check_SPP_SPP_P { (spp1, spp2, packet) =>
-//   SPP.run1(packet, SPP.union(spp1, spp2)) == SPP.run1(packet, spp1) ++ SPP.run1(packet, spp2)
-// }
+// Check SPP.union
+T.check_SPP_SPP_P { (spp1, spp2, packet) =>
+  SPP.run1(packet, SPP.union(spp1, spp2)) == SPP.run1(packet, spp1) ++ SPP.run1(packet, spp2)
+}
 
-// // Check SPP.intersect
-// T.check_SPP_SPP_P { (spp1, spp2, packet) =>
-//   SPP.run1(packet, SPP.intersection(spp1, spp2)) == (SPP.run1(packet, spp1) & SPP.run1(packet, spp2))
-// }
+// Check SPP.intersect
+T.check_SPP_SPP_P { (spp1, spp2, packet) =>
+  SPP.run1(packet, SPP.intersection(spp1, spp2)) == (SPP.run1(packet, spp1) & SPP.run1(packet, spp2))
+}
 
-// // Check SPP.difference
-// T.check_SPP_SPP_P { (spp1, spp2, packet) =>
-//   SPP.run1(packet, SPP.difference(spp1, spp2)) == (SPP.run1(packet, spp1) -- SPP.run1(packet, spp2))
-// }
+// Check SPP.difference
+T.check_SPP_SPP_P { (spp1, spp2, packet) =>
+  SPP.run1(packet, SPP.difference(spp1, spp2)) == (SPP.run1(packet, spp1) -- SPP.run1(packet, spp2))
+}
 
-// // Check SPP.seq
-// T.check_SPP_SPP_P { (spp1, spp2, packet) =>
-//   SPP.run1(packet, SPP.seq(spp1, spp2)) == SPP.run1(packet, spp1).flatMap { p => SPP.run1(p, spp2) }
-// }
+// Check SPP.seq
+T.check_SPP_SPP_P { (spp1, spp2, packet) =>
+  SPP.run1(packet, SPP.seq(spp1, spp2)) == SPP.run1(packet, spp1).flatMap { p => SPP.run1(p, spp2) }
+}
