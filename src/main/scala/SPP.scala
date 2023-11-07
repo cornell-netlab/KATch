@@ -334,6 +334,7 @@ object SPP {
         if xL == xR then
           if (idL eq False) && (idR eq False) then if mutsL.size == 0 && branchesR.size == 1 && !branchesL.contains(branchesR.head._1) && mutsR.size == 0 then return TestMut.mk(xL, branchesL.updated(branchesR.head._1, branchesR.head._2), mutsL, idL)
           if (idL eq False) && (idR eq False) then if branchesL.size == 0 && branchesR.size == 0 && mutsR.size == 1 && !mutsL.contains(mutsR.head._1) then return TestMut.mk(xL, branchesL, mutsL.updated(mutsR.head._1, mutsR.head._2), idL)
+          if (idL eq False) && (idR eq False) then if branchesL.size == 0 && branchesR.size == 0 then return TestMut(xL, branchesL, unionMap(mutsL, mutsR), idL)
           // else return TestMut.mk(xL, branchesL, mutsL.updated(mutsR.head._1, union(mutsR.head._2, mutsL(mutsR.head._1))), idL)
           // logSummary("union=", x, y)
           val branches = (branchesL.keySet ++ branchesR.keySet ++ mutsL.keySet ++ mutsR.keySet).map { v =>

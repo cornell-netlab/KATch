@@ -117,14 +117,22 @@ object Bisim {
 
   def bisim(e1: NK, e2: NK): Boolean = {
     import scala.collection.mutable.Queue
-    val todo: Queue[(NK, SP, NK)] = Queue((e1, SP.True, e2)) // TODO: merge queue entries with identical NK's
+    var todo: Queue[(NK, SP, NK)] = Queue((e1, SP.True, e2))
+    def enq(a: NK, sp: SP, b: NK): Unit =
+      if sp eq SP.False then return
+      todo.enqueue((a, sp, b))
+    def deq() =
+      val (a, sp, b) = todo.head
+      val rest = todo.filter { (a2, sp2, b2) => a == a2 && b == b2 }
+      todo = todo.filterNot { (a2, sp2, b2) => a == a2 && b == b2 }
+      (a, SP.unionN(rest.map(_._2)), b)
     var done: Map[(NK, NK), SP] = Map()
     var i = 0
     val limit = 100000
     while (todo.nonEmpty && i < limit) {
       println(s"\u001B[34mIteration $i \u001B[0m")
       i += 1
-      val (e1, sp, e2) = todo.dequeue()
+      val (e1, sp, e2) = deq()
       // println(s"Testing equivalence of ($e1, $sp, $e2)")
       val done12 = done.getOrElse((e1, e2), SP.False)
       val spRest = SP.difference(sp, done12)
@@ -137,10 +145,8 @@ object Bisim {
         val cmp = SPP.equivAt(spRest, εe1, εe2)
         // println(s"SPP.equivAt($spRest, $εe1, $εe2) = $cmp")
         if !cmp then return false
-        def enq(a: NK, sp: SP, b: NK) =
-          if !(sp eq SP.False) then
-            todo.enqueue((a, sp, b))
-            // println(s"Enqueued ($a, $sp, $b)")
+
+        // println(s"Enqueued ($a, $sp, $b)")
         // Add all pairs to the queue
         // println("Adding all pairs to the queue")
         for (e1, spp1) <- δ(e1) do for (e2, spp2) <- δ(e2) do enq(e1, SPP.run(spRest, SPP.intersection(spp1, spp2)), e2)
