@@ -21,6 +21,7 @@ object SP {
   }
 
   def union(x: SP, y: SP): SP =
+    if x eq y then return x
     (x, y) match {
       case (False, _) => y
       case (True, _) => True
@@ -166,7 +167,8 @@ object SPP {
     // TestMut(x, Map(y -> Map(y -> Diag)), Map(y -> Diag), False)
 
   // Runs a symbolic packet through an SPP, and returns the symbolic packet that results.
-  def run(sp: SP, spp: SPP): SP =
+  lazy val run: (SP, SPP) => SP = memoize2 { (sp, spp) => runPrim(sp, spp) }
+  def runPrim(sp: SP, spp: SPP): SP =
     // logSPP(s"run($sp, $spp)")
     (sp, spp) match {
       case (SP.False, _) => SP.False
@@ -311,8 +313,7 @@ object SPP {
   lazy val union: (SPP, SPP) => SPP = memoize2 { (x, y) => unionPrim(x, y) }
   def unionPrim(x: SPP, y: SPP): SPP =
     // logSPP(s"union($x, $y)")
-    if x == y then return x
-
+    if x eq y then return x
     (x, y) match {
       case (False, _) => y
       case (_, False) => x
@@ -332,9 +333,12 @@ object SPP {
       // TestMut(x, branches2, other, id2)
       case (TestMut(xL, branchesL, mutsL, idL), TestMut(xR, branchesR, mutsR, idR)) =>
         if xL == xR then
-          if (idL eq False) && (idR eq False) then if mutsL.size == 0 && branchesR.size == 1 && !branchesL.contains(branchesR.head._1) && mutsR.size == 0 then return TestMut.mk(xL, branchesL.updated(branchesR.head._1, branchesR.head._2), mutsL, idL)
-          if (idL eq False) && (idR eq False) then if branchesL.size == 0 && branchesR.size == 0 && mutsR.size == 1 && !mutsL.contains(mutsR.head._1) then return TestMut.mk(xL, branchesL, mutsL.updated(mutsR.head._1, mutsR.head._2), idL)
-          if (idL eq False) && (idR eq False) then if branchesL.size == 0 && branchesR.size == 0 then return TestMut(xL, branchesL, unionMap(mutsL, mutsR), idL)
+          if (idL eq False) && (idR eq False) then
+            if branchesL.isEmpty && branchesR.isEmpty then
+              if mutsR.size == 1 && !mutsL.contains(mutsR.head._1) then return TestMut.mk(xL, branchesL, mutsL.updated(mutsR.head._1, mutsR.head._2), idL)
+              else return TestMut(xL, branchesL, unionMap(mutsL, mutsR), idL)
+            if mutsL.isEmpty && branchesR.size == 1 && !branchesL.contains(branchesR.head._1) && mutsR.size == 0 then return TestMut.mk(xL, branchesL.updated(branchesR.head._1, branchesR.head._2), mutsL, idL)
+
           // else return TestMut.mk(xL, branchesL, mutsL.updated(mutsR.head._1, union(mutsR.head._2, mutsL(mutsR.head._1))), idL)
           // logSummary("union=", x, y)
           val branches = (branchesL.keySet ++ branchesR.keySet ++ mutsL.keySet ++ mutsR.keySet).map { v =>
@@ -356,6 +360,7 @@ object SPP {
     }
 
   def unionMaps(xs: Iterable[Map[Val, SPP]]): Map[Val, SPP] =
+
     var m = scala.collection.mutable.Map[Val, SPP]()
     for x <- xs; (v, spp) <- x do
       if m.contains(v) then m(v) = union(m(v), spp)
@@ -363,11 +368,14 @@ object SPP {
     m.toMap
 
   def unionMap(xs: Map[Val, SPP], ys: Map[Val, SPP]): Map[Val, SPP] =
-    var m = scala.collection.mutable.Map.from(xs)
+    // if ys.isEmpty then return xs
+    // println(s"unionMap(${xs.size}, ${ys.size})")
+    // var m = scala.collection.mutable.Map.from(xs)
+    var m = xs
     for (v, spp) <- ys do
-      if m.contains(v) then m(v) = union(m(v), spp)
-      else m(v) = spp
-    m.toMap
+      if m.contains(v) then m = m.updated(v, union(m(v), spp))
+      else m = m.updated(v, spp)
+    m
 
   lazy val seq: (SPP, SPP) => SPP = memoize2 { (x, y) => seqPrim(x, y) }
   def seqPrim(x: SPP, y: SPP): SPP =
