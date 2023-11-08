@@ -1,6 +1,6 @@
 import nkpl._
 
-val n = 100
+val n = 200
 
 class Tester(vals: Map[Var, Set[Val]], random: Boolean = false):
   val sortedVals = vals.toList.sortBy { (v, s) => v }
@@ -215,6 +215,7 @@ class Tester(vals: Map[Var, Set[Val]], random: Boolean = false):
 import SPP._
 
 val T = Tester(Map("x" -> Set(0, 1), "y" -> Set(0, 1)), random = true)
+// val T = Tester(Map("x" -> Set(0, 1), "y" -> Set(0, 1), "z" -> Set(3, 5)), random = true)
 // val T = Tester(Map("x" -> Set(0, 1), "y" -> Set(0)), random = true)
 // val T = Tester(Map("x" -> Set(0), "y" -> Set(0)))
 

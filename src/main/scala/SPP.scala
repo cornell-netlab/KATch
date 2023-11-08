@@ -102,7 +102,7 @@ object SPP {
   }
   object TestMut {
     // FIXME: try the Java hashmap here, and use identity hash
-    val cache = scala.collection.mutable.WeakHashMap.empty[TestMut, TestMut]
+    val cache = scala.collection.mutable.HashMap.empty[TestMut, TestMut]
     def apply(x: Var, branches: Map[Val, Map[Val, SPP]], other: Map[Val, SPP], id: SPP): SPP =
       // Remove redundant branches
       // A branch is redundant if sending the value to other/id would do the same thing
@@ -378,6 +378,17 @@ object SPP {
       case (_, Diag) => x
       case (TestMut(xL, branchesL, mutsL, idL), TestMut(xR, branchesR, mutsR, idR)) =>
         if xL == xR then
+          if branchesL.isEmpty && (idL eq False) && (idR eq False) && mutsR.isEmpty && branchesR.size == 1 then
+            val (v, muts) = branchesR.head
+            val spp = mutsL.getOrElse(v, False)
+            return TestMut(xL, branchesL, muts.map { (v2, spp2) => v2 -> seq(spp, spp2) }, idR)
+          if mutsL.isEmpty && (idL eq False) && (idR eq False) && branchesL.size == 1 then
+            val (v, muts) = branchesL.head
+            if muts.size == 1 then
+              val (v2, spp) = muts.head
+              if branchesR.contains(v2) then return TestMut(xL, Map(v -> branchesR(v2)), mutsL, idL)
+              else return TestMut(xL, Map(v -> mutsR), mutsL, idL)
+
           // logSummary("seq=", x, y)
           val mutsA = unionMaps(mutsL.map { (v2, spp) =>
             get(y, v2).map { (v2, spp2) => v2 -> seq(spp, spp2) }
@@ -388,18 +399,21 @@ object SPP {
           val mutsB = mutsR.map { (v2, spp) => v2 -> seq(idL, spp) }
           SPP.TestMut(xL, branches, unionMap(mutsA, mutsB), seq(idL, idR))
         else if xL < xR then
-          // logSummary("seq<", x, y)
           // seq(x, new TestMut(xL, Map(), Map(), y))
+          if mutsL.isEmpty && (idL eq False) then return SPP.TestMut(xL, branchesL.map { (v, muts) => v -> muts.map { (v2, spp) => v2 -> seq(spp, y) } }, mutsL, idL)
           val mutsA = mutsL.map { (v2, spp) =>
             v2 -> seq(spp, y)
           }
+          if branchesL.isEmpty && (idL eq False) then return TestMut(xL, branchesL, mutsA, idL)
+          // logSummary("seq<", x, y)
           val branches = (branchesL.keySet ++ mutsL.keySet).map { v =>
             v -> unionMaps(get(x, v).map { (v2, spp) => Map(v2 -> seq(spp, y)) })
           }.toMap
           SPP.TestMut(xL, branches, mutsA, seq(idL, y))
         else
-          // seq(new TestMut(xR, Map(), Map(), x), y)
           val mutsB = mutsR.map { (v2, spp) => v2 -> seq(x, spp) }
+          if branchesR.isEmpty && (idR eq False) then return SPP.TestMut(xR, branchesR, mutsB, idR)
+          // seq(new TestMut(xR, Map(), Map(), x), y)
           // if branchesR.isEmpty && (idR eq False) then return SPP.TestMut(xR, branchesR, mutsB, idR)
           // logSummary("seq>", x, y)
           val branches = (branchesR.keySet ++ mutsR.keySet).map { v =>
