@@ -50,8 +50,22 @@ object SMap {
     for (e, spp) <- y do z = add(z, e, spp)
     z
 
-  def intersection(x: SMap, y: SMap): SMap = ???
-  def difference(x: SMap, y: SMap): SMap = ???
+  def intersection(x: SMap, y: SMap): SMap =
+    var s: SMap = Map()
+    for (e1, spp1) <- x do
+      for (e2, spp2) <- y do
+        val inter = SPP.intersection(spp1, spp2)
+        s = add(s, Intersection(e1, e2), inter)
+    s
+  def difference(x: SMap, y: SMap): SMap =
+    var s: SMap = Map()
+    for (e1, spp1) <- x do
+      for (e2, spp2) <- y do
+        val inter = SPP.intersection(spp1, spp2)
+        s = add(s, Difference(e1, e2), inter)
+    val all2 = y.map { (e, spp) => spp }.foldLeft(SPP.False: SPP)(SPP.union(_, _))
+    for (e, spp) <- x do s = add(s, e, SPP.difference(spp, all2))
+    s
   def xor(x: SMap, y: SMap): SMap = union(difference(x, y), difference(y, x))
 
   def seqNK(x: SMap, y: NK): SMap =

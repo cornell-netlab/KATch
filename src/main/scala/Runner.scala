@@ -66,10 +66,10 @@ object Runner {
         method match {
           case "forward" =>
             val result = Bisim.forward(v)
-            println(s"Forward: ${SP.pretty(result)}")
+            println(s"Forward at $path:${line + 1}: ${SP.pretty(result)}")
           case "backward" =>
             val result = Bisim.backward(v)
-            println(s"Backward: ${SP.pretty(result)}")
+            println(s"Backward at $path:${line + 1}: ${SP.pretty(result)}")
         }
         env
       case Stmt.Let(x, e) => env + (x -> eval(env, e))

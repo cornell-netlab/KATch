@@ -122,9 +122,7 @@ object Parser {
   }
 
   // Parses a run[method] e statement, where method is A-Za-z0-9_
-  def runStmt[$: P]: P[Stmt] = P("run[" ~ CharIn("a-zA-Z0-9_").rep(1).! ~ "]" ~ exprNK).map { case (method, e) =>
-    Stmt.Run(method, Expr.NKExpr(e))
-  }
+  def runStmt[$: P]: P[Stmt] = P("forward" ~ exprNK).map { e => Stmt.Run("forward", Expr.NKExpr(e)) } | P("backward" ~ exprNK).map { e => Stmt.Run("backward", Expr.NKExpr(e)) }
 
   // Parses a ValExpr
   def valExpr[$: P]: P[SVal] = P(integer.map(Left.apply) | varName.map(Right.apply))
