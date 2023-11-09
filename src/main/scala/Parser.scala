@@ -12,6 +12,9 @@ object Parser {
   case class Mut(x: Var, v: SVal) extends NK
   case class Seq(es: List[NK]) extends NK
   case class Sum(es: Set[NK]) extends NK
+  case class Difference(e1: NK, e2: NK) extends NK
+  case class Intersection(e1: NK, e2: NK) extends NK
+  case class XOR(e1: NK, e2: NK) extends NK
   case class Star(e: NK) extends NK
   case class VarName(x: String) extends NK
 
@@ -74,8 +77,20 @@ object Parser {
   // Parses an atomic expression possibly followed by one or more question marks
   def exprQ[$: P]: P[NK] = P(exprS ~ "?".!.rep).map { case (e, ss) => ss.foldLeft(e) { (e1, _) => e1 } }
 
+  def exprZ[$: P]: P[NK] = P(exprQ ~ (("⊕" | "^" | "∩" | "-" | "∖").! ~ exprZ).rep).map { (e1, es) =>
+    es.foldLeft(e1) { case (e1, (op, e2)) =>
+      op match
+        case "⊕" | "^" => XOR(e1, e2)
+        case "∩" => Intersection(e1, e2)
+        case "-" | "∖" => Difference(e1, e2)
+    }
+  }
+  //  ~ ("⊕" | "^") ~ exprQ).map { (e1, e2) => XOR(e1, e2) } |
+  // P(exprQ ~ "∩" ~ exprQ).map { (e1, e2) => Intersection(e1, e2) } |
+  // P(exprQ ~ ("-" | "∖") ~ exprQ).map { (e1, e2) => Difference(e1, e2) }
+
   // Parses a composition expression such as @dst←3 ⋅ @pt←0
-  def exprC[$: P]: P[NK] = P(exprQ.rep(1, sep = "⋅" | "∧").map(es => Seq(es.toList)))
+  def exprC[$: P]: P[NK] = P(exprZ.rep(1, sep = "⋅" | "∧").map(es => Seq(es.toList)))
 
   // Parses a union expression such as @dst←3 ∪ @dst←3 ⋅ @pt←0
   def exprU[$: P]: P[NK] = P(exprC.rep(1, sep = "∪" | "∨").map(es => Sum(es.toSet)))
@@ -89,6 +104,7 @@ object Parser {
 
   enum Stmt:
     case Check(op: String, e1: Expr, e2: Expr)
+    case Run(method: String, e: Expr)
     case Let(x: String, e: Expr)
     case Import(path: String)
 
@@ -103,6 +119,11 @@ object Parser {
   // Parses a check statement
   def checkStmt[$: P]: P[Stmt.Check] = P("check" ~ exprNK ~ ("≡" | "≢").! ~ exprNK).map { case (e1, op, e2) =>
     Stmt.Check(op, Expr.NKExpr(e1), Expr.NKExpr(e2))
+  }
+
+  // Parses a run[method] e statement, where method is A-Za-z0-9_
+  def runStmt[$: P]: P[Stmt] = P("run[" ~ CharIn("a-zA-Z0-9_").rep(1).! ~ "]" ~ exprNK).map { case (method, e) =>
+    Stmt.Run(method, Expr.NKExpr(e))
   }
 
   // Parses a ValExpr

@@ -50,6 +50,10 @@ object SMap {
     for (e, spp) <- y do z = add(z, e, spp)
     z
 
+  def intersection(x: SMap, y: SMap): SMap = ???
+  def difference(x: SMap, y: SMap): SMap = ???
+  def xor(x: SMap, y: SMap): SMap = union(difference(x, y), difference(y, x))
+
   def seqNK(x: SMap, y: NK): SMap =
     // We replace each mapping e -> spp with Seq(List(e, y)) -> spp
     // This can potentially cause merging of entries, e.g. if y is ∅
@@ -79,6 +83,9 @@ object Bisim {
         if es.contains(Dup) then SPP.False
         else es.foldLeft(SPP.Diag: SPP) { (a, b) => SPP.seq(a, ε0(b)) }
       case Sum(es) => es.foldLeft(SPP.False: SPP) { (a, b) => SPP.union(a, ε0(b)) }
+      case Difference(e1, e2) => SPP.difference(ε0(e1), ε0(e2))
+      case Intersection(e1, e2) => SPP.intersection(ε0(e1), ε0(e2))
+      case XOR(e1, e2) => SPP.xor(ε0(e1), ε0(e2))
       case Star(e) => SPP.star(ε0(e))
     }
   }
@@ -96,6 +103,9 @@ object Bisim {
             SMap.union(SMap.seqNK(δ0(e), Seq(es)), SMap.seqSPP(ε0(e), δ0(Seq(es))))
         }
       case Sum(es) => es.foldLeft(SMap.SZero) { (a, b) => SMap.union(a, δ0(b)) }
+      case Difference(e1, e2) => SMap.difference(δ0(e1), δ0(e2))
+      case Intersection(e1, e2) => SMap.intersection(δ0(e1), δ0(e2))
+      case XOR(e1, e2) => SMap.xor(δ0(e1), δ0(e2))
       case Star(e) => // δ0(e*) = ε(e)* δ0(e) e*
         SMap.seqNK(SMap.seqSPP(SPP.star(ε0(e)), δ0(e)), Star(e))
     }
@@ -164,4 +174,7 @@ object Bisim {
     if i == limit then throw new Throwable("Limit exceeded")
     true
   }
+
+  def forward(e: NK): SP = ???
+  def backward(e: NK): SP = ???
 }

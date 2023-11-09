@@ -20,6 +20,8 @@ object SP {
         cache.getOrElseUpdate(sp, sp)
   }
 
+  def pretty(sp: SP): String = sp.toString
+
   def union(x: SP, y: SP): SP =
     if x eq y then return x
     (x, y) match {

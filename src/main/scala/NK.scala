@@ -26,6 +26,15 @@ case class Sum(es: Set[NK]) extends NK {
     if es.isEmpty then "∅"
     else "(" + es.mkString("∪") + ")"
 }
+case class Difference(e1: NK, e2: NK) extends NK {
+  override def toString: String = s"(($e1)∖($e2))"
+}
+case class Intersection(e1: NK, e2: NK) extends NK {
+  override def toString: String = s"(($e1)∩($e2))"
+}
+case class XOR(e1: NK, e2: NK) extends NK {
+  override def toString: String = s"(($e1)⊕($e2))"
+}
 case class Star(e: NK) extends NK {
   override def toString: String = s"(${e})⋆"
 }

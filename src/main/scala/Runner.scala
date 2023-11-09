@@ -13,6 +13,9 @@ object Runner {
       case Parser.Mut(x, v) => Mut(x, evalVal(env, v))
       case Parser.Seq(es) => Seq(es.map(evalNK(env, _)))
       case Parser.Sum(es) => Sum(es.map(evalNK(env, _)))
+      case Parser.Intersection(e1, e2) => Intersection(evalNK(env, e1), evalNK(env, e2))
+      case Parser.Difference(e1, e2) => Difference(evalNK(env, e1), evalNK(env, e2))
+      case Parser.XOR(e1, e2) => XOR(evalNK(env, e1), evalNK(env, e2))
       case Parser.Star(e) => Star(evalNK(env, e))
       case Parser.VarName(x) =>
         if !env.contains(x) then throw new Throwable(s"Variable $x not found in $env\n")
@@ -40,13 +43,13 @@ object Runner {
     }
 
   def runStmt(env: Env, stmt: Parser.Stmt, path: String, line: Int): Env =
+    def assertNK(e: Parser.Expr): NK =
+      e match {
+        case Parser.Expr.NKExpr(e) => evalNK(env, e)
+        case Parser.Expr.ValExpr(v) => throw new Throwable(s"Expected a netkat expression, but got a value: $v\n")
+      }
     stmt match {
       case Stmt.Check(op, e1, e2) => {
-        def assertNK(e: Parser.Expr): NK =
-          e match {
-            case Parser.Expr.NKExpr(e) => evalNK(env, e)
-            case Parser.Expr.ValExpr(v) => throw new Throwable(s"Expected a netkat expression, but got a value: $v\n")
-          }
         val v1 = assertNK(e1)
         val v2 = assertNK(e2)
         val result = Bisim.bisim(v1, v2)
@@ -58,6 +61,17 @@ object Runner {
         }
         env
       }
+      case Stmt.Run(method, e) =>
+        val v = assertNK(e)
+        method match {
+          case "forward" =>
+            val result = Bisim.forward(v)
+            println(s"Forward: ${SP.pretty(result)}")
+          case "backward" =>
+            val result = Bisim.backward(v)
+            println(s"Backward: ${SP.pretty(result)}")
+        }
+        env
       case Stmt.Let(x, e) => env + (x -> eval(env, e))
       case Stmt.Import(path2) =>
         // Here path2 is relative to path
