@@ -46,7 +46,7 @@ object Parser {
   def field[$: P]: P[String] = P("@" ~~ CharIn("a-zA-Z").rep(1).!).map { case x => varSubsts.getOrElse(x, x) }
 
   // Parse a test such as @dst=3?
-  def test[$: P]: P[NK] = P(field ~ "=" ~ value).map { case (x, v) => Test(x, v) } | P(field ~ "≠" ~ value).map { case (x, v) => TestNE(x, v) }
+  def test[$: P]: P[NK] = P(field ~ "=" ~ value ~ "?".rep).map { case (x, v) => Test(x, v) } | P(field ~ "≠" ~ value ~ "?".rep).map { case (x, v) => TestNE(x, v) }
 
   // Parse a mut such as @dst←3
   def mut[$: P]: P[NK] = P(field ~ "←" ~ value).map { case (x, v) => Mut(x, v) }

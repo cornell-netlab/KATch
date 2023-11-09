@@ -27,7 +27,7 @@ case class Sum(es: Set[NK]) extends NK {
     else "(" + es.mkString("∪") + ")"
 }
 case class Star(e: NK) extends NK {
-  override def toString: String = s"${e}⋆"
+  override def toString: String = s"(${e})⋆"
 }
 case class VarName(x: String) extends NK
 

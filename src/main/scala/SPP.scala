@@ -169,6 +169,27 @@ object SPP {
     TestMut(x, Map(), Map(y -> Diag), False)
     // TestMut(x, Map(y -> Map(y -> Diag)), Map(y -> Diag), False)
 
+  def logSummarySP(msg: String, sp: SP, spp: SPP): Unit =
+    val spstr = sp match {
+      case SP.False => "F"
+      case SP.True => "T"
+      case SP.Test(x, ys, default) =>
+        val ls = ys.size
+        val lm = if default eq SP.False then "F" else if default eq SP.True then "T" else "?"
+        s"($x,$ls,$lm)"
+    }
+    val sppstr = spp match {
+      case Diag => "D"
+      case False => "F"
+      case TestMut(x, branches, other, id) =>
+        val ls = branches.size
+        val lls = branches.map { (_, a) => a.size }.sum
+        val lm = other.size
+        val idls = if id eq False then "F" else if id eq Diag then "D" else "?"
+        s"($x,$ls/$lls,$lm,$idls)"
+    }
+    println(s"$msg $spstr, $sppstr")
+
   // Runs a symbolic packet through an SPP, and returns the symbolic packet that results.
   lazy val run: (SP, SPP) => SP = memoize2 { (sp, spp) => runPrim(sp, spp) }
   def runPrim(sp: SP, spp: SPP): SP =
@@ -178,6 +199,7 @@ object SPP {
       case (_, False) => SP.False
       case (_, Diag) => sp
       case (SP.True, TestMut(x, branches, other, id)) =>
+        // logSummarySP("run/True", sp, spp)
         // Since the packet can contain anything, we need to nondeterministically
         // go down all branches. It can also contain a value not in branches.keySet,
         // so we need to go down the other branch as well, and we need to go down id.
@@ -194,6 +216,7 @@ object SPP {
         SP.Test(x, branchesC.toMap, run(SP.True, id))
       case (SP.Test(x, ys, default), TestMut(x2, branches, other, id)) =>
         if x == x2 then
+          // logSummarySP("run/=", sp, spp)
           // We must correlate the values in ys with the values in branches.
           // If a value is in both ys and branches, then we must go down the branch.
           // If a value is in ys but not in branches, then we must go down the other/id branch.
@@ -216,11 +239,13 @@ object SPP {
           val branchesC = SP.Test(x, ys.map { (v, _) => v -> SP.False } ++ branches.map { (v, _) => v -> SP.False } ++ other.map { (v, spp) => v -> run(default, spp) }, run(default, id))
           SP.union(branchesA, SP.union(branchesB, branchesC))
         else if x < x2 then
+          // logSummarySP("run/<", sp, spp)
           // Here we need to nest the test for x2 inside the test for x:
           // SP.Test(x, ... SP.Test(x2, ...) ...)
           // This is like the equality case, but with empty branches and other, and id=spp
           SP.Test(x, ys.map { (v, sp2) => v -> run(sp2, spp) }, run(default, spp))
         else
+          // logSummarySP("run/>", sp, spp)
           // Here we need to nest the test for x inside the test for x2:
           // SP.Test(x2, ... SP.Test(x, ...) ...)
           // But the input packet doesn't test x at all.
@@ -389,16 +414,17 @@ object SPP {
       case (_, Diag) => x
       case (TestMut(xL, branchesL, mutsL, idL), TestMut(xR, branchesR, mutsR, idR)) =>
         if xL == xR then
-          if branchesL.isEmpty && (idL eq False) && (idR eq False) && mutsR.isEmpty && branchesR.size == 1 then
-            val (v, muts) = branchesR.head
-            val spp = mutsL.getOrElse(v, False)
-            return TestMut(xL, branchesL, muts.map { (v2, spp2) => v2 -> seq(spp, spp2) }, idR)
-          if mutsL.isEmpty && (idL eq False) && (idR eq False) && branchesL.size == 1 then
-            val (v, muts) = branchesL.head
-            if muts.size == 1 then
-              val (v2, spp) = muts.head
-              if branchesR.contains(v2) then return TestMut(xL, Map(v -> branchesR(v2)), mutsL, idL)
-              else return TestMut(xL, Map(v -> mutsR), mutsL, idL)
+          // FIXME: the following fastpath is buggy. Doesn't matter much for speed anyway.
+          // if branchesL.isEmpty && (idL eq False) && (idR eq False) && mutsR.isEmpty && branchesR.size == 1 then
+          //   val (v, muts) = branchesR.head
+          //   val spp = mutsL.getOrElse(v, False)
+          //   return TestMut(xL, branchesL, muts.map { (v2, spp2) => v2 -> seq(spp, spp2) }, idR)
+          // if mutsL.isEmpty && (idL eq False) && (idR eq False) && branchesL.size == 1 then
+          //   val (v, muts) = branchesL.head
+          //   if muts.size == 1 then
+          //     val (v2, spp) = muts.head
+          //     if branchesR.contains(v2) then return TestMut(xL, Map(v -> branchesR(v2)), mutsL, idL)
+          //     else return TestMut(xL, Map(v -> mutsR), mutsL, idL)
 
           // logSummary("seq=", x, y)
           val mutsA = unionMaps(mutsL.map { (v2, spp) =>
