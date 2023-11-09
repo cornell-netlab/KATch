@@ -189,6 +189,73 @@ object Bisim {
     true
   }
 
-  def forward(e: NK): SP = ???
-  def backward(e: NK): SP = ???
+  def forward(e: NK): SP =
+    import scala.collection.mutable.Queue
+    var todo: Queue[(NK, SP)] = Queue((e, SP.True))
+    def enq(a: NK, sp: SP): Unit =
+      if sp eq SP.False then return
+      todo.enqueue((a, sp))
+    def deq() =
+      val (a, sp) = todo.head
+      val rest = todo.filter { (a2, sp2) => a == a2 }
+      todo = todo.filterNot { (a2, sp2) => a == a2 }
+      (a, SP.unionN(rest.map(_._2)))
+    var done: Map[NK, SP] = Map()
+    var i = 0
+    val limit = 100000
+    while (todo.nonEmpty && i < limit) {
+      println(s"\u001B[34mIteration $i \u001B[0m")
+      i += 1
+      val (e, sp) = deq()
+      val done1 = done.getOrElse(e, SP.False)
+      val spRest = SP.difference(sp, done1)
+      if !(spRest eq SP.False) then
+        done = done.updated(e, SP.union(done1, spRest))
+        for (e, spp) <- δ(e) do enq(e, SPP.run(spRest, spp))
+    }
+    SP.unionN(done.values)
+
+  def revTrans(e: NK): Map[NK, Map[NK, SPP]] =
+    // find the set of reverse transitions in the automaton
+    var states = Set[NK]()
+    var todo = Set(e)
+    var trans = Map[NK, SMap]()
+    while (todo.nonEmpty) {
+      val e = todo.head
+      todo = todo - e
+      states = states + e
+      for (e2, spp) <- δ(e) do
+        todo = todo + e2
+        // add transition e2 --spp--> e to `trans`
+        trans = trans.updated(e2, trans.getOrElse(e2, Map()) + (e -> spp))
+    }
+    trans
+
+  def backward(e: NK): SP =
+    import scala.collection.mutable.Queue
+    // first, we find all the reverse transitions in the automaton
+    val T = revTrans(e)
+    var todo: Queue[(NK, SP)] = Queue(T.keys.map(e => (e, SPP.pull(ε(e), SP.True))).toSeq: _*)
+    def enq(a: NK, sp: SP): Unit =
+      if sp eq SP.False then return
+      todo.enqueue((a, sp))
+    def deq() =
+      val (a, sp) = todo.head
+      val rest = todo.filter { (a2, sp2) => a == a2 }
+      todo = todo.filterNot { (a2, sp2) => a == a2 }
+      (a, SP.unionN(rest.map(_._2)))
+    var done: Map[NK, SP] = Map()
+    var i = 0
+    val limit = 100000
+    while (todo.nonEmpty && i < limit) {
+      println(s"\u001B[34mIteration $i \u001B[0m")
+      i += 1
+      val (e, sp) = deq()
+      val done1 = done.getOrElse(e, SP.False)
+      val spRest = SP.difference(sp, done1)
+      if !(spRest eq SP.False) then
+        done = done.updated(e, SP.union(done1, spRest))
+        for (e2, spp) <- T(e) do enq(e2, SPP.run(spRest, spp))
+    }
+    done(e)
 }

@@ -1,6 +1,6 @@
 import nkpl._
 
-val n = 200
+val n = 100
 
 class Tester(vals: Map[Var, Set[Val]], random: Boolean = false):
   val sortedVals = vals.toList.sortBy { (v, s) => v }
@@ -272,6 +272,14 @@ T.check_SPP_SPP { (spp1, spp2) =>
 T.check_SPP_SP { (spp, sp) =>
   val sp2 = SPP.run(sp, spp)
   val results1 = T.packets.filter { p => SP.elemOf(p, sp) }.flatMap { p => SPP.run1(p, spp) }
+  val results2 = T.packets.filter { p => SP.elemOf(p, sp2) }
+  results1.toSet == results2.toSet
+}
+
+// Check SPP.pull
+T.check_SPP_SP { (spp, sp) =>
+  val sp2 = SPP.pull(spp, sp)
+  val results1 = T.packets.filter { p => SPP.run1(p, spp).exists(q => SP.elemOf(q, sp)) }
   val results2 = T.packets.filter { p => SP.elemOf(p, sp2) }
   results1.toSet == results2.toSet
 }

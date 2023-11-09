@@ -118,14 +118,11 @@ object SPP {
       for (v, spp) <- other do if (spp eq False) && !branches2.contains(v) then branches2 = branches2.updated(v, Map())
       val other2 = other.filterNot { (v, spp) => spp eq False }
 
-      // for (v, spp) <- other do if (spp eq False) || branches2.contains(v) then branches2 = branches2.updated(v, Map())
-      // val other2 = other.filterNot { (v, spp) => spp eq False } // FIXME: is this correct?
       val branches3 = branches2.filter { (v, muts) =>
         muts != (if other2.contains(v) || (id eq False) then other2 else other2 + (v -> id))
       }
       if branches3.isEmpty && other2.isEmpty then return id
       val v = new TestMut(x, branches3, other2, id)
-      // val v = new TestMut(x, branches, other, id)
       cache.getOrElseUpdate(v, v)
     def mk(x: Var, branches: Map[Val, Map[Val, SPP]], other: Map[Val, SPP], id: SPP): SPP =
       val v = new TestMut(x, branches, other, id)
@@ -259,6 +256,20 @@ object SPP {
           val branchesC = SP.Test(x2, branches.map { (v, _) => v -> SP.False } ++ other.map { (v, spp) => v -> run(sp, spp) }, run(sp, id))
           SP.union(branchesB, branchesC)
     }
+
+  // Runs a symbolic packet through an SPP backward, and returns the symbolic input packet that results.
+  // We want all input packets that can result in the given output packet being produced.
+  lazy val pull: (SPP, SP) => SP = memoize2 { (spp, sp) => pullPrim(spp, sp) }
+  def pullPrim(spp: SPP, sp: SP): SP =
+    (spp, sp) match
+      case (_, SP.False) => SP.False
+      case (False, _) => SP.False
+      case (Diag, _) => sp
+      case (TestMut(x, branches, muts, id), SP.True) => pull(spp, new SP.Test(x, Map(), SP.True))
+      case (TestMut(x, branches, muts, id), SP.Test(y, branchesR, default)) =>
+        if x == y then ???
+        else if x < y then pull(spp, new SP.Test(y, Map(), sp))
+        else pull(new TestMut(y, Map(), Map(), spp), sp)
 
   def unionMapsSP(xs: Iterable[Map[Val, SP]]): Map[Val, SP] =
     var m = scala.collection.mutable.Map[Val, SP]()
@@ -526,15 +537,24 @@ object SPP {
   def xor(x: SPP, y: SPP): SPP =
     union(difference(x, y), difference(y, x)) // FIXME: optimize this
 
+  // def star(spp: SPP): SPP =
+  //   // logSPP(s"star($spp)")
+  //   var x: SPP = False
+  //   var y: SPP = Diag
+  //   while (true) {
+  //     val xnew = union(x, y)
+  //     if x eq xnew then return x
+  //     x = xnew
+  //     y = seq(y, spp)
+  //   }
+  //   return x // dummy to make compiler happy
+
   def star(spp: SPP): SPP =
-    // logSPP(s"star($spp)")
-    var x: SPP = False
-    var y: SPP = Diag
+    var x = union(spp, Diag)
     while (true) {
-      val xnew = union(x, y)
+      val xnew = seq(x, x)
       if x eq xnew then return x
-      x = xnew
-      y = seq(y, spp)
+      else x = xnew
     }
     return x // dummy to make compiler happy
 
