@@ -67,7 +67,7 @@ object Parser {
   def exprC[$: P]: P[NK] = P(exprQ.rep(1, sep = "⋅" | "∧").map(es => Seq(es.toList)))
 
   // Parses a union expression such as @dst←3 ∪ @dst←3 ⋅ @pt←0
-  def exprU[$: P]: P[NK] = P(exprC.rep(1, sep = "∪").map(es => Sum(es.toSet)))
+  def exprU[$: P]: P[NK] = P(exprC.rep(1, sep = "∪" | "∨").map(es => Sum(es.toSet)))
 
   // Parses a netkat expression
   def exprNK[$: P]: P[NK] = P(exprU)

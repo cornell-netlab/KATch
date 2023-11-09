@@ -14,10 +14,10 @@ def findFiles(startDir: Path, extension: String): List[Path] = {
 
 @main def hello: Unit =
   val directories = List(
-    "benchmarks/tiny",
-    "benchmarks/small",
-    "benchmarks/medium",
-    "benchmarks/large",
+    // "benchmarks/tiny",
+    // "benchmarks/small",
+    // "benchmarks/medium",
+    // "benchmarks/large",
     "nkpl"
   )
   val nkplFiles = directories.flatMap(dir => findFiles(Paths.get(dir), ".nkpl")).sortBy(_.getFileName.toString)
