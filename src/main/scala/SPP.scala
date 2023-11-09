@@ -257,19 +257,45 @@ object SPP {
           SP.union(branchesB, branchesC)
     }
 
+  def fromSP(sp: SP): SPP =
+    sp match {
+      case SP.False => False
+      case SP.True => Diag
+      case SP.Test(x, ys, default) =>
+        TestMut(x, ys.map { (v, sp) => v -> Map(v -> fromSP(sp)) }, Map(), fromSP(default))
+    }
+
+  def toSPforward(spp: SPP): SP =
+    ??? // TODO: we already have SPP.run, but we could also implement it via this.
+
+  def toSPbackward(spp: SPP): SP =
+    spp match {
+      case False => SP.False
+      case Diag => SP.True
+      case TestMut(x, branches, other, id) =>
+        val ys1 = branches.map { (v, muts) => v -> SP.unionN(muts.map((_, spp) => toSPbackward(spp))) }
+        val y = SP.unionN(other.map((_, spp) => toSPbackward(spp)))
+        val ys2 = (other -- branches.keySet).map { (v, _) => v -> y }
+        val default = SP.union(y, toSPbackward(id))
+        SP.Test(x, ys1 ++ ys2, default)
+    }
+
   // Runs a symbolic packet through an SPP backward, and returns the symbolic input packet that results.
   // We want all input packets that can result in the given output packet being produced.
   lazy val pull: (SPP, SP) => SP = memoize2 { (spp, sp) => pullPrim(spp, sp) }
   def pullPrim(spp: SPP, sp: SP): SP =
-    (spp, sp) match
-      case (_, SP.False) => SP.False
-      case (False, _) => SP.False
-      case (Diag, _) => sp
-      case (TestMut(x, branches, muts, id), SP.True) => pull(spp, new SP.Test(x, Map(), SP.True))
-      case (TestMut(x, branches, muts, id), SP.Test(y, branchesR, default)) =>
-        if x == y then ???
-        else if x < y then pull(spp, new SP.Test(y, Map(), sp))
-        else pull(new TestMut(y, Map(), Map(), spp), sp)
+    toSPbackward(seq(spp, fromSP(sp)))
+    // (spp, sp) match
+    //   case (_, SP.False) => SP.False
+    //   case (False, _) => SP.False
+    //   case (Diag, _) => sp
+    //   case (TestMut(x, branches, muts, id), SP.True) => pull(spp, new SP.Test(x, Map(), SP.True))
+    //   case (TestMut(x, branches, muts, id), SP.Test(y, branchesR, default)) =>
+    //     if x == y then
+    //       ???
+    //       ???
+    //     else if x < y then pull(spp, new SP.Test(y, Map(), sp))
+    //     else pull(new TestMut(y, Map(), Map(), spp), sp)
 
   def unionMapsSP(xs: Iterable[Map[Val, SP]]): Map[Val, SP] =
     var m = scala.collection.mutable.Map[Val, SP]()
