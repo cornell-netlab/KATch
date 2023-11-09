@@ -10,6 +10,9 @@ case object Dup extends NK {
 case class Test(x: Var, v: Val) extends NK {
   override def toString: String = s"@$x=$v"
 }
+case class TestNE(x: Var, v: Val) extends NK {
+  override def toString: String = s"@$x≠$v"
+}
 case class Mut(x: Var, v: Val) extends NK {
   override def toString: String = s"@$x←$v"
 }
@@ -65,9 +68,9 @@ object Star {
   private val cache = scala.collection.mutable.WeakHashMap.empty[Star, Star]
   def apply(e: NK): NK =
     e match {
-      case Sum(es) if es.isEmpty => Sum(Set())
-      case Seq(es) if es.isEmpty => Sum(Set())
-      case Star(e) => e
+      case Sum(es) if es.isEmpty => Seq(List())
+      case Seq(es) if es.isEmpty => Seq(List())
+      case Star(_) => e
       case _ =>
         val w = new Star(e)
         cache.getOrElseUpdate(w, w)

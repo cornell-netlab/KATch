@@ -8,11 +8,20 @@ object Parser {
   class NK
   case object Dup extends NK
   case class Test(x: Var, v: SVal) extends NK
+  case class TestNE(x: Var, v: SVal) extends NK
   case class Mut(x: Var, v: SVal) extends NK
   case class Seq(es: List[NK]) extends NK
   case class Sum(es: Set[NK]) extends NK
   case class Star(e: NK) extends NK
   case class VarName(x: String) extends NK
+
+  def negate(e: NK): NK =
+    e match
+      case Test(x, v) => TestNE(x, v)
+      case TestNE(x, v) => Test(x, v)
+      case Seq(es) => Sum(es.map(negate).toSet)
+      case Sum(es) => Seq(es.map(negate).toList)
+      case _ => throw new Throwable(s"Cannot negate $e")
 
   // First, let's define what a 'digit' is in our language
   def digit[$: P]: P[Unit] = P(CharIn("0-9"))
@@ -37,16 +46,16 @@ object Parser {
   def field[$: P]: P[String] = P("@" ~~ CharIn("a-zA-Z").rep(1).!).map { case x => varSubsts.getOrElse(x, x) }
 
   // Parse a test such as @dst=3?
-  def test[$: P]: P[NK] = P(field ~ "=" ~ value).map { case (x, v) => Test(x, v) }
+  def test[$: P]: P[NK] = P(field ~ "=" ~ value).map { case (x, v) => Test(x, v) } | P(field ~ "≠" ~ value).map { case (x, v) => TestNE(x, v) }
 
   // Parse a mut such as @dst←3
   def mut[$: P]: P[NK] = P(field ~ "←" ~ value).map { case (x, v) => Mut(x, v) }
 
   // Parses ε
-  def one[$: P]: P[NK] = P("ε").map(_ => Seq(List()))
+  def one[$: P]: P[NK] = P("ε" | "⊤").map(_ => Seq(List()))
 
   // Parses empty ∅
-  def empty[$: P]: P[NK] = P("∅").map(_ => Sum(Set()))
+  def empty[$: P]: P[NK] = P("∅" | "⊥").map(_ => Sum(Set()))
 
   // Parses dup δ
   def dup[$: P]: P[NK] = P("δ").map(_ => Dup)
@@ -57,8 +66,10 @@ object Parser {
   // Parses an atomic expression, such as a test, a mut, or a parenthesised expression
   def exprA[$: P]: P[NK] = P(varName.map(VarName.apply) | empty | one | dup | test | mut | "(" ~/ exprNK ~ ")")
 
+  def exprN[$: P]: P[NK] = P("¬".!.rep ~ exprA).map { case (ss, e) => ss.foldLeft(e) { (e1, _) => negate(e1) } }
+
   // Parses an atomic expression possibly followed by one or more stars
-  def exprS[$: P]: P[NK] = P(exprA ~ "⋆".!.rep).map { case (e, ss) => ss.foldLeft(e) { (e1, _) => Star(e1) } }
+  def exprS[$: P]: P[NK] = P(exprN ~ "⋆".!.rep).map { case (e, ss) => ss.foldLeft(e) { (e1, _) => Star(e1) } }
 
   // Parses an atomic expression possibly followed by one or more question marks
   def exprQ[$: P]: P[NK] = P(exprS ~ "?".!.rep).map { case (e, ss) => ss.foldLeft(e) { (e1, _) => e1 } }

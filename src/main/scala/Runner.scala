@@ -9,6 +9,7 @@ object Runner {
     v match {
       case Parser.Dup => Dup
       case Parser.Test(x, v) => Test(x, evalVal(env, v))
+      case Parser.TestNE(x, v) => TestNE(x, evalVal(env, v))
       case Parser.Mut(x, v) => Mut(x, evalVal(env, v))
       case Parser.Seq(es) => Seq(es.map(evalNK(env, _)))
       case Parser.Sum(es) => Sum(es.map(evalNK(env, _)))

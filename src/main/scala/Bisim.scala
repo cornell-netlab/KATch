@@ -73,6 +73,7 @@ object Bisim {
     e match {
       case Dup => SPP.False
       case Test(x, v) => SPP.test(x, v)
+      case TestNE(x, v) => SPP.testNE(x, v)
       case Mut(x, v) => SPP.mut(x, v)
       case Seq(es) =>
         if es.contains(Dup) then SPP.False
@@ -86,6 +87,7 @@ object Bisim {
     e match {
       case Dup => SMap.SDup
       case Test(x, v) => SMap.SZero
+      case TestNE(x, v) => SMap.SZero
       case Mut(x, v) => SMap.SZero
       case Seq(es) =>
         es match {

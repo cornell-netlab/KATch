@@ -162,6 +162,9 @@ object SPP {
   def test(x: Var, y: Val): SPP =
     TestMut(x, Map(y -> Map(y -> Diag)), Map(), False)
 
+  def testNE(x: Var, y: Val): SPP =
+    TestMut(x, Map(y -> Map()), Map(), Diag)
+
   def mut(x: Var, y: Val): SPP =
     TestMut(x, Map(), Map(y -> Diag), False)
     // TestMut(x, Map(y -> Map(y -> Diag)), Map(y -> Diag), False)
@@ -491,6 +494,9 @@ object SPP {
 
   def differenceMap(xs: Map[Val, SPP], ys: Map[Val, SPP]): Map[Val, SPP] =
     (xs.keySet ++ ys.keySet).map { v => v -> difference(xs.getOrElse(v, False), ys.getOrElse(v, False)) }.toMap
+
+  def xor(x: SPP, y: SPP): SPP =
+    union(difference(x, y), difference(y, x)) // FIXME: optimize this
 
   def star(spp: SPP): SPP =
     // logSPP(s"star($spp)")

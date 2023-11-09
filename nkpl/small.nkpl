@@ -73,35 +73,35 @@ check @a=5?⋅@a←5 ≡ @a=5?
 check δ⋅@a=2? ≡ @a=2?⋅δ
 
 check ∅    ≡ @p=1?⋅@p=2?
--- check ∅    ≡ @p=1?⋅@p≠1?
+check ∅    ≡ @p=1?⋅@p≠1?
 check ∅    ≡ @p=1?⋅δ⋅@p=2?
--- check ∅    ≡ @p=1?⋅δ⋅@p≠1?
--- check @p←1 ≡ @p=1?∪@p≠1?⋅@p←1
+check ∅    ≡ @p=1?⋅δ⋅@p≠1?
+check @p←1 ≡ @p=1?∪@p≠1?⋅@p←1
 
--- check ε ≡ @p=1?∪@p≠1?
--- check ε ≡ (@p=1?⋅@p←1)∪@p≠1?
+check ε ≡ @p=1?∪@p≠1?
+check ε ≡ (@p=1?⋅@p←1)∪@p≠1?
 
--- check @p=1?⋅@p←1∪@p≠1?⋅ε ≡ ε
--- check ε                  ≡ @p=1?⋅ε∪@p≠1?⋅ε
--- check @p=1?⋅@p←1∪@p≠1?⋅ε ≡ @p=1?⋅ε∪@p≠1?⋅ε
+check @p=1?⋅@p←1∪@p≠1?⋅ε ≡ ε
+check ε                  ≡ @p=1?⋅ε∪@p≠1?⋅ε
+check @p=1?⋅@p←1∪@p≠1?⋅ε ≡ @p=1?⋅ε∪@p≠1?⋅ε
 
--- check @p=1?⋅@p←1∪@p≠1?⋅∅ ≡ @p=1?
--- check @p=1?              ≡ @p=1?⋅ε∪@p≠1?⋅∅
--- check @p=1?⋅@p←1∪@p≠1?⋅∅ ≡ @p=1?⋅ε∪@p≠1?⋅∅
+check @p=1?⋅@p←1∪@p≠1?⋅∅ ≡ @p=1?
+check @p=1?              ≡ @p=1?⋅ε∪@p≠1?⋅∅
+check @p=1?⋅@p←1∪@p≠1?⋅∅ ≡ @p=1?⋅ε∪@p≠1?⋅∅
 
--- check @p=1?⋅ε∪@p≠1?⋅@p←1 ≡ @p←1
--- check @p←1               ≡ @p=1?⋅@p←1∪@p≠1?⋅@p←1
--- check @p=1?⋅ε∪@p≠1?⋅@p←1 ≡ @p=1?⋅@p←1∪@p≠1?⋅@p←1
+check @p=1?⋅ε∪@p≠1?⋅@p←1 ≡ @p←1
+check @p←1               ≡ @p=1?⋅@p←1∪@p≠1?⋅@p←1
+check @p=1?⋅ε∪@p≠1?⋅@p←1 ≡ @p=1?⋅@p←1∪@p≠1?⋅@p←1
 
 check @a=1∨@b=2? ≡ @a=1?∪@b=2?
 check @a=1∧@b=2? ≡ @a=1?⋅@b=2?
--- check ⊤? ≡ ε
--- check ⊥? ≡ ∅
+check ⊤? ≡ ε
+check ⊥? ≡ ∅
 
--- check ¬(@a=1∨@b=2)? ≡ @a≠1∧@b≠2?
--- check ¬(@a=1∧@b=2)? ≡ @a≠1∨@b≠2?
+check ¬(@a=1∨@b=2)? ≡ @a≠1∧@b≠2?
+check ¬(@a=1∧@b=2)? ≡ @a≠1∨@b≠2?
 
--- check ¬@a=1? ≡ @a≠1?
+check ¬@a=1? ≡ @a≠1?
 
 check @a←1 ≢ @a←2
 check @a←1 ≢ @b←1
