@@ -293,6 +293,27 @@ T.check_SPP_P { (spp, packet) =>
   else SPP.run1(packet, spp).isEmpty
 }
 
+// Check SPP.fromSP
+T.check_SP_P { (sp, p) =>
+  val spp = SPP.fromSP(sp)
+  SP.elemOf(p, sp) == !SPP.run1(p, spp).isEmpty
+}
+
+// Check SPP.seq with SPP.fromSP
+T.check_SPP_SP_P { (spp, sp, p) =>
+  val spp2 = SPP.seq(spp, SPP.fromSP(sp))
+  SPP.run1(p, spp2) == SPP.run1(p, spp).filter { p => SP.elemOf(p, sp) }
+}
+
+val spp = TestMut(x, Map(), Map(0 -> TestMut(y, Map(1 -> Map()), Map(), Diag), 1 -> TestMut(y, Map(0 -> Map(), 1 -> Map()), Map(1 -> Diag), False)), False)
+val sp = SP.Test(y, Map(0 -> SP.True), SP.False)
+val packet = Map(y -> 0, x -> 1)
+val spp1 = SPP.fromSP(sp)
+val spp2 = SPP.seq(spp, spp1)
+SPP.run1(packet, spp2)
+SPP.run1(packet, spp)
+SPP.run1(packet, spp).flatMap { p => SPP.run1(p, spp1) }
+
 // Check SPP.pull
 T.check_SPP_SP { (spp, sp) =>
   val sp2 = SPP.pull(spp, sp)
@@ -308,26 +329,9 @@ T.check_SPP_SP_P { (spp, sp, p) =>
   else SPP.run1(p, spp).forall(q => !SP.elemOf(q, sp))
 }
 
-val spp = TestMut(x, Map(), Map(0 -> TestMut(y, Map(), Map(1 -> Diag), False), 1 -> TestMut(y, Map(1 -> Map()), Map(), Diag)), False)
-val sp = SP.Test(y, Map(1 -> SP.True), SP.False)
-val packet = Map(y -> -1, x -> 1)
-
-SPP.run1(packet, spp)
-val p1 = Map(y -> 1, x -> 0)
-val p2 = Map(y -> -1, x -> 1)
-SP.elemOf(p1, sp)
-SP.elemOf(p2, sp)
-val sp2 = SPP.pull(spp, sp)
-SP.elemOf(packet, sp2)
+// val spp = TestMut(x, Map(), Map(0 -> TestMut(y, Map(), Map(1 -> Diag), False), 1 -> TestMut(y, Map(1 -> Map()), Map(), Diag)), False)
 // val sp = SP.Test(y, Map(1 -> SP.True), SP.False)
-// val spp = TestMut(x, Map(), Map(0 -> TestMut(y, Map(1 -> Map(), 0 -> Map()), Map(), Diag), 1 -> TestMut(y, Map(1 -> Map(1 -> Diag)), Map(), False)), False)
-
-// val spp2 = SPP.seq(spp, SPP.fromSP(sp))
-// T.packets.forall { packet =>
-//   val sp = SPP.toSPbackward(spp)
-//   if SP.elemOf(packet, sp) then !SPP.run1(packet, spp).isEmpty
-//   else SPP.run1(packet, spp).isEmpty
-// }
+// val p = Map(y -> -1, x -> 1)
 
 // Check SPP.seqSP
 T.check_SPP_SP_P { (spp, sp, p) =>

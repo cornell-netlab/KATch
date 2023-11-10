@@ -475,27 +475,27 @@ object SPP {
           val mutsB = mutsR.map { (v2, spp) => v2 -> seq(idL, spp) }
           SPP.TestMut(xL, branches, unionMap(mutsA, mutsB), seq(idL, idR))
         else if xL < xR then
-          // seq(x, new TestMut(xL, Map(), Map(), y))
-          if mutsL.isEmpty && (idL eq False) then return SPP.TestMut(xL, branchesL.map { (v, muts) => v -> muts.map { (v2, spp) => v2 -> seq(spp, y) } }, mutsL, idL)
-          val mutsA = mutsL.map { (v2, spp) =>
-            v2 -> seq(spp, y)
-          }
-          if branchesL.isEmpty && (idL eq False) then return TestMut(xL, branchesL, mutsA, idL)
-          // logSummary("seq<", x, y)
-          val branches = (branchesL.keySet ++ mutsL.keySet).map { v =>
-            v -> unionMaps(get(x, v).map { (v2, spp) => Map(v2 -> seq(spp, y)) })
-          }.toMap
-          SPP.TestMut(xL, branches, mutsA, seq(idL, y))
+          seq(x, new TestMut(xL, Map(), Map(), y))
+          // if mutsL.isEmpty && (idL eq False) then return SPP.TestMut(xL, branchesL.map { (v, muts) => v -> muts.map { (v2, spp) => v2 -> seq(spp, y) } }, mutsL, idL)
+          // val mutsA = mutsL.map { (v2, spp) =>
+          //   v2 -> seq(spp, y)
+          // }
+          // if branchesL.isEmpty && (idL eq False) then return TestMut(xL, branchesL, mutsA, idL)
+          // // logSummary("seq<", x, y)
+          // val branches = (branchesL.keySet ++ mutsL.keySet).map { v =>
+          //   v -> unionMaps(get(x, v).map { (v2, spp) => Map(v2 -> seq(spp, y)) })
+          // }.toMap
+          // SPP.TestMut(xL, branches, mutsA, seq(idL, y))
         else
-          val mutsB = mutsR.map { (v2, spp) => v2 -> seq(x, spp) }
-          if branchesR.isEmpty && (idR eq False) then return SPP.TestMut(xR, branchesR, mutsB, idR)
-          // seq(new TestMut(xR, Map(), Map(), x), y)
-          // if branchesR.isEmpty && (idR eq False) then return SPP.TestMut(xR, branchesR, mutsB, idR)
-          // logSummary("seq>", x, y)
-          val branches = (branchesR.keySet ++ mutsR.keySet).map { v =>
-            v -> get(y, v).map { (v3, spp2) => v3 -> seq(x, spp2) }
-          }.toMap
-          SPP.TestMut(xR, branches, mutsB, seq(x, idR))
+          seq(new TestMut(xR, Map(), Map(), x), y)
+        // val mutsB = mutsR.map { (v2, spp) => v2 -> seq(x, spp) }
+        // if branchesR.isEmpty && (idR eq False) then return SPP.TestMut(xR, branchesR, mutsB, idR)
+        // // if branchesR.isEmpty && (idR eq False) then return SPP.TestMut(xR, branchesR, mutsB, idR)
+        // // logSummary("seq>", x, y)
+        // val branches = (branchesR.keySet ++ mutsR.keySet).map { v =>
+        //   v -> get(y, v).map { (v3, spp2) => v3 -> seq(x, spp2) }
+        // }.toMap
+        // SPP.TestMut(xR, branches, mutsB, seq(x, idR))
     }
 
   lazy val intersection: (SPP, SPP) => SPP = memoize2 { (x, y) => intersectionPrim(x, y) }
