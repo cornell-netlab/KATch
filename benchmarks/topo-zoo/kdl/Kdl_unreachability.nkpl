@@ -1,0 +1,3 @@
+import "../../examples/topologyzoo/Kdl_topo.nkpl"
+import "../../examples/topologyzoo/Kdl_routing.nkpl"
+check @sw=N753?⋅((main⋅(top⋅δ))⋆⋅@sw=1000?) ≡ ∅

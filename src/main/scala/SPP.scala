@@ -105,7 +105,8 @@ object SPP {
   }
   object TestMut {
     // FIXME: try the Java hashmap here, and use identity hash
-    val cache = scala.collection.mutable.HashMap.empty[TestMut, TestMut]
+    val cache = scala.collection.mutable.WeakHashMap.empty[TestMut, TestMut]
+    //val cache = scala.collection.mutable.HashMap.empty[TestMut, TestMut]
     def apply(x: Var, branches: Map[Val, Map[Val, SPP]], other: Map[Val, SPP], id: SPP): SPP =
       // Remove redundant branches
       // A branch is redundant if sending the value to other/id would do the same thing

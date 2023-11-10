@@ -134,7 +134,7 @@ object Parser {
   def letStmt[$: P]: P[Stmt.Let] = P(varName ~ "=" ~ expr).map(Stmt.Let.apply)
 
   // Parses an import statement
-  def importStmt[$: P]: P[Stmt.Import] = P("import" ~ "\"" ~ CharIn("a-zA-Z0-9./_").rep(1).! ~ "\"").map(Stmt.Import.apply)
+  def importStmt[$: P]: P[Stmt.Import] = P("import" ~ "\"" ~ CharIn("a-zA-Z0-9./_\\-").rep(1).! ~ "\"").map(Stmt.Import.apply)
 
   // Parses a statement
   def stmt[$: P]: P[Stmt] = P(checkStmt | letStmt | importStmt | runStmt)

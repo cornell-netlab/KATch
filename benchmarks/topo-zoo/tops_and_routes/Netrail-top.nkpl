@@ -1,0 +1,8 @@
+N0 = 0
+N1 = 1
+N2 = 2
+N3 = 3
+N4 = 4
+N5 = 5
+N6 = 6
+top = @pt=-1?⋅ε∪(@sw=N6?⋅(@pt=3?⋅(@sw←N5⋅@pt←1)∪@pt=2?⋅(@sw←N4⋅@pt←4)∪@pt=1?⋅(@sw←N1⋅@pt←1)∪@pt=0?⋅(@sw←N0⋅@pt←1))∪@sw=N5?⋅(@pt=1?⋅(@sw←N6⋅@pt←3)∪@pt=0?⋅(@sw←N4⋅@pt←3))∪@sw=N4?⋅(@pt=4?⋅(@sw←N6⋅@pt←2)∪@pt=3?⋅(@sw←N5⋅@pt←0)∪@pt=2?⋅(@sw←N3⋅@pt←1)∪@pt=1?⋅(@sw←N2⋅@pt←2)∪@pt=0?⋅(@sw←N0⋅@pt←0))∪@sw=N3?⋅(@pt=1?⋅(@sw←N4⋅@pt←2)∪@pt=0?⋅(@sw←N2⋅@pt←1))∪@sw=N2?⋅(@pt=2?⋅(@sw←N4⋅@pt←1)∪@pt=1?⋅(@sw←N3⋅@pt←0)∪@pt=0?⋅(@sw←N1⋅@pt←0))∪@sw=N1?⋅(@pt=1?⋅(@sw←N6⋅@pt←1)∪@pt=0?⋅(@sw←N2⋅@pt←0))∪@sw=N0?⋅(@pt=1?⋅(@sw←N6⋅@pt←0)∪@pt=0?⋅(@sw←N4⋅@pt←0)))
