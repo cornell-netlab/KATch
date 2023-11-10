@@ -15,7 +15,7 @@
 # 4. Run the profiler on the sbt process
 
 # Here is the code:
-sbt run &
+sbt "run benchmarks/large" &
 sleep 20
 PID=$(jps | grep sbt-launch.jar | cut -d ' ' -f 1)
 ./aprof/profiler.sh -d 30 -f flamegraph.html $PID
