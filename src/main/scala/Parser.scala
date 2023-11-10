@@ -101,7 +101,7 @@ object Parser {
   def exprU[$: P]: P[NK] = P(exprC.rep(1, sep = "∪" | "∨").map(es => Sum(es.toSet)))
 
   // Parses a netkat expression
-  def exprNK[$: P]: P[NK] = P("forward" ~ exprU).map(e => Forward(e, false)) | P("backward" ~ exprU).map(e => Backward(e, false))
+  def exprNK[$: P]: P[NK] = P("forward" ~ exprU).map(e => Forward(e, false)) | P("backward" ~ exprU).map(e => Backward(e, false)) | exprU
 
   enum Expr:
     case NKExpr(nk: NK)
