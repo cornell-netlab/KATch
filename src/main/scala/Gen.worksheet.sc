@@ -305,14 +305,14 @@ T.check_SPP_SP_P { (spp, sp, p) =>
   SPP.run1(p, spp2) == SPP.run1(p, spp).filter { p => SP.elemOf(p, sp) }
 }
 
-val spp = TestMut(x, Map(), Map(0 -> TestMut(y, Map(1 -> Map()), Map(), Diag), 1 -> TestMut(y, Map(0 -> Map(), 1 -> Map()), Map(1 -> Diag), False)), False)
-val sp = SP.Test(y, Map(0 -> SP.True), SP.False)
-val packet = Map(y -> 0, x -> 1)
-val spp1 = SPP.fromSP(sp)
-val spp2 = SPP.seq(spp, spp1)
-SPP.run1(packet, spp2)
-SPP.run1(packet, spp)
-SPP.run1(packet, spp).flatMap { p => SPP.run1(p, spp1) }
+// val spp = TestMut(x, Map(), Map(0 -> TestMut(y, Map(1 -> Map()), Map(), Diag), 1 -> TestMut(y, Map(0 -> Map(), 1 -> Map()), Map(1 -> Diag), False)), False)
+// val sp = SP.Test(y, Map(0 -> SP.True), SP.False)
+// val packet = Map(y -> 0, x -> 1)
+// val spp1 = SPP.fromSP(sp)
+// val spp2 = SPP.seq(spp, spp1)
+// SPP.run1(packet, spp2)
+// SPP.run1(packet, spp)
+// SPP.run1(packet, spp).flatMap { p => SPP.run1(p, spp1) }
 
 // Check SPP.pull
 T.check_SPP_SP { (spp, sp) =>

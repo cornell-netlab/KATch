@@ -121,7 +121,7 @@ object Parser {
     Stmt.Check(op, Expr.NKExpr(e1), Expr.NKExpr(e2))
   }
 
-  // Parses a run[method] e statement, where method is A-Za-z0-9_
+  // Parses a forward/backward statement
   def runStmt[$: P]: P[Stmt] = P("forward" ~ exprNK).map { e => Stmt.Run("forward", Expr.NKExpr(e)) } | P("backward" ~ exprNK).map { e => Stmt.Run("backward", Expr.NKExpr(e)) }
 
   // Parses a ValExpr
@@ -137,7 +137,7 @@ object Parser {
   def importStmt[$: P]: P[Stmt.Import] = P("import" ~ "\"" ~ CharIn("a-zA-Z0-9./_").rep(1).! ~ "\"").map(Stmt.Import.apply)
 
   // Parses a statement
-  def stmt[$: P]: P[Stmt] = P(checkStmt | letStmt | importStmt)
+  def stmt[$: P]: P[Stmt] = P(checkStmt | letStmt | importStmt | runStmt)
 
   def parseStmt(input: String) =
     parse(input, stmt(_)) match {

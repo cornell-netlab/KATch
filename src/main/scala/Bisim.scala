@@ -235,7 +235,7 @@ object Bisim {
     import scala.collection.mutable.Queue
     // first, we find all the reverse transitions in the automaton
     val T = revTrans(e)
-    var todo: Queue[(NK, SP)] = Queue(T.keys.map(e => (e, SPP.pull(ε(e), SP.True))).toSeq: _*)
+    var todo: Queue[(NK, SP)] = Queue((T.keys ++ Set(e)).map(e => (e, SPP.pull(ε(e), SP.True))).toSeq: _*)
     def enq(a: NK, sp: SP): Unit =
       if sp eq SP.False then return
       todo.enqueue((a, sp))
@@ -255,7 +255,7 @@ object Bisim {
       val spRest = SP.difference(sp, done1)
       if !(spRest eq SP.False) then
         done = done.updated(e, SP.union(done1, spRest))
-        for (e2, spp) <- T(e) do enq(e2, SPP.run(spRest, spp))
+        for (e2, spp) <- T.getOrElse(e, Map()) do enq(e2, SPP.run(spRest, spp))
     }
-    done(e)
+    done.getOrElse(e, SP.False)
 }

@@ -32,26 +32,8 @@ import nkpl._
 
 def parse(s: String) =
   Parser.parseExpr(s) match {
-    case Parser.Expr.NKExpr(nk) => nk
+    case Parser.Expr.NKExpr(nk) => Runner.evalNK(Map(), nk)
   }
 
-val a = parse("(∅⋆∪@d←2⋆)⋅(@a=4??⋅@a←4)")
-val b = parse("(∅⋆∪(ε∪@d←2⋅@d←2⋆))⋅@a=4??")
-val x = Runner.evalNK(Map(), a)
-val y = Runner.evalNK(Map(), b)
-Bisim.ε(x)
-Bisim.ε(y)
-
-val c = parse("(∅⋆∪@d←2⋆)")
-val z = Runner.evalNK(Map(), c)
-Bisim.ε(z)
-
-val d = parse("@a=4")
-val w = Runner.evalNK(Map(), d)
-Bisim.ε(w)
-SPP.seq(Bisim.ε(z), Bisim.ε(w))
-
-val e = parse("@a←4")
-val v = Runner.evalNK(Map(), e)
-Bisim.ε(v)
-SPP.seq(SPP.seq(Bisim.ε(z), Bisim.ε(w)), Bisim.ε(v))
+val a = parse("ε")
+Bisim.revTrans(a)
