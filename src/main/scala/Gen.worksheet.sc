@@ -208,6 +208,16 @@ class Tester(vals: Map[Var, Set[Val]], random: Boolean = false):
         return false
     true
 
+  def check_SPP_P(f: (SPP, Map[Var, Val]) => Boolean): Boolean =
+    for
+      spp <- spps
+      packet <- packets
+    do
+      if !f(spp, packet) then
+        println(s"Failed for \n val spp = $spp \n val packet = $packet")
+        return false
+    true
+
   import scala.math.pow
   val spsSize = pow(2, vals.map { (v, s) => s.size + 1 }.product)
   val spssSize = pow(2, vals.map { (v, s) => s.size * s.size + s.size + 1 }.product)
@@ -276,6 +286,13 @@ T.check_SPP_SP { (spp, sp) =>
   results1.toSet == results2.toSet
 }
 
+// Check SPP.toSPbackward
+T.check_SPP_P { (spp, packet) =>
+  val sp = SPP.toSPbackward(spp)
+  if SP.elemOf(packet, sp) then !SPP.run1(packet, spp).isEmpty
+  else SPP.run1(packet, spp).isEmpty
+}
+
 // Check SPP.pull
 T.check_SPP_SP { (spp, sp) =>
   val sp2 = SPP.pull(spp, sp)
@@ -283,6 +300,34 @@ T.check_SPP_SP { (spp, sp) =>
   val results2 = T.packets.filter { p => SP.elemOf(p, sp2) }
   results1.toSet == results2.toSet
 }
+
+// Check SPP.pull test 2
+T.check_SPP_SP_P { (spp, sp, p) =>
+  val sp2 = SPP.pull(spp, sp)
+  if SP.elemOf(p, sp2) then SPP.run1(p, spp).exists(q => SP.elemOf(q, sp))
+  else SPP.run1(p, spp).forall(q => !SP.elemOf(q, sp))
+}
+
+val spp = TestMut(x, Map(), Map(0 -> TestMut(y, Map(), Map(1 -> Diag), False), 1 -> TestMut(y, Map(1 -> Map()), Map(), Diag)), False)
+val sp = SP.Test(y, Map(1 -> SP.True), SP.False)
+val packet = Map(y -> -1, x -> 1)
+
+SPP.run1(packet, spp)
+val p1 = Map(y -> 1, x -> 0)
+val p2 = Map(y -> -1, x -> 1)
+SP.elemOf(p1, sp)
+SP.elemOf(p2, sp)
+val sp2 = SPP.pull(spp, sp)
+SP.elemOf(packet, sp2)
+// val sp = SP.Test(y, Map(1 -> SP.True), SP.False)
+// val spp = TestMut(x, Map(), Map(0 -> TestMut(y, Map(1 -> Map(), 0 -> Map()), Map(), Diag), 1 -> TestMut(y, Map(1 -> Map(1 -> Diag)), Map(), False)), False)
+
+// val spp2 = SPP.seq(spp, SPP.fromSP(sp))
+// T.packets.forall { packet =>
+//   val sp = SPP.toSPbackward(spp)
+//   if SP.elemOf(packet, sp) then !SPP.run1(packet, spp).isEmpty
+//   else SPP.run1(packet, spp).isEmpty
+// }
 
 // Check SPP.seqSP
 T.check_SPP_SP_P { (spp, sp, p) =>
