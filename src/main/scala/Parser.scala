@@ -16,8 +16,8 @@ object Parser {
   case class Intersection(e1: NK, e2: NK) extends NK
   case class XOR(e1: NK, e2: NK) extends NK
   case class Star(e: NK) extends NK
-  case class Forward(e: NK) extends NK
-  case class Backward(e: NK) extends NK
+  case class Forward(e: NK, negate: Boolean = false) extends NK
+  case class Backward(e: NK, negate: Boolean = false) extends NK
   case class VarName(x: String) extends NK
 
   def negate(e: NK): NK =
@@ -26,6 +26,8 @@ object Parser {
       case TestNE(x, v) => Test(x, v)
       case Seq(es) => Sum(es.map(negate).toSet)
       case Sum(es) => Seq(es.map(negate).toList)
+      case Backward(e, negate) => Backward(e, !negate)
+      case Forward(e, negate) => Forward(e, !negate)
       case _ => throw new Throwable(s"Cannot negate $e")
 
   // First, let's define what a 'digit' is in our language
@@ -99,7 +101,7 @@ object Parser {
   def exprU[$: P]: P[NK] = P(exprC.rep(1, sep = "∪" | "∨").map(es => Sum(es.toSet)))
 
   // Parses a netkat expression
-  def exprNK[$: P]: P[NK] = P("forward" ~ exprU).map(Forward.apply) | P("backward" ~ exprU).map(Backward.apply)
+  def exprNK[$: P]: P[NK] = P("forward" ~ exprU).map(e => Forward(e, false)) | P("backward" ~ exprU).map(e => Backward(e, false))
 
   enum Expr:
     case NKExpr(nk: NK)
