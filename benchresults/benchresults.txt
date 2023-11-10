@@ -10834,3 +10834,23 @@ Execution time of scratch.nkpl: 0.01 s
 
 Execution time of scratch.nkpl: 0.01 s 
 
+Execution time of scratch.nkpl: 0.20 s 
+
+Execution time of scratch.nkpl: 0.02 s 
+
+Execution time of scratch.nkpl: 0.02 s 
+
+Execution time of scratch.nkpl: 0.02 s 
+
+Execution time of scratch.nkpl: 0.02 s 
+
+Execution time of scratch.nkpl: 0.39 s 
+
+Execution time of scratch.nkpl: 0.02 s 
+
+Execution time of scratch.nkpl: 0.02 s 
+
+Execution time of scratch.nkpl: 0.01 s 
+
+Execution time of scratch.nkpl: 0.01 s 
+

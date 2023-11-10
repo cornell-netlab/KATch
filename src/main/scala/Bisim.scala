@@ -255,7 +255,7 @@ object Bisim {
       val spRest = SP.difference(sp, done1)
       if !(spRest eq SP.False) then
         done = done.updated(e, SP.union(done1, spRest))
-        for (e2, spp) <- T.getOrElse(e, Map()) do enq(e2, SPP.run(spRest, spp))
+        for (e2, spp) <- T.getOrElse(e, Map()) do enq(e2, SPP.pull(spp, spRest))
     }
     done.getOrElse(e, SP.False)
 }
