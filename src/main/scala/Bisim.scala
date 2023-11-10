@@ -1,20 +1,10 @@
 package nkpl
 
-//  fdd1 e1
-//  fdd2 e2
-
-//  fdd1 ∩ fdd2 -> e1+e2
-//  fdd1 - fdd2 -> e1
-//  fdd2 - fdd1 -> e2
-
-// FDD[T] = Map[T, FDD]
-
 // This represents an outgoing transition structure of the automaton.
 // In particular, a map Map(e1 -> spp1, e2 -> spp2, ...), where e1,e2,.. : NK and spp1,spp2,.. : SPP
 // represents spp1⋅δ⋅e1 + spp2⋅δ⋅e2 + ...
 // We maintain the invariant that the spp's are disjoint, in the sense that they are
 // disjoint when seen as a subsets of Pk*Pk.
-// TODO: is that necessary, or do they only have to be disjoint in their second component?
 type SMap = Map[NK, SPP]
 object SMap {
   val SDup: SMap = Map(One -> SPP.Diag)
@@ -113,14 +103,14 @@ object Bisim {
       case Seq(es) =>
         es match {
           case Nil => SMap.SZero
-          case e :: es => // δ0(e es) = δ0(e) es + ε(e) δ0(es)
+          case e :: es => // δ(e es) = δ(e) es + ε(e) δ(es)
             SMap.union(SMap.seqNK(δ0(e), Seq(es)), SMap.seqSPP(ε0(e), δ0(Seq(es))))
         }
       case Sum(es) => es.foldLeft(SMap.SZero) { (a, b) => SMap.union(a, δ0(b)) }
       case Difference(e1, e2) => SMap.difference(δ0(e1), δ0(e2))
       case Intersection(e1, e2) => SMap.intersection(δ0(e1), δ0(e2))
       case XOR(e1, e2) => SMap.xor(δ0(e1), δ0(e2))
-      case Star(e) => // δ0(e*) = ε(e)* δ0(e) e*
+      case Star(e) => // δ(e*) = ε(e)* δ(e) e*
         SMap.seqNK(SMap.seqSPP(SPP.star(ε0(e)), δ0(e)), Star(e))
     }
   }
