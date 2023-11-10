@@ -12,7 +12,7 @@ def findFiles(startDir: Path, extension: String): List[Path] = {
     .toList
 }
 
-@main def hello: Unit =
+@main def hello (files: String*): Unit =
   val directories = List(
     // "benchmarks/tiny",
     // "benchmarks/small",
@@ -28,19 +28,24 @@ def findFiles(startDir: Path, extension: String): List[Path] = {
   // .toArray
   // .map(_.asInstanceOf[Path])
   // .toSeq
+  //
 
-  for (i <- 1 to 5)
-    for (file <- nkplFiles) {
-      Runner.runTopLevel(file.toString)
-    }
-    // Runner.runTopLevel("benchmarks/tiny/t4_near_reachability.nkpl")
-    // Runner.runTopLevel("benchmarks/tiny/t4_slicing.nkpl")
-    // Runner.runTopLevel("nkpl/test.nkpl")
+  if (files.length > 0)
+    for (file <- files)
+      Runner.runTopLevel(file)
+  else
+    for (i <- 1 to 5)
+      for (file <- nkplFiles) {
+        Runner.runTopLevel(file.toString)
+      }
+      // Runner.runTopLevel("benchmarks/tiny/t4_near_reachability.nkpl")
+      // Runner.runTopLevel("benchmarks/tiny/t4_slicing.nkpl")
+      // Runner.runTopLevel("nkpl/test.nkpl")
 
-    // Append msg to benchresults.txt
-    val fw = new FileWriter("benchresults/benchresults.txt", true) // true to append
-    try {
-      fw.write("\n")
-    } finally {
-      fw.close()
-    }
+      // Append msg to benchresults.txt
+      val fw = new FileWriter("benchresults/benchresults.txt", true) // true to append
+      try {
+        fw.write("\n")
+      } finally {
+        fw.close()
+      }
