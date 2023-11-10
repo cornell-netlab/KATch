@@ -10804,3 +10804,33 @@ Execution time of small.nkpl: 0.01 s
 Execution time of test.nkpl: 0.01 s 
 Execution time of test2.nkpl: 0.01 s 
 
+Execution time of scratch.nkpl: 0.17 s 
+
+Execution time of scratch.nkpl: 0.01 s 
+
+Execution time of scratch.nkpl: 0.01 s 
+
+Execution time of scratch.nkpl: 0.01 s 
+
+Execution time of scratch.nkpl: 0.01 s 
+
+Execution time of scratch.nkpl: 0.16 s 
+
+Execution time of scratch.nkpl: 0.02 s 
+
+Execution time of scratch.nkpl: 0.01 s 
+
+Execution time of scratch.nkpl: 0.01 s 
+
+Execution time of scratch.nkpl: 0.01 s 
+
+Execution time of scratch.nkpl: 0.37 s 
+
+Execution time of scratch.nkpl: 0.02 s 
+
+Execution time of scratch.nkpl: 0.01 s 
+
+Execution time of scratch.nkpl: 0.01 s 
+
+Execution time of scratch.nkpl: 0.01 s 
+

@@ -213,7 +213,7 @@ object Bisim {
         done = done.updated(e, SP.union(done1, spRest))
         for (e, spp) <- δ(e) do enq(e, SPP.run(spRest, spp))
     }
-    SP.unionN(done.values)
+    SP.unionN(done.map { (e, sp) => SPP.run(sp, ε(e)) })
 
   def revTrans(e: NK): Map[NK, Map[NK, SPP]] =
     // find the set of reverse transitions in the automaton
