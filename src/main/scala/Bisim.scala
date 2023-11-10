@@ -131,7 +131,26 @@ object Bisim {
   def ε(e: NK): SPP =
     benchmark(s"ε", { ε0(e) })
 
-  def bisim(e1: NK, e2: NK): Boolean = {
+  def bisim(e1: NK, e2: NK): Boolean =
+    val result = bisimPrim(e1, e2)
+    val dir = "kat"
+    var files = List[String]()
+    // write e1 and e2 to files
+    for e <- List(e1, e2) do
+      val kat = e.toString()
+      val filename = kat.hashCode().toHexString
+      val f = new java.io.FileWriter(s"$dir/${filename}.kat")
+      f.write(kat)
+      f.close()
+      files = files :+ filename
+    // append to checks.txt
+    val fw = new java.io.FileWriter(s"$dir/checks.txt", true) // true to append
+    val op = if result then "==" else "!="
+    fw.write(s"${files(0)}.kat $op ${files(1)}.kat\n")
+    fw.close()
+    result
+
+  def bisimPrim(e1: NK, e2: NK): Boolean = {
     import scala.collection.mutable.Queue
     var todo: Queue[(NK, SP, NK)] = Queue((e1, SP.True, e2))
     def enq(a: NK, sp: SP, b: NK): Unit =
