@@ -16,6 +16,8 @@ object Parser {
   case class Intersection(e1: NK, e2: NK) extends NK
   case class XOR(e1: NK, e2: NK) extends NK
   case class Star(e: NK) extends NK
+  case class Forward(e: NK) extends NK
+  case class Backward(e: NK) extends NK
   case class VarName(x: String) extends NK
 
   def negate(e: NK): NK =
@@ -38,6 +40,7 @@ object Parser {
   // Parses a value, which is either an integer or a variable
   def value[$: P]: P[SVal] = P(integer.map(Left.apply) | varName.map(Right.apply))
 
+  // variable ordering hack
   val varSubsts = Map("sw" -> "A", "pt" -> "B", "dst" -> "C")
   // val varSubsts = Map("sw" -> "A", "pt" -> "C", "dst" -> "B")
   // val varSubsts = Map("sw" -> "B", "pt" -> "A", "dst" -> "C")
@@ -96,7 +99,7 @@ object Parser {
   def exprU[$: P]: P[NK] = P(exprC.rep(1, sep = "∪" | "∨").map(es => Sum(es.toSet)))
 
   // Parses a netkat expression
-  def exprNK[$: P]: P[NK] = P(exprU)
+  def exprNK[$: P]: P[NK] = P("forward" ~ exprU).map(Forward.apply) | P("backward" ~ exprU).map(Backward.apply)
 
   enum Expr:
     case NKExpr(nk: NK)

@@ -38,6 +38,15 @@ case class XOR(e1: NK, e2: NK) extends NK {
 case class Star(e: NK) extends NK {
   override def toString: String = s"(${e})⋆"
 }
+case class Forward(e: NK) extends NK {
+  override def toString: String = s"(forward ${e})"
+}
+case class Backward(e: NK) extends NK {
+  override def toString: String = s"(backward ${e})"
+}
+case class TestSP(e: SP) extends NK {
+  override def toString: String = s"(test ${e})"
+}
 case class VarName(x: String) extends NK
 
 object Test {

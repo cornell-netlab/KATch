@@ -17,6 +17,8 @@ object Runner {
       case Parser.Difference(e1, e2) => Difference(evalNK(env, e1), evalNK(env, e2))
       case Parser.XOR(e1, e2) => XOR(evalNK(env, e1), evalNK(env, e2))
       case Parser.Star(e) => Star(evalNK(env, e))
+      case Parser.Forward(e) => TestSP(Bisim.forward(evalNK(env, e)))
+      case Parser.Backward(e) => TestSP(Bisim.backward(evalNK(env, e)))
       case Parser.VarName(x) =>
         if !env.contains(x) then throw new Throwable(s"Variable $x not found in $env\n")
         env(x) match {
