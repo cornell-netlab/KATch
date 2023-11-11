@@ -2,6 +2,10 @@ import nkpl._
 import java.nio.file.{Files, Path, Paths}
 import scala.jdk.CollectionConverters.*
 import java.io.FileWriter
+import java.nio.file.{Files, Paths, Path, DirectoryNotEmptyException, NoSuchFileException, FileVisitResult}
+import java.nio.file.attribute.BasicFileAttributes
+import java.nio.file.SimpleFileVisitor
+import java.io.IOException
 
 def findFiles(startDir: Path, extension: String): List[Path] = {
   Files
@@ -31,6 +35,25 @@ def runFilesAndDirs(dirsAndFiles: List[String]) =
   fw.write("\n")
   fw.close()
 
+def deleteDirectory(path: Path): Unit = {
+  // Recursive deletion of files in the directory
+  Files.walkFileTree(
+    path,
+    new SimpleFileVisitor[Path] {
+      override def visitFile(file: Path, attrs: BasicFileAttributes): FileVisitResult = {
+        Files.delete(file)
+        FileVisitResult.CONTINUE
+      }
+
+      override def postVisitDirectory(dir: Path, e: IOException): FileVisitResult = {
+        if (e != null) throw e
+        Files.delete(dir)
+        FileVisitResult.CONTINUE
+      }
+    }
+  )
+}
+
 @main def hello(cmd: String*): Unit =
   if cmd.isEmpty then error("No command specified")
   val command = cmd(0)
@@ -38,6 +61,10 @@ def runFilesAndDirs(dirsAndFiles: List[String]) =
   command match {
     case "convert" =>
       println("Converting to KAT:")
+      // Delete the `kat` dir and its contents and recreate it
+      val katDir = Paths.get("kat")
+      deleteDirectory(katDir)
+      Files.createDirectory(katDir)
       Options.convertToKat = true
       runFilesAndDirs(inputs.toList)
     case "run" =>
