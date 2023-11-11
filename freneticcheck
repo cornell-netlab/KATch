@@ -1,0 +1,4 @@
+#!/bin/bash
+if [ `frenetic dump bisim $1 $2` != "$3" ]; then
+    printf "$0 $1 $2 $3 failed!\n\n" >&2
+fi
