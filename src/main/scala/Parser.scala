@@ -2,6 +2,18 @@ package nkpl
 
 import fastparse._, SingleLineWhitespace._
 
+object VarMap {
+  var n = 0
+  val varMap = collection.mutable.Map[String, Int]()
+  val revMap = collection.mutable.Map[Int, String]()
+  def apply(x: String): Int =
+    varMap.getOrElseUpdate(x, { n += 1; revMap(n) = x; n })
+  def apply(i: Int): String = revMap(i)
+
+  VarMap("sw")
+  VarMap("pt")
+  VarMap("dst")
+}
 object Parser {
   type SVal = Either[Val, String]
 
@@ -42,16 +54,7 @@ object Parser {
   // Parses a value, which is either an integer or a variable
   def value[$: P]: P[SVal] = P(integer.map(Left.apply) | varName.map(Right.apply))
 
-  // variable ordering hack
-  val varSubsts = Map("sw" -> "A", "pt" -> "B", "dst" -> "C")
-  // val varSubsts = Map("sw" -> "A", "pt" -> "C", "dst" -> "B")
-  // val varSubsts = Map("sw" -> "B", "pt" -> "A", "dst" -> "C")
-  // val varSubsts = Map("sw" -> "B", "pt" -> "C", "dst" -> "A")
-  // val varSubsts = Map("sw" -> "C", "pt" -> "A", "dst" -> "B")
-  // val varSubsts = Map("sw" -> "C", "pt" -> "B", "dst" -> "A")
-  // val varSubsts = Map("sw" -> "A", "pt" -> "C", "dst" -> "B")
-  // Parse a field name, like @pt, @dst, etc.
-  def field[$: P]: P[String] = P("@" ~~ CharIn("a-zA-Z").rep(1).!).map { case x => varSubsts.getOrElse(x, x) }
+  def field[$: P]: P[Int] = P("@" ~~ CharIn("a-zA-Z").rep(1).!).map { x => VarMap(x) }
 
   // Parse a test such as @dst=3?
   def test[$: P]: P[NK] = P(field ~ "=" ~ value ~ "?".rep).map { case (x, v) => Test(x, v) } | P(field ~ "≠" ~ value ~ "?".rep).map { case (x, v) => TestNE(x, v) }

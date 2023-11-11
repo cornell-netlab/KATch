@@ -1,6 +1,6 @@
 package nkpl
 
-type Var = String
+type Var = Int
 type Val = Int
 
 class NK
