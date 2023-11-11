@@ -134,6 +134,15 @@ object Bisim {
     benchmark(s"ε", { ε0(e) })
 
   def toKatPrim(e: NK, s: StringBuilder): Unit =
+    def getVar(n: Int): String =
+      VarMap(n) match
+        case "sw" => "switch"
+        case "pt" => "port"
+        case "dst" => "vswitch"
+        case x => x
+    def getVal(n: Int): Int =
+      if n < 0 then 1000 + n
+      else n
     s.append("(")
     e match
       case Seq(es) =>
@@ -152,9 +161,9 @@ object Bisim {
             if !first then s.append("+")
             first = false
             toKatPrim(e, s)
-      case Test(x, v) => s.append(s"filter $x = $v")
-      case Mut(x, v) => s.append(s"$x := $v")
-      case Dup => s.append("Dup")
+      case Test(x, v) => s.append(s"filter ${getVar(x)} = ${getVal(v)}")
+      case Mut(x, v) => s.append(s"${getVar(x)} := ${getVal(v)}")
+      case Dup => s.append("dup")
       case Star(e) =>
         toKatPrim(e, s)
         s.append("*")
