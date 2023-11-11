@@ -105,7 +105,7 @@ def clearCaches(): Unit =
   clearCachesFns.foreach { f => f() }
 
 def memoize[A, B](f: A => B): A => B =
-  val cache = scala.collection.mutable.Map.empty[A, B]
+  val cache = scala.collection.mutable.HashMap.empty[A, B]
   clearCachesFns = (() => cache.clear()) :: clearCachesFns
   (a: A) => cache.getOrElseUpdate(a, f(a))
 

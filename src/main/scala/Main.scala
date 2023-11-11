@@ -104,5 +104,8 @@ check_bisim() {
       println("Running NKPL:")
       Options.convertToKat = false
       runFilesAndDirs(inputs.toList)
+    case "bench" =>
+      println("Benchmarking:")
+      for (i <- 0 to 5) runFilesAndDirs(List("benchmarks/large"))
     case _ => error(s"Invalid command $command")
   }
