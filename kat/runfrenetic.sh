@@ -11,7 +11,7 @@ check_bisim() {
 
     # Compare the output with the expected output and print a single line result
     if [ "$output" == "$expected_output" ]; then
-        echo "Success for $file1, $file2 - Expected: $expected_output"
+        echo -e "\e[32mSuccess for $file1, $file2 - Expected: $expected_output\e[0m"
     else
         # Print failure message in red to stderr
         echo -e "\e[31mFailure for $file1, $file2 - Expected: $expected_output, Got: $output\e[0m" >&2
