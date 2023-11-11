@@ -1,9 +1,9 @@
 // Flip benchmarks
 
-// flip_x1 = (@x1 = 0 ⋅ @x1 ← 1) + (@x1 = 1 ⋅ @x1 ← 0) + (@x1 ≠ 0 ⋅ @x1 ≠ 1 ⋅ ε)
+// flip_x1 = (@x1 = 0 ⋅ @x1 ← 1) ∪ (@x1 = 1 ⋅ @x1 ← 0) ∪ (@x1 ≠ 0 ⋅ @x1 ≠ 1 ⋅ ε)
 
 def genFlip(n: Int): String =
-  s"""flip_x$n = (@x$n=0 ⋅ @x$n←1) + (@x$n=1 ⋅ @x$n←0) + (@x$n≠0 ⋅ @x$n≠1 ⋅ ε)"""
+  s"""flip_x$n = (@x$n=0 ⋅ @x$n←1) ∪ (@x$n=1 ⋅ @x$n←0) ∪ (@x$n≠0 ⋅ @x$n≠1 ⋅ ε)"""
 
 val nmax = 100
 
@@ -29,10 +29,10 @@ for n <- 1 to nmax do {
 
 // Binary number increment benchmarks
 
-// inc_x1 = (@carry=0 ⋅ @x1=0 ⋅ @x1←1 ⋅ @carry←0) + (@carry=0 ⋅ @x1=1 ⋅ @x1←0 ⋅ @carry←1) + (@carry = 1 ⋅ @x1=0 ⋅ @x1←0 ⋅ @carry←1) + (@carry = 1 ⋅ @x1=1 ⋅ @x1←1 ⋅ @carry←1)
+// inc_x1 = (@carry=0 ⋅ @x1=0 ⋅ @x1←1 ⋅ @carry←0) ∪ (@carry=0 ⋅ @x1=1 ⋅ @x1←0 ⋅ @carry←1) ∪ (@carry = 1 ⋅ @x1=0 ⋅ @x1←0 ⋅ @carry←1) ∪ (@carry = 1 ⋅ @x1=1 ⋅ @x1←1 ⋅ @carry←1)
 
 def genInc(n: Int): String =
-  s"""inc_x$n = (@carry=0 ⋅ @x$n=0 ⋅ @x$n←1 ⋅ @carry←0) + (@carry=0 ⋅ @x$n=1 ⋅ @x$n←0 ⋅ @carry←1) + (@carry = 1 ⋅ @x$n=0 ⋅ @x$n←0 ⋅ @carry←1) + (@carry = 1 ⋅ @x$n=1 ⋅ @x$n←1 ⋅ @carry←1)"""
+  s"""inc_x$n = (@carry=0 ⋅ @x$n=0 ⋅ @x$n←1 ⋅ @carry←0) ∪ (@carry=0 ⋅ @x$n=1 ⋅ @x$n←0 ⋅ @carry←1) ∪ (@carry = 1 ⋅ @x$n=0 ⋅ @x$n←0 ⋅ @carry←1) ∪ (@carry = 1 ⋅ @x$n=1 ⋅ @x$n←1 ⋅ @carry←1)"""
 
 for n <- 1 to nmax do {
   val sb = new StringBuilder
