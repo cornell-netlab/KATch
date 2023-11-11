@@ -80,6 +80,7 @@ check_bisim() {
         echo -e "\e[31mFailure for $file1, $file2 - Expected: $expected_output, Got: $output\e[0m" >&2
     fi
 }
+
 """)
   fw.close()
 
