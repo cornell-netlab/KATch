@@ -14,7 +14,14 @@ def findFiles(startDir: Path, extension: String): List[Path] = {
 
 @main def hello(inputs: String*): Unit =
   if inputs.isEmpty then println("No directories or files specified, ")
-  val nkplFiles = inputs.flatMap { dirOrFile =>
+  val dirsAndFiles = if inputs(0) == "convert" then
+    Options.convertToKat = true
+    println("Converting to Kat")
+    inputs.tail
+  else
+    println("Running NKPL")
+    inputs
+  val nkplFiles = dirsAndFiles.flatMap { dirOrFile =>
     if dirOrFile.endsWith(".nkpl") then List(Paths.get(dirOrFile))
     else findFiles(Paths.get(dirOrFile), ".nkpl")
   } sortBy (_.getFileName.toString)

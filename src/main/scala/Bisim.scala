@@ -176,6 +176,7 @@ object Bisim {
 
   def bisim(e1: NK, e2: NK): Boolean =
     val result = bisimPrim(e1, e2)
+    if !Options.convertToKat then return result
     val dir = "kat"
     var files = List[String]()
     // write e1 and e2 to files
@@ -309,4 +310,8 @@ object Bisim {
         for (e2, spp) <- T.getOrElse(e, Map()) do enq(e2, SPP.pull(spp, spRest))
     }
     done.getOrElse(e, SP.False)
+}
+
+object Options {
+  var convertToKat = false
 }
