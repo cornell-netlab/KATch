@@ -117,7 +117,7 @@ object SPP {
 
       // Now we remove muts that are False from other
       // We have to be careful here, because removing a False mut from other may cause a packet to go to id instead of other.
-      for (v, spp) <- other do if (spp eq False) && !branches2.contains(v) then branches2 = branches2.updated(v, HashMap())
+      for (v, spp) <- other do if (spp eq False) && !branches2.contains(v) then branches2 = branches2.updated(v, HashMap.empty)
       val other2 = other.filterNot { (v, spp) => spp eq False }
 
       val branches3 = branches2.filter { (v, muts) =>
@@ -161,13 +161,13 @@ object SPP {
     }
 
   def test(x: Var, y: Val): SPP =
-    TestMut(x, HashMap(y -> HashMap(y -> Diag)), HashMap(), False)
+    TestMut(x, HashMap(y -> HashMap(y -> Diag)), HashMap.empty, False)
 
   def testNE(x: Var, y: Val): SPP =
-    TestMut(x, HashMap(y -> HashMap()), HashMap(), Diag)
+    TestMut(x, HashMap(y -> HashMap.empty), HashMap.empty, Diag)
 
   def mut(x: Var, y: Val): SPP =
-    TestMut(x, HashMap(), HashMap(y -> Diag), False)
+    TestMut(x, HashMap.empty, HashMap(y -> Diag), False)
     // TestMut(x, Map(y -> Map(y -> Diag)), Map(y -> Diag), False)
 
   def logSummarySP(msg: String, sp: SP, spp: SPP): Unit =
@@ -264,7 +264,7 @@ object SPP {
       case SP.False => False
       case SP.True => Diag
       case SP.Test(x, ys, default) =>
-        TestMut(x, ys.map { (v, sp) => v -> HashMap(v -> fromSP(sp)) }, HashMap(), fromSP(default))
+        TestMut(x, ys.map { (v, sp) => v -> HashMap(v -> fromSP(sp)) }, HashMap.empty, fromSP(default))
     }
 
   def toSPforward(spp: SPP): SP =
@@ -291,13 +291,13 @@ object SPP {
     //   case (_, SP.False) => SP.False
     //   case (False, _) => SP.False
     //   case (Diag, _) => sp
-    //   case (TestMut(x, branches, muts, id), SP.True) => pull(spp, new SP.Test(x, HashMap(), SP.True))
+    //   case (TestMut(x, branches, muts, id), SP.True) => pull(spp, new SP.Test(x, HashMap.empty, SP.True))
     //   case (TestMut(x, branches, muts, id), SP.Test(y, branchesR, default)) =>
     //     if x == y then
     //       ???
     //       ???
-    //     else if x < y then pull(spp, new SP.Test(y, HashMap(), sp))
-    //     else pull(new TestMut(y, HashMap(), HashMap(), spp), sp)
+    //     else if x < y then pull(spp, new SP.Test(y, HashMap.empty, sp))
+    //     else pull(new TestMut(y, HashMap.empty, HashMap.empty, spp), sp)
 
   def unionMapsSP(xs: Iterable[Map[Val, SP]]): Map[Val, SP] =
     var m = scala.collection.mutable.Map[Val, SP]()
@@ -319,7 +319,7 @@ object SPP {
       case SP.False => SPP.False
       case SP.True => SPP.Diag
       case SP.Test(x, ys, default) =>
-        SPP.TestMut(x, ys.map { (v, sp) => v -> HashMap(v -> toTest(sp)) }, HashMap(), toTest(default))
+        SPP.TestMut(x, ys.map { (v, sp) => v -> HashMap(v -> toTest(sp)) }, HashMap.empty, toTest(default))
 
   // Composes a test represented as a SP with a SPP.
   // We could implement this by converting the SP to a SPP and then composing the SPPs.
@@ -343,10 +343,10 @@ object SPP {
           val id2 = seqSP(default, id)
           TestMut(x, branches2, other2, id2)
         else if x < x2 then
-          seqSP(sp, new TestMut(x, HashMap(), HashMap(), spp))
+          seqSP(sp, new TestMut(x, HashMap.empty, HashMap.empty, spp))
           // val branches2 = ys.map { (v, sp) => v -> Map(v -> seqSP(sp, spp)) }
-          // TestMut(x, branches2, HashMap(), seqSP(default, spp))
-        else seqSP(new SP.Test(x2, HashMap(), sp), spp)
+          // TestMut(x, branches2, HashMap.empty, seqSP(default, spp))
+        else seqSP(new SP.Test(x2, HashMap.empty, sp), spp)
       // val branches2 = branches.map { (v, muts) =>
       //   v -> muts.map { (v2, spp) => v2 -> seqSP(sp, spp) }
       // }
@@ -360,7 +360,7 @@ object SPP {
         if branches.contains(v) then branches(v)
         else if other.contains(v) || (id eq False) then other
         else other + (v -> id)
-      case False => HashMap()
+      case False => HashMap.empty
       case Diag => HashMap(v -> Diag)
     }
 
@@ -390,7 +390,7 @@ object SPP {
       case (_, False) => x
       case (Diag, TestMut(x, branches, other, id)) =>
         // println("union Diag")
-        union(new TestMut(x, HashMap(), HashMap(), Diag), y)
+        union(new TestMut(x, HashMap.empty, HashMap.empty, Diag), y)
       // var branches2 = branches.map { (v, muts) =>
       //   // Add Diag to the diagonal
       //   v -> muts.updated(v, union(Diag, muts.getOrElse(v, False)))
@@ -422,7 +422,7 @@ object SPP {
           TestMut(xL, branches, muts, id)
         else if xL < xR then
           // logSummary("union<", x, y)
-          union(x, new TestMut(xL, HashMap(), HashMap(), y))
+          union(x, new TestMut(xL, HashMap.empty, HashMap.empty, y))
           // var branches = branchesL.map { (v, muts) => v -> (muts + (v -> union(muts.getOrElse(v, False), y))) }
           // for (v, spp) <- mutsL do if !branches.contains(v) then branches = branches.updated(v, Map(v -> union(spp, y)))
           // val muts = mutsL
@@ -432,15 +432,19 @@ object SPP {
       case _ => union(y, x)
     }
 
-  def unionMaps(xs: Iterable[Map[Val, SPP]]): HashMap[Val, SPP] =
-    var m = scala.collection.mutable.Map[Val, SPP]()
-    for x <- xs; (v, spp) <- x do
-      if m.contains(v) then m(v) = union(m(v), spp)
-      else m(v) = spp
-    m.to(HashMap)
+  def unionMaps(xs: Iterable[HashMap[Val, SPP]]): HashMap[Val, SPP] =
+    // println(xs.map(_.size))
+    if xs.isEmpty then return HashMap.empty
+    xs.reduce(unionMap)
+    // var m = HashMap[Val, SPP]()
+    // for x <- xs; (v, spp) <- x do
+    //   if m.contains(v) then m = m.updated(v, union(m(v), spp))
+    //   else m = m.updated(v, spp)
+    // m
 
   def unionMap(xs: HashMap[Val, SPP], ys: HashMap[Val, SPP]): HashMap[Val, SPP] =
-    // if ys.isEmpty then return xs
+    if ys.isEmpty then return xs
+    if xs.isEmpty then return ys
     // println(s"unionMap(${xs.size}, ${ys.size})")
     // var m = scala.collection.mutable.Map.from(xs)
     var m = xs
@@ -482,7 +486,7 @@ object SPP {
           val mutsB = mutsR.map { (v2, spp) => v2 -> seq(idL, spp) }
           SPP.TestMut(xL, branches, unionMap(mutsA, mutsB), seq(idL, idR))
         else if xL < xR then
-          seq(x, new TestMut(xL, HashMap(), HashMap(), y))
+          seq(x, new TestMut(xL, HashMap.empty, HashMap.empty, y))
           // if mutsL.isEmpty && (idL eq False) then return SPP.TestMut(xL, branchesL.map { (v, muts) => v -> muts.map { (v2, spp) => v2 -> seq(spp, y) } }, mutsL, idL)
           // val mutsA = mutsL.map { (v2, spp) =>
           //   v2 -> seq(spp, y)
@@ -493,7 +497,7 @@ object SPP {
           //   v -> unionMaps(get(x, v).map { (v2, spp) => Map(v2 -> seq(spp, y)) })
           // }.to(HashMap)
           // SPP.TestMut(xL, branches, mutsA, seq(idL, y))
-        else seq(new TestMut(xR, HashMap(), HashMap(), x), y)
+        else seq(new TestMut(xR, HashMap.empty, HashMap.empty, x), y)
       // val mutsB = mutsR.map { (v2, spp) => v2 -> seq(x, spp) }
       // if branchesR.isEmpty && (idR eq False) then return SPP.TestMut(xR, branchesR, mutsB, idR)
       // // if branchesR.isEmpty && (idR eq False) then return SPP.TestMut(xR, branchesR, mutsB, idR)
@@ -511,14 +515,14 @@ object SPP {
     (x, y) match {
       case (False, _) => False
       case (Diag, TestMut(x, branches, other, id)) =>
-        intersection(new TestMut(x, HashMap(), HashMap(), Diag), y)
+        intersection(new TestMut(x, HashMap.empty, HashMap.empty, Diag), y)
       // val branches2 = branches.map { (v, muts) =>
       //   v -> (if muts.contains(v)
       //         then Map(v -> intersection(Diag, muts(v)))
-      //         else HashMap())
+      //         else HashMap.empty)
       // } ++ (other -- branches.keySet).map { (v, spp) => v -> Map(v -> intersection(Diag, spp)) }
       // val id2 = intersection(Diag, id)
-      // TestMut(x, branches2, HashMap(), id2)
+      // TestMut(x, branches2, HashMap.empty, id2)
       case (TestMut(xL, branchesL, mutsL, idL), TestMut(xR, branchesR, mutsR, idR)) =>
         if xL == xR then
           // FIXME: potentially inefficient
@@ -531,12 +535,12 @@ object SPP {
           val id = intersection(idL, idR)
           TestMut(xL, branches, muts, id)
         else if xL < xR then
-          intersection(x, new TestMut(xL, HashMap(), HashMap(), y))
+          intersection(x, new TestMut(xL, HashMap.empty, HashMap.empty, y))
           // val branches = branchesL.map { (v, muts) =>
-          //   v -> (if muts.contains(v) then Map(v -> intersection(muts(v), y)) else HashMap())
+          //   v -> (if muts.contains(v) then Map(v -> intersection(muts(v), y)) else HashMap.empty)
           // } ++ (mutsL -- branchesL.keySet).map { (v, spp) => v -> Map(v -> intersection(spp, y)) }
           // val id = intersection(idL, y)
-          // TestMut(xL, branches, HashMap(), id)
+          // TestMut(xL, branches, HashMap.empty, id)
         else intersection(y, x)
       case _ => intersection(y, x)
     }
@@ -551,8 +555,8 @@ object SPP {
     (x, y) match {
       case (False, _) => False
       case (_, False) => x
-      case (Diag, TestMut(xR, branchesR, otherR, idR)) => difference(new TestMut(xR, HashMap(), HashMap(), Diag), y)
-      case (TestMut(xL, branchesL, mutsL, idL), Diag) => difference(x, new TestMut(xL, HashMap(), HashMap(), Diag))
+      case (Diag, TestMut(xR, branchesR, otherR, idR)) => difference(new TestMut(xR, HashMap.empty, HashMap.empty, Diag), y)
+      case (TestMut(xL, branchesL, mutsL, idL), Diag) => difference(x, new TestMut(xL, HashMap.empty, HashMap.empty, Diag))
       case (TestMut(xL, branchesL, mutsL, idL), TestMut(xR, branchesR, mutsR, idR)) =>
         if xL == xR then
           val branches = (branchesL.keySet ++ branchesR.keySet ++ mutsL.keySet ++ mutsR.keySet)
@@ -563,8 +567,8 @@ object SPP {
           val muts = differenceMap(mutsL, mutsR)
           val id = difference(idL, idR)
           TestMut(xL, branches, muts, id)
-        else if xL < xR then difference(x, new TestMut(xL, HashMap(), HashMap(), y))
-        else difference(new TestMut(xR, HashMap(), HashMap(), x), y)
+        else if xL < xR then difference(x, new TestMut(xL, HashMap.empty, HashMap.empty, y))
+        else difference(new TestMut(xR, HashMap.empty, HashMap.empty, x), y)
     }
 
   def differenceMap(xs: HashMap[Val, SPP], ys: HashMap[Val, SPP]): HashMap[Val, SPP] =

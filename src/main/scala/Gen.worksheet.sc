@@ -1,4 +1,5 @@
 import nkpl._
+import scala.collection.immutable.HashMap
 
 val n = 100
 
@@ -6,7 +7,7 @@ class Tester(vals: Map[Var, Set[Val]], random: Boolean = false):
   val sortedVals = vals.toList.sortBy { (v, s) => v }
   val packets =
     if false then (1 to n).map { _ => randPacket() }.toSet
-    else genComb(vals.map { (v, s) => v -> (s ++ Set(-1)) }).toList
+    else genComb(vals.map { (v, s) => v -> (s ++ Set(-1)) }.to(HashMap)).toList
   val sps =
     if random then (1 to n).map { _ => randSP(sortedVals) }.toList.sortBy(sizeSP)
     else genSP(sortedVals).toList.sortBy(sizeSP)
@@ -25,7 +26,7 @@ class Tester(vals: Map[Var, Set[Val]], random: Boolean = false):
     else
       val (x, vs) = vals.head
       val rest = vals.tail
-      val branches = randSubset(vs).map { v => v -> randSP(rest) }.toMap
+      val branches = randSubset(vs).map { v => v -> randSP(rest) }.to(HashMap)
       val other = randSP(rest)
       SP.Test(x, branches, other)
 
@@ -34,15 +35,17 @@ class Tester(vals: Map[Var, Set[Val]], random: Boolean = false):
     else
       val (x, vs) = vals.head
       val rest = vals.tail
-      val branches = randSubset(vs).map { v =>
-        v -> randSubset(vs).map { v => v -> randSPP(rest) }.toMap
-      }.toMap
-      val other = randSubset(vs).map { v => v -> randSPP(rest) }.toMap
+      val branches = randSubset(vs)
+        .map { v =>
+          v -> randSubset(vs).map { v => v -> randSPP(rest) }.to(HashMap)
+        }
+        .to(HashMap)
+      val other = randSubset(vs).map { v => v -> randSPP(rest) }.to(HashMap)
       val id = randSPP(rest)
       SPP.TestMut(x, branches, other, id)
 
-  def genComb[A, B](xs: Map[A, Set[B]]): Set[Map[A, B]] =
-    if xs.isEmpty then return Set(Map.empty)
+  def genComb[A, B](xs: HashMap[A, Set[B]]): Set[HashMap[A, B]] =
+    if xs.isEmpty then return Set(HashMap.empty)
     val (x, ys) = xs.head
     val rest = xs.tail
     val combs = genComb(rest)
@@ -51,8 +54,8 @@ class Tester(vals: Map[Var, Set[Val]], random: Boolean = false):
       y <- ys
     yield comb + (x -> y)
 
-  def subMaps[A, B](xs: Map[A, B]): Set[Map[A, B]] =
-    if (xs.isEmpty) Set(Map.empty[A, B])
+  def subMaps[A, B](xs: HashMap[A, B]): Set[HashMap[A, B]] =
+    if (xs.isEmpty) Set(HashMap.empty[A, B])
     else
       val (x, y) = xs.head
       val rest = xs.tail
@@ -62,7 +65,7 @@ class Tester(vals: Map[Var, Set[Val]], random: Boolean = false):
         result <- Set(submap, submap + (x -> y))
       } yield result
 
-  def subMapss[A, B](xs: Set[Map[A, B]]): Set[Map[A, B]] =
+  def subMapss[A, B](xs: Set[HashMap[A, B]]): Set[HashMap[A, B]] =
     xs.flatMap(subMaps(_))
 
   // Generate all small SPs on a given set of variables and values
@@ -73,8 +76,8 @@ class Tester(vals: Map[Var, Set[Val]], random: Boolean = false):
     // We map each val to a SP. We also have a default SP
     for
       default <- sps
-      ys <- subMapss(genComb(vals.map { v => v -> sps }.toMap))
-    yield SP.Test(x, ys, default)
+      ys <- subMapss(genComb(vals.map { v => v -> sps }.to(HashMap)))
+    yield SP.Test(x, ys.to(HashMap), default)
 
   def sizeSP(sp: SP): Int =
     sp match
@@ -108,13 +111,13 @@ class Tester(vals: Map[Var, Set[Val]], random: Boolean = false):
     if vars.isEmpty then return Set(SPP.False, SPP.Diag)
     val (x, vals) = vars.head
     val spps = genSPP(vars.tail)
-    val others = subMapss(genComb(vals.map { v => v -> spps }.toMap))
-    val branchess = subMapss(genComb(vals.map { v => v -> others }.toMap))
+    val others = subMapss(genComb(vals.map { v => v -> spps }.to(HashMap)))
+    val branchess = subMapss(genComb(vals.map { v => v -> others }.to(HashMap)))
     for
       branches <- branchess
       other <- others
       id <- spps
-    yield SPP.TestMut(x, branches, other, id)
+    yield SPP.TestMut(x, branches.to(HashMap), other.to(HashMap), id)
 
   def sizeSPP(spp: SPP): Int =
     spp match
@@ -224,7 +227,7 @@ class Tester(vals: Map[Var, Set[Val]], random: Boolean = false):
 
 import SPP._
 
-val T = Tester(Map("x" -> Set(0, 1), "y" -> Set(0, 1)), random = true)
+val T = Tester(Map(0 -> Set(0, 1), 1 -> Set(0, 1)), random = true)
 // val T = Tester(Map("x" -> Set(0, 1), "y" -> Set(0, 1), "z" -> Set(3, 5)), random = true)
 // val T = Tester(Map("x" -> Set(0, 1), "y" -> Set(0)), random = true)
 // val T = Tester(Map("x" -> Set(0), "y" -> Set(0)))
