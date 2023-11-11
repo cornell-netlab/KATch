@@ -133,13 +133,54 @@ object Bisim {
   def ε(e: NK): SPP =
     benchmark(s"ε", { ε0(e) })
 
+  def toKatPrim(e: NK, s: StringBuilder): Unit =
+    s.append("(")
+    e match
+      case Seq(es) =>
+        if es.isEmpty then s.append("id")
+        else
+          var first = true;
+          for e <- es do
+            if !first then s.append(";")
+            first = false
+            toKatPrim(e, s)
+      case Sum(es) =>
+        if es.isEmpty then s.append("drop")
+        else
+          var first = true
+          for e <- es do
+            if !first then s.append("+")
+            first = false
+            toKatPrim(e, s)
+      case Test(x, v) => s.append(s"filter $x = $v")
+      case Mut(x, v) => s.append(s"$x := $v")
+      case Dup => s.append("Dup")
+      case Star(e) =>
+        toKatPrim(e, s)
+        s.append("*")
+      case Difference(e1, e2) => throw new Throwable("Difference not supported")
+      case Intersection(e1, e2) => throw new Throwable("Intersection not supported")
+      case XOR(e1, e2) => throw new Throwable("XOR not supported")
+      case TestNE(x, v) => throw new Throwable("TestNE not supported")
+      case TestSP(sp) => throw new Throwable("TestSP not supported")
+      case Forward(e) => throw new Throwable("Forward not supported")
+      case Backward(e) => throw new Throwable("Backward not supported")
+      case VarName(x) => throw new Throwable("VarName not supported")
+      case _ => throw new Throwable(s"Unsupported expression: $e")
+    s.append(")")
+
+  def toKat(e: NK): String =
+    val s = new StringBuilder()
+    toKatPrim(e, s)
+    s.toString()
+
   def bisim(e1: NK, e2: NK): Boolean =
     val result = bisimPrim(e1, e2)
     val dir = "kat"
     var files = List[String]()
     // write e1 and e2 to files
     for e <- List(e1, e2) do
-      val kat = e.toString()
+      val kat = toKat(e)
       val filename = kat.hashCode().toHexString
       val f = new java.io.FileWriter(s"$dir/${filename}.kat")
       f.write(kat)
@@ -147,7 +188,7 @@ object Bisim {
       files = files :+ filename
     // append to checks.txt
     val fw = new java.io.FileWriter(s"$dir/runfrenetic.sh", true) // true to append
-    fw.write(s"./freneticcheck ${files(0)}.kat ${files(1)}.kat $result\n")
+    fw.write(s"../freneticcheck ${files(0)}.kat ${files(1)}.kat $result\n")
     fw.close()
     result
 
