@@ -61,29 +61,27 @@ def prepCheckFreneticScript() =
   Files.createDirectory(katDir)
   // Write the check function to kat/runfrenetic.sh
   val fw = new FileWriter("kat/runfrenetic.sh", false) // false to overwrite
-  fw.write("#!/bin/bash\n")
   fw.write("""
+#!/bin/bash
+
 check_bisim() {
     # Assign arguments to variables
     local file1=$1
     local file2=$2
     local expected_output=$3
 
-    # Run frenetic dump bisim and capture the output, time and memory usage
-    local cmd_output
-    cmd_output=$(time -f "\nTime: %E\nMemory: %MKB" frenetic dump bisim "$file1" "$file2" 2>&1)
+    # Run frenetic dump bisim and capture the output and time
+    local output
+    local time_info
+    time_info=$( { time frenetic dump bisim "$file1" "$file2" 2>&1 1>&3 3>&- | sed 's/real//'; } 3>&1 )
 
-    # Extract the output and the time/memory statistics
-    local frenetic_output=$(echo "$cmd_output" | head -n -2)
-    local time_memory=$(echo "$cmd_output" | tail -n 2)
-
-    # Compare the frenetic output with the expected output and print a single line result
-    if [ "$frenetic_output" == "$expected_output" ]; then
-        # Print success message in green along with time and memory usage
-        echo -e "\e[32mSuccess for $file1, $file2 - Expected: $expected_output$time_memory\e[0m"
+    # Compare the output with the expected output and print a single line result
+    if [ "$output" == "$expected_output" ]; then
+        # Print success message in green along with time
+        echo -e "\e[32mSuccess for $file1, $file2 - Expected: $expected_output (Time: $time_info)\e[0m"
     else
-        # Print failure message in red to stderr along with time and memory usage
-        echo -e "\e[31mFailure for $file1, $file2 - Expected: $expected_output, Got: $frenetic_output$time_memory\e[0m" >&2
+        # Print failure message in red to stderr along with time
+        echo -e "\e[31mFailure for $file1, $file2 - Expected: $expected_output, Got: $output (Time: $time_info)\e[0m" >&2
     fi
 }
 
