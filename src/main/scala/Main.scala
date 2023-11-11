@@ -28,6 +28,7 @@ def runFilesAndDirs(dirsAndFiles: List[String]) =
   } sortBy (_.getFileName.toString)
 
   for (file <- nkplFiles) {
+    if Options.convertToKat then appendToRunFreneticScript(s"echo \"Running frenetic dump bisim on $file\"\n")
     Runner.runTopLevel(file.toString)
   }
   // Append msg to benchresults.txt
@@ -53,6 +54,11 @@ def deleteDirectory(path: Path): Unit = {
     }
   )
 }
+
+def appendToRunFreneticScript(msg: String) =
+  val fw = new java.io.FileWriter(s"kat/runfrenetic.sh", true) // true to append
+  fw.write(msg)
+  fw.close()
 
 def prepCheckFreneticScript() =
   // Delete the `kat` dir and its contents and recreate it
