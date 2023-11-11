@@ -54,7 +54,7 @@ object Parser {
   // Parses a value, which is either an integer or a variable
   def value[$: P]: P[SVal] = P(integer.map(Left.apply) | varName.map(Right.apply))
 
-  def field[$: P]: P[Int] = P("@" ~~ CharIn("a-zA-Z").rep(1).!).map { x => VarMap(x) }
+  def field[$: P]: P[Int] = P("@" ~~ CharIn("a-zA-Z0-9").rep(1).!).map { x => VarMap(x) }
 
   // Parse a test such as @dst=3?
   def test[$: P]: P[NK] = P(field ~ "=" ~ value ~ "?".rep).map { case (x, v) => Test(x, v) } | P(field ~ "≠" ~ value ~ "?".rep).map { case (x, v) => TestNE(x, v) }
@@ -101,7 +101,7 @@ object Parser {
   def exprC[$: P]: P[NK] = P(exprZ.rep(1, sep = "⋅" | "∧").map(es => Seq(es.toList)))
 
   // Parses a union expression such as @dst←3 ∪ @dst←3 ⋅ @pt←0
-  def exprU[$: P]: P[NK] = P(exprC.rep(1, sep = "∪" | "∨").map(es => Sum(es.toSet)))
+  def exprU[$: P]: P[NK] = P(exprC.rep(1, sep = "∪" | "∨" | "+").map(es => Sum(es.toSet)))
 
   // Parses a netkat expression
   def exprNK[$: P]: P[NK] = P("forward" ~ exprU).map(e => Forward(e, false)) | P("backward" ~ exprU).map(e => Backward(e, false)) | exprU
