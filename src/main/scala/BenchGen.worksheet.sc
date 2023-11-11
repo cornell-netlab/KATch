@@ -94,10 +94,10 @@ for n <- 1 to nmax do {
   pw.close
 }
 
-// Nondeterministic (@sw←0 ⋅ @sw←1 ⋅ ... ⋅ @sw←n) ⋅ (@pt←0 ⋅ @pt←1 ⋅ ... ⋅ @pt←n) ⋅ (@dst←0 ⋅ @dst←1 ⋅ ... ⋅ @dst←n)
+// Nondeterministic (@sw←0 ∪ @sw←1 ∪ ... ∪ @sw←n) ⋅ (@pt←0 ∪ @pt←1 ∪ ... v @pt←n) ⋅ (@dst←0 ∪ @dst←1 ∪ ... ∪ @dst←n)
 
 def genNondet(v: String, n: Int) =
-  s"""${(0 to n).map(i => s"@$v←$i").mkString(" ⋅ ")}"""
+  s"""${(0 to n).map(i => s"@$v←$i").mkString(" ∪ ")}"""
 
 val vars = List("sw", "pt", "dst")
 for n <- 1 to nmax do {
