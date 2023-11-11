@@ -70,25 +70,21 @@ def prepCheckFreneticScript() =
   fw.write("""
 #!/bin/bash
 
-check_bisim() {
-    # Assign arguments to variables
-    local file1=$1
-    local file2=$2
-    local expected_output=$3
-
-    # Run frenetic dump bisim and capture the output and time
-    local output
-    local time_info
-    time_info=$( { time frenetic dump bisim "$file1" "$file2" 2>&1 1>&3 3>&- | sed 's/real//'; } 3>&1 )
-
-    # Compare the output with the expected output and print a single line result
-    if [ "$output" == "$expected_output" ]; then
-        # Print success message in green along with time
-        echo -e "\e[32mSuccess for $file1, $file2 - Expected: $expected_output (Time: $time_info)\e[0m"
+check_result() {
+    if [ $1 == $2 ]; then
+        printf "\e[32msuccess for $1, $2 - expected: $expected_output (time: "
     else
-        # Print failure message in red to stderr along with time
-        echo -e "\e[31mFailure for $file1, $file2 - Expected: $expected_output, Got: $output (Time: $time_info)\e[0m" >&2
+        # print failure message in red to stderr along with time
+        printf "\e[31mfailure for $1, $2 - expected: $expected_output, got: $output (time: "
     fi
+}
+
+check_bisim() {
+
+    # run frenetic dump bisim and capture the output and time
+    local output
+    ( time frenetic dump bisim $1 $2 | (read output; check_result $output $3)  | tee /dev/tty ) 2>&1 > /dev/null  | grep real | sed 's/real//' | tr -d '\n'
+    printf ")\e[0m\n"
 }
 
 """)
