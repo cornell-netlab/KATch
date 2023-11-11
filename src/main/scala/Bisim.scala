@@ -139,7 +139,7 @@ object Bisim {
         case "sw" => "switch"
         case "pt" => "port"
         case "dst" => "vswitch"
-        case x => x
+        case x => throw new Throwable(s"Unsupported variable $x")
     def getVal(n: Int): Int =
       if n < 0 then 1000 + n
       else n
