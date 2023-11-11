@@ -1,18 +1,19 @@
 package nkpl
+import scala.collection.immutable.HashMap
 
 class SP
 
 object SP {
   case object True extends SP
   case object False extends SP
-  case class Test(x: Var, ys: Map[Val, SP], default: SP) extends SP {
+  case class Test(x: Var, ys: HashMap[Val, SP], default: SP) extends SP {
     // Cache the hashcode
     override val hashCode = x.hashCode + ys.hashCode + default.hashCode
   }
 
   object Test {
     val cache = scala.collection.mutable.HashMap.empty[Test, Test]
-    def apply(x: Var, ys: Map[Val, SP], default: SP) =
+    def apply(x: Var, ys: HashMap[Val, SP], default: SP) =
       val ys2 = ys.filterNot { (v, y) => y eq default }
       if ys2.isEmpty then default
       else
@@ -30,7 +31,7 @@ object SP {
       case (Test(xL, ysL, defaultL), Test(xR, ysR, defaultR)) =>
         if xL == xR then
           val keys = ysL.keySet ++ ysR.keySet
-          val ys = keys.map { v => v -> union(ysL.getOrElse(v, defaultL), ysR.getOrElse(v, defaultR)) }.toMap
+          val ys = keys.map { v => v -> union(ysL.getOrElse(v, defaultL), ysR.getOrElse(v, defaultR)) }.to(HashMap)
           Test(xL, ys, union(defaultL, defaultR))
         else if xL < xR then Test(xL, ysL.map { (v, a) => v -> union(a, y) }, union(defaultL, y))
         else union(y, x)
@@ -56,7 +57,7 @@ object SP {
       case (Test(xL, ysL, defaultL), Test(xR, ysR, defaultR)) =>
         if xL == xR then
           val keys = ysL.keySet ++ ysR.keySet
-          val ys = keys.map { v => v -> difference(ysL.getOrElse(v, defaultL), ysR.getOrElse(v, defaultR)) }.toMap
+          val ys = keys.map { v => v -> difference(ysL.getOrElse(v, defaultL), ysR.getOrElse(v, defaultR)) }.to(HashMap)
           Test(xL, ys, difference(defaultL, defaultR))
         else if xL < xR then Test(xL, ysL.map { (v, a) => v -> difference(a, y) }, difference(defaultL, y))
         else Test(xR, ysR.map { (v, a) => v -> difference(x, a) }, difference(x, defaultR))
@@ -69,7 +70,7 @@ object SP {
       case (Test(xL, ysL, defaultL), Test(xR, ysR, defaultR)) =>
         if xL == xR then
           val keys = ysL.keySet ++ ysR.keySet
-          val ys = keys.map { v => v -> intersection(ysL.getOrElse(v, defaultL), ysR.getOrElse(v, defaultR)) }.toMap
+          val ys = keys.map { v => v -> intersection(ysL.getOrElse(v, defaultL), ysR.getOrElse(v, defaultR)) }.to(HashMap)
           Test(xL, ys, intersection(defaultL, defaultR))
         else if xL < xR then Test(xL, ysL.map { (v, a) => v -> intersection(a, y) }, intersection(defaultL, y))
         else intersection(y, x)
@@ -99,7 +100,7 @@ object SPP {
 
   case object Diag extends SPP
   case object False extends SPP
-  case class TestMut(x: Var, branches: Map[Val, Map[Val, SPP]], other: Map[Val, SPP], id: SPP) extends SPP {
+  case class TestMut(x: Var, branches: HashMap[Val, HashMap[Val, SPP]], other: HashMap[Val, SPP], id: SPP) extends SPP {
     // Cache the hashcode
     override val hashCode = x.hashCode + branches.hashCode + other.hashCode + id.hashCode
   }
@@ -107,7 +108,7 @@ object SPP {
     // FIXME: try the Java hashmap here, and use identity hash
     val cache = scala.collection.mutable.HashMap.empty[TestMut, TestMut]
     // val cache = scala.collection.mutable.HashMap.empty[TestMut, TestMut]
-    def apply(x: Var, branches: Map[Val, Map[Val, SPP]], other: Map[Val, SPP], id: SPP): SPP =
+    def apply(x: Var, branches: HashMap[Val, HashMap[Val, SPP]], other: HashMap[Val, SPP], id: SPP): SPP =
       // Remove redundant branches
       // A branch is redundant if sending the value to other/id would do the same thing
 
@@ -116,7 +117,7 @@ object SPP {
 
       // Now we remove muts that are False from other
       // We have to be careful here, because removing a False mut from other may cause a packet to go to id instead of other.
-      for (v, spp) <- other do if (spp eq False) && !branches2.contains(v) then branches2 = branches2.updated(v, Map())
+      for (v, spp) <- other do if (spp eq False) && !branches2.contains(v) then branches2 = branches2.updated(v, HashMap())
       val other2 = other.filterNot { (v, spp) => spp eq False }
 
       val branches3 = branches2.filter { (v, muts) =>
@@ -125,7 +126,7 @@ object SPP {
       if branches3.isEmpty && other2.isEmpty then return id
       val v = new TestMut(x, branches3, other2, id)
       cache.getOrElseUpdate(v, v)
-    def mk(x: Var, branches: Map[Val, Map[Val, SPP]], other: Map[Val, SPP], id: SPP): SPP =
+    def mk(x: Var, branches: HashMap[Val, HashMap[Val, SPP]], other: HashMap[Val, SPP], id: SPP): SPP =
       val v = new TestMut(x, branches, other, id)
       cache.getOrElseUpdate(v, v)
   }
@@ -160,13 +161,13 @@ object SPP {
     }
 
   def test(x: Var, y: Val): SPP =
-    TestMut(x, Map(y -> Map(y -> Diag)), Map(), False)
+    TestMut(x, HashMap(y -> HashMap(y -> Diag)), HashMap(), False)
 
   def testNE(x: Var, y: Val): SPP =
-    TestMut(x, Map(y -> Map()), Map(), Diag)
+    TestMut(x, HashMap(y -> HashMap()), HashMap(), Diag)
 
   def mut(x: Var, y: Val): SPP =
-    TestMut(x, Map(), Map(y -> Diag), False)
+    TestMut(x, HashMap(), HashMap(y -> Diag), False)
     // TestMut(x, Map(y -> Map(y -> Diag)), Map(y -> Diag), False)
 
   def logSummarySP(msg: String, sp: SP, spp: SPP): Unit =
@@ -213,7 +214,7 @@ object SPP {
         for v <- (branches.keySet ++ other.keySet) -- branchesC.keySet do branchesC = branchesC.updated(v, SP.False)
         val spid = run(SP.True, id)
         for v <- branchesC.keySet -- (branches.keySet ++ other.keySet) do branchesC = branchesC.updated(v, SP.union(branchesC(v), spid))
-        SP.Test(x, branchesC.toMap, run(SP.True, id))
+        SP.Test(x, branchesC.to(HashMap), run(SP.True, id))
       case (SP.Test(x, ys, default), TestMut(x2, branches, other, id)) =>
         if x == x2 then
           // logSummarySP("run/=", sp, spp)
@@ -263,7 +264,7 @@ object SPP {
       case SP.False => False
       case SP.True => Diag
       case SP.Test(x, ys, default) =>
-        TestMut(x, ys.map { (v, sp) => v -> Map(v -> fromSP(sp)) }, Map(), fromSP(default))
+        TestMut(x, ys.map { (v, sp) => v -> HashMap(v -> fromSP(sp)) }, HashMap(), fromSP(default))
     }
 
   def toSPforward(spp: SPP): SP =
@@ -290,27 +291,27 @@ object SPP {
     //   case (_, SP.False) => SP.False
     //   case (False, _) => SP.False
     //   case (Diag, _) => sp
-    //   case (TestMut(x, branches, muts, id), SP.True) => pull(spp, new SP.Test(x, Map(), SP.True))
+    //   case (TestMut(x, branches, muts, id), SP.True) => pull(spp, new SP.Test(x, HashMap(), SP.True))
     //   case (TestMut(x, branches, muts, id), SP.Test(y, branchesR, default)) =>
     //     if x == y then
     //       ???
     //       ???
-    //     else if x < y then pull(spp, new SP.Test(y, Map(), sp))
-    //     else pull(new TestMut(y, Map(), Map(), spp), sp)
+    //     else if x < y then pull(spp, new SP.Test(y, HashMap(), sp))
+    //     else pull(new TestMut(y, HashMap(), HashMap(), spp), sp)
 
   def unionMapsSP(xs: Iterable[Map[Val, SP]]): Map[Val, SP] =
     var m = scala.collection.mutable.Map[Val, SP]()
     for x <- xs; (v, sp) <- x do
       if m.contains(v) then m(v) = SP.union(m(v), sp)
       else m(v) = sp
-    m.toMap
+    m.to(HashMap)
 
   def unionMapSP(xs: Map[Val, SP], ys: Map[Val, SP]): Map[Val, SP] =
     var m = scala.collection.mutable.Map.from(xs)
     for (v, sp) <- ys do
       if m.contains(v) then m(v) = SP.union(m(v), sp)
       else m(v) = sp
-    m.toMap
+    m.to(HashMap)
 
   // Converts a symbolic packet into a test SPP
   def toTest(sp: SP): SPP =
@@ -318,7 +319,7 @@ object SPP {
       case SP.False => SPP.False
       case SP.True => SPP.Diag
       case SP.Test(x, ys, default) =>
-        SPP.TestMut(x, ys.map { (v, sp) => v -> Map(v -> toTest(sp)) }, Map(), toTest(default))
+        SPP.TestMut(x, ys.map { (v, sp) => v -> HashMap(v -> toTest(sp)) }, HashMap(), toTest(default))
 
   // Composes a test represented as a SP with a SPP.
   // We could implement this by converting the SP to a SPP and then composing the SPPs.
@@ -331,19 +332,21 @@ object SPP {
       case (_, Diag) => toTest(sp)
       case (SP.Test(x, ys, default), TestMut(x2, branches, other, id)) =>
         if x == x2 then
-          val branches2 = (ys.keySet ++ branches.keySet ++ other.keySet).map { case v =>
-            val y = ys.getOrElse(v, default)
-            val b = branches.getOrElse(v, if other.contains(v) then other else other + (v -> id))
-            v -> b.map { (v2, spp) => v2 -> seqSP(y, spp) }
-          }.toMap
+          val branches2 = (ys.keySet ++ branches.keySet ++ other.keySet)
+            .map { case v =>
+              val y = ys.getOrElse(v, default)
+              val b = branches.getOrElse(v, if other.contains(v) then other else other + (v -> id))
+              v -> b.map { (v2, spp) => v2 -> seqSP(y, spp) }
+            }
+            .to(HashMap)
           val other2 = other.map { (v2, spp) => v2 -> seqSP(default, spp) }
           val id2 = seqSP(default, id)
           TestMut(x, branches2, other2, id2)
         else if x < x2 then
-          seqSP(sp, new TestMut(x, Map(), Map(), spp))
+          seqSP(sp, new TestMut(x, HashMap(), HashMap(), spp))
           // val branches2 = ys.map { (v, sp) => v -> Map(v -> seqSP(sp, spp)) }
-          // TestMut(x, branches2, Map(), seqSP(default, spp))
-        else seqSP(new SP.Test(x2, Map(), sp), spp)
+          // TestMut(x, branches2, HashMap(), seqSP(default, spp))
+        else seqSP(new SP.Test(x2, HashMap(), sp), spp)
       // val branches2 = branches.map { (v, muts) =>
       //   v -> muts.map { (v2, spp) => v2 -> seqSP(sp, spp) }
       // }
@@ -351,14 +354,14 @@ object SPP {
       // TestMut(x2, branches2, other2, seqSP(sp, id))
     }
 
-  def get(x: SPP, v: Val): Map[Val, SPP] =
+  def get(x: SPP, v: Val): HashMap[Val, SPP] =
     x match {
       case TestMut(x, branches, other, id) =>
         if branches.contains(v) then branches(v)
         else if other.contains(v) || (id eq False) then other
         else other + (v -> id)
-      case False => Map()
-      case Diag => Map(v -> Diag)
+      case False => HashMap()
+      case Diag => HashMap(v -> Diag)
     }
 
   def logSummary(msg: String, spp1: SPP, spp2: SPP): Unit =
@@ -387,7 +390,7 @@ object SPP {
       case (_, False) => x
       case (Diag, TestMut(x, branches, other, id)) =>
         // println("union Diag")
-        union(new TestMut(x, Map(), Map(), Diag), y)
+        union(new TestMut(x, HashMap(), HashMap(), Diag), y)
       // var branches2 = branches.map { (v, muts) =>
       //   // Add Diag to the diagonal
       //   v -> muts.updated(v, union(Diag, muts.getOrElse(v, False)))
@@ -409,15 +412,17 @@ object SPP {
 
           // else return TestMut.mk(xL, branchesL, mutsL.updated(mutsR.head._1, union(mutsR.head._2, mutsL(mutsR.head._1))), idL)
           // logSummary("union=", x, y)
-          val branches = (branchesL.keySet ++ branchesR.keySet ++ mutsL.keySet ++ mutsR.keySet).map { v =>
-            v -> unionMap(get(x, v), get(y, v))
-          }.toMap
+          val branches = (branchesL.keySet ++ branchesR.keySet ++ mutsL.keySet ++ mutsR.keySet)
+            .map { v =>
+              v -> unionMap(get(x, v), get(y, v))
+            }
+            .to(HashMap)
           val muts = unionMap(mutsL, mutsR)
           val id = union(idL, idR)
           TestMut(xL, branches, muts, id)
         else if xL < xR then
           // logSummary("union<", x, y)
-          union(x, new TestMut(xL, Map(), Map(), y))
+          union(x, new TestMut(xL, HashMap(), HashMap(), y))
           // var branches = branchesL.map { (v, muts) => v -> (muts + (v -> union(muts.getOrElse(v, False), y))) }
           // for (v, spp) <- mutsL do if !branches.contains(v) then branches = branches.updated(v, Map(v -> union(spp, y)))
           // val muts = mutsL
@@ -427,15 +432,14 @@ object SPP {
       case _ => union(y, x)
     }
 
-  def unionMaps(xs: Iterable[Map[Val, SPP]]): Map[Val, SPP] =
-
+  def unionMaps(xs: Iterable[Map[Val, SPP]]): HashMap[Val, SPP] =
     var m = scala.collection.mutable.Map[Val, SPP]()
     for x <- xs; (v, spp) <- x do
       if m.contains(v) then m(v) = union(m(v), spp)
       else m(v) = spp
-    m.toMap
+    m.to(HashMap)
 
-  def unionMap(xs: Map[Val, SPP], ys: Map[Val, SPP]): Map[Val, SPP] =
+  def unionMap(xs: HashMap[Val, SPP], ys: HashMap[Val, SPP]): HashMap[Val, SPP] =
     // if ys.isEmpty then return xs
     // println(s"unionMap(${xs.size}, ${ys.size})")
     // var m = scala.collection.mutable.Map.from(xs)
@@ -470,13 +474,15 @@ object SPP {
           val mutsA = unionMaps(mutsL.map { (v2, spp) =>
             get(y, v2).map { (v2, spp2) => v2 -> seq(spp, spp2) }
           })
-          val branches = (branchesL.keySet ++ branchesR.keySet ++ mutsL.keySet ++ mutsR.keySet ++ mutsA.keySet).map { v =>
-            v -> unionMaps(get(x, v).map { (v2, spp) => get(y, v2).map { (v3, spp2) => v3 -> seq(spp, spp2) } })
-          }.toMap
+          val branches = (branchesL.keySet ++ branchesR.keySet ++ mutsL.keySet ++ mutsR.keySet ++ mutsA.keySet)
+            .map { v =>
+              v -> unionMaps(get(x, v).map { (v2, spp) => get(y, v2).map { (v3, spp2) => v3 -> seq(spp, spp2) } })
+            }
+            .to(HashMap)
           val mutsB = mutsR.map { (v2, spp) => v2 -> seq(idL, spp) }
           SPP.TestMut(xL, branches, unionMap(mutsA, mutsB), seq(idL, idR))
         else if xL < xR then
-          seq(x, new TestMut(xL, Map(), Map(), y))
+          seq(x, new TestMut(xL, HashMap(), HashMap(), y))
           // if mutsL.isEmpty && (idL eq False) then return SPP.TestMut(xL, branchesL.map { (v, muts) => v -> muts.map { (v2, spp) => v2 -> seq(spp, y) } }, mutsL, idL)
           // val mutsA = mutsL.map { (v2, spp) =>
           //   v2 -> seq(spp, y)
@@ -485,16 +491,16 @@ object SPP {
           // // logSummary("seq<", x, y)
           // val branches = (branchesL.keySet ++ mutsL.keySet).map { v =>
           //   v -> unionMaps(get(x, v).map { (v2, spp) => Map(v2 -> seq(spp, y)) })
-          // }.toMap
+          // }.to(HashMap)
           // SPP.TestMut(xL, branches, mutsA, seq(idL, y))
-        else seq(new TestMut(xR, Map(), Map(), x), y)
+        else seq(new TestMut(xR, HashMap(), HashMap(), x), y)
       // val mutsB = mutsR.map { (v2, spp) => v2 -> seq(x, spp) }
       // if branchesR.isEmpty && (idR eq False) then return SPP.TestMut(xR, branchesR, mutsB, idR)
       // // if branchesR.isEmpty && (idR eq False) then return SPP.TestMut(xR, branchesR, mutsB, idR)
       // // logSummary("seq>", x, y)
       // val branches = (branchesR.keySet ++ mutsR.keySet).map { v =>
       //   v -> get(y, v).map { (v3, spp2) => v3 -> seq(x, spp2) }
-      // }.toMap
+      // }.to(HashMap)
       // SPP.TestMut(xR, branches, mutsB, seq(x, idR))
     }
 
@@ -505,36 +511,38 @@ object SPP {
     (x, y) match {
       case (False, _) => False
       case (Diag, TestMut(x, branches, other, id)) =>
-        intersection(new TestMut(x, Map(), Map(), Diag), y)
+        intersection(new TestMut(x, HashMap(), HashMap(), Diag), y)
       // val branches2 = branches.map { (v, muts) =>
       //   v -> (if muts.contains(v)
       //         then Map(v -> intersection(Diag, muts(v)))
-      //         else Map())
+      //         else HashMap())
       // } ++ (other -- branches.keySet).map { (v, spp) => v -> Map(v -> intersection(Diag, spp)) }
       // val id2 = intersection(Diag, id)
-      // TestMut(x, branches2, Map(), id2)
+      // TestMut(x, branches2, HashMap(), id2)
       case (TestMut(xL, branchesL, mutsL, idL), TestMut(xR, branchesR, mutsR, idR)) =>
         if xL == xR then
           // FIXME: potentially inefficient
-          val branches = (branchesL.keySet ++ branchesR.keySet ++ mutsL.keySet ++ mutsR.keySet).map { v =>
-            v -> intersectionMap(get(x, v), get(y, v))
-          }.toMap
+          val branches = (branchesL.keySet ++ branchesR.keySet ++ mutsL.keySet ++ mutsR.keySet)
+            .map { v =>
+              v -> intersectionMap(get(x, v), get(y, v))
+            }
+            .to(HashMap)
           val muts = intersectionMap(mutsL, mutsR)
           val id = intersection(idL, idR)
           TestMut(xL, branches, muts, id)
         else if xL < xR then
-          intersection(x, new TestMut(xL, Map(), Map(), y))
+          intersection(x, new TestMut(xL, HashMap(), HashMap(), y))
           // val branches = branchesL.map { (v, muts) =>
-          //   v -> (if muts.contains(v) then Map(v -> intersection(muts(v), y)) else Map())
+          //   v -> (if muts.contains(v) then Map(v -> intersection(muts(v), y)) else HashMap())
           // } ++ (mutsL -- branchesL.keySet).map { (v, spp) => v -> Map(v -> intersection(spp, y)) }
           // val id = intersection(idL, y)
-          // TestMut(xL, branches, Map(), id)
+          // TestMut(xL, branches, HashMap(), id)
         else intersection(y, x)
       case _ => intersection(y, x)
     }
 
-  def intersectionMap(xs: Map[Val, SPP], ys: Map[Val, SPP]): Map[Val, SPP] =
-    (xs.keySet ++ ys.keySet).map { v => v -> intersection(xs.getOrElse(v, False), ys.getOrElse(v, False)) }.toMap
+  def intersectionMap(xs: HashMap[Val, SPP], ys: HashMap[Val, SPP]): HashMap[Val, SPP] =
+    (xs.keySet ++ ys.keySet).map { v => v -> intersection(xs.getOrElse(v, False), ys.getOrElse(v, False)) }.to(HashMap)
 
   lazy val difference: (SPP, SPP) => SPP = memoize2 { (x, y) => differencePrim(x, y) }
   def differencePrim(x: SPP, y: SPP): SPP =
@@ -543,22 +551,24 @@ object SPP {
     (x, y) match {
       case (False, _) => False
       case (_, False) => x
-      case (Diag, TestMut(xR, branchesR, otherR, idR)) => difference(new TestMut(xR, Map(), Map(), Diag), y)
-      case (TestMut(xL, branchesL, mutsL, idL), Diag) => difference(x, new TestMut(xL, Map(), Map(), Diag))
+      case (Diag, TestMut(xR, branchesR, otherR, idR)) => difference(new TestMut(xR, HashMap(), HashMap(), Diag), y)
+      case (TestMut(xL, branchesL, mutsL, idL), Diag) => difference(x, new TestMut(xL, HashMap(), HashMap(), Diag))
       case (TestMut(xL, branchesL, mutsL, idL), TestMut(xR, branchesR, mutsR, idR)) =>
         if xL == xR then
-          val branches = (branchesL.keySet ++ branchesR.keySet ++ mutsL.keySet ++ mutsR.keySet).map { v =>
-            v -> differenceMap(get(x, v), get(y, v))
-          }.toMap
+          val branches = (branchesL.keySet ++ branchesR.keySet ++ mutsL.keySet ++ mutsR.keySet)
+            .map { v =>
+              v -> differenceMap(get(x, v), get(y, v))
+            }
+            .to(HashMap)
           val muts = differenceMap(mutsL, mutsR)
           val id = difference(idL, idR)
           TestMut(xL, branches, muts, id)
-        else if xL < xR then difference(x, new TestMut(xL, Map(), Map(), y))
-        else difference(new TestMut(xR, Map(), Map(), x), y)
+        else if xL < xR then difference(x, new TestMut(xL, HashMap(), HashMap(), y))
+        else difference(new TestMut(xR, HashMap(), HashMap(), x), y)
     }
 
-  def differenceMap(xs: Map[Val, SPP], ys: Map[Val, SPP]): Map[Val, SPP] =
-    (xs.keySet ++ ys.keySet).map { v => v -> difference(xs.getOrElse(v, False), ys.getOrElse(v, False)) }.toMap
+  def differenceMap(xs: HashMap[Val, SPP], ys: HashMap[Val, SPP]): HashMap[Val, SPP] =
+    (xs.keySet ++ ys.keySet).map { v => v -> difference(xs.getOrElse(v, False), ys.getOrElse(v, False)) }.to(HashMap)
 
   def xor(x: SPP, y: SPP): SPP =
     union(difference(x, y), difference(y, x)) // FIXME: optimize this

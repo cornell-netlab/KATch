@@ -37,3 +37,7 @@ def parse(s: String) =
 
 val a = parse("ε")
 Bisim.revTrans(a)
+
+import scala.collection.immutable.HashMap
+
+val x = Map(1 -> 2)
