@@ -11,7 +11,7 @@ object SP {
   }
 
   object Test {
-    val cache = scala.collection.mutable.WeakHashMap.empty[Test, Test]
+    val cache = scala.collection.mutable.HashMap.empty[Test, Test]
     def apply(x: Var, ys: Map[Val, SP], default: SP) =
       val ys2 = ys.filterNot { (v, y) => y eq default }
       if ys2.isEmpty then default
@@ -105,8 +105,8 @@ object SPP {
   }
   object TestMut {
     // FIXME: try the Java hashmap here, and use identity hash
-    val cache = scala.collection.mutable.WeakHashMap.empty[TestMut, TestMut]
-    //val cache = scala.collection.mutable.HashMap.empty[TestMut, TestMut]
+    val cache = scala.collection.mutable.HashMap.empty[TestMut, TestMut]
+    // val cache = scala.collection.mutable.HashMap.empty[TestMut, TestMut]
     def apply(x: Var, branches: Map[Val, Map[Val, SPP]], other: Map[Val, SPP], id: SPP): SPP =
       // Remove redundant branches
       // A branch is redundant if sending the value to other/id would do the same thing
@@ -487,16 +487,15 @@ object SPP {
           //   v -> unionMaps(get(x, v).map { (v2, spp) => Map(v2 -> seq(spp, y)) })
           // }.toMap
           // SPP.TestMut(xL, branches, mutsA, seq(idL, y))
-        else
-          seq(new TestMut(xR, Map(), Map(), x), y)
-        // val mutsB = mutsR.map { (v2, spp) => v2 -> seq(x, spp) }
-        // if branchesR.isEmpty && (idR eq False) then return SPP.TestMut(xR, branchesR, mutsB, idR)
-        // // if branchesR.isEmpty && (idR eq False) then return SPP.TestMut(xR, branchesR, mutsB, idR)
-        // // logSummary("seq>", x, y)
-        // val branches = (branchesR.keySet ++ mutsR.keySet).map { v =>
-        //   v -> get(y, v).map { (v3, spp2) => v3 -> seq(x, spp2) }
-        // }.toMap
-        // SPP.TestMut(xR, branches, mutsB, seq(x, idR))
+        else seq(new TestMut(xR, Map(), Map(), x), y)
+      // val mutsB = mutsR.map { (v2, spp) => v2 -> seq(x, spp) }
+      // if branchesR.isEmpty && (idR eq False) then return SPP.TestMut(xR, branchesR, mutsB, idR)
+      // // if branchesR.isEmpty && (idR eq False) then return SPP.TestMut(xR, branchesR, mutsB, idR)
+      // // logSummary("seq>", x, y)
+      // val branches = (branchesR.keySet ++ mutsR.keySet).map { v =>
+      //   v -> get(y, v).map { (v3, spp2) => v3 -> seq(x, spp2) }
+      // }.toMap
+      // SPP.TestMut(xR, branches, mutsB, seq(x, idR))
     }
 
   lazy val intersection: (SPP, SPP) => SPP = memoize2 { (x, y) => intersectionPrim(x, y) }

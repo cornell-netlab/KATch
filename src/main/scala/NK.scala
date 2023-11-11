@@ -100,6 +100,8 @@ val One = Seq(List())
 
 var clearCachesFns = List[() => Unit]()
 def clearCaches(): Unit =
+  SP.Test.cache.clear()
+  SPP.TestMut.cache.clear()
   clearCachesFns.foreach { f => f() }
 
 def memoize[A, B](f: A => B): A => B =
