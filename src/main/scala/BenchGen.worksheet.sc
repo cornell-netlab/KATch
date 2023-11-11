@@ -1,3 +1,33 @@
+import java.nio.file.Paths
+import java.io.IOException
+import java.nio.file.FileVisitResult
+import java.nio.file.attribute.BasicFileAttributes
+import java.nio.file.SimpleFileVisitor
+import java.nio.file.Path
+import java.nio.file.Files
+
+def deleteDirectory(path: Path): Unit = {
+  // Recursive deletion of files in the directory
+  Files.walkFileTree(
+    path,
+    new SimpleFileVisitor[Path] {
+      override def visitFile(file: Path, attrs: BasicFileAttributes): FileVisitResult = {
+        Files.delete(file)
+        FileVisitResult.CONTINUE
+      }
+
+      override def postVisitDirectory(dir: Path, e: IOException): FileVisitResult = {
+        if (e != null) throw e
+        Files.delete(dir)
+        FileVisitResult.CONTINUE
+      }
+    }
+  )
+}
+
+// deleteDirectory(Paths.get("benchmarks/combinatorial"))
+// Files.createDirectory(Paths.get("benchmarks/combinatorial"))
+
 // Flip benchmarks
 
 // flip_x1 = (@x1 = 0 ⋅ @x1 ← 1) ∪ (@x1 = 1 ⋅ @x1 ← 0) ∪ (@x1 ≠ 0 ⋅ @x1 ≠ 1 ⋅ ε)
@@ -60,6 +90,29 @@ for n <- 1 to nmax do {
   // Write to file benchmarks/combinatorial/inc{n}.nkpl
   import java.io._
   val pw = new PrintWriter(new File(s"benchmarks/combinatorial/inc$n.nkpl"))
+  pw.write(sb.toString)
+  pw.close
+}
+
+// Nondeterministic (@sw←0 ⋅ @sw←1 ⋅ ... ⋅ @sw←n) ⋅ (@pt←0 ⋅ @pt←1 ⋅ ... ⋅ @pt←n) ⋅ (@dst←0 ⋅ @dst←1 ⋅ ... ⋅ @dst←n)
+
+def genNondet(v: String, n: Int) =
+  s"""${(0 to n).map(i => s"@$v←$i").mkString(" ⋅ ")}"""
+
+val vars = List("sw", "pt", "dst")
+for n <- 1 to nmax do {
+  val sb = new StringBuilder
+
+  for v <- vars do {
+    sb.append(s"${v}E = ${genNondet(v, n)}\n")
+  }
+
+  sb.append(s"all = ${vars.map(v => s"${v}E").mkString(" ⋅ ")}\n")
+  sb.append(s"check all ⋅ all ≡ all\n")
+
+  // Write to file benchmarks/combinatorial/nondet{n}.nkpl
+  import java.io._
+  val pw = new PrintWriter(new File(s"benchmarks/combinatorial/nondet$n-${vars.mkString("")}.nkpl"))
   pw.write(sb.toString)
   pw.close
 }
