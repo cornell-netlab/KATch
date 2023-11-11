@@ -54,6 +54,35 @@ def deleteDirectory(path: Path): Unit = {
   )
 }
 
+def prepCheckFreneticScript() =
+  // Delete the `kat` dir and its contents and recreate it
+  val katDir = Paths.get("kat")
+  deleteDirectory(katDir)
+  Files.createDirectory(katDir)
+  // Write the check function to kat/runfrenetic.sh
+  val fw = new FileWriter("kat/runfrenetic.sh", false) // false to overwrite
+  fw.write("#!/bin/bash\n")
+  fw.write("""
+check_bisim() {
+    # Assign arguments to variables
+    local file1=$1
+    local file2=$2
+    local expected_output=$3
+
+    # Run frenetic dump bisim and capture the output
+    local output=$(frenetic dump bisim "$file1" "$file2")
+
+    # Compare the output with the expected output and print a single line result
+    if [ "$output" == "$expected_output" ]; then
+        echo -e "\e[32mSuccess for $file1, $file2 - Expected: $expected_output\e[0m"
+    else
+        # Print failure message in red to stderr
+        echo -e "\e[31mFailure for $file1, $file2 - Expected: $expected_output, Got: $output\e[0m" >&2
+    fi
+}
+""")
+  fw.close()
+
 @main def hello(cmd: String*): Unit =
   if cmd.isEmpty then error("No command specified")
   val command = cmd(0)
@@ -61,10 +90,7 @@ def deleteDirectory(path: Path): Unit = {
   command match {
     case "convert" =>
       println("Converting to KAT:")
-      // Delete the `kat` dir and its contents and recreate it
-      val katDir = Paths.get("kat")
-      deleteDirectory(katDir)
-      Files.createDirectory(katDir)
+      prepCheckFreneticScript()
       Options.convertToKat = true
       runFilesAndDirs(inputs.toList)
     case "run" =>
