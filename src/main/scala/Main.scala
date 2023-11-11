@@ -71,7 +71,7 @@ check_bisim() {
 
     # Run frenetic dump bisim and capture the output, time and memory usage
     local cmd_output
-    cmd_output=$(/usr/bin/time -f "\nTime: %E\nMemory: %MKB" frenetic dump bisim "$file1" "$file2" 2>&1)
+    cmd_output=$(time -f "\nTime: %E\nMemory: %MKB" frenetic dump bisim "$file1" "$file2" 2>&1)
 
     # Extract the output and the time/memory statistics
     local frenetic_output=$(echo "$cmd_output" | head -n -2)
