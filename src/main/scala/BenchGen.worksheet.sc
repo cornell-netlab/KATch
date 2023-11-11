@@ -5,7 +5,9 @@
 def genFlip(n: Int): String =
   s"""flip_x$n = (@x$n=0 ⋅ @x$n←1) + (@x$n=1 ⋅ @x$n←0) + (@x$n≠0 ⋅ @x$n≠1 ⋅ ε)"""
 
-for n <- 1 to 20 do {
+val nmax = 100
+
+for n <- 1 to nmax do {
   val sb = new StringBuilder
 
   for (i <- 1 to n) {
@@ -32,7 +34,7 @@ for n <- 1 to 20 do {
 def genInc(n: Int): String =
   s"""inc_x$n = (@carry=0 ⋅ @x$n=0 ⋅ @x$n←1 ⋅ @carry←0) + (@carry=0 ⋅ @x$n=1 ⋅ @x$n←0 ⋅ @carry←1) + (@carry = 1 ⋅ @x$n=0 ⋅ @x$n←0 ⋅ @carry←1) + (@carry = 1 ⋅ @x$n=1 ⋅ @x$n←1 ⋅ @carry←1)"""
 
-for n <- 1 to 20 do {
+for n <- 1 to nmax do {
   val sb = new StringBuilder
 
   for (i <- 1 to n) {
