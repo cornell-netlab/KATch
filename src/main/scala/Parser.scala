@@ -3,16 +3,16 @@ package nkpl
 import fastparse._, SingleLineWhitespace._
 
 object VarMap {
-  var n = 0
+  var n = -1
   val varMap = collection.mutable.Map[String, Int]()
   val revMap = collection.mutable.Map[Int, String]()
   def apply(x: String): Int =
     varMap.getOrElseUpdate(x, { n += 1; revMap(n) = x; n })
   def apply(i: Int): String = revMap(i)
 
-  VarMap("sw")
-  VarMap("pt")
-  VarMap("dst")
+  // VarMap("sw")
+  // VarMap("pt")
+  // VarMap("dst")
 }
 object Parser {
   type SVal = Either[Val, String]
