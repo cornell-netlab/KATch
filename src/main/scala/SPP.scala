@@ -38,7 +38,8 @@ object SP {
     sb.append(pp(sp))
     sb.toString
 
-  def union(x: SP, y: SP): SP =
+  lazy val union: (SP, SP) => SP = memoize2 { (x, y) => unionPrim(x, y) }
+  def unionPrim(x: SP, y: SP): SP =
     if x eq y then return x
     (x, y) match {
       case (False, _) => y
@@ -56,14 +57,16 @@ object SP {
   def unionN(xs: Iterable[SP]): SP =
     xs.foldLeft(False: SP)(union(_, _))
 
-  def negate(x: SP): SP =
+  lazy val negate: SP => SP = memoize { x => negatePrim(x) }
+  def negatePrim(x: SP): SP =
     x match {
       case False => True
       case True => False
       case Test(x, ys, default) => Test(x, ys.map { (v, a) => v -> negate(a) }, negate(default))
     }
 
-  def difference(x: SP, y: SP): SP =
+  lazy val difference: (SP, SP) => SP = memoize2 { (x, y) => differencePrim(x, y) }
+  def differencePrim(x: SP, y: SP): SP =
     (x, y) match {
       case (False, _) => False
       case (_, False) => x
@@ -78,7 +81,8 @@ object SP {
         else Test(xR, ysR.map { (v, a) => v -> difference(x, a) }, difference(x, defaultR))
     }
 
-  def intersection(x: SP, y: SP): SP =
+  lazy val intersection: (SP, SP) => SP = memoize2 { (x, y) => intersectionPrim(x, y) }
+  def intersectionPrim(x: SP, y: SP): SP =
     (x, y) match {
       case (False, _) => False
       case (True, _) => y
@@ -92,6 +96,9 @@ object SP {
       case _ => intersection(y, x)
     }
 
+  def intersectionN(xs: Iterable[SP]): SP =
+    xs.foldLeft(True: SP)(intersection(_, _))
+
   def elemOf(packet: Map[Var, Val], x: SP): Boolean =
     x match {
       case SP.True => true
@@ -104,6 +111,29 @@ object SP {
           }
         else elemOf(packet, default)
     }
+
+  lazy val exists: (Var, SP) => SP = memoize2 { (x, sp) => existsPrim(x, sp) }
+  def existsPrim(x: Var, sp: SP): SP =
+    sp match {
+      case SP.False => False
+      case SP.True => True
+      case SP.Test(y, ys, default) =>
+        if x == y then union(unionN(ys.values), default)
+        else Test(y, ys.map { (v, sp) => v -> exists(x, sp) }, exists(x, default))
+    }
+
+  lazy val forall: (Var, SP) => SP = memoize2 { (x, sp) => forallPrim(x, sp) }
+  def forallPrim(x: Var, sp: SP): SP =
+    sp match {
+      case SP.False => True
+      case SP.True => True
+      case SP.Test(y, ys, default) =>
+        if x == y then intersection(intersectionN(ys.values), default)
+        else Test(y, ys.map { (v, sp) => v -> forall(x, sp) }, forall(x, default))
+    }
+
+  def test(x: Var, y: Val): SP = Test(x, HashMap(y -> True), False)
+  def testNE(x: Var, y: Val): SP = Test(x, HashMap(y -> False), True)
 }
 
 class SPP

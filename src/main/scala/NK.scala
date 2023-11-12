@@ -38,12 +38,12 @@ case class XOR(e1: NK, e2: NK) extends NK {
 case class Star(e: NK) extends NK {
   override def toString: String = s"(${e})⋆"
 }
-case class Forward(e: NK) extends NK {
-  override def toString: String = s"(forward ${e})"
-}
-case class Backward(e: NK) extends NK {
-  override def toString: String = s"(backward ${e})"
-}
+// case class Forward(e: NK) extends NK {
+//   override def toString: String = s"(forward ${e})"
+// }
+// case class Backward(e: NK) extends NK {
+//   override def toString: String = s"(backward ${e})"
+// }
 case class TestSP(e: SP) extends NK {
   override def toString: String = s"(test ${e})"
 }
@@ -63,19 +63,19 @@ object TestNE {
     cache.getOrElseUpdate(w, w)
 }
 
-object Forward {
-  private val cache = scala.collection.mutable.WeakHashMap.empty[Forward, Forward]
-  def apply(e: NK): NK =
-    val w = new Forward(e)
-    cache.getOrElseUpdate(w, w)
-}
+// object Forward {
+//   private val cache = scala.collection.mutable.WeakHashMap.empty[Forward, Forward]
+//   def apply(e: NK): NK =
+//     val w = new Forward(e)
+//     cache.getOrElseUpdate(w, w)
+// }
 
-object Backward {
-  private val cache = scala.collection.mutable.WeakHashMap.empty[Backward, Backward]
-  def apply(e: NK): NK =
-    val w = new Backward(e)
-    cache.getOrElseUpdate(w, w)
-}
+// object Backward {
+//   private val cache = scala.collection.mutable.WeakHashMap.empty[Backward, Backward]
+//   def apply(e: NK): NK =
+//     val w = new Backward(e)
+//     cache.getOrElseUpdate(w, w)
+// }
 
 object TestSP {
   private val cache = scala.collection.mutable.WeakHashMap.empty[TestSP, TestSP]

@@ -30,6 +30,8 @@ object Parser {
   case class Star(e: NK) extends NK
   case class Forward(e: NK, negate: Boolean = false) extends NK
   case class Backward(e: NK, negate: Boolean = false) extends NK
+  case class Exists(x: Var, e: NK) extends NK
+  case class Forall(x: Var, e: NK) extends NK
   case class VarName(x: String) extends NK
 
   def negate(e: NK): NK =
@@ -40,6 +42,8 @@ object Parser {
       case Sum(es) => Seq(es.map(negate).toList)
       case Backward(e, negate) => Backward(e, !negate)
       case Forward(e, negate) => Forward(e, !negate)
+      case Exists(x, e) => Forall(x, negate(e))
+      case Forall(x, e) => Exists(x, negate(e))
       case _ => throw new Throwable(s"Cannot negate $e")
 
   // First, let's define what a 'digit' is in our language
@@ -104,7 +108,12 @@ object Parser {
   def exprU[$: P]: P[NK] = P(exprC.rep(1, sep = "∪" | "∨" | "+").map(es => Sum(es.toSet)))
 
   // Parses a netkat expression
-  def exprNK[$: P]: P[NK] = P("forward" ~ exprU).map(e => Forward(e, false)) | P("backward" ~ exprU).map(e => Backward(e, false)) | exprU
+  def exprNK[$: P]: P[NK] =
+    P("forward" ~ exprU).map(e => Forward(e, false)) |
+      P("backward" ~ exprU).map(e => Backward(e, false)) |
+      P("exists" ~ field ~ exprU).map((x, e) => Exists(x, e)) |
+      P("forall" ~ field ~ exprU).map((x, e) => Forall(x, e)) |
+      exprU
 
   enum Expr:
     case NKExpr(nk: NK)

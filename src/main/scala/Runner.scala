@@ -19,6 +19,8 @@ object Runner {
       case Parser.Star(e) => Star(evalNK(env, e))
       case Parser.Forward(e, negate) => val sp = Bisim.forward(evalNK(env, e)); TestSP(if negate then SP.negate(sp) else sp)
       case Parser.Backward(e, negate) => val sp = Bisim.backward(evalNK(env, e)); TestSP(if negate then SP.negate(sp) else sp)
+      case Parser.Exists(x, e) => TestSP(SP.exists(x, toSP(evalNK(env, e))))
+      case Parser.Forall(x, e) => TestSP(SP.forall(x, toSP(evalNK(env, e))))
       case Parser.VarName(x) =>
         if !env.contains(x) then throw new Throwable(s"Variable $x not found in $env\n")
         env(x) match {
@@ -26,6 +28,13 @@ object Runner {
           case Right(v) => throw new Throwable(s"Expected a netkat expression, but got a value: $v\n")
         }
     }
+
+  def toSP(e: NK): SP =
+    e match
+      case TestSP(sp) => sp
+      case Test(x, v) => SP.test(x, v)
+      case TestNE(x, v) => SP.testNE(x, v)
+      case _ => throw new Throwable(s"Expected a test, but got $e\n")
 
   def evalVal(env: Env, v: Parser.SVal): Int =
     v match {
