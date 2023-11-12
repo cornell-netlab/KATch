@@ -41,3 +41,6 @@ Bisim.revTrans(a)
 import scala.collection.immutable.HashMap
 
 val x = Map(1 -> 2)
+
+parse("rangesum @x 2 4")
+fastparse.parse("33434 23", Parser.integer(_))

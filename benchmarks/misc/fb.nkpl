@@ -13,3 +13,4 @@ forward (((main1∪main2)⋅(top⋅δ)))
 
 print exists @x (@x=3)
 print forall @x (@x=3)
+print (rangesum @x 2..8)
