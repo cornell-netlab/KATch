@@ -46,6 +46,9 @@ object Parser {
       case Forall(x, e) => Exists(x, negate(e))
       case _ => throw new Throwable(s"Cannot negate $e")
 
+  // Returns the sum (@x=v1 + ... + @x=v2), inclusive
+  def rangesum(x: Var, v1: Val, v2: Val): NK = Sum(((v1 to v2).map(i => Test(x, Left(i)))).toSet)
+
   // First, let's define what a 'digit' is in our language
   def digit[$: P]: P[Unit] = P(CharIn("0-9"))
 
@@ -113,6 +116,7 @@ object Parser {
       P("backward" ~ exprU).map(e => Backward(e, false)) |
       P("exists" ~ field ~ exprU).map((x, e) => Exists(x, e)) |
       P("forall" ~ field ~ exprU).map((x, e) => Forall(x, e)) |
+      P("rangesum" ~ field ~ integer ~ integer).map((x,v1,v2) => rangesum(x,v1,v2)) |
       exprU
 
   enum Expr:
