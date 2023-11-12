@@ -88,6 +88,10 @@ object Runner {
         // Here path2 is relative to path
         val path3 = path.split("/").dropRight(1).mkString("/") + "/" + path2
         runFile(env, path3)
+      case Stmt.Print(e) =>
+        val v = eval(env, e)
+        println(s"Print at $path:${line + 1}: $v")
+        env
     }
 
   // Runs a whole file

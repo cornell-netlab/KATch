@@ -10,3 +10,6 @@ check ((((main1∪main2)⋅(top⋅δ))⋆) ^ ((main1⋅(top⋅δ))⋆∪(main2�
 check (backward (((main1∪main2)⋅(top⋅δ))⋆) ^ ((main1⋅(top⋅δ))⋆∪(main2⋅(top⋅δ))⋆)) ≡ ∅
 check (forward (((main1∪main2)⋅(top⋅δ))⋆) ^ ((main1⋅(top⋅δ))⋆∪(main2⋅(top⋅δ))⋆)) ≡ ∅
 forward (((main1∪main2)⋅(top⋅δ)))
+
+print exists @x (@x=3)
+print forall @x (@x=3)

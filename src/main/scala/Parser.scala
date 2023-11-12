@@ -121,6 +121,7 @@ object Parser {
 
   enum Stmt:
     case Check(op: String, e1: Expr, e2: Expr)
+    case Print(e: Expr)
     case Run(method: String, e: Expr)
     case Let(x: String, e: Expr)
     case Import(path: String)
@@ -153,8 +154,11 @@ object Parser {
   // Parses an import statement
   def importStmt[$: P]: P[Stmt.Import] = P("import" ~ "\"" ~ CharIn("a-zA-Z0-9./_\\-").rep(1).! ~ "\"").map(Stmt.Import.apply)
 
+  // Parses a print statement
+  def printStmt[$: P]: P[Stmt.Print] = P("print" ~ expr).map(Stmt.Print.apply)
+
   // Parses a statement
-  def stmt[$: P]: P[Stmt] = P(checkStmt | letStmt | importStmt | runStmt)
+  def stmt[$: P]: P[Stmt] = P(checkStmt | letStmt | importStmt | runStmt | printStmt)
 
   def parseStmt(input: String) =
     parse(input, stmt(_)) match {
