@@ -285,7 +285,7 @@ object Bisim {
       todo = todo - e
       states = states + e
       for (e2, spp) <- δ(e) do
-        todo = todo + e2
+        if !states.contains(e2) then todo = todo + e2
         // add transition e2 --spp--> e to `trans`
         trans = trans.updated(e2, trans.getOrElse(e2, Map()) + (e -> spp))
     }

@@ -56,6 +56,55 @@ object Test {
     cache.getOrElseUpdate(w, w)
 }
 
+object TestNE {
+  private val cache = scala.collection.mutable.WeakHashMap.empty[TestNE, TestNE]
+  def apply(x: Var, v: Val): NK =
+    val w = new TestNE(x, v)
+    cache.getOrElseUpdate(w, w)
+}
+
+object Forward {
+  private val cache = scala.collection.mutable.WeakHashMap.empty[Forward, Forward]
+  def apply(e: NK): NK =
+    val w = new Forward(e)
+    cache.getOrElseUpdate(w, w)
+}
+
+object Backward {
+  private val cache = scala.collection.mutable.WeakHashMap.empty[Backward, Backward]
+  def apply(e: NK): NK =
+    val w = new Backward(e)
+    cache.getOrElseUpdate(w, w)
+}
+
+object TestSP {
+  private val cache = scala.collection.mutable.WeakHashMap.empty[TestSP, TestSP]
+  def apply(e: SP): NK =
+    val w = new TestSP(e)
+    cache.getOrElseUpdate(w, w)
+}
+
+object Intersection {
+  private val cache = scala.collection.mutable.WeakHashMap.empty[Intersection, Intersection]
+  def apply(e1: NK, e2: NK): NK =
+    val w = new Intersection(e1, e2)
+    cache.getOrElseUpdate(w, w)
+}
+
+object XOR {
+  private val cache = scala.collection.mutable.WeakHashMap.empty[XOR, XOR]
+  def apply(e1: NK, e2: NK): NK =
+    val w = new XOR(e1, e2)
+    cache.getOrElseUpdate(w, w)
+}
+
+object Difference {
+  private val cache = scala.collection.mutable.WeakHashMap.empty[Difference, Difference]
+  def apply(e1: NK, e2: NK): NK =
+    val w = new Difference(e1, e2)
+    cache.getOrElseUpdate(w, w)
+}
+
 object Mut {
   private val cache = scala.collection.mutable.WeakHashMap.empty[Mut, Mut]
   def apply(x: Var, v: Val): NK =

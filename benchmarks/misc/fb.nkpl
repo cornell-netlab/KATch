@@ -3,3 +3,9 @@ forward (@x = 0 ⋅ @y = 1)
 check (forward (ε ^ ε)) ≡ ∅
 check (forward (@x = 0 ⋅ @y = 1)) ≡ (backward (@x = 0 ⋅ @y = 1))
 check (backward (δ ^ ε)) ≡ ε
+
+import "../large/Deltacom_slicing.nkpl"
+check ((main1∪main2)⋅(top⋅δ))⋆ ≡ (main1⋅(top⋅δ))⋆∪(main2⋅(top⋅δ))⋆
+check ((((main1∪main2)⋅(top⋅δ))⋆) ^ ((main1⋅(top⋅δ))⋆∪(main2⋅(top⋅δ))⋆)) ≡ ∅
+check (backward (((main1∪main2)⋅(top⋅δ))⋆) ^ ((main1⋅(top⋅δ))⋆∪(main2⋅(top⋅δ))⋆)) ≡ ∅
+check (forward (((main1∪main2)⋅(top⋅δ))⋆) ^ ((main1⋅(top⋅δ))⋆∪(main2⋅(top⋅δ))⋆)) ≡ ∅
