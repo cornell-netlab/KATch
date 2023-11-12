@@ -133,13 +133,12 @@ object Bisim {
   def ε(e: NK): SPP =
     benchmark(s"ε", { ε0(e) })
 
+  val freneticVars = "SWITCH PORT VSWITCH VPORT VFABRIC ETHSRC ETHDST VLAN VLANPCP ETHTYPE IPPROTO IP4SRC IP4DST TCPSRCPORT TCPDSTPORT".toLowerCase.split(" ")
+
   def toKatPrim(e: NK, s: StringBuilder): Unit =
     def getVar(n: Int): String =
-      VarMap(n) match
-        case "sw" => "switch"
-        case "pt" => "port"
-        case "dst" => "vswitch"
-        case x => throw new Throwable(s"Unsupported variable $x")
+      if n < freneticVars.length then freneticVars(n)
+      else throw new Throwable(s"Unsupported variable $n")
     def getVal(n: Int): Int =
       if n < 0 then 1000 + n
       else n
