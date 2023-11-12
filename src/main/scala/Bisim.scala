@@ -161,6 +161,7 @@ object Bisim {
             first = false
             toKatPrim(e, s)
       case Test(x, v) => s.append(s"filter ${getVar(x)} = ${getVal(v)}")
+      case TestNE(x, v) => s.append(s"filter ${getVar(x)} != ${getVal(v)}")
       case Mut(x, v) => s.append(s"${getVar(x)} := ${getVal(v)}")
       case Dup => s.append("dup")
       case Star(e) =>
@@ -169,7 +170,6 @@ object Bisim {
       case Difference(e1, e2) => throw new Throwable("Difference not supported")
       case Intersection(e1, e2) => throw new Throwable("Intersection not supported")
       case XOR(e1, e2) => throw new Throwable("XOR not supported")
-      case TestNE(x, v) => throw new Throwable("TestNE not supported")
       case TestSP(sp) => throw new Throwable("TestSP not supported")
       case Forward(e) => throw new Throwable("Forward not supported")
       case Backward(e) => throw new Throwable("Backward not supported")
