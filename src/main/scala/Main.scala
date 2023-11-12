@@ -28,7 +28,7 @@ def runFilesAndDirs(dirsAndFiles: List[String]) =
   } sortBy (_.getFileName.toString)
 
   for (file <- nkplFiles) {
-    if Options.convertToKat then appendToRunFreneticScript(s"echo \"Running frenetic dump bisim on $file\"\n")
+    if Options.convertToKat then appendToKatIndex(s"$file ")
     Runner.runTopLevel(file.toString)
   }
   // Append msg to benchresults.txt
@@ -55,9 +55,9 @@ def deleteDirectory(path: Path): Unit = {
   )
 }
 
-def appendToRunFreneticScript(msg: String) =
-  val fw = new java.io.FileWriter(s"kat/runfrenetic.sh", true) // true to append
-  fw.write(msg)
+def appendToKatIndex(nkplFile: String) =
+  val fw = new java.io.FileWriter(s"kat/index.txt", true) // true to append
+  fw.write(nkplFile)
   fw.close()
 
 def prepCheckFreneticScript() =
@@ -65,30 +65,6 @@ def prepCheckFreneticScript() =
   val katDir = Paths.get("kat")
   deleteDirectory(katDir)
   Files.createDirectory(katDir)
-  // Write the check function to kat/runfrenetic.sh
-  val fw = new FileWriter("kat/runfrenetic.sh", false) // false to overwrite
-  fw.write("""
-#!/bin/bash
-
-check_result() {
-    if [ $1 == $2 ]; then
-        printf "\e[32msuccess for $1, $2 - expected: $expected_output (time: "
-    else
-        # print failure message in red to stderr along with time
-        printf "\e[31mfailure for $1, $2 - expected: $expected_output, got: $output (time: "
-    fi
-}
-
-check_bisim() {
-
-    # run frenetic dump bisim and capture the output and time
-    local output
-    ( time frenetic dump bisim $1 $2 | (read output; check_result $output $3)  | tee /dev/tty ) 2>&1 > /dev/null  | grep real | sed 's/real//' | tr -d '\n'
-    printf ")\e[0m\n"
-}
-
-""")
-  fw.close()
 
 @main def hello(cmd: String*): Unit =
   if cmd.isEmpty then error("No command specified")

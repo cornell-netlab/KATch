@@ -196,8 +196,8 @@ object Bisim {
       f.close()
       files = files :+ filename
     // append to checks.txt
-    val fw = new java.io.FileWriter(s"$dir/runfrenetic.sh", true) // true to append
-    fw.write(s"check_bisim ${files(0)}.kat ${files(1)}.kat $result\n")
+    val fw = new java.io.FileWriter(s"$dir/index.txt", true) // true to append
+    fw.write(s"${files(0)}.kat ${files(1)}.kat $result\n")
     fw.close()
     result
 
