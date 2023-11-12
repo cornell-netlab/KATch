@@ -133,7 +133,22 @@ object Bisim {
   def ε(e: NK): SPP =
     benchmark(s"ε", { ε0(e) })
 
-  val freneticVars = "SWITCH PORT VSWITCH VPORT VFABRIC ETHSRC ETHDST VLAN VLANPCP ETHTYPE IPPROTO IP4SRC IP4DST TCPSRCPORT TCPDSTPORT".toLowerCase.split(" ")
+  val freneticVars = Array( "switch"
+                          , "port"
+                          , "vswitch"
+                          , "vport"
+                          , "vfabric"
+                          , "ethSrc"
+                          , "ethDst"
+                          , "vlanId"
+                          , "vlanPcp"
+                          , "ethTyp"
+                          , "ipProto"
+                          , "ip4Src"
+                          , "ip4Dst"
+                          , "tcpSrcPort"
+                          , "tcpDstPort"
+                          )
 
   def toKatPrim(e: NK, s: StringBuilder): Unit =
     def getVar(n: Int): String =
