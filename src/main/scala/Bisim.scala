@@ -161,7 +161,7 @@ object Bisim {
             first = false
             toKatPrim(e, s)
       case Test(x, v) => s.append(s"filter ${getVar(x)} = ${getVal(v)}")
-      case TestNE(x, v) => s.append(s"not (filter ${getVar(x)} = ${getVal(v)})")
+      case TestNE(x, v) => s.append(s"filter (not ${getVar(x)} = ${getVal(v)})")
       case Mut(x, v) => s.append(s"${getVar(x)} := ${getVal(v)}")
       case Dup => s.append("dup")
       case Star(e) =>
