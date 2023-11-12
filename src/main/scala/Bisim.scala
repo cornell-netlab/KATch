@@ -133,22 +133,7 @@ object Bisim {
   def ε(e: NK): SPP =
     benchmark(s"ε", { ε0(e) })
 
-  val freneticVars = Array( "switch"
-                          , "port"
-                          , "vswitch"
-                          , "vport"
-                          , "vfabric"
-                          , "ethSrc"
-                          , "ethDst"
-                          , "vlanId"
-                          , "vlanPcp"
-                          , "ethTyp"
-                          , "ipProto"
-                          , "ip4Src"
-                          , "ip4Dst"
-                          , "tcpSrcPort"
-                          , "tcpDstPort"
-                          )
+  val freneticVars = Array("switch", "port", "vswitch", "vport", "vfabric", "ethSrc", "ethDst", "vlanId", "vlanPcp", "ethTyp", "ipProto", "ip4Src", "ip4Dst", "tcpSrcPort", "tcpDstPort")
 
   def toKatPrim(e: NK, s: StringBuilder): Unit =
     def getVar(n: Int): String =
@@ -176,7 +161,7 @@ object Bisim {
             first = false
             toKatPrim(e, s)
       case Test(x, v) => s.append(s"filter ${getVar(x)} = ${getVal(v)}")
-      case TestNE(x, v) => s.append(s"filter ${getVar(x)} != ${getVal(v)}")
+      case TestNE(x, v) => s.append(s"not (filter ${getVar(x)} = ${getVal(v)})")
       case Mut(x, v) => s.append(s"${getVar(x)} := ${getVal(v)}")
       case Dup => s.append("dup")
       case Star(e) =>
