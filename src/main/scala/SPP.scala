@@ -21,7 +21,22 @@ object SP {
         cache.getOrElseUpdate(sp, sp)
   }
 
-  def pretty(sp: SP): String = sp.toString
+  def pretty(sp: SP): String =
+    var n = 0
+    val sb = new StringBuilder
+    lazy val pp: SP => String = memoize { sp =>
+      sp match
+        case False => "False"
+        case True => "True"
+        case Test(x, ys, default) =>
+          val ysi = ys.map((v, sp) => s"$v -> ${pp(sp)}").mkString(", ")
+          val defaulti = pp(default)
+          n += 1
+          sb.append(s"var x$n = Test($x, Map($ysi), $defaulti); ")
+          s"x$n"
+    }
+    sb.append(pp(sp))
+    sb.toString
 
   def union(x: SP, y: SP): SP =
     if x eq y then return x
