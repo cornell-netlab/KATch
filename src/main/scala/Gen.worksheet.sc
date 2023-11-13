@@ -289,6 +289,23 @@ T.check_SPP_SP { (spp, sp) =>
   results1.toSet == results2.toSet
 }
 
+// val sp = SP.Test(0, HashMap(0 -> SP.True, 1 -> SP.True), SP.False)
+// val spp = TestMut(
+//   0,
+//   HashMap(
+//     0 -> HashMap(0 -> TestMut(1, HashMap(0 -> HashMap(), 1 -> HashMap(0 -> Diag)), HashMap(), Diag)),
+//     1 -> HashMap(0 -> TestMut(1, HashMap(0 -> HashMap(1 -> Diag)), HashMap(), False), 1 -> TestMut(1, HashMap(1 -> HashMap()), HashMap(0 -> Diag), Diag))
+//   ),
+//   HashMap(),
+//   False
+// )
+// val sp2 = SPP.run(sp, spp)
+// val results1 = T.packets.filter { p => SP.elemOf(p, sp) }.flatMap { p => SPP.run1(p, spp) }
+// val results2 = T.packets.filter { p => SP.elemOf(p, sp2) }
+// results1.toSet == results2.toSet
+// results1
+// results2
+
 // Check SPP.toSPbackward
 T.check_SPP_P { (spp, packet) =>
   val sp = SPP.toSPbackward(spp)

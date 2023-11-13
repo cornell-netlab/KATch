@@ -19,6 +19,12 @@ object SP {
       else
         val sp = new Test(x, ys2, default)
         cache.getOrElseUpdate(sp, sp)
+
+    def mk(x: Var, ys: HashMap[Val, SP], default: SP) =
+      if ys.isEmpty then default
+      else
+        val sp = new Test(x, ys, default)
+        cache.getOrElseUpdate(sp, sp)
   }
 
   def pretty(sp: SP): String =
@@ -245,7 +251,7 @@ object SPP {
       case (_, False) => SP.False
       case (_, Diag) => sp
       case (SP.True, TestMut(x, branches, other, id)) =>
-        logSummarySP("run/True", sp, spp)
+        // logSummarySP("run/True", sp, spp)
         // Since the packet can contain anything, we need to nondeterministically
         // go down all branches. It can also contain a value not in branches.keySet,
         // so we need to go down the other branch as well, and we need to go down id.
@@ -262,7 +268,16 @@ object SPP {
         SP.Test(x, branchesC.to(HashMap), run(SP.True, id))
       case (SP.Test(x, ys, default), TestMut(x2, branches, other, id)) =>
         if x == x2 then
-          logSummarySP("run/=", sp, spp)
+          if (default eq SP.False) && (id eq SPP.False) && other.isEmpty then
+            var newbranches = HashMap.empty[Val, SP]
+            for (v, sp) <- ys do
+              if branches.contains(v) then
+                val muts = branches(v)
+                for (v2, spp) <- muts do
+                  val sp2 = run(sp, spp)
+                  if !(sp2 eq SP.False) then newbranches = newbranches.updated(v2, SP.union(sp2, newbranches.getOrElse(v2, SP.False)))
+            return SP.Test.mk(x, newbranches, SP.False)
+          // logSummarySP("run/=", sp, spp)
           // We must correlate the values in ys with the values in branches.
           // If a value is in both ys and branches, then we must go down the branch.
           // If a value is in ys but not in branches, then we must go down the other/id branch.
@@ -285,13 +300,13 @@ object SPP {
           val branchesC = SP.Test(x, ys.map { (v, _) => v -> SP.False } ++ branches.map { (v, _) => v -> SP.False } ++ other.map { (v, spp) => v -> run(default, spp) }, run(default, id))
           SP.union(branchesA, SP.union(branchesB, branchesC))
         else if x < x2 then
-          logSummarySP("run/<", sp, spp)
+          // logSummarySP("run/<", sp, spp)
           // Here we need to nest the test for x2 inside the test for x:
           // SP.Test(x, ... SP.Test(x2, ...) ...)
           // This is like the equality case, but with empty branches and other, and id=spp
           SP.Test(x, ys.map { (v, sp2) => v -> run(sp2, spp) }, run(default, spp))
         else
-          logSummarySP("run/>", sp, spp)
+          // logSummarySP("run/>", sp, spp)
           // Here we need to nest the test for x inside the test for x2:
           // SP.Test(x2, ... SP.Test(x, ...) ...)
           // But the input packet doesn't test x at all.
