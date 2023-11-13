@@ -1,0 +1,47 @@
+
+    digraph G {
+       n119 [label="a", shape=circle, width=0.3, fixedsize=true, style=filled, fillcolor="skyblue"]
+   n120 [label="", shape=diamond, width=0.15, height=0.15, style=filled, fillcolor="skyblue"]
+   n119 -> n120 [arrowhead=normal, label=" 5 ", labelangle=-30, fontsize=12, arrowsize=0.5, color="#555", fontcolor="black"]
+   n120 -> n121 [arrowhead=normal, label=" 5 ", labelangle=-30, fontsize=12, arrowsize=0.5, color="#555", fontcolor="black"]
+   n121 [label="b", shape=circle, width=0.3, fixedsize=true, style=filled, fillcolor="#C1E1C1"]
+   n122 [label="", shape=diamond, width=0.15, height=0.15, style=filled, fillcolor="#C1E1C1"]
+   n121 -> n122 [arrowhead=normal, arrowsize=0.5, style=dashed, color="#555"]
+   n122 -> n123 [arrowhead=normal, label=" 1 ", labelangle=-30, fontsize=12, arrowsize=0.5, color="#555", fontcolor="black"]
+   n123 [label="c", shape=circle, width=0.3, fixedsize=true, style=filled, fillcolor="peachpuff"]
+   n124 [label="", shape=diamond, width=0.15, height=0.15, style=filled, fillcolor="peachpuff"]
+   n123 -> n124 [arrowhead=normal, arrowsize=0.5, style=dashed, color="#555"]
+   n124 -> n125 [arrowhead=normal, label=" 4 ", labelangle=-30, fontsize=12, arrowsize=0.5, color="#555", fontcolor="black"]
+   n125 [label="⊤", shape=box, width=0.3, height=0.3, fixedsize=true]
+   n124 -> n125 [arrowhead=normal, arrowsize=0.5, style=dashed, color="#555"]
+   n122 -> n123 [arrowhead=normal, arrowsize=0.5, style=dashed, color="#555"]
+   n120 -> n126 [arrowhead=normal, label=" 1 ", labelangle=-30, fontsize=12, arrowsize=0.5, color="#555", fontcolor="black"]
+   n126 [label="b", shape=circle, width=0.3, fixedsize=true, style=filled, fillcolor="#C1E1C1"]
+   n127 [label="", shape=diamond, width=0.15, height=0.15, style=filled, fillcolor="#C1E1C1"]
+   n126 -> n127 [arrowhead=normal, arrowsize=0.5, style=dashed, color="#555"]
+   n127 -> n123 [arrowhead=normal, label=" 1 ", labelangle=-30, fontsize=12, arrowsize=0.5, color="#555", fontcolor="black"]
+   n127 -> n128 [arrowhead=normal, arrowsize=0.5, style=dashed, color="#555"]
+   n128 [label="⊥", shape=box, width=0.3, height=0.3, fixedsize=true]
+   n129 [label="", shape=diamond, width=0.15, height=0.15, style=filled, fillcolor="skyblue"]
+   n119 -> n129 [arrowhead=normal, label=" 1 ", labelangle=-30, fontsize=12, arrowsize=0.5, color="#555", fontcolor="black"]
+   n129 -> n121 [arrowhead=normal, label=" 1 ", labelangle=-30, fontsize=12, arrowsize=0.5, color="#555", fontcolor="black"]
+   n130 [label="", shape=diamond, width=0.15, height=0.15, style=filled, fillcolor="skyblue"]
+   n119 -> n130 [arrowhead=normal, arrowsize=0.5, style=dashed, color="#555"]
+   n130 -> n126 [arrowhead=normal, label=" 1 ", labelangle=-30, fontsize=12, arrowsize=0.5, color="#555", fontcolor="black"]
+   n130 -> n131 [arrowhead=normal, arrowsize=0.5, style=dashed, color="#555"]
+   n131 [label="b", shape=circle, width=0.3, fixedsize=true, style=filled, fillcolor="#C1E1C1"]
+   n132 [label="", shape=diamond, width=0.15, height=0.15, style=filled, fillcolor="#C1E1C1"]
+   n131 -> n132 [arrowhead=normal, label=" 2 ", labelangle=-30, fontsize=12, arrowsize=0.5, color="#555", fontcolor="black"]
+   n132 -> n123 [arrowhead=normal, label=" 1 ", labelangle=-30, fontsize=12, arrowsize=0.5, color="#555", fontcolor="black"]
+   n132 -> n123 [arrowhead=normal, label=" 2 ", labelangle=-30, fontsize=12, arrowsize=0.5, color="#555", fontcolor="black"]
+   n133 [label="", shape=diamond, width=0.15, height=0.15, style=filled, fillcolor="#C1E1C1"]
+   n131 -> n133 [arrowhead=normal, arrowsize=0.5, style=dashed, color="#555"]
+   n133 -> n123 [arrowhead=normal, arrowsize=0.5, style=dashed, color="#555"]
+   {rank=same; n124}
+   {rank=same; n122; n127; n132; n133}
+   {rank=same; n119}
+   {rank=same; n120; n129; n130}
+   {rank=same; n121; n126; n131}
+   {rank=same; n123}
+
+    }

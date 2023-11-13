@@ -1,0 +1,51 @@
+
+    digraph G {
+       n176 [label="a", shape=circle, width=0.3, fixedsize=true, style=filled, fillcolor="skyblue"]
+   n177 [label="", shape=diamond, width=0.15, height=0.15, style=filled, fillcolor="skyblue"]
+   n176 -> n177 [arrowhead=normal, label=" 5 ", labelangle=-30, fontsize=12, arrowsize=0.5, color="#555", fontcolor="black"]
+   n177 -> n178 [arrowhead=normal, label=" 5 ", labelangle=-30, fontsize=12, arrowsize=0.5, color="#555", fontcolor="black"]
+   n178 [label="b", shape=circle, width=0.3, fixedsize=true, style=filled, fillcolor="#C1E1C1"]
+   n179 [label="", shape=diamond, width=0.15, height=0.15, style=filled, fillcolor="#C1E1C1"]
+   n178 -> n179 [arrowhead=normal, label=" 1 ", labelangle=-30, fontsize=12, arrowsize=0.5, color="#555", fontcolor="black"]
+   n180 [label="", shape=diamond, width=0.15, height=0.15, style=filled, fillcolor="#C1E1C1"]
+   n178 -> n180 [arrowhead=normal, arrowsize=0.5, style=dashed, color="#555"]
+   n180 -> n181 [arrowhead=normal, label=" 1 ", labelangle=-30, fontsize=12, arrowsize=0.5, color="#555", fontcolor="black"]
+   n181 [label="⊤", shape=box, width=0.3, height=0.3, fixedsize=true]
+   n180 -> n182 [arrowhead=normal, arrowsize=0.5, style=dashed, color="#555"]
+   n182 [label="c", shape=circle, width=0.3, fixedsize=true, style=filled, fillcolor="peachpuff"]
+   n183 [label="", shape=diamond, width=0.15, height=0.15, style=filled, fillcolor="peachpuff"]
+   n182 -> n183 [arrowhead=normal, label=" 5 ", labelangle=-30, fontsize=12, arrowsize=0.5, color="#555", fontcolor="black"]
+   n183 -> n181 [arrowhead=normal, label=" 5 ", labelangle=-30, fontsize=12, arrowsize=0.5, color="#555", fontcolor="black"]
+   n184 [label="", shape=diamond, width=0.15, height=0.15, style=filled, fillcolor="peachpuff"]
+   n182 -> n184 [arrowhead=normal, arrowsize=0.5, style=dashed, color="#555"]
+   n184 -> n185 [arrowhead=normal, arrowsize=0.5, style=dashed, color="#555"]
+   n185 [label="⊥", shape=box, width=0.3, height=0.3, fixedsize=true]
+   n186 [label="", shape=diamond, width=0.15, height=0.15, style=filled, fillcolor="skyblue"]
+   n176 -> n186 [arrowhead=normal, label=" 1 ", labelangle=-30, fontsize=12, arrowsize=0.5, color="#555", fontcolor="black"]
+   n186 -> n187 [arrowhead=normal, label=" 1 ", labelangle=-30, fontsize=12, arrowsize=0.5, color="#555", fontcolor="black"]
+   n187 [label="b", shape=circle, width=0.3, fixedsize=true, style=filled, fillcolor="#C1E1C1"]
+   n188 [label="", shape=diamond, width=0.15, height=0.15, style=filled, fillcolor="#C1E1C1"]
+   n187 -> n188 [arrowhead=normal, label=" 2 ", labelangle=-30, fontsize=12, arrowsize=0.5, color="#555", fontcolor="black"]
+   n188 -> n182 [arrowhead=normal, label=" 2 ", labelangle=-30, fontsize=12, arrowsize=0.5, color="#555", fontcolor="black"]
+   n189 [label="", shape=diamond, width=0.15, height=0.15, style=filled, fillcolor="#C1E1C1"]
+   n187 -> n189 [arrowhead=normal, arrowsize=0.5, style=dashed, color="#555"]
+   n189 -> n185 [arrowhead=normal, arrowsize=0.5, style=dashed, color="#555"]
+   n190 [label="", shape=diamond, width=0.15, height=0.15, style=filled, fillcolor="skyblue"]
+   n176 -> n190 [arrowhead=normal, arrowsize=0.5, style=dashed, color="#555"]
+   n190 -> n191 [arrowhead=normal, arrowsize=0.5, style=dashed, color="#555"]
+   n191 [label="b", shape=circle, width=0.3, fixedsize=true, style=filled, fillcolor="#C1E1C1"]
+   n192 [label="", shape=diamond, width=0.15, height=0.15, style=filled, fillcolor="#C1E1C1"]
+   n191 -> n192 [arrowhead=normal, label=" 2 ", labelangle=-30, fontsize=12, arrowsize=0.5, color="#555", fontcolor="black"]
+   n192 -> n181 [arrowhead=normal, label=" 1 ", labelangle=-30, fontsize=12, arrowsize=0.5, color="#555", fontcolor="black"]
+   n192 -> n182 [arrowhead=normal, label=" 2 ", labelangle=-30, fontsize=12, arrowsize=0.5, color="#555", fontcolor="black"]
+   n193 [label="", shape=diamond, width=0.15, height=0.15, style=filled, fillcolor="#C1E1C1"]
+   n191 -> n193 [arrowhead=normal, arrowsize=0.5, style=dashed, color="#555"]
+   n193 -> n185 [arrowhead=normal, arrowsize=0.5, style=dashed, color="#555"]
+   {rank=same; n183; n184}
+   {rank=same; n193; n189; n180; n188; n192}
+   {rank=same; n176}
+   {rank=same; n177; n186; n190}
+   {rank=same; n178; n187; n191}
+   {rank=same; n182}
+
+    }

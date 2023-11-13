@@ -1,0 +1,50 @@
+
+    digraph G {
+       n34 [label="a", shape=circle, width=0.3, fixedsize=true, style=filled, fillcolor="skyblue"]
+   n35 [label="", shape=diamond, width=0.15, height=0.15, style=filled, fillcolor="skyblue"]
+   n34 -> n35 [arrowhead=normal, label=" 1 ", labelangle=-30, fontsize=12, arrowsize=0.5, color="#555", fontcolor="black"]
+   n35 -> n36 [arrowhead=normal, label=" 1 ", labelangle=-30, fontsize=12, arrowsize=0.5, color="#555", fontcolor="black"]
+   n36 [label="b", shape=circle, width=0.3, fixedsize=true, style=filled, fillcolor="#C1E1C1"]
+   n37 [label="", shape=diamond, width=0.15, height=0.15, style=filled, fillcolor="#C1E1C1"]
+   n36 -> n37 [arrowhead=normal, label=" 1 ", labelangle=-30, fontsize=12, arrowsize=0.5, color="#555", fontcolor="black"]
+   n37 -> n38 [arrowhead=normal, label=" 1 ", labelangle=-30, fontsize=12, arrowsize=0.5, color="#555", fontcolor="black"]
+   n38 [label="c", shape=circle, width=0.3, fixedsize=true, style=filled, fillcolor="peachpuff"]
+   n39 [label="", shape=diamond, width=0.15, height=0.15, style=filled, fillcolor="peachpuff"]
+   n38 -> n39 [arrowhead=normal, arrowsize=0.5, style=dashed, color="#555"]
+   n39 -> n40 [arrowhead=normal, label=" 4 ", labelangle=-30, fontsize=12, arrowsize=0.5, color="#555", fontcolor="black"]
+   n40 [label="⊤", shape=box, width=0.3, height=0.3, fixedsize=true]
+   n39 -> n40 [arrowhead=normal, arrowsize=0.5, style=dashed, color="#555"]
+   n41 [label="", shape=diamond, width=0.15, height=0.15, style=filled, fillcolor="#C1E1C1"]
+   n36 -> n41 [arrowhead=normal, arrowsize=0.5, style=dashed, color="#555"]
+   n41 -> n40 [arrowhead=normal, label=" 1 ", labelangle=-30, fontsize=12, arrowsize=0.5, color="#555", fontcolor="black"]
+   n41 -> n42 [arrowhead=normal, arrowsize=0.5, style=dashed, color="#555"]
+   n42 [label="c", shape=circle, width=0.3, fixedsize=true, style=filled, fillcolor="peachpuff"]
+   n43 [label="", shape=diamond, width=0.15, height=0.15, style=filled, fillcolor="peachpuff"]
+   n42 -> n43 [arrowhead=normal, arrowsize=0.5, style=dashed, color="#555"]
+   n43 -> n40 [arrowhead=normal, label=" 4 ", labelangle=-30, fontsize=12, arrowsize=0.5, color="#555", fontcolor="black"]
+   n43 -> n44 [arrowhead=normal, arrowsize=0.5, style=dashed, color="#555"]
+   n44 [label="⊥", shape=box, width=0.3, height=0.3, fixedsize=true]
+   n45 [label="", shape=diamond, width=0.15, height=0.15, style=filled, fillcolor="skyblue"]
+   n34 -> n45 [arrowhead=normal, arrowsize=0.5, style=dashed, color="#555"]
+   n45 -> n46 [arrowhead=normal, label=" 1 ", labelangle=-30, fontsize=12, arrowsize=0.5, color="#555", fontcolor="black"]
+   n46 [label="b", shape=circle, width=0.3, fixedsize=true, style=filled, fillcolor="#C1E1C1"]
+   n47 [label="", shape=diamond, width=0.15, height=0.15, style=filled, fillcolor="#C1E1C1"]
+   n46 -> n47 [arrowhead=normal, arrowsize=0.5, style=dashed, color="#555"]
+   n47 -> n40 [arrowhead=normal, label=" 1 ", labelangle=-30, fontsize=12, arrowsize=0.5, color="#555", fontcolor="black"]
+   n47 -> n44 [arrowhead=normal, arrowsize=0.5, style=dashed, color="#555"]
+   n45 -> n48 [arrowhead=normal, arrowsize=0.5, style=dashed, color="#555"]
+   n48 [label="b", shape=circle, width=0.3, fixedsize=true, style=filled, fillcolor="#C1E1C1"]
+   n49 [label="", shape=diamond, width=0.15, height=0.15, style=filled, fillcolor="#C1E1C1"]
+   n48 -> n49 [arrowhead=normal, label=" 1 ", labelangle=-30, fontsize=12, arrowsize=0.5, color="#555", fontcolor="black"]
+   n49 -> n38 [arrowhead=normal, label=" 1 ", labelangle=-30, fontsize=12, arrowsize=0.5, color="#555", fontcolor="black"]
+   n50 [label="", shape=diamond, width=0.15, height=0.15, style=filled, fillcolor="#C1E1C1"]
+   n48 -> n50 [arrowhead=normal, arrowsize=0.5, style=dashed, color="#555"]
+   n50 -> n42 [arrowhead=normal, arrowsize=0.5, style=dashed, color="#555"]
+   {rank=same; n39; n43}
+   {rank=same; n50; n37; n49; n47; n41}
+   {rank=same; n34}
+   {rank=same; n35; n45}
+   {rank=same; n36; n46; n48}
+   {rank=same; n38; n42}
+
+    }

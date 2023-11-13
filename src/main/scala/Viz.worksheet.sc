@@ -111,9 +111,13 @@ ${sb.toString()}
 
   def save(file: String) =
     val text = output()
-    val pw = new java.io.PrintWriter(file)
+    val pw = new java.io.PrintWriter(s"$file.gv")
     pw.write(text)
     pw.close()
+    import sys.process._
+    s"dot -Tpdf $file.gv -o ${file}.pdf".!
+    // output tikz
+    s"dot -Ttikz $file.gv -o ${file}.tikz".!
 
   def show() =
     save("viz.gv")
@@ -163,17 +167,20 @@ def canonSPP(spp: SPP): String =
   }
 
 def gvSPP(spp: SPP) =
+  var levels = Map[Any, Set[Any]]()
   lazy val gv: SPP => Unit = memoize { spp =>
     spp match
       case SPP.Diag => GV.nodeSPP(spp, "⊤")
       case SPP.False => GV.nodeSPP(spp, "⊥")
       case SPP.TestMut(x, branches, muts, default) =>
         val z = VarMap(x)
+        levels = levels.updated(z, levels.getOrElse(z, Set()) + spp)
         GV.nodeSPP(spp, s"$z")
         branches.foreach { case (v, muts) =>
           GV.nodeSPPmuts((spp, v), s"$z")
           GV.edge(spp, (spp, v), s"$v")
           muts.foreach { case (v2, spp2) =>
+            levels = levels.updated(z + "mut", levels.getOrElse(z + "mut", Set()) ++ Set((spp, v)))
             GV.edge((spp, v), spp2, s"$v2")
             gv(spp2)
           }
@@ -186,10 +193,11 @@ def gvSPP(spp: SPP) =
         }
         GV.defaultEdge((spp, "default"), default, s"≠")
         // Make all muts the same rank
-        GV.sameRank((branches.keys.map((spp, _)).toList ++ List((spp, "default"))).toList)
+        levels = levels.updated(z + "mut", levels.getOrElse(z + "mut", Set()) ++ Set((spp, "default")))
         gv(default)
   }
   gv(spp)
+  for (k, xs) <- levels do GV.sameRank(xs.toList)
 
 VarMap("a")
 VarMap("b")
@@ -214,10 +222,13 @@ canonSP(y)
 // canonTex(x)
 
 gvSP(x)
+GV.save("viz/sp1")
 GV.reset()
 gvSP(y)
+GV.save("viz/sp2")
 GV.reset()
 gvSP(SP.union(x, y))
+GV.save("viz/sp1cup2")
 GV.reset()
 
 def testS(x: String, y: Val) = SPP.test(VarMap(x), y)
@@ -227,37 +238,96 @@ def mutS(x: String, y: Val) = SPP.mut(VarMap(x), y)
 def testSs(x: String, ys: List[Val]) = ys.foldRight(SPP.False: SPP) { case (y, sp) => SPP.union(testS(x, y), sp) }
 def mutSs(x: String, ys: List[Val]) = ys.foldRight(SPP.False: SPP) { case (y, sp) => SPP.union(mutS(x, y), sp) }
 
-val sx = SPP.union(
-  SPP.union(testS("a", 3), SPP.intersection(testS("b", 4), mutSs("c", List(5, 6)))),
-  SPP.intersection(
-    SPP.union(testS("c", 5), testNES("b", 5)),
-    SPP.union(mutS("a", 5), testS("c", 5))
-  )
+// val sx = SPP.union(
+//   SPP.union(testS("a", 3), SPP.intersection(testS("b", 4), mutSs("c", List(5, 6)))),
+//   SPP.intersection(
+//     SPP.union(testS("c", 5), testNES("b", 5)),
+//     SPP.union(mutS("a", 5), testS("c", 5))
+//   )
+// )
+
+// val sy = SPP.union(
+//   SPP.intersection(testSs("b", List(2)), testS("c", 4)),
+//   SPP.intersection(mutSs("a", List(1)), mutSs("b", List(5)))
+// )
+
+val sx = SPP.seq(
+  SPP.union(testS("a", 5), testS("b", 2)),
+  SPP.union(mutS("b", 1), testS("c", 5))
 )
 
 val sy = SPP.union(
-  SPP.intersection(testSs("b", List(2, 4)), testS("c", 4)),
-  SPP.intersection(testSs("a", List(1, 5)), mutSs("b", List(3, 5)))
+  SPP.union(testS("b", 1), mutS("c", 4)),
+  SPP.seq(mutS("a", 1), mutS("b", 1))
 )
 
 canonSPP(sx)
 gvSPP(sx)
+GV.save("viz/spp1")
 GV.reset()
 
 canonSPP(sy)
 gvSPP(sy)
+GV.save("viz/spp2")
 GV.reset()
 
 canonSPP(SPP.union(sx, sy))
 gvSPP(SPP.union(sx, sy))
+GV.save("viz/spp1cup2")
 GV.reset()
 
 canonSPP(SPP.seq(sx, sy))
 gvSPP(SPP.seq(sx, sy))
+GV.save("viz/spp1seq2")
+GV.reset()
+
+gvSPP(SPP.star(SPP.seq(sx, sy)))
+GV.save("viz/spp1seq2star")
+GV.reset()
+
+gvSPP(SPP.star(SPP.union(sx, sy)))
+GV.save("viz/spp1cup2star")
+GV.reset()
+
+gvSPP(SPP.union(SPP.seq(sx, sy), SPP.seq(sy, sx)))
+GV.save("viz/spp1seq2cup2seq1")
+GV.reset()
+
+gvSPP(SPP.star(SPP.union(SPP.seq(sx, sy), SPP.seq(sy, sx))))
+GV.save("viz/spp1seq2cup2seq1star")
 GV.reset()
 
 canonSPP(SPP.difference(sx, sy))
 gvSPP(SPP.difference(sx, sy))
+GV.save("viz/spp1diff2")
+GV.reset()
+
+canonSPP(SPP.difference(sy, sx))
+gvSPP(SPP.difference(sy, sx))
+GV.save("viz/spp2diff1")
+GV.reset()
+
+canonSPP(SPP.star(SPP.difference(sy, sx)))
+gvSPP(SPP.star(SPP.difference(sy, sx)))
+GV.save("viz/spp2diff1star")
+GV.reset()
+
+canonSPP(SPP.xor(sx, sy))
+gvSPP(SPP.xor(sx, sy))
+GV.save("viz/spp1xor2")
+GV.reset()
+
+canonSPP(SPP.star(SPP.xor(sx, sy)))
+gvSPP(SPP.star(SPP.xor(sx, sy)))
+GV.save("viz/spp1xor2star")
+GV.reset()
+
+gvSPP(SPP.intersection(sx, sy))
+GV.save("viz/spp1cap2")
+GV.reset()
+
+gvSPP(SPP.star(SPP.intersection(sx, sy)))
+GV.save("viz/spp1cap2star")
 GV.reset()
 
 val sz = SPP.union(
