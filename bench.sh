@@ -14,8 +14,14 @@
 # 3. Run jps to get the PID of the sbt process
 # 4. Run the profiler on the sbt process
 
+if [ $# -ne 1 ]; then
+  printf "usage: bench.s <memory>\n"
+  exit 1
+fi
+
+sbt assembly
 # Here is the code:
-sbt "run bench" &
+java -Xmx"$1" -jar target/scala-3.3.1/KATch-assembly-0.1.0-SNAPSHOT.jar bench &
 sleep 20
 PID=$(jps | grep sbt-launch.jar | cut -d ' ' -f 1)
 ./aprof/profiler.sh -d 30 -f flamegraph.html $PID
