@@ -126,6 +126,7 @@ object Parser {
     case Run(method: String, e: Expr)
     case Let(x: String, e: Expr)
     case Import(path: String)
+    case For(x: String, i0: Int, i1: Int, s: Stmt)
 
   // A statement is of one of the following forms:
   // h1 = 3
@@ -158,8 +159,11 @@ object Parser {
   // Parses a print statement
   def printStmt[$: P]: P[Stmt.Print] = P("print" ~ expr).map(Stmt.Print.apply)
 
+  // Parses a for statement
+  def forStmt[$: P]: P[Stmt.For] = P("for" ~ varName ~ ("=" | "in" | "∈") ~ integer ~ ".." ~ integer ~ "do" ~ stmt).map { case (x, i0, i1, s) => Stmt.For(x, i0, i1, s) }
+
   // Parses a statement
-  def stmt[$: P]: P[Stmt] = P(checkStmt | letStmt | importStmt | runStmt | printStmt)
+  def stmt[$: P]: P[Stmt] = P(checkStmt | letStmt | importStmt | runStmt | printStmt | forStmt)
 
   def parseStmt(input: String) =
     parse(input, stmt(_)) match {

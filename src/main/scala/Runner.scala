@@ -92,6 +92,12 @@ object Runner {
         val v = eval(env, e)
         println(s"Print at $path:${line + 1}: $v")
         env
+      case Stmt.For(x, i0, i1, stmt) =>
+        var env2 = env
+        for (i <- i0 to i1) {
+          env2 = runStmt(env2 + (x -> Right(i)), stmt, path, line)
+        }
+        env2
     }
 
   // Runs a whole file
