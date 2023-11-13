@@ -24,4 +24,4 @@ sbt assembly
 java -Xmx"$1" -jar target/scala-3.3.1/KATch-assembly-0.1.0-SNAPSHOT.jar bench &
 sleep 0.1
 PID=$(jps | grep SNAPSHOT.jar | cut -d ' ' -f 1)
-./aprof/profiler.sh -d 30 -f flamegraph.html $PID
+./aprof/profiler.sh -d 60 -f flamegraph.html $PID

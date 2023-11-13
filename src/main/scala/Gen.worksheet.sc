@@ -1,7 +1,7 @@
 import nkpl._
 import scala.collection.immutable.HashMap
 
-val n = 200
+val n = 20
 
 class Tester(vals: Map[Var, Set[Val]], random: Boolean = false):
   val sortedVals = vals.toList.sortBy { (v, s) => v }
@@ -260,6 +260,11 @@ T.check_SP_SP_P { (sp1, sp2, packet) =>
 T.check_SP_SP_P { (sp1, sp2, packet) =>
   SP.elemOf(packet, SP.difference(sp1, sp2)) == (SP.elemOf(packet, sp1) && !SP.elemOf(packet, sp2))
 }
+
+val sp1 = SP.Test(0, HashMap(0 -> SP.True), SP.False)
+val sp2 = SP.Test(0, HashMap(1 -> SP.True), SP.False)
+val packet = HashMap(0 -> 0, 1 -> -1)
+SP.difference(sp1, sp2)
 
 // Check SP.intersection
 T.check_SP_SP_P { (sp1, sp2, packet) =>

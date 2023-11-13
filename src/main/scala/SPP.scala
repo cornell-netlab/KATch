@@ -80,6 +80,14 @@ object SP {
       case (True, _) => negate(y)
       case (Test(xL, ysL, defaultL), Test(xR, ysR, defaultR)) =>
         if xL == xR then
+          if (defaultL eq False) && (defaultR eq False) then
+            var newbranches = HashMap.empty[Val, SP]
+            for (v, sp) <- ysL do
+              if ysR.contains(v) then
+                val sp2 = difference(sp, ysR(v))
+                if !(sp2 eq False) then newbranches = newbranches.updated(v, sp2)
+              else newbranches = newbranches.updated(v, sp)
+            return Test(xL, newbranches, False)
           val keys = ysL.keySet ++ ysR.keySet
           val ys = keys.map { v => v -> difference(ysL.getOrElse(v, defaultL), ysR.getOrElse(v, defaultR)) }.to(HashMap)
           Test(xL, ys, difference(defaultL, defaultR))
@@ -140,6 +148,17 @@ object SP {
 
   def test(x: Var, y: Val): SP = Test(x, HashMap(y -> True), False)
   def testNE(x: Var, y: Val): SP = Test(x, HashMap(y -> False), True)
+
+  def logSumSP(msg: String, sp1: SP, sp2: SP): Unit =
+    def spStr(sp: SP) =
+      sp match
+        case SP.False => "F"
+        case SP.True => "T"
+        case SP.Test(x, ys, default) =>
+          val ls = ys.size
+          val lm = if default eq SP.False then "F" else if default eq SP.True then "T" else "?"
+          s"($x,$ls,$lm)"
+    println(s"$msg ${spStr(sp1)} ${spStr(sp2)}")
 }
 
 class SPP
