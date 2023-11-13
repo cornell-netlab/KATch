@@ -82,6 +82,6 @@ def prepCheckFreneticScript() =
       runFilesAndDirs(inputs.toList)
     case "bench" =>
       println("Benchmarking:")
-      for (i <- 0 to 10) runFilesAndDirs(List("benchmarks/large"))
+      for (i <- 0 to 1) runFilesAndDirs(List("scratch/bench.nkpl"))
     case _ => error(s"Invalid command $command")
   }
