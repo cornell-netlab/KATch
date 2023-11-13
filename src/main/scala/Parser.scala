@@ -58,7 +58,7 @@ object Parser {
   // Parses a value, which is either an integer or a variable
   def value[$: P]: P[SVal] = P(integer.map(Left.apply) | varName.map(Right.apply))
 
-  def field[$: P]: P[Int] = P("@" ~~ CharIn("a-zA-Z") ~~ CharIn("a-zA-Z0-9").repX.!).map { x => VarMap(x) }
+  def field[$: P]: P[Int] = P("@" ~~ CharIn("a-zA-Z").! ~~ CharIn("a-zA-Z0-9").repX.!).map { (x0, x) => VarMap(x0 ++ x) }
 
   // Parse a test such as @dst=3?
   def test[$: P]: P[NK] = P(field ~ "=" ~ value ~ "?".rep).map { case (x, v) => Test(x, v) } | P(field ~ "≠" ~ value ~ "?".rep).map { case (x, v) => TestNE(x, v) }

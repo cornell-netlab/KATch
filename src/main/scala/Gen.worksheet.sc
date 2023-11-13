@@ -1,7 +1,7 @@
 import nkpl._
 import scala.collection.immutable.HashMap
 
-val n = 100
+val n = 200
 
 class Tester(vals: Map[Var, Set[Val]], random: Boolean = false):
   val sortedVals = vals.toList.sortBy { (v, s) => v }

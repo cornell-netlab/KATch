@@ -68,7 +68,7 @@ object Runner {
         if result == (op == "≡") then {
           println(s"\u001b[32mCheck passed in $path:${line + 1}\u001b[0m")
         } else {
-          throw new Throwable(s"\u001b[31m!!! Check failed in $path:${line + 1} !!!\u001b[0m")
+          throw new Throwable(s"\u001b[31m!!! Check failed in $path:${line + 1} !!!\u001b[0m" ++ s"\nOperands were $v1 and $v2\n")
         }
         env
       }
