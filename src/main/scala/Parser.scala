@@ -9,11 +9,8 @@ object VarMap {
   def apply(x: String): Int =
     varMap.getOrElseUpdate(x, { n += 1; revMap(n) = x; n })
   def apply(i: Int): String = revMap(i)
-
-  // VarMap("sw")
-  // VarMap("pt")
-  // VarMap("dst")
 }
+
 object Parser {
   type SVal = Either[Val, String]
 
