@@ -1,0 +1,5 @@
+import "../tops_and_routes/Oteglobe-top.nkpl"
+import "../tops_and_routes/Oteglobe-rt.nkpl"
+net = (main⋅(top) ⋅ δ)⋆
+all = rangesum @sw 0..92
+for i ∈ 0..92 do check exists @pt (exists @dst (forward (@sw=i ⋅ net))) ≡ all

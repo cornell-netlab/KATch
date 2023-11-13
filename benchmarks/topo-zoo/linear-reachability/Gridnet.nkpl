@@ -1,0 +1,5 @@
+import "../tops_and_routes/Gridnet-top.nkpl"
+import "../tops_and_routes/Gridnet-rt.nkpl"
+net = (main⋅(top) ⋅ δ)⋆
+all = rangesum @sw 0..8
+for i ∈ 0..8 do check exists @pt (exists @dst (forward (@sw=i ⋅ net))) ≡ all

@@ -1,0 +1,22 @@
+import "../tops_and_routes/Renam-top.nkpl"
+import "../tops_and_routes/Renam-rt.nkpl"
+check @sw=N4?⋅@dst=N0?⋅((main⋅(top⋅δ))⋆⋅@sw=N0?) ≢ ∅
+check @sw=N4?⋅@dst=N1?⋅((main⋅(top⋅δ))⋆⋅@sw=N1?) ≢ ∅
+check @sw=N4?⋅@dst=N2?⋅((main⋅(top⋅δ))⋆⋅@sw=N2?) ≢ ∅
+check @sw=N4?⋅@dst=N3?⋅((main⋅(top⋅δ))⋆⋅@sw=N3?) ≢ ∅
+check @sw=N3?⋅@dst=N0?⋅((main⋅(top⋅δ))⋆⋅@sw=N0?) ≢ ∅
+check @sw=N3?⋅@dst=N1?⋅((main⋅(top⋅δ))⋆⋅@sw=N1?) ≢ ∅
+check @sw=N3?⋅@dst=N2?⋅((main⋅(top⋅δ))⋆⋅@sw=N2?) ≢ ∅
+check @sw=N3?⋅@dst=N4?⋅((main⋅(top⋅δ))⋆⋅@sw=N4?) ≢ ∅
+check @sw=N2?⋅@dst=N0?⋅((main⋅(top⋅δ))⋆⋅@sw=N0?) ≢ ∅
+check @sw=N2?⋅@dst=N1?⋅((main⋅(top⋅δ))⋆⋅@sw=N1?) ≢ ∅
+check @sw=N2?⋅@dst=N3?⋅((main⋅(top⋅δ))⋆⋅@sw=N3?) ≢ ∅
+check @sw=N2?⋅@dst=N4?⋅((main⋅(top⋅δ))⋆⋅@sw=N4?) ≢ ∅
+check @sw=N1?⋅@dst=N0?⋅((main⋅(top⋅δ))⋆⋅@sw=N0?) ≢ ∅
+check @sw=N1?⋅@dst=N2?⋅((main⋅(top⋅δ))⋆⋅@sw=N2?) ≢ ∅
+check @sw=N1?⋅@dst=N3?⋅((main⋅(top⋅δ))⋆⋅@sw=N3?) ≢ ∅
+check @sw=N1?⋅@dst=N4?⋅((main⋅(top⋅δ))⋆⋅@sw=N4?) ≢ ∅
+check @sw=N0?⋅@dst=N1?⋅((main⋅(top⋅δ))⋆⋅@sw=N1?) ≢ ∅
+check @sw=N0?⋅@dst=N2?⋅((main⋅(top⋅δ))⋆⋅@sw=N2?) ≢ ∅
+check @sw=N0?⋅@dst=N3?⋅((main⋅(top⋅δ))⋆⋅@sw=N3?) ≢ ∅
+check @sw=N0?⋅@dst=N4?⋅((main⋅(top⋅δ))⋆⋅@sw=N4?) ≢ ∅

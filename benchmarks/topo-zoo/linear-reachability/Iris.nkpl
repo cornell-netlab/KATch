@@ -1,0 +1,5 @@
+import "../tops_and_routes/Iris-top.nkpl"
+import "../tops_and_routes/Iris-rt.nkpl"
+net = (main⋅(top) ⋅ δ)⋆
+all = rangesum @sw 0..50
+for i ∈ 0..50 do check exists @pt (exists @dst (forward (@sw=i ⋅ net))) ≡ all

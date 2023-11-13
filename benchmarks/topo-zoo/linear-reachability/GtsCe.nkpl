@@ -1,0 +1,5 @@
+import "../tops_and_routes/GtsCe-top.nkpl"
+import "../tops_and_routes/GtsCe-rt.nkpl"
+net = (main⋅(top) ⋅ δ)⋆
+all = rangesum @sw 0..148
+for i ∈ 0..148 do check exists @pt (exists @dst (forward (@sw=i ⋅ net))) ≡ all
