@@ -96,7 +96,7 @@ plt.ylabel('Frenetic Time (s)')
 # plt.xlim(0, max_time+10)
 # plt.ylim(0, max_time+10)
 # add dashed diagonal line
-plt.plot([0, max_time], [0, max_time], 'k--')
+# plt.plot([0, max_time], [0, max_time], 'k--')
 plt.savefig('benchresults/katch_vs_frenetic_scatterplot.pdf', format='pdf', bbox_inches='tight')
 
 # Combined Scatterplot for Time vs Size for both systems using Seaborn

@@ -76,8 +76,7 @@ def deleteDirectory(path: Path): Unit = {
 def prepCheckFreneticScript() =
   // Delete the `kat` dir and its contents and recreate it
   val katDir = Paths.get("kat")
-  deleteDirectory(katDir)
-  Files.createDirectory(katDir)
+  if Files.notExists(katDir) then Files.createDirectory(katDir)
 
 @main def hello(cmd: String*): Unit =
   if cmd.isEmpty then error("No command specified")
