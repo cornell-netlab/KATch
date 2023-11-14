@@ -235,6 +235,7 @@ object Bisim {
         // println(s"Enqueued ($a, $sp, $b)")
         // Add all pairs to the queue
         // println("Adding all pairs to the queue")
+        // for (e1, spp1) <- δ(e1) do for (e2, spp2) <- δ(e2) do enq(e1, SP.intersection(SPP.run(spRest, spp1), SPP.run(spRest, spp2)), e2)
         for (e1, spp1) <- δ(e1) do for (e2, spp2) <- δ(e2) do enq(e1, SPP.run(spRest, SPP.intersection(spp1, spp2)), e2)
         val all1 = δ(e1).map { (e, sp) => sp }.foldLeft(SPP.False: SPP)(SPP.union(_, _))
         val all2 = δ(e2).map { (e, sp) => sp }.foldLeft(SPP.False: SPP)(SPP.union(_, _))
