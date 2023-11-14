@@ -173,6 +173,7 @@ object Runner {
 
   def runTopLevelFrenetic(path: String) =
     println("Running Frenetic " + path)
+    Options.inputFile = path
     val startTime = System.nanoTime()
     // do ./runfrenetic.sh ${Options.katIndex()}
     import sys.process._
