@@ -167,7 +167,7 @@ object Runner {
     // katch,foo/bar.nkpl,2.23423
     fw = new FileWriter("benchresults/comparison.csv", true) // true to append
     try {
-      fw.write(s"katch,$filename,$duration\n")
+      fw.write(s"katch,$path,$duration\n")
     } finally {
       fw.close()
     }
@@ -195,7 +195,7 @@ object Runner {
 
     fw = new FileWriter("benchresults/comparison.csv", true) // true to append
     try {
-      fw.write(s"frenetic,$filename,$duration\n")
+      fw.write(s"frenetic,$path,$duration\n")
     } finally {
       fw.close()
     }

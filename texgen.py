@@ -1,9 +1,23 @@
 import pandas as pd
 import numpy as np
+import os
 
 # Read the CSV files
-benchmark_data = pd.read_csv('benchresults/benchmarks.csv')
 performance_data = pd.read_csv('benchresults/comparison.csv')
+
+# Make a benchmark_data dataframe with the following structure:
+# file, size
+benchmark_data = []
+# Look up all the file sizes for files that occur in performance_data
+for file in performance_data['file'].unique():
+    # Get the file size from disk
+    size = os.path.getsize(file)
+
+    # Add the file and size to the benchmark_data dataframe
+    benchmark_data.append({'file': file, 'size': size})
+
+# Convert benchmark_data to a dataframe
+benchmark_data = pd.DataFrame(benchmark_data)
 
 # Replace 'timeout' with NaN in performance data for calculation purposes
 performance_data['time'] = pd.to_numeric(performance_data['time'], errors='coerce')
@@ -34,7 +48,7 @@ print(pivot_table)
 # Get the unique system names and sort them
 systems = np.sort(performance_data['system'].unique())
 # Create a new column order
-column_order = ['size', 'type'] + [sys for sys in systems]
+column_order = ['size'] + [sys for sys in systems]
 print(column_order)
 # Reorder the columns
 pivot_table = pivot_table.reindex(column_order, axis=1)
@@ -54,23 +68,12 @@ import pandas as pd
 # Set Seaborn style for minimalistic design
 sns.set(style='white')
 
-# Function to convert size from string to numeric (assuming MB)
-def convert_size_to_mb(size_str):
-    try:
-        return float(size_str.replace('MB', ''))
-    except ValueError:
-        return pd.np.nan
-
-# Apply the conversion to the 'size' column
-merged_data['size'] = merged_data['size'].apply(convert_size_to_mb)
-
 # Handle timeouts for scatterplot
 # merged_data['time'] = pd.to_numeric(merged_data['time'], errors='coerce')
 
 # Replace NaNs in the 'time' column with the maximum time
 max_time = 600
 merged_data['time'] = merged_data['time'].fillna(max_time)
-print(merged_data)
 
 # Create pivot table of katch vs frenetic
 katch_frenetic_pivot = merged_data.pivot_table(
@@ -80,7 +83,8 @@ katch_frenetic_pivot = merged_data.pivot_table(
     aggfunc='mean',
     fill_value='n/a'
 )
-print(katch_frenetic_pivot)
+
+print(f"{katch_frenetic_pivot=}")
 
 # Scatterplot for Katch vs Frenetic using Seaborn
 plt.figure(figsize=(5, 5))
@@ -89,8 +93,8 @@ plt.title('KATch vs Frenetic')
 plt.xlabel('KATch Time (s)')
 plt.ylabel('Frenetic Time (s)')
 # set both axes from 0 to max_time
-plt.xlim(0, max_time+10)
-plt.ylim(0, max_time+10)
+# plt.xlim(0, max_time+10)
+# plt.ylim(0, max_time+10)
 # add dashed diagonal line
 plt.plot([0, max_time], [0, max_time], 'k--')
 plt.savefig('benchresults/katch_vs_frenetic_scatterplot.pdf', format='pdf', bbox_inches='tight')
