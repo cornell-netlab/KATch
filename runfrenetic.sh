@@ -22,7 +22,6 @@ check_result() {
 }
 
 check_bisim() {
-
     # run frenetic dump bisim and capture the output and time
     local output
     frenetic dump bisim $DIR/{$1,$2} | (read output; check_result $1 $2 $3 $output)
@@ -31,7 +30,7 @@ check_bisim() {
 
 while IFS='\n' read line; do
     unset IFS; read -a fields <<< $line
-    printf "Running frenetic dump bisim on ${fields[0]}\n"
-    check_bisim ${fields[1]} ${fields[2]} ${fields[3]}
+    # printf "Running frenetic dump bisim on ${fields[0]}\n"
+    check_bisim ${fields[0]} ${fields[1]} ${fields[2]}
     printf "\n"
 done < "$INDEX"

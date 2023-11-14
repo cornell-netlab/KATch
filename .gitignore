@@ -43,3 +43,6 @@ metals.sbt
 *.synctex.gz
 *.toc
 *.xdv
+
+# kat
+kat/*
