@@ -52,7 +52,7 @@ import matplotlib.pyplot as plt
 import pandas as pd
 
 # Set Seaborn style for minimalistic design
-sns.set(style='whitegrid', context='notebook', palette='Set2')
+sns.set(style='white')
 
 # Function to convert size from string to numeric (assuming MB)
 def convert_size_to_mb(size_str):
@@ -83,19 +83,24 @@ katch_frenetic_pivot = merged_data.pivot_table(
 print(katch_frenetic_pivot)
 
 # Scatterplot for Katch vs Frenetic using Seaborn
-plt.figure(figsize=(10, 6))
+plt.figure(figsize=(5, 5))
 sns.scatterplot(x='katch', y='frenetic', data=katch_frenetic_pivot)
-plt.title('Katch vs Frenetic')
-plt.xlabel('Katch Time')
-plt.ylabel('Frenetic Time')
+plt.title('KATch vs Frenetic')
+plt.xlabel('KATch Time (s)')
+plt.ylabel('Frenetic Time (s)')
+# set both axes from 0 to max_time
+plt.xlim(0, max_time+10)
+plt.ylim(0, max_time+10)
+# add dashed diagonal line
+plt.plot([0, max_time], [0, max_time], 'k--')
 plt.savefig('benchresults/katch_vs_frenetic_scatterplot.pdf', format='pdf', bbox_inches='tight')
 
 # Combined Scatterplot for Time vs Size for both systems using Seaborn
-plt.figure(figsize=(8, 6))
+plt.figure(figsize=(5, 5))
 sns.scatterplot(x='size', y='time', hue='system', data=merged_data)
 plt.title('Time vs Size for Each System')
 plt.xlabel('Size (MB)')
-plt.ylabel('Time')
+plt.ylabel('Time (s)')
 plt.legend()
 plt.savefig('benchresults/time_vs_size_combined.pdf', format='pdf', bbox_inches='tight')
 
