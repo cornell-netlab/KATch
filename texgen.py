@@ -70,14 +70,29 @@ plt.grid(True)
 plt.savefig('benchresults/katch_vs_frenetic_scatterplot.pdf', format='pdf', bbox_inches='tight')
 
 # Scatterplot for Time vs Size
+
+# Function to convert size from string to numeric (assuming MB)
+def convert_size_to_mb(size_str):
+    try:
+        return float(size_str.replace('MB', ''))
+    except ValueError:
+        return pd.np.nan
+
+# Apply the conversion to the 'size' column
+merged_data['size'] = merged_data['size'].apply(convert_size_to_mb)
+
+# Handle timeouts for scatterplot
+merged_data['time'] = pd.to_numeric(merged_data['time'], errors='coerce')
+
+# Combined Scatterplot for Time vs Size for both systems
 plt.figure(figsize=(8, 6))
-colors = ['blue', 'orange']  # Can change these colors if needed
+colors = ['blue', 'orange']  #  change these colors if needed
 for i, system in enumerate(systems):
     system_data = merged_data[merged_data['system'] == system]
     plt.scatter(system_data['size'], system_data['time'], alpha=0.7, label=system, color=colors[i])
 
 plt.title('Time vs Size for Each System')
-plt.xlabel('Size')
+plt.xlabel('Size (MB)')
 plt.ylabel('Time')
 plt.legend()
 plt.grid(True)
