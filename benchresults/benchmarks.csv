@@ -1,0 +1,8 @@
+file,size,type
+foo/bar.nkpl,450MB,slicing
+bar/foo.nkpl,120MB,reachability
+baz/qux.nkpl,300MB,combinatorial
+quux/corge.nkpl,200MB,slicing
+grault/garply.nkpl,550MB,combinatorial
+waldo/fred.nkpl,400MB,reachability
+plugh/xyzzy.nkpl,150MB,slicing

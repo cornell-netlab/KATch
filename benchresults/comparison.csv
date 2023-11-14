@@ -1,0 +1,8 @@
+system,file,time
+katch,foo/bar.nkpl,2.23423
+frenetic,bar/foo.nkpl,3.2432
+katch,foo/bar.nkpl,2.50000
+frenetic,foo/bar.nkpl,timeout
+frenetic,baz/qux.nkpl,1.23456
+katch,baz/qux.nkpl,2.34567
+katch,bar/foo.nkpl,timeout
