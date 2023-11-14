@@ -191,7 +191,9 @@ object Bisim {
     for e <- List(e1, e2) do
       val kat = toKat(e)
       val filename = kat.hashCode().toHexString
-      val f = new java.io.FileWriter(s"$dir/${filename}.kat")
+      // use sha instead
+      val filenamesha = java.security.MessageDigest.getInstance("SHA-256").digest(kat.getBytes("UTF-8")).map("%02x".format(_)).mkString
+      val f = new java.io.FileWriter(s"$dir/${filenamesha}.kat")
       f.write(kat)
       f.close()
       files = files :+ filename
