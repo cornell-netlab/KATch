@@ -155,16 +155,54 @@ object Runner {
     println(msg)
 
     // Append msg to benchresults.txt
-    val fw = new FileWriter("benchresults/benchresults.txt", true) // true to append
+    var fw = new FileWriter("benchresults/benchresults.txt", true) // true to append
     try {
       fw.write(msg)
     } finally {
       fw.close()
     }
 
+    // append to benchresults/comparison.csv
+    // system,file,time
+    // katch,foo/bar.nkpl,2.23423
+    fw = new FileWriter("benchresults/comparison.csv", true) // true to append
+    try {
+      fw.write(s"katch,$filename,$duration\n")
+    } finally {
+      fw.close()
+    }
+
+  def runTopLevelFrenetic(path: String) =
+    println("Running Frenetic " + path)
+    val startTime = System.nanoTime()
+    // do ./runfrenetic.sh ${Options.katIndex()}
+    import sys.process._
+    val cmd = s"./runfrenetic.sh ${Options.katIndex()}"
+    val exitCode = cmd.!
+    val endTime = System.nanoTime()
+    val duration = (endTime - startTime) / 1_000_000_000.0
+    val filename = path.split("/").last
+    val msg = f"Execution time of Frenetic on $filename: ${duration}%.2f s \n"
+    println(msg)
+
+    // Append msg to benchresults.txt
+    var fw = new FileWriter("benchresults/benchresults.txt", true) // true to append
+    try {
+      fw.write(msg)
+    } finally {
+      fw.close()
+    }
+
+    fw = new FileWriter("benchresults/comparison.csv", true) // true to append
+    try {
+      fw.write(s"frenetic,$filename,$duration\n")
+    } finally {
+      fw.close()
+    }
+
   def appendToKatIndex(nkplFile: String) =
     val fw = new java.io.FileWriter(s"kat/index.txt", true) // true to append
-    fw.write(nkplFile)
+    fw.write(nkplFile + "\n")
     fw.close()
 
 }

@@ -197,8 +197,7 @@ object Bisim {
       f.write(kat)
       f.close()
       files = files :+ filename
-    // append to checks.txt
-    val fw = new java.io.FileWriter(s"$dir/index.txt", true) // true to append
+    val fw = new java.io.FileWriter(Options.katIndex(), true) // true to append
     fw.write(s"${files(0)}.kat ${files(1)}.kat $result\n")
     fw.close()
     result
@@ -325,4 +324,6 @@ object Bisim {
 
 object Options {
   var convertToKat = false
+  var inputFile = ""
+  def katIndex() = s"kat/${inputFile.replace('/', '_')}_index.txt"
 }

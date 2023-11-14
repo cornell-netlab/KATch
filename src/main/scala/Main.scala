@@ -28,7 +28,22 @@ def runFilesAndDirs(dirsAndFiles: List[String]) =
   } sortBy (_.getFileName.toString)
 
   for (file <- nkplFiles) {
+    Options.inputFile = file.toString
     Runner.runTopLevel(file.toString)
+  }
+  // Append msg to benchresults.txt
+  val fw = new FileWriter("benchresults/benchresults.txt", true) // true to append
+  fw.write("\n")
+  fw.close()
+
+def runFilesAndDirsFrenetic(dirsAndFiles: List[String]) =
+  val nkplFiles = dirsAndFiles.flatMap { dirOrFile =>
+    if dirOrFile.endsWith(".nkpl") then List(Paths.get(dirOrFile))
+    else findFiles(Paths.get(dirOrFile), ".nkpl")
+  } sortBy (_.getFileName.toString)
+
+  for (file <- nkplFiles) {
+    Runner.runTopLevelFrenetic(file.toString)
   }
   // Append msg to benchresults.txt
   val fw = new FileWriter("benchresults/benchresults.txt", true) // true to append
@@ -37,21 +52,25 @@ def runFilesAndDirs(dirsAndFiles: List[String]) =
 
 def deleteDirectory(path: Path): Unit = {
   // Recursive deletion of files in the directory
-  Files.walkFileTree(
-    path,
-    new SimpleFileVisitor[Path] {
-      override def visitFile(file: Path, attrs: BasicFileAttributes): FileVisitResult = {
-        Files.delete(file)
-        FileVisitResult.CONTINUE
-      }
+  try {
+    Files.walkFileTree(
+      path,
+      new SimpleFileVisitor[Path] {
+        override def visitFile(file: Path, attrs: BasicFileAttributes): FileVisitResult = {
+          Files.delete(file)
+          FileVisitResult.CONTINUE
+        }
 
-      override def postVisitDirectory(dir: Path, e: IOException): FileVisitResult = {
-        if (e != null) throw e
-        Files.delete(dir)
-        FileVisitResult.CONTINUE
+        override def postVisitDirectory(dir: Path, e: IOException): FileVisitResult = {
+          if (e != null) throw e
+          Files.delete(dir)
+          FileVisitResult.CONTINUE
+        }
       }
-    }
-  )
+    )
+  } catch {
+    case e: Exception => println(e)
+  }
 }
 
 def prepCheckFreneticScript() =
@@ -70,6 +89,14 @@ def prepCheckFreneticScript() =
       prepCheckFreneticScript()
       Options.convertToKat = true
       runFilesAndDirs(inputs.toList)
+    case "compare" =>
+      println("Comparing NKPL and KAT:")
+      prepCheckFreneticScript()
+      Options.convertToKat = true
+      runFilesAndDirs(inputs.toList)
+      Options.convertToKat = false
+      runFilesAndDirs(inputs.toList)
+      runFilesAndDirsFrenetic(inputs.toList)
     case "run" =>
       println("Running NKPL:")
       Options.convertToKat = false
