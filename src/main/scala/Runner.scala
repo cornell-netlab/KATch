@@ -63,6 +63,7 @@ object Runner {
       case Stmt.Check(op, e1, e2) => {
         val v1 = assertNK(e1)
         val v2 = assertNK(e2)
+        if Options.convertToKat then appendToKatIndex(s"$path:${line + 1} ")
         val result = Bisim.bisim(v1, v2)
         assert(op == "≡" || op == "≢")
         if result == (op == "≡") then {
@@ -160,4 +161,10 @@ object Runner {
     } finally {
       fw.close()
     }
+
+  def appendToKatIndex(nkplFile: String) =
+    val fw = new java.io.FileWriter(s"kat/index.txt", true) // true to append
+    fw.write(nkplFile)
+    fw.close()
+
 }

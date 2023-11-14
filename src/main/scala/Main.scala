@@ -28,7 +28,6 @@ def runFilesAndDirs(dirsAndFiles: List[String]) =
   } sortBy (_.getFileName.toString)
 
   for (file <- nkplFiles) {
-    if Options.convertToKat then appendToKatIndex(s"$file ")
     Runner.runTopLevel(file.toString)
   }
   // Append msg to benchresults.txt
@@ -54,11 +53,6 @@ def deleteDirectory(path: Path): Unit = {
     }
   )
 }
-
-def appendToKatIndex(nkplFile: String) =
-  val fw = new java.io.FileWriter(s"kat/index.txt", true) // true to append
-  fw.write(nkplFile)
-  fw.close()
 
 def prepCheckFreneticScript() =
   // Delete the `kat` dir and its contents and recreate it
