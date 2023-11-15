@@ -94,10 +94,10 @@ pivot_table.reset_index(inplace=True)
 # Sort the table by size
 pivot_table.sort_values(by=['size'], inplace=True)
 # Round the size column to 1 decimal place
-pivot_table['size'] = pivot_table['size'].round(1)
+pivot_table['size'] = pivot_table['size']
 # Round the time columns to 2 decimal places
 for sys in systems:
-    pivot_table[sys] = pivot_table[sys].round(2)
+    pivot_table[sys] = pivot_table[sys]
 
 # Make table headers read File, Size (KB), KATch, Frenetic
 pivot_table.rename(columns={'file': 'File', 'size': 'Size (KB)', 'katch': 'KATch (s)', 'frenetic': 'Frenetic (s)'}, inplace=True)
