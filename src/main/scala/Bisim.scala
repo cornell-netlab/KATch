@@ -321,9 +321,3 @@ object Bisim {
     }
     done.getOrElse(e, SP.False)
 }
-
-object Options {
-  var convertToKat = false
-  var inputFile = ""
-  def katIndex() = s"kat/${inputFile.replace('/', '_')}_index.txt"
-}

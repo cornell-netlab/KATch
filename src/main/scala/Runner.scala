@@ -161,15 +161,17 @@ object Runner {
       fw.close()
     }
 
+    // Provided we are not in convert-to-kat mode, then
     // append to benchresults/comparison.csv
     // system,file,time
     // katch,foo/bar.nkpl,2.23423
-    fw = new FileWriter("benchresults/comparison.csv", true) // true to append
-    try {
-      fw.write(s"katch,$path,$duration\n")
-    } finally {
-      fw.close()
-    }
+    if !Options.convertToKat then
+      fw = new FileWriter(Options.outputCSV, true) // true to append
+      try {
+        fw.write(s"katch,$path,$duration\n")
+      } finally {
+        fw.close()
+      }
 
   def runTopLevelFrenetic(path: String) =
     println("Running Frenetic " + path)
@@ -193,7 +195,7 @@ object Runner {
       fw.close()
     }
 
-    fw = new FileWriter("benchresults/comparison.csv", true) // true to append
+    fw = new FileWriter(Options.outputCSV, true) // true to append
     try {
       fw.write(s"frenetic,$path,$duration\n")
     } finally {
