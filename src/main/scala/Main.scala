@@ -78,6 +78,10 @@ def prepCheckFreneticScript() =
   val katDir = Paths.get("kat")
   if Files.notExists(katDir) then Files.createDirectory(katDir)
 
+def cleanupFreneticScript() =
+  val katDir = Paths.get("kat")
+  deleteDirectory(katDir)
+
 @main def hello(cmd: String*): Unit =
   if cmd.isEmpty then error("No command specified")
   val command = cmd(0)
@@ -96,6 +100,7 @@ def prepCheckFreneticScript() =
       Options.convertToKat = false
       runFilesAndDirs(inputs.toList)
       runFilesAndDirsFrenetic(inputs.toList)
+      cleanupFreneticScript()
     case "run" =>
       println("Running NKPL:")
       Options.convertToKat = false

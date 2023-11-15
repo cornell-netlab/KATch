@@ -1,5 +1,5 @@
 package nkpl
-
+import java.nio.file.{Files, Path, Paths}
 import nkpl.Parser.Stmt
 import nkpl.Parser.Expr
 
@@ -145,6 +145,8 @@ object Runner {
   def runTopLevel(path: String) =
     clearCaches()
     println("Running " + path)
+    if Options.convertToKat then
+      Files.deleteIfExists(Paths.get(Options.katIndex()))
     val startTime = System.nanoTime()
     runFile(Map(), path)
     val endTime = System.nanoTime()
@@ -179,12 +181,24 @@ object Runner {
     val startTime = System.nanoTime()
     // do ./runfrenetic.sh ${Options.katIndex()}
     import sys.process._
-    val cmd = s"./runfrenetic.sh ${Options.katIndex()}"
+    val cmd = s"./runfrenetic.sh ${Options.katIndex()} ${Options.freneticTimeout}"
     val exitCode = cmd.!
     val endTime = System.nanoTime()
+    var timedOut = false
+    if exitCode == 137 then
+      timedOut = true
+    else if exitCode != 0 then
+      println("runfrenetic failed!")
+      System.exit(exitCode)
     val duration = (endTime - startTime) / 1_000_000_000.0
     val filename = path.split("/").last
-    val msg = f"Execution time of Frenetic on $filename: ${duration}%.2f s \n"
+
+    var durationMsg = ""
+    if (timedOut) then
+      durationMsg = s"timeout (${Options.freneticTimeout})"
+    else
+      durationMsg = f"${duration}%.2f"
+    val msg = f"Execution time of Frenetic on $filename: $durationMsg s\n"
     println(msg)
 
     // Append msg to benchresults.txt
@@ -197,7 +211,7 @@ object Runner {
 
     fw = new FileWriter(Options.outputCSV, true) // true to append
     try {
-      fw.write(s"frenetic,$path,$duration\n")
+      fw.write(s"frenetic,$path,$durationMsg\n")
     } finally {
       fw.close()
     }
