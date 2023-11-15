@@ -111,7 +111,7 @@ merged_data = pd.merge(frenetic_avg, katch_avg, on=['name', 'type', 'group'], su
 for group in merged_data['group'].unique():
     group_data = merged_data[merged_data['group'] == group]
 
-    plt.figure(figsize=(10, 6))
+    plt.figure(figsize=(5, 5))
     sns.scatterplot(data=group_data, x='time_frenetic', y='time_katch')
     plt.title(f"Scatter Plot for Group: {group} (Averaged Times)")
     plt.xlabel("Average Time (Frenetic)")
@@ -123,7 +123,7 @@ for group in merged_data['group'].unique():
 for group in df['group'].unique():
     group_data = df[df['group'] == group]
 
-    plt.figure(figsize=(10, 6))
+    plt.figure(figsize=(5, 5))
     sns.scatterplot(data=group_data, x='size', y='time', hue='system', style='system', markers=True)
     plt.title(f"Size vs Time for Group: {group}")
     plt.xlabel("Size")
