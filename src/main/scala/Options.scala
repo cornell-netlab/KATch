@@ -5,5 +5,5 @@ object Options {
   var inputFile = ""
   def katIndex() = s"kat/${inputFile.replace('/', '_')}_index.txt"
   var outputCSV = "benchresults/comparison.csv"
-  var freneticTimeout = "600s"
+  var freneticTimeout = "3600s"
 }
