@@ -549,3 +549,8 @@ frenetic,nkpl/benchmarks/topo-zoo/naive-reachability/CrlNetworkServices-reachabi
 frenetic,nkpl/benchmarks/topo-zoo/naive-reachability/Cudi-reachability.nkpl,timeout (300s)
 frenetic,nkpl/benchmarks/topo-zoo/naive-reachability/Cwix-reachability.nkpl,timeout (300s)
 frenetic,nkpl/benchmarks/topo-zoo/naive-reachability/Cynet-reachability.nkpl,timeout (300s)
+frenetic,nkpl/benchmarks/topo-zoo/naive-reachability/Darkstrand-reachability.nkpl,timeout (300s)
+frenetic,nkpl/benchmarks/topo-zoo/naive-reachability/Dataxchange-reachability.nkpl,1.19
+frenetic,nkpl/benchmarks/large/Cogentco_reachability.nkpl,22581.39
+frenetic,nkpl/benchmarks/topo-zoo/naive-reachability/Deltacom-reachability.nkpl,timeout (300s)
+frenetic,nkpl/benchmarks/topo-zoo/naive-reachability/DeutscheTelekom-reachability.nkpl,timeout (300s)
