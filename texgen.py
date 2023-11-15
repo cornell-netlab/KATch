@@ -73,6 +73,9 @@ print(grouped_performance_data)
 merged_data = pd.merge(grouped_performance_data, benchmark_data, on='file', how='right')
 print(merged_data)
 
+# Replace values of the form "timeout (600s)" by setting the time to 600 and the timeout column to True
+# merged_data['timeout'] =
+
 # Pivot the table for LaTeX formatting
 pivot_table = merged_data.pivot_table(
     index='file',

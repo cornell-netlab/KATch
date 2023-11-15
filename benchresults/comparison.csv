@@ -1,4 +1,3 @@
-system,file,time
 katch,nkpl/benchmarks/small/Airtel_reachability.nkpl,0.01057483
 katch,nkpl/benchmarks/small/Airtel_slicing.nkpl,0.02444278
 katch,nkpl/benchmarks/small/Airtel_unreachability.nkpl,0.010551631
