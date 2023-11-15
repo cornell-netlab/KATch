@@ -142,6 +142,8 @@ print(f"{katch_frenetic_pivot=}")
 # Scatterplot for Katch vs Frenetic using Seaborn
 plt.figure(figsize=(5, 5))
 sns.scatterplot(x='katch', y='frenetic', data=katch_frenetic_pivot)
+# plt.xscale('log')
+# plt.yscale('log')
 plt.title('KATch vs Frenetic')
 plt.xlabel('KATch Time (s)')
 plt.ylabel('Frenetic Time (s)')
