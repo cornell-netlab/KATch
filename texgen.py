@@ -2,8 +2,13 @@ import pandas as pd
 import numpy as np
 import os
 
+# Read input dir from the command line
+# If no input dir is given, use 'benchresults'
+import sys
+input_dir = sys.argv[1] if len(sys.argv) > 1 else 'benchresults'
+
 # Read the CSV files
-performance_data = pd.read_csv('benchresults/comparison.csv')
+performance_data = pd.read_csv(f'{input_dir}/comparison.csv')
 
 import re
 
@@ -106,7 +111,7 @@ pivot_table.rename(columns={'file': 'File', 'size': 'Size (KB)', 'katch': 'KATch
 latex_table = pivot_table.to_latex(index=False, na_rep='n/a', float_format='%.2f')
 
 # Save the LaTeX table to a .tex file
-with open('benchresults/comparison_table.tex', 'w') as f:
+with open(f'{input_dir}/comparison_table.tex', 'w') as f:
     f.write(latex_table)
 
 import seaborn as sns
@@ -145,7 +150,7 @@ plt.ylabel('Frenetic Time (s)')
 # plt.ylim(0, max_time+10)
 # add dashed diagonal line
 # plt.plot([0, max_time], [0, max_time], 'k--')
-plt.savefig('benchresults/katch_vs_frenetic_scatterplot.pdf', format='pdf', bbox_inches='tight')
+plt.savefig(f'{input_dir}/katch_vs_frenetic_scatterplot.pdf', format='pdf', bbox_inches='tight')
 
 # Combined Scatterplot for Time vs Size for both systems using Seaborn
 plt.figure(figsize=(5, 5))
@@ -154,7 +159,7 @@ plt.title('Time vs Size for Each System')
 plt.xlabel('Size (KB)')
 plt.ylabel('Time (s)')
 plt.legend()
-plt.savefig('benchresults/time_vs_size_combined.pdf', format='pdf', bbox_inches='tight')
+plt.savefig(f'{input_dir}/time_vs_size_combined.pdf', format='pdf', bbox_inches='tight')
 
 # Clear the current plot to avoid overlap with future plots
 plt.clf()
