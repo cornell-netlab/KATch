@@ -40,6 +40,13 @@ def get_file_size(filepath):
     process_file(filepath)
     return total_size
 
+def group_fn(dir):
+    if dir == "small" or dir == "medium" or dir == "large":
+        return "topozoo"
+    if dir == "topo-zoo":
+        return "n-to-n reachability"
+    return dir
+
 # Sample data
 data = open('benchresults/comparison.csv').read()
 
@@ -73,7 +80,7 @@ for line in data.split('\n'):
 
     # Append to lists
     systems.append(system)
-    groups.append(group)
+    groups.append(group_fn(group))
     names.append(name)
     types.append(type)
     times.append(time)
