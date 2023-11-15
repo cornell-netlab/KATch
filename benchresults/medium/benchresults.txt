@@ -1,0 +1,936 @@
+Execution time of scratch.nkpl: 44.89 s 
+
+Execution time of scratch.nkpl: 589.84 s 
+
+Execution time of Kdl_reachability.nkpl: 591.69 s 
+
+
+Execution time of scratch.nkpl: 85.02 s 
+
+Execution time of Kdl_reachability.nkpl: 82.67 s 
+
+Execution time of scratch.nkpl: 87.37 s 
+
+Execution time of Aarnet-reachability.nkpl: 0.93 s 
+Execution time of Abilene-reachability.nkpl: 0.08 s 
+Execution time of Abvt-reachability.nkpl: 0.33 s 
+Execution time of Aconet-reachability.nkpl: 0.31 s 
+Execution time of Agis-reachability.nkpl: 0.31 s 
+Execution time of Ai3-reachability.nkpl: 0.04 s 
+Execution time of Airtel-reachability.nkpl: 0.11 s 
+Execution time of Amres-reachability.nkpl: 0.37 s 
+Execution time of Ans-reachability.nkpl: 0.12 s 
+Execution time of Arn-reachability.nkpl: 0.58 s 
+Execution time of Arnes-reachability.nkpl: 0.70 s 
+Execution time of Arpanet196912-reachability.nkpl: 0.01 s 
+Execution time of Arpanet19706-reachability.nkpl: 0.03 s 
+Execution time of Arpanet19719-reachability.nkpl: 0.19 s 
+Execution time of Arpanet19723-reachability.nkpl: 0.38 s 
+Execution time of Arpanet19728-reachability.nkpl: 0.59 s 
+Execution time of AsnetAm-reachability.nkpl: 3.39 s 
+Execution time of Atmnet-reachability.nkpl: 0.23 s 
+Execution time of AttMpls-reachability.nkpl: 0.26 s 
+Execution time of Azrena-reachability.nkpl: 0.19 s 
+Execution time of Bandcon-reachability.nkpl: 0.27 s 
+Execution time of Basnet-reachability.nkpl: 0.02 s 
+Execution time of Bbnplanet-reachability.nkpl: 0.45 s 
+Execution time of Bellcanada-reachability.nkpl: 1.94 s 
+Execution time of Bellsouth-reachability.nkpl: 1.95 s 
+Execution time of Belnet2003-reachability.nkpl: 0.26 s 
+Execution time of Belnet2004-reachability.nkpl: 0.23 s 
+Execution time of Belnet2005-reachability.nkpl: 0.21 s 
+Execution time of Belnet2006-reachability.nkpl: 0.22 s 
+Execution time of Belnet2007-reachability.nkpl: 0.18 s 
+Execution time of Belnet2008-reachability.nkpl: 0.18 s 
+Execution time of Belnet2009-reachability.nkpl: 0.17 s 
+Execution time of Belnet2010-reachability.nkpl: 0.20 s 
+Execution time of BeyondTheNetwork-reachability.nkpl: 1.71 s 
+Execution time of Bics-reachability.nkpl: 0.53 s 
+Execution time of Biznet-reachability.nkpl: 0.48 s 
+Execution time of Bren-reachability.nkpl: 0.72 s 
+Execution time of BsonetEurope-reachability.nkpl: 0.11 s 
+Execution time of BtAsiaPac-reachability.nkpl: 0.14 s 
+Execution time of BtEurope-reachability.nkpl: 0.25 s 
+Execution time of BtLatinAmerica-reachability.nkpl: 1.73 s 
+Execution time of BtNorthAmerica-reachability.nkpl: 0.59 s 
+Execution time of Canerie-reachability.nkpl: 0.49 s 
+Execution time of Carnet-reachability.nkpl: 1.48 s 
+Execution time of Cernet-reachability.nkpl: 0.87 s 
+Execution time of Cesnet1993-reachability.nkpl: 0.03 s 
+Execution time of Cesnet1997-reachability.nkpl: 0.06 s 
+Execution time of Cesnet1999-reachability.nkpl: 0.05 s 
+Execution time of Cesnet2001-reachability.nkpl: 0.21 s 
+Execution time of Cesnet200304-reachability.nkpl: 0.38 s 
+Execution time of Cesnet200511-reachability.nkpl: 0.81 s 
+Execution time of Cesnet200603-reachability.nkpl: 0.78 s 
+Execution time of Cesnet200706-reachability.nkpl: 1.09 s 
+Execution time of Cesnet201006-reachability.nkpl: 1.73 s 
+Execution time of Chinanet-reachability.nkpl: 0.95 s 
+Execution time of Claranet-reachability.nkpl: 0.07 s 
+Execution time of Cogentco-reachability.nkpl: 78.84 s 
+Execution time of Colt-reachability.nkpl: 38.37 s 
+Execution time of Columbus-reachability.nkpl: 4.85 s 
+Execution time of Compuserve-reachability.nkpl: 0.06 s 
+Execution time of CrlNetworkServices-reachability.nkpl: 0.67 s 
+Execution time of Cudi-reachability.nkpl: 1.85 s 
+Execution time of Cwix-reachability.nkpl: 0.72 s 
+Execution time of Cynet-reachability.nkpl: 0.43 s 
+Execution time of Darkstrand-reachability.nkpl: 0.45 s 
+Execution time of Dataxchange-reachability.nkpl: 0.01 s 
+Execution time of Deltacom-reachability.nkpl: 15.65 s 
+Execution time of DeutscheTelekom-reachability.nkpl: 0.77 s 
+Execution time of Dfn-reachability.nkpl: 2.09 s 
+Execution time of DialtelecomCz-reachability.nkpl: 65.68 s 
+Execution time of Digex-reachability.nkpl: 0.67 s 
+Execution time of Easynet-reachability.nkpl: 0.18 s 
+Execution time of Eenet-reachability.nkpl: 0.08 s 
+Execution time of EliBackbone-reachability.nkpl: 0.20 s 
+Execution time of Epoch-reachability.nkpl: 0.01 s 
+Execution time of Ernet-reachability.nkpl: 0.53 s 
+Execution time of Esnet-reachability.nkpl: 4.50 s 
+Execution time of Eunetworks-reachability.nkpl: 0.10 s 
+Execution time of Evolink-reachability.nkpl: 0.93 s 
+Execution time of Fatman-reachability.nkpl: 0.12 s 
+Execution time of Fccn-reachability.nkpl: 0.27 s 
+Execution time of Forthnet-reachability.nkpl: 2.92 s 
+Execution time of Funet-reachability.nkpl: 0.34 s 
+Execution time of Gambia-reachability.nkpl: 0.36 s 
+Execution time of Garr199901-reachability.nkpl: 0.08 s 
+Execution time of Garr199904-reachability.nkpl: 0.21 s 
+Execution time of Garr199905-reachability.nkpl: 0.23 s 
+Execution time of Garr200109-reachability.nkpl: 0.23 s 
+Execution time of Garr200112-reachability.nkpl: 0.26 s 
+Execution time of Garr200212-reachability.nkpl: 0.37 s 
+Execution time of Garr200404-reachability.nkpl: 0.21 s 
+Execution time of Garr200902-reachability.nkpl: 2.10 s 
+Execution time of Garr200908-reachability.nkpl: 2.08 s 
+Execution time of Garr200909-reachability.nkpl: 2.19 s 
+Execution time of Garr200912-reachability.nkpl: 2.09 s 
+Execution time of Garr201001-reachability.nkpl: 1.95 s 
+Execution time of Garr201003-reachability.nkpl: 1.74 s 
+Execution time of Garr201004-reachability.nkpl: 1.72 s 
+Execution time of Garr201005-reachability.nkpl: 1.81 s 
+Execution time of Garr201007-reachability.nkpl: 1.83 s 
+Execution time of Garr201008-reachability.nkpl: 1.83 s 
+Execution time of Garr201010-reachability.nkpl: 2.14 s 
+Execution time of Garr201012-reachability.nkpl: 2.23 s 
+Execution time of Garr201101-reachability.nkpl: 2.28 s 
+Execution time of Garr201102-reachability.nkpl: 2.35 s 
+Execution time of Garr201103-reachability.nkpl: 2.16 s 
+Execution time of Garr201104-reachability.nkpl: 2.17 s 
+Execution time of Garr201105-reachability.nkpl: 2.22 s 
+Execution time of Garr201107-reachability.nkpl: 2.20 s 
+Execution time of Garr201108-reachability.nkpl: 2.29 s 
+Execution time of Garr201109-reachability.nkpl: 2.62 s 
+Execution time of Garr201110-reachability.nkpl: 2.71 s 
+Execution time of Garr201111-reachability.nkpl: 2.85 s 
+Execution time of Garr201112-reachability.nkpl: 2.79 s 
+Execution time of Garr201201-reachability.nkpl: 2.41 s 
+Execution time of Gblnet-reachability.nkpl: 0.02 s 
+Execution time of Geant2001-reachability.nkpl: 0.31 s 
+Execution time of Geant2009-reachability.nkpl: 0.57 s 
+Execution time of Geant2010-reachability.nkpl: 0.70 s 
+Execution time of Geant2012-reachability.nkpl: 0.86 s 
+Execution time of Getnet-reachability.nkpl: 0.02 s 
+Execution time of Globalcenter-reachability.nkpl: 0.02 s 
+Execution time of Globenet-reachability.nkpl: 3.92 s 
+Execution time of Goodnet-reachability.nkpl: 0.12 s 
+Execution time of Grena-reachability.nkpl: 0.13 s 
+Execution time of Gridnet-reachability.nkpl: 0.03 s 
+Execution time of Grnet-reachability.nkpl: 0.88 s 
+Execution time of GtsCe-reachability.nkpl: 35.80 s 
+Execution time of GtsCzechRepublic-reachability.nkpl: 0.57 s 
+Execution time of GtsHungary-reachability.nkpl: 0.47 s 
+Execution time of GtsPoland-reachability.nkpl: 0.60 s 
+Execution time of GtsRomania-reachability.nkpl: 0.17 s 
+Execution time of GtsSlovakia-reachability.nkpl: 0.60 s 
+Execution time of Harnet-reachability.nkpl: 0.17 s 
+Execution time of Heanet-reachability.nkpl: 0.01 s 
+Execution time of HiberniaCanada-reachability.nkpl: 0.06 s 
+Execution time of HiberniaGlobal-reachability.nkpl: 2.63 s 
+Execution time of HiberniaIreland-reachability.nkpl: 0.02 s 
+Execution time of HiberniaNireland-reachability.nkpl: 0.15 s 
+Execution time of HiberniaUk-reachability.nkpl: 0.10 s 
+Execution time of HiberniaUs-reachability.nkpl: 0.26 s 
+Execution time of Highwinds-reachability.nkpl: 0.15 s 
+Execution time of HostwayInternational-reachability.nkpl: 0.11 s 
+Execution time of HurricaneElectric-reachability.nkpl: 0.27 s 
+Execution time of Ibm-reachability.nkpl: 0.13 s 
+Execution time of Iij-reachability.nkpl: 0.87 s 
+Execution time of Iinet-reachability.nkpl: 0.51 s 
+Execution time of Ilan-reachability.nkpl: 0.08 s 
+Execution time of Integra-reachability.nkpl: 0.36 s 
+Execution time of Intellifiber-reachability.nkpl: 5.35 s 
+Execution time of Internetmci-reachability.nkpl: 0.16 s 
+Execution time of Internode-reachability.nkpl: 3.37 s 
+Execution time of Interoute-reachability.nkpl: 15.80 s 
+Execution time of Intranetwork-reachability.nkpl: 1.24 s 
+Execution time of Ion-reachability.nkpl: 25.05 s 
+Execution time of IowaStatewideFiberMap-reachability.nkpl: 0.62 s 
+Execution time of Iris-reachability.nkpl: 1.68 s 
+Execution time of Istar-reachability.nkpl: 0.22 s 
+Execution time of Itnet-reachability.nkpl: 0.04 s 
+Execution time of JanetExternal-reachability.nkpl: 0.05 s 
+Execution time of Janetbackbone-reachability.nkpl: 0.36 s 
+Execution time of Janetlense-reachability.nkpl: 0.15 s 
+Execution time of Jgn2Plus-reachability.nkpl: 0.13 s 
+Execution time of Karen-reachability.nkpl: 0.27 s 
+Execution time of KentmanApr2007-reachability.nkpl: 0.22 s 
+Execution time of KentmanAug2005-reachability.nkpl: 0.38 s 
+Execution time of KentmanFeb2008-reachability.nkpl: 0.29 s 
+Execution time of KentmanJan2011-reachability.nkpl: 0.78 s 
+Execution time of KentmanJul2005-reachability.nkpl: 0.11 s 
+Execution time of Kreonet-reachability.nkpl: 0.06 s 
+Execution time of LambdaNet-reachability.nkpl: 1.47 s 
+Execution time of Latnet-reachability.nkpl: 5.87 s 
+Execution time of Layer42-reachability.nkpl: 0.01 s 
+Execution time of Litnet-reachability.nkpl: 1.09 s 
+Execution time of Marnet-reachability.nkpl: 0.18 s 
+Execution time of Marwan-reachability.nkpl: 0.11 s 
+Execution time of Missouri-reachability.nkpl: 4.21 s 
+Execution time of Mren-reachability.nkpl: 0.01 s 
+Execution time of Myren-reachability.nkpl: 0.68 s 
+Execution time of Napnet-reachability.nkpl: 0.01 s 
+Execution time of Navigata-reachability.nkpl: 0.05 s 
+Execution time of Netrail-reachability.nkpl: 0.01 s 
+Execution time of NetworkUsa-reachability.nkpl: 0.75 s 
+Execution time of Nextgen-reachability.nkpl: 0.12 s 
+Execution time of Niif-reachability.nkpl: 0.73 s 
+Execution time of Noel-reachability.nkpl: 0.14 s 
+Execution time of Nordu1989-reachability.nkpl: 0.01 s 
+Execution time of Nordu1997-reachability.nkpl: 0.06 s 
+Execution time of Nordu2005-reachability.nkpl: 0.02 s 
+Execution time of Nordu2010-reachability.nkpl: 0.12 s 
+Execution time of Nsfcnet-reachability.nkpl: 0.03 s 
+Execution time of Nsfnet-reachability.nkpl: 0.05 s 
+Execution time of Ntelos-reachability.nkpl: 1.77 s 
+Execution time of Ntt-reachability.nkpl: 1.05 s 
+Execution time of Oteglobe-reachability.nkpl: 9.38 s 
+Execution time of Oxford-reachability.nkpl: 0.19 s 
+Execution time of Pacificwave-reachability.nkpl: 0.14 s 
+Execution time of Packetexchange-reachability.nkpl: 0.22 s 
+Execution time of Padi-reachability.nkpl: 0.05 s 
+Execution time of Palmetto-reachability.nkpl: 1.39 s 
+Execution time of Peer1-reachability.nkpl: 0.09 s 
+Execution time of Pern-reachability.nkpl: 23.20 s 
+Execution time of PionierL1-reachability.nkpl: 0.87 s 
+Execution time of PionierL3-reachability.nkpl: 0.98 s 
+Execution time of Psinet-reachability.nkpl: 0.34 s 
+Execution time of Quest-reachability.nkpl: 0.18 s 
+Execution time of RedBestel-reachability.nkpl: 10.05 s 
+Execution time of Rediris-reachability.nkpl: 0.13 s 
+Execution time of Renam-reachability.nkpl: 0.01 s 
+Execution time of Renater1999-reachability.nkpl: 0.26 s 
+Execution time of Renater2001-reachability.nkpl: 0.24 s 
+Execution time of Renater2004-reachability.nkpl: 0.43 s 
+Execution time of Renater2006-reachability.nkpl: 0.52 s 
+Execution time of Renater2008-reachability.nkpl: 0.52 s 
+Execution time of Renater2010-reachability.nkpl: 1.05 s 
+Execution time of Restena-reachability.nkpl: 0.13 s 
+Execution time of Reuna-reachability.nkpl: 0.82 s 
+Execution time of Rhnet-reachability.nkpl: 0.10 s 
+Execution time of Rnp-reachability.nkpl: 0.52 s 
+Execution time of Roedunet-reachability.nkpl: 0.96 s 
+Execution time of RoedunetFibre-reachability.nkpl: 1.56 s 
+Execution time of Sago-reachability.nkpl: 0.19 s 
+Execution time of Sanet-reachability.nkpl: 1.50 s 
+Execution time of Sanren-reachability.nkpl: 0.01 s 
+Execution time of Savvis-reachability.nkpl: 0.18 s 
+Execution time of Shentel-reachability.nkpl: 0.48 s 
+Execution time of Sinet-reachability.nkpl: 5.08 s 
+Execution time of Singaren-reachability.nkpl: 0.05 s 
+Execution time of Spiralight-reachability.nkpl: 0.11 s 
+Execution time of Sprint-reachability.nkpl: 0.04 s 
+Execution time of Sunet-reachability.nkpl: 0.42 s 
+Execution time of Surfnet-reachability.nkpl: 1.91 s 
+Execution time of Switch-reachability.nkpl: 4.91 s 
+Execution time of SwitchL3-reachability.nkpl: 0.91 s 
+Execution time of Syringa-reachability.nkpl: 8.28 s 
+Execution time of TLex-reachability.nkpl: 0.05 s 
+Execution time of TataNld-reachability.nkpl: 36.05 s 
+Execution time of Telcove-reachability.nkpl: 4.87 s 
+Execution time of Telecomserbia-reachability.nkpl: 0.01 s 
+Execution time of Tinet-reachability.nkpl: 2.13 s 
+Execution time of Tw-reachability.nkpl: 4.89 s 
+Execution time of Twaren-reachability.nkpl: 0.17 s 
+Execution time of Ulaknet-reachability.nkpl: 13.77 s 
+Execution time of UniC-reachability.nkpl: 0.32 s 
+Execution time of Uninet-reachability.nkpl: 0.06 s 
+Execution time of Uninett2010-reachability.nkpl: 4.08 s 
+Execution time of Uninett2011-reachability.nkpl: 3.84 s 
+Execution time of Uran-reachability.nkpl: 0.32 s 
+Execution time of UsCarrier-reachability.nkpl: 50.44 s 
+Execution time of UsSignal-reachability.nkpl: 3.71 s 
+Execution time of Uunet-reachability.nkpl: 1.58 s 
+Execution time of Vinaren-reachability.nkpl: 0.30 s 
+Execution time of VisionNet-reachability.nkpl: 0.36 s 
+Execution time of VtlWavenet2008-reachability.nkpl: 13.26 s 
+Execution time of VtlWavenet2011-reachability.nkpl: 15.04 s 
+Execution time of WideJpn-reachability.nkpl: 0.48 s 
+Execution time of Xeex-reachability.nkpl: 0.27 s 
+Execution time of Xspedius-reachability.nkpl: 0.65 s 
+Execution time of York-reachability.nkpl: 0.33 s 
+Execution time of Zamren-reachability.nkpl: 0.97 s 
+
+Execution time of Airtel_unreachability.nkpl: 0.38 s 
+Execution time of Belnet_unreachability.nkpl: 0.07 s 
+Execution time of Compuserv_unreachability.nkpl: 0.03 s 
+Execution time of Layer42_unreachability.nkpl: 0.01 s 
+Execution time of t4_h_reachability.nkpl: 0.06 s 
+Execution time of t4_near_reachability.nkpl: 0.05 s 
+Execution time of t4_reachability.nkpl: 0.04 s 
+Execution time of t4_slicing.nkpl: 0.07 s 
+
+Execution time of Airtel_unreachability.nkpl: 0.37 s 
+Execution time of Belnet_unreachability.nkpl: 0.07 s 
+Execution time of Compuserv_unreachability.nkpl: 0.03 s 
+Execution time of Layer42_unreachability.nkpl: 0.01 s 
+Execution time of t4_h_reachability.nkpl: 0.07 s 
+Execution time of t4_near_reachability.nkpl: 0.04 s 
+Execution time of t4_reachability.nkpl: 0.05 s 
+Execution time of t4_slicing.nkpl: 0.07 s 
+
+Execution time of Airtel_unreachability.nkpl: 0.38 s 
+Execution time of Belnet_unreachability.nkpl: 0.08 s 
+Execution time of Compuserv_unreachability.nkpl: 0.03 s 
+Execution time of Layer42_unreachability.nkpl: 0.01 s 
+Execution time of t4_h_reachability.nkpl: 0.06 s 
+Execution time of t4_near_reachability.nkpl: 0.05 s 
+Execution time of t4_reachability.nkpl: 0.05 s 
+Execution time of t4_slicing.nkpl: 0.08 s 
+
+Execution time of Airtel_unreachability.nkpl: 0.42 s 
+Execution time of Belnet_unreachability.nkpl: 0.08 s 
+Execution time of Compuserv_unreachability.nkpl: 0.04 s 
+Execution time of Layer42_unreachability.nkpl: 0.02 s 
+Execution time of t4_h_reachability.nkpl: 0.06 s 
+Execution time of t4_near_reachability.nkpl: 0.04 s 
+Execution time of t4_reachability.nkpl: 0.05 s 
+Execution time of t4_slicing.nkpl: 0.07 s 
+
+Execution time of Aarnet-reachability.nkpl: 1.27 s 
+Execution time of Abilene-reachability.nkpl: 0.18 s 
+Execution time of Abvt-reachability.nkpl: 0.94 s 
+Execution time of Aconet-reachability.nkpl: 0.75 s 
+Execution time of Agis-reachability.nkpl: 1.10 s 
+Execution time of Ai3-reachability.nkpl: 0.09 s 
+Execution time of Airtel-reachability.nkpl: 0.29 s 
+Execution time of Amres-reachability.nkpl: 1.11 s 
+Execution time of Ans-reachability.nkpl: 0.37 s 
+Execution time of Arn-reachability.nkpl: 1.68 s 
+Execution time of Arnes-reachability.nkpl: 2.18 s 
+Execution time of Arpanet196912-reachability.nkpl: 0.01 s 
+Execution time of Arpanet19706-reachability.nkpl: 0.08 s 
+Execution time of Arpanet19719-reachability.nkpl: 0.39 s 
+Execution time of Arpanet19723-reachability.nkpl: 0.96 s 
+Execution time of Arpanet19728-reachability.nkpl: 1.42 s 
+Execution time of AsnetAm-reachability.nkpl: 15.82 s 
+Execution time of Atmnet-reachability.nkpl: 0.60 s 
+Execution time of AttMpls-reachability.nkpl: 0.95 s 
+Execution time of Azrena-reachability.nkpl: 0.72 s 
+Execution time of Bandcon-reachability.nkpl: 0.65 s 
+Execution time of Basnet-reachability.nkpl: 0.03 s 
+Execution time of Bbnplanet-reachability.nkpl: 1.06 s 
+Execution time of Bellcanada-reachability.nkpl: 6.24 s 
+Execution time of Bellsouth-reachability.nkpl: 7.08 s 
+Execution time of Belnet2003-reachability.nkpl: 0.68 s 
+Execution time of Belnet2004-reachability.nkpl: 0.75 s 
+Execution time of Belnet2005-reachability.nkpl: 0.71 s 
+Execution time of Belnet2006-reachability.nkpl: 0.78 s 
+Execution time of Belnet2007-reachability.nkpl: 0.62 s 
+Execution time of Belnet2008-reachability.nkpl: 0.62 s 
+Execution time of Belnet2009-reachability.nkpl: 0.59 s 
+Execution time of Belnet2010-reachability.nkpl: 0.64 s 
+Execution time of BeyondTheNetwork-reachability.nkpl: 7.96 s 
+Execution time of Bics-reachability.nkpl: 1.87 s 
+Execution time of Biznet-reachability.nkpl: 1.45 s 
+Execution time of Bren-reachability.nkpl: 2.78 s 
+Execution time of BsonetEurope-reachability.nkpl: 0.41 s 
+Execution time of BtAsiaPac-reachability.nkpl: 0.48 s 
+Execution time of BtEurope-reachability.nkpl: 0.74 s 
+Execution time of BtLatinAmerica-reachability.nkpl: 6.39 s 
+Execution time of BtNorthAmerica-reachability.nkpl: 2.33 s 
+Execution time of Canerie-reachability.nkpl: 1.71 s 
+Execution time of Carnet-reachability.nkpl: 4.64 s 
+Execution time of Cernet-reachability.nkpl: 3.45 s 
+Execution time of Cesnet1993-reachability.nkpl: 0.08 s 
+Execution time of Cesnet1997-reachability.nkpl: 0.17 s 
+Execution time of Cesnet1999-reachability.nkpl: 0.17 s 
+Execution time of Cesnet2001-reachability.nkpl: 0.71 s 
+Execution time of Cesnet200304-reachability.nkpl: 1.26 s 
+Execution time of Cesnet200511-reachability.nkpl: 2.96 s 
+Execution time of Cesnet200603-reachability.nkpl: 3.23 s 
+Execution time of Cesnet200706-reachability.nkpl: 4.27 s 
+Execution time of Cesnet201006-reachability.nkpl: 7.22 s 
+Execution time of Chinanet-reachability.nkpl: 3.73 s 
+Execution time of Claranet-reachability.nkpl: 0.24 s 
+Execution time of Aarnet-reachability.nkpl: 1.24 s 
+Execution time of Abilene-reachability.nkpl: 0.15 s 
+Execution time of Abvt-reachability.nkpl: 0.78 s 
+Execution time of Aconet-reachability.nkpl: 0.71 s 
+Execution time of Agis-reachability.nkpl: 0.83 s 
+Execution time of Ai3-reachability.nkpl: 0.08 s 
+Execution time of Airtel-reachability.nkpl: 0.34 s 
+Execution time of Amres-reachability.nkpl: 0.91 s 
+Execution time of Ans-reachability.nkpl: 0.43 s 
+Execution time of Arn-reachability.nkpl: 1.50 s 
+Execution time of Arnes-reachability.nkpl: 2.17 s 
+Execution time of Arpanet196912-reachability.nkpl: 0.01 s 
+Execution time of Arpanet19706-reachability.nkpl: 0.07 s 
+Execution time of Arpanet19719-reachability.nkpl: 0.39 s 
+Execution time of Arpanet19723-reachability.nkpl: 0.92 s 
+Execution time of Arpanet19728-reachability.nkpl: 1.18 s 
+Execution time of AsnetAm-reachability.nkpl: 15.53 s 
+Execution time of Atmnet-reachability.nkpl: 0.45 s 
+Execution time of AttMpls-reachability.nkpl: 0.79 s 
+Execution time of Azrena-reachability.nkpl: 0.60 s 
+Execution time of Bandcon-reachability.nkpl: 0.52 s 
+Execution time of Basnet-reachability.nkpl: 0.03 s 
+Execution time of Bbnplanet-reachability.nkpl: 0.92 s 
+Execution time of Bellcanada-reachability.nkpl: 6.08 s 
+Execution time of Bellsouth-reachability.nkpl: 6.92 s 
+Execution time of Belnet2003-reachability.nkpl: 0.68 s 
+Execution time of Belnet2004-reachability.nkpl: 0.78 s 
+Execution time of Belnet2005-reachability.nkpl: 0.69 s 
+Execution time of Belnet2006-reachability.nkpl: 0.75 s 
+Execution time of Belnet2007-reachability.nkpl: 0.55 s 
+Execution time of Belnet2008-reachability.nkpl: 0.64 s 
+Execution time of Belnet2009-reachability.nkpl: 0.55 s 
+Execution time of Belnet2010-reachability.nkpl: 0.59 s 
+Execution time of BeyondTheNetwork-reachability.nkpl: 8.38 s 
+Execution time of Bics-reachability.nkpl: 1.64 s 
+Execution time of Biznet-reachability.nkpl: 1.16 s 
+Execution time of Bren-reachability.nkpl: 2.26 s 
+Execution time of BsonetEurope-reachability.nkpl: 0.29 s 
+Execution time of BtAsiaPac-reachability.nkpl: 0.41 s 
+Execution time of BtEurope-reachability.nkpl: 0.63 s 
+Execution time of BtLatinAmerica-reachability.nkpl: 5.61 s 
+Execution time of BtNorthAmerica-reachability.nkpl: 2.06 s 
+Execution time of Canerie-reachability.nkpl: 1.48 s 
+Execution time of Carnet-reachability.nkpl: 3.89 s 
+Execution time of Cernet-reachability.nkpl: 3.07 s 
+Execution time of Cesnet1993-reachability.nkpl: 0.07 s 
+Execution time of Cesnet1997-reachability.nkpl: 0.14 s 
+Execution time of Cesnet1999-reachability.nkpl: 0.14 s 
+Execution time of Cesnet2001-reachability.nkpl: 0.62 s 
+Execution time of Cesnet200304-reachability.nkpl: 1.14 s 
+Execution time of Cesnet200511-reachability.nkpl: 2.57 s 
+Execution time of Cesnet200603-reachability.nkpl: 2.87 s 
+Execution time of Cesnet200706-reachability.nkpl: 4.61 s 
+Execution time of Cesnet201006-reachability.nkpl: 7.54 s 
+Execution time of Chinanet-reachability.nkpl: 3.47 s 
+Execution time of Claranet-reachability.nkpl: 0.21 s 
+Execution time of Cogentco-reachability.nkpl: 869.75 s 
+Execution time of Colt-reachability.nkpl: 331.28 s 
+Execution time of Columbus-reachability.nkpl: 20.58 s 
+Execution time of Compuserve-reachability.nkpl: 0.14 s 
+Execution time of CrlNetworkServices-reachability.nkpl: 1.64 s 
+Execution time of Cudi-reachability.nkpl: 6.16 s 
+Execution time of Cwix-reachability.nkpl: 2.06 s 
+Execution time of Cynet-reachability.nkpl: 1.18 s 
+Execution time of Darkstrand-reachability.nkpl: 1.00 s 
+Execution time of Dataxchange-reachability.nkpl: 0.02 s 
+Execution time of Deltacom-reachability.nkpl: 106.17 s 
+Execution time of DeutscheTelekom-reachability.nkpl: 2.17 s 
+Execution time of Dfn-reachability.nkpl: 9.32 s 
+Execution time of DialtelecomCz-reachability.nkpl: 451.46 s 
+Execution time of Digex-reachability.nkpl: 1.37 s 
+Execution time of Easynet-reachability.nkpl: 0.33 s 
+Execution time of Eenet-reachability.nkpl: 0.12 s 
+Execution time of EliBackbone-reachability.nkpl: 0.36 s 
+Execution time of Epoch-reachability.nkpl: 0.02 s 
+Execution time of Ernet-reachability.nkpl: 1.14 s 
+Execution time of Esnet-reachability.nkpl: 17.28 s 
+Execution time of Eunetworks-reachability.nkpl: 0.23 s 
+Execution time of Evolink-reachability.nkpl: 2.32 s 
+Execution time of Fatman-reachability.nkpl: 0.24 s 
+Execution time of Fccn-reachability.nkpl: 0.55 s 
+Execution time of Forthnet-reachability.nkpl: 13.35 s 
+Execution time of Funet-reachability.nkpl: 0.81 s 
+Execution time of Gambia-reachability.nkpl: 0.96 s 
+Execution time of Garr199901-reachability.nkpl: 0.20 s 
+Execution time of Garr199904-reachability.nkpl: 0.52 s 
+Execution time of Garr199905-reachability.nkpl: 0.52 s 
+Execution time of Garr200109-reachability.nkpl: 0.46 s 
+Execution time of Garr200112-reachability.nkpl: 0.66 s 
+Execution time of Garr200212-reachability.nkpl: 1.00 s 
+Execution time of Garr200404-reachability.nkpl: 0.55 s 
+Execution time of Garr200902-reachability.nkpl: 7.80 s 
+Execution time of Garr200908-reachability.nkpl: 7.70 s 
+Execution time of Garr200909-reachability.nkpl: 8.07 s 
+Execution time of Garr200912-reachability.nkpl: 7.34 s 
+Execution time of Garr201001-reachability.nkpl: 7.75 s 
+Execution time of Garr201003-reachability.nkpl: 7.34 s 
+Execution time of Garr201004-reachability.nkpl: 7.78 s 
+Execution time of Garr201005-reachability.nkpl: 7.83 s 
+Execution time of Garr201007-reachability.nkpl: 7.84 s 
+Execution time of Garr201008-reachability.nkpl: 8.70 s 
+Execution time of Garr201010-reachability.nkpl: 8.75 s 
+Execution time of Garr201012-reachability.nkpl: 9.23 s 
+Execution time of Garr201101-reachability.nkpl: 9.11 s 
+Execution time of Garr201102-reachability.nkpl: 10.86 s 
+Execution time of Garr201103-reachability.nkpl: 10.90 s 
+Execution time of Garr201104-reachability.nkpl: 10.51 s 
+Execution time of Garr201105-reachability.nkpl: 9.97 s 
+Execution time of Garr201107-reachability.nkpl: 10.09 s 
+Execution time of Garr201108-reachability.nkpl: 12.55 s 
+Execution time of Garr201109-reachability.nkpl: 9.94 s 
+Execution time of Garr201110-reachability.nkpl: 9.97 s 
+Execution time of Garr201111-reachability.nkpl: 12.43 s 
+Execution time of Garr201112-reachability.nkpl: 12.09 s 
+Execution time of Garr201201-reachability.nkpl: 13.75 s 
+Execution time of Gblnet-reachability.nkpl: 0.04 s 
+Execution time of Geant2001-reachability.nkpl: 0.85 s 
+Execution time of Geant2009-reachability.nkpl: 1.71 s 
+Execution time of Geant2010-reachability.nkpl: 2.21 s 
+Execution time of Geant2012-reachability.nkpl: 2.83 s 
+Execution time of Getnet-reachability.nkpl: 0.03 s 
+Execution time of Globalcenter-reachability.nkpl: 0.05 s 
+Execution time of Globenet-reachability.nkpl: 16.19 s 
+Execution time of Goodnet-reachability.nkpl: 0.29 s 
+Execution time of Grena-reachability.nkpl: 0.27 s 
+Execution time of Gridnet-reachability.nkpl: 0.06 s 
+Execution time of Grnet-reachability.nkpl: 2.38 s 
+Execution time of GtsCe-reachability.nkpl: 303.59 s 
+Execution time of GtsCzechRepublic-reachability.nkpl: 1.48 s 
+Execution time of GtsHungary-reachability.nkpl: 1.25 s 
+Execution time of GtsPoland-reachability.nkpl: 1.63 s 
+Execution time of GtsRomania-reachability.nkpl: 0.42 s 
+Execution time of GtsSlovakia-reachability.nkpl: 1.87 s 
+Execution time of Harnet-reachability.nkpl: 0.43 s 
+Execution time of Heanet-reachability.nkpl: 0.03 s 
+Execution time of HiberniaCanada-reachability.nkpl: 0.12 s 
+Execution time of HiberniaGlobal-reachability.nkpl: 8.87 s 
+Execution time of HiberniaIreland-reachability.nkpl: 0.04 s 
+Execution time of HiberniaNireland-reachability.nkpl: 0.57 s 
+Execution time of HiberniaUk-reachability.nkpl: 0.41 s 
+Execution time of HiberniaUs-reachability.nkpl: 0.50 s 
+Execution time of Highwinds-reachability.nkpl: 0.31 s 
+Execution time of HostwayInternational-reachability.nkpl: 0.23 s 
+Execution time of HurricaneElectric-reachability.nkpl: 0.73 s 
+Execution time of Ibm-reachability.nkpl: 0.33 s 
+Execution time of Iij-reachability.nkpl: 2.55 s 
+Execution time of Iinet-reachability.nkpl: 1.29 s 
+Execution time of Ilan-reachability.nkpl: 0.15 s 
+Execution time of Integra-reachability.nkpl: 0.85 s 
+Execution time of Intellifiber-reachability.nkpl: 23.68 s 
+Execution time of Internetmci-reachability.nkpl: 0.33 s 
+Execution time of Internode-reachability.nkpl: 14.67 s 
+Execution time of Interoute-reachability.nkpl: 95.46 s 
+Execution time of Intranetwork-reachability.nkpl: 3.25 s 
+Execution time of Ion-reachability.nkpl: 157.93 s 
+Execution time of IowaStatewideFiberMap-reachability.nkpl: 1.87 s 
+Execution time of Iris-reachability.nkpl: 6.51 s 
+Execution time of Istar-reachability.nkpl: 0.64 s 
+Execution time of Itnet-reachability.nkpl: 0.08 s 
+Execution time of JanetExternal-reachability.nkpl: 0.10 s 
+Execution time of Janetbackbone-reachability.nkpl: 1.06 s 
+Execution time of Janetlense-reachability.nkpl: 0.38 s 
+Execution time of Jgn2Plus-reachability.nkpl: 0.29 s 
+Execution time of Karen-reachability.nkpl: 0.71 s 
+Execution time of KentmanApr2007-reachability.nkpl: 0.54 s 
+Execution time of KentmanAug2005-reachability.nkpl: 0.96 s 
+Execution time of KentmanFeb2008-reachability.nkpl: 0.78 s 
+Execution time of KentmanJan2011-reachability.nkpl: 2.39 s 
+Execution time of KentmanJul2005-reachability.nkpl: 0.21 s 
+Execution time of Kreonet-reachability.nkpl: 0.13 s 
+Execution time of LambdaNet-reachability.nkpl: 3.93 s 
+Execution time of Latnet-reachability.nkpl: 20.53 s 
+Execution time of Layer42-reachability.nkpl: 0.02 s 
+Execution time of Litnet-reachability.nkpl: 3.48 s 
+Execution time of Marnet-reachability.nkpl: 0.38 s 
+Execution time of Marwan-reachability.nkpl: 0.21 s 
+Execution time of Missouri-reachability.nkpl: 16.20 s 
+Execution time of Mren-reachability.nkpl: 0.02 s 
+Execution time of Myren-reachability.nkpl: 2.17 s 
+Execution time of Napnet-reachability.nkpl: 0.02 s 
+Execution time of Navigata-reachability.nkpl: 0.13 s 
+Execution time of Netrail-reachability.nkpl: 0.03 s 
+Execution time of NetworkUsa-reachability.nkpl: 2.19 s 
+Execution time of Nextgen-reachability.nkpl: 0.27 s 
+Execution time of Niif-reachability.nkpl: 2.71 s 
+Execution time of Noel-reachability.nkpl: 0.38 s 
+Execution time of Nordu1989-reachability.nkpl: 0.03 s 
+Execution time of Nordu1997-reachability.nkpl: 0.17 s 
+Execution time of Nordu2005-reachability.nkpl: 0.06 s 
+Execution time of Nordu2010-reachability.nkpl: 0.31 s 
+Execution time of Nsfcnet-reachability.nkpl: 0.07 s 
+Execution time of Nsfnet-reachability.nkpl: 0.14 s 
+Execution time of Ntelos-reachability.nkpl: 6.49 s 
+Execution time of Ntt-reachability.nkpl: 3.75 s 
+Execution time of Oteglobe-reachability.nkpl: 44.84 s 
+Execution time of Oxford-reachability.nkpl: 0.39 s 
+Execution time of Pacificwave-reachability.nkpl: 0.27 s 
+Execution time of Packetexchange-reachability.nkpl: 0.44 s 
+Execution time of Padi-reachability.nkpl: 0.10 s 
+Execution time of Palmetto-reachability.nkpl: 4.27 s 
+Execution time of Peer1-reachability.nkpl: 0.21 s 
+Execution time of Pern-reachability.nkpl: 169.01 s 
+Execution time of PionierL1-reachability.nkpl: 2.14 s 
+Execution time of PionierL3-reachability.nkpl: 2.50 s 
+Execution time of Psinet-reachability.nkpl: 0.68 s 
+Execution time of Quest-reachability.nkpl: 0.37 s 
+Execution time of RedBestel-reachability.nkpl: 39.37 s 
+Execution time of Rediris-reachability.nkpl: 0.33 s 
+Execution time of Renam-reachability.nkpl: 0.01 s 
+Execution time of Renater1999-reachability.nkpl: 0.63 s 
+Execution time of Renater2001-reachability.nkpl: 0.62 s 
+Execution time of Renater2004-reachability.nkpl: 1.38 s 
+Execution time of Renater2006-reachability.nkpl: 1.75 s 
+Execution time of Renater2008-reachability.nkpl: 1.69 s 
+Execution time of Renater2010-reachability.nkpl: 4.22 s 
+Execution time of Restena-reachability.nkpl: 0.37 s 
+Execution time of Reuna-reachability.nkpl: 2.43 s 
+Execution time of Rhnet-reachability.nkpl: 0.23 s 
+Execution time of Rnp-reachability.nkpl: 1.65 s 
+Execution time of Roedunet-reachability.nkpl: 3.76 s 
+Execution time of RoedunetFibre-reachability.nkpl: 5.28 s 
+Execution time of Sago-reachability.nkpl: 0.33 s 
+Execution time of Sanet-reachability.nkpl: 3.82 s 
+Execution time of Sanren-reachability.nkpl: 0.03 s 
+Execution time of Savvis-reachability.nkpl: 0.34 s 
+Execution time of Shentel-reachability.nkpl: 1.14 s 
+Execution time of Sinet-reachability.nkpl: 23.66 s 
+Execution time of Singaren-reachability.nkpl: 0.08 s 
+Execution time of Spiralight-reachability.nkpl: 0.18 s 
+Execution time of Sprint-reachability.nkpl: 0.08 s 
+Execution time of Sunet-reachability.nkpl: 0.83 s 
+Execution time of Surfnet-reachability.nkpl: 5.91 s 
+Execution time of Switch-reachability.nkpl: 24.65 s 
+Execution time of SwitchL3-reachability.nkpl: 3.31 s 
+Execution time of Syringa-reachability.nkpl: 27.09 s 
+Execution time of TLex-reachability.nkpl: 0.11 s 
+Execution time of TataNld-reachability.nkpl: 273.26 s 
+Execution time of Telcove-reachability.nkpl: 22.34 s 
+Execution time of Telecomserbia-reachability.nkpl: 0.02 s 
+Execution time of Tinet-reachability.nkpl: 7.12 s 
+Execution time of Tw-reachability.nkpl: 22.33 s 
+Execution time of Twaren-reachability.nkpl: 0.37 s 
+Execution time of Ulaknet-reachability.nkpl: 38.32 s 
+Execution time of UniC-reachability.nkpl: 0.74 s 
+Execution time of Uninet-reachability.nkpl: 0.35 s 
+Execution time of Uninett2010-reachability.nkpl: 23.30 s 
+Execution time of Uninett2011-reachability.nkpl: 17.54 s 
+Execution time of Uran-reachability.nkpl: 0.64 s 
+Execution time of UsCarrier-reachability.nkpl: 408.70 s 
+Execution time of UsSignal-reachability.nkpl: 12.93 s 
+Execution time of Uunet-reachability.nkpl: 6.25 s 
+Execution time of Vinaren-reachability.nkpl: 0.69 s 
+Execution time of VisionNet-reachability.nkpl: 0.80 s 
+Execution time of VtlWavenet2008-reachability.nkpl: 49.14 s 
+Execution time of VtlWavenet2011-reachability.nkpl: 64.55 s 
+Execution time of WideJpn-reachability.nkpl: 1.27 s 
+Execution time of Xeex-reachability.nkpl: 0.63 s 
+Execution time of Xspedius-reachability.nkpl: 1.73 s 
+Execution time of York-reachability.nkpl: 0.61 s 
+Execution time of Zamren-reachability.nkpl: 2.21 s 
+
+Execution time of Airtel_unreachability.nkpl: 0.39 s 
+Execution time of Belnet_unreachability.nkpl: 0.07 s 
+Execution time of Compuserv_unreachability.nkpl: 0.03 s 
+Execution time of Layer42_unreachability.nkpl: 0.01 s 
+Execution time of t4_h_reachability.nkpl: 0.06 s 
+Execution time of t4_near_reachability.nkpl: 0.04 s 
+Execution time of t4_reachability.nkpl: 0.04 s 
+Execution time of t4_slicing.nkpl: 0.07 s 
+
+Execution time of Airtel_unreachability.nkpl: 0.38 s 
+Execution time of Belnet_unreachability.nkpl: 0.08 s 
+Execution time of Compuserv_unreachability.nkpl: 0.03 s 
+Execution time of Layer42_unreachability.nkpl: 0.02 s 
+Execution time of t4_h_reachability.nkpl: 0.06 s 
+Execution time of t4_near_reachability.nkpl: 0.05 s 
+Execution time of t4_reachability.nkpl: 0.07 s 
+Execution time of t4_slicing.nkpl: 0.08 s 
+
+Execution time of Airtel_unreachability.nkpl: 0.03 s 
+Execution time of Belnet_unreachability.nkpl: 0.03 s 
+Execution time of Compuserv_unreachability.nkpl: 0.02 s 
+Execution time of Layer42_unreachability.nkpl: 0.01 s 
+Execution time of t4_h_reachability.nkpl: 0.02 s 
+Execution time of t4_near_reachability.nkpl: 0.05 s 
+Execution time of t4_reachability.nkpl: 0.03 s 
+Execution time of t4_slicing.nkpl: 0.06 s 
+
+Execution time of Frenetic on Airtel_unreachability.nkpl: 0.05 s 
+Execution time of Frenetic on Belnet_unreachability.nkpl: 0.03 s 
+Execution time of Frenetic on Compuserv_unreachability.nkpl: 0.03 s 
+Execution time of Frenetic on Layer42_unreachability.nkpl: 0.03 s 
+Execution time of Frenetic on t4_h_reachability.nkpl: 0.03 s 
+Execution time of Frenetic on t4_near_reachability.nkpl: 0.03 s 
+Execution time of Frenetic on t4_reachability.nkpl: 0.03 s 
+Execution time of Frenetic on t4_slicing.nkpl: 0.03 s 
+
+Execution time of Airtel_unreachability.nkpl: 0.38 s 
+Execution time of Belnet_unreachability.nkpl: 0.08 s 
+Execution time of Compuserv_unreachability.nkpl: 0.03 s 
+Execution time of Layer42_unreachability.nkpl: 0.01 s 
+Execution time of t4_h_reachability.nkpl: 0.06 s 
+Execution time of t4_near_reachability.nkpl: 0.04 s 
+Execution time of t4_reachability.nkpl: 0.05 s 
+Execution time of t4_slicing.nkpl: 0.07 s 
+
+Execution time of Airtel_unreachability.nkpl: 0.02 s 
+Execution time of Belnet_unreachability.nkpl: 0.02 s 
+Execution time of Compuserv_unreachability.nkpl: 0.01 s 
+Execution time of Layer42_unreachability.nkpl: 0.01 s 
+Execution time of t4_h_reachability.nkpl: 0.02 s 
+Execution time of t4_near_reachability.nkpl: 0.03 s 
+Execution time of t4_reachability.nkpl: 0.03 s 
+Execution time of t4_slicing.nkpl: 0.04 s 
+
+Execution time of Frenetic on Airtel_unreachability.nkpl: 0.05 s 
+Execution time of Frenetic on Belnet_unreachability.nkpl: 0.04 s 
+Execution time of Frenetic on Compuserv_unreachability.nkpl: 0.03 s 
+Execution time of Frenetic on Layer42_unreachability.nkpl: 0.03 s 
+Execution time of Frenetic on t4_h_reachability.nkpl: 0.03 s 
+Execution time of Frenetic on t4_near_reachability.nkpl: 0.03 s 
+Execution time of Frenetic on t4_reachability.nkpl: 0.03 s 
+Execution time of Frenetic on t4_slicing.nkpl: 0.03 s 
+
+Execution time of small.nkpl: 0.41 s 
+
+Execution time of small.nkpl: 0.08 s 
+
+Execution time of Frenetic on small.nkpl: 0.95 s 
+
+Execution time of small.nkpl: 0.43 s 
+
+Execution time of small.nkpl: 0.08 s 
+
+Execution time of Frenetic on small.nkpl: 0.89 s 
+
+Execution time of small.nkpl: 0.41 s 
+
+Execution time of small.nkpl: 0.07 s 
+
+Execution time of Frenetic on small.nkpl: 0.94 s 
+
+Execution time of small.nkpl: 0.42 s 
+
+Execution time of small.nkpl: 0.08 s 
+
+Execution time of Frenetic on small.nkpl: 0.88 s 
+
+Execution time of small.nkpl: 0.43 s 
+
+Execution time of small.nkpl: 0.08 s 
+
+Execution time of Frenetic on small.nkpl: 0.92 s 
+
+Execution time of Cogentco_reachability.nkpl: 1.56 s 
+Execution time of Cogentco_unreachability.nkpl: 0.94 s 
+Execution time of Deltacom_reachability.nkpl: 0.29 s 
+Execution time of Deltacom_slicing.nkpl: 0.67 s 
+Execution time of Deltacom_unreachability.nkpl: 0.21 s 
+Execution time of Missouri_slicing.nkpl: 0.18 s 
+Execution time of Telcove_slicing.nkpl: 0.21 s 
+Execution time of ft6_reachability.nkpl: 0.16 s 
+Execution time of ft6_slicing.nkpl: 0.22 s 
+Execution time of ft8_reachability.nkpl: 0.47 s 
+Execution time of ft8_unreachability.nkpl: 0.44 s 
+
+Execution time of Cogentco_reachability.nkpl: 0.64 s 
+Execution time of Cogentco_unreachability.nkpl: 0.62 s 
+Execution time of Deltacom_reachability.nkpl: 0.19 s 
+Execution time of Deltacom_slicing.nkpl: 0.62 s 
+Execution time of Deltacom_unreachability.nkpl: 0.24 s 
+Execution time of Missouri_slicing.nkpl: 0.20 s 
+Execution time of Telcove_slicing.nkpl: 0.21 s 
+Execution time of ft6_reachability.nkpl: 0.15 s 
+Execution time of ft6_slicing.nkpl: 0.20 s 
+Execution time of ft8_reachability.nkpl: 0.43 s 
+Execution time of ft8_unreachability.nkpl: 0.41 s 
+
+Execution time of Missouri_reachability.nkpl: 0.60 s 
+Execution time of Missouri_unreachability.nkpl: 0.19 s 
+Execution time of Sanet_slicing.nkpl: 0.17 s 
+Execution time of Telcove_reachability.nkpl: 0.12 s 
+Execution time of Telcove_unreachability.nkpl: 0.11 s 
+Execution time of Uunet_slicing.nkpl: 0.17 s 
+Execution time of ft6_h_reachability.nkpl: 0.12 s 
+
+Execution time of Missouri_reachability.nkpl: 0.07 s 
+Execution time of Missouri_unreachability.nkpl: 0.08 s 
+Execution time of Sanet_slicing.nkpl: 0.09 s 
+Execution time of Telcove_reachability.nkpl: 0.08 s 
+Execution time of Telcove_unreachability.nkpl: 0.08 s 
+Execution time of Uunet_slicing.nkpl: 0.12 s 
+Execution time of ft6_h_reachability.nkpl: 0.11 s 
+
+Execution time of Frenetic on Missouri_reachability.nkpl: 57.12 s 
+Execution time of Airtel_reachability.nkpl: 0.38 s 
+Execution time of Airtel_slicing.nkpl: 0.11 s 
+Execution time of Airtel_unreachability.nkpl: 0.04 s 
+Execution time of Arpa_reachability.nkpl: 0.06 s 
+Execution time of Arpa_slicing.nkpl: 0.11 s 
+Execution time of Arpa_unreachability.nkpl: 0.04 s 
+Execution time of Belnet_reachability.nkpl: 0.03 s 
+Execution time of Belnet_slicing.nkpl: 0.07 s 
+Execution time of Belnet_unreachability.nkpl: 0.02 s 
+Execution time of Compuserv_reachability.nkpl: 0.01 s 
+Execution time of Compuserv_slicing.nkpl: 0.02 s 
+Execution time of Compuserv_unreachability.nkpl: 0.01 s 
+Execution time of Layer42_reachability.nkpl: 0.00 s 
+Execution time of Layer42_slicing.nkpl: 0.01 s 
+Execution time of Layer42_unreachability.nkpl: 0.01 s 
+Execution time of Sanet_reachability.nkpl: 0.04 s 
+Execution time of Sanet_unreachability.nkpl: 0.05 s 
+Execution time of Shentel_reachability.nkpl: 0.02 s 
+Execution time of Shentel_slicing.nkpl: 0.05 s 
+Execution time of Shentel_unreachability.nkpl: 0.02 s 
+Execution time of Uunet_reachability.nkpl: 0.05 s 
+Execution time of Uunet_unreachability.nkpl: 0.05 s 
+Execution time of ft2_h_reachability.nkpl: 0.01 s 
+Execution time of ft2_reachability.nkpl: 0.01 s 
+Execution time of ft4_h_reachability.nkpl: 0.02 s 
+Execution time of ft4_reachability.nkpl: 0.03 s 
+Execution time of ft4_slicing.nkpl: 0.04 s 
+
+Execution time of Airtel_reachability.nkpl: 0.01 s 
+Execution time of Airtel_slicing.nkpl: 0.02 s 
+Execution time of Airtel_unreachability.nkpl: 0.01 s 
+Execution time of Arpa_reachability.nkpl: 0.01 s 
+Execution time of Arpa_slicing.nkpl: 0.04 s 
+Execution time of Arpa_unreachability.nkpl: 0.02 s 
+Execution time of Belnet_reachability.nkpl: 0.01 s 
+Execution time of Belnet_slicing.nkpl: 0.03 s 
+Execution time of Belnet_unreachability.nkpl: 0.01 s 
+Execution time of Compuserv_reachability.nkpl: 0.01 s 
+Execution time of Compuserv_slicing.nkpl: 0.01 s 
+Execution time of Compuserv_unreachability.nkpl: 0.01 s 
+Execution time of Layer42_reachability.nkpl: 0.00 s 
+Execution time of Layer42_slicing.nkpl: 0.01 s 
+Execution time of Layer42_unreachability.nkpl: 0.00 s 
+Execution time of Sanet_reachability.nkpl: 0.03 s 
+Execution time of Sanet_unreachability.nkpl: 0.05 s 
+Execution time of Shentel_reachability.nkpl: 0.02 s 
+Execution time of Shentel_slicing.nkpl: 0.04 s 
+Execution time of Shentel_unreachability.nkpl: 0.02 s 
+Execution time of Uunet_reachability.nkpl: 0.04 s 
+Execution time of Uunet_unreachability.nkpl: 0.04 s 
+Execution time of ft2_h_reachability.nkpl: 0.00 s 
+Execution time of ft2_reachability.nkpl: 0.00 s 
+Execution time of ft4_h_reachability.nkpl: 0.02 s 
+Execution time of ft4_reachability.nkpl: 0.02 s 
+Execution time of ft4_slicing.nkpl: 0.03 s 
+
+Execution time of Frenetic on Airtel_reachability.nkpl: 5.57 s 
+Execution time of Frenetic on Airtel_slicing.nkpl: 5.50 s 
+Execution time of Frenetic on Airtel_unreachability.nkpl: 5.53 s 
+Execution time of Frenetic on Arpa_reachability.nkpl: 5.53 s 
+Execution time of Frenetic on Arpa_slicing.nkpl: 5.56 s 
+Execution time of Frenetic on Arpa_unreachability.nkpl: 5.56 s 
+Execution time of Frenetic on Belnet_reachability.nkpl: 5.50 s 
+Execution time of Frenetic on Belnet_slicing.nkpl: 5.52 s 
+Execution time of Frenetic on Belnet_unreachability.nkpl: 5.55 s 
+Execution time of Frenetic on Compuserv_reachability.nkpl: 5.48 s 
+Execution time of Frenetic on Compuserv_slicing.nkpl: 1.23 s 
+Execution time of Airtel_reachability.nkpl: 0.37 s 
+Execution time of Airtel_slicing.nkpl: 0.11 s 
+Execution time of Airtel_unreachability.nkpl: 0.05 s 
+Execution time of Arpa_reachability.nkpl: 0.06 s 
+Execution time of Arpa_slicing.nkpl: 0.11 s 
+Execution time of Arpa_unreachability.nkpl: 0.05 s 
+Execution time of Belnet_reachability.nkpl: 0.04 s 
+Execution time of Belnet_slicing.nkpl: 0.06 s 
+Execution time of Belnet_unreachability.nkpl: 0.03 s 
+Execution time of Compuserv_reachability.nkpl: 0.01 s 
+Execution time of Compuserv_slicing.nkpl: 0.02 s 
+Execution time of Compuserv_unreachability.nkpl: 0.01 s 
+Execution time of Layer42_reachability.nkpl: 0.01 s 
+Execution time of Layer42_slicing.nkpl: 0.01 s 
+Execution time of Layer42_unreachability.nkpl: 0.01 s 
+Execution time of Sanet_reachability.nkpl: 0.05 s 
+Execution time of Sanet_unreachability.nkpl: 0.05 s 
+Execution time of Shentel_reachability.nkpl: 0.02 s 
+Execution time of Shentel_slicing.nkpl: 0.05 s 
+Execution time of Shentel_unreachability.nkpl: 0.02 s 
+Execution time of Uunet_reachability.nkpl: 0.06 s 
+Execution time of Uunet_unreachability.nkpl: 0.06 s 
+Execution time of ft2_h_reachability.nkpl: 0.01 s 
+Execution time of ft2_reachability.nkpl: 0.01 s 
+Execution time of ft4_h_reachability.nkpl: 0.02 s 
+Execution time of ft4_reachability.nkpl: 0.03 s 
+Execution time of ft4_slicing.nkpl: 0.03 s 
+
+Execution time of Airtel_reachability.nkpl: 0.01 s 
+Execution time of Airtel_slicing.nkpl: 0.03 s 
+Execution time of Airtel_unreachability.nkpl: 0.01 s 
+Execution time of Arpa_reachability.nkpl: 0.02 s 
+Execution time of Arpa_slicing.nkpl: 0.05 s 
+Execution time of Arpa_unreachability.nkpl: 0.02 s 
+Execution time of Belnet_reachability.nkpl: 0.01 s 
+Execution time of Belnet_slicing.nkpl: 0.03 s 
+Execution time of Belnet_unreachability.nkpl: 0.01 s 
+Execution time of Compuserv_reachability.nkpl: 0.01 s 
+Execution time of Compuserv_slicing.nkpl: 0.01 s 
+Execution time of Compuserv_unreachability.nkpl: 0.01 s 
+Execution time of Layer42_reachability.nkpl: 0.00 s 
+Execution time of Layer42_slicing.nkpl: 0.01 s 
+Execution time of Layer42_unreachability.nkpl: 0.00 s 
+Execution time of Sanet_reachability.nkpl: 0.08 s 
+Execution time of Sanet_unreachability.nkpl: 0.03 s 
+Execution time of Shentel_reachability.nkpl: 0.02 s 
+Execution time of Shentel_slicing.nkpl: 0.04 s 
+Execution time of Shentel_unreachability.nkpl: 0.02 s 
+Execution time of Uunet_reachability.nkpl: 0.04 s 
+Execution time of Uunet_unreachability.nkpl: 0.04 s 
+Execution time of ft2_h_reachability.nkpl: 0.00 s 
+Execution time of ft2_reachability.nkpl: 0.00 s 
+Execution time of ft4_h_reachability.nkpl: 0.02 s 
+Execution time of ft4_reachability.nkpl: 0.02 s 
+Execution time of ft4_slicing.nkpl: 0.03 s 
+
+Execution time of Frenetic on Airtel_reachability.nkpl: 0.83 s 
+Execution time of Frenetic on Airtel_slicing.nkpl: 2.02 s 
+Execution time of Frenetic on Airtel_unreachability.nkpl: 0.82 s 
+Execution time of Frenetic on Arpa_reachability.nkpl: 4.25 s 
+Execution time of Frenetic on Arpa_slicing.nkpl: 10.86 s 
+Execution time of Frenetic on Arpa_unreachability.nkpl: 4.23 s 
+Execution time of Frenetic on Belnet_reachability.nkpl: 3.14 s 
+Execution time of Frenetic on Belnet_slicing.nkpl: 7.93 s 
+Execution time of Frenetic on Belnet_unreachability.nkpl: 3.16 s 
+Execution time of Frenetic on Compuserv_reachability.nkpl: 0.35 s 
+Execution time of Frenetic on Compuserv_slicing.nkpl: 0.82 s 
+Execution time of Frenetic on Compuserv_unreachability.nkpl: 0.36 s 
+Execution time of Frenetic on Layer42_reachability.nkpl: 0.04 s 
+Execution time of Frenetic on Layer42_slicing.nkpl: 0.06 s 
+Execution time of Frenetic on Layer42_unreachability.nkpl: 0.04 s 
+Execution time of Frenetic on Sanet_reachability.nkpl: 23.47 s 
+Execution time of Frenetic on Sanet_unreachability.nkpl: 24.77 s 
+Execution time of Frenetic on Shentel_reachability.nkpl: 3.95 s 
+Execution time of Frenetic on Shentel_slicing.nkpl: 9.75 s 
+Execution time of Frenetic on Shentel_unreachability.nkpl: 3.97 s 
+Execution time of Frenetic on Uunet_reachability.nkpl: 81.18 s 
+Execution time of Frenetic on Uunet_unreachability.nkpl: 81.69 s 
+Execution time of Frenetic on ft2_h_reachability.nkpl: 0.03 s 
+Execution time of Frenetic on ft2_reachability.nkpl: 0.04 s 
+Execution time of Frenetic on ft4_h_reachability.nkpl: 2.25 s 
+Execution time of Frenetic on ft4_reachability.nkpl: 10.31 s 
+Execution time of Frenetic on ft4_slicing.nkpl: 5.51 s 
+
+Execution time of Missouri_reachability.nkpl: 0.62 s 
+Execution time of Missouri_unreachability.nkpl: 0.18 s 
+Execution time of Sanet_slicing.nkpl: 0.16 s 
+Execution time of Telcove_reachability.nkpl: 0.11 s 
+Execution time of Telcove_unreachability.nkpl: 0.10 s 
+Execution time of Uunet_slicing.nkpl: 0.18 s 
+Execution time of ft6_h_reachability.nkpl: 0.13 s 
+
+Execution time of Missouri_reachability.nkpl: 0.07 s 
+Execution time of Missouri_unreachability.nkpl: 0.07 s 
+Execution time of Sanet_slicing.nkpl: 0.08 s 
+Execution time of Telcove_reachability.nkpl: 0.07 s 
+Execution time of Telcove_unreachability.nkpl: 0.07 s 
+Execution time of Uunet_slicing.nkpl: 0.11 s 
+Execution time of ft6_h_reachability.nkpl: 0.11 s 
+
+Execution time of Frenetic on Missouri_reachability.nkpl: 164.81 s 
+Execution time of Frenetic on Missouri_unreachability.nkpl: 167.36 s 
+Execution time of Frenetic on Sanet_slicing.nkpl: 62.42 s 
+Execution time of Frenetic on Telcove_reachability.nkpl: 465.43 s 
+Execution time of Frenetic on Telcove_unreachability.nkpl: 464.64 s 
+Execution time of Frenetic on Uunet_slicing.nkpl: 204.71 s 
+Execution time of Frenetic on ft6_h_reachability.nkpl: 261.01 s 
+
