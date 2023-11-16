@@ -67,8 +67,10 @@ for line in data.split('\n'):
     group = path_parts[2]
     # path_parts[-1] on on "-"" and "_" using regex
     name_type = re.split(r'[-_]', path_parts[-1])
-    name = name_type[0]
+    name = name_type[0].split('.')[0]
     type = name_type[-1].split('.')[0]
+    if type not in ['slicing', 'reachability']:
+        type = 'none'
 
     # Handle timeout
     timeout = 'timeout' in time
@@ -99,7 +101,6 @@ df = pd.DataFrame({
 })
 
 # Display the DataFrame
-print(df)
 
 # Filter data for 'frenetic' and 'katch'
 frenetic_data = df[df['system'] == 'frenetic']
@@ -143,11 +144,35 @@ for group in df['group'].unique():
 for group in df['group'].unique():
     group_data = df[df['group'] == group]
 
+    # Selecting the required columns
+    selected_columns = ['name', 'type', 'size', 'system', 'time']
+    table_df = group_data[selected_columns]
+
+    # Splitting the data based on system
+    katch_df = table_df[table_df['system'] == 'katch']
+    frenetic_df = table_df[table_df['system'] == 'frenetic']
+
+    # Merging on 'name', 'type', and 'size'
+    merged_df = pd.merge(katch_df, frenetic_df, on=['name', 'type', 'size'], suffixes=('_katch', '_frenetic'))
+
+    # Selecting and renaming columns for the final table
+    final_table_df = merged_df[['name', 'type', 'size', 'time_katch', 'time_frenetic']]
+
+    # drop 'type' column if it only contains "none"
+    if list(final_table_df['type'].unique()) == ['none']:
+        final_table_df = final_table_df.drop(columns=['type'])
+
+    # Sorting by 'size'
+    final_table_df = final_table_df.sort_values(by='size')
+
     # Make table headers read File, Size (KB), KATch, Frenetic
-    group_data.rename(columns={'file': 'File', 'size': 'Size (KB)', 'katch': 'KATch (s)', 'frenetic': 'Frenetic (s)'}, inplace=True)
+    final_table_df.rename(columns={'size': 'Size (KB)', 'time_katch': 'KATch (s)', 'time_frenetic': 'Frenetic (s)'}, inplace=True)
+
+    # Convert to LaTeX format
+    # latex_table = final_table_df.to_latex(index=False)
 
     # Convert to LaTeX table
-    latex_table = group_data.to_latex(index=False, na_rep='n/a', float_format='%.2f')
+    latex_table = final_table_df.to_latex(index=False, na_rep='n/a', float_format='%.2f')
 
     # Save the LaTeX table to a .tex file
     with open(f'plots/{group}_comparison_table.tex', 'w') as f:
