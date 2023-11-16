@@ -178,8 +178,12 @@ for group in merged_data['group'].unique():
     # Remove rows with name ft2
     final_table_df = final_table_df[final_table_df['name'] != 'ft2']
 
+    final_table_df['sort_key'] = final_table_df.apply(lambda row: row['name'].startswith("ft"), axis=1)
+
+    print(final_table_df)
+
     # Sorting by 'size'
-    final_table_df = final_table_df.sort_values(by='size')
+    final_table_df = final_table_df.sort_values(by=['sort_key', 'size']).drop('sort_key', axis=1)
 
     # Make table headers read File, Size (KB), KATch, Frenetic
     final_table_df.rename(columns={'name': 'Name', 'type': 'Type', 'size': 'Size (KB)', 'time_katch': 'KATch (s)', 'time_frenetic': 'Frenetic (s)'}, inplace=True)
