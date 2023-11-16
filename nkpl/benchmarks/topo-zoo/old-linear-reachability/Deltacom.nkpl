@@ -1,0 +1,5 @@
+import "../tops_and_routes/Deltacom-top.nkpl"
+import "../tops_and_routes/Deltacom-rt.nkpl"
+net = (main⋅(top) ⋅ δ)⋆
+all = rangesum @sw 0..112
+for i ∈ 0..112 do check exists @pt (exists @dst (forward (@sw=i ⋅ net))) ≡ all

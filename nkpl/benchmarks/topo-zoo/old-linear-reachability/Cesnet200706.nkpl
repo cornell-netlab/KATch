@@ -1,0 +1,5 @@
+import "../tops_and_routes/Cesnet200706-top.nkpl"
+import "../tops_and_routes/Cesnet200706-rt.nkpl"
+net = (main⋅(top) ⋅ δ)⋆
+all = rangesum @sw 0..43
+for i ∈ 0..43 do check exists @pt (exists @dst (forward (@sw=i ⋅ net))) ≡ all

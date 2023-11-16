@@ -1,0 +1,5 @@
+import "../tops_and_routes/Intranetwork-top.nkpl"
+import "../tops_and_routes/Intranetwork-rt.nkpl"
+net = (main⋅(top) ⋅ δ)⋆
+all = rangesum @sw 0..38
+for i ∈ 0..38 do check exists @pt (exists @dst (forward (@sw=i ⋅ net))) ≡ all

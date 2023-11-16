@@ -1,0 +1,5 @@
+import "../tops_and_routes/Kdl_topo.nkpl"
+import "../tops_and_routes/Kdl_routing.nkpl"
+net = (main⋅(top) ⋅ δ)⋆
+all = rangesum @sw 0..753
+for i ∈ 0..753 do check exists @pt (exists @dst (forward (@sw=i ⋅ net))) ≡ all

@@ -1,0 +1,5 @@
+import "../tops_and_routes/BsonetEurope-top.nkpl"
+import "../tops_and_routes/BsonetEurope-rt.nkpl"
+net = (main⋅(top) ⋅ δ)⋆
+all = rangesum @sw 0..17
+for i ∈ 0..17 do check exists @pt (exists @dst (forward (@sw=i ⋅ net))) ≡ all

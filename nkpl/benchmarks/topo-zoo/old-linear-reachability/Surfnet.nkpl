@@ -1,0 +1,5 @@
+import "../tops_and_routes/Surfnet-top.nkpl"
+import "../tops_and_routes/Surfnet-rt.nkpl"
+net = (main⋅(top) ⋅ δ)⋆
+all = rangesum @sw 0..49
+for i ∈ 0..49 do check exists @pt (exists @dst (forward (@sw=i ⋅ net))) ≡ all

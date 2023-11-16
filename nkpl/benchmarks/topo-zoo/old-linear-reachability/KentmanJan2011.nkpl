@@ -1,0 +1,5 @@
+import "../tops_and_routes/KentmanJan2011-top.nkpl"
+import "../tops_and_routes/KentmanJan2011-rt.nkpl"
+net = (main⋅(top) ⋅ δ)⋆
+all = rangesum @sw 0..37
+for i ∈ 0..37 do check exists @pt (exists @dst (forward (@sw=i ⋅ net))) ≡ all
