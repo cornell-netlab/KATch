@@ -127,7 +127,16 @@ print(merged_data)
 
 # Plotting
 
-sizes = {'': (3,3), '_wide': (8, 4)}
+sizes = {'': (3,3), '_wide': (10, 4)}
+system_color_symbols = {
+    'frenetic': ('#1f77b4', 'o'),
+    'frenetic (timeout)': ('#000', 'X'),
+    'katch': ('#ff7f0e', 'o'),
+}
+
+palette = {system: color for system, (color, marker) in system_color_symbols.items()}
+markers = {system: marker for system, (color, marker) in system_color_symbols.items()}
+
 
 # Scatterplots katch vs frenetic
 for group in merged_data['group'].unique():
@@ -156,9 +165,13 @@ for group in merged_data['group'].unique():
     # combine frenetic and katch data
     group_data_kf = pd.concat([frenetic_data, katch_data])
 
+    # Add a separate system "frenetic (timeout)" for the timeouts
+    group_data_kf['system'] = group_data_kf.apply(lambda row: f"{row['system']} (timeout)" if row['time'] == 300 else row['system'], axis=1)
+
     for sizename, size in sizes.items():
         plt.figure(figsize=size)
-        sns.scatterplot(data=group_data_kf, x='size', y='time', hue='system', style='system', markers=True)
+        # sns.scatterplot(data=group_data_kf, x='size', y='time', hue='system', style='system', markers=True)
+        sns.scatterplot(data=group_data_kf, x='size', y='time', hue='system', style='system', palette=palette, markers=markers)
         plt.title(f"{group}")
         plt.xlabel("Size (KB)")
         plt.ylabel("Time (s)")
