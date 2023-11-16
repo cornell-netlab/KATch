@@ -140,11 +140,21 @@ for group in merged_data['group'].unique():
     plt.savefig(f'plots/{group}_scatter.pdf', bbox_inches='tight', format='pdf')
 
 # Scatterplots time vs size
-for group in df['group'].unique():
-    group_data = df[df['group'] == group]
+for group in merged_data['group'].unique():
+    group_data = merged_data[merged_data['group'] == group]
+    # split group_data into separate rows for frenetic and katch
+    frenetic_data = group_data[['size', 'time_frenetic']].copy()
+    frenetic_data.rename(columns={'time_frenetic': 'time'}, inplace=True)
+    frenetic_data['system'] = 'frenetic'
+    katch_data = group_data[['size', 'time_katch']].copy()
+    katch_data.rename(columns={'time_katch': 'time'}, inplace=True)
+    katch_data['system'] = 'katch'
+
+    # combine frenetic and katch data
+    group_data_kf = pd.concat([frenetic_data, katch_data])
 
     plt.figure(figsize=sizes)
-    sns.scatterplot(data=group_data, x='size', y='time', hue='system', style='system', markers=True)
+    sns.scatterplot(data=group_data_kf, x='size', y='time', hue='system', style='system', markers=True)
     plt.title(f"{group}")
     plt.xlabel("Size (KB)")
     plt.ylabel("Time (s)")
@@ -162,6 +172,9 @@ for group in merged_data['group'].unique():
     # drop 'type' column if it only contains "none"
     if list(final_table_df['type'].unique()) == ['none']:
         final_table_df = final_table_df.drop(columns=['type'])
+
+    # Remove rows with name ft2
+    final_table_df = final_table_df[final_table_df['name'] != 'ft2']
 
     # Sorting by 'size'
     final_table_df = final_table_df.sort_values(by='size')
