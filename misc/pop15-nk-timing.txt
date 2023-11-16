@@ -1,0 +1,1820 @@
+Aarnet.dot
+## Equivalent ##
+true
+
+real	0m2.036s
+user	0m2.014s
+sys	0m0.020s
+Abilene.dot
+## Equivalent ##
+true
+
+real	0m0.311s
+user	0m0.290s
+sys	0m0.020s
+Abvt.dot
+## Equivalent ##
+true
+
+real	0m4.750s
+user	0m4.733s
+sys	0m0.016s
+Aconet.dot
+## Equivalent ##
+true
+
+real	0m3.286s
+user	0m3.269s
+sys	0m0.016s
+Agis.dot
+## Equivalent ##
+true
+
+real	0m5.072s
+user	0m5.043s
+sys	0m0.028s
+Ai3.dot
+## Equivalent ##
+true
+
+real	0m0.182s
+user	0m0.172s
+sys	0m0.008s
+Airtel.dot
+## Equivalent ##
+true
+
+real	0m1.341s
+user	0m1.335s
+sys	0m0.004s
+Amres.dot
+## Equivalent ##
+true
+
+real	0m4.553s
+user	0m4.531s
+sys	0m0.021s
+Ans.dot
+## Equivalent ##
+true
+
+real	0m1.936s
+user	0m1.910s
+sys	0m0.025s
+Arn.dot
+## Equivalent ##
+true
+
+real	0m5.992s
+user	0m5.933s
+sys	0m0.057s
+Arnes.dot
+## Equivalent ##
+true
+
+real	0m22.456s
+user	0m22.321s
+sys	0m0.133s
+Arpanet196912.dot
+## Equivalent ##
+true
+
+real	0m0.037s
+user	0m0.035s
+sys	0m0.001s
+Arpanet19706.dot
+## Equivalent ##
+true
+
+real	0m0.128s
+user	0m0.115s
+sys	0m0.012s
+Arpanet19719.dot
+## Equivalent ##
+true
+
+real	0m2.025s
+user	0m1.999s
+sys	0m0.025s
+Arpanet19723.dot
+## Equivalent ##
+true
+
+real	0m7.681s
+user	0m7.650s
+sys	0m0.029s
+Arpanet19728.dot
+## Equivalent ##
+true
+
+real	0m18.656s
+user	0m18.601s
+sys	0m0.053s
+AsnetAm.dot
+## Equivalent ##
+true
+
+real	3m1.080s
+user	3m0.620s
+sys	0m0.445s
+Atmnet.dot
+## Equivalent ##
+true
+
+real	0m4.333s
+user	0m4.295s
+sys	0m0.037s
+AttMpls.dot
+## Equivalent ##
+true
+
+real	0m8.569s
+user	0m8.542s
+sys	0m0.025s
+Azrena.dot
+## Equivalent ##
+true
+
+real	0m2.027s
+user	0m2.009s
+sys	0m0.017s
+Bandcon.dot
+## Equivalent ##
+false
+
+real	0m2.889s
+user	0m2.854s
+sys	0m0.033s
+Basnet.dot
+## Equivalent ##
+true
+
+real	0m0.075s
+user	0m0.060s
+sys	0m0.013s
+Bbnplanet.dot
+## Equivalent ##
+true
+
+real	0m4.735s
+user	0m4.700s
+sys	0m0.033s
+Bellcanada.dot
+## Equivalent ##
+true
+
+real	1m22.232s
+user	1m22.067s
+sys	0m0.161s
+Bellsouth.dot
+## Equivalent ##
+true
+
+real	1m11.416s
+user	1m11.194s
+sys	0m0.217s
+Belnet2003.dot
+## Equivalent ##
+true
+
+real	0m4.416s
+user	0m4.390s
+sys	0m0.025s
+Belnet2004.dot
+## Equivalent ##
+true
+
+real	0m4.416s
+user	0m4.405s
+sys	0m0.009s
+Belnet2005.dot
+## Equivalent ##
+true
+
+real	0m4.547s
+user	0m4.533s
+sys	0m0.013s
+Belnet2006.dot
+## Equivalent ##
+true
+
+real	0m4.562s
+user	0m4.516s
+sys	0m0.045s
+Belnet2007.dot
+## Equivalent ##
+true
+
+real	0m5.121s
+user	0m5.094s
+sys	0m0.025s
+Belnet2008.dot
+## Equivalent ##
+true
+
+real	0m5.118s
+user	0m5.104s
+sys	0m0.013s
+Belnet2009.dot
+## Equivalent ##
+true
+
+real	0m3.716s
+user	0m3.685s
+sys	0m0.029s
+Belnet2010.dot
+## Equivalent ##
+true
+
+real	0m6.062s
+user	0m6.044s
+sys	0m0.017s
+BeyondTheNetwork.dot
+## Equivalent ##
+true
+
+real	1m11.051s
+user	1m10.942s
+sys	0m0.105s
+Bics.dot
+## Equivalent ##
+true
+
+real	0m19.114s
+user	0m19.071s
+sys	0m0.041s
+Biznet.dot
+## Equivalent ##
+true
+
+real	0m13.674s
+user	0m13.640s
+sys	0m0.033s
+Bren.dot
+## Equivalent ##
+true
+
+real	0m19.301s
+user	0m19.234s
+sys	0m0.065s
+BsonetEurope.dot
+## Equivalent ##
+true
+
+real	0m1.477s
+user	0m1.458s
+sys	0m0.017s
+BtAsiaPac.dot
+## Equivalent ##
+true
+
+real	0m2.639s
+user	0m2.609s
+sys	0m0.029s
+BtEurope.dot
+## Equivalent ##
+true
+
+real	0m4.489s
+user	0m4.470s
+sys	0m0.017s
+BtLatinAmerica.dot
+## Equivalent ##
+false
+
+real	0m37.291s
+user	0m37.171s
+sys	0m0.117s
+BtNorthAmerica.dot
+## Equivalent ##
+true
+
+real	0m32.554s
+user	0m32.467s
+sys	0m0.084s
+Canerie.dot
+## Equivalent ##
+true
+
+real	0m10.905s
+user	0m10.866s
+sys	0m0.037s
+Carnet.dot
+## Equivalent ##
+true
+
+real	0m33.829s
+user	0m33.703s
+sys	0m0.121s
+Cernet.dot
+## Equivalent ##
+true
+
+real	0m36.731s
+user	0m36.643s
+sys	0m0.085s
+Cesnet1993.dot
+## Equivalent ##
+true
+
+real	0m0.182s
+user	0m0.160s
+sys	0m0.020s
+Cesnet1997.dot
+## Equivalent ##
+true
+
+real	0m0.384s
+user	0m0.366s
+sys	0m0.017s
+Cesnet1999.dot
+## Equivalent ##
+true
+
+real	0m0.414s
+user	0m0.384s
+sys	0m0.029s
+Cesnet2001.dot
+## Equivalent ##
+true
+
+real	0m2.825s
+user	0m2.794s
+sys	0m0.029s
+Cesnet200304.dot
+## Equivalent ##
+true
+
+real	0m8.825s
+user	0m8.774s
+sys	0m0.049s
+Cesnet200511.dot
+## Equivalent ##
+true
+
+real	0m22.737s
+user	0m22.601s
+sys	0m0.133s
+Cesnet200603.dot
+## Equivalent ##
+true
+
+real	0m22.536s
+user	0m22.416s
+sys	0m0.117s
+Cesnet200706.dot
+## Equivalent ##
+true
+
+real	0m39.437s
+user	0m39.252s
+sys	0m0.181s
+Cesnet201006.dot
+## Equivalent ##
+true
+
+real	1m26.010s
+user	1m25.809s
+sys	0m0.189s
+Chinanet.dot
+## Equivalent ##
+true
+
+real	0m35.937s
+user	0m35.846s
+sys	0m0.089s
+Claranet.dot
+## Equivalent ##
+true
+
+real	0m0.620s
+user	0m0.598s
+sys	0m0.021s
+Cogentco.dot
+## Equivalent ##
+true
+
+real	491m17.808s
+user	490m13.965s
+sys	1m2.164s
+Colt.dot
+## Equivalent ##
+true
+
+real	197m17.402s
+user	197m9.471s
+sys	0m7.653s
+Columbus.dot
+## Equivalent ##
+true
+
+real	8m43.226s
+user	8m42.636s
+sys	0m0.545s
+Compuserve.dot
+## Equivalent ##
+true
+
+real	0m0.655s
+user	0m0.633s
+sys	0m0.021s
+CrlNetworkServices.dot
+## Equivalent ##
+true
+
+real	0m26.503s
+user	0m26.440s
+sys	0m0.061s
+Cudi.dot
+## Equivalent ##
+true
+
+real	0m51.166s
+user	0m51.026s
+sys	0m0.137s
+Cwix.dot
+## Equivalent ##
+true
+
+real	0m26.105s
+user	0m26.010s
+sys	0m0.092s
+Cynet.dot
+## Equivalent ##
+true
+
+real	0m9.200s
+user	0m9.133s
+sys	0m0.065s
+Darkstrand.dot
+## Equivalent ##
+true
+
+real	0m13.796s
+user	0m13.776s
+sys	0m0.017s
+Dataxchange.dot
+## Equivalent ##
+true
+
+real	0m0.069s
+user	0m0.059s
+sys	0m0.009s
+Deltacom.dot
+## Equivalent ##
+true
+
+real	61m10.902s
+user	61m8.597s
+sys	0m2.237s
+DeutscheTelekom.dot
+## Equivalent ##
+false
+
+real	0m17.517s
+user	0m17.449s
+sys	0m0.064s
+Dfn.dot
+## Equivalent ##
+true
+
+real	2m27.802s
+user	2m27.462s
+sys	0m0.333s
+DialtelecomCz.dot
+## Equivalent ##
+false
+
+real	254m12.485s
+user	254m0.414s
+sys	0m11.765s
+Digex.dot
+## Equivalent ##
+true
+
+real	0m20.356s
+user	0m20.301s
+sys	0m0.053s
+Easynet.dot
+## Equivalent ##
+true
+
+real	0m1.780s
+user	0m1.757s
+sys	0m0.021s
+Eenet.dot
+## Equivalent ##
+true
+
+real	0m0.499s
+user	0m0.477s
+sys	0m0.021s
+EliBackbone.dot
+## Equivalent ##
+true
+
+real	0m2.966s
+user	0m2.940s
+sys	0m0.025s
+Epoch.dot
+## Equivalent ##
+true
+
+real	0m0.060s
+user	0m0.043s
+sys	0m0.016s
+Ernet.dot
+## Equivalent ##
+true
+
+real	0m6.478s
+user	0m6.459s
+sys	0m0.017s
+Esnet.dot
+## Equivalent ##
+true
+
+real	4m27.566s
+user	4m27.213s
+sys	0m0.341s
+Eunetworks.dot
+## Equivalent ##
+false
+
+real	0m0.901s
+user	0m0.887s
+sys	0m0.013s
+Evolink.dot
+## Equivalent ##
+true
+
+real	0m46.596s
+user	0m46.482s
+sys	0m0.109s
+Fatman.dot
+## Equivalent ##
+true
+
+real	0m1.365s
+user	0m1.347s
+sys	0m0.017s
+Fccn.dot
+## Equivalent ##
+true
+
+real	0m3.714s
+user	0m3.677s
+sys	0m0.036s
+Forthnet.dot
+## Equivalent ##
+true
+
+real	1m58.265s
+user	1m57.979s
+sys	0m0.280s
+Funet.dot
+## Equivalent ##
+true
+
+real	0m14.127s
+user	0m14.073s
+sys	0m0.052s
+Gambia.dot
+## Equivalent ##
+true
+
+real	0m6.961s
+user	0m6.927s
+sys	0m0.032s
+Garr199901.dot
+## Equivalent ##
+true
+
+real	0m0.692s
+user	0m0.666s
+sys	0m0.024s
+Garr199904.dot
+## Equivalent ##
+true
+
+real	0m2.303s
+user	0m2.273s
+sys	0m0.028s
+Garr199905.dot
+## Equivalent ##
+true
+
+real	0m2.324s
+user	0m2.298s
+sys	0m0.025s
+Garr200109.dot
+## Equivalent ##
+true
+
+real	0m2.175s
+user	0m2.140s
+sys	0m0.033s
+Garr200112.dot
+## Equivalent ##
+true
+
+real	0m2.804s
+user	0m2.762s
+sys	0m0.041s
+Garr200212.dot
+## Equivalent ##
+true
+
+real	0m4.508s
+user	0m4.486s
+sys	0m0.021s
+Garr200404.dot
+## Equivalent ##
+true
+
+real	0m2.018s
+user	0m1.987s
+sys	0m0.029s
+Garr200902.dot
+## Equivalent ##
+true
+
+real	1m10.016s
+user	1m9.896s
+sys	0m0.117s
+Garr200908.dot
+## Equivalent ##
+true
+
+real	1m10.021s
+user	1m9.905s
+sys	0m0.113s
+Garr200909.dot
+## Equivalent ##
+true
+
+real	1m12.601s
+user	1m12.470s
+sys	0m0.128s
+Garr200912.dot
+## Equivalent ##
+true
+
+real	1m10.880s
+user	1m10.746s
+sys	0m0.121s
+Garr201001.dot
+## Equivalent ##
+true
+
+real	1m10.738s
+user	1m10.598s
+sys	0m0.137s
+Garr201003.dot
+## Equivalent ##
+true
+
+real	1m10.590s
+user	1m10.453s
+sys	0m0.133s
+Garr201004.dot
+## Equivalent ##
+true
+
+real	1m10.727s
+user	1m10.612s
+sys	0m0.109s
+Garr201005.dot
+## Equivalent ##
+true
+
+real	1m12.754s
+user	1m12.637s
+sys	0m0.113s
+Garr201007.dot
+## Equivalent ##
+true
+
+real	1m12.588s
+user	1m12.442s
+sys	0m0.141s
+Garr201008.dot
+## Equivalent ##
+true
+
+real	1m12.476s
+user	1m12.321s
+sys	0m0.153s
+Garr201010.dot
+## Equivalent ##
+true
+
+real	1m16.248s
+user	1m16.135s
+sys	0m0.109s
+Garr201012.dot
+## Equivalent ##
+true
+
+real	1m16.283s
+user	1m16.164s
+sys	0m0.113s
+Garr201101.dot
+## Equivalent ##
+true
+
+real	1m16.109s
+user	1m15.877s
+sys	0m0.225s
+Garr201102.dot
+## Equivalent ##
+true
+
+real	1m19.293s
+user	1m19.150s
+sys	0m0.137s
+Garr201103.dot
+## Equivalent ##
+true
+
+real	1m29.127s
+user	1m28.964s
+sys	0m0.153s
+Garr201104.dot
+## Equivalent ##
+true
+
+real	1m35.428s
+user	1m35.208s
+sys	0m0.213s
+Garr201105.dot
+## Equivalent ##
+true
+
+real	1m41.066s
+user	1m40.841s
+sys	0m0.217s
+Garr201107.dot
+## Equivalent ##
+true
+
+real	1m41.218s
+user	1m41.061s
+sys	0m0.148s
+Garr201108.dot
+## Equivalent ##
+true
+
+real	1m41.060s
+user	1m40.816s
+sys	0m0.225s
+Garr201109.dot
+## Equivalent ##
+true
+
+real	1m40.370s
+user	1m40.184s
+sys	0m0.177s
+Garr201110.dot
+## Equivalent ##
+true
+
+real	1m46.649s
+user	1m46.437s
+sys	0m0.205s
+Garr201111.dot
+## Equivalent ##
+true
+
+real	1m53.008s
+user	1m52.678s
+sys	0m0.325s
+Garr201112.dot
+## Equivalent ##
+true
+
+real	1m58.427s
+user	1m58.039s
+sys	0m0.381s
+Garr201201.dot
+## Equivalent ##
+true
+
+real	1m58.288s
+user	1m58.091s
+sys	0m0.189s
+Gblnet.dot
+## Equivalent ##
+true
+
+real	0m0.105s
+user	0m0.082s
+sys	0m0.021s
+Geant2001.dot
+## Equivalent ##
+true
+
+real	0m6.927s
+user	0m6.884s
+sys	0m0.041s
+Geant2009.dot
+## Equivalent ##
+true
+
+real	0m22.479s
+user	0m22.432s
+sys	0m0.045s
+Geant2010.dot
+## Equivalent ##
+true
+
+real	0m28.598s
+user	0m28.519s
+sys	0m0.077s
+Geant2012.dot
+## Equivalent ##
+true
+
+real	0m38.038s
+user	0m37.902s
+sys	0m0.133s
+Getnet.dot
+## Equivalent ##
+true
+
+real	0m0.087s
+user	0m0.073s
+sys	0m0.013s
+Globalcenter.dot
+## Equivalent ##
+true
+
+real	0m0.167s
+user	0m0.152s
+sys	0m0.013s
+Globenet.dot
+## Equivalent ##
+true
+
+real	4m30.156s
+user	4m29.852s
+sys	0m0.293s
+Goodnet.dot
+## Equivalent ##
+true
+
+real	0m1.327s
+user	0m1.305s
+sys	0m0.021s
+Grena.dot
+## Equivalent ##
+true
+
+real	0m0.732s
+user	0m0.709s
+sys	0m0.021s
+Gridnet.dot
+## Equivalent ##
+true
+
+real	0m0.162s
+user	0m0.147s
+sys	0m0.013s
+Grnet.dot
+## Equivalent ##
+true
+
+real	0m19.641s
+user	0m19.566s
+sys	0m0.073s
+GtsCe.dot
+## Equivalent ##
+true
+
+real	180m30.422s
+user	180m18.054s
+sys	0m11.916s
+GtsCzechRepublic.dot
+## Equivalent ##
+true
+
+real	0m20.268s
+user	0m20.180s
+sys	0m0.085s
+GtsHungary.dot
+## Equivalent ##
+true
+
+real	0m14.825s
+user	0m14.750s
+sys	0m0.073s
+GtsPoland.dot
+## Equivalent ##
+true
+
+real	0m26.707s
+user	0m26.669s
+sys	0m0.037s
+GtsRomania.dot
+## Equivalent ##
+true
+
+real	0m3.063s
+user	0m3.028s
+sys	0m0.033s
+GtsSlovakia.dot
+## Equivalent ##
+true
+
+real	0m16.107s
+user	0m16.057s
+sys	0m0.049s
+Harnet.dot
+## Equivalent ##
+true
+
+real	0m2.219s
+user	0m2.193s
+sys	0m0.025s
+Heanet.dot
+## Equivalent ##
+true
+
+real	0m0.086s
+user	0m0.074s
+sys	0m0.009s
+HiberniaCanada.dot
+## Equivalent ##
+true
+
+real	0m0.573s
+user	0m0.559s
+sys	0m0.013s
+HiberniaGlobal.dot
+## Equivalent ##
+true
+
+real	2m25.930s
+user	2m25.677s
+sys	0m0.244s
+HiberniaIreland.dot
+## Equivalent ##
+true
+
+real	0m0.114s
+user	0m0.099s
+sys	0m0.013s
+HiberniaNireland.dot
+## Equivalent ##
+true
+
+real	0m2.087s
+user	0m2.064s
+sys	0m0.021s
+HiberniaUk.dot
+## Equivalent ##
+true
+
+real	0m1.233s
+user	0m1.215s
+sys	0m0.017s
+HiberniaUs.dot
+## Equivalent ##
+true
+
+real	0m3.681s
+user	0m3.663s
+sys	0m0.017s
+Highwinds.dot
+## Equivalent ##
+true
+
+real	0m3.080s
+user	0m3.062s
+sys	0m0.017s
+HostwayInternational.dot
+## Equivalent ##
+true
+
+real	0m1.064s
+user	0m1.038s
+sys	0m0.025s
+HurricaneElectric.dot
+## Equivalent ##
+true
+
+real	0m4.647s
+user	0m4.613s
+sys	0m0.033s
+Ibm.dot
+## Equivalent ##
+true
+
+real	0m1.824s
+user	0m1.801s
+sys	0m0.021s
+Iij.dot
+## Equivalent ##
+true
+
+real	0m32.454s
+user	0m32.399s
+sys	0m0.053s
+Iinet.dot
+## Equivalent ##
+true
+
+real	0m9.304s
+user	0m9.229s
+sys	0m0.073s
+Ilan.dot
+## Equivalent ##
+true
+
+real	0m0.544s
+user	0m0.526s
+sys	0m0.017s
+Integra.dot
+## Equivalent ##
+true
+
+real	0m7.367s
+user	0m7.358s
+sys	0m0.008s
+Intellifiber.dot
+## Equivalent ##
+true
+
+real	6m41.664s
+user	6m41.046s
+sys	0m0.592s
+Internetmci.dot
+## Equivalent ##
+true
+
+real	0m2.761s
+user	0m2.732s
+sys	0m0.028s
+Internode.dot
+## Equivalent ##
+true
+
+real	2m7.718s
+user	2m7.492s
+sys	0m0.220s
+Interoute.dot
+## Equivalent ##
+true
+
+real	50m49.978s
+user	50m47.827s
+sys	0m2.033s
+Intranetwork.dot
+## Equivalent ##
+true
+
+real	0m32.115s
+user	0m32.026s
+sys	0m0.085s
+Ion.dot
+## Equivalent ##
+true
+
+real	127m19.361s
+user	127m7.651s
+sys	0m11.445s
+IowaStatewideFiberMap.dot
+## Equivalent ##
+true
+
+real	0m20.027s
+user	0m19.984s
+sys	0m0.036s
+Iris.dot
+## Equivalent ##
+true
+
+real	1m34.386s
+user	1m34.192s
+sys	0m0.188s
+Istar.dot
+## Equivalent ##
+true
+
+real	0m2.757s
+user	0m2.730s
+sys	0m0.025s
+Itnet.dot
+## Equivalent ##
+true
+
+real	0m0.224s
+user	0m0.191s
+sys	0m0.032s
+Janetbackbone.dot
+## Equivalent ##
+true
+
+real	0m11.884s
+user	0m11.826s
+sys	0m0.057s
+JanetExternal.dot
+## Equivalent ##
+false
+
+real	0m0.189s
+user	0m0.163s
+sys	0m0.025s
+Janetlense.dot
+## Equivalent ##
+true
+
+real	0m3.389s
+user	0m3.350s
+sys	0m0.037s
+Jgn2Plus.dot
+## Equivalent ##
+true
+
+real	0m1.424s
+user	0m1.410s
+sys	0m0.013s
+Karen.dot
+## Equivalent ##
+true
+
+real	0m4.218s
+user	0m4.184s
+sys	0m0.033s
+KentmanApr2007.dot
+## Equivalent ##
+false
+
+real	0m2.586s
+user	0m2.567s
+sys	0m0.017s
+KentmanAug2005.dot
+## Equivalent ##
+false
+
+real	0m5.553s
+user	0m5.527s
+sys	0m0.025s
+KentmanFeb2008.dot
+## Equivalent ##
+true
+
+real	0m4.503s
+user	0m4.457s
+sys	0m0.045s
+KentmanJan2011.dot
+## Equivalent ##
+true
+
+real	0m18.234s
+user	0m18.167s
+sys	0m0.065s
+KentmanJul2005.dot
+## Equivalent ##
+true
+
+real	0m1.121s
+user	0m1.106s
+sys	0m0.013s
+Kreonet.dot
+## Equivalent ##
+true
+
+real	0m0.426s
+user	0m0.404s
+sys	0m0.021s
+LambdaNet.dot
+## Equivalent ##
+true
+
+real	1m17.717s
+user	1m17.571s
+sys	0m0.140s
+Latnet.dot
+## Equivalent ##
+true
+
+real	5m31.659s
+user	5m30.764s
+sys	0m0.884s
+Layer42.dot
+## Equivalent ##
+true
+
+real	0m0.072s
+user	0m0.067s
+sys	0m0.004s
+Litnet.dot
+## Equivalent ##
+true
+
+real	0m21.752s
+user	0m21.653s
+sys	0m0.097s
+Marnet.dot
+## Equivalent ##
+true
+
+real	0m2.772s
+user	0m2.734s
+sys	0m0.037s
+Marwan.dot
+## Equivalent ##
+true
+
+real	0m0.963s
+user	0m0.949s
+sys	0m0.013s
+Missouri.dot
+## Equivalent ##
+true
+
+real	4m51.678s
+user	4m51.388s
+sys	0m0.281s
+Mren.dot
+## Equivalent ##
+true
+
+real	0m0.058s
+user	0m0.032s
+sys	0m0.025s
+Myren.dot
+## Equivalent ##
+true
+
+real	0m14.904s
+user	0m14.805s
+sys	0m0.097s
+Napnet.dot
+## Equivalent ##
+true
+
+real	0m0.059s
+user	0m0.046s
+sys	0m0.012s
+Navigata.dot
+## Equivalent ##
+true
+
+real	0m0.448s
+user	0m0.430s
+sys	0m0.017s
+Netrail.dot
+## Equivalent ##
+true
+
+real	0m0.088s
+user	0m0.074s
+sys	0m0.012s
+NetworkUsa.dot
+## Equivalent ##
+true
+
+real	0m37.557s
+user	0m37.466s
+sys	0m0.089s
+Nextgen.dot
+## Equivalent ##
+true
+
+real	0m2.030s
+user	0m1.975s
+sys	0m0.053s
+Niif.dot
+## Equivalent ##
+true
+
+real	0m25.247s
+user	0m25.148s
+sys	0m0.097s
+Noel.dot
+## Equivalent ##
+true
+
+real	0m2.107s
+user	0m2.073s
+sys	0m0.033s
+Nordu1989.dot
+## Equivalent ##
+true
+
+real	0m0.085s
+user	0m0.068s
+sys	0m0.016s
+Nordu1997.dot
+## Equivalent ##
+true
+
+real	0m0.549s
+user	0m0.534s
+sys	0m0.013s
+Nordu2005.dot
+## Equivalent ##
+true
+
+real	0m0.167s
+user	0m0.141s
+sys	0m0.024s
+Nordu2010.dot
+## Equivalent ##
+false
+
+real	0m0.767s
+user	0m0.749s
+sys	0m0.017s
+Nsfcnet.dot
+## Equivalent ##
+false
+
+real	0m0.167s
+user	0m0.153s
+sys	0m0.013s
+Nsfnet.dot
+## Equivalent ##
+true
+
+real	0m0.533s
+user	0m0.514s
+sys	0m0.017s
+Ntelos.dot
+## Equivalent ##
+false
+
+real	1m44.573s
+user	1m44.434s
+sys	0m0.133s
+Ntt.dot
+## Equivalent ##
+false
+
+real	1m13.160s
+user	1m12.935s
+sys	0m0.221s
+Oteglobe.dot
+## Equivalent ##
+false
+
+real	13m42.876s
+user	13m42.122s
+sys	0m0.685s
+Oxford.dot
+## Equivalent ##
+true
+
+real	0m2.923s
+user	0m2.892s
+sys	0m0.029s
+Pacificwave.dot
+## Equivalent ##
+true
+
+real	0m1.474s
+user	0m1.436s
+sys	0m0.037s
+Packetexchange.dot
+## Equivalent ##
+true
+
+real	0m2.991s
+user	0m2.968s
+sys	0m0.021s
+Padi.dot
+## Equivalent ##
+false
+
+real	0m0.124s
+user	0m0.105s
+sys	0m0.017s
+Palmetto.dot
+## Equivalent ##
+true
+
+real	1m17.296s
+user	1m17.176s
+sys	0m0.117s
+Peer1.dot
+## Equivalent ##
+true
+
+real	0m1.094s
+user	0m1.088s
+sys	0m0.005s
+Pern.dot
+## Equivalent ##
+true
+
+real	34m16.340s
+user	34m13.525s
+sys	0m2.728s
+PionierL1.dot
+## Equivalent ##
+true
+
+real	0m31.874s
+user	0m31.791s
+sys	0m0.081s
+PionierL3.dot
+## Equivalent ##
+true
+
+real	0m49.997s
+user	0m49.867s
+sys	0m0.125s
+Psinet.dot
+## Equivalent ##
+true
+
+real	0m6.764s
+user	0m6.741s
+sys	0m0.021s
+Quest.dot
+## Equivalent ##
+true
+
+real	0m2.959s
+user	0m2.936s
+sys	0m0.021s
+RedBestel.dot
+## Equivalent ##
+true
+
+real	21m41.843s
+user	21m39.932s
+sys	0m1.805s
+Rediris.dot
+## Equivalent ##
+true
+
+real	0m2.292s
+user	0m2.258s
+sys	0m0.033s
+Renam.dot
+## Equivalent ##
+true
+
+real	0m0.044s
+user	0m0.034s
+sys	0m0.008s
+Renater1999.dot
+## Equivalent ##
+true
+
+real	0m3.765s
+user	0m3.714s
+sys	0m0.049s
+Renater2001.dot
+## Equivalent ##
+true
+
+real	0m4.519s
+user	0m4.473s
+sys	0m0.045s
+Renater2004.dot
+## Equivalent ##
+true
+
+real	0m14.369s
+user	0m14.315s
+sys	0m0.053s
+Renater2006.dot
+## Equivalent ##
+true
+
+real	0m18.706s
+user	0m18.650s
+sys	0m0.053s
+Renater2008.dot
+## Equivalent ##
+true
+
+real	0m18.785s
+user	0m18.697s
+sys	0m0.085s
+Renater2010.dot
+## Equivalent ##
+true
+
+real	1m8.606s
+user	1m8.513s
+sys	0m0.089s
+Restena.dot
+## Equivalent ##
+true
+
+real	0m1.876s
+user	0m1.850s
+sys	0m0.024s
+Reuna.dot
+## Equivalent ##
+true
+
+real	0m13.953s
+user	0m13.874s
+sys	0m0.073s
+Rhnet.dot
+## Equivalent ##
+true
+
+real	0m1.157s
+user	0m1.143s
+sys	0m0.013s
+Rnp.dot
+## Equivalent ##
+true
+
+real	0m13.015s
+user	0m12.952s
+sys	0m0.061s
+Roedunet.dot
+## Equivalent ##
+true
+
+real	0m24.712s
+user	0m24.549s
+sys	0m0.160s
+RoedunetFibre.dot
+## Equivalent ##
+true
+
+real	1m9.465s
+user	1m9.345s
+sys	0m0.117s
+Sago.dot
+## Equivalent ##
+true
+
+real	0m1.162s
+user	0m1.124s
+sys	0m0.037s
+Sanet.dot
+## Equivalent ##
+true
+
+real	1m10.105s
+user	1m9.980s
+sys	0m0.121s
+Sanren.dot
+## Equivalent ##
+true
+
+real	0m0.088s
+user	0m0.074s
+sys	0m0.012s
+Savvis.dot
+## Equivalent ##
+true
+
+real	0m2.743s
+user	0m2.729s
+sys	0m0.013s
+Shentel.dot
+## Equivalent ##
+true
+
+real	0m8.793s
+user	0m8.730s
+sys	0m0.061s
+Sinet.dot
+## Equivalent ##
+true
+
+real	3m44.710s
+user	3m44.133s
+sys	0m0.529s
+Singaren.dot
+## Equivalent ##
+true
+
+real	0m0.220s
+user	0m0.194s
+sys	0m0.024s
+Spiralight.dot
+## Equivalent ##
+true
+
+real	0m1.103s
+user	0m1.077s
+sys	0m0.025s
+Sprint.dot
+## Equivalent ##
+true
+
+real	0m0.321s
+user	0m0.307s
+sys	0m0.013s
+Sunet.dot
+## Equivalent ##
+true
+
+real	0m12.435s
+user	0m12.404s
+sys	0m0.029s
+Surfnet.dot
+## Equivalent ##
+true
+
+real	1m55.636s
+user	1m55.477s
+sys	0m0.153s
+Switch.dot
+## Equivalent ##
+true
+
+real	8m14.141s
+user	8m13.657s
+sys	0m0.468s
+SwitchL3.dot
+## Equivalent ##
+true
+
+real	0m42.144s
+user	0m42.042s
+sys	0m0.097s
+Syringa.dot
+## Equivalent ##
+true
+
+real	24m25.047s
+user	24m23.595s
+sys	0m1.324s
+TataNld.dot
+## Equivalent ##
+true
+
+real	166m59.359s
+user	166m53.965s
+sys	0m5.108s
+Telcove.dot
+## Equivalent ##
+false
+
+real	3m11.636s
+user	3m11.226s
+sys	0m0.401s
+Telecomserbia.dot
+## Equivalent ##
+true
+
+real	0m0.066s
+user	0m0.056s
+sys	0m0.009s
+Tinet.dot
+## Equivalent ##
+true
+
+real	2m49.034s
+user	2m48.748s
+sys	0m0.261s
+TLex.dot
+## Equivalent ##
+true
+
+real	0m0.325s
+user	0m0.315s
+sys	0m0.009s
+Twaren.dot
+## Equivalent ##
+true
+
+real	0m1.440s
+user	0m1.414s
+sys	0m0.025s
+Tw.dot
+## Equivalent ##
+false
+
+real	4m59.245s
+user	4m58.857s
+sys	0m0.377s
+Ulaknet.dot
+## Equivalent ##
+true
+
+real	7m45.464s
+user	7m44.356s
+sys	0m1.081s
+UniC.dot
+## Equivalent ##
+true
+
+real	0m6.257s
+user	0m6.228s
+sys	0m0.028s
+Uninet.dot
+## Equivalent ##
+true
+
+real	0m0.671s
+user	0m0.650s
+sys	0m0.020s
+Uninett2010.dot
+## Equivalent ##
+true
+
+real	6m1.962s
+user	6m1.546s
+sys	0m0.400s
+Uninett2011.dot
+## Equivalent ##
+true
+
+real	4m40.089s
+user	4m39.547s
+sys	0m0.528s
+Uran.dot
+## Equivalent ##
+true
+
+real	0m3.868s
+user	0m3.822s
+sys	0m0.044s
+UsCarrier.dot
+## Equivalent ##
+true
+
+real	214m45.394s
+user	214m36.333s
+sys	0m8.489s
+UsSignal.dot
+## Equivalent ##
+false
+
+real	3m50.977s
+user	3m50.801s
+sys	0m0.157s
+Uunet.dot
+## Equivalent ##
+true
+
+real	1m35.584s
+user	1m35.381s
+sys	0m0.196s
+Vinaren.dot
+## Equivalent ##
+true
+
+real	0m3.671s
+user	0m3.653s
+sys	0m0.017s
+VisionNet.dot
+## Equivalent ##
+true
+
+real	0m2.756s
+user	0m2.738s
+sys	0m0.017s
+VtlWavenet2008.dot
+## Equivalent ##
+true
+
+real	47m29.186s
+user	47m27.782s
+sys	0m1.312s
+VtlWavenet2011.dot
+## Equivalent ##
+true
+
+real	50m23.409s
+user	50m22.018s
+sys	0m1.288s
+WideJpn.dot
+## Equivalent ##
+true
+
+real	0m8.102s
+user	0m8.067s
+sys	0m0.033s
+Xeex.dot
+## Equivalent ##
+true
+
+real	0m5.277s
+user	0m5.243s
+sys	0m0.033s
+Xspedius.dot
+## Equivalent ##
+true
+
+real	0m20.304s
+user	0m20.254s
+sys	0m0.049s
+York.dot
+## Equivalent ##
+true
+
+real	0m10.509s
+user	0m10.450s
+sys	0m0.057s
+Zamren.dot
+## Equivalent ##
+false
+
+real	0m15.270s
+user	0m15.171s
+sys	0m0.097s
