@@ -127,19 +127,20 @@ print(merged_data)
 
 # Plotting
 
-sizes = (3,3)
+sizes = {'': (3,3), '_wide': (8, 4)}
 
 # Scatterplots katch vs frenetic
 for group in merged_data['group'].unique():
     group_data = merged_data[merged_data['group'] == group]
 
-    plt.figure(figsize=sizes)
-    sns.scatterplot(data=group_data, x='time_frenetic', y='time_katch')
-    plt.title(f"{group}")
-    plt.xlabel("Time (Frenetic)")
-    plt.ylabel("Time (KATch)")
-    plt.grid(True)
-    plt.savefig(f'plots/{group}_scatter.pdf', bbox_inches='tight', format='pdf')
+    for sizename, size in sizes.items():
+        plt.figure(figsize=size)
+        sns.scatterplot(data=group_data, x='time_frenetic', y='time_katch')
+        plt.title(f"{group}")
+        plt.xlabel("Time (Frenetic)")
+        plt.ylabel("Time (KATch)")
+        plt.grid(True)
+        plt.savefig(f'plots/{group}_scatter{sizename}.pdf', bbox_inches='tight', format='pdf')
 
 # Scatterplots time vs size
 for group in merged_data['group'].unique():
@@ -155,14 +156,15 @@ for group in merged_data['group'].unique():
     # combine frenetic and katch data
     group_data_kf = pd.concat([frenetic_data, katch_data])
 
-    plt.figure(figsize=sizes)
-    sns.scatterplot(data=group_data_kf, x='size', y='time', hue='system', style='system', markers=True)
-    plt.title(f"{group}")
-    plt.xlabel("Size (KB)")
-    plt.ylabel("Time (s)")
-    plt.grid(True)
-    plt.legend(title='System')
-    plt.savefig(f'plots/{group}_time_vs_size.pdf', bbox_inches='tight', format='pdf')
+    for sizename, size in sizes.items():
+        plt.figure(figsize=size)
+        sns.scatterplot(data=group_data_kf, x='size', y='time', hue='system', style='system', markers=True)
+        plt.title(f"{group}")
+        plt.xlabel("Size (KB)")
+        plt.ylabel("Time (s)")
+        plt.grid(True)
+        plt.legend(title='System')
+        plt.savefig(f'plots/{group}_time_vs_size{sizename}.pdf', bbox_inches='tight', format='pdf')
 
 # Latex tables for katch vs frenetic
 for group in merged_data['group'].unique():
