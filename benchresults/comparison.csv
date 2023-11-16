@@ -690,3 +690,36 @@ katch,nkpl/benchmarks/combinatorial/inc96.nkpl,0.765666271
 katch,nkpl/benchmarks/combinatorial/inc97.nkpl,0.773428225
 katch,nkpl/benchmarks/combinatorial/inc98.nkpl,0.797798368
 katch,nkpl/benchmarks/combinatorial/inc99.nkpl,0.805366869
+frenetic,nkpl/benchmarks/topo-zoo/naive-reachability/Garr200404-reachability.nkpl,timeout (300s)
+frenetic,nkpl/benchmarks/topo-zoo/naive-reachability/Garr200902-reachability.nkpl,timeout (300s)
+frenetic,nkpl/benchmarks/topo-zoo/naive-reachability/Garr200908-reachability.nkpl,timeout (300s)
+frenetic,nkpl/benchmarks/topo-zoo/naive-reachability/Garr200909-reachability.nkpl,timeout (300s)
+frenetic,nkpl/benchmarks/topo-zoo/naive-reachability/Garr200912-reachability.nkpl,timeout (300s)
+frenetic,nkpl/benchmarks/topo-zoo/naive-reachability/Garr201001-reachability.nkpl,timeout (300s)
+frenetic,nkpl/benchmarks/topo-zoo/naive-reachability/Garr201003-reachability.nkpl,timeout (300s)
+frenetic,nkpl/benchmarks/topo-zoo/naive-reachability/Garr201004-reachability.nkpl,timeout (300s)
+frenetic,nkpl/benchmarks/topo-zoo/naive-reachability/Garr201005-reachability.nkpl,timeout (300s)
+frenetic,nkpl/benchmarks/topo-zoo/naive-reachability/Garr201007-reachability.nkpl,timeout (300s)
+katch,nkpl/benchmarks/topo-zoo/kdl/Kdl-reachability.nkpl,4126.980812677
+frenetic,nkpl/benchmarks/topo-zoo/naive-reachability/Garr201008-reachability.nkpl,timeout (300s)
+frenetic,nkpl/benchmarks/topo-zoo/naive-reachability/Garr201010-reachability.nkpl,timeout (300s)
+frenetic,nkpl/benchmarks/topo-zoo/naive-reachability/Garr201012-reachability.nkpl,timeout (300s)
+frenetic,nkpl/benchmarks/topo-zoo/naive-reachability/Garr201101-reachability.nkpl,timeout (300s)
+frenetic,nkpl/benchmarks/topo-zoo/naive-reachability/Garr201102-reachability.nkpl,timeout (300s)
+frenetic,nkpl/benchmarks/topo-zoo/naive-reachability/Garr201103-reachability.nkpl,timeout (300s)
+frenetic,nkpl/benchmarks/topo-zoo/naive-reachability/Garr201104-reachability.nkpl,timeout (300s)
+frenetic,nkpl/benchmarks/topo-zoo/naive-reachability/Garr201105-reachability.nkpl,timeout (300s)
+frenetic,nkpl/benchmarks/topo-zoo/naive-reachability/Garr201107-reachability.nkpl,timeout (300s)
+frenetic,nkpl/benchmarks/topo-zoo/naive-reachability/Garr201108-reachability.nkpl,timeout (300s)
+frenetic,nkpl/benchmarks/topo-zoo/naive-reachability/Garr201109-reachability.nkpl,timeout (300s)
+frenetic,nkpl/benchmarks/topo-zoo/naive-reachability/Garr201110-reachability.nkpl,timeout (300s)
+frenetic,nkpl/benchmarks/topo-zoo/naive-reachability/Garr201111-reachability.nkpl,timeout (300s)
+frenetic,nkpl/benchmarks/topo-zoo/naive-reachability/Garr201112-reachability.nkpl,timeout (300s)
+frenetic,nkpl/benchmarks/topo-zoo/naive-reachability/Garr201201-reachability.nkpl,timeout (300s)
+frenetic,nkpl/benchmarks/topo-zoo/naive-reachability/Gblnet-reachability.nkpl,3.40
+frenetic,nkpl/benchmarks/topo-zoo/naive-reachability/Geant2001-reachability.nkpl,timeout (300s)
+frenetic,nkpl/benchmarks/topo-zoo/naive-reachability/Geant2009-reachability.nkpl,timeout (300s)
+frenetic,nkpl/benchmarks/topo-zoo/naive-reachability/Geant2010-reachability.nkpl,timeout (300s)
+frenetic,nkpl/benchmarks/topo-zoo/naive-reachability/Geant2012-reachability.nkpl,timeout (300s)
+frenetic,nkpl/benchmarks/topo-zoo/naive-reachability/Getnet-reachability.nkpl,1.82
+frenetic,nkpl/benchmarks/topo-zoo/naive-reachability/Globalcenter-reachability.nkpl,6.92
