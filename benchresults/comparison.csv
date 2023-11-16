@@ -85,14 +85,12 @@ katch,nkpl/benchmarks/medium/Sanet_slicing.nkpl,0.119090257
 katch,nkpl/benchmarks/medium/Telcove_reachability.nkpl,0.091721348
 katch,nkpl/benchmarks/medium/Telcove_unreachability.nkpl,0.078154097
 katch,nkpl/benchmarks/medium/Uunet_slicing.nkpl,0.146250251
-katch,nkpl/benchmarks/medium/ft6_h_reachability.nkpl,0.116872732
 frenetic,nkpl/benchmarks/medium/Missouri_reachability.nkpl,161.28
 frenetic,nkpl/benchmarks/medium/Missouri_unreachability.nkpl,165.85
 frenetic,nkpl/benchmarks/medium/Sanet_slicing.nkpl,62.70
 frenetic,nkpl/benchmarks/medium/Telcove_reachability.nkpl,464.15
 frenetic,nkpl/benchmarks/medium/Telcove_unreachability.nkpl,465.27
 frenetic,nkpl/benchmarks/medium/Uunet_slicing.nkpl,204.85
-frenetic,nkpl/benchmarks/medium/ft6_h_reachability.nkpl,259.80
 katch,nkpl/benchmarks/flip-first15/flip1.nkpl,0.003796083
 katch,nkpl/benchmarks/flip-first15/flip10.nkpl,0.011820677
 katch,nkpl/benchmarks/flip-first15/flip11.nkpl,0.011733627
@@ -192,17 +190,12 @@ katch,nkpl/benchmarks/large/ft6_reachability.nkpl,0.149083941
 katch,nkpl/benchmarks/large/ft6_slicing.nkpl,0.22444425
 katch,nkpl/benchmarks/large/ft8_reachability.nkpl,0.448821931
 katch,nkpl/benchmarks/large/ft8_unreachability.nkpl,0.445760536
-frenetic,nkpl/benchmarks/large/Cogentco_reachability.nkpl,timeout (3600s)
-frenetic,nkpl/benchmarks/large/Cogentco_unreachability.nkpl,timeout (3600s)
 frenetic,nkpl/benchmarks/large/Deltacom_reachability.nkpl,2062.34
-frenetic,nkpl/benchmarks/large/Deltacom_slicing.nkpl,timeout (3600s)
 frenetic,nkpl/benchmarks/large/Deltacom_unreachability.nkpl,2367.49
 frenetic,nkpl/benchmarks/large/Missouri_slicing.nkpl,417.17
 frenetic,nkpl/benchmarks/large/Telcove_slicing.nkpl,1124.25
 frenetic,nkpl/benchmarks/large/ft6_reachability.nkpl,894.55
 frenetic,nkpl/benchmarks/large/ft6_slicing.nkpl,661.72
-frenetic,nkpl/benchmarks/large/ft8_reachability.nkpl,timeout (3600s)
-frenetic,nkpl/benchmarks/large/ft8_unreachability.nkpl,timeout (3600s)
 katch,nkpl/benchmarks/large/Cogentco_reachability.nkpl,1.008234079
 katch,nkpl/benchmarks/large/Cogentco_reachability.nkpl,1.240375448
 katch,nkpl/benchmarks/large/Deltacom_reachability.nkpl,0.419348569

@@ -180,7 +180,12 @@ for group in merged_data['group'].unique():
     final_table_df = final_table_df.sort_values(by='size')
 
     # Make table headers read File, Size (KB), KATch, Frenetic
-    final_table_df.rename(columns={'size': 'Size (KB)', 'time_katch': 'KATch (s)', 'time_frenetic': 'Frenetic (s)'}, inplace=True)
+    final_table_df.rename(columns={'name': 'Name', 'type': 'Type', 'size': 'Size (KB)', 'time_katch': 'KATch (s)', 'time_frenetic': 'Frenetic (s)'}, inplace=True)
+
+    # Calculate speedup, round to integer
+    final_table_df['Speedup'] = (final_table_df['Frenetic (s)'] / final_table_df['KATch (s)']).round().astype(int)
+
+    print(final_table_df)
 
     # Convert to LaTeX format
     # latex_table = final_table_df.to_latex(index=False)
