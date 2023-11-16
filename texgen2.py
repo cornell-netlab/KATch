@@ -40,13 +40,11 @@ def get_file_size(filepath):
     process_file(filepath)
     return total_size
 
-group_indeces = { 'small|medium|large':0, 'flip':1, 'inc':2, 'nondet':3, 'reachability':4 }
-
 def group_fn(path):
     if re.search("small|medium|large", path):
         return "Topology Zoo"
     if re.search("topo-zoo", path):
-        return "n-to-n reachability"
+        return "Full reachability"
     if re.search("inc", path):
         return "Inc"
     if re.search("flip", path):
