@@ -52,12 +52,13 @@ def group_fn(path):
     if re.search("nondet", path):
         return "Non-determinism"
     print(f'No group for {path}!')
+    return "misc"
     sys.exit(1)
 
 # Sample data
 data = open('benchresults/comparison.csv').read()
 
- 
+
 # Initialize lists to hold the extracted data
 systems = []
 groups = []
@@ -77,7 +78,7 @@ for line in data.split('\n'):
     name_type = re.split(r'[-_]', path_parts[-1])
     name = name_type[0].split('.')[0]
     type = name_type[-1].split('.')[0]
-    if type not in ['slicing', 'reachability']:
+    if type not in ['slicing', 'reachability', 'unreachability']:
         type = 'none'
 
     # Handle timeout
@@ -115,11 +116,12 @@ frenetic_data = df[df['system'] == 'frenetic']
 katch_data = df[df['system'] == 'katch']
 
 # Group by 'name', 'type', and 'group', then calculate the mean time
-frenetic_avg = frenetic_data.groupby(['name', 'type', 'group'])['time'].mean().reset_index()
-katch_avg = katch_data.groupby(['name', 'type', 'group'])['time'].mean().reset_index()
+frenetic_avg = frenetic_data.groupby(['name', 'type', 'group', 'size'])['time'].mean().reset_index()
+katch_avg = katch_data.groupby(['name', 'type', 'group', 'size'])['time'].mean().reset_index()
 
 # Merge the averaged data
-merged_data = pd.merge(frenetic_avg, katch_avg, on=['name', 'type', 'group'], suffixes=('_frenetic', '_katch'))
+merged_data = pd.merge(frenetic_avg, katch_avg, on=['name', 'type', 'group', 'size'], suffixes=('_frenetic', '_katch'))
+print(merged_data)
 
 # Plotting
 
@@ -131,9 +133,9 @@ for group in merged_data['group'].unique():
 
     plt.figure(figsize=sizes)
     sns.scatterplot(data=group_data, x='time_frenetic', y='time_katch')
-    plt.title(f"Scatter Plot for Group: {group} (Averaged Times)")
-    plt.xlabel("Average Time (Frenetic)")
-    plt.ylabel("Average Time (Katch)")
+    plt.title(f"{group}")
+    plt.xlabel("Time (Frenetic)")
+    plt.ylabel("Time (KATch)")
     plt.grid(True)
     plt.savefig(f'plots/{group}_scatter.pdf', bbox_inches='tight', format='pdf')
 
@@ -143,30 +145,19 @@ for group in df['group'].unique():
 
     plt.figure(figsize=sizes)
     sns.scatterplot(data=group_data, x='size', y='time', hue='system', style='system', markers=True)
-    plt.title(f"Size vs Time for Group: {group}")
-    plt.xlabel("Size")
-    plt.ylabel("Time")
+    plt.title(f"{group}")
+    plt.xlabel("Size (KB)")
+    plt.ylabel("Time (s)")
     plt.grid(True)
     plt.legend(title='System')
     plt.savefig(f'plots/{group}_time_vs_size.pdf', bbox_inches='tight', format='pdf')
 
 # Latex tables for katch vs frenetic
-for group in df['group'].unique():
-    group_data = df[df['group'] == group]
-
-    # Selecting the required columns
-    selected_columns = ['name', 'type', 'size', 'system', 'time']
-    table_df = group_data[selected_columns]
-
-    # Splitting the data based on system
-    katch_df = table_df[table_df['system'] == 'katch']
-    frenetic_df = table_df[table_df['system'] == 'frenetic']
-
-    # Merging on 'name', 'type', and 'size'
-    merged_df = pd.merge(katch_df, frenetic_df, on=['name', 'type', 'size'], suffixes=('_katch', '_frenetic'))
+for group in merged_data['group'].unique():
+    group_data = merged_data[merged_data['group'] == group]
 
     # Selecting and renaming columns for the final table
-    final_table_df = merged_df[['name', 'type', 'size', 'time_katch', 'time_frenetic']]
+    final_table_df = group_data[['name', 'type', 'size', 'time_katch', 'time_frenetic']]
 
     # drop 'type' column if it only contains "none"
     if list(final_table_df['type'].unique()) == ['none']:
@@ -188,3 +179,8 @@ for group in df['group'].unique():
     with open(f'plots/{group}_comparison_table.tex', 'w') as f:
         f.write(latex_table)
 
+# Get the current working directory
+cwd = os.getcwd()
+if "jules" in cwd:
+    # Copy the plots directory to /Users/jules/git/misc/5stars/writeups/pldi24/plots
+    os.system("cp -r plots /Users/jules/git/misc/5stars/writeups/pldi24/")

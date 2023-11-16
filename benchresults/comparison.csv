@@ -571,7 +571,7 @@ frenetic,nkpl/benchmarks/topo-zoo/naive-reachability/Forthnet-reachability.nkpl,
 frenetic,nkpl/benchmarks/topo-zoo/naive-reachability/Funet-reachability.nkpl,timeout (300s)
 frenetic,nkpl/benchmarks/topo-zoo/naive-reachability/Gambia-reachability.nkpl,timeout (300s)
 frenetic,nkpl/benchmarks/topo-zoo/naive-reachability/Garr199901-reachability.nkpl,129.77
-katch,nkpl/benchmarks/topo-zoo/kdl/Kdl-reachability.nkpl,3899.050127191
+katch,nkpl/benchmarks/topo-BLAH/kdl/Kdl-reachability.nkpl,3899.050127191
 frenetic,nkpl/benchmarks/topo-zoo/naive-reachability/Garr199904-reachability.nkpl,timeout (300s)
 katch,nkpl/benchmarks/topo-zoo/linear-reachability/Aarnet.nkpl,0.521358796
 katch,nkpl/benchmarks/topo-zoo/linear-reachability/Abilene.nkpl,0.049295206
