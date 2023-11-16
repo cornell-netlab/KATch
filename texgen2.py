@@ -43,6 +43,8 @@ def get_file_size(filepath):
 def group_fn(path):
     if re.search("small|medium|large", path):
         return "Topology Zoo"
+    if re.search("linear-reach", path):
+        return "Linear reachability"
     if re.search("topo-zoo", path):
         return "Full reachability"
     if re.search("inc", path):
