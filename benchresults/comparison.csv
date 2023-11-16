@@ -723,4 +723,32 @@ frenetic,nkpl/benchmarks/topo-zoo/naive-reachability/Geant2010-reachability.nkpl
 frenetic,nkpl/benchmarks/topo-zoo/naive-reachability/Geant2012-reachability.nkpl,timeout (300s)
 frenetic,nkpl/benchmarks/topo-zoo/naive-reachability/Getnet-reachability.nkpl,1.82
 frenetic,nkpl/benchmarks/topo-zoo/naive-reachability/Globalcenter-reachability.nkpl,6.92
-katch,nkpl/scratch/fuzzfb400k.nkpl,837.684677986
+frenetic,nkpl/benchmarks/topo-zoo/naive-reachability/Globenet-reachability.nkpl,timeout (300s)
+frenetic,nkpl/benchmarks/topo-zoo/naive-reachability/Goodnet-reachability.nkpl,211.21
+frenetic,nkpl/benchmarks/topo-zoo/naive-reachability/Grena-reachability.nkpl,95.49
+frenetic,nkpl/benchmarks/topo-zoo/naive-reachability/Gridnet-reachability.nkpl,6.34
+frenetic,nkpl/benchmarks/topo-zoo/naive-reachability/Grnet-reachability.nkpl,timeout (300s)
+frenetic,nkpl/benchmarks/topo-zoo/naive-reachability/GtsCe-reachability.nkpl,timeout (300s)
+frenetic,nkpl/benchmarks/topo-zoo/naive-reachability/GtsCzechRepublic-reachability.nkpl,timeout (300s)
+frenetic,nkpl/benchmarks/topo-zoo/naive-reachability/GtsHungary-reachability.nkpl,timeout (300s)
+frenetic,nkpl/benchmarks/topo-zoo/naive-reachability/GtsPoland-reachability.nkpl,timeout (300s)
+frenetic,nkpl/benchmarks/topo-zoo/naive-reachability/GtsRomania-reachability.nkpl,timeout (300s)
+frenetic,nkpl/benchmarks/topo-zoo/naive-reachability/GtsSlovakia-reachability.nkpl,timeout (300s)
+frenetic,nkpl/benchmarks/topo-zoo/naive-reachability/Harnet-reachability.nkpl,timeout (300s)
+frenetic,nkpl/benchmarks/topo-zoo/naive-reachability/Heanet-reachability.nkpl,2.20
+frenetic,nkpl/benchmarks/topo-zoo/naive-reachability/HiberniaCanada-reachability.nkpl,30.65
+frenetic,nkpl/benchmarks/topo-zoo/naive-reachability/HiberniaGlobal-reachability.nkpl,timeout (300s)
+frenetic,nkpl/benchmarks/topo-zoo/naive-reachability/HiberniaIreland-reachability.nkpl,3.35
+frenetic,nkpl/benchmarks/topo-zoo/naive-reachability/HiberniaNireland-reachability.nkpl,209.54
+frenetic,nkpl/benchmarks/topo-zoo/naive-reachability/HiberniaUk-reachability.nkpl,66.54
+frenetic,nkpl/benchmarks/topo-zoo/naive-reachability/HiberniaUs-reachability.nkpl,timeout (300s)
+frenetic,nkpl/benchmarks/topo-zoo/naive-reachability/Highwinds-reachability.nkpl,timeout (300s)
+frenetic,nkpl/benchmarks/topo-zoo/naive-reachability/HostwayInternational-reachability.nkpl,108.01
+frenetic,nkpl/benchmarks/topo-zoo/naive-reachability/HurricaneElectric-reachability.nkpl,timeout (300s)
+frenetic,nkpl/benchmarks/topo-zoo/naive-reachability/Ibm-reachability.nkpl,223.49
+frenetic,nkpl/benchmarks/topo-zoo/naive-reachability/Iij-reachability.nkpl,timeout (300s)
+frenetic,nkpl/benchmarks/topo-zoo/naive-reachability/Iinet-reachability.nkpl,timeout (300s)
+frenetic,nkpl/benchmarks/topo-zoo/naive-reachability/Ilan-reachability.nkpl,55.71
+frenetic,nkpl/benchmarks/topo-zoo/naive-reachability/Integra-reachability.nkpl,timeout (300s)
+frenetic,nkpl/benchmarks/topo-zoo/naive-reachability/Intellifiber-reachability.nkpl,timeout (300s)
+frenetic,nkpl/benchmarks/topo-zoo/naive-reachability/Internetmci-reachability.nkpl,timeout (300s)
