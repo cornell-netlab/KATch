@@ -40,16 +40,26 @@ def get_file_size(filepath):
     process_file(filepath)
     return total_size
 
-def group_fn(dir, path):
-    if dir == "small" or dir == "medium" or dir == "large":
-        return "topozoo"
-    if dir == "topo-zoo":
+group_indeces = { 'small|medium|large':0, 'flip':1, 'inc':2, 'nondet':3, 'reachability':4 }
+
+def group_fn(path):
+    if re.search("small|medium|large", path):
+        return "Topology Zoo"
+    if re.search("topo-zoo", path):
         return "n-to-n reachability"
-    return dir
+    if re.search("inc", path):
+        return "Inc"
+    if re.search("flip", path):
+        return "Flip"
+    if re.search("nondet", path):
+        return "Non-determinism"
+    print(f'No group for {path}!')
+    sys.exit(1)
 
 # Sample data
 data = open('benchresults/comparison.csv').read()
 
+ 
 # Initialize lists to hold the extracted data
 systems = []
 groups = []
@@ -64,7 +74,7 @@ for line in data.split('\n'):
     if not line: continue
     system, path, time = line.split(',')
     path_parts = path.split('/')
-    group = path_parts[2]
+    # group = path_parts[2]
     # path_parts[-1] on on "-"" and "_" using regex
     name_type = re.split(r'[-_]', path_parts[-1])
     name = name_type[0].split('.')[0]
@@ -82,7 +92,7 @@ for line in data.split('\n'):
 
     # Append to lists
     systems.append(system)
-    groups.append(group_fn(group, path))
+    groups.append(group_fn(path))
     names.append(name)
     types.append(type)
     times.append(time)
