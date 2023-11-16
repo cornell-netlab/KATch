@@ -50,7 +50,7 @@ def group_fn(path):
     if re.search("flip", path):
         return "Flip"
     if re.search("nondet", path):
-        return "Non-determinism"
+        return "Nondet"
     print(f'No group for {path}!')
     return "misc"
     sys.exit(1)
