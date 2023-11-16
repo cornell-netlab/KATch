@@ -723,3 +723,4 @@ frenetic,nkpl/benchmarks/topo-zoo/naive-reachability/Geant2010-reachability.nkpl
 frenetic,nkpl/benchmarks/topo-zoo/naive-reachability/Geant2012-reachability.nkpl,timeout (300s)
 frenetic,nkpl/benchmarks/topo-zoo/naive-reachability/Getnet-reachability.nkpl,1.82
 frenetic,nkpl/benchmarks/topo-zoo/naive-reachability/Globalcenter-reachability.nkpl,6.92
+katch,nkpl/scratch/fuzzfb400k.nkpl,837.684677986
