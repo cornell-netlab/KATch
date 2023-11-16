@@ -553,3 +553,45 @@ frenetic,nkpl/benchmarks/topo-zoo/naive-reachability/Dataxchange-reachability.nk
 frenetic,nkpl/benchmarks/large/Cogentco_reachability.nkpl,22581.39
 frenetic,nkpl/benchmarks/topo-zoo/naive-reachability/Deltacom-reachability.nkpl,timeout (300s)
 frenetic,nkpl/benchmarks/topo-zoo/naive-reachability/DeutscheTelekom-reachability.nkpl,timeout (300s)
+frenetic,nkpl/benchmarks/topo-zoo/naive-reachability/Dfn-reachability.nkpl,timeout (300s)
+frenetic,nkpl/benchmarks/large/Cogentco_unreachability.nkpl,23300.87
+frenetic,nkpl/benchmarks/topo-zoo/naive-reachability/DialtelecomCz-reachability.nkpl,timeout (300s)
+frenetic,nkpl/benchmarks/topo-zoo/naive-reachability/Digex-reachability.nkpl,timeout (300s)
+frenetic,nkpl/benchmarks/topo-zoo/naive-reachability/Easynet-reachability.nkpl,timeout (300s)
+frenetic,nkpl/benchmarks/topo-zoo/naive-reachability/Eenet-reachability.nkpl,45.15
+frenetic,nkpl/benchmarks/topo-zoo/naive-reachability/EliBackbone-reachability.nkpl,timeout (300s)
+frenetic,nkpl/benchmarks/topo-zoo/naive-reachability/Epoch-reachability.nkpl,0.91
+frenetic,nkpl/benchmarks/topo-zoo/naive-reachability/Ernet-reachability.nkpl,timeout (300s)
+frenetic,nkpl/benchmarks/topo-zoo/naive-reachability/Esnet-reachability.nkpl,timeout (300s)
+frenetic,nkpl/benchmarks/topo-zoo/naive-reachability/Eunetworks-reachability.nkpl,51.63
+frenetic,nkpl/benchmarks/topo-zoo/naive-reachability/Evolink-reachability.nkpl,timeout (300s)
+frenetic,nkpl/benchmarks/topo-zoo/naive-reachability/Fatman-reachability.nkpl,180.77
+frenetic,nkpl/benchmarks/topo-zoo/naive-reachability/Fccn-reachability.nkpl,timeout (300s)
+frenetic,nkpl/benchmarks/topo-zoo/naive-reachability/Forthnet-reachability.nkpl,timeout (300s)
+frenetic,nkpl/benchmarks/topo-zoo/naive-reachability/Funet-reachability.nkpl,timeout (300s)
+frenetic,nkpl/benchmarks/topo-zoo/naive-reachability/Gambia-reachability.nkpl,timeout (300s)
+frenetic,nkpl/benchmarks/topo-zoo/naive-reachability/Garr199901-reachability.nkpl,129.77
+katch,nkpl/benchmarks/topo-zoo/kdl/Kdl-reachability.nkpl,3899.050127191
+frenetic,nkpl/benchmarks/topo-zoo/naive-reachability/Garr199904-reachability.nkpl,timeout (300s)
+katch,nkpl/benchmarks/topo-zoo/linear-reachability/Aarnet.nkpl,0.521358796
+katch,nkpl/benchmarks/topo-zoo/linear-reachability/Abilene.nkpl,0.049295206
+katch,nkpl/benchmarks/topo-zoo/linear-reachability/Abvt.nkpl,0.104728744
+katch,nkpl/benchmarks/topo-zoo/linear-reachability/Aconet.nkpl,0.093159726
+katch,nkpl/benchmarks/topo-zoo/linear-reachability/Agis.nkpl,0.076066891
+katch,nkpl/benchmarks/topo-zoo/linear-reachability/Ai3.nkpl,0.017628838
+katch,nkpl/benchmarks/topo-zoo/linear-reachability/Airtel.nkpl,0.046807036
+katch,nkpl/benchmarks/topo-zoo/linear-reachability/Amres.nkpl,0.060340053
+katch,nkpl/benchmarks/topo-zoo/linear-reachability/Ans.nkpl,0.037065576
+katch,nkpl/benchmarks/topo-zoo/linear-reachability/Arn.nkpl,0.110607255
+katch,nkpl/benchmarks/topo-zoo/linear-reachability/Arnes.nkpl,0.137396996
+katch,nkpl/benchmarks/topo-zoo/linear-reachability/Arpanet196912.nkpl,0.005886492
+katch,nkpl/benchmarks/topo-zoo/linear-reachability/Arpanet19706.nkpl,0.013384322
+katch,nkpl/benchmarks/topo-zoo/linear-reachability/Arpanet19719.nkpl,0.040236088
+katch,nkpl/benchmarks/topo-zoo/linear-reachability/Arpanet19723.nkpl,0.070752089
+katch,nkpl/benchmarks/topo-zoo/linear-reachability/Arpanet19728.nkpl,0.070193689
+katch,nkpl/benchmarks/topo-zoo/linear-reachability/AsnetAm.nkpl,0.264965076
+katch,nkpl/benchmarks/topo-zoo/linear-reachability/Atmnet.nkpl,0.033683994
+katch,nkpl/benchmarks/topo-zoo/linear-reachability/AttMpls.nkpl,0.051185809
+katch,nkpl/benchmarks/topo-zoo/linear-reachability/Azrena.nkpl,0.032941322
+frenetic,nkpl/benchmarks/topo-zoo/naive-reachability/Garr199905-reachability.nkpl,timeout (300s)
+frenetic,nkpl/benchmarks/topo-zoo/naive-reachability/Garr200109-reachability.nkpl,timeout (300s)
