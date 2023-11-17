@@ -1,0 +1,26 @@
+import "../tops_and_routes/Garr200404-top.nkpl"
+import "../tops_and_routes/Garr200404-rt.nkpl"
+net = (main⋅top⋅δ)⋆
+all = ∅ ∪ @sw=N10 ∪ @sw=N19 ∪ @sw=N16 ∪ @sw=N18 ∪ @sw=N20 ∪ @sw=N14 ∪ @sw=N1 ∪ @sw=N4 ∪ @sw=N0 ∪ @sw=N13 ∪ @sw=N11 ∪ @sw=N3 ∪ @sw=N21 ∪ @sw=N15 ∪ @sw=N17 ∪ @sw=N12 ∪ @sw=N7 ∪ @sw=N8 ∪ @sw=N6 ∪ @sw=N5 ∪ @sw=N9 ∪ @sw=N2
+check (backward ((exists @pt (exists @dst (forward (@sw=N10 ⋅ net))))^( all))) ≡ ∅
+check (backward ((exists @pt (exists @dst (forward (@sw=N19 ⋅ net))))^( all))) ≡ ∅
+check (backward ((exists @pt (exists @dst (forward (@sw=N16 ⋅ net))))^( all))) ≡ ∅
+check (backward ((exists @pt (exists @dst (forward (@sw=N18 ⋅ net))))^( all))) ≡ ∅
+check (backward ((exists @pt (exists @dst (forward (@sw=N20 ⋅ net))))^( all))) ≡ ∅
+check (backward ((exists @pt (exists @dst (forward (@sw=N14 ⋅ net))))^( all))) ≡ ∅
+check (backward ((exists @pt (exists @dst (forward (@sw=N1 ⋅ net))))^( all))) ≡ ∅
+check (backward ((exists @pt (exists @dst (forward (@sw=N4 ⋅ net))))^( all))) ≡ ∅
+check (backward ((exists @pt (exists @dst (forward (@sw=N0 ⋅ net))))^( all))) ≡ ∅
+check (backward ((exists @pt (exists @dst (forward (@sw=N13 ⋅ net))))^( all))) ≡ ∅
+check (backward ((exists @pt (exists @dst (forward (@sw=N11 ⋅ net))))^( all))) ≡ ∅
+check (backward ((exists @pt (exists @dst (forward (@sw=N3 ⋅ net))))^( all))) ≡ ∅
+check (backward ((exists @pt (exists @dst (forward (@sw=N21 ⋅ net))))^( all))) ≡ ∅
+check (backward ((exists @pt (exists @dst (forward (@sw=N15 ⋅ net))))^( all))) ≡ ∅
+check (backward ((exists @pt (exists @dst (forward (@sw=N17 ⋅ net))))^( all))) ≡ ∅
+check (backward ((exists @pt (exists @dst (forward (@sw=N12 ⋅ net))))^( all))) ≡ ∅
+check (backward ((exists @pt (exists @dst (forward (@sw=N7 ⋅ net))))^( all))) ≡ ∅
+check (backward ((exists @pt (exists @dst (forward (@sw=N8 ⋅ net))))^( all))) ≡ ∅
+check (backward ((exists @pt (exists @dst (forward (@sw=N6 ⋅ net))))^( all))) ≡ ∅
+check (backward ((exists @pt (exists @dst (forward (@sw=N5 ⋅ net))))^( all))) ≡ ∅
+check (backward ((exists @pt (exists @dst (forward (@sw=N9 ⋅ net))))^( all))) ≡ ∅
+check (backward ((exists @pt (exists @dst (forward (@sw=N2 ⋅ net))))^( all))) ≡ ∅

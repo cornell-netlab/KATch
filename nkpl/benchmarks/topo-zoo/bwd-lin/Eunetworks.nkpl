@@ -1,0 +1,18 @@
+import "../tops_and_routes/Eunetworks-top.nkpl"
+import "../tops_and_routes/Eunetworks-rt.nkpl"
+net = (main⋅top⋅δ)⋆
+all = ∅ ∪ @sw=N14 ∪ @sw=N5 ∪ @sw=N4 ∪ @sw=N12 ∪ @sw=N9 ∪ @sw=N10 ∪ @sw=N13 ∪ @sw=N11 ∪ @sw=N0 ∪ @sw=N6 ∪ @sw=N3 ∪ @sw=N7 ∪ @sw=N2 ∪ @sw=N8
+check (backward ((exists @pt (exists @dst (forward (@sw=N14 ⋅ net))))^( all))) ≡ ∅
+check (backward ((exists @pt (exists @dst (forward (@sw=N5 ⋅ net))))^( all))) ≡ ∅
+check (backward ((exists @pt (exists @dst (forward (@sw=N4 ⋅ net))))^( all))) ≡ ∅
+check (backward ((exists @pt (exists @dst (forward (@sw=N12 ⋅ net))))^( all))) ≡ ∅
+check (backward ((exists @pt (exists @dst (forward (@sw=N9 ⋅ net))))^( all))) ≡ ∅
+check (backward ((exists @pt (exists @dst (forward (@sw=N10 ⋅ net))))^( all))) ≡ ∅
+check (backward ((exists @pt (exists @dst (forward (@sw=N13 ⋅ net))))^( all))) ≡ ∅
+check (backward ((exists @pt (exists @dst (forward (@sw=N11 ⋅ net))))^( all))) ≡ ∅
+check (backward ((exists @pt (exists @dst (forward (@sw=N0 ⋅ net))))^( all))) ≡ ∅
+check (backward ((exists @pt (exists @dst (forward (@sw=N6 ⋅ net))))^( all))) ≡ ∅
+check (backward ((exists @pt (exists @dst (forward (@sw=N3 ⋅ net))))^( all))) ≡ ∅
+check (backward ((exists @pt (exists @dst (forward (@sw=N7 ⋅ net))))^( all))) ≡ ∅
+check (backward ((exists @pt (exists @dst (forward (@sw=N2 ⋅ net))))^( all))) ≡ ∅
+check (backward ((exists @pt (exists @dst (forward (@sw=N8 ⋅ net))))^( all))) ≡ ∅

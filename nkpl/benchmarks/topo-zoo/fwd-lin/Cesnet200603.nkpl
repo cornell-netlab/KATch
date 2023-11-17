@@ -1,0 +1,43 @@
+import "../tops_and_routes/Cesnet200603-top.nkpl"
+import "../tops_and_routes/Cesnet200603-rt.nkpl"
+net = (main⋅top⋅δ)⋆
+all = ∅ ∪ @sw=N7 ∪ @sw=N6 ∪ @sw=N13 ∪ @sw=N0 ∪ @sw=N34 ∪ @sw=N29 ∪ @sw=N21 ∪ @sw=N24 ∪ @sw=N22 ∪ @sw=N4 ∪ @sw=N36 ∪ @sw=N20 ∪ @sw=N16 ∪ @sw=N15 ∪ @sw=N23 ∪ @sw=N1 ∪ @sw=N25 ∪ @sw=N37 ∪ @sw=N14 ∪ @sw=N27 ∪ @sw=N9 ∪ @sw=N28 ∪ @sw=N8 ∪ @sw=N10 ∪ @sw=N11 ∪ @sw=N19 ∪ @sw=N35 ∪ @sw=N32 ∪ @sw=N5 ∪ @sw=N2 ∪ @sw=N18 ∪ @sw=N38 ∪ @sw=N31 ∪ @sw=N33 ∪ @sw=N17 ∪ @sw=N3 ∪ @sw=N30 ∪ @sw=N12 ∪ @sw=N26
+check (forward ((exists @pt (exists @dst (forward (@sw=N7 ⋅ net))))^( all))) ≡ ∅
+check (forward ((exists @pt (exists @dst (forward (@sw=N6 ⋅ net))))^( all))) ≡ ∅
+check (forward ((exists @pt (exists @dst (forward (@sw=N13 ⋅ net))))^( all))) ≡ ∅
+check (forward ((exists @pt (exists @dst (forward (@sw=N0 ⋅ net))))^( all))) ≡ ∅
+check (forward ((exists @pt (exists @dst (forward (@sw=N34 ⋅ net))))^( all))) ≡ ∅
+check (forward ((exists @pt (exists @dst (forward (@sw=N29 ⋅ net))))^( all))) ≡ ∅
+check (forward ((exists @pt (exists @dst (forward (@sw=N21 ⋅ net))))^( all))) ≡ ∅
+check (forward ((exists @pt (exists @dst (forward (@sw=N24 ⋅ net))))^( all))) ≡ ∅
+check (forward ((exists @pt (exists @dst (forward (@sw=N22 ⋅ net))))^( all))) ≡ ∅
+check (forward ((exists @pt (exists @dst (forward (@sw=N4 ⋅ net))))^( all))) ≡ ∅
+check (forward ((exists @pt (exists @dst (forward (@sw=N36 ⋅ net))))^( all))) ≡ ∅
+check (forward ((exists @pt (exists @dst (forward (@sw=N20 ⋅ net))))^( all))) ≡ ∅
+check (forward ((exists @pt (exists @dst (forward (@sw=N16 ⋅ net))))^( all))) ≡ ∅
+check (forward ((exists @pt (exists @dst (forward (@sw=N15 ⋅ net))))^( all))) ≡ ∅
+check (forward ((exists @pt (exists @dst (forward (@sw=N23 ⋅ net))))^( all))) ≡ ∅
+check (forward ((exists @pt (exists @dst (forward (@sw=N1 ⋅ net))))^( all))) ≡ ∅
+check (forward ((exists @pt (exists @dst (forward (@sw=N25 ⋅ net))))^( all))) ≡ ∅
+check (forward ((exists @pt (exists @dst (forward (@sw=N37 ⋅ net))))^( all))) ≡ ∅
+check (forward ((exists @pt (exists @dst (forward (@sw=N14 ⋅ net))))^( all))) ≡ ∅
+check (forward ((exists @pt (exists @dst (forward (@sw=N27 ⋅ net))))^( all))) ≡ ∅
+check (forward ((exists @pt (exists @dst (forward (@sw=N9 ⋅ net))))^( all))) ≡ ∅
+check (forward ((exists @pt (exists @dst (forward (@sw=N28 ⋅ net))))^( all))) ≡ ∅
+check (forward ((exists @pt (exists @dst (forward (@sw=N8 ⋅ net))))^( all))) ≡ ∅
+check (forward ((exists @pt (exists @dst (forward (@sw=N10 ⋅ net))))^( all))) ≡ ∅
+check (forward ((exists @pt (exists @dst (forward (@sw=N11 ⋅ net))))^( all))) ≡ ∅
+check (forward ((exists @pt (exists @dst (forward (@sw=N19 ⋅ net))))^( all))) ≡ ∅
+check (forward ((exists @pt (exists @dst (forward (@sw=N35 ⋅ net))))^( all))) ≡ ∅
+check (forward ((exists @pt (exists @dst (forward (@sw=N32 ⋅ net))))^( all))) ≡ ∅
+check (forward ((exists @pt (exists @dst (forward (@sw=N5 ⋅ net))))^( all))) ≡ ∅
+check (forward ((exists @pt (exists @dst (forward (@sw=N2 ⋅ net))))^( all))) ≡ ∅
+check (forward ((exists @pt (exists @dst (forward (@sw=N18 ⋅ net))))^( all))) ≡ ∅
+check (forward ((exists @pt (exists @dst (forward (@sw=N38 ⋅ net))))^( all))) ≡ ∅
+check (forward ((exists @pt (exists @dst (forward (@sw=N31 ⋅ net))))^( all))) ≡ ∅
+check (forward ((exists @pt (exists @dst (forward (@sw=N33 ⋅ net))))^( all))) ≡ ∅
+check (forward ((exists @pt (exists @dst (forward (@sw=N17 ⋅ net))))^( all))) ≡ ∅
+check (forward ((exists @pt (exists @dst (forward (@sw=N3 ⋅ net))))^( all))) ≡ ∅
+check (forward ((exists @pt (exists @dst (forward (@sw=N30 ⋅ net))))^( all))) ≡ ∅
+check (forward ((exists @pt (exists @dst (forward (@sw=N12 ⋅ net))))^( all))) ≡ ∅
+check (forward ((exists @pt (exists @dst (forward (@sw=N26 ⋅ net))))^( all))) ≡ ∅

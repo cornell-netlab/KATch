@@ -1,0 +1,11 @@
+import "../tops_and_routes/Sanren-top.nkpl"
+import "../tops_and_routes/Sanren-rt.nkpl"
+net = (main⋅top⋅δ)⋆
+all = ∅ ∪ @sw=N3 ∪ @sw=N0 ∪ @sw=N5 ∪ @sw=N1 ∪ @sw=N6 ∪ @sw=N2 ∪ @sw=N4
+check (backward ((exists @pt (exists @dst (forward (@sw=N3 ⋅ net))))^( all))) ≡ ∅
+check (backward ((exists @pt (exists @dst (forward (@sw=N0 ⋅ net))))^( all))) ≡ ∅
+check (backward ((exists @pt (exists @dst (forward (@sw=N5 ⋅ net))))^( all))) ≡ ∅
+check (backward ((exists @pt (exists @dst (forward (@sw=N1 ⋅ net))))^( all))) ≡ ∅
+check (backward ((exists @pt (exists @dst (forward (@sw=N6 ⋅ net))))^( all))) ≡ ∅
+check (backward ((exists @pt (exists @dst (forward (@sw=N2 ⋅ net))))^( all))) ≡ ∅
+check (backward ((exists @pt (exists @dst (forward (@sw=N4 ⋅ net))))^( all))) ≡ ∅

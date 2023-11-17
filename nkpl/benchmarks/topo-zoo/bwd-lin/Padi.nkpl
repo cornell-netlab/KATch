@@ -1,0 +1,11 @@
+import "../tops_and_routes/Padi-top.nkpl"
+import "../tops_and_routes/Padi-rt.nkpl"
+net = (main⋅top⋅δ)⋆
+all = ∅ ∪ @sw=N14 ∪ @sw=N3 ∪ @sw=N12 ∪ @sw=N13 ∪ @sw=N7 ∪ @sw=N10 ∪ @sw=N11
+check (backward ((exists @pt (exists @dst (forward (@sw=N14 ⋅ net))))^( all))) ≡ ∅
+check (backward ((exists @pt (exists @dst (forward (@sw=N3 ⋅ net))))^( all))) ≡ ∅
+check (backward ((exists @pt (exists @dst (forward (@sw=N12 ⋅ net))))^( all))) ≡ ∅
+check (backward ((exists @pt (exists @dst (forward (@sw=N13 ⋅ net))))^( all))) ≡ ∅
+check (backward ((exists @pt (exists @dst (forward (@sw=N7 ⋅ net))))^( all))) ≡ ∅
+check (backward ((exists @pt (exists @dst (forward (@sw=N10 ⋅ net))))^( all))) ≡ ∅
+check (backward ((exists @pt (exists @dst (forward (@sw=N11 ⋅ net))))^( all))) ≡ ∅

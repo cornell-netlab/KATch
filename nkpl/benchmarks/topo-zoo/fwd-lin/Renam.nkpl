@@ -1,0 +1,9 @@
+import "../tops_and_routes/Renam-top.nkpl"
+import "../tops_and_routes/Renam-rt.nkpl"
+net = (main⋅top⋅δ)⋆
+all = ∅ ∪ @sw=N0 ∪ @sw=N1 ∪ @sw=N4 ∪ @sw=N2 ∪ @sw=N3
+check (forward ((exists @pt (exists @dst (forward (@sw=N0 ⋅ net))))^( all))) ≡ ∅
+check (forward ((exists @pt (exists @dst (forward (@sw=N1 ⋅ net))))^( all))) ≡ ∅
+check (forward ((exists @pt (exists @dst (forward (@sw=N4 ⋅ net))))^( all))) ≡ ∅
+check (forward ((exists @pt (exists @dst (forward (@sw=N2 ⋅ net))))^( all))) ≡ ∅
+check (forward ((exists @pt (exists @dst (forward (@sw=N3 ⋅ net))))^( all))) ≡ ∅

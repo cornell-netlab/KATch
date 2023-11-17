@@ -1,0 +1,15 @@
+import "../tops_and_routes/Sprint-top.nkpl"
+import "../tops_and_routes/Sprint-rt.nkpl"
+net = (main⋅top⋅δ)⋆
+all = ∅ ∪ @sw=N0 ∪ @sw=N9 ∪ @sw=N10 ∪ @sw=N6 ∪ @sw=N3 ∪ @sw=N7 ∪ @sw=N5 ∪ @sw=N2 ∪ @sw=N4 ∪ @sw=N8 ∪ @sw=N1
+check (forward ((exists @pt (exists @dst (forward (@sw=N0 ⋅ net))))^( all))) ≡ ∅
+check (forward ((exists @pt (exists @dst (forward (@sw=N9 ⋅ net))))^( all))) ≡ ∅
+check (forward ((exists @pt (exists @dst (forward (@sw=N10 ⋅ net))))^( all))) ≡ ∅
+check (forward ((exists @pt (exists @dst (forward (@sw=N6 ⋅ net))))^( all))) ≡ ∅
+check (forward ((exists @pt (exists @dst (forward (@sw=N3 ⋅ net))))^( all))) ≡ ∅
+check (forward ((exists @pt (exists @dst (forward (@sw=N7 ⋅ net))))^( all))) ≡ ∅
+check (forward ((exists @pt (exists @dst (forward (@sw=N5 ⋅ net))))^( all))) ≡ ∅
+check (forward ((exists @pt (exists @dst (forward (@sw=N2 ⋅ net))))^( all))) ≡ ∅
+check (forward ((exists @pt (exists @dst (forward (@sw=N4 ⋅ net))))^( all))) ≡ ∅
+check (forward ((exists @pt (exists @dst (forward (@sw=N8 ⋅ net))))^( all))) ≡ ∅
+check (forward ((exists @pt (exists @dst (forward (@sw=N1 ⋅ net))))^( all))) ≡ ∅
