@@ -1,0 +1,3 @@
+import "../../examples/topologyzoo/Arpa_topo.nkpl"
+import "../../examples/topologyzoo/Arpa_routing.nkpl"
+check (forward ((@sw=N28?⋅((main⋅(top⋅δ))⋆⋅@sw=100?))^( ∅))) ≡ ∅

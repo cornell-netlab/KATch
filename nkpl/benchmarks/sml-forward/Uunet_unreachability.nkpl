@@ -1,0 +1,3 @@
+import "../../examples/topologyzoo/Uunet_topo.nkpl"
+import "../../examples/topologyzoo/Uunet_routing.nkpl"
+check (forward ((@sw=N48?⋅((main⋅(top⋅δ))⋆⋅@sw=1000?))^( ∅))) ≡ ∅

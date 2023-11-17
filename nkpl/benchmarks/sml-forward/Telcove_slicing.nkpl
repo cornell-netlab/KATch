@@ -1,0 +1,3 @@
+import "../../examples/topologyzoo/Telcove_topo.nkpl"
+import "../../examples/topologyzoo/Telcove_sliced_routing.nkpl"
+check (forward ((((main1∪main2)⋅(top⋅δ))⋆)^( (main1⋅(top⋅δ))⋆∪(main2⋅(top⋅δ))⋆))) ≡ ∅

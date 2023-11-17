@@ -1,0 +1,3 @@
+import "../../examples/topologyzoo/Cogentco_topo.nkpl"
+import "../../examples/topologyzoo/Cogentco_routing.nkpl"
+check (forward ((@sw=N193?⋅((main⋅(top⋅δ))⋆⋅@sw=999?))^( ∅))) ≡ ∅

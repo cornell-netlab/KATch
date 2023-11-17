@@ -1,0 +1,3 @@
+import "../../examples/trees/ft6_topo.nkpl"
+import "../../examples/trees/ft6_hrouting.nkpl"
+check (forward ((((routing127 ∪ routing2854)⋅top⋅δ)⋆)^( (routing127⋅top⋅δ)⋆ ∪ (routing2854⋅top⋅δ)⋆))) ≡ ∅

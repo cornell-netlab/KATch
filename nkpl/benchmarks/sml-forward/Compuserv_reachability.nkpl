@@ -1,0 +1,3 @@
+import "../../examples/topologyzoo/Compuserv_topo.nkpl"
+import "../../examples/topologyzoo/Compuserv_routing.nkpl"
+check (forward (((@sw=N1∧@dst=N10)?⋅((main⋅(top⋅δ))⋆⋅@sw=N10?))^( ∅))) ≢ ∅

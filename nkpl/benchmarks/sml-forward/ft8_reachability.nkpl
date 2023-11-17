@@ -1,0 +1,3 @@
+import "../../examples/trees/ft8_topo.nkpl"
+import "../../examples/trees/ft8_hrouting.nkpl"
+check (forward (((@sw=h1∧@dst=h128)?⋅((main⋅(top⋅δ))⋆⋅@sw=h128?))^( ∅))) ≢ ∅
