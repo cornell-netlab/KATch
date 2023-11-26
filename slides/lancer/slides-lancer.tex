@@ -1,0 +1,325 @@
+\documentclass[aspectratio=169,svgnames,dvipsnames]{beamer}
+% \beamertemplatenavigationsymbolsempty{}
+% \setbeamertemplate{footline}[frame number]
+
+\usepackage{mathtools}
+\usepackage{mathpazo}
+\usepackage{newpxmath}
+\usepackage{newpxtext}
+\usepackage[T1,small,euler-digits]{eulervm}
+% \usecolortheme[named=Maroon]{structure}
+% \beamertemplatesolidbackgroundcolor{Snow}
+
+\usepackage{siunitx}
+\usepackage{makecell, booktabs, caption}
+\usepackage{multirow}
+\usepackage{tabularx}
+\usepackage{listings}
+\usepackage{tcolorbox}
+
+\definecolor{darkmagenta}{rgb}{0.55, 0.0, 0.55}
+\definecolor{fulvous}{rgb}{0.86, 0.52, 0.0}
+\definecolor{ginger}{rgb}{0.69, 0.4, 0.0}
+\definecolor{lavenderindigo}{rgb}{0.58, 0.34, 0.92}
+\definecolor{bluegray}{rgb}{0.4, 0.6, 0.8}
+\definecolor{myBlue}{RGB}{0,0,255}
+\definecolor{myPurple}{RGB}{128,0,128}
+\definecolor{myOrange}{RGB}{255,165,0}
+\definecolor{myTeal}{RGB}{0,128,128}
+\definecolor{myBrown}{RGB}{139,69,19}
+
+\newcommand{\colorA}{myBlue}
+\newcommand{\colorB}{myPurple}
+\newcommand{\colorC}{myOrange}
+\newcommand{\colorD}{myTeal}
+\newcommand{\colorE}{myBrown}
+
+\usetheme{default}
+
+\newcommand\blfootnote[1]{%
+  \begingroup
+  \renewcommand\thefootnote{}\footnote{#1}%
+  \addtocounter{footnote}{-1}%
+  \endgroup
+}
+\setbeamertemplate{navigation symbols}{
+    \usebeamerfont{footline}
+    \footnotesize
+    \color{black}
+    \hspace{1em}\insertframenumber
+}
+\usecolortheme{spruce}
+\setbeamertemplate{headline}{}
+
+\newcommand\hmmax{0}
+\newcommand\bmmax{0}
+
+\newenvironment{changemargin}[2]{%
+\begin{list}{}{%
+\setlength{\topsep}{0pt}%
+\setlength{\leftmargin}{#1}%
+\setlength{\rightmargin}{#2}%
+\setlength{\listparindent}{\parindent}%
+\setlength{\itemindent}{\parindent}%
+\setlength{\parsep}{\parskip}%
+}%
+\item[]}{\end{list}}
+
+\newcommand{\myframe}[1]
+{
+{
+\setbeamercolor{background canvas}{bg=black}
+\color{white}
+\begin{frame}{}{}
+  \begin{changemargin}{-1cm}{-1cm}
+  \Huge
+  \centering
+  #1
+  \end{changemargin}
+\end{frame}
+}
+}
+
+\newcommand\Wider[2][5em]{%
+\makebox[\linewidth][c]{%
+  \begin{minipage}{\dimexpr\textwidth+#1\relax}
+  \raggedright#2
+  \end{minipage}%
+  }%
+}
+
+\newcommand<>{\oncolor}[2]{%
+  \alt#3{\textcolor{#1}{#2}}{#2}%
+}
+
+\title{KATch: A Fast Symbolic Verifier for NetKAT}
+% \subtitle{(POPL'23)}
+\date{}
+
+\newcommand{\td}[1]{\textbf{\color{orange}#1\color{orange}}}
+\newcommand{\RED}[1]{\textbf{\color{red}#1\color{black}}}
+\newcommand{\GREEN}[1]{\textbf{\color{ForestGreen}#1\color{black}}}
+\newcommand{\MAROON}[1]{\textbf{\color{Maroon}#1\color{black}}}
+
+
+\input{preamble.tex}
+
+\usepackage{xspace}
+\newcommand{\KATch}{KATch\xspace}
+\newcommand{\Frenetic}{\textsc{Frenetic}\xspace}
+
+% Define custom colors
+\definecolor{frametitlefg}{HTML}{1b3f41}
+\definecolor{frametitlebg}{HTML}{d4eced}
+\setbeamercolor{frametitle}{bg=frametitlebg, fg=frametitlefg}
+\definecolor{titleslidebackground}{rgb}{1, 1, 0.949}
+
+\setbeamertemplate{itemize items}[circle]
+\setbeamercolor{itemize item}{fg=frametitlefg!70}
+
+
+\begin{document}
+
+{
+\setbeamercolor{background canvas}{bg=titleslidebackground}
+\begin{frame}
+  % \vspace{0.5cm}
+  % \titlepage{}
+  % \vspace{-2cm}
+  % \begin{minipage}[t]{0.50\textwidth}
+  %   \begin{center}
+  %     \textbf{Jules Jacobs} \\[4pt]
+  %     \scriptsize Radboud University
+  %     $\to$
+  %     \scriptsize Cornell University
+  %   \end{center}
+  % \end{minipage}
+  % \begin{minipage}[t]{0.40\textwidth}
+  %   \begin{center}
+  %     \textbf{Stephanie Balzer} \\[4pt]
+  %     \scriptsize Carnegie Mellon University
+  %   \end{center}
+  % \end{minipage}
+  % \vspace{0.6cm}
+
+  % \vspace{0.8cm}
+  \centering
+  \includegraphics[scale=0.15]{katch2.png}\\[-3mm]
+  \huge \textbf{KATch}\\[-0.8em]
+  \rule{5cm}{1pt}
+
+  \Large A Fast Symbolic Verifier for NetKAT
+  % \includegraphics[scale=0.33]{deriv/deriv.pdf}
+  % \includegraphics[scale=0.3]{viz/spp1seq2.pdf}
+  \vspace{0.5cm}
+
+  \small
+  Mark Moeller, Jules Jacobs, Nate Foster, Alexandra Silva (Cornell),
+  Olivier Savary Belanger, David Darais, Cole Schlesinger (Galois),
+  Steffen Smolka (Google)
+\end{frame}
+}
+
+\begin{frame}
+  \frametitle{The Control Plane and Network Defense Agents}
+
+  \begin{columns}[t]
+      \begin{column}{0.45\textwidth}
+          \textbf{Control Plane}
+          \begin{itemize}
+              \item Computes routing tables
+              \item Ensures network connectivity
+              \item Enforces network policies
+          \end{itemize}
+      \end{column}
+
+      \begin{column}{0.55\textwidth}
+          \textbf{Network Defense Agents}
+          \begin{itemize}
+              \item Detects and responds to network attacks
+              \item Example: Security breach containment
+              \item Example: DDoS mitigation
+              \item \textbf{Action space?}
+              \item \textbf{Modify routing tables?}
+          \end{itemize}
+      \end{column}
+  \end{columns}
+
+\end{frame}
+
+\begin{frame}
+  \frametitle{Neural and Symbolic AI}
+
+  \begin{columns}[t]
+      \begin{column}{0.5\textwidth}
+          \textbf{Neural Strengths}
+          \begin{itemize}
+              \item General pattern recognition
+              \item Learns from experience
+              \item Adaptability to new situations
+              \item Ideal when explicit programming is difficult
+          \end{itemize}
+      \end{column}
+
+      \begin{column}{0.5\textwidth}
+          \textbf{Symbolic Strengths}
+          \begin{itemize}
+              \item Domain specific reasoning
+              \item Guarantees correctness
+              \item Verifiable and explainable
+              \item Ideal when strict compliance with rules is required
+          \end{itemize}
+      \end{column}
+  \end{columns}
+
+\end{frame}
+
+\begin{frame}
+  \frametitle{Neural+Symbolic AI in Network Defense: Idea}
+
+  \begin{columns}[t]
+      \begin{column}{0.5\textwidth}
+          \textbf{Neural}
+          \begin{itemize}
+              \item Utilizes deep learning for real-time attack detection and response
+              \item Adapts to evolving network threats
+              \item Modifies routing tables dynamically
+              \item Example: Detecting and rerouting traffic to mitigate DDoS attacks
+              \item Example: Detecting and isolating compromised hosts
+          \end{itemize}
+      \end{column}
+
+      \begin{column}{0.5\textwidth}
+          \textbf{Symbolic}
+          \begin{itemize}
+              \item Computes consequences of routing changes
+              \item Ensures correctness of routing tables
+              \item Verifies adherence to network policies and security rules
+              \item Example: Validating routing paths for security compliance
+              \item Example: Verifying reachability of critical network services
+          \end{itemize}
+      \end{column}
+  \end{columns}
+
+\end{frame}
+
+\begin{frame}
+  \frametitle{NetKAT: Symbolic Network Reasoning}
+
+  \textbf{NetKAT: network specification language for SDN}
+  \begin{itemize}
+    \item Network topology
+    \item Routing tables
+    \item Network-wide policies
+  \end{itemize}
+
+  \medskip
+  \textbf{Verification of network policies}
+  \begin{itemize}
+    \item Security properties, e.g. slice isolation
+    \item Operational properties, e.g. reachability
+    \item Verified in a common framework
+  \end{itemize}
+
+  \bigskip
+
+  \textbf{Problem: } NetKAT verification is slow\\
+  Not suitable for real-time network defense\\[5mm]
+
+\end{frame}
+
+{
+\setbeamercolor{background canvas}{bg=titleslidebackground}
+\begin{frame}
+  % \vspace{0.8cm}
+  \centering
+  \includegraphics[scale=0.15]{katch2.png}\\[-3mm]
+  \huge \textbf{KATch}\\[-0.8em]
+  \rule{5cm}{1pt}
+
+  \Large A Fast Symbolic Verifier for NetKAT
+  % \includegraphics[scale=0.33]{deriv/deriv.pdf}
+  % \includegraphics[scale=0.3]{viz/spp1seq2.pdf}
+  \vspace{0.5cm}
+\end{frame}
+}
+
+\begin{frame}
+  \frametitle{KATch}
+
+  A new NetKAT verifier that is
+  \begin{itemize}
+    \item \textbf{Fast:} 1000$\times$ faster
+    \item \textbf{Symbolic:} explains verification failures
+    \item \textbf{Scalable:} handles larger networks
+  \end{itemize}
+\end{frame}
+
+\begin{frame}
+  \frametitle{Full Reachability}
+  \includegraphics[scale=0.6]{plots/Full reachability_time_vs_size_wide.pdf}
+\end{frame}
+
+\begin{frame}
+  \frametitle{Detailed comparison: (un)reachability and slice isolation}
+  \scalebox{0.85}{\input{plots/Topology Zoo_comparison_table.tex}}
+\end{frame}
+
+\begin{frame}
+  \frametitle{Synthetic combinatorial benchmarks}
+
+  \includegraphics[scale=0.53]{plots/Flip_time_vs_size.pdf}
+  \includegraphics[scale=0.53]{plots/Inc_time_vs_size.pdf}
+  \includegraphics[scale=0.53]{plots/Nondet_time_vs_size.pdf}
+\end{frame}
+
+\begin{frame}
+  \frametitle{Conclusion}
+
+  \textbf{NetKAT verification can be fast}\\[1em]
+
+  \textbf{Can we combine neural and symbolic AI?}\\[1em]
+
+\end{frame}
+
+\end{document}

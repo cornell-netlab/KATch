@@ -1,0 +1,176 @@
+\usepackage{listings}
+\usepackage[all,cmtip]{xy}
+
+\usepackage{thm-restate}
+\usepackage{graphicx}
+
+\definecolor{codegreen}{rgb}{.1,0.5,0.32}
+\definecolor{codegray}{rgb}{0.5,0.5,0.5}
+\definecolor{codepurple}{rgb}{0.58,0,0.82}
+\definecolor{backcolour}{rgb}{0.98,0.98,0.98}
+\newcommand\todoR{\textit{todo}}
+\newcommand\doneR{\textit{done}}
+\newcommand\seenR{\textit{seen}}
+\newcommand\modified{\textit{modified}}
+\newcommand\initialized{\textit{initialized}}
+\newcommand\false{\textcolor{magenta}{false}\xspace}
+\newcommand\true{\textcolor{codegreen}{true}\xspace}
+\newcommand\skp{\textcolor{codegreen}{skip}}
+
+\newcommand\Circle[1][1.65]{\tikz[baseline=-#1]{\draw(0,0)circle[radius=#1mm];}}
+\newcommand{\Square}{\fbox{$\phantom{ a}$}}
+
+\newcommand\bind{\mathbin{\textsf{>>=}}}
+
+\usepackage{array,xspace}
+\usepackage[noend]{algpseudocode} %algorithm2e,algorithmic,
+\usepackage[shortlabels]{enumitem}
+\usepackage{alltt}
+\usepackage{relsize}
+\usepackage{bbm}
+\usepackage{tikz}
+\usepackage{threeparttable}
+\usepackage[nameinlink]{cleveref}
+\usepackage{wrapfig}
+\usepackage{epigraph}
+\usepackage{pgfplots}
+\usepackage{subcaption}
+\usepackage{multirow}
+\usepackage{stmaryrd}
+\usepackage{mathpartir}
+\usepackage{csvsimple}
+
+% Added by DavidD
+\usepackage{mathtools}
+
+\usetikzlibrary{automata}
+\usetikzlibrary{positioning}
+\usetikzlibrary{arrows}
+\usetikzlibrary{arrows.meta}
+\usetikzlibrary{shapes.misc, positioning}
+\usetikzlibrary{shapes}
+
+\tikzset{node distance=3.0cm,
+         every state/.style={
+         semithick,fill=gray!10},
+         initial text={},
+         double distance=2pt,
+         every edge/.style={
+            draw,
+            ->,>=stealth',
+            auto,
+            semithick}}
+\tikzset{every state/.append style={inner sep=0.0pt, minimum size=15pt}}
+\tikzset{elliptic state/.style={draw,ellipse,semithick,fill=gray!10}}
+\tikzset{ematrix/.style={double, double distance=4pt, >={Implies[length=5pt,width=8pt]}}}
+
+\usepackage{todonotes}
+\newcommand{\jnf}[1]{\todo[inline,color=purple]{\footnotesize NF\@: #1}}
+\newcommand{\as}[1]{\todo[inline,color=pink]{\footnotesize AS\@: #1}}
+%\newcommand{\asinline}[1]{\todo[inline,color=pink,caption={}]{\footnotesize AS\@: #1}}
+ \newcommand{\mm}[1]{\todo[noinline,color=green]{\footnotesize MM\@: #1}}
+ \newcommand{\mminline}[1]{\todo[inline,color=pink,caption={}]{\footnotesize MM\@: #1}}
+
+%\newcommand{\as}[1]{ }
+%\newcommand{\asinline}[1]{ }
+%%\newcommand{\mm}[1]{ }
+%%\newcommand{\mminline}[1]{ }
+
+\newcommand{\jj}[1]{\textcolor{blue}{\textbf{JJ: #1}}}
+
+
+\usepackage[createShortEnv]{proof-at-the-end}
+
+%% Macros %%
+\newtheorem{remark}{Remark}
+\newtheorem{question}{Q}
+
+%%\newcommand\cont{\delta{_{\alpha\beta}}}
+%%\newcommand\obs{\varepsilon{_{\alpha\beta}}}
+\newcommand\At{\mathsf{At}}
+\newcommand\Pk{\mathsf{Pk}}
+\newcommand\PkST{\Pk\times S\times T}
+\newcommand\sympk{\widehat\alpha}
+\newcommand\sympkp{\widehat\beta}
+\newcommand\symR{\widehat{R}}
+\newcommand\pk{\alpha}
+\newcommand\pkp{\beta}
+
+\newcommand{\nf}[1]{\hat{#1}}
+\newcommand{\test}{\mathrel{\!=\!}}
+\newcommand{\testNE}{\mathrel{\!\neq\!}}
+\newcommand{\SPP}{\mathsf{SPP}}
+\newcommand{\mut}{\mathrel{\!\shortleftarrow\!}}
+
+\newcommand\dup{\mathsf{dup}}
+\newcommand\bisim{\mathsf{bisim}}
+\newcommand\Exp{\mathsf{Exp}}
+\newcommand\sw{\mathsf{sw}}
+\newcommand\pt{\mathsf{pt}}
+\newcommand\dst{\mathsf{dst}}
+\newcommand\binopFDD{\mathsf{binopFDD}}
+\newcommand\nextS{\mathsf{next}}
+\newcommand\prevS{\mathsf{prev}}
+\newcommand\nextC{\mathsf{next}^{\A\times\B}}
+\newcommand\prevC{\mathsf{prev}^{\A\times\B}}
+\newcommand\wpre{\mathsf{wp}}
+\newcommand\ddd{\cdot\dup\cdot}
+\newcommand\GSdef{\Pk \cdot (\Pk\cdot\dup)^\star\cdot\Pk}
+\newcommand\GSdefold{\At \cdot (\Pk\cdot\dup)^\star\cdot\At}
+\newcommand\GS{\mathsf{GS}}
+\newcommand\accept{\mathsf{accept}}
+\newcommand\Paths{\mathsf{Paths}}
+\newcommand\paths{\mathsf{paths}}
+\newcommand\NetKAT{\textsf{NetKAT}\xspace}
+\newcommand\FiveStars{\textsc{FiveStars}\xspace}
+\newcommand\Pred{\textsf{Pred}\xspace}
+\newcommand\NKcheck{\textsf{check}\xspace}
+\newcommand\NKforward{\textsf{forward}\xspace}
+\newcommand\NKbackward{\textsf{backward}\xspace}
+\newcommand\NKexists{\textsf{exists}\xspace}
+\newcommand\NKforall{\textsf{forall}\xspace}
+\newcommand\NKprint{\textsf{print}\xspace}
+\newcommand\NKlet{\textsf{let}\xspace}
+\newcommand\NKimport{\textsf{import}\xspace}
+\newcommand\NKrangesum{\textsf{rangesum}\xspace}
+\newcommand\NKfor{\textsf{for}\xspace}
+\newcommand\NKdo{\textsf{do}\xspace}
+
+\newcommand\BDD{\textsf{BDD}}
+\newcommand\FDD{\textsf{FDD}}
+\newcommand\FDDs{\textsf{FDD}s}
+\newcommand{\fddn}[4]{#1 \stackrel ? = \overline{\{ #2\mapsto #3\}} \diamond #4}
+
+\newcommand{\SPPn}{SPP\xspace} % macro to be able to change the name later
+\newcommand{\SPPs}{SPPs\xspace}
+\newcommand{\KATch}{KATch\xspace}
+\newcommand{\Frenetic}{\textsc{Frenetic}\xspace}
+
+\newcommand\btodo{\fbox{to do.}}
+
+\newcommand{\Sem}[1]{\llbracket #1 \rrbracket}
+\newcommand{\floor}[1]{\lfloor #1 \rfloor}
+\newcommand{\pSem}[1]{[ #1 ]}
+\newcommand{\fddSem}[1]{\llbracket #1 \rrbracket}
+\newcommand{\bddSem}[1]{\llbracket #1 \rrbracket}
+\newcommand{\val}[1]{(\!| #1 |\!)}
+\newcommand{\approxp}[1]{\underset{#1}\approx}
+\newcommand{\bubble}[1]{\node[state,minimum size=8pt] {#1};}
+\newcommand{\bubbleinline}[1]{\begin{tikzpicture}\bubble{#1}\end{tikzpicture}}
+
+\newcommand\pow[1]{\mathcal{P}(#1)}
+
+\newcommand\zero{\bot}%\mathsf{drop}}
+\newcommand\one{\top}%\mathsf{skip}}
+
+\newcommand\A{\mathcal{A}}
+\newcommand\B{\mathcal{B}}
+\newcommand\epsA{\epsilon^\A_\pk}
+\newcommand\epsB{\epsilon^\B_\pk}
+\newcommand\delA{\delta^\A_{\pk\pkp}}
+\newcommand\delB{\delta^\B_{\pk\pkp}}
+
+\usepackage{accents}
+\newcommand{\qequiv}{\mathrel{\accentset{?}{\equiv}}}
+
+\renewcommand{\thesubfigure}{\roman{subfigure}}

@@ -1,0 +1,13 @@
+
+    digraph G {
+       n51 [label="c", shape=circle, width=0.3, fixedsize=true, style=filled, fillcolor="peachpuff"]
+   n52 [label="", shape=diamond, width=0.15, height=0.15, style=filled, fillcolor="peachpuff"]
+   n51 -> n52 [arrowhead=normal, label=" 3 ", labelangle=-30, fontsize=12, arrowsize=0.5, color="#555", fontcolor="black"]
+   n53 [label="", shape=diamond, width=0.15, height=0.15, style=filled, fillcolor="peachpuff"]
+   n51 -> n53 [arrowhead=normal, arrowsize=0.5, style=dashed, color="#555"]
+   n53 -> n54 [arrowhead=normal, arrowsize=0.5, style=dashed, color="#555"]
+   n54 [label="⊤", shape=box, width=0.3, height=0.3, fixedsize=true]
+   {rank=same; n51}
+   {rank=same; n53}
+
+    }

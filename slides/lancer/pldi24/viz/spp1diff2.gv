@@ -1,0 +1,51 @@
+
+    digraph G {
+       n98 [label="a", shape=circle, width=0.3, fixedsize=true, style=filled, fillcolor="skyblue"]
+   n99 [label="", shape=diamond, width=0.15, height=0.15, style=filled, fillcolor="skyblue"]
+   n98 -> n99 [arrowhead=normal, label=" 5 ", labelangle=-30, fontsize=12, arrowsize=0.5, color="#555", fontcolor="black"]
+   n99 -> n100 [arrowhead=normal, label=" 5 ", labelangle=-30, fontsize=12, arrowsize=0.5, color="#555", fontcolor="black"]
+   n100 [label="b", shape=circle, width=0.3, fixedsize=true, style=filled, fillcolor="#C1E1C1"]
+   n101 [label="", shape=diamond, width=0.15, height=0.15, style=filled, fillcolor="#C1E1C1"]
+   n100 -> n101 [arrowhead=normal, label=" 1 ", labelangle=-30, fontsize=12, arrowsize=0.5, color="#555", fontcolor="black"]
+   n102 [label="", shape=diamond, width=0.15, height=0.15, style=filled, fillcolor="#C1E1C1"]
+   n100 -> n102 [arrowhead=normal, arrowsize=0.5, style=dashed, color="#555"]
+   n102 -> n103 [arrowhead=normal, label=" 1 ", labelangle=-30, fontsize=12, arrowsize=0.5, color="#555", fontcolor="black"]
+   n103 [label="⊤", shape=box, width=0.3, height=0.3, fixedsize=true]
+   n102 -> n104 [arrowhead=normal, arrowsize=0.5, style=dashed, color="#555"]
+   n104 [label="c", shape=circle, width=0.3, fixedsize=true, style=filled, fillcolor="peachpuff"]
+   n105 [label="", shape=diamond, width=0.15, height=0.15, style=filled, fillcolor="peachpuff"]
+   n104 -> n105 [arrowhead=normal, label=" 5 ", labelangle=-30, fontsize=12, arrowsize=0.5, color="#555", fontcolor="black"]
+   n105 -> n103 [arrowhead=normal, label=" 5 ", labelangle=-30, fontsize=12, arrowsize=0.5, color="#555", fontcolor="black"]
+   n106 [label="", shape=diamond, width=0.15, height=0.15, style=filled, fillcolor="peachpuff"]
+   n104 -> n106 [arrowhead=normal, arrowsize=0.5, style=dashed, color="#555"]
+   n106 -> n107 [arrowhead=normal, arrowsize=0.5, style=dashed, color="#555"]
+   n107 [label="⊥", shape=box, width=0.3, height=0.3, fixedsize=true]
+   n108 [label="", shape=diamond, width=0.15, height=0.15, style=filled, fillcolor="skyblue"]
+   n98 -> n108 [arrowhead=normal, label=" 1 ", labelangle=-30, fontsize=12, arrowsize=0.5, color="#555", fontcolor="black"]
+   n108 -> n109 [arrowhead=normal, label=" 1 ", labelangle=-30, fontsize=12, arrowsize=0.5, color="#555", fontcolor="black"]
+   n109 [label="b", shape=circle, width=0.3, fixedsize=true, style=filled, fillcolor="#C1E1C1"]
+   n110 [label="", shape=diamond, width=0.15, height=0.15, style=filled, fillcolor="#C1E1C1"]
+   n109 -> n110 [arrowhead=normal, label=" 2 ", labelangle=-30, fontsize=12, arrowsize=0.5, color="#555", fontcolor="black"]
+   n110 -> n104 [arrowhead=normal, label=" 2 ", labelangle=-30, fontsize=12, arrowsize=0.5, color="#555", fontcolor="black"]
+   n111 [label="", shape=diamond, width=0.15, height=0.15, style=filled, fillcolor="#C1E1C1"]
+   n109 -> n111 [arrowhead=normal, arrowsize=0.5, style=dashed, color="#555"]
+   n111 -> n107 [arrowhead=normal, arrowsize=0.5, style=dashed, color="#555"]
+   n112 [label="", shape=diamond, width=0.15, height=0.15, style=filled, fillcolor="skyblue"]
+   n98 -> n112 [arrowhead=normal, arrowsize=0.5, style=dashed, color="#555"]
+   n112 -> n113 [arrowhead=normal, arrowsize=0.5, style=dashed, color="#555"]
+   n113 [label="b", shape=circle, width=0.3, fixedsize=true, style=filled, fillcolor="#C1E1C1"]
+   n114 [label="", shape=diamond, width=0.15, height=0.15, style=filled, fillcolor="#C1E1C1"]
+   n113 -> n114 [arrowhead=normal, label=" 2 ", labelangle=-30, fontsize=12, arrowsize=0.5, color="#555", fontcolor="black"]
+   n114 -> n103 [arrowhead=normal, label=" 1 ", labelangle=-30, fontsize=12, arrowsize=0.5, color="#555", fontcolor="black"]
+   n114 -> n104 [arrowhead=normal, label=" 2 ", labelangle=-30, fontsize=12, arrowsize=0.5, color="#555", fontcolor="black"]
+   n115 [label="", shape=diamond, width=0.15, height=0.15, style=filled, fillcolor="#C1E1C1"]
+   n113 -> n115 [arrowhead=normal, arrowsize=0.5, style=dashed, color="#555"]
+   n115 -> n107 [arrowhead=normal, arrowsize=0.5, style=dashed, color="#555"]
+   {rank=same; n105; n106}
+   {rank=same; n115; n111; n102; n110; n114}
+   {rank=same; n98}
+   {rank=same; n99; n108; n112}
+   {rank=same; n100; n109; n113}
+   {rank=same; n104}
+
+    }

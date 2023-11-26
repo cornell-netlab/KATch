@@ -1,0 +1,65 @@
+\begin{tabular}{|l|r|rr|rr|rr|r|}
+\toprule
+\multicolumn{1}{|c|}{Name} & \multicolumn{1}{c|}{Size} & \multicolumn{2}{c|}{Reachability} & \multicolumn{2}{c|}{Unreachability} & \multicolumn{2}{c|}{Slicing} & \multicolumn{1}{c|}{Min}\\
+& \multicolumn{1}{c|}{(atoms)} & \KATch & Frenetic & \KATch & Frenetic & \KATch & Frenetic & \multicolumn{1}{c|}{Speedup} \\
+\midrule
+%Layer42 & reachability & 1.42 & 0.00 & 0.04 & 13 \\
+%Layer42 & unreachability & 1.42 & 0.00 & 0.04 & 12 \\
+%Layer42 & slicing & 1.50 & 0.01 & 0.07 & 10 \\
+Layer42 & 135 & 0.00 & 0.04 & 0.00 & 0.04 & 0.01 & 0.07 & 7$\times$\\
+%% Compuserv & reachability & 5.76 & 0.01 & 0.36 & 58 \\
+%% Compuserv & unreachability & 5.76 & 0.01 & 0.38 & 56 \\
+%% Compuserv & slicing & 5.94 & 0.01 & 0.85 & 62 \\
+Compuserv & 539 & 0.01 & 0.36 & 0.01 & 0.38 & 0.01 & 0.85 & 36$\times$\\
+%% Airtel & reachability & 8.44 & 0.01 & 0.83 & 83 \\
+%% Airtel & unreachability & 8.44 & 0.01 & 0.84 & 76 \\
+%% Airtel & slicing & 8.65 & 0.02 & 2.08 & 92 \\
+Airtel & 785 & 0.01 & 0.83 & 0.01 & 0.84 & 0.02 & 2.08 & 83$\times$\\
+%% Belnet & reachability & 15.04 & 0.01 & 3.17 & 220 \\
+%% Belnet & unreachability & 15.04 & 0.01 & 3.16 & 224 \\
+%% Belnet & slicing & 15.34 & 0.04 & 7.99 & 214 \\
+Belnet & 1388 & 0.01 & 3.17 & 0.01 & 3.16 & 0.04 & 7.99 & 200$\times$\\
+%% Shentel & reachability & 20.25 & 0.02 & 4.01 & 242 \\
+%% Shentel & unreachability & 20.25 & 0.02 & 4.00 & 214 \\
+%% Shentel & slicing & 20.61 & 0.04 & 9.80 & 259 \\
+Shentel & 1865 & 0.02 & 4.01 & 0.02 & 4.00 & 0.04 & 9.80 & 200$\times$\\
+%% Arpa & reachability & 21.33 & 0.01 & 4.32 & 317 \\
+%% Arpa & unreachability & 21.33 & 0.02 & 4.32 & 230 \\
+%% Arpa & slicing & 21.70 & 0.05 & 10.99 & 241 \\
+Arpa & 1964 & 0.01 & 4.32 & 0.02 & 4.32 & 0.05 & 10.99 & 216$\times$\\
+%% Sanet & reachability & 44.73 & 0.04 & 23.46 & 614 \\
+%% Sanet & unreachability & 44.73 & 0.03 & 25.23 & 762 \\
+%% Sanet & slicing & 45.28 & 0.12 & 62.70 & 526 \\
+Sanet & 4100 & 0.04 & 23.46 & 0.03 & 25.23 & 0.12 & 62.70 & 522$\times$\\
+%% Uunet & reachability & 59.60 & 0.04 & 81.54 & 1912 \\
+%% Uunet & unreachability & 59.60 & 0.04 & 81.92 & 1982 \\
+%% Uunet & slicing & 60.24 & 0.15 & 204.85 & 1401 \\
+Uunet & 5456 & 0.04 & 81.54 & 0.04 & 81.92 & 0.15 & 204.85 & 1366$\times$\\
+%% Missouri & reachability & 105.94 & 0.11 & 161.28 & 1503 \\
+%% Missouri & unreachability & 105.94 & 0.10 & 165.85 & 1602 \\
+%% Missouri & slicing & 106.81 & 0.27 & 519.46 & 1934 \\
+Missouri & 9680 & 0.11 & 161.28 & 0.10 & 165.85 & 0.27 & 519.46 & 1658$\times$\\
+%% Telcove & reachability & 117.45 & 0.09 & 464.15 & 5060 \\
+%% Telcove & unreachability & 117.45 & 0.08 & 465.27 & 5953 \\
+%% Telcove & slicing & 118.37 & 0.28 & 1274.24 & 4555 \\
+Telcove & 10720 & 0.09 & 464.15 & 0.08 & 465.27 & 0.28 & 1274.24 & 4551$\times$\\
+%% Deltacom & reachability & 297.44 & 0.31 & 2392.56 & 7662 \\
+%% Deltacom & unreachability & 297.44 & 0.30 & 2523.03 & 8434 \\
+%% Deltacom & slicing & 298.92 & 0.75 & 7069.54 & 9384 \\
+Deltacom & 27092 & 0.31 & 2392.56 & 0.30 & 2523.03 & 0.75 & 7069.54 & 7718$\times$\\
+%% Cogentco & reachability & 894.78 & 0.97 & 22581.39 & 23350 \\
+%% Cogentco & unreachability & 894.78 & 0.88 & 23300.87 & 26334 \\
+Cogentco & 79682 & 0.97 & 22581.39 & 0.88 & 23300.87 & 1.78 & - & 23280$\times$\\
+% \midrule
+%% ft4 & reachability & 30.00 & 0.02 & 2.27 & 137 \\
+%% ft4 & slicing & 30.00 & 0.03 & 5.53 & 193 \\
+%% ft4 & reachability & 32.24 & 0.02 & 10.51 & 486 \\
+% FatTree-4 & 2777 & 0.02 & 2.27 & 0.03 & 5.53 & 0.02 & 10.51 & 114\\
+%% ft6 & reachability & 227.99 & 0.25 & 1033.57 & 4159 \\
+%% ft6 & slicing & 250.17 & 0.35 & 793.83 & 2248 \\
+% FatTree-6 & 22856 & 0.25 & 1033.57 & - & - & 0.35 & 793.83 & 2268\\
+%% ft8 & reachability & 649.43 & 0.67 & 14984.44 & 22505 \\
+%% ft8 & unreachability & 649.43 & 0.77 & 16452.51 & 21430 \\
+% FatTree-8 & 58483 & 0.67 & 14984.44 & 0.77 & 16452.51 & - & - & 21367\\
+\bottomrule
+\end{tabular}

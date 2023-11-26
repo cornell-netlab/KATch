@@ -1,0 +1,32 @@
+
+    digraph G {
+       n5 [label="a", shape=circle, width=0.3, fixedsize=true, style=filled, fillcolor="skyblue"]
+   n6 [label="", shape=diamond, width=0.15, height=0.15, style=filled, fillcolor="skyblue"]
+   n5 -> n6 [arrowhead=normal, label=" 1 ", labelangle=-30, fontsize=12, arrowsize=0.5, color="#555", fontcolor="black"]
+   n6 -> n7 [arrowhead=normal, label=" 1 ", labelangle=-30, fontsize=12, arrowsize=0.5, color="#555", fontcolor="black"]
+   n7 [label="c", shape=circle, width=0.3, fixedsize=true, style=filled, fillcolor="peachpuff"]
+   n8 [label="", shape=diamond, width=0.15, height=0.15, style=filled, fillcolor="peachpuff"]
+   n7 -> n8 [arrowhead=normal, label=" 3 ", labelangle=-30, fontsize=12, arrowsize=0.5, color="#555", fontcolor="black"]
+   n9 [label="", shape=diamond, width=0.15, height=0.15, style=filled, fillcolor="peachpuff"]
+   n7 -> n9 [arrowhead=normal, arrowsize=0.5, style=dashed, color="#555"]
+   n9 -> n10 [arrowhead=normal, arrowsize=0.5, style=dashed, color="#555"]
+   n10 [label="⊤", shape=box, width=0.3, height=0.3, fixedsize=true]
+   n11 [label="", shape=diamond, width=0.15, height=0.15, style=filled, fillcolor="skyblue"]
+   n5 -> n11 [arrowhead=normal, arrowsize=0.5, style=dashed, color="#555"]
+   n11 -> n12 [arrowhead=normal, arrowsize=0.5, style=dashed, color="#555"]
+   n12 [label="b", shape=circle, width=0.3, fixedsize=true, style=filled, fillcolor="#C1E1C1"]
+   n13 [label="", shape=diamond, width=0.15, height=0.15, style=filled, fillcolor="#C1E1C1"]
+   n12 -> n13 [arrowhead=normal, label=" 2 ", labelangle=-30, fontsize=12, arrowsize=0.5, color="#555", fontcolor="black"]
+   n13 -> n7 [arrowhead=normal, label=" 2 ", labelangle=-30, fontsize=12, arrowsize=0.5, color="#555", fontcolor="black"]
+   n14 [label="", shape=diamond, width=0.15, height=0.15, style=filled, fillcolor="#C1E1C1"]
+   n12 -> n14 [arrowhead=normal, arrowsize=0.5, style=dashed, color="#555"]
+   n14 -> n15 [arrowhead=normal, arrowsize=0.5, style=dashed, color="#555"]
+   n15 [label="⊥", shape=box, width=0.3, height=0.3, fixedsize=true]
+   {rank=same; n9}
+   {rank=same; n13; n14}
+   {rank=same; n5}
+   {rank=same; n6; n11}
+   {rank=same; n12}
+   {rank=same; n7}
+
+    }

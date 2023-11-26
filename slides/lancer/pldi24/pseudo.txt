@@ -1,0 +1,115 @@
+UNIFIED ALGORITHM
+=================
+
+G <- Pk * { s0 } * { t0 }
+B <- { (a,s,t) | e_a^A(s) != e_a^B(t) }
+
+while G ~> G' /\ B ~> B' /\ G & B != {} do
+    G ~> G'; G := G'
+  []
+    B ~> B'; B := B'
+return G & B = {}
+
+
+WEAKEST PRECONDITIONS
+=====================
+Define W = B^C
+
+e_a^A(s) != e_a^B(t)
+------------------------ Backward-Basis, for each s in S, t in T, a in Pk
+W U { (a,s,t) } ~> W'
+
+(b,s',t') not in W
+d_{ab}^A(s) = s'
+d_{ab}^B(t) = t'
+---------------------- Backward-Weakest-Pre
+W U {(a,s,t)} ~> W'
+
+G <- Pk * { s0 } * { t0 }
+W <- Pk * S * T
+while G ~> G' /\ W ~> W' /\ G - W != {} do   // note: G - W == G & B
+  ( G ~> G';
+    G := G' )
+  []
+  ( B ~> B';
+    B := B' )
+return G & B = {}
+
+
+
+WORKLIST-DIRECTED SEARCH
+========================
+
+(a,s,t) in G
+--------------------------------------------------------------- Forward-Single
+(a,s,t) |~> {(b,s',t') | d_{ab}^A(s) = s' /\ d_{ab}^B(t) = t'}
+
+(b,s',t') in B
+--------------------------------------------------------------- Backward-Single
+(b,s',t') |~> {(a,s,t) | d_{ab}^A(s) = s' /\ d_{ab}^B(t) = t'}
+
+G <- Pk * { s0 } * { t0 }
+B <- { (a,s,t) | e_a^A(s) != e_a^B(t) }
+wlG = set(G)
+wlB = set(B)
+
+while wlG != [] /\ wlB != [] /\ G & B != {} do
+    (a,s,t) <- choose(wlG);
+    (b,s',t') <- chose(wlB);
+
+    ( {(a,s,t)} ~> G' ;
+      G := G U G';
+      wlG := wlG U G' - ({(a,s,t)} U G); )
+    []
+    ( {(b,s',t')} ~> B'}; --TODO fix
+      B := B U B'
+      wlB := wlB U B' - ({(b,s',t')} U B);)
+
+
+
+
+
+
+SYMBOLIC PACKETS
+================
+G: S -> T -> P(Pk)    // <===>  P(Pk * S * T)
+B: S -> T -> P(Pk)
+
+define G & B := U_{s in S, t in T} (G[s][t] & B[s][t])
+
+sym_b = { b in Pk | exists a in G[s][t]: d_{ab}^A(s) = s' /\ d_{ab}^B(t) = t' }
+------------------------------------------------------------------------------- Forward-Symbolic
+G[s'][t'] ~> G[s'][t'] U sym_b
+
+sym_a = { a in Pk | exists b in B[s][t]: d_{ab}^A(s) = s' /\ d_{ab}^B(t) = t' }
+------------------------------------------------------------------------------- Backward-Symbolic
+B[s][t] ~> B[s'][t'] U sym_a
+
+G[s0][t0] <- Pk
+for (s,t) in S*T:
+  B[s][t] <- { a | e_a^A(s) != e_a^B(t) }
+
+while exists s,t: G[s][t] ~> G'[s][t] /\
+      exists s,t: B[s][t] ~> B'[s][t] /\
+      G & B != {} do
+  choose (s, t) from S*T
+
+    G[s][t] ~> G'[s][t]; G[s][t] := G'[s][t]
+  []
+    B[s][t] ~> B'[s][t]; B[s][t] := B'[s][t]
+
+return G & B = {}
+
+
+
+EVERYTHING (worklist + symbolic) COMBINED
+===================
+
+while G ~> G' /\ B ~> B' /\ G & B != {} do
+  choose (s, t) from S*T
+
+    G[s][t] ~> G'[s][t]; G[s][t] := G'[s][t]
+  []
+    B[s][t] ~> B'[s][t]; B[s][t] := B'[s][t]
+
+return G & B = {}

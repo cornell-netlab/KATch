@@ -1,0 +1,32 @@
+
+    digraph G {
+       n6 [label="a", shape=circle, width=0.3, fixedsize=true, style=filled, fillcolor="skyblue"]
+   n7 [label="", shape=diamond, width=0.15, height=0.15, style=filled, fillcolor="skyblue"]
+   n6 -> n7 [arrowhead=normal, label=" 1 ", labelangle=-30, fontsize=12, arrowsize=0.5, color="#555", fontcolor="black"]
+   n8 [label="", shape=diamond, width=0.15, height=0.15, style=filled, fillcolor="skyblue"]
+   n6 -> n8 [arrowhead=normal, arrowsize=0.5, style=dashed, color="#555"]
+   n8 -> n9 [arrowhead=normal, arrowsize=0.5, style=dashed, color="#555"]
+   n9 [label="b", shape=circle, width=0.3, fixedsize=true, style=filled, fillcolor="#C1E1C1"]
+   n10 [label="", shape=diamond, width=0.15, height=0.15, style=filled, fillcolor="#C1E1C1"]
+   n9 -> n10 [arrowhead=normal, label=" 2 ", labelangle=-30, fontsize=12, arrowsize=0.5, color="#555", fontcolor="black"]
+   n10 -> n11 [arrowhead=normal, label=" 2 ", labelangle=-30, fontsize=12, arrowsize=0.5, color="#555", fontcolor="black"]
+   n11 [label="c", shape=circle, width=0.3, fixedsize=true, style=filled, fillcolor="peachpuff"]
+   n12 [label="", shape=diamond, width=0.15, height=0.15, style=filled, fillcolor="peachpuff"]
+   n11 -> n12 [arrowhead=normal, label=" 3 ", labelangle=-30, fontsize=12, arrowsize=0.5, color="#555", fontcolor="black"]
+   n12 -> n13 [arrowhead=normal, label=" 3 ", labelangle=-30, fontsize=12, arrowsize=0.5, color="#555", fontcolor="black"]
+   n13 [label="⊤", shape=box, width=0.3, height=0.3, fixedsize=true]
+   n14 [label="", shape=diamond, width=0.15, height=0.15, style=filled, fillcolor="peachpuff"]
+   n11 -> n14 [arrowhead=normal, arrowsize=0.5, style=dashed, color="#555"]
+   n14 -> n15 [arrowhead=normal, arrowsize=0.5, style=dashed, color="#555"]
+   n15 [label="⊥", shape=box, width=0.3, height=0.3, fixedsize=true]
+   n16 [label="", shape=diamond, width=0.15, height=0.15, style=filled, fillcolor="#C1E1C1"]
+   n9 -> n16 [arrowhead=normal, arrowsize=0.5, style=dashed, color="#555"]
+   n16 -> n15 [arrowhead=normal, arrowsize=0.5, style=dashed, color="#555"]
+   {rank=same; n12; n14}
+   {rank=same; n10; n16}
+   {rank=same; n6}
+   {rank=same; n8}
+   {rank=same; n9}
+   {rank=same; n11}
+
+    }

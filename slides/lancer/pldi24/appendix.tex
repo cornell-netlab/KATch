@@ -1,0 +1,227 @@
+\appendix
+
+\section{Product Automata}
+\label{app:product}
+
+To simplify the traversal of two automata simultaneously, some of our
+bisimulation algorithms use a product construction analogous to the
+one for classic finite automata. For two \NetKAT automata $\mathcal{A} = (S, s_0, \epsilon^\A, \delta^\A)$ and $\mathcal{B}
+= (T, t_0, \epsilon^\B, \delta^\B)$, we define the product automaton by $\A\times\B =
+(S\times T, (s_0, t_0), \epsilon^{\A\times\B}, \delta^{\A\times\B})$, where:
+\begin{align*}
+  &\epsilon^{\A\times\B}\colon S\times T \to 2^{\Pk\times\Pk}\\
+  &\epsilon^{\A\times\B}(s,t)(\pk,\pkp) = (\epsilon^\A(s)(\pk,\pkp) = \epsilon^\B(t)(\pk,\pkp))
+\end{align*}
+and
+\begin{align*}
+  &\delta^{\A\times\B}\colon S\times T \to (S\times T)^{\Pk\times\Pk}\\
+  &\delta^{\A\times\B}(s,t)(\pk,\pkp) = (\delta^\A(s)(\pk,\pkp), \delta^\B(t)(\pk,\pkp))
+\end{align*}
+
+\section{Proofs}
+
+\begin{lemma}\label{lem:stringvector}
+\[\forall \varphi\in X^\Pk\quad  \pk\cdot w \in \mathcal L ( \varphi) \iff  \pk\cdot w \in \mathcal L ( \eta(\varphi(\pk)))\]
+\end{lemma}
+\begin{proof}
+Let $\varphi\in X^\Pk$. We can reason as follows, by case analysis on $w$.
+
+\medskip
+\noindent\fbox{$w = \pkp$}
+\begin{align*}
+&\pk\cdot \pkp \in \mathcal L ( \varphi)\\
+%
+\iff &\overline\varepsilon_{\pk \pkp} (\mathcal L ( \varphi))=1\\
+\iff &\epsilon^\sharp_{\pk \pkp} ( \varphi)=1\\
+\iff &\epsilon_{\pk \pkp} ( \varphi(\pk))=1\\
+\iff &\epsilon^\sharp_{\pk \pkp} ( \eta(\varphi(\pk)))=1\\
+\iff &\overline\varepsilon_{\pk \pkp} (\mathcal L  (\eta(\varphi(\pk)))=1\\
+\iff  & \pk\cdot \pkp  \in \mathcal L ( \eta(\varphi(\pk)))\\
+\end{align*}
+
+\medskip
+\noindent\fbox{$w = \pk_1 \cdot w_1$}
+\begin{align*}
+&\pk\cdot \pk_1 \cdot w_1 \in \mathcal L ( \varphi)\\
+%
+\iff & \pk_1 \cdot w_1 \in \overline\partial_{\pk} (\mathcal L ( \varphi))\\
+\iff &\pk_1 \cdot w_1 \in \mathcal L ( \delta^\sharp_{\pk} (\varphi))\\
+\iff &\pk_1 \cdot w_1 \in \mathcal L ( \lambda\pkp. \delta^\sharp_{\pk\pkp} (\varphi))\\
+\iff &\pk_1 \cdot w_1 \in \mathcal L ( \lambda\pkp. \delta_{\pk\pkp} (\varphi(\pk)))\\
+\iff & \pk_1 \cdot w_1 \in \mathcal L ( \lambda \pkp. \delta^\sharp_{\pk \pkp}  (\eta(\varphi(\pk))))\\
+\iff & \pk_1 \cdot w_1 \in \mathcal L ( \delta^\sharp_{\pk}  (\eta(\varphi(\pk))))\\
+\iff & \pk_1 \cdot w_1 \in \overline\partial_{\pk} (\mathcal L  (\eta(\varphi(\pk))))\\
+\iff  & \pk\cdot  \pk_1 \cdot w_1  \in \mathcal L ( \eta(\varphi(\pk)))\\
+\end{align*}
+\end{proof}
+
+
+
+
+\bisimnaivetermination*
+\begin{proof}
+  Let $n = |\Pk\times S\times T - R|$ and $m = \textsf{len}(\todoR)$. To prove termination we show
+  $(n, m)$ decreases lexicographically every iteration of the while loop (and
+  note that $m$ and $n$ are both always finite and nonnegative). Each loop iteration there are
+  two cases.
+  If $(\pk, s, t)\in R$, then $n$ is unchanged, but $m$ decreases because
+  we extract a triple from $\todoR$ and do not execute the if-statement body. On the other
+  hand if $(\pk, s, t)\notin R$ then $n$ decreases because $(\pk, s, t)$ is
+  added to $R$.
+  Termination follows.
+
+  We call a a triple $(\pk, s, t) \in \Pk\times S\times T$ \emph essential if
+  for any bisimulation $B$ between $\mathcal A$ and $\mathcal B$, we have $(\pk, s, t) \in B$.
+
+  For the correctness of the return values, we need a loop invariant. Every
+  iteration at the top of the loop, we have that (a) every triple in both $R$ and $\todoR$
+  is essential, and (b) all the triples required by (b)(ii) of \Cref{def:bisim} for triples in $R$
+  are in $\todoR$.
+  The invariant holds intially because $R$ is empty and the triples in $\todoR$ are all
+  required by (a) of \Cref{def:bisim}.
+  Inside the loop we need only justify insertions.
+  The insertion to $R$ is valid directly from the previous instance of the loop invariant because
+  the triple being added was already in $\todoR$. The insertion to $\todoR$ maintains both parts of
+  the invariant because of the previous invariant and the triples added are precisely those
+  required by (b)(ii) of \Cref{def:bisim}.
+
+  At last we see that if we return \false, then no bisimulation can exist because the current triple
+  $(\pk, s, t)$ is essential (by the loop invariant) and thus the requirement (b)(i) of \Cref{def:bisim}
+  is needed for $s,t$ but is violated.
+
+  On the other hand if we return \true, then the fact that $R$ is a bisimulation
+  follows from the last iteration of the loop invariant and the fact that
+  $\todoR$ is empty.
+\end{proof}
+
+\soundcompletenaive*
+\begin{proof}
+Suppose $R$ is a bisimulation between $\A$ and $\B$.
+
+\emph{Claim.} Let $(\pk, s, t)\in R$, and let $w\in  (\Pk\cdot\dup)^\star\cdot\Pk$.
+Then $\pk\cdot w\in\accept(s) \Leftrightarrow \pk\cdot w\in\accept(t)$.
+
+\emph{Proof of claim.} We proceed by induction on the length of $w$. For the base
+case, let $w = \pkp$. Then from $(\pk, s, t)\in R$, we know by (b)(i) of
+the definition of bisimulation that $\epsA(s) = \epsB(t)$. This means
+$\pkp\in\epsA(s)\Leftrightarrow\pkp\in\epsB(t)$ and thus $\pk\cdot\pkp\in\accept(s)\Leftrightarrow
+\pk\cdot\pkp\in\accept(t)$. For the inductive case, let $w = \pk_1\cdot\dup\cdot w'$. From
+$(\pk, s, t)\in R$ and (b)(ii) of the definition of bisimulation, we know that
+$(\pk_1, \delta_{\pk{\pk_1}}^{\A}(s), \delta_{\pk{\pk_1}}^{\B}(t))\in R$. We
+apply the induction hypthosis to get
+$\pk_1\cdot w'\in\accept(\delta_{\pk{\pk_1}}^{\A}(s))\Leftrightarrow \pk_1\cdot w'\in\accept(\delta_{\pk{\pk_1}}^{\B}(t)).$
+Using the definition of accept, this means that
+\[\pk\ddd{\pk_1}\cdot w'\in\accept(s)\Leftrightarrow \pk\ddd{\pk_1}\cdot w'\in\accept(t).\]
+This is the same as
+\[\pk\cdot w\in\accept(s) \Leftrightarrow \pk\cdot w\in\accept(t),\]
+proving the claim.
+
+The claim is enough to show $L(\A) = L(\B)$:\\
+By (a) of the definition, $(\pk, s_0, t_0)\in R$.
+Therefore by the claim $w\in \accept(s_0) \Leftrightarrow w\in\accept(t_0)$. By definition
+this means $w\in L(\A) \Leftrightarrow w\in L(\B)$, and thus that $L(\A) = L(\B)$.
+
+Now suppose on the other hand that $L(\A) = L(\B)$. Let
+\[ R = \{ (\pk, s, t)\mid \pk\cdot w\in\accept(s)\Leftrightarrow\pk\cdot w\in\accept(t) \quad\forall w\in(\Pk\cdot\dup)^\star\cdot\Pk \}.\]
+We will show $R$ is a bisimulation for $\A$ and $\B$, completing the proof.
+
+Let $\pk\in\Pk$. For (a), we need to show that $(\pk, s_0, t_0) \in R$:
+\begin{align*}
+      & L(A) = L(B) \\
+\iff  & \accept(s_0) = \accept(t_0) \\
+\iff & \pk\cdot w\in\accept(s_0) \Leftrightarrow \pk\cdot w\in\accept(t_0)\\
+\Rightarrow & (\pk, s_0, t_0) \in R
+\end{align*}
+
+Now let $(\pk, s, t)\in R$.
+For (b)(i):
+\begin{align*}
+            & \pk\cdot w \in\accept(s) \Leftrightarrow \pk\cdot w\in\accept(t) &\forall w\in(\Pk\cdot\dup)^\star\cdot\Pk\\
+\Rightarrow & \pk\cdot\pkp \in\accept(s) \Leftrightarrow \pk\cdot\pkp\in\accept(t) &\forall \pkp\in\Pk\\
+\iff        & \epsA(s) = \epsB(t).
+\end{align*}
+
+Finally for (b)(ii):
+\begin{align*}
+            & \pk\cdot w \in\accept(s) \Leftrightarrow \pk\cdot w\in\accept(t) &\forall w\in(\Pk\cdot\dup)^\star\cdot\Pk\\
+\Rightarrow & \pk\cdot\pk_1\cdot\dup\cdot w \in\accept(s) \Leftrightarrow \pk\cdot
+\pk_1\cdot\dup\cdot w\in\accept(t) &\forall \pk_1\in\Pk, w\in(\Pk\cdot\dup)^\star\cdot\Pk\\
+\iff        & (\pk_1, \delta_{\pk{\pk_1}}^{\A}(s), \delta_{\pk{\pk_1}}^{\B}(t))\in R &\forall \pk_1\in\Pk\\
+\end{align*}
+
+\end{proof}
+
+\automataexpressions*
+\begin{proof}
+\asinline{add}
+\end{proof}
+
+\bkwdcorrect*
+\begin{proof}
+First we prove an invariant of the while loop that says that $B \cup \todoR$ must contain
+all triples reachable by taking one step \emph{backwards} in each automaton from
+triples in $B$. Formally:
+\[ \delA(s) = s'\wedge \delB(t)=t' \Rightarrow (\pk, s, t)\in B \cup \todoR\qquad\forall
+    (\pk, s, t)\in\PkST, \forall (\pkp, s', t')\in B
+    \tag{*}\label{bkwd-i1} \]
+is an invariant of the while loop.
+\begin{itemize}
+\item \emph{Initialization.} Since the first time we arrive at the top of the
+while loop we have $B = \emptyset$, then \Cref{bkwd-i1} holds trivially.
+\item \emph{Maintenance.} Now suppose \Cref{bkwd-i1} holds at the top of the loop,
+and we enter the loop by extracting $(\sympkp, s', t')$ from $\todoR$.
+If $(\sympkp, s', t')\in B$ already, nothing is modified, but then in that case
+the loop invariant still holds because it is unaffected by removing
+$(\sympkp,s',t')$ from $\todoR$. Otherwise we will add $(\sympkp, s',t')$ to $B$.
+In that case, the triples found by
+the for-loop, namely $(\pk, s, t)$ such that $\delA(s) = s'$ and $\delB(t) = t'$, are
+precisely those needed to establish that the invariant still holds, and they are
+added to $\todoR$, as needed.
+\end{itemize}
+
+Now suppose $\A$ and $\B$ are equivalent.
+Let $R\subseteq\PkST$ be any bisimulation for $\A$ and $\B$.
+We now demonstrate that under this condition, we have that
+\[ B \cap R = \emptyset \tag{**}\label{bkwd-i2} \]
+is an invariant of the while loop:
+\begin{itemize}
+\item \emph{Initialization.} \Cref{bkwd-i2} is true at the first time reaching the top
+of the while loop. This is because, in the initialization for loop,
+we can only add triples $(\pk, s, t)$ to $B$ when $\epsA(s) \neq \epsB(t)$,
+which disqualifies them from being in $R$ by criterion (b)(i) of the definition
+of bisimulation.
+\item \emph{Maintenance.} \Cref{bkwd-i2} is maintained by the body of the while loop.
+Suppose \Cref{bkwd-i2} is true at the top of loop, and suppose $\todoR$ is not
+empty, so we enter the loop and extract $(\sympk, s, t)$ from $\todoR$.
+Since without modification, the loop invariant will still hold, we need only
+show that for each $(\pk, s, t)$ added to $B$ that we have $(\pk, s, t)\notin
+R$. Based on the for loop, what we know about each $(\pk, s, t)$ added to $B$,
+it is the case that $\delA(s) = s'$ and $\delB(t) = t'$ for some $(\pkp,s',t')
+\in B$. But by \Cref{bkwd-i2}, we know $(\pkp,s',t')\notin R$. Indeed, if it
+were the case that $(\pk,s,t)\in R$, then by criterion (b)(ii) of the
+definition, we would have $(\pkp,s',t')\in R$. From this we conclude $(\pk, s,
+t)\notin R$, and therefore \Cref{bkwd-i2} is maintained.
+\end{itemize}
+
+Consider what happens at the return statement. If we return \false, then
+we know that $B_{s_0,t_0} \neq \emptyset$. Now suppose (for contradiction) there were
+a bisimulation $R$ for $\A$ and $\B$. By criterion (a) of the
+definition of bisimulation, $(\pk, s_0, t_0)\in R$ for any bisimulation $R$.
+Thus there is some $\pk$ such that $(\pk, s_0, t_0)\in B\cap R$. But we showed
+that by \Cref{bkwd-i2}, $B\cap R = \emptyset$. So $R$ does not exist, as needed.
+
+On the other hand, if we return \true, then we
+know that $B_{s_0,t_0} = \emptyset$. In this case we claim $B^C$ is a
+bisimulation for $\A$ and $\B$. By the previous statement, it satisfies
+requirement (a). In the initialization for-loop, we add every triple $(\pk,
+s,t)$ to $B$ for which $\epsA(s) \neq \epsB(t)$. As a result we can conclude
+that for every triple $(\pk, s, t)\in B^C$, we have $\epsA(s) = \epsB(t)$, as
+needed for (b)(i). From the termination of the while loop, we have that $\todoR
+= \emptyset$. Combining this with \Cref{bkwd-i1}, we have that for all $(\pkp, s',
+t')\in B$, then it must be that whenever $\delA(s) = s'$ and $\delB(t) = t'$, we
+have that $(\pk, s, t) \in B$. Well suppose some $(\pk, s, t)\notin B$ (i.e.,
+$(\pk, s, t)\in B^C$), and suppose both $\delA(s) = s'$ then  $\delA(t) = t'$.
+By the reasoning above, $(\pkp, s', t')$ cannot be in $B$ or else $(\pk, s, t)$
+would have to be. So $B^C$ satisfies criterion (b)(ii), and therefore is a
+bisimulation as required.
+\end{proof}

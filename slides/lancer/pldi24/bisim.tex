@@ -1,0 +1,128 @@
+This section develops two
+algorithms for computing bisimulations that corresopnd to these
+paradigms, as well as a hybrid approach that combines the best of both
+in a single algorithm. The first is an improvement to the naive
+algorithm that takes advantage of the symbolic techniques introduced
+in \Cref{sec:symbolic}. We investigate the tradeoffs associated with
+using these algorithms in our evaluation.
+
+\paragraph*{Computing Bisimulations Symbolically}\label{sec:fwd-sym}
+
+Using symbolic automata and symbolic packets allows us to collapse
+many steps of the concrete bisimulation algorithm into a singlle step
+that works symbolically. Recall that a NetKAT bisimulation is a subset
+of $\Pk \times S \times T$. We first observe that this type is
+equvalent to $S\times T \to \pow \Pk$ via the isomorphism $\pow{\Pk
+  \times S \times T} \cong S \times T \to \pow{\Pk}.$ A {\em symbolic
+  bisimulation} then, is just a map $S \times T \to \FDD[2]$. Although
+our implementation uses this representation of symbolic bisimulations,
+to lighten the notation we will often write them as sets of triples
+rather than functions.
+
+Next, we show how to reformulate the naive bisimulation algorithm in
+terms of symbolic automata and packets. The algorithm is shown in
+\Cref{fig:fwd-sym}. Note that we work with the product automaton for
+the input automata, $\mathcal{A}$ and $\mathcal{B}$. The definition is
+standard and given in \Cref{app:product}. Also, we not only replace
+packets with symbolic packets, but we also compute a symbolic
+bisimulation.
+
+\begin{figure} \small
+\begin{subfigure}[t]{.49\linewidth}
+\begin{algorithmic}
+\State $R\gets \emptyset$;
+\State $\todoR \gets \{(\Pk,s_0,t_0)\}$;
+\While{$\todoR$ is not empty}
+    \State extract $(\sympk, s,t)$ from $\todoR$;
+    \If {$\sympk \not\subseteq R_{s,t}$}
+     \If {$\epsilon_{\sympk}^{\A}(s) \neq \epsilon_{\sympk}^{\B}(t)$}
+        \State \Return \false;
+	\EndIf
+      \For {$(\sympkp, (s', t')) \in \nextC\ (s,t)\ (\sympk)$}
+        \If {$\sympkp \neq \emptyset$}
+     	    \State insert ($\sympkp, s', t'$) in \todoR;
+        \EndIf
+      \EndFor
+     \State $R_{s,t} \gets R_{s,t} \cup \sympk$;
+    \EndIf
+\EndWhile
+\State
+\Return \true;
+\end{algorithmic}
+\caption{Forward}
+\label{fig:fwd-sym}
+
+\end{subfigure}
+\begin{subfigure}[t]{.49\linewidth}
+\begin{algorithmic}
+\State $B \gets \emptyset$;
+  \State $\todoR \gets \{ (\{\pk \mid \epsA(s) \neq \epsB(t)\}, s, t) \mid \sympk \neq \emptyset\}$;
+\While{$\todoR$ is not empty}
+    \State extract $(\sympkp, s', t')$ from $\todoR$;
+    \If {$\sympkp \nsubseteq B_{s,t}$}
+        \If {$s' = s_0 \wedge t' = t_0$}
+            \State \Return \false;
+        \EndIf
+        \For {$(\sympk, (s, t)) \in \prevC\ (s',t')\ (\sympkp)$}
+          \If {$\sympk \neq \emptyset$}
+            \State insert ($\sympk, s, t$) in \todoR;
+          \EndIf
+        \EndFor
+        \State $B_{s,t} \gets B_{s,t} \cup \sympkp$;
+    \EndIf
+\EndWhile
+\Return \true
+\end{algorithmic}
+\caption{Backward}\label{fig:bkwd-alg}
+\end{subfigure}
+
+\caption {Two symbolic algorithms for deciding equivalence of \NetKAT
+automata.}\label{fig:pseudocode}
+\end{figure}
+
+\paragraph*{Computing Bisimulations Backwards}
+
+Next, we show that the opposite approach (similar to Moore's algorithm
+for minimization) also makes sense in the \NetKAT
+setting. Conceptually, while the forward method finds triples in
+$\PkST$ that must be in every bisimulation, the backwards method will
+search for for triples in $\PkST$ that can never be in a
+bisimulation. In particular, we start by relating states that have
+\emph{different} output functions, and follow transitions
+\emph{backward} along transitions in the two automata (equivalently,
+the product automaton). Ultimately, if we find that the start states
+can be related under this scheme, then the two automata are
+inequivalent (since we have found a path leading to different behavior
+in the automata). On the other hand, if we exhaust backward steps and
+have still not related the start states, then we conclude the automata
+are equivalent (see \Cref{thm:bkwd-correct}).
+
+
+
+\subsection{Correctness of the backward algorithm}\label{sec:bkwd-correct}
+
+We are ready to show the correctness of \Cref{fig:bkwd-alg} as a
+decision procedure for the equivalence of two deterministic \NetKAT
+automata.
+
+\begin{lemma}\label{lem:bkwd-termination}
+The algorithm in \Cref{fig:bkwd-alg} terminates.
+\end{lemma}
+\begin{proof}
+Let $n = |\Pk\times S\times T - B|$ and let $m = |\todoR|$.  The tuple
+$(n,m)$ is always finite and is bounded below by $(n,0)$, for any $n$,
+because of the while loop condition.  Moreover $(n,m)$ must decrease
+lexicographically every loop iteration: on iterations where we add to
+$B$, then $n$ decreases, and on iterations where we do not add to $B$,
+then $n$ is constant and $m$ decreases from popping $\todoR$. Note
+that we cannot add to $\todoR$ on iterations where $B$ does not
+decrease, and that $\todoR$ only contains triples with nonempty
+symbolic packets, because this is checked in both places triples are
+added to $\todoR$.
+\end{proof}
+
+\begin{restatable}{theorem}{bkwdcorrect}\label{thm:bkwd-correct}
+The algorithm in \Cref{fig:bkwd-alg} returns \true if there is a
+bisimulation between $\mathcal{A}$ and $\mathcal{B}$ and returns \false if
+there is no such bisimulation.
+\end{restatable}

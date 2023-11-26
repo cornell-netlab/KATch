@@ -1,0 +1,27 @@
+Writing
+=======
+
+* Replace FDD with SPP
+
+* Rip out WP entirely?
+
+* Combine grab bag sections into new single Implementation section
+
+* Iterate on Related Work
+
+Implemenation/Evaluation
+========================
+
+* Test forward and backward
+
+* Run frenetic
+
+* Produce tables / graphs
+
+* Do reachability check more efficiently
+    - n-wise or single check instead of n x n queries
+
+* Visualization
+
+* Run other queries (unreachability, slicing) or other topologies (Stanford,
+  generated fat trees)

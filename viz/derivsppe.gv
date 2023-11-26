@@ -1,0 +1,31 @@
+
+    digraph G {
+       n21 [label="a", shape=circle, width=0.3, fixedsize=true, style=filled, fillcolor="skyblue"]
+   n22 [label="", shape=diamond, width=0.15, height=0.15, style=filled, fillcolor="skyblue"]
+   n21 -> n22 [arrowhead=normal, label=" 1 ", labelangle=-30, fontsize=12, arrowsize=0.5, color="#555", fontcolor="black"]
+   n23 [label="", shape=diamond, width=0.15, height=0.15, style=filled, fillcolor="skyblue"]
+   n21 -> n23 [arrowhead=normal, arrowsize=0.5, style=dashed, color="#555"]
+   n23 -> n24 [arrowhead=normal, arrowsize=0.5, style=dashed, color="#555"]
+   n24 [label="b", shape=circle, width=0.3, fixedsize=true, style=filled, fillcolor="#C1E1C1"]
+   n25 [label="", shape=diamond, width=0.15, height=0.15, style=filled, fillcolor="#C1E1C1"]
+   n24 -> n25 [arrowhead=normal, label=" 2 ", labelangle=-30, fontsize=12, arrowsize=0.5, color="#555", fontcolor="black"]
+   n26 [label="", shape=diamond, width=0.15, height=0.15, style=filled, fillcolor="#C1E1C1"]
+   n24 -> n26 [arrowhead=normal, arrowsize=0.5, style=dashed, color="#555"]
+   n26 -> n27 [arrowhead=normal, arrowsize=0.5, style=dashed, color="#555"]
+   n27 [label="c", shape=circle, width=0.3, fixedsize=true, style=filled, fillcolor="peachpuff"]
+   n28 [label="", shape=diamond, width=0.15, height=0.15, style=filled, fillcolor="peachpuff"]
+   n27 -> n28 [arrowhead=normal, label=" 3 ", labelangle=-30, fontsize=12, arrowsize=0.5, color="#555", fontcolor="black"]
+   n28 -> n29 [arrowhead=normal, label=" 3 ", labelangle=-30, fontsize=12, arrowsize=0.5, color="#555", fontcolor="black"]
+   n29 [label="⊤", shape=box, width=0.3, height=0.3, fixedsize=true]
+   n30 [label="", shape=diamond, width=0.15, height=0.15, style=filled, fillcolor="peachpuff"]
+   n27 -> n30 [arrowhead=normal, arrowsize=0.5, style=dashed, color="#555"]
+   n30 -> n31 [arrowhead=normal, arrowsize=0.5, style=dashed, color="#555"]
+   n31 [label="⊥", shape=box, width=0.3, height=0.3, fixedsize=true]
+   {rank=same; n28; n30}
+   {rank=same; n26}
+   {rank=same; n21}
+   {rank=same; n23}
+   {rank=same; n24}
+   {rank=same; n27}
+
+    }

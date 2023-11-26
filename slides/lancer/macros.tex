@@ -1,0 +1,293 @@
+\usepackage[utf8]{inputenc}
+\usepackage[T1]{fontenc}
+% \usepackage{amssymb}
+\usepackage{xspace}
+% \usepackage[bitstream-charter]{mathdesign}
+\usepackage{microtype}
+\usepackage{textcomp}
+\usepackage{mathtools}
+\usepackage{hyperref}
+% \usepackage[all]{hypcap}
+\hypersetup{
+    colorlinks=true,
+    linkcolor=blue,
+    filecolor=magenta,
+    urlcolor=blue,
+}
+\usepackage[nameinlink,noabbrev]{cleveref}
+\usepackage{float}
+\usepackage{listings}
+% \usepackage{color}
+% \usepackage[dvipsnames]{xcolor}
+% \PassOptionsToPackage{usenames,dvipsnames}{xcolor}
+\usepackage{tcolorbox}
+\usepackage{stmaryrd}
+\usepackage{slashed}
+
+\Crefname{section}{\S\!}{\S}
+
+\definecolor{lightgray}{rgb}{.9,.9,.9}
+\definecolor{darkgray}{rgb}{.4,.4,.4}
+\definecolor{purple}{rgb}{0.65, 0.12, 0.82}
+\definecolor{ultramarine}{rgb}{0.17, 0.26, 0.70}
+
+\newcommand{\lineref}[1]{\hyperref[#1]{Line~\ref*{#1}}}
+
+\lstdefinelanguage{JavaScript}{
+  keywords=[1]{c1,c1',c2,c2',c},
+  keywords=[2]{fork, send, receive, close},
+  keywordstyle=[1]\color{ultramarine},
+  keywordstyle=[2]\color{BrickRed},
+  comment=[l]{//},
+  morecomment=[s]{/*}{*/},
+  commentstyle=\color{purple}\ttfamily,
+  stringstyle=\color{red}\ttfamily,
+  columns=fullflexible
+}
+
+\lstset{
+   language=JavaScript,
+   extendedchars=true,
+   basicstyle=\small\ttfamily,
+   morekeywords=[2]{let,send,recv,fork},
+   columns=flexible,
+   mathescape=true,
+   literate=
+    {forall}{$\forall$}1
+    {->}{$\to$}1
+    {=>}{$\implies$}1
+    {fun}{$\lambda$}3
+    {...}{$\dots$}3
+}
+
+\newcommand{\N}{\mathbb{N}}
+\newcommand{\Z}{\mathbb{Z}}
+\newcommand{\Q}{\mathbb{Q}}
+\newcommand{\R}{\mathbb{R}}
+
+\usepackage{amsmath}
+\usepackage{amsthm}
+\usepackage{mathpartir}
+
+% \newtheorem{theorem}{Theorem}[section]
+% \newtheorem{lemma}[theorem]{Lemma}
+% \theoremstyle{definition}
+% \newtheorem{definition}{Definition}[section]
+% \newtheorem{corollary}{Corollary}[theorem]
+\usepackage{adjustbox}
+% \usepackage[notref,notcite]{showkeys}
+\usepackage{todonotes}
+
+\usepackage{xparse}
+
+\NewDocumentCommand{\TODO}{m m}%
+  {{\bfseries\color{#1}#2}}%
+\newcommand*{\robbert}[1]{{\TODO{red}{RK: #1}}}
+\newcommand*{\jules}[1]{{\TODO{teal}{JJ: #1}}}
+\newcommand*{\stephanie}[1]{\TODO{blue}{SB: #1}}
+%Comment out to disable comments
+\RenewDocumentCommand{\TODO}{m m}{}
+
+% =========== TIKZ ===========
+\usepackage{graphicx}
+\usepackage{tikz}
+\usetikzlibrary{shapes.geometric, arrows}
+\usetikzlibrary{fit}
+\usetikzlibrary{svg.path}
+% \usetikzlibrary{graphdrawing}
+% \usetikzlibrary{graphdrawing.force}
+% \usetikzlibrary{graphdrawing.layered}
+\usetikzlibrary{decorations}
+\usetikzlibrary{decorations.markings}
+\usetikzlibrary{backgrounds}
+\usetikzlibrary{tikzmark}
+
+\tikzstyle{thread} = [thick,rectangle, rounded corners, minimum width=0.6cm, minimum height=0.6cm,text centered, draw=black, fill=red!45, scale=0.9]
+\tikzstyle{threadg} = [ultra thick, dotted, rectangle, rounded corners, minimum width=0.6cm, minimum height=0.6cm,text centered, draw=black, fill=LimeGreen!70, scale=0.9]
+\tikzstyle{threadt} = [thick,rectangle, rounded corners, minimum width=0.6cm, minimum height=0.6cm,text centered, draw=black, scale=0.9, fill=black!30, opacity=0.5]
+\tikzstyle{threadu} = [thick,rectangle, rounded corners, minimum width=0.6cm, minimum height=0.6cm,text centered, draw=black, scale=0.9]
+
+\tikzstyle{dummy} = [inner sep=0, minimum width=0.63cm, scale=0.9]
+\tikzstyle{channel} = [thick,circle, text centered, draw=black, fill=blue!30, inner sep=0, minimum width=0.63cm, scale=0.9]
+\tikzstyle{unknown} = [thick,circle, text centered, draw=black, fill=white!30, scale=0.9, inner sep=0, minimum width=0.63cm]
+\tikzstyle{val} = [thick,rectangle, rounded corners, minimum width=1cm, minimum height=0.8cm, text centered, draw=black, dashed, fill=green!30, scale=0.9]
+\tikzstyle{lock} = [thick,circle, text centered, draw=black, fill=green!30, scale=0.9]
+\tikzstyle{arrow} = [thick,->,>=stealth]
+\newcommand{\triplearrow}[2]{
+  \draw [arrow, bend right] (#1) edge (#2);
+  \draw [arrow, bend left] (#1) edge (#2);
+  \draw [arrow] (#1) -- (#2);
+}
+\tikzset{->-/.style={thick,decoration={
+    markings,
+    mark=at position 0.68 with {\arrow[black,scale=1.7]{latex}},
+    mark=at position 0.6 with {\arrow[red,scale=1.3]{latex}},
+    mark=at position 1 with {\arrow{stealth}}},
+  postaction={decorate}}}
+
+\tikzset{-<-/.style={thick,decoration={
+    markings,
+    mark=at position 0.6 with {\arrow[black,scale=1.7]{latex reversed}},
+    mark=at position 0.6 with {\arrow[red,scale=1.3]{latex reversed}},
+    mark=at position 1 with {\arrow{stealth}}},
+  postaction={decorate}}}
+
+\tikzset{-->/.style={thick,decoration={
+    markings,
+    mark=at position 1 with {\arrow{stealth}}},
+  postaction={decorate}}}
+
+\newif\ifshowtikz
+\showtikztrue
+% \showtikzfalse   % <---- comment/uncomment that line
+
+\let\oldtikzpicture\tikzpicture
+\let\oldendtikzpicture\endtikzpicture
+
+\renewenvironment{tikzpicture}{%
+    \ifshowtikz\expandafter\oldtikzpicture%
+    \else\comment%
+    \fi
+}{%
+    \ifshowtikz\oldendtikzpicture%
+    \else\endcomment%
+    \fi
+}
+
+% =============================
+
+\newcommand{\ie}{\textit{i.e.,}\xspace}
+\newcommand{\eg}{\textit{e.g.,}\xspace}
+\newcommand{\etc}{\textit{etc.}\xspace}
+\newcommand{\viceversa}{\textit{vice versa}}
+\newcommand{\wrt}{w.r.t.\ }
+
+\newcommand{\Type}{\kern-0.1em\textdom{Type}}
+\newcommand{\Session}{\textdom{Session}}
+\newcommand{\Heap}{\textdom{Heap}}
+\newcommand{\Cfg}{\textdom{Cfg}}
+\newcommand{\Chan}{\textdom{Chan}}
+
+\newcommand{\letkeyword}{\mathsf{let}}
+\newcommand{\sendkeyword}{\mathsf{send}}
+\newcommand{\recvkeyword}{\mathsf{receive}}
+\newcommand{\forkkeyword}{\mathsf{fork}}
+\newcommand{\closekeyword}{\mathsf{close}}
+
+\newcommand{\app}[2]{#1\ #2}
+\newcommand{\lam}[2]{\lambda #1.\ #2}
+\newcommand{\send}[2]{\sendkeyword(#1,#2)}
+\newcommand{\recv}[1]{\recvkeyword(#1)}
+\newcommand{\letV}[3]{\letkeyword\ #1 = #2\ \mathsf{in}\ #3}
+\newcommand{\letU}[2]{\letkeyword\ () = #1\ \mathsf{in}\ #2}
+\newcommand{\letP}[4]{\letkeyword\ (#1,#2) = #3\ \mathsf{in}\ #4}
+\newcommand{\ifE}[3]{\mathsf{if}\ #1\ \mathsf{then}\ #2\ \mathsf{else}\ #3}
+\newcommand{\fork}[1]{\forkkeyword(#1)}
+\newcommand{\close}[1]{\closekeyword(#1)}
+
+\newcommand{\typed}[3]{#1 \vdash #2 : #3}
+\newcommand{\typedH}[4]{#1; #2 \vdash #3 : #4}
+\newcommand{\typedSL}[3]{#1 \vDash #2 : #3}
+\newcommand{\buftyped}[3]{{}\vdash_{\mathit{buf}}{} #1 : (#2,#3)}
+
+\newcommand{\heapEnv}{\Sigma}
+\newcommand{\nattype}{\mathbf{N}}
+\newcommand{\unittype}{\mathbf{1}}
+\newcommand{\voidtype}{\mathbf{0}}
+\newcommand{\funtype}{\mathrel{-\kern-1pt\circ}}
+
+\renewcommand{\Loc}{\textdom{Addr}}
+
+\newcommand{\loc}{a}
+\newcommand{\chan}{c}
+\newcommand{\session}{s}
+\newcommand{\heap}{h}
+\renewcommand{\cfg}{\rho}
+\newcommand{\buf}{\vec{v}}
+\newcommand{\ctx}{\Gamma}
+
+\newcommand{\ctxdisjoint}{\mathrel{\bot}}
+
+\newcommand{\hole}{\Box}
+\newcommand{\nexteq}{\\[5pt]}
+\newcommand{\chanep}[2]{\#(#1,#2)}
+\newcommand{\thread}[1]{#1}
+
+\renewcommand{\step}{\leadsto}
+\newcommand{\steps}{\step^*}
+\newcommand{\pstep}{\leadsto_\mathrm{pure}}
+\newcommand{\hstep}{\leadsto_\mathrm{head}}
+\newcommand{\gstep}{\leadsto_\mathrm{global}}
+\newcommand{\append}{+\kern-1ex+\kern0.8ex}
+\newcommand{\length}[1]{| #1 |}
+\newcommand{\blockedShort}[1]{\mathsf{blocked}_{#1}}
+\newcommand{\blocked}[3][]{\blockedShort{#1}(#2, #3)}
+
+\newcommand{\RECV}{\textnormal{\textbf ?}}
+\newcommand{\SEND}{\textnormal{\textbf !}}
+\newcommand{\sRecvHead}[1]{\RECV\, #1}
+\newcommand{\sSendHead}[1]{\SEND\, #1}
+
+\newcommand{\sRecv}[2]{\sRecvHead{#1}.\, #2}
+\newcommand{\sSend}[2]{\sSendHead{#1}.\, #2}
+\newcommand{\sEnd}{\mathsf{End}}
+\newcommand{\dual}[1]{\overline{#1}}
+
+\newcommand{\mset}{\Delta}
+
+\newcommand{\sep}{\ast}
+\newcommand{\pure}[1]{\ulcorner #1 \urcorner}
+\newcommand{\own}[1]{\mathsf{own}(#1)}
+\newcommand{\sepand}{\ \, \ast\ \,}
+
+\newcommand{\cgraph}{G}
+\newcommand{\CgraphShort}{\textdom{Cgraph}}
+\newcommand{\Cgraph}[2]{\CgraphShort(#1,#2)}
+
+\newcommand{\graph}{G}
+\newcommand{\graphB}{H}
+\newcommand{\GraphShort}{\textdom{graph}}
+\newcommand{\Graph}[2]{\GraphShort(#1,#2)}
+
+\newcommand{\Vertex}{\textdom{V}}
+\newcommand{\Lab}{\textdom{L}}
+
+\newcommand{\vertex}{\nu}
+\newcommand{\vertexB}{\mu}
+\newcommand{\vertexC}{\eta}
+\newcommand{\lab}{l}
+\newcommand{\labB}{l'}
+\newcommand{\tvar}{\alpha}
+\newcommand{\tvarB}{\alpha}
+\newcommand{\chtag}{t}
+
+\newcommand{\edge}[4][]{#2 \to^{#3}_{#1} #4}
+\newcommand{\edgeReverse}[4][]{#2 \leftarrow^{#3}_{#1} #4}
+\newcommand{\connectedOne}[3][]{#2 \leftrightarrow_{#1} #3}
+\newcommand{\connected}[3][]{#2 \leftrightarrow^*_{#1} #3}
+
+\newcommand{\notconnected}[3][]{#2 \mathrel{\slashed{\leftrightarrow}_{#1}^*} #3}
+
+\newcommand{\inlabels}[2]{\mathsf{in}(#1,#2)}
+\newcommand{\outedges}[2]{\mathsf{out}(#1,#2)}
+\newcommand{\multiset}{\Delta}
+\newcommand{\Multiset}[1]{\textdom{Multiset}\;#1}
+\newcommand{\typedef}{:}
+\newcommand{\ThreadV}{\mathsf{Thread}}
+\newcommand{\ChanV}{\mathsf{Chan}}
+
+\newcommand{\wflocal}[1][]{\mathsf{wf}^{\mathit{local}}_{#1}}
+
+\newcommand{\wf}{\mathsf{wf}}
+\newcommand{\init}{\mathsf{init}}
+\newcommand{\final}{\mathsf{final}}
+
+\newcommand{\wandrules}{\mprset{fraction={{\text{-}} {\text{-}} {\text{ }\ast}}}}
+\newcommand{\genwfShort}{\mathsf{wf}}
+\newcommand{\genwf}[1]{\mathsf{wf}(#1)}
+\newcommand{\linv}{P}
+\newcommand{\linvB}{P'}
+\newcommand{\msetA}{\multiset_1}
+\newcommand{\msetB}{\multiset_2}
+\newcommand{\activeset}{\mathsf{active}}
+\newcommand{\canstep}[1]{#1 \text{ can step}}

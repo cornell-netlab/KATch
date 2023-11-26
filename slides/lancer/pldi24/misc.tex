@@ -1,0 +1,377 @@
+\begin{figure}
+  \begin{minipage}[t]{0.3\textwidth}
+  \begin{align*}
+      v &::= 0 \mid 1 \mid \ldots \mid n &\text{Values}\\
+      f &::= f_1 \mid \ldots \mid f_k &\text{Fields}\\
+      \pk &::= \{f_1 = v_1, \ldots, f_k = v_k\} &\text{Packets}\\
+      p,q &::= & \text{Programs}
+           \\&\mid\quad \top & \text{True}
+           \\&\mid\quad \bot & \text{False}
+           \\&\mid\quad f = v & \text{Test equals}
+           \\&\mid\quad f \neq v & \text{Test not equals}
+           \\&\mid\quad f \gets v & \text{Modification}
+           \\&\mid\quad \text{dup} & \text{Duplication}
+           \\&\mid\quad p + q & \text{Union}
+           \\&\mid\quad p \cdot q & \text{Sequencing}
+           \\&\mid\quad p^\star & \text{Iteration}
+  \end{align*}
+  \end{minipage}
+  \begin{minipage}[t]{0.4\textwidth}
+  \begin{align*}
+      \Sem{-} \colon \Exp &\to \Pk \to \pow{\Pk^\star}\\[2mm]
+      \Sem{\top}(\alpha) & \triangleq \{ \alpha \}\\
+      \Sem{\bot}(\alpha) & \triangleq \emptyset\\
+      \Sem{f \test v}(\alpha) & \triangleq \{ \alpha \mid \alpha.f = v \}\\
+      \Sem{f \neq v}(\alpha) & \triangleq \{ \alpha \mid \alpha.f \neq v \}\\
+      \Sem{f \mut v}(\alpha) & \triangleq \{ \alpha[v/f] \}\\
+      \Sem{\text{dup}}(\alpha) & \triangleq \{ \alpha\alpha \}\\
+      \Sem{p+q}(\alpha) & \triangleq \Sem{p}(\alpha) \cup \Sem{q}(\alpha)\\
+      \Sem{p\cdot q}(\alpha) & \triangleq \{ \beta\gamma \mid \beta \in \Sem{p}(\alpha),\ \gamma \in \Sem{q}(\beta_{|\beta|}) \}\\
+      \Sem{p^\star} & \triangleq \bigcup\limits_{n\geq 0} \Sem{p}^n\\
+  \end{align*}
+  \end{minipage}
+  \caption{NetKAT syntax and semantics.}
+\end{figure}
+
+\begin{figure}
+  \renewcommand{\arraystretch}{1.1}
+  \begin{tabular}{lcl}
+      % Syntax (left), Description (middle), and Semantics (right)
+      $v ::= 0 \mid 1 \mid \ldots \mid n$ & Values & \\
+      $f ::= f_1 \mid \ldots \mid f_k$ & Fields & \\
+      $\pk ::= \{f_1 = v_1, \ldots, f_k = v_k\}$ & Packets & \\
+      \hline
+      Syntax & Description & Semantics \\
+      \hline
+      $p,q ::= $ & Programs & $(\alpha : \Pk) \to \pow{\Pk^\star}$ \\
+      \qquad$\mid\quad \top$ & True & $\Sem{\top}(\alpha) \triangleq \{ \alpha \}$ \\
+      \qquad$\mid\quad \bot$ & False & $\Sem{\bot}(\alpha) \triangleq \emptyset$ \\
+      \qquad$\mid\quad f = v$ & Test equals & $\Sem{f \test v}(\alpha) \triangleq \{ \alpha \mid \alpha.f = v \}$ \\
+      \qquad$\mid\quad f \neq v$ & Test not equals & $\Sem{f \neq v}(\alpha) \triangleq \{ \alpha \mid \alpha.f \neq v \}$ \\
+      \qquad$\mid\quad f \gets v$ & Modification & $\Sem{f \mut v}(\alpha) \triangleq \{ \alpha[v/f] \}$ \\
+      \qquad$\mid\quad \text{dup}$ & Duplication & $\Sem{\text{dup}}(\alpha) \triangleq \{ \alpha\alpha \}$ \\
+      \qquad$\mid\quad p + q$ & Union & $\Sem{p+q}(\alpha) \triangleq \Sem{p}(\alpha) \cup \Sem{q}(\alpha)$ \\
+      \qquad$\mid\quad p \cdot q$ & Sequencing & $\Sem{p\cdot q}(\alpha) \triangleq \{ \beta\gamma \mid \beta \in \Sem{p}(\alpha),\ \gamma \in \Sem{q}(\beta_{|\beta|}) \}$ \\
+      \qquad$\mid\quad p^\star$ & Iteration & $\Sem{p^\star} \triangleq \bigcup\limits_{n\geq 0} \Sem{p}^n$ \\
+  \end{tabular}
+  \renewcommand{\arraystretch}{1.0}
+\end{figure}
+
+% \begin{figure}\small
+%     \centering
+%     \begin{tabular}{@{}lrcl@{}l|l}
+%         \textbf{Syntax} & & &&& \textbf{Semantics: $\Sem{-} \colon \Exp \to \pow\GS$ }\\
+%         \hline
+%         \text{Values} &  $V \ni v$&$\Coloneqq$  &$0 \mid \ldots \mid n$ & & \hfill $\GS \triangleq \Pk\cdot(\Pk\cdot\text{dup})^\star\cdot\Pk$  \\
+%         \text{Fields} & $F \ni f$&$\Coloneqq$& $f_1 \mid \ldots \mid$ & $f_k$ &
+%         % GS semantics
+%         \multirow{6}{*}{$
+%         \begin{array}{lcl}
+%         \Sem{a} &\triangleq& \{\pk \cdot \pk \mid \pk\in \pSem a \}\\
+%         \Sem{f\gets v} &\triangleq& \{\pk \cdot \pkp \mid \pkp=\pk[v/f],\ \pk \in \Pk\}\\
+%         \Sem{p + q} &\triangleq& \Sem{p} \cup \Sem{q}\\
+%         \Sem{p\cdot q} &\triangleq& \Sem{p} \diamond \Sem{q}\\
+%         \Sem{\dup} &\triangleq& \{ \pk\cdot \pk_1 \cdot \dup \cdot \pk_1 \mid \pk,\pk_1 \in \Pk\}\\
+%         \Sem{p^\star} &\triangleq& \bigcup\limits_{n\geq 0} \Sem{p^n}
+%         \end{array}
+%         $}   \\
+%         \text{Packets} &  $\Pk\ni \pk$&$\Coloneqq$&  $\{f_1 = n_1,$ & $\ldots,f_k = n_k\}$ &  \\
+%         &&&&&  \\
+%         %%\text{Histories}  & $h \Coloneqq pk::\langle\rangle \mid pk::h$ & & $\llbracket 1 \rrbracket h \triangleq \{h\}$ \\
+%         $\text{Predicates}$ & $\Pred \ni a,b$&$\Coloneqq$ & $\one$ & \emph{True}            &\\
+%                        & & $\mid$&$ \zero$ & \emph{False}                        &  \\
+%                        & & $\mid$&$ f = v$ & \emph{Basic Test}                    &  \\
+%                        & & $\mid$&$ a + b$ & \emph{Disjunction}             &  \\
+%                        & & $\mid$&$ a \cdot b$ & \emph{Conjunction}         & \textbf{Predicate Semantics: $\pSem{a} \colon \pow\Pk$}\\\cline{6-6}
+%                        & & $\mid$&$ \neg a$ & \emph{Negation}               &
+%                        % Predicate semantics
+%         \multirow{4}{*}{$
+%            \begin{array}{lcl}
+%            \pSem{\zero} &\triangleq& \emptyset \quad \pSem{\one} \triangleq \Pk\\
+%            \pSem{f= v} &\triangleq& \{\pk \mid \pk.f = v,\ \pk \in \Pk\}\\
+%            \pSem{a+b} &\triangleq& \pSem{a} \cup \pSem{b} \\
+%            \pSem{a\cdot b} \triangleq \pSem{a} \cap \pSem{b}\\
+%            \pSem{\neg a} &\triangleq& \Pk \setminus \pSem{a}
+%            \end{array}
+%            $}\\
+%            &&&&&   \\
+%         \text{Program}&$\Exp \ni p,q$ & $\Coloneqq$ & $a$ & \emph{Filter}  &   \\
+%         \text{expressions} & & $\mid$&$ f \gets n$ & \emph{Modification} & \\
+%                         &  & $\mid$&$ p + q$ & \emph{Union} & \\
+%                         &  & $\mid$&$ p \cdot q$ & \emph{Sequencing} & \textbf{Guarded String Concatenation}\\\cline{6-6}
+%                         &  & $\mid$&$ p^\star$ & \emph{Iteration} &
+%                         \multirow{3}{*}{$
+%                         \begin{array}{l}
+%                         \pk \cdot x \cdot \pk_1 \diamond   \pk_2 \cdot y \cdot \pkp  =
+%                         \begin{cases} \pk \cdot x \cdot y  \cdot \pkp & \pk_1 = \pk_2\\
+%                         \text{undefined} & \pk_1 \neq \pk_2\end{cases}
+%                         \\
+%                         X \diamond Y = \{ x\diamond y \mid x\in X, y\in Y \}, \quad X,Y\subseteq \GS
+%                         \end{array}
+%                         $}\\
+%                         &  & $\mid$&$ \text{dup}$ & \emph{Duplication}&  \\
+%                         &  & & & & \\[.5em]
+%     \end{tabular}
+% \caption{\NetKAT: Syntax and Language Model Semantics.}
+% \label{fig:synsem}
+% \end{figure}
+
+
+The semantics of \NetKAT is given in terms of \emph{guarded strings},
+which are sequences of packets drawn from the set $\GSdef$. Each
+guarded string has the form $\pk \cdot \pk_1\cdot \dup \cdots \pk_n
+\cdot \dup \cdot \pkp$ where $n\geq 0$. Intuitively, it represents the
+packet's history as it goes through the network: $\pk$ is the input
+packet, $\pkp$ is the output, the $\pk_i$ are intermediate packets
+recorded as it traverses the network. We say two \NetKAT programs
+$p_1, p_2 \in \Exp$ are equivalent, written $p_1 \equiv p_2$, whenever
+$\Sem{p_1} = \Sem{p_2}$.
+
+\begin{remark}[Atoms]
+The reader familiar with prior work on \NetKAT~\cite{netkat} will
+notice we define guarded strings slightly differently than in prior
+work:
+\[
+\GSdef \qquad\text{vs.}\qquad \GSdefold.
+\]
+These representations are isomorphic as $\Pk$ is isomorphic to $\At$,
+the atoms of the Boolean algebra \Pred.
+\end{remark}
+
+\begin{remark}[Redundancy in the semantics]
+We included in \Cref{fig:synsem} an explicit definition of the
+semantics $\pSem a$ for $a\in\Pred$, which associates with every
+predicate its Boolean interpretation as a set of packets. We present
+this explicit definition for notational convenience: $\Pred$ is a
+subalgebra of $\Exp$ in which the conjunction and disjunction
+operations are compatible with union and sequencing. We could have
+equivalently defined $\Sem -$ only on basic tests and negations of
+basic tests and then proved that when $\Sem -$ is applied to $a\in
+\Pred$, the resulting semantics has the form $\{\pk\cdot\pk \mid \pk
+\in \Pk, \pk \in \pSem a\} \in \pow{\Pk\cdot\Pk}$.
+\end{remark}
+
+
+---------------------
+
+A \NetKAT automaton $\mathcal{A}$ is simply a
+finite-state NetKAT coalgebra with a distinguished start state $s_0\in
+S$, written as $(S, s_0, \epsilon, \delta)$. We will often describe
+$\epsilon$ and $\delta$ in terms of families of functions over
+$\Pk\times\Pk$. The function $\epsilon\colon S \to 2^{\Pk \times \Pk}$
+is in one-to-one correspondence with the family of functions
+$\epsilon_{\pk\pkp} \colon S \to 2$, for $\pk,\pkp\in\Pk$ through the
+correspondence $ \epsilon_{\pk\pkp} (s) = \epsilon(s)(\pk,\pkp)$;
+analogously, the function $\delta\colon S \to S^{\Pk \times \Pk}$ is
+in one-to-one correspondence with the family of functions
+$\delta_{\pk\pkp} \colon S \to S$ through $\delta_{\pk\pkp}(s) =
+\delta (s)(\pk,\pkp)$.
+
+The input to \NetKAT automata are guarded strings of the form $\pk
+\cdot \pk_1 \cdot \dup \cdot \ldots \cdot \pk_n \cdot \dup \cdot
+\pkp$, for $n\geq 0$. In state $s$, the automaton can either accept
+the string if $n=0$ and $\epsilon_{\pk\pkp}(s)= 1$ or it can consume
+one packet and $\dup$ from the start of the string and transition to
+state $s'$ in which the rest of the string needs to be processed if $n
+> 0$. More formally, the set of strings accepted by a state $s\in S$
+is captured by the function $\accept\in S \to \pow\GS $ defined
+as follows:
+    \begin{align}
+      \pk \cdot \pkp \in   \accept(s) &
+      \iff \epsilon_{\pk\pkp}(s)=1 \\
+ \label{accept_transition}
+     \pk \cdot \pk_1 \cdot \dup \cdot w \in   \accept(s) &
+     \iff
+     \pk_1 \cdot w \in \accept(\delta_{\pk\pk_1}(s)).
+    \end{align}
+The set of strings accepted by an automaton $\mathcal A = (S, s_0,
+\epsilon, \delta)$ is defined as:
+%
+\[
+L(\mathcal{A}) \triangleq \accept(s_0).
+\]
+%
+We say that two \NetKAT automata $\mathcal A= (S, s_0, \epsilon^\A,
+\delta^\A)$ and $\mathcal B= (T, t_0, \epsilon^\B, \delta^\B)$ are
+equivalent if $L(\mathcal{A}) = L(\mathcal{B})$. Our overall goal is
+to design efficient procedures for checking equivalence using
+bisimulation---a sound and complete proof principle for NetKAT
+language equivalence.
+
+
+\subsection{From \NetKAT Programs to Automata}
+\label{automataconversion}
+
+To compute bisimulations between \NetKAT programs, we need to first
+convert the programs into automata. We present a direct construction
+of a \NetKAT automaton using an analogue of Brzozowski
+derivatives~\cite{brzozowski1962}. We first show that the set $\Exp$
+has the structure of a $\NetKAT$ coalgebra, that is a \NetKAT
+automaton without an initial state and with an infinite state
+space. We then prove that for a fixed program $p$ the automaton with
+initial state $p$ has a finite state space.
+
+% MM: I think this is irrelevant now?
+%% Note that in an implementation, there is an interesting choice to be
+%% made here: we can either perform the conversion ``on-the-fly'' along
+%% with the bisimulation check, or we can fully convert the programs to
+%% automata before starting the bisimulation check. We explore both of
+%% these in our implementation and discuss this choice further in
+%% \Cref{sec:tradeoffs}.
+
+Given $T\subseteq S$ we say that
+$(T,\left<\epsilon\!\!\mid_T,\delta\!\!\mid_T\right>)$ is a
+subcoalgebra of $(S,\left<\epsilon,\delta\right>)$ if the restricted
+transition function $\delta\!\!\mid_T \colon T \to T^{\Pk\times\Pk}$
+is well-defined---i.e., $T$-transitions stay in $T$. We define the
+states of the subcoalgebra generated by $s\in S$, denoted
+$\left<s\right>$ as the intersection of all subcoalgebras containing
+$s$:
+\[
+\bigcap \{ T \mid (T,\left<\epsilon\vert_T,\delta\vert_T\right>) \text{ is a subcoalgebra of } (S,\left<\epsilon,\delta\right>) \text{ and } s\in T \}
+\]
+More intuitively, we start from $s$ and close under repeated $\delta$ transitions.
+
+\begin{restatable}[Derivatives for Expressions]{theorem}{automataexpressions}
+The set of $\Exp$ has the structure of a \NetKAT coalgebra, given by
+the functions $E\colon \Exp \to 2^{\Pk\times\Pk}$ and $D \colon\Exp
+\to \Exp^{\Pk\times\Pk}$ in \Cref{fig:derivatives}. Moreover, for
+every $p\in\Exp$ the subcoalgebra generated by $p$ is finite as long
+as we consider expressions modulo associativity, commutativity, and
+idempotence (ACI).
+\end{restatable}
+
+With this result, we can now define the \NetKAT automaton
+corresponding to an expression.
+
+\begin{definition}[\NetKAT automaton for a program] The \NetKAT automaton $\mathcal A_p$ for a program $p\in\Exp$ is the automaton $(S, s_0, \epsilon, \delta)$, where:
+\begin{itemize}
+    \item $S = \left<p\right> \subseteq \Exp$ (by taking the subcoalgebra of $(\Exp, \left<E,D\right>)$ modulo ACI).
+    \item $s_0 = p$ is the start state.
+    \item $\epsilon\colon S \to 2^{\Pk \times\Pk}$ is given by $\epsilon_{\pk\pkp}(s)  = E_{\pk\pkp}(s)$.
+        \item $\delta\colon S \to S^{\Pk\times\Pk}$ is given by $\delta_{\pk\pkp}(s) = D_{\pk\pkp}(s)$.
+\end{itemize}
+\end{definition}
+
+\begin{figure}
+\begin{tabular}{|c|c|c|}
+    \hline
+    $p \in \Exp$        & $E_{\pk} \colon 2^\Pk$            & $D_{\pk\pkp} \colon \Exp\to\Exp$ \\
+    \hline
+     $a$             & $\{\pk\} \cap [a]$                       & $\zero$  \\
+    $f \gets n$         & $\{\pk[n/f]\}$                     & $\zero$ \\
+     $\dup$ &  $\emptyset$                                            & $[\pk=\pkp];\pk$\\
+    $q + r$             & $E_{\pk}(q) \cup E_{\pk}(r)$     & $D_{\pk\pkp}(q) + D_{\pk\pkp}(r)$\\
+    $q \cdot r$         & $\bigcup\limits_{\pkp\in E_\pk(q)}  E_{\pkp}(r)$ & $D_{\pk\pkp}(q); r + \sum\limits_{\gamma} E_{\pk\gamma}(p);D_{\gamma\pkp}(r)$\\
+    $q^\star$           & $\{\pk\} \cup \bigcup\limits_{\pkp\in E_\pk(q)}  E_{\pkp}(q^\star)$                    &  $D_{\pk}(q); q^\star + \sum\limits_{\gamma}E_{\pk\gamma}(q) ; D_{\gamma\pkp}(q^\star)$ \\
+    \hline
+\end{tabular}
+    \caption{\NetKAT automata via Brzozowski derivatives. Note that the definitions for iteration are circular, but both are well-defined if we take the least fixpoint of the system of equations. }
+    \label{fig:derivatives}
+\end{figure}
+
+\begin{example}\label{ex:automaton}
+To illustrate the construction, consider the \NetKAT program $p$:
+%
+\[
+p \triangleq
+    x=1 +  y=2\cdot y\gets7\cdot\dup\cdot(z=1\cdot y\gets3 +  z=2\cdot z\gets4\cdot\dup\cdot y\gets1)
+\]
+%
+The automaton for $p$ has three states (omitting states with empty
+output):
+\begin{center}
+\begin{tikzpicture}
+\node[state, initial] (s0) {$p$};
+\node[state, right of=s0] (s1) {$q$};
+\node[state, right of=s1] (s2) {$r$};
+\node[draw=none, below of=s0, node distance=27pt] {$x=1$};
+\node[draw=none, below of=s1, node distance=27pt] {$z=1\cdot y\gets 3$};
+\node[draw=none, below of=s2, node distance=27pt] {$y\gets 1$};
+\draw (s0) edge node{$y=2\cdot y\gets 7$} (s1);
+\draw (s0) edge[ematrix] ++ (0,-0.75);
+\draw (s1) edge[ematrix] ++ (0,-0.75);
+\draw (s1) edge node{$z=2\cdot z\gets 4$}  (s2);
+\draw (s2) edge[ematrix] ++ (0,-0.75);
+\end{tikzpicture}
+\end{center}
+
+\noindent Here, the states are $p$, $q$ and $r$, where:
+%
+\[
+q \equiv z=1\cdot y\gets3 +  z=2\cdot z\gets4\cdot\dup\cdot y\gets1 \qquad\qquad
+r \equiv y\gets 1.
+\]
+%
+To make the drawing above simpler, we have represented both the
+transition labels and output labels with dup-free \NetKAT programs.
+\end{example}
+
+\subsection{Bisimulations of \NetKAT Automata}
+
+Having reviewed basic definitions for NetKAT, we now present a first
+algorithm to check the equivalence of \NetKAT automata $\mathcal{A} =
+(S, s_0, \epsilon^\A, \delta^\A)$ and $\mathcal{B} = (T, t_0,
+\epsilon^\B, \delta^\B)$. Because NetKAT's acceptance function
+$\accept$ is defined on the unique language map $\mathcal L$ of the
+Moore automaton corresponding to a \NetKAT automaton, to obtain
+language equivalence, our bisimulation relation is not just a relation
+over $S\times T$ but $\Pk\times S\times T$ instead.
+
+\begin{definition}[Bisimulation]\label{def:bisim}
+    A relation $R
+    \subseteq \Pk \times S\times T$ is a \emph{bisimulation} between \NetKAT
+    automata $\mathcal{A} = (S, s_0, \epsilon^\A, \delta^\A)$
+    and $\mathcal{B} = (T, t_0, \epsilon^\A, \delta^\B)$ if the following conditions hold:
+\begin{enumerate}[(a)]
+    \item For all $\pk\in\Pk$, $(\pk, s_0, t_0) \in R$.
+    \item For all $(\pk,s,t)\in R$:
+    \begin{enumerate}[(i)]
+    \item $\epsA(s) = \epsB(t)$ \text{ and },
+    \item For all $\pkp\in\Pk$,  $(\pkp, \delA(s), \delB(t))\in R$.
+    \end{enumerate}
+\end{enumerate}
+\end{definition}
+
+\noindent \Cref{fig:naive} presents a simple algorithm to compute a
+bisimulation between \NetKAT automata.
+
+\begin{restatable}[Correctness of Naive Algorithm]{theorem}{bisimnaivetermination}
+The algorithm in \Cref{fig:naive} terminates and either returns true
+if a bisimulation exists for the input \NetKAT automata $\mathcal A$
+and $\mathcal B$ (and constructs a bisimulation $R$) or false if one
+does not exist.
+\end{restatable}
+
+\noindent Bisimulations are sound and complete proof principles for
+\NetKAT language equivalence.
+
+\begin{figure}
+\begin{algorithmic}
+\State $R\gets \emptyset; \todoR \gets \{(\pk,s_0,t_0)\mid \pk\in \Pk\}$,
+\While{$\todoR$ is not empty}
+    \State extract $(\pk, s,t)$ from $\todoR$;
+    \If{$(\pk, s,t) \not\in R$}
+     \If{$\epsA(s) \neq \epsB(t)$}
+      \Return \false;
+	\EndIf
+      \For {$\pkp \in \Pk$}
+     	insert ($\pkp$, $\delA(s)$,$\delB(t)$) in \todoR;
+\EndFor
+    \EndIf
+     insert $(\pk,s,t)$ in $R$;
+\EndWhile
+\State
+\Return \true;
+\end{algorithmic}
+\caption{Naive NetKAT bisimulation.}
+\label{fig:naive}
+\end{figure}
+
+\begin{restatable}[Soundness and Completeness]{theorem}{soundcompletenaive}
+If there exists a bisimulation $R$ between \NetKAT automata
+$\mathcal{A} = (S, s_0, \epsilon^\A, \delta^\A)$ and $\mathcal{B} = (T, t_0,
+\epsilon^\B, \delta^\B)$ then $L(\mathcal{A}) = L(\mathcal{B})$.  Conversely, if
+$L(\mathcal{A}) = L(\mathcal{B})$ then there exists a bisimulation $R$
+between \NetKAT automata $\mathcal{A}$ and $\mathcal B$.
+\end{restatable}

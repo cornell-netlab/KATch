@@ -1,0 +1,18 @@
+\section{Discussion}
+
+We have presented data structures, algorithms, and optimizations for
+deciding \NetKAT equivalence. Our experience suggests the approach
+based on computing bisimulations via weakest preconditions generally
+performs best, but it would be interesting to further investigate
+combinations of the approaches and give a more precise
+characterization in terms of topologies, configurations, and
+verification queries. In general, a verification tool might do well to
+select an appropriate algorithm based on heuristics about the
+expressions involved.
+
+Another avenue for future work involves the data structure used to
+represent $\todoR$ in \Cref{fig:pseudocode} and \Cref{fig:wp-alg},
+which was intentionally left abstract. By picking different data
+structures, these algorithms may be instantiated using depth-first,
+breadth-first, or other traversals the same way as with classic graph
+search.

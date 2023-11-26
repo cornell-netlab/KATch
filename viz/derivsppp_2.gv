@@ -1,0 +1,5 @@
+
+    digraph G {
+       n50 [label="⊤", shape=box, width=0.3, height=0.3, fixedsize=true]
+
+    }

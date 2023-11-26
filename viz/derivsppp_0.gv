@@ -1,0 +1,33 @@
+
+    digraph G {
+       n32 [label="a", shape=circle, width=0.3, fixedsize=true, style=filled, fillcolor="skyblue"]
+   n33 [label="", shape=diamond, width=0.15, height=0.15, style=filled, fillcolor="skyblue"]
+   n32 -> n33 [arrowhead=normal, label=" 1 ", labelangle=-30, fontsize=12, arrowsize=0.5, color="#555", fontcolor="black"]
+   n33 -> n34 [arrowhead=normal, label=" 1 ", labelangle=-30, fontsize=12, arrowsize=0.5, color="#555", fontcolor="black"]
+   n34 [label="c", shape=circle, width=0.3, fixedsize=true, style=filled, fillcolor="peachpuff"]
+   n35 [label="", shape=diamond, width=0.15, height=0.15, style=filled, fillcolor="peachpuff"]
+   n34 -> n35 [arrowhead=normal, label=" 3 ", labelangle=-30, fontsize=12, arrowsize=0.5, color="#555", fontcolor="black"]
+   n35 -> n36 [arrowhead=normal, label=" 3 ", labelangle=-30, fontsize=12, arrowsize=0.5, color="#555", fontcolor="black"]
+   n36 [label="⊤", shape=box, width=0.3, height=0.3, fixedsize=true]
+   n37 [label="", shape=diamond, width=0.15, height=0.15, style=filled, fillcolor="peachpuff"]
+   n34 -> n37 [arrowhead=normal, arrowsize=0.5, style=dashed, color="#555"]
+   n37 -> n38 [arrowhead=normal, arrowsize=0.5, style=dashed, color="#555"]
+   n38 [label="⊥", shape=box, width=0.3, height=0.3, fixedsize=true]
+   n39 [label="", shape=diamond, width=0.15, height=0.15, style=filled, fillcolor="skyblue"]
+   n32 -> n39 [arrowhead=normal, arrowsize=0.5, style=dashed, color="#555"]
+   n39 -> n40 [arrowhead=normal, arrowsize=0.5, style=dashed, color="#555"]
+   n40 [label="b", shape=circle, width=0.3, fixedsize=true, style=filled, fillcolor="#C1E1C1"]
+   n41 [label="", shape=diamond, width=0.15, height=0.15, style=filled, fillcolor="#C1E1C1"]
+   n40 -> n41 [arrowhead=normal, label=" 2 ", labelangle=-30, fontsize=12, arrowsize=0.5, color="#555", fontcolor="black"]
+   n41 -> n34 [arrowhead=normal, label=" 2 ", labelangle=-30, fontsize=12, arrowsize=0.5, color="#555", fontcolor="black"]
+   n42 [label="", shape=diamond, width=0.15, height=0.15, style=filled, fillcolor="#C1E1C1"]
+   n40 -> n42 [arrowhead=normal, arrowsize=0.5, style=dashed, color="#555"]
+   n42 -> n38 [arrowhead=normal, arrowsize=0.5, style=dashed, color="#555"]
+   {rank=same; n35; n37}
+   {rank=same; n41; n42}
+   {rank=same; n32}
+   {rank=same; n33; n39}
+   {rank=same; n40}
+   {rank=same; n34}
+
+    }

@@ -1,0 +1,24 @@
+
+    digraph G {
+       n55 [label="a", shape=circle, width=0.3, fixedsize=true, style=filled, fillcolor="skyblue"]
+   n56 [label="", shape=diamond, width=0.15, height=0.15, style=filled, fillcolor="skyblue"]
+   n55 -> n56 [arrowhead=normal, label=" 1 ", labelangle=-30, fontsize=12, arrowsize=0.5, color="#555", fontcolor="black"]
+   n56 -> n57 [arrowhead=normal, label=" 1 ", labelangle=-30, fontsize=12, arrowsize=0.5, color="#555", fontcolor="black"]
+   n57 [label="⊤", shape=box, width=0.3, height=0.3, fixedsize=true]
+   n58 [label="", shape=diamond, width=0.15, height=0.15, style=filled, fillcolor="skyblue"]
+   n55 -> n58 [arrowhead=normal, arrowsize=0.5, style=dashed, color="#555"]
+   n58 -> n59 [arrowhead=normal, arrowsize=0.5, style=dashed, color="#555"]
+   n59 [label="b", shape=circle, width=0.3, fixedsize=true, style=filled, fillcolor="#C1E1C1"]
+   n60 [label="", shape=diamond, width=0.15, height=0.15, style=filled, fillcolor="#C1E1C1"]
+   n59 -> n60 [arrowhead=normal, label=" 2 ", labelangle=-30, fontsize=12, arrowsize=0.5, color="#555", fontcolor="black"]
+   n60 -> n57 [arrowhead=normal, label=" 2 ", labelangle=-30, fontsize=12, arrowsize=0.5, color="#555", fontcolor="black"]
+   n61 [label="", shape=diamond, width=0.15, height=0.15, style=filled, fillcolor="#C1E1C1"]
+   n59 -> n61 [arrowhead=normal, arrowsize=0.5, style=dashed, color="#555"]
+   n61 -> n62 [arrowhead=normal, arrowsize=0.5, style=dashed, color="#555"]
+   n62 [label="⊥", shape=box, width=0.3, height=0.3, fixedsize=true]
+   {rank=same; n55}
+   {rank=same; n56; n58}
+   {rank=same; n59}
+   {rank=same; n60; n61}
+
+    }

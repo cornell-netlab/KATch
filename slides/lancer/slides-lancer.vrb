@@ -1,0 +1,56 @@
+
+  \centering
+  % \vspace{1cm}
+  \GREEN{Rust has a \emph{practical} type system for memory-safety without GC \checkmark}\\[10pt]
+  \pause
+  \begin{tcolorbox}
+    \begin{center}
+      \GREEN{Can a \emph{practical} type system be deadlock and leak free?}\\[10pt]
+    \end{center}
+  \end{tcolorbox}
+
+  \pause
+  \bigskip
+  \textbf{I hope to have convinced you that:}\\[5pt]
+  \begin{itemize}
+    \item This might be possible \& is worth trying
+    \item Promising direction: single ownership $\to$ sharing topology\\
+  \end{itemize}
+
+  \pause
+
+  \bigskip
+
+  \textbf{Problems yet to be solved:}\\[5pt]
+  \begin{itemize}
+    \item Type system $\to$ program logic (``Deadlock Free Iris'')
+    \item Integration with Rust features (borrowing \& \lstinline|unsafe|)
+    \item DAG-shaped mutable data structures / \lstinline|Rc<RefCell<T>>|
+  \end{itemize}
+
+
+  % \vspace{2cm}
+  % \color{gray}(P.S. I'm looking for a postdoc position)
+  % To me, the key strength of the paper is just how
+  % *elegant* the type system is: there seems to be nothing unnecessary there, the
+  % authors didn't even have to hide a bunch of more complicated rules in an
+  % appendix as is oh-so-common -- lambda-lock is a very simple system, beautifully
+  % designed, and yet achieves a non-trivial property.
+
+  % There's a *lot* going on in
+  % the proof, but basically none of that complexity leaks through to the language
+  % itself.
+
+  % When lambda-lock++ was introduced, I was sure lock orders would make
+  % things significantly more complicated, but again the authors found an extremely
+  % elegant way to encode these orders via type-level lists that are just partial
+  % views into the actual complete order.
+
+  % The dining philosopher's example is the
+  % icing on the cake.
+
+  % On top of being theoretically pleasing, the paper is also
+  % well-written, with lots of examples.
+
+  % I find this way of unifying safety, deadlock freedom and leak freedom particularly elegant.
+

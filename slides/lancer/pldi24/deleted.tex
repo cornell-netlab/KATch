@@ -1,0 +1,2254 @@
+\documentclass[acmsmall,dvipsnames,nonacm]{acmart}
+\settopmatter{printacmref=false, printccs=false, printfolios=true}
+
+
+\usepackage{listings}
+\usepackage[all,cmtip]{xy}
+
+\usepackage{thm-restate}
+
+\definecolor{codegreen}{rgb}{.1,0.5,0.32}
+\definecolor{codegray}{rgb}{0.5,0.5,0.5}
+\definecolor{codepurple}{rgb}{0.58,0,0.82}
+\definecolor{backcolour}{rgb}{0.98,0.98,0.98}
+\newcommand\todoR{\textit{todo}}
+\newcommand\modified{\textit{modified}}
+\newcommand\initialized{\textit{initialized}}
+\newcommand\false{\textcolor{magenta}{false}}
+\newcommand\true{\textcolor{codegreen}{true}}
+\newcommand\skp{\textcolor{codegreen}{skip}}
+
+\newcommand\Circle[1][1.65]{\tikz[baseline=-#1]{\draw(0,0)circle[radius=#1mm];}}
+\newcommand{\Square}{\fbox{$\phantom{ a}$}}
+
+\newcommand\bind{\mathbin{\textsf{>>=}}}
+
+\usepackage{array,xspace}
+\usepackage[noend]{algpseudocode} %algorithm2e,algorithmic,
+\usepackage[shortlabels]{enumitem}
+\usepackage{alltt}
+\usepackage{relsize}
+\usepackage{bbm}
+\usepackage{tikz}
+\usepackage{threeparttable}
+\usepackage{cleveref}
+\usepackage{wrapfig}
+\usepackage{epigraph}
+\usepackage{pgfplots}
+\usepackage{subcaption}
+\usepackage{multirow}
+\usepackage{stmaryrd}
+\usepackage{mathpartir}
+
+% Added by DavidD
+\usepackage{mathtools}
+
+\usetikzlibrary{automata}
+\usetikzlibrary{positioning}
+\usetikzlibrary{arrows}
+\usetikzlibrary{arrows.meta}
+\usetikzlibrary{shapes.misc, positioning}
+\usetikzlibrary{shapes}
+
+\tikzset{node distance=3.0cm,
+         every state/.style={
+         semithick,fill=gray!10},
+         initial text={},
+         double distance=2pt,
+         every edge/.style={
+            draw,
+            ->,>=stealth',
+            auto,
+            semithick}}
+\tikzset{every state/.append style={inner sep=0.0pt, minimum size=15pt}}
+\tikzset{elliptic state/.style={draw,ellipse,semithick,fill=gray!10}}
+\tikzset{ematrix/.style={double, double distance=4pt, >={Implies[length=5pt,width=8pt]}}}
+
+\usepackage{todonotes}
+\newcommand{\jnf}[1]{\todo[noinline,color=purple]{\footnotesize NF\@: #1}}
+\newcommand{\as}[1]{\todo[noinline,color=pink]{\footnotesize AS\@: #1}}
+\newcommand{\asinline}[1]{\todo[inline,color=pink,caption={}]{\footnotesize AS\@: #1}}
+\newcommand{\mm}[1]{\todo[noinline,color=green]{\footnotesize MM\@: #1}}
+\newcommand{\mminline}[1]{\todo[inline,color=pink,caption={}]{\footnotesize MM\@: #1}}
+
+\usepackage[createShortEnv]{proof-at-the-end}
+
+\makeatletter
+\def\@copyrightspace{\relax}
+\makeatother
+
+% do not indent theorems, proofs, definitions, etc.
+\makeatletter
+\def\@acmplainindent{0pt}
+\def\@acmdefinitionindent{0pt}
+\def\@proofindent{\noindent}
+\makeatother
+
+\setcopyright{none}
+\copyrightyear{2023}
+\acmYear{2023}
+\acmDOI{}
+\acmConference[]{}{}{}
+
+%% Macros %%
+\newtheorem{remark}{Remark}
+\newtheorem{question}{Q}
+
+%%%%%%
+\setcitestyle{numbers}
+
+%%\newcommand\cont{\delta{_{\alpha\beta}}}
+%%\newcommand\obs{\varepsilon{_{\alpha\beta}}}
+\newcommand\At{\mathsf{At}}
+\newcommand\Pk{\mathsf{Pk}}
+\newcommand\sympk{\widehat\alpha}
+\newcommand\sympkp{\widehat\beta}
+\newcommand\symR{\widehat{R}}
+\newcommand\pk{\alpha}
+\newcommand\pkp{\beta}
+
+\newcommand\dup{\mathsf{dup}}
+\newcommand\bisim{\mathsf{bisim}}
+\newcommand\Exp{\mathsf{Exp}}
+\newcommand\sw{\mathsf{sw}}
+\newcommand\pt{\mathsf{pt}}
+\newcommand\leaves{\mathsf{leaves}}
+\newcommand\symTrans{\mathsf{trans}}
+\newcommand\binopFDD{\mathsf{binopFDD}}
+\newcommand\ddd{\cdot\dup\cdot}
+\newcommand\GSdef{\Pk \cdot (\Pk\cdot\dup)^\star\cdot\Pk}
+\newcommand\GSdefold{\At \cdot (\Pk\cdot\dup)^\star\cdot\At}
+\newcommand\GS{\mathsf{GS}}
+\newcommand\accept{\mathsf{accept}}
+\newcommand\NetKAT{\textsf{NetKAT}\xspace}
+\newcommand\Pred{\textsf{Pred}\xspace}
+
+\newcommand\BDD[2]{\textsf{BDD}_{#1}[#2]}
+\newcommand\FDD{\textsf{FDD}}
+\newcommand{\fddn}[4]{#1 \stackrel ? = \overline{\{ #2\mapsto #3\}} \diamond #4}
+
+\newcommand\btodo{\fbox{to do.}}
+
+\newcommand{\Sem}[1]{\llbracket #1 \rrbracket}
+\newcommand{\pSem}[1]{[ #1 ]}
+\newcommand{\fddSem}[1]{\llbracket #1 \rrbracket}
+\newcommand{\val}[1]{(\!| #1 |\!)}
+\newcommand{\approxp}[1]{\underset{#1}\approx}
+\newcommand{\bubble}[1]{\node[state,minimum size=8pt] {#1};}
+\newcommand{\bubbleinline}[1]{\begin{tikzpicture}\bubble{#1}\end{tikzpicture}}
+
+\newcommand\pow[1]{\mathcal{P}(#1)}
+
+\newcommand\zero{\bot}%\mathsf{drop}}
+\newcommand\one{\top}%\mathsf{skip}}
+
+
+\newcommand\Fwd{\textsc{Forward-Step}}
+\newcommand\Bkwd{\textsc{Backward-Step}}
+\newcommand\BkwdWP{\textsc{Backward-WP}}
+\newcommand\FwdSing{\textsc{Forward-Single}}
+\newcommand\BkwdSing{\textsc{Backward-Single}}
+\newcommand\FwdSym{\textsc{Forward-Symbolic}}
+\newcommand\BkwdSym{\textsc{Backward-Symbolic}}
+\newcommand\A{\mathcal{A}}
+\newcommand\B{\mathcal{B}}
+\newcommand\epsA{\epsilon^\A_\pk}
+\newcommand\epsB{\epsilon^\B_\pk}
+\newcommand\delA{\delta^\A_{\pk\pkp}}
+\newcommand\delB{\delta^\B_{\pk\pkp}}
+
+\newcommand\farr{\underset{\textsc{Fwd}}{\leadsto}}
+\newcommand\barr{\underset{\textsc{Bwd}}{\leadsto}}
+\newcommand\farrSing{\underset{\widehat{\textsc{Fwd}}}{\rightsquigarrow}}
+\newcommand\barrSing{\underset{\widehat{\textsc{Bwd}}}{\rightsquigarrow}}
+\newcommand\farrSym{\underset{\widehat{\textsc{Fwd}}}{\leadsto}}
+\newcommand\barrSym{\underset{\widehat{\textsc{Bwd}}}{\leadsto}}
+\newcommand\barrWP{\underset{\textsc{WP}}{\leadsto}}
+
+\newcommand\visited{\textsf{visited}}
+\newcommand\wlG{\textsf{wlG}}
+\newcommand\wlB{\textsf{wlB}}
+
+\newcommand\gclbox{\quad[\!]\quad}
+%%%
+
+
+
+\title{Material Deleted from Main Draft}
+
+\begin{document}
+
+\maketitle
+
+Historically, methods for computing bisimulations of automata \cite{leapfrog, bonchi-pous2013} have been based
+on either on Moore's algorithm for minimization \cite{moore} or Hopcroft and
+Karp's algorithm \cite{hopcroft-karp1971}. In this section, we develop a technique
+that generalizes the two approaches to a unified generic scheme for \NetKAT automata.
+The idea is to proceed by building up simultaneously a partial bisimulation and
+partial proof of non-existence of a bisimulation. On the one hand, we might
+finish building the bisimulation, or exhaust possible steps for disproving
+(proving equivalence of $\A$ and $\B$). In either case, this will be enough to
+conclude the automata are bisimilar. On the other hand, we may derive a conflict
+(proving inequivalence).
+
+To carry out this approach, we compute two sets of triples from $\Pk\times
+S\times T$, which we call $G$ (for ``Good'' triples) and $B$ (for ``Bad''
+triples). The triples in $G$ are needed for every possible
+bisimulation and triples in $B$ can never be in any bisimulation. To initialize
+the good set $G$, we start by looking at condition (a)
+of the definition of bisimulation, and we set
+\[G = \Pk\times\{s_0\}\times\{t_0\}.\]
+Similarly, by looking at
+condition (b)(i) of the definition, initialize
+\[B = \{(\pk, s, t) \in \Pk\times S\times T \mid \epsA(s) \neq \epsB(t)\}.\]
+
+At this point, we proceed by applying the following rewrite rules for $B$ and
+$G$, in any order, adding a triple to one set or the other:
+
+%% Inference rules:
+\begin{mathpar}
+\frac {(\pk, s, t)\in G \qquad \pkp\in \Pk}
+      { G \farr G \uplus \{(\pkp, \delA(s), \delB(t))\}}
+      \ \Fwd\\
+
+\frac {(\pkp, s', t')\in B \qquad \pk\in \Pk \qquad \delA(s) = s'\qquad \delB(t) = t'}
+      {B \barr B \uplus \{(\pk, s, t)\}}
+      \ \Bkwd
+\end{mathpar}
+
+\begin{figure}
+\begin{algorithmic}
+  \State $G \gets \Pk\times\{s_0\}\times\{t_0\}$;
+  \State $B \gets \{(\pk, s, t) \in \Pk\times S\times T \mid \epsA(s) \neq \epsB(t)\}$;
+  \While{$G \cap B = \varnothing \wedge (\exists G'\colon G\farr G') \wedge (\exists B'\colon B \barr B')$}
+    \State{$G \farr G'; G \gets G' \gclbox B \barr B'; B \gets B'$}
+  \EndWhile
+  \Return $G\cap B = \varnothing$
+\end{algorithmic}
+  \caption{Pseudocode for unified bisimulation algorithm schema. The $[\!]$
+  inside the loop stands for guarded nondeterministic choice between the two
+  possible steps.} \label{fig:unified-alg}
+\end{figure}
+
+The algorithm schema arising from these inference rules is shown in
+\Cref{fig:unified-alg}.
+Note that the triples added to $G$ are those which would be included in the
+bisimulation computed by the naive algorithm in \Cref{fig:naive}.
+While applying rules, if we ever discover that $B \cap G \neq
+\varnothing$, then we can stop and report that no bisimulation is possible and
+hence the automata are not language equivalent.  The conjunction in
+the while loop condition may be somewhat surprising at first. As soon as
+\emph{one} of the inference rules can no longer be applied, then we have enough
+to conclude the automata are bisimilar.  We justify these claims in the next section.
+
+\subsection{Correctness of the unified framework}\label{sec:correct-unified}
+
+We are ready to show the correctness of \Cref{fig:unified-alg} as a decision
+procedure for the equivalence of two deterministic \NetKAT
+automata.
+
+\begin{lemma}\label{lem:bcapg}
+At any point during the algorithm in \Cref{fig:unified-alg}, if $B \cap G \neq \varnothing$ then no bisimulation
+exists between $\mathcal{A}$ and $\mathcal{B}$.
+\end{lemma}
+\begin{proof}
+  Suppose $\A$ and $\B$ are language equivalent, and let $R$ be a bisimulation
+  between $\A$ and $\B$. We start by proving two invariants about the main
+  loop which hold in this case, and we will conclude by finding that $B \cap G
+  \neq \varnothing$ contradicts the existence of $R$.
+  \begin{enumerate}
+    % Invariant 1
+    \item We will show that
+      \begin{equation}
+        \tag{I1}\label{eqn:i1}
+        G \subseteq R
+      \end{equation}
+      is an invariant of the loop (i.e., \ref{eqn:i1} holds each time the loop guard is checked).
+      \begin{itemize}
+        \item \emph{Initialization.} We have that \ref{eqn:i1} holds the first
+          time reaching the top of the loop. Before the loop, $G$ is
+          initialized with triples of the form $(\pk, s_0, t_0)$, for each
+          $\pk\in\Pk$. Each such triple is in $R$ by requirement (a) of the
+          definition of bisimulation.
+        \item \emph{Maintenance.} \Cref{eqn:i1} is maintained by the loop body.
+          Assume \ref{eqn:i1} and the loop guard hold. If we modify $B$ by
+          applying \Bkwd, then $G\subseteq R$, trivially, by \ref{eqn:i1}. So assume we
+          modify $G$ by applying \Fwd. Applying \Fwd says that we add a triple
+          $(\pkp,\delA(s),\delB(t))$ corresponding to some $(\pk,s,t)\in G$
+          already. By $\ref{eqn:i1}$, $(\pk,s,t,)\in R$. By (b)(ii) of the
+          definition, this means $(\pkp,\delA(s),\delB(t)) \in R$. Thus after
+          adding $(\pkp, \delA(s), \delB(t))$ to $G$, we still have that
+          $G\subseteq R$.
+      \end{itemize}
+
+    % Invariant 2
+    \item We now show that
+      \begin{equation}
+        \tag{I2}\label{eqn:i2}
+        B \cap R = \varnothing
+      \end{equation}
+      is an invariant of the loop.
+      \begin{itemize}
+        \item \emph{Initialization.} \Cref{eqn:i2} holds the first time reaching the top of the loop.
+          Before the loop, $B$ is initialized with all the triples $(\pk, s,t)$ for which
+          $\epsA(s) \neq \epsB(t)$. None of these triples can be in $R$ because of
+          requirement (b)(i) of the definition.
+        \item \emph{Maintenance.} \Cref{eqn:i2} is maintained by the loop body.
+          Assume \ref{eqn:i2} and the loop guard hold. If we apply \Fwd,
+          modifying $G$, then $B\cap R =\varnothing$, trivially, by
+          \ref{eqn:i2}. So assume we modify $B$ by applying \Bkwd. Applying
+          \Bkwd means adding a triple $(\pk,s,t)$ to $B$ corresponding to a
+          triple $(\pkp, s', t')\in B$ already, with $\delA(s)=s'$ and
+          $\delB(t)=t'$. By \ref{eqn:i2}, $(\pkp, s',t')\notin R$. This means
+          that $(\pk, s, t)$ cannot be in $R$, since if it were, requirement
+          (b)(ii) of the definition and would mean that $(\pkp, s', t')$ would
+          need to be in $R$ also. So we add $(\pk, s,t)$ to $B$, and since
+          $(\pk,s,t)\notin R$, we have $B\cap R = \varnothing$.
+      \end{itemize}
+  \end{enumerate}
+  Now suppose at some point during execution that $B \cap G \neq \varnothing$.
+  Without loss of generality, we are at the top of the loop (including the
+  possibility that the guard is about to fail), because the loop only executes
+  a single instruction with effect and nothing follows the loop except the
+  return statement. So we know that both \ref{eqn:i1} and \ref{eqn:i2} hold.
+  Moreover, $G \subseteq R$ (by \ref{eqn:i1}), combined with $B\cap G \neq
+  \varnothing$ means that $B \cap R \neq \varnothing$, which contradicts
+  \ref{eqn:i2}. We conclude there can be no such $R$.
+\end{proof}
+
+\begin{lemma}\label{lem:termination}
+The algorithm in \Cref{fig:unified-alg} terminates.
+\end{lemma}
+\begin{proof}
+Because of the disjoint union in both inference rules, on every iteration of the
+loop we either add a triple to $G$ or add a triple to $B$. Thus, the value
+of $n = |\Pk\times S\times T - G - B|$ is finite initially and decreases every
+loop iteration. Clearly when $n = 0$, it will either be the case that $G \cap B
+\neq \varnothing$, or one of the rules will be exhausted. In either case the
+loop condition fails and we terminate.
+\end{proof}
+
+\begin{theorem}\label{thm:unified-correct}
+The algorithm in \Cref{fig:unified-alg} returns $\true$ if there is a
+bisimulation between $\mathcal{A}$ and $\mathcal{B}$ and returns $\false$ if
+there is no such bisimulation.
+\end{theorem}
+\begin{proof}
+  By \Cref{lem:termination}, we reach the return statement on the last line.
+
+  If we return $\false$, this means that $B \cap G = \varnothing$. Thus, by \Cref{lem:bcapg}, no bisimulation
+  exists for $\A$ and $\B$.
+
+  So assume we return $\true$. We need to show a bisimulation exists.
+  In that case we know the loop guard is false: i.e. either that $G\cap B \neq \varnothing$,
+  that $G'\colon G\farr G'$, or that $\nexists B'\colon B \barr B'$.
+
+  We consider these in cases:
+  \begin{enumerate}
+    \item $G\cap B \neq \varnothing$. This is impossible because we assumed we
+      return $\true$.
+    \item $\nexists G'\colon G \farr G'$, i.e. $\Fwd$ cannot be applied. In
+    this case, $G$ is a bisimulation:
+        \begin{itemize}
+          \item The triples required by (a) of the definition are added to $G$
+            in the initialization step.
+          \item All triples for which (b)(i) does not hold are added to $B$
+            in initialization. Thus, from $B \cap G = \varnothing$, we conclude that
+            (b)(i) holds for all triples in  $G$.
+          \item That item (b)(ii) holds follows immediately from the fact
+          that $\nexists G'\colon G \farr G'$.
+        \end{itemize}
+    \item $\nexists B'\colon B \barr B'$, i.e. $\Bkwd$ cannot be applied. In
+    this case, $B^C$ is a bisimulation:
+        \begin{itemize}
+          \item The triples required by (a) of the definition are added to $G$
+          in initialization, so we conclude from the fact that $B \cap G = \varnothing$
+          that they are \emph{not} in $B$.
+          \item All triples for which (b)(i) does not hold are added to $B$
+          initially, so (b)(i) holds for all triples not in $B$.
+          \item That item (b)(ii) holds for the triples \emph{not} in $B$ follows
+          from the fact that $\nexists B'\colon B \barr B'$.
+        \end{itemize}
+      \end{enumerate}
+\end{proof}
+
+\section{Toward a more practical algorithm}
+
+The unified algorithm in \Cref{fig:unified-alg} is correct,
+but it is somewhat unsatisfying to try to implement. In particular:
+\begin{itemize}
+\item There are many triples to check to even decide whether a rule is
+applicable.
+\item Even if a rule is applicable, there may be many applicable triples to
+choose from. Which one do we take?
+\end{itemize}
+
+In \Cref{sec:sympackets} and \Cref{sec:visitedset}, we develop improvements to
+the algorithm of \Cref{fig:unified-alg} that help us to answer the first
+question. We address the second question in \Cref{sec:strategies}.
+
+\subsection{Symbolic packets}\label{sec:sympackets}
+
+The algorithm in \Cref{fig:unified-alg} repeats unnecessary work by applying
+rules to individual triples in $\Pk\times S\times T$. We can be much more
+efficient by applying the symbolic representation introduced in
+\Cref{sec:sym-automata}.
+In particular, the symbolic representation allows us to apply the inference rule
+at once for any set of packets that satisty the same premises.
+
+In this approach, our sets $G$ and $B$ have the same type as the symbolic
+bisimulation of \Cref{sec:sym-automata}. That is, for each $s\in S$ and each $t\in T$, we
+define:
+\begin{mathpar}
+G_{s,t}\colon \mathcal{P}(\Pk) \\
+B_{s,t}\colon \mathcal{P}(\Pk)
+\end{mathpar}
+
+For these symbolic sets, we define $G \cap B$ by:
+\[G \cap B \triangleq \bigcup_{s \in S, t\in T} G_{s,t} \cap B_{s,t}\]
+
+In addition, we adapt the inference rules to the symbolic setting as follows:
+\begin{mathpar}
+\frac {\sympkp = \{\pkp\in\Pk \mid \exists \pk\in G_{s,t}\colon \delA(s)=s' 
+        \wedge \delB(t) = t'\}}
+      {G_{s,t} \farrSym G_{s',t'} \uplus \sympkp}\ \FwdSym \\
+
+\frac {\sympk = \{\pk\in\Pk \mid \exists \pkp\in B_{s,t}\colon \delA(s)=s'
+        \wedge \delB(t) = t'\}}
+      {B_{s,t} \barrSym B_{s',t'} \uplus \sympk}\ \BkwdSym
+\end{mathpar}
+
+Note that the $\uplus$ in the above rules is disjoint union on symbolic
+packets. The rules say that, for a particular pair of states $(s,t)$
+transitioning to a pair of states $(s',t')$, in a single step we can consider
+all the concrete packets $(\pk,\pkp)$ that transition from $s$ to $s'$ in
+$\mathcal A$ and from $t$ to $t'$ in $\mathcal B$. The trick is to collect all
+such packets into symbolic packets.
+
+The resulting algorithm is shown in \Cref{fig:sym-alg}.
+
+\begin{figure}
+\begin{algorithmic}
+  \State $G_{s_0,t_0} \gets \Pk$;
+  \For{$(s,t) \in S\times T$}
+    \State $B_{s,t} \gets \{ \pk \mid \epsA(s) \neq \epsB(t) \}$;
+  \EndFor
+  \While{$G\cap B\neq \varnothing \wedge
+         (\exists s,t\colon G_{s,t} \farrSym G'_{s,t}) \wedge
+         (\exists s,t\colon B_{s,t} \barrSym B'_{s,t})$}
+    \State Choose $s,t\colon G_{s,t} \farrSym G'_{s,t}; G_{s,t} \gets G'_{s,t}$;
+    \State $\gclbox$
+    \State Choose $s,t\colon B_{s,t} \barrSym B'_{s,t}; B_{s,t} \gets B'_{s,t}$;
+  \EndWhile
+  \Return $B\cap B = \varnothing$;
+\end{algorithmic}
+\caption{Pseudocode for bisimulation algorithm using symbolic packets. Each
+place that a set of packets appears in the code, we use a symbolic
+representation} \label{fig:sym-alg}
+\end{figure}
+
+\subsection{Visited set}\label{sec:visitedset}
+The improvement of using symbolic packets allows us to collapse many steps of
+the bisimulation into single steps, but it does not yet tell us which step to
+take next---the algorithm still just says to ``find an applicable inference rule''.
+Here, we build on the symbolic packets by also organizing the search using a
+``visited set'' to keep track of triples we have already investigated.
+
+In order to present the visited-set algorithm more cleanly, we introduce a
+notational convenience to allow us to apply the inference rule to a specific
+rule in $G$ or $B$:
+\begin{mathpar}
+\frac {(\pk,s,t)\in G}
+      {(\pk,s,t) \farrSing \{(\pkp, s', t') \mid \delA(s) = s' \wedge \delB(t) = t'\}}
+      \ \FwdSing\\
+\frac {(\pkp, s', t') \in B}
+      {(\pkp, s', t') \barrSing \{(\pk, s, t) \mid \delA(s) = s' \wedge \delB(t) = t'\}}
+      \ \BkwdSing
+\end{mathpar}
+
+The visited-set form of the symbolic packet algorithm is shown in \Cref{fig:vs-alg}.
+We can equivalently view this formulation as a ``worklist'' algorithm, where the
+set $G \cup B - \visited$ serves as the worklist.
+
+\begin{figure}
+\begin{algorithmic}
+  \State $G[s_0][t_0] \gets \Pk$;
+  \For{$(s,t) \in S\times T$}
+    \State $B_{s,t} \gets \{ \pk \mid \epsA(s) \neq \epsB(t) \}$;
+    \State $\visited_{s,t} \gets \varnothing$
+  \EndFor
+  \While{$G\cap B\neq \varnothing \wedge G \cup B - \visited \neq \varnothing$}
+    \State $(\sympk, s, t) \gets \text{choose}(G \cup B - \visited)$;
+    \State $\visited_{s,t} \uplus \sympk$;
+    \State $(\sympk, s, t) \farrSing G'; G \gets G'$;
+    \State $\gclbox$
+    \State $(\sympk, s, t) \barrSing B'; B \gets B'$;
+  \EndWhile
+  \Return $G\cap B = \varnothing$;
+\end{algorithmic}
+\caption{Pseudocode for bisimulation using both symbolic packets and worklists.}
+\label{fig:vs-alg}
+\end{figure}
+
+
+\subsection{Forward and Backward Projections} \label{sec:strategies}
+
+We first remark that for each iteration on the algorithm of
+\Cref{fig:unified-alg}, we have maintained the free choice of whether to apply
+the rules in the forward or backward direction in the inner loop. Since we can
+terminate by exhausting \emph{either} rule, we can just as well select one or
+the other rule at the beginning, and apply only that one to exhaustion.
+
+We illustrate these two projections using two examples.
+\begin{example} Consider the expression, $e_1$, from before, along side the
+following expression, $e_2$:
+\begin{align*}
+e_1 &\triangleq
+     x=1 + y=2\cdot y\gets7\cdot\dup\cdot(z=1\cdot y\gets3 +  z=2\cdot
+     z\gets4\cdot\dup\cdot y\gets1)\\
+e_2 &\triangleq x=1 + y=2\cdot 
+     ((y=2\cdot (z=1 + z=2)\cdot y\gets 7 + y=7\cdot z=2\cdot z\gets 4)\cdot
+     \dup)^\star \\
+    &\cdot (y=7\cdot z=4\cdot y\gets 1 + z=1\cdot y=7\cdot y\gets 3)
+\end{align*}
+
+\paragraph*{Forward-only}
+We show the computation of the bisimulation between $e_1$ and $e_2$ in
+\Cref{fig:ex-fwd} using only the \FwdSym\ rule. We begin on the left side by
+initializing $G$ with only $G_{s0,t0} = \Pk$.  (marked \bubbleinline{1}). First,
+since $B_{s0,t0} = \varnothing$, we have $G_{s0,t0} \cap B_{s0,t0} =
+\varnothing$. From here, we consider the transitions that are available on each
+automaton for different symbolic packets.
+We find that $\delA(s0) = s1$ and $\delB(t0) = t1$ for
+\begin{mathpar}
+\sympk = \Pk\qquad\sympkp = \{ \pkp \mid \pkp.y = 7 \wedge ( \pkp.z = 1 \vee
+\pkp.z = 2)\}\\
+\end{mathpar}
+So we continue from $G_{s1,t1} = \sympkp$, shown at \bubbleinline{2}
+\footnote{Note that transitions are possible to
+drop states for other packets; these are checked by the algorithm but omitted in
+the illustration.}. For the pair $(s1, t1)$, we check that all the packets within
+this set have the same behavior on the observation functions (i.e., that $G_{s1,
+t1} \cap B_{s1,t1} = \varnothing$).
+Indeed, we see that of those in the current packet set, only those with
+$z=1$ are accepted, and they get the same update ($y\gets 3$). We proceed to
+check available transitions, bringing us to the set of packets at
+\bubbleinline{3}. Again, the observation function behavior is the same for
+packets in the set (with update $y\gets 1$). The state $t1$ has a self loop, but
+it is not available to the packets in the set, meaning everything else is
+dropped. We stop and conclude the automata are bisimilar.
+
+
+\begin{figure}
+\begin{center}
+\begin{tikzpicture}
+% A_1 for e_1
+\node[state, initial] (s0) {s0};
+\node[state, right of=s0, node distance=1.5in] (s1) {s1};
+\node[state, right of=s1, node distance=1.5in] (s2) {s2};
+\node[draw=none, below of=s0, node distance=27pt] {$x=1$};
+\node[draw=none, below of=s1, node distance=27pt] {$z=1\cdot y\gets 3$};
+\node[draw=none, below of=s2, node distance=27pt] {$y\gets 1$};
+\draw (s0) edge node{$y=2\cdot y\gets 7$} (s1);
+\draw (s0) edge[ematrix] ++ (0,-0.75);
+\draw (s1) edge[ematrix] ++ (0,-0.75);
+\draw (s1) edge node{$z=2\cdot z\gets 4$}  (s2);
+\draw (s2) edge[ematrix] ++ (0,-0.75);
+
+% A_2 for e_2
+\node[state,initial, below of=s0, node distance=1.75in] (t0) {t0};
+\node[state, right of=t0, node distance=2in] (t1) {t1};
+\node[draw=none, below of=t0, node distance=27pt] {$x=1$};
+\node[draw=none, below of=t1, node distance=30pt, align=left] {$y=7\cdot z=4\cdot y\gets 1 +$\\
+                                                               $z=1\cdot y=7\cdot y\gets 3$};
+\draw (t0) edge[ematrix] ++ (0,-0.75);
+\draw (t1) edge[ematrix] ++ (0,-0.75);
+\draw (t0) edge node {$y=2\cdot(z=1 + z=2)\cdot y\gets 7$} (t1);
+\draw (t1) edge[loop right] node [right, align=left]{$y=2\cdot(z=1 + z=2)\cdot y\gets 7 +$\\
+                                                     $y=7\cdot z=2\cdot z\gets 4$} (t1);
+
+% Bisimulation relation
+\draw[style=dashed] (s0) -- node[left] (pk) {\fbox{$\varnothing$}} (t0);
+\draw[style=dashed] (s1) -- node[left] (y7) {\fbox{\parbox{60pt}{\centering
+$y\neq 7 \vee z=2)$}}} (t1);
+\draw[style=dashed] (s2) -- node[right] (z4y7) {\fbox{$z\neq4 \vee y\neq7$}} (t1);
+
+% Bisim steps
+\node[state, minimum size=8pt, left of=pk, node distance=16pt] (b1) {1};
+\node[state, minimum size=8pt, left of=y7, node distance=40pt] (b2) {2};
+\node[state, minimum size=8pt, left of=z4y7, node distance=38pt] (b3) {3};
+
+\end{tikzpicture}
+\end{center}
+\caption{Example run of the algorithm in \Cref{fig:vs-alg}, using only the
+forward step rule. The boxes show the disallowed triples $B$ as they are
+identified.}\label{fig:ex-fwd}
+\end{figure}
+\end{example}
+
+\paragraph*{Backward-only}
+We now work the same example again (in \Cref{fig:ex-bwd}), this time using
+only the \BkwdSym\ inference rule. At \bubbleinline{1}, we compute $B_{s2,t1}$.
+Since the update
+$y\gets 1$ applies to all packets at $s2$, we see that the set we are looking
+for is those have this behavior at $t1$, hence we have $B_{s2,t1} = z\neq4 \vee
+y\neq7$. On the next iteration, this triggers a look at
+$B_{s1,t1}$, since we have $\delA(s1) = s2$ and $\delB(t1) = t1$ for the
+symbolic packets
+\begin{mathpar}
+\sympk = \{\pk \mid \pk.z=2 \wedge (\pk.y=2 \wedge \pk.y=7) \}\qquad
+\sympkp =  \{\pkp \mid \pk.z=4 \wedge \pk.y=7 \}
+\end{mathpar}
+
+At \bubbleinline{2}, we see the packets satisfying $ $ have different output
+packets, and we update $B_{s1,t1}$ accordingly.  Proceeding backwards along
+transitions to \bubbleinline{1}, we find that the guards are such that, at
+$(s0,t0)$, all packets will either be dropped by both automata or proceed to
+$(s1, t1)$ \emph{but avoid landig in $B_{s1,t1}$, at \bubbleinline{2}}. We
+conclude that $(s0,t0)$ have the same behavior for all packets and thus that the
+automata are bisimilar.  The drawing omits the computation of $B_{s1,t0},
+B_{s2,t0}$, and $B_{s0,t1}$ since they do not yield any backward steps.
+
+\begin{figure}
+\begin{tikzpicture}
+\node[state, initial] (s0) {s0};
+\node[state, right of=s0, node distance=1.5in] (s1) {s1};
+\node[state, right of=s1, node distance=1.5in] (s2) {s2};
+\node[draw=none, below of=s0, node distance=27pt] {$x=1$};
+\node[draw=none, below of=s1, node distance=27pt] {$z=1\cdot y\gets 3$};
+\node[draw=none, below of=s2, node distance=27pt] {$y\gets 1$};
+\draw (s0) edge node{$y=2\cdot y\gets 7$} (s1);
+\draw (s0) edge[ematrix] ++ (0,-0.75);
+\draw (s1) edge[ematrix] ++ (0,-0.75);
+\draw (s1) edge node{$z=2\cdot z\gets 4$}  (s2);
+\draw (s2) edge[ematrix] ++ (0,-0.75);
+
+\node[state,initial, below of=s0, node distance=1.75in] (t0) {t0};
+\node[state, right of=t0, node distance=2in] (t1) {t1};
+\node[draw=none, below of=t0, node distance=27pt] {$x=1$};
+\node[draw=none, below of=t1, node distance=30pt, align=left] {$y=7\cdot z=4\cdot y\gets 1 +$\\
+                                                               $z=1\cdot y=7\cdot y\gets 3$};
+\draw (t0) edge[ematrix] ++ (0,-0.75);
+\draw (t1) edge[ematrix] ++ (0,-0.75);
+\draw (t0) edge node {$y=2\cdot(z=1 + z=2)\cdot y\gets 7$} (t1);
+\draw (t1) edge[loop right] node [right, align=left]{$y=2\cdot(z=1 + z=2)\cdot y\gets 7 +$\\
+                                                     $y=7\cdot z=2\cdot z\gets 4$} (t1);
+
+% Bisimulation relation
+\draw[style=dashed] (s0) -- node[left] (l) {\fbox{$\Pk$}} (t0);
+\draw[style=dashed] (s1) -- node[left] (c) {\fbox{$y=7\wedge z\neq 4$}} (t1);
+\draw[style=dashed] (s2) -- node[right] (r) {\fbox{$y=7 \wedge z=4$}} (t1);
+
+% Bisim steps
+\node[state, minimum size=8pt, left of=l, node distance=16pt] (b3) {3};
+\node[state, minimum size=8pt, left of=c, node distance=38pt] (b2) {2};
+\node[state, minimum size=8pt, right of=r, node distance=38pt] (b1) {1};
+\end{tikzpicture}
+\caption{Example run of bisimulation procedure \Cref{fig:vs-alg} taking
+\BkwdSym\ steps only. The boxes show $B$ as it is built. Some triples in $B$
+which do not have backward steps are elided.}
+\label{fig:ex-bwd}
+\end{figure}
+
+\section{Reverse of \NetKAT Expressions and Automata}
+
+Classic theorems of formal language theory state that one can reverse a regular
+expression by recursively inverting the concatenations in its tree structure.
+Similarly, a nondeterministic automaton (NFA) can be reversed by interchanging the
+start and final states and reversing the direction of all of the transitions
+(Brzozowksi's algorithm for DFA minimization famously relies on this
+\cite{brzozowski1962}.)
+
+The result in either case is that the associated regular language is the reverse
+of the original (in the sense that each string in the set is reversed).  In the
+same fashion, we show that corresponding operations exist for \NetKAT Expressions
+and \NetKAT Automata. Later, we will show these operation can be used to tie
+together the mechanisms of two bisimulation algorithms.
+
+\subsection{Reversing \NetKAT Expressions}\label{sec:rev-exp}
+
+Given a guarded string $w \in \GS$, where
+\[w = \pk\cdot \pk_1 \cdot \dup \cdot \ldots \cdot \pk_n \ddd \pkp,\] we define its \emph{reverse} to be
+\[w^R \triangleq \pkp \cdot \pk_{n} \ddd \ldots \cdot \pk_1 \ddd \pk.\]
+
+We extend this to sets of guarded strings in the natural way, $L^R \triangleq \{w^R \mid w \in L\}$.
+Given a \NetKAT expression, we can recursively compute its reverse in a
+similar manner to reversing a regular expression. The construction is given
+in \Cref{fig:reverse-exp}.
+
+\begin{figure}
+\begin{tabular}{|c|c|}
+    \hline
+    $p\in\Exp$ & $p^R\colon \Exp$ \\
+    \hline
+    $\zero$ & $\zero$ \\
+    $\one$ & $\one$ \\
+    $\dup$ & $\dup$ \\
+    $f = v$ & $f = v$ \\
+    $f \gets v$ & $f = v \cdot \sum_{v'} f \gets v'$ \\
+    $q + r$ & $q^R + r^R$ \\
+    $q \cdot r$ & $r^R \cdot q^R$ \\
+    $q^\star$ & $(q^R)^\star$ \\
+    \hline
+\end{tabular}
+    \caption{Inductive definition of the reverse operation for \NetKAT
+    expressions. See \Cref{sec:set-all} for more on the reverse of assignment.}
+\label{fig:reverse-exp}
+\end{figure}
+
+The interesting cases in \Cref{fig:reverse-exp} are tests, i.e., $f = v$, and
+sets, i.e., $f \gets v$. The subtlety of the fact that tests are their own
+reverse is that the same expression acting as a filter in each
+direction is actually symmetric. In a similar vein, the reverse of an assignment
+follows the intuition that an assignment transforms a packet with any value for
+$f$ into one with the specified value---so the reverse must check the specified
+value and emit packets with all possible values. 
+
+First we show the correctness of reversal. That is, the guarded strings set of
+reverse of a \NetKAT expression is the set of guarded strings of the original
+expression, reversed:
+
+\begin{theorem}
+    For any \NetKAT expression $p$, we have $\Sem{p^R} = \Sem{p}^R$
+\end{theorem}
+\begin{proof}
+    By induction on the structure of $p$. If $p$ is $\zero$, $\one$, $f=v$, or
+  $\dup$, the statement holds immediately, since in each case, $p = p^R$, and
+  the associated packet histories are palindromes.
+
+    Suppose $p = (f \gets v)$.
+
+    For the inductive cases, assume the theorem statement for subexpressions $q$, $r$:
+\begin{enumerate}[(a)]
+    \item $p = q + r$. Then we have:
+    \begin{align*}
+        \Sem{p^R} &= \Sem{q^R + r^R} \\
+               &= \Sem{q^R} \cup \Sem{r^R} \\
+               &= \Sem{q+r}^R \\
+               &= \Sem{p}^R
+    \end{align*}
+    \item $p = q \cdot r$. Then $\Sem{p^R} = \Sem{r^R\cdot q^R}$. Let 
+    $w \in \Sem{r^R\cdot q^R}$. Then 
+    \[ w = \pk \cdot \pk_1 \cdot \dup \cdot \ldots \cdot \dup \cdot \pk_i \diamond \pk_i
+    \cdot \dup \cdot \ldots \cdot \pk_n \cdot \dup \cdot \pkp.\]
+    But this means
+    \[ w^R = \pkp \cdot \pk_n \ddd\ldots\ddd \pk_i \diamond \pk_i \cdot\dup\cdot\ldots\cdot\dup\cdot\pk_1\cdot\pk. \]
+    and so $w^R \in \Sem{q\cdot r}$, implying $w \in \Sem{p}^R$.
+    \item $p = q^\star$. Follows by induction on the length of the guarded string,
+    applying the previous two cases.
+\end{enumerate}
+\end{proof}
+
+\subsubsection{Difficulty with Set-All}\label{sec:set-all}
+The reader may have noticed that the reverse of an assignment
+presents a few challenges.
+First, to even write down the expression, we are forced to specify explicitly the
+set of values the field ranges over. This is particularly inconvenient, because
+to leave these sets unspecified allows gives the expressions better
+composability.
+Second, the size of the sum is exponential in the bit width of the field and
+would be unwieldy if treated naively.
+
+Both of these issues can be neatly addressed by dealing with the ``set all''
+assignment by choosing a \emph{symbolic} representation, in a
+manner following existing work on symbolic analysis of automata
+\cite{pous2015,dantoni-veanes2014,dantoni-veanes2017}. The details are given in the description of our
+implementation in \Cref{sec:grabbag}.
+
+Even without the trick of using symbolic methods, it often turns out that the
+set-all can often be canceled in practice by reasoning using KAT axioms.
+An example presents itself as we write out the check that $f \gets v \equiv {(f \gets v)^R}^R$ (as
+we would hope!). We have:
+\begin{align*}
+    {(f \gets v)^R}^R &\equiv (f=v \cdot f=v \cdot \sum_{v'} f \gets v')^R & \text{Definition of reverse} \\
+                      &\equiv \sum_{v'} f=v' \cdot (\sum{v''} f\gets v'')  \cdot
+                      f=v & \text{Definition of reverse} \\
+                      &\equiv  f\gets v & \textsc{PA-Mod-Filter}\text{ and }\textsc{PA-Contra}
+\end{align*}
+
+In a frequently occuring case, a test followed by assignment to the same field,
+such as
+$sw=1 \cdot sw \gets 2$
+naturally has the reverse (after cancelling similarly):
+$sw = 2 \cdot sw \gets 1$
+and the set-all does not appear.
+
+In general, given an expression $e$, as long as every packet field is tested
+before it is assigned to (respecting the paths through the expression), then
+there is an expression without set-all equivalent to $e^R$. \mm{MM formalize a
+bit more?} Note that this set-free expression may
+require more extensive ``sliding'' of tests. For example, given:
+\[sw=1 \cdot \dup \cdot \dup \cdot sw \gets 2\]
+naively applying reverse becomes:
+\[sw=2\cdot \sum_{v'} sw=v'\cdot sw\gets v' \cdot \dup \cdot \dup \cdot sw=2\]
+However after two applications of \textsc{PA-Dup-Filter-Comm}, we get that:
+\[sw=2 \cdot sw\gets 1 \cdot \dup \cdot \dup \]
+is equivalent.
+
+\subsubsection{Example}
+
+The reverse expression of $e_1$ is:
+
+\[ e_1^R \triangleq x=1 + (y=1\cdot \sum_v y\gets v\ddd z=4 \cdot z \gets 2 +
+        y=3\cdot \sum_v y\gets v \cdot z=1) \ddd y=7 \cdot y\gets 2
+\]
+
+Applying \textsc{PA-Dup-Filter-Comm},
+         \textsc{PA-Mod-Filter-Comm}, and
+         \textsc{BA-Seq-Comm}, we get a set-all-free expression:
+
+\[ e_1^R\ \equiv x=1 + (y=1\cdot y\gets 7 \ddd z=4 \cdot z \gets 2 +
+        y=3\cdot y\gets 7 \cdot z=1) \ddd y\gets 2
+\]
+
+\subsubsection{Network Policy Example}\label{sec:rev-fast-example}
+
+We now construct an example for which having a network policy reverse operation
+would improve analysis time. We draw inspiration from the classic example of
+a family of regular expressions\footnote{Here exponentiation by $n$ is just syntactic sugar for
+$n$-fold concatenation} whose conversion to deterministic automaton
+results in exponential space in $n$, $(a+b)^\star a(a+b)^n$
+\cite{hopcroft-automata}.
+
+Suppose we have a \NetKAT policy $\mathsf{p}$ written for a topology
+$\mathsf{t}$ (also expressed in \NetKAT), and input and output predicates of
+interest $\mathsf{in}$ and $\mathsf{out}$.
+
+The usual way to combine these into a single expression, for example to check that $\mathsf{out}$ is
+reachable from $\mathsf{in}$, is as follows \cite{netkat}:
+
+\[
+\mathsf{in}\cdot(\mathsf{p}\cdot\mathsf{t}\cdot\dup)^\star\cdot\mathsf{out} \nequiv \zero
+\]
+
+Suppose instead that we want to check that the $n^{th}$-to-last switch traversed is always
+a particular one, say $\mathsf{sw=3}$. We can express this property as a \NetKAT equivalence
+query by writing:
+
+\[
+\mathsf{in}\cdot(\mathsf{p}\cdot\mathsf{t}\cdot\dup)^\star\cdot\mathsf{out} \nequiv
+\mathsf{in}\cdot(\mathsf{p}\cdot\mathsf{t}\cdot\dup)^\star\cdot\mathsf{sw}=3\cdot
+(\mathsf{p}\cdot\mathsf{t}\cdot\dup)^n\cdot\mathsf{out}
+\]
+
+While the \NetKAT automaton on the righthand only has $n$ additional states
+using the construction from \cite{coalgebraic}, when determinizing to check
+equivalence, the state-packet-space blowup is exponential just as the example
+is as a deterministic finite automaton.
+
+For this instance, we can check this property much faster by reversing both expressions first.
+The result is that the resulting deterministic automata have size linear in the size of the original
+expression and are analyzed faster accordingly.
+
+\mm{it would be best to have a concrete instance with empirical data of this.}
+
+\subsection{Reversing \NetKAT Automata}
+
+We now give the construction for reversing \NetKAT automata. As with \NetKAT
+expression reversal, the key idea comes from the regular language analogue,
+however here the care must be taken to ensure that the packet updates are
+appropriately handled.
+
+Given a \NetKAT automaton $\mathcal{A} = (S, s_0, \epsilon, \delta)$, we define its
+reverse $\mathcal{A}^R = (S, s_0, \epsilon^R, \delta^R)$, where
+\footnote{Parameter names $\pkp$ and $s'$ are chosen to preserve the intuition that
+transitions \emph{in $\mathcal{A}$} are from $s$ to $s'$ and $\pk$ to $\pkp$.}:
+\[ \epsilon^R_{\pkp}(s') \triangleq \begin{cases}
+    \{\pk\in\Pk \mid \pkp \in \epsilon_\pk(s_0)\}  & s' = s_0  \\
+    \{\pk\in\Pk \mid s' \in \delta_{\pk\pkp}(s_0)\} & \text{otherwise}
+\end{cases}\]
+and
+\[ \delta^R_{\pkp}(s') \triangleq \begin{cases}
+  \{(\pk,s) \in \Pk\times S \mid \pkp \in \epsilon_\pk(s)\} & s' = s_0 \\
+    \{(\pk,s) \in \Pk\times S \mid s' \in \delta_{\pk\pkp}(s)\} & \text {otherwise}
+                    \end{cases} \]
+
+For $\varepsilon^R$, the two cases are that (a) the observation function
+\emph{for the start state} should be inverted directly, and (b) for other
+states, the observation function should invert transitions out of the original start state.
+
+For $\delta^R$, the two cases are that (a) transitions out of the new start state
+come from inverting the observation function for each original (non-start) state, and (b) the
+other transitions (i.e., not out of the start state) are just inverted.
+
+\begin{lemma}\label{lem:rev-rev-id}
+Let $\mathcal{A}$ be a \NetKAT automaton. Then $\mathcal{A}$ is precisely the
+same automaton as ${\mathcal{A}^R}^R$.
+\end{lemma}
+\begin{proof}
+Immediate, by inspection.
+\end{proof}
+
+
+As we would expect, reversing a \NetKAT automaton reverses all of the guarded
+strings it accepts. To prove this, first we need a lemma that reversing an
+automaton reverses the paths through it\footnote{Note that for $w\in(\Pk\cdot\dup)^\star$, we have
+$w^R\in(\Pk\cdot\dup)^\star$, \emph{not} $w^R\in(\dup\cdot\Pk)^\star$. The ``reverse and
+slide dups'' here is consistent with the convention for reversing guarded
+strings given in \Cref{sec:rev-exp}.}.
+\begin{lemma}\label{lem:paths-reverse}
+Let $\mathcal{A} = (S, s_0, \epsilon, \delta)$ be a \NetKAT automaton, $s\in S$ a
+state. Then:
+\begin{enumerate}[(a)]
+\item If $s \neq s_0$ and $w = \pk_0\cdot w' \in \Pk\cdot(\Pk\cdot\dup)^\star$,
+                then for each $(\pkp, s') \in \delta^\star_w(s)$, we have
+                $(\pk_0, s)\in {\delta^R}^\star (s') (\pkp\cdot w^R$).
+
+\item If $w = \pk_0\cdot \pk_1\ddd w'\in\Pk\cdot\Pk\ddd(\Pk\cdot\dup)^\star$,
+                then for each $(\pk, s) \in \delta^\star_w (s_0)$,
+                we have $\pk\cdot w^R \in \accept_{\mathcal{A}^R}(s)$.
+\end{enumerate}
+\end{lemma}
+\begin{proof}\ \\
+\begin{enumerate}[(a)]
+\item Let $s \neq s_0$ and $w = \pk_0\cdot w' \in \Pk\cdot(\Pk\cdot\dup)^\star$.
+We proceed by induction on the length of $w$.
+In the base case, we have $w = \pk_0$ and $w' = \varepsilon$. But that means that
+    $\delta^\star_w (s) = \{(\pk_0, s)\}$, and so $(\pk_0, s) \in {\delta^R}^\star(s)(\pk_0)
+= \{(\pk_0,
+s)\}$ as needed. In the induction case, let $w = \pk_0\cdot \pk_1 \ddd w'$, and let
+$(\pkp, s') \in \delta^\star_w (s)$. This means there is a $s''\in S$
+    such that $s''\in\delta_{pk_0,pk_1} (s)$ and $(\pkp,s')\in\delta^\star (s'') (\pk_1\cdot w'$).
+    Using the induction hypothesis, we get that $(\pk_1, s'')\in{\delta^R}^\star(s') (\pkp\cdot w'^R\cdot \pk_1)$.
+    By the definition of $\delta^R$ and that $s''\in\delta_{\pk_0\pk_1} (s)$, we know
+    $s\in\delta^R_{\pk_1\pk_0} (s'')$. Putting these together we have shown that
+$(\pk_0, s)\in{\delta^R}^\star\ s'\ (\pkp\cdot w'^R \cdot \pk_1 \cdot\dup)$ as required.
+
+\item Let $w = \pk_0\cdot \pk_1\ddd w'\in\Pk\cdot\Pk\ddd(\Pk\cdot\dup)^\star$ and
+  let $(\pk, s)\in \delta^\star_w (s_0)$.
+Taking one step forward from $s_0$, we find a state $s_1\in S$ such that $(\pk_1,
+s_1) \in \delta\ s_0\ \pk_0$
+    and for which $(\pk, s)\in \delta^\star (s_1) (\pk_1\cdot w')$. Using (a), this
+means $(\pk_1,
+    s_1) \in {\delta^R}^\star (s) (\pk\cdot w'^R)$. By the definition of $\epsilon^R$, we
+    know $\pk_0 \in \epsilon^R_{\pk_1} (s_1)$. Putting these together
+    (and since $w'^R \cdot \pk_1\ddd \pk_0 = w^R$), we have shown as
+    needed that $\pk\cdot w'^R\cdot \pk_1\ddd \pk_0 \in \accept_{\mathcal{A}^R}(s)$.
+
+\end{enumerate}
+\end{proof}
+
+Now we have the desired result:
+\begin{theorem}
+    For a \NetKAT Automaton $\mathcal{A} = (S, s_0, \epsilon, \delta)$, we have
+    $L(\mathcal{A})^R = L(\mathcal{A}^R)$.
+\end{theorem}
+\begin{proof}
+    ($\subseteq$). First we show that $L(\mathcal{A}) \subseteq L(\mathcal{A}^R)^R$. Since it is
+    the case that both (a) $L \subseteq L'$ iff $L^R \subseteq L'^R$ and (b)
+    ${L^R}^R = L$, this will imply $L(\mathcal{A})^R \subseteq L(\mathcal{A}^R)$.
+    Let $w \in L(\mathcal{A})$. We consider two cases.
+    \begin{enumerate}[(a)]
+        \item $w = \pk_{in}\cdot \pk_{out}$. Then it must be that $\pk_{out}\in\epsilon\ s_0\
+        \pk_{in}$. By construction, $\pk_{in}\in\epsilon^R\ s_0\ \pk_{out}$, implying
+        $w^R \in L(A^R)$.
+        \item $w = \pk_{in}\cdot \pk_1\ddd w'\cdot \pk_{out}$ for some $w'\in(\Pk\cdot\dup)^\star$.
+
+           From $w\in L(\mathcal{A})$, we know there is a $(\pk,s)\in \Pk\times S$ such
+           that $(\pk, s)\in \delta^\star\ s_0\ \pk_{in}\cdot \pk_1\ddd w'$ and
+           $\pk_{out}\in \epsilon\ s\ \pk$. Applying \Cref{lem:paths-reverse}(b), we
+           know $\accept_{\mathcal{A^R}}\ s\ (\pk\cdot w^R)$. By
+           construction of $\delta^R$, we see that $\delta^R\ s_0\ \pk_{out} =
+           (\pk, s)$.
+           Combining, we get $\accept_{\mathcal{A^R}}\ s_0\ w^R$, and
+           thus that $w^R \in L(\mathcal{A}^R$).
+
+    \end{enumerate}
+    ($\supseteq$). We get the other direction for free, since we can make the same
+    argument starting with $\mathcal{A}^R$ (and applying \Cref{lem:rev-rev-id}).
+\end{proof}
+
+\subsection{Example}
+
+Consider the automaton we built above for $e_1$. Here is its reverse (after
+sliding tests to eliminate set-all):
+\begin{center}
+\begin{tikzpicture}
+\node[state, initial] (s0) {s0};
+\node[state, right of=s0] (s1) {s1};
+\node[state, right of=s1] (s2) {s2};
+\node[draw=none, below of=s0, node distance=27pt] {$x=1$};
+\node[draw=none, below of=s1, node distance=27pt] {$0$};
+\node[draw=none, below of=s2, node distance=27pt] {$y\gets 2$};
+\draw (s0) edge node{$y=1\cdot y\gets 7$} (s1);
+\draw (s0) edge[ematrix] ++ (0,-0.75);
+\draw (s1) edge[ematrix] ++ (0,-0.75);
+\draw (s1) edge node{$z=4 \cdot z\gets 2$}  (s2);
+\draw (s2) edge[ematrix] ++ (0,-0.75);
+\draw (s0) edge[bend left=50] node{$y=3\cdot z=1\cdot y\gets 7$} (s2);
+\end{tikzpicture}
+\end{center}
+
+One can check that the same automaton is obtained either by (1) constructing the
+automaton above and (2) performing automaton reversal, or by (1) reversing the
+expression to get $e_1^R$, and (2) constructing the automaton for $e_1^R$.
+
+
+
+
+\section{text deleted}
+
+\as{move this remark elsewhere -- also all text below remark, unclear it belongs here}
+\begin{remark}
+For this paper, we will disallow transitions from returning to the start state
+as a convenience for several of the constructions.
+That is, the continuation function actually has type $\delta\colon S \to \Pk \to
+\mathcal{P}(\Pk \to S - \{s_0\})$. This is no real limitation, of course,
+because for any automaton with a transition to the start state, we can simply
+copy the start state and transition to the copy instead.
+\end{remark}
+As a convenient shorthand, whenever we have a set $X
+\subseteq \Pk \times S$ of packet-state pairs, it will be convenient to ``select'' the set of states associated with a
+particular packet. To denote this for such an $X$ and packet $\pk$, we use a restriction bar:
+
+\[ X \vert_\pk \triangleq \{ s \in S \mid (\pk, s) \in X \} \]
+
+
+Note that the sequences processed by $\delta^\star$ are not guarded strings,
+because they omit the final transformation that would be performed by the
+observation function. Thus, an equivalent definition for $\accept$ would
+be, for a $w \in \Pk\cdot(\Pk\cdot\dup)^\star$:
+\[\accept_\mathcal{A}\ s\ w\cdot \pk_{out} \triangleq \pk_{out} \in 
+    \bigcup_{(\pk, s) \in \delta^\star\ s_0\ w} \epsilon\ s\ \pk \]
+
+
+
+
+
+
+
+\subsection{\NetKAT Automata (non-det)}
+The (denotational) semantics of \NetKAT expressions is given in terms of regular languages of 
+guarded strings. These strings are inputs to an operational model introduced in~\cite{fastcompiler}, akin to a non-deterministic automaton. 
+\begin{definition}A {\em \NetKAT automaton} is a tuple $(S, s_0, \epsilon, \delta)$, where:
+\begin{itemize}
+    \item $S$ is a finite set of states.
+    \item $s_0 \in S$ is the start state.
+    \item $\epsilon\colon S \to \Pk \to \pow\Pk$ is the observation
+    function.
+    \item $\delta\colon S \to \Pk \to\pow{\Pk \times S}$ is the
+    continuation function.
+\end{itemize}
+\end{definition}
+
+We will sometimes use equivalent presentations of $\epsilon$ and $\delta$ as families of functions over $\Pk$:
+\[
+\begin{array}{c}
+\epsilon\colon S \to \Pk \to \mathcal{P}(\Pk) \\
+\hline\hline
+ \epsilon_\pk \colon S \to \mathcal{P}(\Pk)\\\\
+\end{array}\qquad
+\begin{array}{c}
+\delta\colon S \to \Pk \to \mathcal{P}(\Pk \times S) \\
+\hline\hline
+\delta_\pk \colon S \to \mathcal{P}(\Pk \times S)\\
+\hline\hline
+\delta_{\pk\pkp} \colon S \to \mathcal{P}(S)\\
+\end{array}
+\qquad
+\begin{array}{l@{\,}c@{\,}l}
+  \epsilon_\pk (s) &=&   \epsilon(s)(\pk)\\
+\delta_\pk (s) &=& \delta(s)(\pk)\\
+\delta_{\pk\pkp}(s) &=& \{s' \mid (\pkp,s')\in \delta (s)(\pk) \}
+\end{array}
+ \]
+To process a string $\pk \cdot \pk_1 \cdot \dup \cdot \ldots \cdot \pk_n \cdot \dup \cdot \pkp$, for $n\geq 0$, an automaton in a state $s\in S$ can either accept the string if $n=0$ and $\pkp \in \epsilon(s)(\pk)$ or, if $n>0$,  it can consume one packet and $\dup$ from the start of the string if $(\pk_1,s')\in\delta(s)(\pk)$ and transition to state $s'$ in which the rest of the string needs to be processed. More formally, the set of strings accepted by a state $s\in S$ is formalized in the function 
+    $\accept\colon S \to \pow\GS $ given by:
+    \begin{align*}
+     \pk \cdot \pkp \in   \accept(s) &\iff \pkp \in \epsilon_\pk(s) \\
+     \pk \cdot \pkp \cdot \dup \cdot w \in   \accept(s) &\iff \exists s' \in \delta_{\pk\pkp}(s) \text{ such that } 
+            \pkp \cdot w \in \accept(s') \\
+    \end{align*}
+   We can then define the set of strings accepted by an automaton $\mathcal A= (S, s_0, \epsilon, \delta)$ as:
+\[L(\mathcal{A}) \triangleq \accept(s_0) \]
+
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+% MM: I added back the definition for δ* because I need it for proof of
+% \cref{lem:paths-reverse} (and follow-on theorems)
+The transition function can be extended to sequences of packets having type
+$\delta^\star\colon S \to \Pk\cdot(\Pk\cdot\dup)^\star\to\mathcal{P}(\Pk\times S)$. This usage
+is analogous to the standard extension of Brzozowski derivative to strings. We use it here to describe
+paths through automata. We define this extension as:
+\begin{equation*}
+  \begin{aligned}
+    \delta^\star(s)(\pk) &\triangleq \{(\pk, s)\}\\
+    \delta^\star (s) (\pk\cdot\pkp\ddd w) &\triangleq \bigcup_{s' \in \delta_{\pk\pkp}(s)} \delta^\star(s') (\pkp\cdot w)
+\end{aligned}\qquad
+\begin{array}{c}
+\delta^\star_w (s) = \delta^\star(s)(w)
+\end{array}
+\end{equation*}
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+
+\begin{remark}[Deterministic vs non-deterministic \NetKAT automata]
+The above model of \NetKAT automata is non-deterministic as each transition in $\delta$ can lead to multiple next states for the same input packet. When we define the $\accept$ function we implicitly construct (on-the-fly) a determinization of the automaton as we only look for one accepting path labelled by a string. In the coalgebraic decision procedure presented in~\cite{coalgebraic} the authors considered a deterministic model, as this gives a canonical correspondence with the denotational semantics. The main advantage of taking a  non-deterministic model as starting point is that one can build more compact automata corresponding to a NetKAT program and, as we will see later, we can still design the decision procedures in an efficient way. 
+
+From any \NetKAT automaton  $(S, s_0, \epsilon, \delta)$ we can build a deterministic \NetKAT automaton  $(\pow S, \{s_0\}, \widehat\epsilon, \widehat\delta)$ where:
+    \begin{align*}
+&\widehat\epsilon \colon \pow S \to \Pk \to \pow\Pk &&\widehat \delta\colon \pow S \to \Pk \to\pow{\Pk \times S}\\
+&\widehat\epsilon (U) = \bigcup\limits_{s\in U} \epsilon_\pk(s)&&\widehat\delta (U)(\pk) = \bigcup\limits_{s\in U} \delta_\pk(s)
+\end{align*}
+\end{remark}
+
+\subsection{Bisimulations of \NetKAT automata (non-det)} 
+
+In this section we present a first naive algorithm to check equivalence of two \NetKAT automata. 
+
+
+\begin{definition}[Bisimulation]
+    A \emph{bisimulation} between \NetKAT automata $\mathcal{A} = (S, s_0, \epsilon, \delta)$
+    and $\mathcal{B} = (T, t_0, \epsB, \delB)$ is a relation $ R
+    \subseteq \mathcal{P}(S) \times \mathcal{P}(T)$ such that $\{s_0\} R \{t_0\}$ and for all $U\subseteq S$ and $V\subseteq T$, if $(U,V)\in R$ then:
+\begin{enumerate}[(a)]
+    \item For all $\pk \in\Pk$, $\widehat\epsilon_\pk(U) = \widehat{\epsB}_\pk(V)$ \text{ and }
+    \item For all $\pk,\pkp \in\Pk$, ($\widehat\delta_{\pk\pkp}(U), \widehat{\delB}_{\pk\pkp}(V))\in R$.
+\end{enumerate}
+\end{definition}
+In \Cref{fig:naivend} we present a first algorithm to compute a bisimulation between two \NetKAT automata. Bisimulations are sound proof principles for language equivalence of \NetKAT automata. 
+
+
+
+
+\begin{figure}
+\begin{algorithmic}
+\State $R\gets \emptyset; \todoR \gets \{(\{s_0\},\{t_0\})\}$, 
+\While{$\todoR$ is not empty} 
+    \State extract $(X, Y)$ from $\todoR$;
+    \If{$(X, Y) \not\in R$} 
+     \If{$\widehat\epsilon(X) \neq \widehat\epsilon(Y)$} 
+      \Return \false;
+	\EndIf 
+      \For {$\pk,\pkp \in \Pk$}
+     	insert ($\widehat\delta_{\pk\pkp}(X)$,$\widehat\delB_{\pk\pkp}(Y)$) in \todoR;
+\EndFor
+    \EndIf
+     insert $(X,Y)$ in $R$;
+\EndWhile
+\State 
+\Return \true;
+\end{algorithmic}
+
+%\begin{lstlisting}[language=Python,mathescape]
+%$R$ := { }; todo := {({$s_0$}, {$t_0$})};
+%while todo is not empty, do {
+%     extract $(X, Y)$ from todo;
+%     if $(X, Y)\in R$ then skip;
+%     if $\widehat\epsilon(X) \neq \widehat\epsB(Y)$ then return false;
+%     for all $\pk,\pkp \in \Pk$ 
+%     	insert ($\widehat\delta_{\pk\pkp}(X)$,$\widehat\delB_{\pk\pkp}(Y)$) in todo
+%     insert $(X,Y)$ in $R$
+%return true;
+%\end{lstlisting}
+
+\caption{Naive bisimulation}\label{fig:naivend}
+\end{figure}
+
+
+\begin{theorem}[Soundness]
+If there exists a bisimulation $R$ between \NetKAT automata $\mathcal{A} = (S, s_0, \epsilon, \delta)$
+    and $\mathcal{B} = (T, t_0, \epsB, \delB)$ then $L(\mathcal{A}) = L(\mathcal{B})$.
+\end{theorem}
+
+
+\begin{example}
+Let us consider the following two \NetKAT automata, which for simplicity operate over packets with one field $x$. 
+\begin{center}
+\begin{tikzpicture}[node distance =2.5cm] \tikzstyle{every node}=[font=\footnotesize]
+\node[state, initial] (s0) {$p$};
+\node[state, right of=s0] (s1) {$q$};
+\node[state, right of=s1] (s2) {$r$};
+\node[draw=none, below of=s0, node distance=27pt] {$\zero$};
+\node[draw=none, below of=s1, node distance=27pt] {$\zero$};
+\node[draw=none, below of=s2, node distance=27pt] {$x=1$};
+\draw (s0) edge[bend left] node{$x=2, x= 1$} (s2);
+\draw (s0) edge[ematrix] ++ (0,-0.75);
+\draw (s1) edge[ematrix] ++ (0,-0.75);
+\draw (s1) edge node{$x=2, x= 1$}  (s2);
+\draw (s2) edge[bend left] node{$x=2, x= 1$}  (s1);
+\draw (s1) edge node{$x=2, x= 1$}  (s0);
+\draw (s2) edge[ematrix] ++ (0,-0.75);
+\end{tikzpicture}\qquad 
+\begin{tikzpicture}[node distance =2.5cm] 	 \tikzstyle{every node}=[font=\footnotesize]
+\node[state, initial] (s0) {$s$};
+\node[state, right of=s0] (s1) {$t$};
+\node[state, right of=s1] (s2) {$u$};
+\node[draw=none, below of=s0, node distance=27pt] {$\zero$};
+\node[draw=none, below of=s1, node distance=27pt] {$\zero$};
+\node[draw=none, below of=s2, node distance=27pt] {$x=1$};
+\draw (s0) edge[bend left] node{$x=2, x= 1$} (s2);
+\draw (s0) edge[ematrix] ++ (0,-0.75);
+\draw (s1) edge[ematrix] ++ (0,-0.75);
+\draw (s2) edge node{$x=2, x= 1$}  (s1);
+\draw (s0) edge[bend right] node[below]{$x=2, x= 1$}  (s1);
+\draw (s1) edge node[above]{$x=2, x= 1$}  (s0);
+\draw (s2) edge[ematrix] ++ (0,-0.75);
+\end{tikzpicture}
+\end{center}
+We depict initial states with an incoming arrow, observation functions by double arrows on each state to a predicate $a$ which is denoting the set of packets $\pSem a$. The continuation functions are depicted as follows: $s \xrightarrow{a,b} s'$  iff for all $\pk\in \pSem a$ and $\pkp\in \pSem b$ we have $s' \in \delta_{\pk\pkp}(s)$. 
+
+The naive bisimulation algorithm in ~\Cref{fig:naive} will build a relation $R$ between states of the determinized automata, containing the pairs connected below through dashed lines: 
+
+\begin{tikzpicture}[node distance =1.5cm] \tikzstyle{every node}=[font=\footnotesize]
+\node (s0) {$\{p\}$};
+\node[right of=s0] (s1) {$\overline{\{r\}}$};
+\node[right of=s1] (s2) {$\{q\}$};
+\node[right of=s2] (s3) {$\overline{\{p,r\}}$};
+\node[right of=s3] (s4) {$\overline{\{q,r\}}$};
+\node[right of=s4] (s5) {$\overline{\{p,q,r\}}$};
+\node[below of=s0, node distance=1cm] (t0) {$\{s\}$};
+\node[right of=t0] (t1) {$\overline{\{t,u\}}$};
+\node[right of=t1] (t2) {$\{s,t\}$};
+\node[right of=t2] (t3) {$\overline{\{s,t,u\}}$};
+\draw (s0) edge  node{$\ell$} (s1);
+\draw (s1) edge  node{$\ell$} (s2);
+\draw (s2) edge  node{$\ell$} (s3);
+\draw (s3) edge  node{$\ell$} (s4);
+\draw (s4) edge  node{$\ell$} (s5);
+\draw (s5) edge[out=25, in=365,loop]  node{$\ell$} (s5);
+\draw (t0) edge  node{$\ell$} (t1);
+\draw (t1) edge  node{$\ell$} (t2);
+\draw (t2) edge  node{$\ell$} (t3);
+\draw (t3) edge[out=365, in=345,loop]  node{$\ell$} (t3);
+\draw (s0) edge [-,dashed]  (t0);
+\draw (s1) edge [-,dashed]  (t1);
+\draw (s2) edge [-,dashed]  (t2);
+\draw (s3) edge [-,dashed]  (t3);
+\draw (s4) edge [-,dashed]  (t3);
+\draw (s5) edge [-,dashed]  (t3);
+\end{tikzpicture} 
+
+We use $\ell$ as a shorthand to denote $x=2,x=1$ and the overline as a shorthand
+to indicate observation $x=1$. It is worth noting that because we are
+determinizing on-the-fly and building a relation over an automaton with a
+structured state space (sets) we can short-circuit the construction of the
+bisimulation in the third step as we can infer the last three pairs from the
+first three (this is Bonchi-Pous bisimulation up-to congruence
+technique~\cite{bonchi-pous2013}).
+\end{example}
+The bisimulation construction of \Cref{fig:naive} can be optimized in different ways and this will result in the different algorithms we present later in the paper. Note how the for-loop guard ${\pk,\pkp \in \Pk}$ results in the insertion of new pairs in the worklist $\todoR$ that grow exponentially with the size of basic tests (or number of fields). Efficient encoding of the transitions $\delta_{\pk,\pkp}$ and the bisimulation relations on these will result in smaller relations and more efficient checks of equivalence. We will use a data structure introduced in \cite{fastcompiler}---forward-decision diagrams---which are a mild generalization of binary-decision diagrams. 
+
+
+\subsection{Conversion of \NetKAT Expressions to Automata (non-det)} 
+In order to apply the bisimulation algorithms to \NetKAT programs we need to convert expressions to automata. We present a direct construction of a non-deterministic automaton using an analogue of Antimirov derivatives~\cite{antimirov}. We first show that the set $\Exp$ has the structure of a $\NetKAT$ coalgebra, that is a \NetKAT automaton without an initial state and with an infinite state space. We then prove that for a fixed program $p$ the subcoalgebra starting at $p$ has a finite state space. 
+
+%This is what the compiler paper does -- if the implementation does this I need to backtrack this explanation (Alexandra)
+% For an expression with $n$ occurrences of $\dup$, we will build an automaton that has $n+1$ states---this is similar to the construction due to Berry-Sethi and Glushkov~\cite{berri-sethi,glushkov} that builds a position automaton corresponding to a regular expression. 
+
+A \NetKAT coalgebra is a pair $(S,\left<\epsilon,\delta\right>)$, where $S$ is a (potentially infinite) set of states and $\epsilon,\delta$ have the same types as in a \NetKAT automaton. Given $T\subseteq S$ we say that $(T,\left<\epsilon\!\!\mid_T,\delta\!\!\mid_T\right>)$ is a subcoalgebra of $(S,\left<\epsilon,\delta\right>)$ if the restricted transition function is well-defined (in other words, $T$-transitions stay in $T$). We can define the state space of the subcoalgebra generated by a state $s\in S$, denoted $\left<s\right>$ as the intersection of all subcoalgebras containing $s$:
+\[
+\bigcap \{ T \mid (T,\left<\epsilon\vert_T,\delta\vert_T\right>) \text{ is a subcoalgebra of } (S,\left<\epsilon,\delta\right>) \text{ and } s\in T \}
+\]
+Intuitively, this definition is capturing the construction of a coalgebra starting from $\{s\}$ and closing it under repeatedly taking transitions through $\delta$. 
+
+\begin{definition} The \NetKAT automaton $\mathcal A_p$ for a program expression $p\in\Exp$ is the automaton $(S, s_0, \epsilon, \delta)$, where:
+\begin{itemize}
+    \item $S = \left<p\right> \subseteq \Exp$ (by taking the subcoalgebra of $(\Exp, \left<E,D\right>)$).
+    \item $s_0 = p$ is the start state.
+    \item $\epsilon\colon S \to \Pk \to \mathcal{P}(\Pk)$ is given by $\epsilon(s)(\pk) = E_\pk(p)$.
+        \item $\delta\colon S \to \Pk \to \mathcal{P}(\Pk \times S)$ is given by $\delta(s)(\pk) = D_\pk(p)$.
+\end{itemize}
+\end{definition}
+To ensure the soundness of the above definition we need to show that $S$ is a finite set; that is, the set of expressions obtained by repeatedly applying $D$ to $p$ is finite.
+\begin{theorem}
+The set of $\Exp$ has the structure of a \NetKAT coalgebra, given by the functions $E\colon \Exp \to \Pk \to \mathcal{P}(\Pk)$ and $D \colon\Exp \to \Pk \to \mathcal{P}(\Pk \times \Exp)$ in \Cref{fig:derivatives}. Moreover, for every $p\in\Exp$ the subcoalgebra generated by $p$ is finite. 
+\end{theorem}
+\begin{proof}
+This result follows from \Cref{lemma:derivatives}: if $(\pkp, q) \in D_\pk(p)$, then $D_{\pkp}(q) \subseteq D_\pk(p)$. The number of derivatives is bounded by $|\Pk| \times \ell$, where $\ell$ is the number of occurrences of $\dup$ and $+$ in an expression. 
+\end{proof}
+\begin{figure}
+
+
+
+\begin{tabular}{|c|c|c|}
+    \hline
+    $p \in \Exp$        & $E_\pk \colon\pow\Pk$            & $D_\pk \colon \Exp\to\pow{\Pk \times \Exp}$ \\
+    \hline
+    $\zero$                   & $ \emptyset$                                          & $\emptyset$ \\
+    $\one$                  &  $\{\pk\}$                                            & $\emptyset$ \\
+    $f = n$             & $\{\pk\mid \pk.f = n\}$                         & $\emptyset$  \\
+    $f \gets n$         & $\{\pk[n/f]\}$                     & $\emptyset$ \\
+     $\dup$ &  $\emptyset$                                            & $\{(\pk, \one)\}$\\
+    $q + r$             & $E_{\pk}(q) \cup E_{\pk}(r)$     & $D_{\pk}(q) \cup D_{\pk}(r)$\\
+    $q \cdot r$         & $\bigcup\limits_{\pkp\in E_\pk(q)}  E_{\pkp}(r)$ & $D_{\pk}(q)\fatsemi r \cup \bigcup\limits_{\pkp\in E_{\pk}(p)} D_{\pkp}(r)$\\
+    $q^\star$           & $\{\pk\} \cup \bigcup\limits_{\pkp\in E_\pk(q)}  E_{\pkp}(q^\star)$                    &  $D_{\pk}(q)\fatsemi q^\star \cup \bigcup\limits_{\pkp\in E_{\pk}(q)} D_{\pkp}(q^\star)$ \\
+    \hline
+\end{tabular}
+    \caption{\NetKAT coalgebra via Antimirov derivatives. Note that the definitions for iteration are circular, but both are well-defined if we take the least fixpoint of the system of equations. The operation $\fatsemi \colon \pow{\Pk \times \Exp} \times \Exp \to \pow{\Pk \times \Exp}$ is defined as $U \fatsemi q = \{(\pk, p;q) \mid (\pk,p)\in U\}$. }
+    \label{fig:derivatives}
+\end{figure}
+
+
+To illustrate the construction, consider the following \NetKAT program expression $p$:
+
+\[
+p \triangleq
+    x=1 +  y=2\cdot y\gets7\cdot\dup\cdot(z=1\cdot y\gets3 +  z=2\cdot z\gets4\cdot\dup\cdot y\gets1)
+\]
+
+The automaton for $p$ obtained will have $3$ states (we omit states with an empty output):
+\begin{center}
+\begin{tikzpicture}
+\node[state, initial] (s0) {$p$};
+\node[state, right of=s0] (s1) {$q$};
+\node[state, right of=s1] (s2) {$r$};
+\node[draw=none, below of=s0, node distance=27pt] {$x=1$};
+\node[draw=none, below of=s1, node distance=27pt] {$z=1\cdot y= 3$};
+\node[draw=none, below of=s2, node distance=27pt] {$y= 1$};
+\draw (s0) edge node{$y=2\cdot y\gets 7$} (s1);
+\draw (s0) edge[ematrix] ++ (0,-0.75);
+\draw (s1) edge[ematrix] ++ (0,-0.75);
+\draw (s1) edge node{$z=2\cdot z\gets 4$}  (s2);
+\draw (s2) edge[ematrix] ++ (0,-0.75);
+\end{tikzpicture}
+\end{center}
+
+Here, the states are $q \equiv z=1\cdot y\gets3 +  z=2\cdot
+z\gets4\cdot\dup\cdot y\gets1$ and $r \equiv y\gets 1$. 
+
+
+
+\section{Bisimulation of \NetKAT Automata}
+
+We are now ready to consider algorithms for checking whether two \NetKAT
+automata are language-equivalent. When we show two \NetKAT automata have the accept the
+same set of guarded strings, this means that the two associated \NetKAT
+programs, as network policies, have the same behavior.
+
+The tool we will use to decide equivalence of \NetKAT automata is a
+kind of relation between sets of states of one automaton and sets of states of
+another called a bisimulation. By using sets of states for the bisimulation, we
+will be performing determinization ``on the fly'' (were we not to do this,
+unfortunately automata could be language equivalent but \emph{not} bisimilar).
+Accordingly, in the following developments, one may equivalently think of
+$Q\subset S$ as a set of states of an automaton, or a state in the
+determinization of the same automaton.
+
+Formally, our bisimulation is a relation in $B \subseteq \Pk \times
+\mathcal{P}(S) \times \mathcal{P}(T)$ subject to additional requirements.
+When the relation $B$ is clear, for the tuple $(\pk, Q_S, Q_T) \in B$, we will
+write:
+\[ Q_S \approxp{\pk} Q_T \]
+
+In addition, if we have that $(\pk, Q_S, Q_T)\in B$ for \emph{all} $\pk\in \Pk$,
+then we write:
+\[ Q_S \approx Q_T \]
+
+\begin{definition}[Bisimulation]
+    A \emph{bisimulation} between \NetKAT automata $\mathcal{A} = (S, s_0, \epsilon_S, \delta_T)$
+    and $\mathcal{B} = (T, t_0, \epsilon_T, \delta_T)$ is a relation $B
+    \subseteq \Pk \times \mathcal{P}(S) \times \mathcal{P}(T)$ such that:
+\begin{itemize}[(a)]
+    \item $\{s_0\} \approx \{t_0\}$,
+    \item $Q_S \approxp{\pk} Q_T \Rightarrow \bigcup_{s\in Q_S} \epsilon_S~\pk~s
+                                         = \bigcup_{t\in Q_T} \epsilon_T~\pk~t$,
+    \item $Q_S \approxp{\pk} Q_T \Rightarrow
+      (\bigcup_{s\in Q_S} \delta_S\ s\ \pk)\vert_{\pkp} \approxp{\pkp}
+      (\bigcup_{t\in Q_T} \delta_T\ t\ \pk)\vert_{\pkp}$
+\end{itemize}
+\end{definition}
+
+The definition above states that two automata are bisimilar (i.e. a bisimulation
+exists between them) if (a) the singleton sets containing their start states are
+bisimilar for all packets, (b) the value of the respective observation functions
+are equal for bisimilar sets, and (c) transitions performing the same tests
+and assignments from bisimilar state sets must also go to bisimilar state sets.
+
+\begin{theorem}
+    For two \NetKAT automata $\mathcal{A}$ and $\mathcal{B}$, there is a
+    bisimulation $B$ between them if and only if $L(\mathcal{A}) = L(\mathcal{B}).$
+\end{theorem}
+\begin{proof}
+    Suppose there is a bisimulation between $\mathcal{A}$ and $\mathcal{B}$.
+    Then let $w = \pk_{in}\cdot \pk_1 \ddd \ldots \ddd \pk_n \ddd \pk_{out} \in
+    L(\mathcal{A})$. If $n = 0$ (i.e., $w = \pk_{in} \cdot \pk_{out}$), we know
+    $w\in L(\mathcal{B})$ by properties (a) and (b) of the bisimulation.     
+    Let $P_S = \delta_S^\star\ s_0\ (\pk_{in} \cdot \pk_1 \ddd \ldots \ddd \pk_n)$ and let
+        $P_T = \delta_T^\star\ s_0\ (\pk_{in} \cdot \pk_1 \ddd \ldots \ddd \pk_n)$.
+    By applying property (b) inductively on $n$, we know that for each $\pk \in
+    \Pk$, $P_S\vert_p \approxp{\pk} P_T\vert_p$. It follows by
+    property (b) that $w\in L(\mathcal{B})$. The reverse direction is similar.
+\end{proof}
+
+\subsection{Computing Bisimulations}\label{sec:computing-bisim}
+
+We present two methods for computing bisimulations on \NetKAT automata as
+described above.
+
+\subsubsection{Symbolic Packets}\label{sec:sp}
+A natural way to compute a bisimulation of two automata is simply to start by
+trying to relate the two start states and exploring outwards. This approach
+can be seen as a modification of Hopcroft and Karp's standard algorithm for bisimulation
+checking of finite automata \cite{hopcroft-karp1971}. That is, for each
+pair of states that are related, we recursively ensure that the pairs of states
+reachable by the same transformation to the symbolic packet are also related.
+
+In other words, we have a function
+$\bisim\colon \mathcal{P}(\Pk) \to \mathcal{P}(S) \to \mathcal{P}(T) \to 2$
+which is defined as:
+\[
+\bisim\ P\ Q_S\ Q_T \triangleq
+            \forall \pk\in P\colon (\bigcup_{s\in Q_S} \epsilon_1\ s\ \pk) =
+                                   (\bigcup_{t\in Q_T} \epsilon_T\ t\ \pk) \wedge
+            \bigwedge_{\substack{\pkp,Q_1', Q_T' \in \Pk \times  \mathcal{P}(S) \times \mathcal{P}(T)\colon \\
+                        Q_S' = (\bigcup_{s\in Q_S} \delta_S\ s\ \pk)\vert_{\pkp} \wedge \\
+                        Q_T' = (\bigcup_{t\in Q_T} \delta_T\ t\ \pk)\vert_{\pkp}}} \bisim\ \ \pkp\ \ Q_S'\ \ Q_T'
+\]
+
+The decision procedure for equivalence is given in \Cref{fig:sym-pack-alg}.
+
+\begin{figure}
+\begin{enumerate}
+\item Start with an empty relation $B$.
+\item \label{step:init} Let $P=\Pk, Q_S = \{s_0\}, Q_T = \{t_0\}$.
+\item \label{step:check-eps} For the current $(P, Q_S, Q_T)$, check that the packets reachable by applying the
+observation function on each side to this symbolic packet is the same set, i.e.
+that $(\bigcup_{s\in Q_S} \epsilon_S\ s\ \pk) = (\bigcup_{t\in Q_T} \epsilon_T\ t\ \pk)$.
+If they are, add $Q_S \approxp{\pk} Q_T$ to $B$. Otherwise, stop and return
+failure.
+\item \label{step:iter-delta} For each $\pkp\in\Pk$, compute:
+\[
+Q_S' = (\bigcup_{s\in Q_S} \delta_S\ s\ \pk)\vert_{\pkp}
+\] and \[
+Q_T' = (\bigcup_{t\in Q_T} \delta_T\ t\ \pk)\vert_{\pkp}
+\]
+and perform, as a recursive call, step~\ref{step:check-eps} with $\pk=\pkp,
+Q_S=Q_S'$, and $Q_T=Q_T'$.
+\item When all the recursive calls conclude, return $B$.
+\end{enumerate}
+\caption{Algorithm for computing bisimulation by Symbolic
+Packets}\label{fig:sym-pack-alg}
+\end{figure}.
+
+% MM rewrite this --- can be made clearer with new pseudocode
+%%e need not iterate all possible
+%%successor packets because the FDD representation of transitions already keeps
+%%them in equivalence classes, so we need only iterate over the leaves of the FDD
+%%(see \Cref{sec:fdd}).
+
+This method computes the minimum (by containment) bisimulation:
+
+\begin{theorem}
+If the algorithm in \Cref{fig:sym-pack-alg} succeeds, then for the relation $B$:
+\begin{enumerate}
+\item $B$ is a bisimulation.
+\item For any bisimulation $B'$, we have $B \subseteq B'$.
+\end{enumerate}
+\end{theorem}
+\begin{proof} \ \\
+\mm{Maybe both parts can be a bit more explicit...}
+\begin{enumerate}
+\item Requirement (a) of bisimulations is met by step~\Cref{step:init}.
+Requirements (b) and (c) are checked inductively by steps~\Cref{step:check-eps}
+and \Cref{step:iter-delta}.
+\item For each triple added by step~\Cref{step:check-eps}, failing to add the
+triple violates a requirement of bisimulations, and hence must be in any
+bisimulation.
+\end{enumerate}
+\end{proof}
+
+
+
+
+\subsection{NetKAT's Carry-On Packets}
+
+NetKAT is designed to largely adhere to standard presentations of
+automata and coalgebras. But there is one aspect of NetKAT automata
+that is somewhat unusual. Recall that the transition function has type
+$\delta\in S \to S^{\Pk \times \Pk}$, which suggests that the
+``characters'' consumed by the automaton are pairs of
+packets. Operationally, these packets can be thought of as
+input-output pairs---i.e., a switch matches on the input packet and
+produces a possibly-modified output packet.
+
+However, unlike the usual notion of acceptance for a deterministic
+automaton, the acceptance function does not consume packets from the
+garded string in pairs even though the alphabet of the automaton is
+$\Pk\times \Pk$. In particular, when we take a transition
+$\delta_{\pk\pk_1}(s)$ in \Cref{accept_transition}, the packet $\pk_1$
+remains as a part of the string that is processed in the next
+state. Hence, NetKAT automata exhibit a kind of \emph{carry-on state}
+corresponding to the current value of the packet at each program
+point. Interestingly, it turns out that these carry-on packets can be
+understood as fundamental from the coalgebraic perspective. This
+account of carry-on packets has not been given in prior work on NetKAT
+and is essential for understanding the design of the new symbolic data
+structures and bisimulation algorithms developed in this paper.
+
+First, observe that the set of guarded strings $\pow\GS = \pow\GSdef$
+is isomorphic to the set $\left(2^{\Pk\times\Pk}\right)^{\Pk^\star}$:
+%
+(i) $\pow X$ is in one-to-one correspondence to characteristic
+functions on $X$ (i.e., $2^X$);
+%
+(ii) lists are isomorphic to
+products;
+%
+(iii) we can remove $\dup$, which essentially is a one-element set and
+hence neutral in a product;
+%
+(iv) we can curry the resulting function.
+\begin{equation}\label{eq:iso}
+\!\!\!\pow\GSdef \stackrel{\text{(i)}}\cong 2^{\GSdef} \stackrel{\text{(ii)}}\cong 2^{\Pk\times{(\Pk\times \dup)^\star}\times\Pk}  \stackrel{\text{(iii)}}\cong 2^{\Pk\times{\Pk^\star}\times\Pk} \stackrel{\text{(iv)}}\cong \left(2^{\Pk\times\Pk}\right)^{\Pk^\star}
+\end{equation}
+%
+Hence, we can identify $\pow\GS$ with a set of the form $O^{A^\star}$,
+for $O=2^{\Pk\times\Pk}$ and $A=\Pk$, which turns out to be a
+well-known object: $O$-valued languages accepted by Moore coalgebras
+$X \xrightarrow{\left<o,t\right>} O \times X^A$. In particular, there
+is a unique map $\mathcal L$ assigning to each state $x\in X$ of a
+Moore automaton the language it accepts:
+\begin{equation}\label{eq:finalMoore}
+\xymatrix@C=2cm{X \ar@{-->}[r]^{\mathcal L}\ar[d]_{\left<o,t\right>}& O^{A^*}\ar[d]_{\left<\varepsilon,\partial\right>}\\
+O\times X^A \ar@{-->}[r]^{\mathsf{id}\times \mathcal L^A} & O\times (O^{A^*})^{A}
+}
+\end{equation}
+Here, $\varepsilon$ and $\partial$ are language derivatives given by,
+for $\xi\in A^{O^\star}$: $\varepsilon(\xi) = \xi(\lambda)$ and
+$\partial(\xi)(a)(u) = \xi(au)$, where $\lambda$ denotes the empty
+word. The map $\mathcal L$ can be ``read off'' from the above diagram,
+%
+\[
+\mathcal L(s)(\lambda) = o(s) \quad\text{and} \quad \mathcal L(s)(au) = \mathcal L(t(s)(a))(u)
+\]
+%
+and is the usual inductive definition of language acceptance in a
+deterministic Moore automaton.
+
+If we compare the type of a deterministic Moore automaton with the
+type of a \NetKAT coalgebra, there is still a slight mismatch: $X \to
+O \times X^A$ vs. $X \to O \times X^{A\times A}$ (for
+$O=2^{\Pk\times\Pk}$ and $A=\Pk$). As it turns out the extra $A$ in
+the alphabet of a \NetKAT coalgebra is what appears as carry-on packet
+in the definition of $\accept$ and is acting as a kind of {\em
+  semantic effect}.
+
+If we care to eliminate this mismatch, we can construct a Moore
+coalgebra from a \NetKAT algebra in which the carry-on bit is hidden
+in the state space. Given a \NetKAT coalgebra $(S, \left<\epsilon,
+\delta\right>)$ we build a Moore automaton $(S^\Pk,
+\left<\epsilon^\sharp, \delta^\sharp\right>)$ where the states are
+packet-indexed vectors, and both the observation and transition
+functions process a carry-on packet:
+%
+\[
+\epsilon^\sharp_{\pk\pkp}(\varphi) = \epsilon_{\pk\pkp}(\varphi(\pk)) \qquad\qquad
+\delta^\sharp_{\pk\pkp}(\varphi) = \delta_{\pk\pkp}(\varphi(\pk))
+\]
+%
+The $\accept$ function is then defined using the unique map as defined
+in \Cref{eq:finalMoore} from the coalgebra $(S^\Pk,
+\left<\epsilon^\sharp, \delta^\sharp\right>)$ to
+$(O^{A^\star},\left<\varepsilon,\partial\right>)$. Note how when
+instantiating $O=2^{\Pk\times\Pk}$ and $A=\Pk$ we have that
+$O^{A^\star}=\left(2^{\Pk\times\Pk}\right)^{\Pk^\star}$ which as we
+showed above is isomorphic to $\pow\GS$. Since $\accept$ operates over
+elements of $S$ and $\mathcal L$ over $S^\Pk$ we use an injection
+$\eta \colon S \to S^\Pk$ given by $\eta(s)(\pk) = s$.\footnote{The
+injection $\eta$ is in fact a natural transformation between two
+functors, the identity functor and $(-)^\Pk$. The latter is a monad,
+the so-called reader monad, and $\eta$ is the unit of that monad.}
+%
+\[
+\xymatrix@C=1.8cm{
+X\ar[dr]_{\left<\epsilon, \delta\right>}\ar[r]_\eta\ar@/^{2.5ex}/[rr]^\accept&X^\Pk \ar[d]_{\left<\epsilon^\sharp, \delta^\sharp\right>}\ar@{-->}[r]_{\mathcal L} & \pow\GS\ar[d]^{\left<\overline\varepsilon,\overline\partial\right>}\\
+&2^{\Pk \times \Pk}\times (X^{\Pk})^\Pk\ar@{-->}[r]& 2^{\Pk \times \Pk}\times \pow\GS^{\Pk}
+}
+\]
+%
+The functions $\overline\varepsilon$ and $\overline\partial$ apply
+$\varepsilon$ and $\partial$ after the isomorphism map in
+\Cref{eq:iso} yielding the following semantic derivative functions on
+sets of guarded strings: $\overline\varepsilon (U) = \{\pk\cdot\pkp
+\mid \pk\cdot\pkp\in U\}$ and $\overline\partial(U)(\pk) = \{\pkp\cdot
+w\mid \pk\cdot\pkp\cdot \dup \cdot w\in U\}$. Instantiating the
+definition of $\accept$ from the commutativity of the above diagram we
+obtain:
+%
+\begin{align*}
+\pk\cdot\pkp \in \accept(s)
+&\iff \pk\cdot\pkp \in \mathcal L(\eta(s)) \\
+&\iff \overline\varepsilon_{\pk\pkp}(\mathcal L(\eta(s)))=1\\
+&\iff \epsilon^\sharp_{\pk\pkp}(\eta(s)) = 1\\
+& \iff \epsilon_{\pk\pkp}(s) = 1\\
+\pk \cdot \pkp \cdot \dup \cdot w \in \accept(s)
+&\iff \pk \cdot \pkp \cdot \dup \cdot w \in \mathcal L(\eta(s)) \\
+&\iff \pkp  \cdot w \in \overline\partial(\mathcal L(\eta(s)))(\pk) \\
+&\iff \pkp \cdot w \in  \mathcal L(\delta^\sharp(\eta(s))(\pk))\\
+&\iff \pkp \cdot w \in  \mathcal L(\delta(s)(\pk))\\
+&\stackrel\dagger\iff \pkp \cdot w \in  \mathcal L(\eta(\delta_{\pk\pkp}(s)))\\
+&\iff \pkp \cdot w \in \accept(\delta_{\pk\pkp}(s))
+\end{align*}
+In the step marked by $\dagger$ we use an auxiliary lemma
+(\Cref{lem:stringvector}), which states the first packet in a string
+determines the language of a vector of states:
+\[
+\forall \varphi\in X^\Pk\quad  \pk\cdot w \in \mathcal L ( \varphi) \iff  \pk\cdot w \in \mathcal L ( \eta(\varphi(\pk))).
+\]
+
+\paragraph*{Change in perspective: Weakest Preconditions}
+
+Our last method for computing bisimulations combines ideas from the
+previous two approaches. The focus is on computing what we call a
+\emph{weakest precondition} for each pair of states. For a pair of
+states $(s,t)$, the weakest precondition is the set of packets for
+which $s$ and $t$ have the same behavior. Formally:
+\begin{align*}
+    &\wpre \in S \to T \to 2^\Pk \\
+    &\wpre\ s\ t = \{ \pk \mid \pk\cdot w\in \accept(s) \Leftrightarrow
+                             \pk\cdot w \in \accept(t),~\forall w\in \Pk\cdot(\dup\cdot\Pk)^\star\}
+\end{align*}
+
+It follows immediately from this definition that $\A$ and $\B$ are
+equivalent if and only if $\wpre\ s_0\ t_0 = \Pk$. Our overall
+strategy for the algorithm is to compute $wp\ s_0\ t_0$ by exploring
+the reachable state space and computing weakest preconditions
+incrementally as we discover pairs of states.
+
+The details of our strategy follow from making two observations about
+weakest preconditions. First, for any pair of states $(s,t)$,
+%
+\[ \wpre\ s\ t \subseteq \{ \pk \mid \epsA(s) = \epsB(t) \}. \]
+%
+Moreover if $(s,t)$ have no outgoing transitions, then the above statement is an
+equality.
+%
+Second, whenever $(\sympk, (s,t)) \in \prevC\ (s',t')\ \sympkp$, then
+\[ \sympkp \nsubseteq \wpre\ s'\ t' \Rightarrow \sympk \nsubseteq \wpre\ s\ t\]
+%
+This expression, in concrete packets, says that if $\delA(s) = s',
+\delB(t) = t'$ and $\pkp \notin \wpre\ s'\ t'$, then we know $\pk
+\notin \wpre\ s\ t$.
+
+Thus for each pair $(s,t)$ that we discover, we initialize its weakest
+precondition using the first observation, then iteratively remove
+packets using the second observation and the current weakest
+precondition for its successors.  This process means that whenever a
+pair's weakest precondition is updated, we need to check all of its
+\emph{predecessors} which may be affected. Ultimately, we compute a
+fix point under these restrictions.
+
+The connection to the forward algorithm of \Cref{fig:fwd-sym} is that
+we perform a path-based traversal of the automaton from the start
+states. The connection to the backward algorithm is that the weakest
+preconditions are actually the complement of the set $B$ computed in
+\Cref{fig:bkwd-alg}. The advantage over the backward algorithm is
+avoiding unnecessary work by \emph{only} considering pairs of states
+reachable by a path from the start states.
+
+The Weakest Preconditions algorithm is shown in \Cref{fig:wp-alg}.
+
+\begin{figure}
+    \centering
+    \begin{algorithmic}
+        \State $R \gets \PkST; \todoR \gets \{(s_0, t_0)\}; \seenR \gets \emptyset$;
+        \While{$\todoR$ is not empty $\wedge R_{s_0,t_0} = \Pk$}
+            \State extract $(s, t)$ from $\todoR$;
+            \If {$(s,t) \notin \seenR$}
+                \State add $(s,t)$ to $\seenR$;
+                \State $R_{s,t} \gets \{ \pk \mid \epsA(s) = \epsB(t) \}$;
+                \State add all $\{(s',t') \mid (\sympkp, (s', t')) \in \nextC\ (s,t)\ (\Pk)\}$ to $\todoR$;
+            \EndIf
+            \State $\sympk \gets R_{s,t}$;
+            \For {$(\sympkp, (s', t')) \in \nextC\ (s,t)\ (\Pk)$}
+                \State $\sympk' \gets \{\sympk \mid (\sympk, (s,t)) \in (\prevC\ (s',t')\ (\sympkp - R_{s',t'}))\}$;
+                \State $\sympk \gets \sympk - \sympk'$;
+            \EndFor
+            \If {$R_{s,t} \neq \sympk$}
+                \State add all $\{(s',t') \mid (\sympkp, s',t') \in \prevC\ (s,t)\ (\Pk)\}$ to $\todoR$;
+                \State $R_{s,t} \gets \sympk$;
+            \EndIf
+        \EndWhile
+        \State \Return $R_{s_0,t_0} = \Pk$;
+    \end{algorithmic}
+    \caption{Weakest Precondition bisimulation.}\label{fig:wp-alg}
+\end{figure}
+
+\subsection{Correctness of Weakest Preconditions}
+
+The next two results establish the correctness of the Weakest
+Precondition algorithm.
+
+\begin{lemma}\label{lem:wp-termination}
+The algorithm in \Cref{fig:wp-alg} terminates.
+\end{lemma}
+\begin{proof}
+Let $n = |R|$ (counting distinct concrete packets as different), $m = |S\times T - \seenR|$,
+and $k = |\todoR|$. Then $(n,m,k)$ are finite and if $k$ reaches 0 then we terminate.
+Thus it suffices to show that $(n,m,k)$ decreases lexicographically each
+loop iteration. We argue using the paths as cases:
+\begin{itemize}
+    \item Suppose we enter the first if-statement ($(s,t)\notin \seenR$). Then
+        $m$ decreases. For a given pair $(s,t)$ we can only execute this block
+        once because it is added to $\seenR$ and nothing is removed from
+        $\seenR$. So this is the first time we are modifying $R_{s,t}$, which
+        means $R_{s,t} = \Pk$ before this. Thus $n$ is either unchanged or
+        decreases. (It does not matter if we enter the second if-statement since
+        $n$ can only decrease.)
+    \item Suppose we do not enter the first if-statement, but we do enter the
+        second if-statement. Observe that $|\sympk| \leq |R_{s,t}|$ since
+        $\sympk$ is formed only by removing packets (starting from $R_{s,t}$).
+        Moreover, we know that progress is made because we entered the
+        if-statment: $\sympk \neq R_{s,t}$. Combining, we conclude that $|\sympk| <
+        |R_{s,t}|$.  Thus by updating $R_{s,t}$ to $\sympk$, we know that
+        $n$ decreases.
+    \item Suppose we do not enter either if-statement. We know $n$ and $m$ are unchanged
+        because the updates to $R$ and $\seenR$ only happen in the if-statements.
+        $k$ decreases because we popped $\todoR$.
+\end{itemize}
+\end{proof}
+
+\begin{restatable}[Correctness of Weakest Preconditions]{theorem}{wpcorrectness}\label{thm:wp-correct}
+The algorithm in \Cref{fig:wp-alg} returns \true if there is a
+bisimulation between $\mathcal{A}$ and $\mathcal{B}$ and returns
+\false if there is no such bisimulation.
+\end{restatable}
+
+
+\subsection{Normal Form Representation of \NetKAT Expressions}\label{sec:nknf}
+
+For each set of guarded strings, there are infinitely many \NetKAT
+expressions expressing them.  Both the conversion to automata and
+automata bisimulation algorithms benefit if some equivalences can be
+detected using normal forms (we cannot hope to get all
+equivalences---after all, this is the problem we set out to solve!).
+To this end, we use a \NetKAT normal form \emph{NKNF} to represent all
+\NetKAT expressions after parsing. The abstract syntax is given in
+\cref{fig:nknf}.
+
+A \emph{NKNF} expression is a disjunction of policy terms representing
+a series of tests followed by a series of assignments (represented by
+a single FDD, as shown in \Cref{sec:fdd}), interspersed by packet
+duplication $\dup$ and by Kleene-starred \emph{NKNF} expressions.
+
+We use a standard library set implementation for the disjunction,
+which has the effect of normalizing for commutativity, associativity,
+and idempotence (ACI) of the union operator. We use a list
+representation for the concatenated terms, normalizing for
+associativity of concatenation.
+
+In addition to these data structure choices, we further normalize by
+using smart constructors that apply certain \NetKAT axioms. In
+particular we:
+\begin{itemize}
+  \item Reduce incompatable tests or incompatable assignment-then-tests to
+  $\bot$, e.g. $x=3\cdot x=4 \equiv \bot$.
+  \item Reduce sequences (i.e., concatenations) to $\bot$ whenever they contain
+  $\bot$.
+  \item Drop $\top$ from sequences unless it is the only element.
+  \item Starred expressions are only ever starred once; i.e. ${p^\star}^\star$
+    is always represented as $p^\star$.
+\end{itemize}
+
+\subsection{Path-based Optimization}
+
+We have optimized our implementation of the backward algorithm to take
+advantage of characteristic of certain queries. These optimizations
+require tracking the relevance of each states with respect to the
+initial query. While this is done by default in the forward algorithm,
+this not required by the backward algorithm, and results in additional
+computation during the discovery stage of the algorithm. As such, we
+implemented them as options.
+
+\subsubsection{Path Narrowing}
+
+Some of the reachable states in the product automaton are not relevant
+to the weakest precondition of the initial state, and as such can be
+pruned. Our implementation of the backward algorithm supports path
+narrowing as an option.
+
+\subsubsection{Short Circuiting}
+
+Short circuiting is an optimization which ends the bisimulation
+algorithms as soon as enough information is discovered to be able to
+decide the query. When deciding equivalence, this can be done as soon
+as we find a packet history which is treated differently by the two
+policies.
+
+\begin{figure}
+    \centering
+    \begin{tabular}{c l l}
+        \textbf{Syntax} & & \\
+        \hline
+        \text{Policies} $p$ $\Coloneqq$ & $f_1 = v_1 \dots f_n = v_n \cdot f_1 \gets v_1  \dots f_m \gets v_m$ & \emph{Tests-and-sets}             \\
+                        & $\mid p_1 \cdot \dup \cdot p_2$ & \emph{Packet Duplication}                          \\
+                        & $\mid p_1 \cdot e^\star \cdot p_2 $ & \emph{Kleene Star}                     \\
+        \text{Expressions} $e$ $\Coloneqq$ & $p_1 + \dots + p_n$ & \emph{Disjunction}  \\
+    \end{tabular}
+    \caption{Normal form for NetKAT (NKNF)}
+\label{fig:nknf}
+\end{figure}
+
+
+\subsection{On-the-Fly vs. Ahead-of-Time Automaton Construction}
+
+A tradeoff that comes up frequently in automata-based analysis is
+whether to compute the full relevant automata at the start and then
+perform analysis on those or to compute individual states of automata
+as they are demanded by the analysis. In the case of our bisimulation
+algorithm, this on-the-fly approach means taking both Brzozowksi
+derivatives and computing the product automaton in the main loop of
+the particular bisimulation algorithm.
+
+We have implemented both, and while there remains some possibility
+that ahead of time construction allows one to amortize costs across
+multiple queries in some way (say, if the specificaion automaton is
+fixed), in our implementation we found that the on-the-fly approach
+was the clear performant option (see \Cref{sec:eval}). The reason for
+this seems to be mainly the pruning of the automaton in process (and
+therefore saving work on parts of the automaton that need never be
+constructed). It is worth noting that reachability of states in
+\NetKAT automata is more subtle than in classic automata (in which
+reachaibility coincides with graph reachability) because of the
+carry-on packet.
+
+% Forward Path during discovery
+% Forward Provenance
+\subsubsection{Forward Provenance}
+
+When discovering states, we represent as a symbolic packet $p$ the
+sets of packet that can get from the start state to the current
+state. When generating counterexample path, each complete test
+$\theta_{p} \in p$ corresponds to at least one feasible path between
+the start state and this state:
+\[
+\mathit{h}_{0} \wedge \mathit{L} (\theta \wedge \eta \wedge \mathit{h}) \wedge \theta_{p}
+\]
+Where $\mathit{h}_{0}$ is the starting state, a list of triple
+representing the hops in the path prefix, each with a test $\theta$, a
+set of assignments $\eta$ and a resulting state $\mathit{h}$, and a
+current path condition $\theta_{p}$.  This path is used as a prefix to
+construct longer paths as we explore more states.
+\begin{comment}
+For example, if $\mathit{h}$ transitions to $\mathit{h'}$ on test $\theta'$ with assignments $\eta'$ and $\theta_{p} \cap \theta' = \theta'_{p} \not= \emptyset$, and the result of performing assignments $\eta'$ on packets in $\theta'_{p}$ results in packets matching $\theta_{c}$, we can construct a new path from $\mathit{h}_{0}$ to $\mathit{h'}$:
+\[
+\mathit{h}_{0} \wedge \mathit{L} (\theta \wedge \eta \wedge \mathit{h}) \cdot (\theta' \wedge \eta' \wedge \mathit{h'}) \wedge \theta_{c}
+\]
+\end{comment}
+If we reach a state in the product automaton where the two expressions
+are immediately distinguishable, we can produce a full path
+demonstrating how a subset of the packets at the start state can reach
+a state where they are not treated in the same way by the two
+policies.
+
+% TODO: example of forward provenance based on Fig 4
+% MM: This example relies on figures that were cut; would need to rework
+%%\paragraph*{Example} Consider the state $(q1,p1)$ from Figure~\ref{fig:ex-sp}. It is reached from state $(q0,p0)$ which are the start state of the joint automaton, either by matching $y=2 \wedge z=1$ and going through transition $y \gets7$, or by matching $y=2 \wedge z=2$ and going through transition $y\gets7$. As such, the forward provenance of state $(q1, p1)$ contains the two following provenance paths:
+%%\[ (q0,p0),[(y=2 \wedge z=1, y\gets7, (q1,p1))], y=7 \wedge z = 1 \]
+%%\[ (q0,p0),[(y=2 \wedge z=2, y\gets7, (q1,p1))], y=7 \wedge z = 2\]
+
+%%Following the transition $y=7 \wedge z = 2 \cdot z\gets4$ from $(q1,p1)$ to $(q2,p1)$ results in the following provenance path for state $(q2,p1)$:
+%%\[
+%%(q0,p0),[(y=2 \wedge z=2, y\gets7, (q1,p1));
+         %%(y=7 \wedge z=4, z\gets4, (q2,p1))], y=7 \wedge z = 4
+%%\]
+
+
+% Backward Path in the WP algorithm
+% Backward provenance
+\subsubsection{Backward Provenance}
+
+When computing the weakest precondition for a state, we represent as a
+symbolic packet the set of packets for which both policies have the
+same behavior. Every $\bot$ leaf in the symbolic packet is the result
+of either the behaviors of the policies being immediately different,
+or being able to transition from that state to another state where the
+behaviors are different. We keep track of the path between the current
+state and the states with immediate difference by recording provenance
+path of the form:
+\[
+\theta_{d} \wedge \mathit{L} (\mathit{h} \wedge \theta \wedge \eta ) \wedge \mathit{h}_{0}
+\]
+
+That is, packets in the current state $\mathit{h}$ matching test
+$\theta_{d}$ can reach state $\mathit{h}_{0}$ by following the list of
+hops from state $\mathit{h}$ following a transition with test $\theta$
+and update $\eta$.
+\begin{comment}
+When computing the weakest precondition of a state $\mathit{h'}$ with
+a transition $\theta'$ and $\eta'$ to $\mathit{h}$, we can use the
+paths computed for $\mathit{h}$ as suffixes to construct longer paths
+towards the start state. In particular, if the preimage of
+$\theta_{d}$ under $\eta'$ results in $\theta'_{d}$, and $\theta'_{d}
+\cap \theta' = \theta_{c} \not= \emptyset$, we can construct a new
+path from $\mathit{h'}$ to $\mathit{h}_{0}$:
+\[
+\theta_{c} \wedge (\mathit{h'} \wedge \theta' \wedge \eta') \cdot \mathit{L} (\mathit{h} \wedge \theta \wedge \eta ) \wedge \mathit{h}_{0}
+\]
+\end{comment}
+If a feasible path reaches the start state, we can use it to
+demonstrate how packets are treated differently by the two policies as
+a counterexample to their equivalence.
+
+% TODO: maybe do an example that actually results in a backward path...
+% MM: This example also depends on a deleted figure...
+%%\paragraph*{Example} Consider the state $(q1, p1)$ from Figure~\ref{fig:ex-wp}. Assume that at this point of the algorithm, the backward provenance for state $(q2,p1)$ are paths
+\[
+  [y=7\wedge z\not=4, [],(q_2,p_1); y\not=7,[],(q_2,p_1)]
+\]
+That is, packets matching $(y=7\wedge z\not=4)\vee y\not=7$ are
+treated differently by policies $q_2$ and $p_1$.  When computing the
+weakest precondition of $(q_1,p_1)$ and consider the transition
+$y=7\wedge z=2, z\gets4, (q_2,p_1)$, we would extend all backward
+provenance paths for state $(q_2,p_1)$ matching $y=7\wedge z=4$, which
+is none of them, which means that the contribution by that transition
+to the backward provenance of state $(q_1,p_1)$ is empty: no packet
+following that transition will be treated differently by $q_2$ and
+$p_1$.
+
+\section{Old Appendix: Weakest Precondition Correctness}
+
+The next several results will establish the correctness of the Weakest
+Preconditions algorithm (\Cref{fig:wp-alg}).
+First, we need to formalize some terminology.
+\[ \mathsf{successor}\ (s,t)\ (s',t') = \begin{cases}
+    \true & \exists\sympkp\colon \sympkp\neq\emptyset \wedge (\sympkp, (s',t'))\in\nextC\ (s,t)\ (\Pk)\\
+    \false & \text{otherwise}
+\end{cases}
+\]
+
+\[ \mathsf{descendent}\ (s,t)\ (s',t') = \begin{cases}
+    \true & \mathsf{successor}\ (s,t)\ (s',t')\\
+    \true & \exists (s_i,t_i)\in S\times T\colon \mathsf{successor}\ (s,t)\ (s_i,t_i) \wedge \mathsf{descendent}\ (s_i,t_i)\ (s',t')\\
+    \false & \text{otherwise}
+\end{cases}
+\]
+
+At several places in the following proofs, we use the observation that if
+$\pk\notin \wpre\ s\ t$, this is the same as saying there is a $w\in
+\Pk\cdot(\dup\cdot\Pk)^\star$ such that $\pk\cdot w$ is in the symmetric
+difference between $\accept(s)$ and $\accept(t)$, which we denote
+$\accept(s) \triangle \accept(t)$.
+
+\begin{lemma}\label{lem:one-step}
+Suppose $R_{s,t} \subseteq \wpre\ s\ t$, and we reach the for-loop. Assume for
+each pair of states $(s',t')$ in $\nextS\ (s,t)\ (\sympk)$, we already have
+$\wpre\ s'\ t' = R_{s',t'}$. Then when we update $R_{s,t}$ at the end of this
+iteration, we will have $\wpre\ s\ t = R_{s,t}$.
+\end{lemma}
+\begin{proof}
+If $R_{s,t} = \wpre\ s\ t$ already, we are done, so assume $R_{s,t}\neq\wpre\ s\
+t$. Then there is a $\pk \in \wpre\ s\ t - R_{s,t}$ and $w\in
+(\dup\cdot\Pk)^\star$ for which $\pk\cdot \pkp \ddd w \in \accept(s)
+\triangle \accept (t)$.  But this means there is a $(\sympk_i, \sympkp, s',t') \in
+\nextS\ (s,t)\ (R_{s,t}$ such that $\pk\in\sympk_i$ and $\pkp\in\sympkp$,
+because we know that $\wpre\ s'\ t' = R_{s',t'}$.
+This $\sympk_i$ is removed from $R_{s,t}$ by the action of the for loop. We can
+apply this argument to all packets remaining in $R_{s,t} - \wpre\ s\ t$.
+\end{proof}
+
+%%\begin{lemma}\label{lem:nextprev}
+%%\mminline{add}
+%%\end{lemma}
+%%\begin{proof}
+%%\end{proof}
+
+\wpcorrectness*
+\begin{proof}
+We will show that $R_{s,t}$ approaches $\wpre\ s\ t$, which will justify the
+correctness of the return value.
+
+Now we establish an invariant for the while loop.
+\[ \forall (s,t)\in S\times T\colon \wpre\ s\ t \subseteq R_{s,t} \tag{*}\label{wp-i1}\]
+\begin{itemize}
+    \item \emph{Initialization.} The first time we reach the top of the loop,
+        $R = \PkST$ so \Cref{wp-i1} holds trivially.
+    \item \emph{Maintenance.} Suppose \Cref{wp-i1} holds and we enter the loop
+        ($\todoR$ is not empty). Then we need to show that the loop body
+        maintains \Cref{wp-i1}. We look at the two places that we can subtract
+        from $R_{s,t}$.
+        \begin{itemize}
+            \item In the first if-statement, we set $R_{s,t}$ to $\{\pk \mid
+                \epsA(s) = \epsB(t)\}$. Then $\wpre\ s\ t \subset R_{s,t}$. To
+                show this, we will show $\pk \notin R_{s,t}$ implies $\pk \notin
+                \wpre\ s\ t$.
+                Suppose $\pk \in R_{s,t}^C$. This means there is a packet $\pkp \in
+                \epsA(s) \triangle \epsB(t)$, which in turn means $\pk\cdot\pkp \in
+                \accept(s) \triangle \accept(t)$, and thus $\pk\notin \wpre\ s\
+                t$, as needed.
+            \item In the second if-statement, starting from $\sympk = R_{s,t}$
+                intially, we update $\sympk$
+                by subtracting some (possibly several) $\sympk'$.
+                To show the loop invariant is maintained, we only
+                need to show that each $\sympk' \cap \wpre\ s\ t = \emptyset$. This is
+                true because for each $\sympk'$, we have, for a successor packet
+                $\sympkp$ and state pair $(s',t')$,
+                \[(\sympk',(s,t)) \in \prevC\ (s',t')\ (\sympkp). \]
+
+                If $\sympk'$ is empty, then obviously $\sympk' \cap \wpre\ s\ t = \emptyset$.
+                If $\sympk'$ is not empty, then it must be that $\sympkp - R_{s',t'}$ is not empty.
+                By \Cref{wp-i1}, this means that $\sympkp - \wpre\ s'\ t' = \sympkp$.
+                For each $\pkp\in \sympkp$, there is a packet % MM TODO: Lemma about prev to justify this
+                $\pk'\in\sympk'$ such that $\delta_{\pk'\pkp}^{\A\times\B}(s,t) = (s',t')$.
+                We know from $\sympkp \cap wp\ s'\ t' = \emptyset$, we have
+                that $\pkp\cdot w \in \accept(s')\triangle \accept(t')$. Putting
+                these things together,
+                \[ \pk\ddd\pkp\cdot w \in \accept(s)\triangle \accept(t) \]
+        \end{itemize}
+\end{itemize}
+If we return \false, then $R_{s_0,t_0} \neq \Pk$.
+Using \Cref{wp-i1}, this means $\wpre\ s_0\ t_0 \neq \Pk$. By definition this
+means there is a packet $\pk$ and $w\in \Pk\cdot(\dup\cdot\Pk)^\star$ for which
+\begin{align*}
+                &\pk\cdot w \in \accept(s_0) \triangle \accept(t_0)\\
+    \Rightarrow &\pk\cdot w \in L(\A) \triangle L(\B)\\
+    \Rightarrow & L(\A) \neq L(\B).
+\end{align*}
+
+All that remains is to show that if we conclude the loop with $R_{s_0,t_0} = \Pk$
+(i.e. we return \true) then we have for all $(s,t)\in S\times T$,
+\[R_{s,t} \subseteq \wpre\ s\ t\]
+    Combining with \Cref{wp-i1}, this will mean that for all $(s,t)\in S\times T$,
+\[R_{s,t} = \wpre\ s\ t,\]
+which implies $L(\A) = L(\B)$ and concludes the proof.
+
+We need one more invariant for the while loop.
+\begin{align*}
+\text{For each } (s,t) \in S\times T,\text{ at least one of the following holds:}\tag{**}\label{wp-i2}\\
+    \parbox{0.6\textwidth}{
+        \begin{enumerate}[(i)] % Item abels aren't working for some reason?
+            \item $(s,t)\notin\seenR$
+            \item $\wpre\ s\ t = R_{s,t}$
+            \item $\exists (s',t')\in\todoR\colon \mathsf{descendent}\ (s,t)\ (s',t')$
+            \item $(s,t) \in \todoR$
+        \end{enumerate} }
+\end{align*}
+
+\begin{itemize}
+    \item \emph{Initialization.} The invariant (\ref{wp-i2})(i) holds the first
+    time reaching the loop since $\seenR$ is initially empty.
+    \item \emph{Maintenance.} Suppose (\ref{wp-i2}) holds and we enter the loop
+    body (meaning that $\todoR$ is not empty). We will show the loop body
+    maintains the invariant.  Consider the $(s,t)$ that we remove from $\todoR$.
+    For \emph{this} $(s,t)$, we know that it satisfies (\ref{wp-i2}). We
+    consider in cases based on which item it satisfies:
+    \begin{enumerate}[(i)]
+        \item Suppose $(s,t)\notin\seenR$. In this case we add $(s,t)$ to $\seenR$ in the
+        first if-statement. If it has successors, we add them to $\todoR$
+        (establishing (iii)). If it does not, then that means
+        $\wpre\ s\ t = \{ \pk \mid \epsA(s) = \epsB(t) \}$, which is exactly
+        how we update $R_{s,t}$ (establishing (ii)).
+%
+        \item Suppose $\wpre\ s\ t = R_{s,t}$. Since we can only
+        ever subtract from $R$, this is maintained by (\ref{wp-i1}).
+%
+        \item Suppose $(s,t)$ already has a descendent $(s',t')$ in $\todoR$. Since we are
+            only removing $(s,t)$ from $\todoR$, its descendents remain on the
+            worklist (maintaining (iii)) unless $(s,t)$ itself is the only
+            descendent. Note that this means $(s,t)$ is its own successor. In
+            this case, there are two subcases to consider, based on whether we
+            enter the final if-statement.
+        \begin{enumerate}
+            \item If we enter the if-statement ($R_{s,t} \neq \sympk$), then we
+            enqueue the predecessors of $(s,t)$, which includes $(s,t)$, maintaining
+            the invariant (reestablishing (iii) and (iv)).
+            \item Suppose we do not enter the if-statement. We show a
+            contradition, revealing that this case is impossible. We may also assume
+            $\wpre\ s\ t \neq R_{s,t}$ since otherwise we would have simply
+            applied case (ii).
+            So there is a $\pk\in R_{s,t} - \wpre\ s\ t$ and $w\in
+            (\dup\cdot \Pk)^\star$ such that
+            $\pk\cdot \pkp\cdot w \in \accept(s)\triangle\accept(t)$. We proceed
+            by induction on $w$:
+            \begin{itemize}
+              \item  If $w = \varepsilon$, then $\pk\cdot\pkp\in
+                \accept(s)\triangle\accept(t)$. This is impossible because when
+                $(s,t)$ is added to $\seenR$, we initialized $R_{s,t}$ to $\{\pk
+                \mid \epsA(s) = \epsB(t) \}$ and have only removed packets.
+                  \item  If $w = \dup\cdot \pkp_2 \cdot w'$ for some $w' \in
+                    (\dup\cdot\Pk)^\star$. But $w$ cannot take us into any other
+                    states because (\ref{wp-i2}) implies that, for any
+                    successors $(s',t')\in \seenR - \todoR$, we have $R_{s',t'}
+                    = \wpre\ s'\ t'$ and thus \Cref{lem:one-step} applies.
+                    So $\delA(s) = s$ and $\delB(t) = t$. But this in turn means
+                    that $\pkp\in R_{s,t} - \wpre\ s\ t$. So we can appeal to
+                    induction for $\pkp$ and $w'$, leading to contradiction.
+            \end{itemize}
+        \end{enumerate}
+%
+        \item Suppose $(s,t) \in \todoR$. Assume also that $(s,t)\in\seenR$,
+        that $\wpre\ s\ t \neq R_{s,t}$ and that no descendents of $(s,t)$ are
+        in $\todoR$, because otherwise then removing $(s,t)$ is fine and
+        (\ref{wp-i2}) is maintained by the applicable case above. First we note
+        that from the fact that none of the descendents of $(s,t)$ are in
+        $\todoR$, this also means none of any descendents' descendents are on
+        $\todoR$. We also know that the immediate successors of $(s,t)$
+        \emph{were} on the $\todoR$ because $(s,t)$ is already in $\seenR$---so
+        they are also in $\seenR$. Since (\ref{wp-i2}) holds at the
+        top of the loop, this only leaves the possibility that for each
+        immediate successor of $(s,t)$, call it $(s_i, t_i)$, we must have
+        $\wpre\ s_i\ t_i = R_{s_i,t_i}$. Then by \Cref{lem:one-step}, the for loop
+        identifies remaining packets in $R_{s,t} - \wpre\ s\ t$ and removes
+        them before updating $R_{s,t} = \wpre\ s\ t$ and thus establishing (ii).
+    \end{enumerate}
+%
+    Now we still need to consider the possibility that $(s,t)$ is the
+    descendent of some other $(s_p, t_p) \neq (s,t)$. For this $(s_p, t_p)$, we
+    may assume it has no other descendents in $\todoR$, that $(s_p,
+    t_p)\notin\todoR$, that $\wpre\ s_p\ t_p \neq R_{s_p,t_p}$, and that
+    $(s_p,t_p)\in\seenR$, since otherwise removing $(s,t)$ does not affect the
+    invariant anyway. Note that this means that $(s,t)$ is the only descendent,
+    and therefore an immediate successor of $(s_p,t_p)$. Again, we have two
+    cases based on whether we enter the final if-statement.
+    \begin{enumerate}
+        \item If we do, then $(s_p, t_p)$ is enqueued because it is an immediate
+        predecessor of $(s,t)$, reestablishing the loop invariant.
+        \item The other case is impossible by the same argument as case
+        \ref{self-loop} above.
+    \end{enumerate}
+\end{itemize}
+
+At the end of the loop, $\todoR$ is empty. Applying this to (\ref{wp-i2}), we
+find out that for every pair $(s,t)$, either $(s,t)\notin\seenR$ or $\wpre\ s\ t = R_{s,t}$.
+Since we know $(s_0, t_0)$ is enqueued initially, it cannot still be unseen at
+the end of the loop. So when we return \true, it is the case that $\wpre\ s_0\
+t_0 = \Pk$, which as we noted earlier, means that $\accept(s_0) = \accept(t_0)$
+and thus $L(\A) = L(\B)$ as required.
+
+In fact, the relation $R$ is a bisimulation. We argue each item following the
+definition of bisimulation, \Cref{def:bisim}.
+\begin{enumerate}
+    \item We know (a) holds from the fact that when we return true, $R_{s_0,t_0} = \Pk$.
+    \item Let $(\pk, s, t)\in R$. Then both (b)(i) and (b)(ii) follow from the
+    fact that we know $R_{s,t} = \wpre\ s\ t$:
+        \begin{enumerate}
+        \item Let $\pkp\in\Pk$. Then we know
+        $\pk\cdot\pkp\in\accept(s)\Leftrightarrow\pk\cdot\pkp\in\accept(t)$,
+        which means that $\epsA(s) = \epsB(t)$.
+        \item Let $\pkp\in\Pk$ and let $(s',t')\in S\times T$ such that
+        $\delA(s) = s'$ and $\delB(t) = t'$. We know
+        $\pk\cdot\pkp\ddd w \in \accept(s) \Leftrightarrow\pk\cdot\pkp\ddd
+        w\in\accept(t)$ for any $w\in \Pk\cdot(\dup\cdot\Pk)^\star$.
+        Combining with the fact that $\delA(s) = s'$ and $\delB(t) = t'$, this
+        also means that $\pkp\cdot w\in\accept(s') \Leftrightarrow \pkp\cdot
+        w\in\accept(t')$, and therefore $\pkp\in \wpre\ s'\ t'$. Thus $\pkp\in R_{s',t'}$.
+        \end{enumerate}
+\end{enumerate}
+\end{proof}
+
+\section{Definition of Ternary conditional}\label{ap:extra_fdds}
+{
+\newcommand{\colorTEXT}{black}
+\newcommand{\colorMATH}{black}
+\newcommand{\colorSYNTAX}{black}
+
+\newcommand{\underbracketWith}[2]{\underbracket{#2}_{#1}}
+
+\newcommand{\daraisTEXT}[1]{{\color{\colorTEXT}\textnormal{#1}}}
+\newcommand{\daraisMATH}[1]{{\color{\colorMATH}\ifmmode\mathnormal{#1}\else\(\mathnormal{#1}\)\fi}}
+\newcommand{\daraisSTAX}[1]{{\color{\colorSYNTAX}\textnormal{\texttt{#1}}}}
+
+\newcommand{\daraisModeRM}[1]{\ifmmode\operatorname{\mathrm{#1}}\else\textrm{#1}\fi}
+\newcommand{\daraisModeIT}[1]{\ifmmode\operatorname{\mathit{#1}}\else\textit{#1}\fi}
+\newcommand{\daraisModeBF}[1]{\ifmmode\operatorname{\mathbf{#1}}\else\textbf{#1}\fi}
+\newcommand{\daraisModeTT}[1]{\ifmmode\operatorname{\mathtt{#1}}\else\texttt{#1}\fi}
+\newcommand{\daraisModeSC}[1]{\ifmmode\operatorname{\textsc{#1}}\else\textsc{#1}\fi}
+\newcommand{\daraisModeMM}[1]{\ifmmode#1\else\(#1\)\fi}
+
+\input{snippet_notation.tex}
+\input{snippet_ternary_conditional.tex}
+}
+
+\section{Operations on FDDs}\label{ap:binopfdd}
+
+Though we define the syntax of $\FDD$ in terms of an $n$-ary
+conditional, in later developments it will be convenient to also have
+a conditional $f=n \mathbin ? t_1 \diamond t_2$. We present the formal
+definition of this operation in \Cref{ap:extra_fdds}, which satisfies
+the property:
+\[
+\fddSem{f=n \mathbin ? t_1 \diamond t_2} (\pk) =
+\begin{cases}
+\fddSem{t_1}(\sigma)&\text{if } \pk.f = n\\
+\fddSem{t_2}(\sigma)&\text{if } \pk.f \neq n
+\end{cases}
+\]
+
+Using this conditional, we can define a monadic composition operator
+for \FDD s. Given an $\FDD[M]$ and a function $f \in M \to \FDD[N]$
+we can construct an $\FDD[N]$ as follows:
+\begin{align*}
+- &\bind - \colon  \FDD[M] \to (M \to \FDD[N] ) \to \FDD[N] \\
+m &\bind f \triangleq f(m) \\
+(f \stackrel ? = \{ n_1\mapsto t_1,\ldots, n_k\mapsto t_k\} \diamond t) &\bind f \triangleq  f=n_1 \mathbin ? (t_1 \bind f) \diamond \left(\cdots \diamond  \left(f=n_k \mathbin ? (t_k \bind f) \diamond  (t \bind f) \right)\right)\\
+\end{align*}
+The above operation satisfies:
+\[
+\fddSem{t \bind f} (\pk) = f (\fddSem{t}(\pk))(\pk)
+\]
+
+The function $\binopFDD$ (known as \emph{apply} in BDDs) is defined as follows:
+\begin{align*}
+&\binopFDD\colon (A\to B\to C)\to \FDD[A] \to \FDD[B] \to \FDD[C] \\
+&\binopFDD (f) (t_1) (t_2) \triangleq \\ &\begin{cases}
+        f (a) (b)  & t_1 = a \in A, t_2 = b\in B\\
+       \fddn{k_2}{v_2}{\binopFDD(f)(a)(t_2')}{\binopFDD(f)(a)(t_2'')}
+                     & t_1 = a, t_2 = (\fddn{k_2}{v_2}{t_2'}{t_2''}) \\
+       \fddn{k_1}{v_1}{\binopFDD(f)(t_1')(b)}{\binopFDD(f)(t_1'')(b)}
+                     & t_1 = (\fddn{k_1}{v_1}{t_1'}{t_1''}), t_2 = b\in B \\
+       \fddn{k_1}{v_1}{\binopFDD(f)(t_1')(t_2')}{\binopFDD(f)(t_1'')(t_2'')}
+       & t_1 = (\fddn{k_1}{v_1}{t_1'}{t_1''}),\\
+       & t_2 = (\fddn{k_2}{v_2}{t_2'}{t_2''}), k_1=k_1, v_1=v_2 \\
+       {k_1 \stackrel ? = \overline{\{
+           \substack
+           {v_1\mapsto \binopFDD(f)(t_1')(t_2''),\\
+            v_2\mapsto \binopFDD(f)(t_1'')(t_2')} \}} \diamond
+       \binopFDD (f)(t_1'')(t_2'')}
+       & t_1 = (\fddn{k_1}{v_1}{t_1'}{t_1''}),\\
+       & t_2 = (\fddn{k_2}{v_2}{t_2'}{t_2''}), k_1=k_1, v_1\neq v_2 \\
+       \fddn{k_1}{v_1}{\binopFDD(f)(t_1')(t_2)}{\binopFDD(f)(t_1'')(t_2)}& t_1 = (\fddn{k_1}{v_1}{t_1'}{t_1''}),\\
+                     &  t_2 = (\fddn{k_2}{v_2}{t_2'}{t_2''}), k_1<k_2\\
+       \fddn{k_2}{v_2}{\binopFDD(f)(t_1)(t_2')}{\binopFDD(f)(t_1)(t_2'')}& t_1 = (\fddn{k_1}{v_1}{t_1'}{t_1''}),\\
+                     & t_2 = (\fddn{k_2}{v_2}{t_2'}{t_2'}), k_1>k_2\\
+    \end{cases}
+\end{align*}
+
+\section{Definition of paths}\label{ap:paths}
+We define $\paths$ by:
+\begin{align*}
+    &\paths\colon \FDD[Y] \to \mathcal{P}(\Paths \times Y) \\
+    &\paths\ (t) = \begin{cases}
+        \{(\{\}, y)\}, & t = y\in Y\\
+        \{(\{(k_1 \mapsto \mathsf{inl } v_1)\}\uplus p, y) \mid (p,y)\in\paths\ t_1\}\\
+        \qquad \cup\quad \{(\{(k_1 \mapsto \mathsf{inr } \{v_1\})\}\uplus p, y) \mid
+        (p,y)\in\paths\ t_2 \},& t=\fddn{k_1}{v_1}{t_1}{t_2}
+    \end{cases}
+\end{align*}
+
+
+\section{Definition of Update Operator}\label{ap:update-op}
+The update operator is defined  by:
+\mminline{I need to fix $\rhd^{-1}$ to adhere to the right type}
+\begin{align*}
+&- \rhd - \colon \FDD[2] \to (K\Mapsto V) \to \FDD[2]\\
+&\sympk \rhd u = \begin{cases}
+\fddn{k_1}{v_2}{\sympk' \rhd u'}{\false}
+    & \sympk = \fddn{k_1}{v_1}{\sympk'}{\sympk''}, u = \{(k_1 \mapsto v_2)\}\uplus
+    u'\\
+%
+\fddn{k_1}{v_1}{\sympk' \rhd u}{\sympk''\rhd u}
+    & \sympk = \fddn{k_1}{v_1}{\sympk'}{\sympk''}, k_1 \notin u\\
+%
+\fddn{k_1}{v_1}{(\true \rhd u')}{\false}
+    & \sympk = \true, u = \{(k_1\mapsto v_1)\} \uplus u'\\
+\false & \sympk = \false
+\end{cases}\\
+    &- \rhd^{-1} - \colon \FDD[2] + 1 \to K \Mapsto V \to \FDD[2] + 1\\
+    &\sympk \rhd^{-1} u = \begin{cases}
+        \bot & \sympk = \bot\\
+        \bot & \sympk = \true, u \neq\emptyset \\
+        \bot & \sympk = \fddn{k_2}{v_2}{\sympk'}{\sympk''}, (k_1\mapsto v_2)\in u, k_1 < k_2\\
+        \bot & \sympk = \fddn{k_1}{v_1}{\sympk'}{\sympk''}, (k_1\mapsto v_2)\in u, v_1 \neq v_2 \\
+        \true & \sympk = \true, u=\emptyset \\
+        \false & \sympk = \false\\
+        (\sympk' \cup \sympk'') \rhd^{-1} u'
+            & \sympk = \fddn{k_1}{v_1}{\sympk'}{\sympk''}, u = \{(k_1 \mapsto v_1)\} \uplus u'
+    \end{cases}
+\end{align*}
+
+\section{Full Results}\label{app:full-results}
+
+\input{results-table.tex}
+
+\bibliographystyle{ACM-Reference-Format}
+\bibliography{refs}
+\end{document}

@@ -1,0 +1,14 @@
+\begin{itemize}[label=\textbf{-},leftmargin=*]
+\item  We write \daraisMATH{\{ \overline {x_{i}}\} } and \daraisMATH{\{ x_{1},\ldots ,x_{n}\} } to denote the same type of object: a set
+   of elements in \daraisMATH{\wp (X)}. The same notational convention applies for \daraisMATH{\{ \overline {k_{i}\mapsto v_{i}}\} }
+   and \daraisMATH{\{ k_{1}\mapsto v_{1},\ldots ,k_{n}\mapsto v_{n}\} }: a finite map from keys to values in \daraisMATH{K \Mapsto  V}.
+\item  For finite maps \daraisMATH{{\daraisModeIT{kvs}} \in  K \Mapsto  V}: we write \daraisMATH{{\daraisModeIT{kvs}}[k\mapsto v]} for
+   extending the mapping \daraisMATH{{\daraisModeIT{kvs}}} to map \daraisMATH{k} to \daraisMATH{v}, and
+   as a consequence removing any existing mapping for \daraisMATH{k}, so
+   \daraisMATH{{\daraisModeIT{kvs}}[k\mapsto v] = ({\daraisModeIT{kvs}} \setminus  \{ k\} ) \uplus  \{ k\mapsto v\} }. In contexts where \daraisMATH{k} is
+   known to be in the domain of \daraisMATH{{\daraisModeIT{kvs}}} we write \daraisMATH{{\daraisModeIT{kvs}}[k]} for
+   accessing the value mapped by key \daraisMATH{k}; in contexts where \daraisMATH{k} is not
+   known to be in the domain, we write \daraisMATH{{\daraisModeIT{kvs}}[k] \mathrel{?} v} defined to be
+   the value mapped to \daraisMATH{k} if in the domain, or \daraisMATH{v} (a default value)
+   in the case \daraisMATH{k} is not in the domain.
+\end{itemize}

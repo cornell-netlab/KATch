@@ -1,0 +1,219 @@
+% =========== TIKZ ===========
+\usepackage{graphicx}
+\usepackage{tikz}
+\usetikzlibrary{shapes.geometric, arrows}
+\usetikzlibrary{fit}
+\usetikzlibrary{svg.path}
+% \usetikzlibrary{graphdrawing}
+% \usetikzlibrary{graphdrawing.force}
+% \usetikzlibrary{graphdrawing.layered}
+\usetikzlibrary{decorations}
+\usetikzlibrary{decorations.markings}
+\usetikzlibrary{backgrounds}
+\usetikzlibrary{tikzmark}
+
+
+\newif\ifshowtikz
+\showtikztrue
+% \showtikzfalse   % <---- comment/uncomment that line
+
+\let\oldtikzpicture\tikzpicture
+\let\oldendtikzpicture\endtikzpicture
+
+\renewenvironment{tikzpicture}{%
+    \ifshowtikz\expandafter\oldtikzpicture%
+    \else\comment%
+    \fi
+}{%
+    \ifshowtikz\oldendtikzpicture%
+    \else\endcomment%
+    \fi
+}
+
+\raggedbottom
+
+% =============================
+
+\newcommand{\bigsep}{\mathop{\scalebox{1.5}{\raisebox{-0.2ex}{$\sep$}}}}%
+
+\newcommand{\ie}{\textit{i.e.,}\ }
+\newcommand{\eg}{\textit{e.g.,}\ }
+\newcommand{\etc}{\textit{etc.}\ }
+\newcommand{\viceversa}{\textit{vice versa}}
+\newcommand{\wrt}{w.r.t.\ }
+
+
+\newcommand{\Bit}{\{0,1\}}
+
+\newcommand{\codeblock}[1]{
+  \begin{array}[t]{@{} l}
+    #1
+  \end{array}
+}
+\newcommand{\codeblockc}[1]{
+  \begin{array}{@{} l}
+    #1
+  \end{array}
+}
+
+% Base language
+
+\newcommand{\keyword}[1]{\mathbf{#1}}
+\newcommand{\lam}[1]{\lambda #1.\ }
+\newcommand{\letS}[1]{\keyword{let}\ #1\ =\ }
+\newcommand{\inS}{\ \keyword{in}\ }
+
+\newcommand{\unitV}{()}
+\newcommand{\inXS}[1]{\keyword{in_{#1}}}
+\newcommand{\inleftS}{\inXS{L}}
+\newcommand{\inrightS}{\inXS{R}}
+\newcommand{\inleft}[1]{\inleftS(#1)}
+\newcommand{\inright}[1]{\inrightS(#1)}
+\newcommand{\inX}[2]{\inXS{#1}(#2)}
+\newcommand{\matchwith}[2]{\keyword{match}\ #1\ \keyword{with}\ #2\ \keyword{end}}
+\newcommand{\matchclause}[2]{#1 \Rightarrow #2}
+\newcommand{\matchempty}[1]{\matchwith{#1}{\bot}}
+
+\newcommand{\fork}{\keyword{fork}}
+\newcommand{\some}{\keyword{Some}}
+\newcommand{\none}{\keyword{None}}
+
+\newcommand{\voidT}{\keyword{0}}
+\newcommand{\unitT}{\keyword{1}}
+\newcommand{\funT}{\mathrel{-\kern-1pt\circ}}
+
+
+% Binary sessions
+
+\newcommand{\Session}{\textdom{Session}}
+\newcommand{\session}{s}
+\newcommand{\chan}{c}
+
+\newcommand{\Bfork}{\keyword{fork_C}}
+\newcommand{\Bsend}{\keyword{send_C}}
+\newcommand{\Brecv}{\keyword{receive_C}}
+\newcommand{\Bclose}{\keyword{close_C}}
+\newcommand{\Bwait}{\keyword{wait_C}}
+\newcommand{\BtellL}{\keyword{tell_L}}
+\newcommand{\BtellR}{\keyword{tell_R}}
+\newcommand{\Bask}{\keyword{ask}}
+
+
+\newcommand{\BsendT}{\text{\textbf{!}}}
+\newcommand{\BrecvT}{\text{\textbf{?}}}
+\newcommand{\BendT}{\keyword{End}}
+\newcommand{\BendTS}{\mathsf{End_{\text{\textbf{!}}}}}
+\newcommand{\BendTR}{\mathsf{End_{\text{\textbf{?}}}}}
+\DeclareMathOperator{\BtellT}{\keyword{\&}}
+\DeclareMathOperator{\BaskT}{\keyword{\oplus}}
+
+
+% Locks
+\newcommand{\lock}{\ell}
+\newcommand{\Lnew}{\keyword{new}}
+\newcommand{\Lacquire}{\keyword{acquire}}
+\newcommand{\Lrelease}{\keyword{release}}
+\newcommand{\Ldrop}{\keyword{drop}}
+\newcommand{\Lwait}{\keyword{wait}}
+\newcommand{\Lfork}{\keyword{fork}}
+
+% \newcommand{\LlockT}[3]{\keyword{Lock}\langle {#3}{\,}^{#1}_{#2} \rangle}
+\newcommand{\LlockT}[3]{\langle {#3}{\,}^{#1}_{#2} \rangle}
+\newcommand{\Lownership}{a}
+\newcommand{\Lowner}{1}
+\newcommand{\Lclient}{0}
+\newcommand{\Lstate}{b}
+\newcommand{\Lopened}{1}
+\newcommand{\Lclosed}{0}
+% \newcommand{\Lcapsplit}[3]{\keyword{locksplit}\ #1\ #2\ #3}
+
+% Lock groups
+
+% \newcommand{\LGnewgroup}{\keyword{newgroup_G}}
+% \newcommand{\LGdropgroup}{\keyword{dropgroup_G}}
+% \newcommand{\LGnew}[1]{\keyword{newlock_G}[#1]}
+% \newcommand{\LGacquire}[1]{\keyword{acquire_G}[#1]}
+% \newcommand{\LGrelease}[1]{\keyword{release_G}[#1]}
+% \newcommand{\LGdrop}[1]{\keyword{droplock_G}[#1]}
+% \newcommand{\LGwait}[1]{\keyword{wait_G}[#1]}
+% \newcommand{\LGfork}{\keyword{fork_G}}
+
+\newcommand{\LGnewgroup}{\keyword{newgroup}}
+\newcommand{\LGdropgroup}{\keyword{dropgroup}}
+\newcommand{\LGnew}[1]{\keyword{new}[#1]}
+\newcommand{\LGacquire}[1]{\keyword{acquire}[#1]}
+\newcommand{\LGrelease}[1]{\keyword{release}[#1]}
+\newcommand{\LGdrop}[1]{\keyword{drop}[#1]}
+\newcommand{\LGwait}[1]{\keyword{wait}[#1]}
+\newcommand{\LGfork}{\keyword{fork}}
+
+% \newcommand{\LGlockgroupT}[1]{\keyword{Lock_G}\langle #1 \rangle}
+% \newcommand{\LGlockgroupT}[1]{\keyword{Lock}\langle #1 \rangle}
+\newcommand{\LGlockgroupT}[1]{\langle #1 \rangle}
+\newcommand{\LGvec}{\vec{g}}
+\newcommand{\LGlock}[3]{{#3}{}^{#1}_{#2}}
+\newcommand{\LGcapsplit}[3]{\keyword{split}\ #1\ \keyword{into}\ #2,#3}
+
+\newcommand{\LGlen}[1]{|{#1}|}
+\newcommand{\LGallclosed}[1]{\keyword{closed}\ #1}
+\newcommand{\LGallowners}[1]{\keyword{owners}\ #1}
+
+
+% Typing rules
+\newcommand{\envsplit}[3]{\keyword{split}\ #1\ #2\ #3}
+\newcommand{\typed}[3]{#1 \vdash #2 : #3}
+\newcommand{\typedz}[2]{#1\! :\! #2}
+\newcommand{\ctx}{\Gamma}
+\newcommand{\ctxdisjoint}{\mathrel{\bot}}
+\newcommand{\ctxsplit}[3]{#1 \equiv #2 \cdot #3}
+\newcommand{\ctxsplitS}{\ctxsplit {\ctx} {\ctx_1} {\ctx_2}}
+\newcommand{\unrestricted}[1]{#1\ \mathsf{unr}}
+
+
+\newcommand{\Type}{\keyword{Type}}
+\newcommand{\type}{\tau}
+
+% Operational semantics
+
+\newcommand{\istep}[1]{\overset{#1}{\leadsto}}
+\newcommand{\pstep}{\leadsto_\mathrm{pure}}
+
+\newcommand{\Cfg}{\mathsf{Cfg}}
+\newcommand{\cfg}{\rho}
+
+\newcommand{\ThreadV}{\mathsf{Thread}}
+\newcommand{\BarrierV}{\mathsf{Barrier}}
+\newcommand{\SessionV}{\mathsf{Session}}
+\newcommand{\LockV}{\mathsf{Lock}}
+
+\newcommand{\locklit}[1]{\left< #1 \right>}
+\newcommand{\lockGlit}[2]{\left< #1 \mid #2\right>}
+\newcommand{\refcnt}{\mathsf{refcnt}}
+\newcommand{\lockopt}{x}
+
+% Theorems / proof
+
+\newcommand{\waiting}{\ \mathsf{waiting}_\cfg\ }
+\newcommand{\blocked}{\ \mathsf{blocked}\ }
+\newcommand{\cfgrefs}{\mathsf{refs}_{\cfg}}
+\newcommand{\inv}{\mathsf{inv}}
+
+
+% \renewcommand{\step}{\leadsto}
+% \newcommand{\steps}{\step^*}
+% \newcommand{\hstep}{\leadsto_\mathrm{head}}
+% \newcommand{\lstep}{\leadsto_\mathrm{local}}
+% \newcommand{\istep}[1]{\overset{#1}{\leadsto}}
+% \newcommand{\gstep}{\leadsto_\mathrm{cfg}}
+% \newcommand{\append}{+\kern-1ex+\kern0.8ex}
+% \newcommand{\length}[1]{| #1 |}
+% \newcommand{\blockedShort}[1]{\mathsf{blocked}_{#1}}
+% \newcommand{\blocked}[3][]{\blockedShort{#1}(#2, #3)}
+
+\setlength\arraycolsep{1pt}
+
+\newcommand{\config}[1]{
+  \begin{Bmatrix*}[l]
+    #1
+  \end{Bmatrix*}
+}

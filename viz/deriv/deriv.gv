@@ -1,0 +1,28 @@
+
+    digraph G {
+       n0 [label="δ", shape=circle, width=0.3, fixedsize=true, style=filled, fillcolor="#FF9999"]
+   n1 [label="δ", shape=circle, width=0.3, fixedsize=true, style=filled, fillcolor="#D4B0E6"]
+   n1 -> n1 [arrowhead=normal, label=" A ", labelangle=-30, fontsize=12, arrowsize=0.5]
+   n2 [label="δ", shape=circle, width=0.3, fixedsize=true, style=filled, fillcolor="#D4B0E6"]
+   n3 [label="δ", shape=circle, width=0.3, fixedsize=true, style=filled, fillcolor="#D4B0E6"]
+   n3 -> n3 [arrowhead=normal, label=" A ", labelangle=-30, fontsize=12, arrowsize=0.5]
+   n3 -> n2 [arrowhead=normal, label=" B ", labelangle=-30, fontsize=12, arrowsize=0.5]
+   n4 [label="δ", shape=circle, width=0.3, fixedsize=true, style=filled, fillcolor="#D4B0E6"]
+   n5 [label="δ", shape=circle, width=0.3, fixedsize=true, style=filled, fillcolor="#D4B0E6"]
+   n5 -> n5 [arrowhead=normal, label=" A ", labelangle=-30, fontsize=12, arrowsize=0.5]
+   n5 -> n4 [arrowhead=normal, label=" C ", labelangle=-30, fontsize=12, arrowsize=0.5]
+   n5 -> n2 [arrowhead=normal, label=" B ", labelangle=-30, fontsize=12, arrowsize=0.5]
+   n4 -> n5 [arrowhead=normal, label=" A ", labelangle=-30, fontsize=12, arrowsize=0.5]
+   n4 -> n4 [arrowhead=normal, label=" C ", labelangle=-30, fontsize=12, arrowsize=0.5]
+   n4 -> n2 [arrowhead=normal, label=" B ", labelangle=-30, fontsize=12, arrowsize=0.5]
+   n3 -> n4 [arrowhead=normal, label=" C ", labelangle=-30, fontsize=12, arrowsize=0.5]
+   n2 -> n3 [arrowhead=normal, label=" A ", labelangle=-30, fontsize=12, arrowsize=0.5]
+   n2 -> n2 [arrowhead=normal, label=" B ", labelangle=-30, fontsize=12, arrowsize=0.5]
+   n2 -> n4 [arrowhead=normal, label=" C ", labelangle=-30, fontsize=12, arrowsize=0.5]
+   n1 -> n2 [arrowhead=normal, label=" B ", labelangle=-30, fontsize=12, arrowsize=0.5]
+   n1 -> n4 [arrowhead=normal, label=" C ", labelangle=-30, fontsize=12, arrowsize=0.5]
+   n0 -> n1 [arrowhead=normal, label=" A ", labelangle=-30, fontsize=12, arrowsize=0.5]
+   n0 -> n2 [arrowhead=normal, label=" B ", labelangle=-30, fontsize=12, arrowsize=0.5]
+   n0 -> n4 [arrowhead=normal, label=" C ", labelangle=-30, fontsize=12, arrowsize=0.5]
+
+    }

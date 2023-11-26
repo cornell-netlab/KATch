@@ -1,0 +1,19 @@
+
+    digraph G {
+       n0 [label="a", shape=circle, width=0.3, fixedsize=true, style=filled, fillcolor="skyblue"]
+   n0 -> n1 [arrowhead=normal, label=" 3 ", labelangle=-30, fontsize=12, arrowsize=0.5, color="#555", fontcolor="black"]
+   n1 [label="b", shape=circle, width=0.3, fixedsize=true, style=filled, fillcolor="#C1E1C1"]
+   n1 -> n2 [arrowhead=normal, label=" 5 ", labelangle=-30, fontsize=12, arrowsize=0.5, color="#555", fontcolor="black"]
+   n2 [label="⊥", shape=box, width=0.3, height=0.3, fixedsize=true]
+   n1 -> n3 [arrowhead=normal, label=" 4 ", labelangle=-30, fontsize=12, arrowsize=0.5, color="#555", fontcolor="black"]
+   n3 [label="⊤", shape=box, width=0.3, height=0.3, fixedsize=true]
+   n1 -> n4 [arrowhead=normal, arrowsize=0.5, style=dashed, color="#555"]
+   n4 [label="c", shape=circle, width=0.3, fixedsize=true, style=filled, fillcolor="peachpuff"]
+   n4 -> n3 [arrowhead=normal, label=" 5 ", labelangle=-30, fontsize=12, arrowsize=0.5, color="#555", fontcolor="black"]
+   n4 -> n2 [arrowhead=normal, arrowsize=0.5, style=dashed, color="#555"]
+   n0 -> n5 [arrowhead=normal, arrowsize=0.5, style=dashed, color="#555"]
+   n5 [label="b", shape=circle, width=0.3, fixedsize=true, style=filled, fillcolor="#C1E1C1"]
+   n5 -> n2 [arrowhead=normal, label=" 5 ", labelangle=-30, fontsize=12, arrowsize=0.5, color="#555", fontcolor="black"]
+   n5 -> n4 [arrowhead=normal, arrowsize=0.5, style=dashed, color="#555"]
+
+    }

@@ -1,0 +1,45 @@
+
+    digraph G {
+       n17 [label="a", shape=circle, width=0.3, fixedsize=true, style=filled, fillcolor="skyblue"]
+   n18 [label="", shape=diamond, width=0.15, height=0.15, style=filled, fillcolor="skyblue"]
+   n17 -> n18 [arrowhead=normal, label=" 1 ", labelangle=-30, fontsize=12, arrowsize=0.5, color="#555", fontcolor="black"]
+   n18 -> n19 [arrowhead=normal, label=" 1 ", labelangle=-30, fontsize=12, arrowsize=0.5, color="#555", fontcolor="black"]
+   n19 [label="b", shape=circle, width=0.3, fixedsize=true, style=filled, fillcolor="#C1E1C1"]
+   n20 [label="", shape=diamond, width=0.15, height=0.15, style=filled, fillcolor="#C1E1C1"]
+   n19 -> n20 [arrowhead=normal, label=" 2 ", labelangle=-30, fontsize=12, arrowsize=0.5, color="#555", fontcolor="black"]
+   n20 -> n21 [arrowhead=normal, label=" 2 ", labelangle=-30, fontsize=12, arrowsize=0.5, color="#555", fontcolor="black"]
+   n21 [label="c", shape=circle, width=0.3, fixedsize=true, style=filled, fillcolor="peachpuff"]
+   n22 [label="", shape=diamond, width=0.15, height=0.15, style=filled, fillcolor="peachpuff"]
+   n21 -> n22 [arrowhead=normal, label=" 3 ", labelangle=-30, fontsize=12, arrowsize=0.5, color="#555", fontcolor="black"]
+   n23 [label="", shape=diamond, width=0.15, height=0.15, style=filled, fillcolor="peachpuff"]
+   n21 -> n23 [arrowhead=normal, arrowsize=0.5, style=dashed, color="#555"]
+   n23 -> n24 [arrowhead=normal, label=" 3 ", labelangle=-30, fontsize=12, arrowsize=0.5, color="#555", fontcolor="black"]
+   n24 [label="⊤", shape=box, width=0.3, height=0.3, fixedsize=true]
+   n23 -> n25 [arrowhead=normal, arrowsize=0.5, style=dashed, color="#555"]
+   n25 [label="⊥", shape=box, width=0.3, height=0.3, fixedsize=true]
+   n26 [label="", shape=diamond, width=0.15, height=0.15, style=filled, fillcolor="#C1E1C1"]
+   n19 -> n26 [arrowhead=normal, arrowsize=0.5, style=dashed, color="#555"]
+   n26 -> n27 [arrowhead=normal, label=" 2 ", labelangle=-30, fontsize=12, arrowsize=0.5, color="#555", fontcolor="black"]
+   n27 [label="c", shape=circle, width=0.3, fixedsize=true, style=filled, fillcolor="peachpuff"]
+   n28 [label="", shape=diamond, width=0.15, height=0.15, style=filled, fillcolor="peachpuff"]
+   n27 -> n28 [arrowhead=normal, arrowsize=0.5, style=dashed, color="#555"]
+   n28 -> n24 [arrowhead=normal, label=" 3 ", labelangle=-30, fontsize=12, arrowsize=0.5, color="#555", fontcolor="black"]
+   n28 -> n25 [arrowhead=normal, arrowsize=0.5, style=dashed, color="#555"]
+   n26 -> n25 [arrowhead=normal, arrowsize=0.5, style=dashed, color="#555"]
+   n29 [label="", shape=diamond, width=0.15, height=0.15, style=filled, fillcolor="skyblue"]
+   n17 -> n29 [arrowhead=normal, arrowsize=0.5, style=dashed, color="#555"]
+   n29 -> n30 [arrowhead=normal, label=" 1 ", labelangle=-30, fontsize=12, arrowsize=0.5, color="#555", fontcolor="black"]
+   n30 [label="b", shape=circle, width=0.3, fixedsize=true, style=filled, fillcolor="#C1E1C1"]
+   n31 [label="", shape=diamond, width=0.15, height=0.15, style=filled, fillcolor="#C1E1C1"]
+   n30 -> n31 [arrowhead=normal, arrowsize=0.5, style=dashed, color="#555"]
+   n31 -> n27 [arrowhead=normal, label=" 2 ", labelangle=-30, fontsize=12, arrowsize=0.5, color="#555", fontcolor="black"]
+   n31 -> n25 [arrowhead=normal, arrowsize=0.5, style=dashed, color="#555"]
+   n29 -> n25 [arrowhead=normal, arrowsize=0.5, style=dashed, color="#555"]
+   {rank=same; n23; n28}
+   {rank=same; n20; n26; n31}
+   {rank=same; n17}
+   {rank=same; n18; n29}
+   {rank=same; n19; n30}
+   {rank=same; n21; n27}
+
+    }

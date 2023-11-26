@@ -1,0 +1,802 @@
+@article{bryant,
+author = {Bryant, Randal E.},
+title = {Symbolic Boolean Manipulation with Ordered Binary-Decision Diagrams},
+year = {1992},
+issue_date = {Sept. 1992},
+publisher = {Association for Computing Machinery},
+address = {New York, NY, USA},
+volume = {24},
+number = {3},
+issn = {0360-0300},
+url = {https://doi.org/10.1145/136035.136043},
+doi = {10.1145/136035.136043},
+abstract = {Ordered Binary-Decision Diagrams (OBDDs) represent Boolean functions as directed acyclic graphs. They form a canonical representation, making testing of functional properties such as satisfiability and equivalence straightforward. A number of operations on Boolean functions can be implemented as graph algorithms on OBDD data structures. Using OBDDs, a wide variety of problems can be solved through symbolic analysis. First, the possible variations in system parameters and operating conditions are encoded with Boolean variables. Then the system is evaluated for all variations by a sequence of OBDD operations. Researchers have thus solved a number of problems in digital-system design, finite-state system analysis, artificial intelligence, and mathematical logic. This paper describes the OBDD data structure and surveys a number of applications that have been solved by OBDD-based symbolic analysis.},
+journal = {ACM Comput. Surv.},
+month = {sep},
+pages = {293–318},
+numpages = {26},
+keywords = {symbolic manipulation, symbolic analysis, branching programs, Boolean functions, binary-decision diagrams, Boolean algebra}
+}
+
+@article{lee-bdd, author={Lee, C. Y.}, journal={The Bell System Technical
+  Journal}, title={Representation of switching circuits by binary-decision
+    programs}, year={1959}, volume={38}, number={4}, pages={985-999},
+  doi={10.1002/j.1538-7305.1959.tb01585.x}}
+
+@inproceedings{frenetic,
+  author       = {Nate Foster and
+                  Rob Harrison and
+                  Michael J. Freedman and
+                  Christopher Monsanto and
+                  Jennifer Rexford and
+                  Alec Story and
+                  David Walker},
+  editor       = {Manuel M. T. Chakravarty and
+                  Zhenjiang Hu and
+                  Olivier Danvy},
+  title        = {Frenetic: a network programming language},
+  booktitle    = {Proceeding of the 16th {ACM} {SIGPLAN} international conference on
+                  Functional Programming, {ICFP} 2011, Tokyo, Japan, September 19-21,
+                  2011},
+  pages        = {279--291},
+  publisher    = {{ACM}},
+  year         = {2011},
+  url          = {https://doi.org/10.1145/2034773.2034812},
+  doi          = {10.1145/2034773.2034812},
+  timestamp    = {Sat, 30 Sep 2023 09:45:14 +0200},
+  biburl       = {https://dblp.org/rec/conf/icfp/FosterHFMRSW11.bib},
+  bibsource    = {dblp computer science bibliography, https://dblp.org}
+}
+
+@inproceedings{dantoni-veanes2017,
+author = {D'Antoni, Loris and Veanes, Margus},
+title = {Forward Bisimulations for Nondeterministic Symbolic Finite Automata},
+year = {2017},
+isbn = {9783662545768},
+publisher = {Springer-Verlag},
+address = {Berlin, Heidelberg},
+url = {https://doi.org/10.1007/978-3-662-54577-5_30},
+doi = {10.1007/978-3-662-54577-5_30},
+abstract = {Symbolic automata allow transitions to carry predicates over rich alphabet theories, such as linear arithmetic, and therefore extend classic automata to operate over infinite alphabets, such as the set of rational numbers. Existing automata algorithms rely on the alphabet being finite, and generalizing them to the symbolic setting is not a trivial task. In our earlier work, we proposed new techniques for minimizing deterministic symbolic automata and, in this paper, we generalize these techniques and study the foundational problem of computing forward bisimulations of nondeterministic symbolic finite automata. We propose three algorithms. Our first algorithm generalizes Moore's algorithm for minimizing deterministic automata. Our second algorithm generalizes Hopcroft's algorithm for minimizing deterministic automata. Since the first two algorithms have quadratic complexity in the number of states and transitions in the automaton, we propose a third algorithm that only requires a number of iterations that is linearithmic in the number of states and transitions at the cost of an exponential worst-case complexity in the number of distinct predicates appearing in the automaton. We implement our algorithms and evaluate them on 3,625 nondeterministic symbolic automata from real-world applications.},
+booktitle = {Proceedings, Part I, of the 23rd International Conference on Tools and Algorithms for the Construction and Analysis of Systems - Volume 10205},
+pages = {518–534},
+numpages = {17}
+}
+
+@article{10.1145/1402946.1402967,
+author = {Al-Fares, Mohammad and Loukissas, Alexander and Vahdat, Amin},
+title = {A Scalable, Commodity Data Center Network Architecture},
+year = {2008},
+issue_date = {October 2008},
+publisher = {Association for Computing Machinery},
+address = {New York, NY, USA},
+volume = {38},
+number = {4},
+issn = {0146-4833},
+url = {https://doi.org/10.1145/1402946.1402967},
+doi = {10.1145/1402946.1402967},
+abstract = {Today's data centers may contain tens of thousands of computers with significant aggregate bandwidth requirements. The network architecture typically consists of a tree of routing and switching elements with progressively more specialized and expensive equipment moving up the network hierarchy. Unfortunately, even when deploying the highest-end IP switches/routers, resulting topologies may only support 50% of the aggregate bandwidth available at the edge of the network, while still incurring tremendous cost. Non-uniform bandwidth among data center nodes complicates application design and limits overall system performance.In this paper, we show how to leverage largely commodity Ethernet switches to support the full aggregate bandwidth of clusters consisting of tens of thousands of elements. Similar to how clusters of commodity computers have largely replaced more specialized SMPs and MPPs, we argue that appropriately architected and interconnected commodity switches may deliver more performance at less cost than available from today's higher-end solutions. Our approach requires no modifications to the end host network interface, operating system, or applications; critically, it is fully backward compatible with Ethernet, IP, and TCP.},
+journal = {SIGCOMM Comput. Commun. Rev.},
+month = {aug},
+pages = {63–74},
+numpages = {12},
+keywords = {equal-cost routing, data center topology}
+}
+
+@inproceedings{fat-trees,
+author = {Al-Fares, Mohammad and Loukissas, Alexander and Vahdat, Amin},
+title = {A Scalable, Commodity Data Center Network Architecture},
+year = {2008},
+isbn = {9781605581750},
+publisher = {Association for Computing Machinery},
+address = {New York, NY, USA},
+url = {https://doi.org/10.1145/1402958.1402967},
+doi = {10.1145/1402958.1402967},
+abstract = {Today's data centers may contain tens of thousands of computers with significant aggregate bandwidth requirements. The network architecture typically consists of a tree of routing and switching elements with progressively more specialized and expensive equipment moving up the network hierarchy. Unfortunately, even when deploying the highest-end IP switches/routers, resulting topologies may only support 50% of the aggregate bandwidth available at the edge of the network, while still incurring tremendous cost. Non-uniform bandwidth among data center nodes complicates application design and limits overall system performance.In this paper, we show how to leverage largely commodity Ethernet switches to support the full aggregate bandwidth of clusters consisting of tens of thousands of elements. Similar to how clusters of commodity computers have largely replaced more specialized SMPs and MPPs, we argue that appropriately architected and interconnected commodity switches may deliver more performance at less cost than available from today's higher-end solutions. Our approach requires no modifications to the end host network interface, operating system, or applications; critically, it is fully backward compatible with Ethernet, IP, and TCP.},
+booktitle = {Proceedings of the ACM SIGCOMM 2008 Conference on Data Communication},
+pages = {63–74},
+numpages = {12},
+keywords = {data center topology, equal-cost routing},
+location = {Seattle, WA, USA},
+series = {SIGCOMM '08}
+}
+
+@inproceedings{dantoni-veanes2014,
+author = {D'Antoni, Loris and Veanes, Margus},
+title = {Minimization of Symbolic Automata},
+year = {2014},
+isbn = {9781450325448},
+publisher = {Association for Computing Machinery},
+address = {New York, NY, USA},
+url = {https://doi-org.proxy.library.cornell.edu/10.1145/2535838.2535849},
+doi = {10.1145/2535838.2535849},
+abstract = {Symbolic Automata extend classical automata by using symbolic alphabets instead of finite ones. Most of the classical automata algorithms rely on the alphabet being finite, and generalizing them to the symbolic setting is not a trivial task. In this paper we study the problem of minimizing symbolic automata. We formally define and prove the basic properties of minimality in the symbolic setting, and lift classical minimization algorithms (Huffman-Moore's and Hopcroft's algorithms) to symbolic automata. While Hopcroft's algorithm is the fastest known algorithm for DFA minimization, we show how, in the presence of symbolic alphabets, it can incur an exponential blowup. To address this issue, we introduce a new algorithm that fully benefits from the symbolic representation of the alphabet and does not suffer from the exponential blowup. We provide comprehensive performance evaluation of all the algorithms over large benchmarks and against existing state-of-the-art implementations. The experiments show how the new symbolic algorithm is faster than previous implementations.},
+booktitle = {Proceedings of the 41st ACM SIGPLAN-SIGACT Symposium on Principles of Programming Languages},
+pages = {541–553},
+numpages = {13},
+keywords = {minimization, symbolic automata},
+location = {San Diego, California, USA},
+series = {POPL '14}
+}
+
+@inproceedings{netkat,
+author = {Anderson, Carolyn Jane and Foster, Nate and Guha, Arjun and Jeannin, Jean-Baptiste and Kozen, Dexter and Schlesinger, Cole and Walker, David},
+title = {NetKAT: Semantic Foundations for Networks},
+year = {2014},
+isbn = {9781450325448},
+publisher = {Association for Computing Machinery},
+address = {New York, NY, USA},
+url = {https://doi.org/10.1145/2535838.2535862},
+doi = {10.1145/2535838.2535862},
+abstract = {Recent years have seen growing interest in high-level languages for programming networks. But the design of these languages has been largely ad hoc, driven more by the needs of applications and the capabilities of network hardware than by foundational principles. The lack of a semantic foundation has left language designers with little guidance in determining how to incorporate new features, and programmers without a means to reason precisely about their code.This paper presents NetKAT, a new network programming language that is based on a solid mathematical foundation and comes equipped with a sound and complete equational theory. We describe the design of NetKAT, including primitives for filtering, modifying, and transmitting packets; union and sequential composition operators; and a Kleene star operator that iterates programs. We show that NetKAT is an instance of a canonical and well-studied mathematical structure called a Kleene algebra with tests (KAT) and prove that its equational theory is sound and complete with respect to its denotational semantics. Finally, we present practical applications of the equational theory including syntactic techniques for checking reachability, proving non-interference properties that ensure isolation between programs, and establishing the correctness of compilation algorithms.},
+booktitle = {Proceedings of the 41st ACM SIGPLAN-SIGACT Symposium on Principles of Programming Languages},
+pages = {113–126},
+numpages = {14},
+keywords = {frenetic, kleene algebra with tests, domain-specific languages, software-defined networking, netkat, network programming languages},
+location = {San Diego, California, USA},
+series = {POPL '14}
+}
+
+@InProceedings{kozen96,
+author="Kozen, Dexter",
+editor="Margaria, Tiziana
+and Steffen, Bernhard",
+title="Kleene algebra with tests and commutativity conditions",
+booktitle="Tools and Algorithms for the Construction and Analysis of Systems",
+year="1996",
+publisher="Springer Berlin Heidelberg",
+address="Berlin, Heidelberg",
+pages="14--33",
+abstract="We give an equational proof, using Kleene algebra with tests and commutativity conditions, of the following classical result: every while program can be simulated by a while program with at most one while loop. The proof illustrates the use of Kleene algebra with extra conditions in program equivalence proofs. We also show, using a construction of Cohen, that the universal Horn theory of *-continuous Kleene algebras is not finitely axiomatizable.",
+isbn="978-3-540-49874-2"
+}
+
+@inproceedings{coalgebraic,
+author = {Foster, Nate and Kozen, Dexter and Milano, Mae and Silva, Alexandra and Thompson, Laure},
+title = {A Coalgebraic Decision Procedure for NetKAT},
+year = {2015},
+isbn = {9781450333009},
+publisher = {Association for Computing Machinery},
+address = {New York, NY, USA},
+url = {https://doi.org/10.1145/2676726.2677011},
+doi = {10.1145/2676726.2677011},
+abstract = {NetKAT is a domain-specific language and logic for specifying and verifying network packet-processing functions. It consists of Kleene algebra with tests (KAT) augmented with primitives for testing and modifying packet headers and encoding network topologies. Previous work developed the design of the language and its standard semantics, proved the soundness and completeness of the logic, defined a PSPACE algorithm for deciding equivalence, and presented several practical applications.This paper develops the coalgebraic theory of NetKAT, including a specialized version of the Brzozowski derivative, and presents a new efficient algorithm for deciding the equational theory using bisimulation. The coalgebraic structure admits an efficient sparse representation that results in a significant reduction in the size of the state space. We discuss the details of our implementation and optimizations that exploit NetKAT's equational axioms and coalgebraic structure to yield significantly improved performance. We present results from experiments demonstrating that our tool is competitive with state-of-the-art tools on several benchmarks including all-pairs connectivity, loop-freedom, and translation validation.},
+booktitle = {Proceedings of the 42nd Annual ACM SIGPLAN-SIGACT Symposium on Principles of Programming Languages},
+pages = {343–355},
+numpages = {13},
+keywords = {kleene algebra with tests, brzozowski derivatives, coalgebra, automata, network verification, netkat},
+location = {Mumbai, India},
+series = {POPL '15}
+}
+
+@inproceedings{fastcompiler,
+author = {Smolka, Steffen and Eliopoulos, Spiridon and Foster, Nate and Guha, Arjun},
+title = {A Fast Compiler for NetKAT},
+year = {2015},
+isbn = {9781450336697},
+publisher = {Association for Computing Machinery},
+address = {New York, NY, USA},
+url = {https://doi.org/10.1145/2784731.2784761},
+doi = {10.1145/2784731.2784761},
+abstract = {High-level programming languages play a key role in a growing number of networking platforms, streamlining application development and enabling precise formal reasoning about network behavior. Unfortunately, current compilers only handle "local" programs that specify behavior in terms of hop-by-hop forwarding behavior, or modest extensions such as simple paths. To encode richer "global" behaviors, programmers must add extra state -- something that is tricky to get right and makes programs harder to write and maintain. Making matters worse, existing compilers can take tens of minutes to generate the forwarding state for the network, even on relatively small inputs. This forces programmers to waste time working around performance issues or even revert to using hardware-level APIs. This paper presents a new compiler for the NetKAT language that handles rich features including regular paths and virtual networks, and yet is several orders of magnitude faster than previous compilers. The compiler uses symbolic automata to calculate the extra state needed to implement "global" programs, and an intermediate representation based on binary decision diagrams to dramatically improve performance. We describe the design and implementation of three essential compiler stages: from virtual programs (which specify behavior in terms of virtual topologies) to global programs (which specify network-wide behavior in terms of physical topologies), from global programs to local programs (which specify behavior in terms of single-switch behavior), and from local programs to hardware-level forwarding tables. We present results from experiments on real-world benchmarks that quantify performance in terms of compilation time and forwarding table size.},
+booktitle = {Proceedings of the 20th ACM SIGPLAN International Conference on Functional Programming},
+pages = {328–341},
+numpages = {14},
+keywords = {domain-specific languages, virtualization, NetKAT, Software-defined networking, Kleene Algebra with tests, Frenetic, binary decision diagrams},
+location = {Vancouver, BC, Canada},
+series = {ICFP 2015}
+}
+
+@article{pous2015,
+author = {Pous, Damien},
+title = {Symbolic Algorithms for Language Equivalence and Kleene Algebra with Tests},
+year = {2015},
+issue_date = {January 2015},
+publisher = {Association for Computing Machinery},
+address = {New York, NY, USA},
+volume = {50},
+number = {1},
+issn = {0362-1340},
+url = {https://doi.org/10.1145/2775051.2677007},
+doi = {10.1145/2775051.2677007},
+abstract = {We propose algorithms for checking language equivalence of finite automata over a large alphabet. We use symbolic automata, where the transition function is compactly represented using (multi-terminal) binary decision diagrams (BDD). The key idea consists in computing a bisimulation by exploring reachable pairs symbolically, so as to avoid redundancies. This idea can be combined with already existing optimisations, and we show in particular a nice integration with the disjoint sets forest data-structure from Hopcroft and Karp's standard algorithm.Then we consider Kleene algebra with tests (KAT), an algebraic theory that can be used for verification in various domains ranging from compiler optimisation to network programming analysis. This theory is decidable by reduction to language equivalence of automata on guarded strings, a particular kind of automata that have exponentially large alphabets. We propose several methods allowing to construct symbolic automata out of KAT expressions, based either on Brzozowski's derivatives or on standard automata constructions.All in all, this results in efficient algorithms for deciding equivalence of KAT expressions.},
+journal = {SIGPLAN Not.},
+month = {jan},
+pages = {357–368},
+numpages = {12},
+keywords = {bdd, disjoint set forests, brzozowski's derivatives, antimirov' partial derivatives, language equivalence, kleene algebra with tests, kat, binary decision diagrams, union-find, symbolic automata, guarded string automata}
+}
+
+@inproceedings{bonchi-pous2013,
+author = {Bonchi, Filippo and Pous, Damien},
+title = {Checking NFA Equivalence with Bisimulations up to Congruence},
+year = {2013},
+isbn = {9781450318327},
+publisher = {Association for Computing Machinery},
+address = {New York, NY, USA},
+url = {https://doi.org/10.1145/2429069.2429124},
+doi = {10.1145/2429069.2429124},
+abstract = {We introduce bisimulation up to congruence as a technique for proving language equivalence of non-deterministic finite automata. Exploiting this technique, we devise an optimisation of the classical algorithm by Hopcroft and Karp. We compare our approach to the recently introduced antichain algorithms, by analysing and relating the two underlying coinductive proof methods. We give concrete examples where we exponentially improve over antichains; experimental results moreover show non negligible improvements.},
+booktitle = {Proceedings of the 40th Annual ACM SIGPLAN-SIGACT Symposium on Principles of Programming Languages},
+pages = {457–468},
+numpages = {12},
+keywords = {antichain, automata, bisimulation, up-to techniques, coinduction, congruence, language equivalence},
+location = {Rome, Italy},
+series = {POPL '13}
+}
+
+@inproceedings{leapfrog,
+author = {Doenges, Ryan and Kapp\'{e}, Tobias and Sarracino, John and Foster, Nate and Morrisett, Greg},
+title = {Leapfrog: Certified Equivalence for Protocol Parsers},
+year = {2022},
+isbn = {9781450392655},
+publisher = {Association for Computing Machinery},
+address = {New York, NY, USA},
+url = {https://doi.org/10.1145/3519939.3523715},
+doi = {10.1145/3519939.3523715},
+abstract = {We present Leapfrog, a Coq-based framework for verifying equivalence of network protocol parsers. Our approach is based on an automata model of P4 parsers, and an algorithm for symbolically computing a compact representation of a bisimulation, using "leaps." Proofs are powered by a certified compilation chain from first-order entailments to low-level bitvector verification conditions, which are discharged using off-the-shelf SMT solvers. As a result, parser equivalence proofs in Leapfrog are fully automatic and push-button. We mechanically prove the core metatheory that underpins our approach, including the key transformations and several optimizations. We evaluate Leapfrog on a range of practical case studies, all of which require minimal configuration and no manual proof. Our largest case study uses Leapfrog to perform translation validation for a third-party compiler from automata to hardware pipelines. Overall, Leapfrog represents a step towards a world where all parsers for critical network infrastructure are verified. It also suggests directions for follow-on efforts, such as verifying relational properties involving security.},
+booktitle = {Proceedings of the 43rd ACM SIGPLAN International Conference on Programming Language Design and Implementation},
+pages = {950–965},
+numpages = {16},
+keywords = {automata, foundational verification, equivalence, Coq, network protocol parsers, P4, certified parsers},
+location = {San Diego, CA, USA},
+series = {PLDI 2022}
+}
+
+@inproceedings{brzozowski1962,
+  title={Canonical regular expressions and minimal state graphs for definite events},
+  author={Brzozowski, Janusz A},
+  booktitle={Proc. Symposium of Mathematical Theory of Automata},
+  pages={529--561},
+  year={1962}
+}
+
+@inbook{moore,
+title = {Gedanken-Experiments on Sequential Machines},
+booktitle = {Automata Studies. (AM-34), Volume 34},
+author = {Edward F. Moore},
+editor = {C. E. Shannon and J. McCarthy},
+publisher = {Princeton University Press},
+address = {Princeton},
+pages = {129--154},
+isbn = {9781400882618},
+year = {1956},
+lastchecked = {2023-06-15}
+}
+
+@techreport{hopcroft1971,
+author = {Hopcroft, John E.},
+title = {An n Log n Algorithm for Minimizing States in a Finite Automaton},
+year = {1971},
+publisher = {Stanford University},
+address = {Stanford, CA, USA},
+abstract = {An algorithm is given for minimizing the number of states in a finite automaton or for determining if two finite automata are equivalent. The asymptotic running time of the algorithm is bounded by k n log n where k is some constant and n is the number of states. The constant k depends linearly on the size of the input alphabet.}
+}
+
+@inproceedings{hopcroft-karp1971,
+  title={A Linear Algorithm for Testing Equivalence of Finite Automata},
+  author={John E. Hopcroft and Richard M. Karp},
+  year={1971}
+}
+
+@article{paige-tarjan,
+author = {Paige, Robert and Tarjan, Robert E.},
+title = {Three Partition Refinement Algorithms},
+year = {1987},
+issue_date = {December 1, 1987},
+publisher = {Society for Industrial and Applied Mathematics},
+address = {USA},
+volume = {16},
+number = {6},
+issn = {0097-5397},
+url = {https://doi.org/10.1137/0216062},
+doi = {10.1137/0216062},
+journal = {SIAM J. Comput.},
+month = {dec},
+pages = {973–989},
+numpages = {17}
+}
+
+@ARTICLE{topologyzoo, 
+author={Knight, S. and Nguyen, H.X. and Falkner, N. and Bowden, R. and Roughan, M.}, 
+journal={Selected Areas in Communications, IEEE Journal on}, title={The Internet Topology Zoo}, 
+year={2011}, 
+month={october }, 
+volume={29}, 
+number={9}, 
+pages={1765 -1775}, 
+keywords={Internet Topology Zoo;PoP-level topology;meta-data;network data;network designs;network structure;network topology;Internet;meta data;telecommunication network topology;}, 
+doi={10.1109/JSAC.2011.111002}, 
+ISSN={0733-8716},}
+
+@article{veriflow,
+author = {Khurshid, Ahmed and Zhou, Wenxuan and Caesar, Matthew and Godfrey, P. Brighten},
+title = {Veriflow: Verifying Network-Wide Invariants in Real Time},
+year = {2012},
+issue_date = {October 2012},
+publisher = {Association for Computing Machinery},
+address = {New York, NY, USA},
+volume = {42},
+number = {4},
+issn = {0146-4833},
+url = {https://doi.org/10.1145/2377677.2377766},
+doi = {10.1145/2377677.2377766},
+abstract = {Networks are complex and prone to bugs. Existing tools that check configuration files and data-plane state operate offline at timescales of seconds to hours, and cannot detect or prevent bugs as they arise.Is it possible to check network-wide invariants in real time, as the network state evolves? The key challenge here is to achieve extremely low latency during the checks so that network performance is not affected. In this paper, we present a preliminary design, VeriFlow, which suggests that this goal is achievable. VeriFlow is a layer between a software-defined networking controller and network devices that checks for network-wide invariant violations dynamically as each forwarding rule is inserted. Based on an implementation using a Mininet OpenFlow network and Route Views trace data, we find that VeriFlow can perform rigorous checking within hundreds of microseconds per rule insertion.},
+journal = {SIGCOMM Comput. Commun. Rev.},
+month = {sep},
+pages = {467–472},
+numpages = {6},
+keywords = {openflow, real time, debugging, software-defined networking, forwarding}
+}
+
+@inproceedings{hsa,
+author = {Kazemian, Peyman and Varghese, George and McKeown, Nick},
+title = {Header Space Analysis: Static Checking for Networks},
+year = {2012},
+publisher = {USENIX Association},
+address = {USA},
+abstract = {Today's networks typically carry or deploy dozens of protocols and mechanisms simultaneously such as MPLS, NAT, ACLs and route redistribution. Even when individual protocols function correctly, failures can arise from the complex interactions of their aggregate, requiring network administrators to be masters of detail. Our goal is to automatically find an important class of failures, regardless of the protocols running, for both operational and experimental networks.To this end we developed a general and protocol-agnostic framework, called Header Space Analysis (HSA). Our formalism allows us to statically check network specifications and configurations to identify an important class of failures such as Reachability Failures, Forwarding Loops and Traffic Isolation and Leakage problems. In HSA, protocol header fields are not first class entities; instead we look at the entire packet header as a concatenation of bits without any associated meaning. Each packet is a point in the {0,1}L space where L is the maximum length of a packet header, and networking boxes transform packets from one point in the space to another point or set of points (multicast).We created a library of tools, called Hassel, to implement our framework, and used it to analyze a variety of networks and protocols. Hassel was used to analyze the Stanford University backbone network, and found all the forwarding loops in less than 10 minutes, and verified reachability constraints between two subnets in 13 seconds. It also found a large and complex loop in an experimental loose source routing protocol in 4 minutes.},
+booktitle = {Proceedings of the 9th USENIX Conference on Networked Systems Design and Implementation},
+pages = {9},
+numpages = {1},
+location = {San Jose, CA},
+series = {NSDI'12}
+}
+
+@article{ap,
+author = {Yang, Hongkun and Lam, Simon S.},
+title = {Real-Time Verification of Network Properties Using Atomic Predicates},
+year = {2016},
+issue_date = {April 2016},
+publisher = {IEEE Press},
+volume = {24},
+number = {2},
+issn = {1063-6692},
+url = {https://doi.org/10.1109/TNET.2015.2398197},
+doi = {10.1109/TNET.2015.2398197},
+abstract = {Network management will benefit from automated tools based upon formal methods. Several such tools have been published in the literature. We present a new formal method for a new tool, Atomic Predicates (AP) Verifier, which is much more time and space efficient than existing tools. Given a set of predicates representing packet filters, AP Verifier computes a set of atomic predicates, which is minimum and unique. The use of atomic predicates dramatically speeds up computation of network reachability. We evaluated the performance of AP Verifier using forwarding tables and ACLs from three large real networks. The atomic predicate sets of these networks were computed very quickly and their sizes are surprisingly small. Real networks are subject to dynamic state changes over time as a result of rule insertion and deletion by protocols and operators, failure and recovery of links and boxes, etc. In a software-defined network, the network state can be observed in real time and thus may be controlled in real time. AP Verifier includes algorithms to process such events and check compliance with network policies and properties in real time. We compare time and space costs of AP Verifier with Header Space and NetPlumber using datasets from the real networks.},
+journal = {IEEE/ACM Trans. Netw.},
+month = {apr},
+pages = {887–900},
+numpages = {14},
+keywords = {formal methods, protocol verification, network management, automated tools, reachability computation, network policies and properties}
+}
+
+@book{hopcroft-automata,
+author = {Hopcroft, John E. and Motwani, Rajeev and Ullman, Jeffrey D.},
+title = {Introduction to Automata Theory, Languages, and Computation (3rd Edition)},
+year = {2006},
+isbn = {0321455363},
+publisher = {Addison-Wesley Longman Publishing Co., Inc.},
+address = {USA}
+}
+
+@article{antimirov,
+title = {Partial derivatives of regular expressions and finite automaton constructions},
+journal = {Theoretical Computer Science},
+volume = {155},
+number = {2},
+pages = {291-319},
+year = {1996},
+issn = {0304-3975},
+doi = {https://doi.org/10.1016/0304-3975(95)00182-4},
+url = {https://www.sciencedirect.com/science/article/pii/0304397595001824},
+author = {Valentin Antimirov},
+abstract = {We introduce a notion of partial derivative of a regular expression and apply it to finite automaton constructions. The notion is a generalization of the known notion of word derivative due to Brzozowski: partial derivatives are related to non-deterministic finite automata (NFA's) in the same natural way as derivatives are related to deterministic ones (DFA's). We give a constructive definition of partial derivatives and prove several facts, in particular: 1.(1) any derivative of a regular expression r can be represented by a finite set of partial derivatives of r;2.(2) the set of all partial derivatives of r is finite and its cardinality is less than or equal to one plus the number of occurrences of letters from A appearing in r;3.(3) any partial derivative of r is either a regular unit, or a subterm of r, or a concatenation of several such subterms. These theoretical results lead us to a new algorithm for turning regular expressions into relatively small NFA's and allow us to provide certain improvements to Brzozowski's algorithm for constructing DFA's. We also report on a prototype implementation of our NFA construction and present several examples.}
+}
+
+@article{mckeown-openflow,
+author = {McKeown, Nick and Anderson, Tom and Balakrishnan, Hari and Parulkar, Guru and Peterson, Larry and Rexford, Jennifer and Shenker, Scott and Turner, Jonathan},
+title = {OpenFlow: Enabling Innovation in Campus Networks},
+year = {2008},
+issue_date = {April 2008},
+publisher = {Association for Computing Machinery},
+address = {New York, NY, USA},
+volume = {38},
+number = {2},
+issn = {0146-4833},
+url = {https://doi.org/10.1145/1355734.1355746},
+doi = {10.1145/1355734.1355746},
+abstract = {This whitepaper proposes OpenFlow: a way for researchers to run experimental protocols in the networks they use every day. OpenFlow is based on an Ethernet switch, with an internal flow-table, and a standardized interface to add and remove flow entries. Our goal is to encourage networking vendors to add OpenFlow to their switch products for deployment in college campus backbones and wiring closets. We believe that OpenFlow is a pragmatic compromise: on one hand, it allows researchers to run experiments on heterogeneous switches in a uniform way at line-rate and with high port-density; while on the other hand, vendors do not need to expose the internal workings of their switches. In addition to allowing researchers to evaluate their ideas in real-world traffic settings, OpenFlow could serve as a useful campus component in proposed large-scale testbeds like GENI. Two buildings at Stanford University will soon run OpenFlow networks, using commercial Ethernet switches and routers. We will work to encourage deployment at other schools; and We encourage you to consider deploying OpenFlow in your university network too},
+journal = {SIGCOMM Comput. Commun. Rev.},
+month = {mar},
+pages = {69–74},
+numpages = {6},
+keywords = {flow-based, ethernet switch, virtualization}
+}
+
+@article{p4,
+author = {Bosshart, Pat and Daly, Dan and Gibb, Glen and Izzard, Martin and McKeown, Nick and Rexford, Jennifer and Schlesinger, Cole and Talayco, Dan and Vahdat, Amin and Varghese, George and Walker, David},
+title = {P4: Programming Protocol-Independent Packet Processors},
+year = {2014},
+issue_date = {July 2014},
+publisher = {Association for Computing Machinery},
+address = {New York, NY, USA},
+volume = {44},
+number = {3},
+issn = {0146-4833},
+url = {https://doi.org/10.1145/2656877.2656890},
+doi = {10.1145/2656877.2656890},
+abstract = {P4 is a high-level language for programming protocol-independent packet processors. P4 works in conjunction with SDN control protocols like OpenFlow. In its current form, OpenFlow explicitly specifies protocol headers on which it operates. This set has grown from 12 to 41 fields in a few years, increasing the complexity of the specification while still not providing the flexibility to add new headers. In this paper we propose P4 as a strawman proposal for how OpenFlow should evolve in the future. We have three goals: (1) Reconfigurability in the field: Programmers should be able to change the way switches process packets once they are deployed. (2) Protocol independence: Switches should not be tied to any specific network protocols. (3) Target independence: Programmers should be able to describe packet-processing functionality independently of the specifics of the underlying hardware. As an example, we describe how to use P4 to configure a switch to add a new hierarchical label.},
+journal = {SIGCOMM Comput. Commun. Rev.},
+month = {jul},
+pages = {87–95},
+numpages = {9},
+keywords = {protocol-independent, reconfigurability, p4, sdn}
+}
+
+@InProceedings{kassios-muller-schwerhoff,
+author="Kassios, Ioannis T.
+and M{\"u}ller, Peter
+and Schwerhoff, Malte",
+editor="Joshi, Rajeev
+and M{\"u}ller, Peter
+and Podelski, Andreas",
+title="Comparing Verification Condition Generation with Symbolic Execution: An Experience Report",
+booktitle="Verified Software: Theories, Tools, Experiments",
+year="2012",
+publisher="Springer Berlin Heidelberg",
+address="Berlin, Heidelberg",
+pages="196--208",
+abstract="There are two dominant approaches for the construction of automatic program verifiers, Verification Condition Generation (VCG) and Symbolic Execution (SE). Both techniques have been used to develop powerful program verifiers. However, to the best of our knowledge, no systematic experiment has been conducted to compare them.",
+isbn="978-3-642-27705-4"
+}
+
+@inproceedings{vardi-automata-theoretic86,
+  author       = {Moshe Y. Vardi and Pierre Wolper},
+  title        = {An Automata-Theoretic Approach to Automatic Program Verification (Preliminary Report)},
+  booktitle    = {Proceedings of the Symposium on Logic in Computer Science {(LICS})},
+  pages        = {332--344},
+  year         = {1986},
+}
+
+@inproceedings {libra,
+author = {Hongyi Zeng and Shidong Zhang and Fei Ye and Vimalkumar Jeyakumar and Mickey Ju and Junda Liu and Nick McKeown and Amin Vahdat},
+title = {Libra: Divide and Conquer to Verify Forwarding Tables in Huge Networks},
+booktitle = {11th USENIX Symposium on Networked Systems Design and Implementation (NSDI 14)},
+year = {2014},
+isbn = {978-1-931971-09-6},
+address = {Seattle, WA},
+pages = {87--99},
+url = {https://www.usenix.org/conference/nsdi14/technical-sessions/presentation/zeng},
+publisher = {USENIX Association},
+month = apr
+}
+
+@inproceedings{bek11,
+author = {Hooimeijer, Pieter and Livshits, Benjamin and Molnar, David and Saxena, Prateek and Veanes, Margus},
+title = {Fast and Precise Sanitizer Analysis with BEK},
+year = {2011},
+booktitle = {USENIX Conference on Security},
+pages = {1},
+numpages = {1},
+}
+
+@inproceedings{dafny,
+  author       = {K. Rustan M. Leino and
+                  Valentin W{\"{u}}stholz},
+  editor       = {Catherine Dubois and
+                  Dimitra Giannakopoulou and
+                  Dominique M{\'{e}}ry},
+  title        = {The Dafny Integrated Development Environment},
+  booktitle    = {Proceedings 1st Workshop on Formal Integrated Development Environment,
+                  {F-IDE} 2014, Grenoble, France, April 6, 2014},
+  series       = {{EPTCS}},
+  volume       = {149},
+  pages        = {3--15},
+  year         = {2014},
+  url          = {https://doi.org/10.4204/EPTCS.149.2},
+  doi          = {10.4204/EPTCS.149.2},
+  timestamp    = {Wed, 12 Sep 2018 01:05:15 +0200},
+  biburl       = {https://dblp.org/rec/journals/corr/LeinoW14.bib},
+  bibsource    = {dblp computer science bibliography, https://dblp.org}
+}
+
+@inproceedings{boogie,
+  author       = {Michael Barnett and
+                  Bor{-}Yuh Evan Chang and
+                  Robert DeLine and
+                  Bart Jacobs and
+                  K. Rustan M. Leino},
+  editor       = {Frank S. de Boer and
+                  Marcello M. Bonsangue and
+                  Susanne Graf and
+                  Willem P. de Roever},
+  title        = {Boogie: {A} Modular Reusable Verifier for Object-Oriented Programs},
+  booktitle    = {Formal Methods for Components and Objects, 4th International Symposium,
+                  {FMCO} 2005, Amsterdam, The Netherlands, November 1-4, 2005, Revised
+                  Lectures},
+  series       = {Lecture Notes in Computer Science},
+  volume       = {4111},
+  pages        = {364--387},
+  publisher    = {Springer},
+  year         = {2005},
+  url          = {https://doi.org/10.1007/11804192\_17},
+  doi          = {10.1007/11804192\_17},
+  timestamp    = {Tue, 14 May 2019 10:00:53 +0200},
+  biburl       = {https://dblp.org/rec/conf/fmco/BarnettCDJL05.bib},
+  bibsource    = {dblp computer science bibliography, https://dblp.org}
+}
+
+@inproceedings{rosette,
+  author       = {Emina Torlak and
+                  Rastislav Bod{\'{\i}}k},
+  editor       = {Antony L. Hosking and
+                  Patrick Th. Eugster and
+                  Robert Hirschfeld},
+  title        = {Growing solver-aided languages with rosette},
+  booktitle    = {{ACM} Symposium on New Ideas in Programming and Reflections on Software,
+                  Onward! 2013, part of {SPLASH} '13, Indianapolis, IN, USA, October
+                  26-31, 2013},
+  pages        = {135--152},
+  publisher    = {{ACM}},
+  year         = {2013},
+  url          = {https://doi.org/10.1145/2509578.2509586},
+  doi          = {10.1145/2509578.2509586},
+  timestamp    = {Mon, 12 Jul 2021 15:34:15 +0200},
+  biburl       = {https://dblp.org/rec/conf/oopsla/TorlakB13.bib},
+  bibsource    = {dblp computer science bibliography, https://dblp.org}
+}
+
+@inproceedings{xie05,
+  author={Xie, G.G. and Jibin Zhan and Maltz, D.A. and Hui Zhang and Greenberg, A. and Hjalmtysson, G. and Rexford, J.},
+  booktitle={INFOCOMM},
+  title={On static reachability analysis of {IP} networks}, 
+  year={2005},
+  volume={3},
+  pages={2170--2183 vol. 3}
+}
+
+@article{anteater,
+author = {Mai, Haohui and Khurshid, Ahmed and Agarwal, Rachit and Caesar, Matthew and Godfrey, P. Brighten and King, Samuel Talmadge},
+title = {Debugging the Data Plane with Anteater},
+year = {2011},
+issue_date = {August 2011},
+publisher = {Association for Computing Machinery},
+address = {New York, NY, USA},
+volume = {41},
+number = {4},
+issn = {0146-4833},
+url = {https://doi.org/10.1145/2043164.2018470},
+doi = {10.1145/2043164.2018470},
+abstract = {Diagnosing problems in networks is a time-consuming and error-prone process. Existing tools to assist operators primarily focus on analyzing control plane configuration. Configuration analysis is limited in that it cannot find bugs in router software, and is harder to generalize across protocols since it must model complex configuration languages and dynamic protocol behavior.This paper studies an alternate approach: diagnosing problems through static analysis of the data plane. This approach can catch bugs that are invisible at the level of configuration files, and simplifies unified analysis of a network across many protocols and implementations. We present Anteater, a tool for checking invariants in the data plane. Anteater translates high-level network invariants into boolean satisfiability problems (SAT), checks them against network state using a SAT solver, and reports counterexamples if violations have been found. Applied to a large university network, Anteater revealed 23 bugs, including forwarding loops and stale ACL rules, with only five false positives. Nine of these faults are being fixed by campus network operators.},
+journal = {SIGCOMM Comput. Commun. Rev.},
+month = {aug},
+pages = {290–301},
+numpages = {12},
+keywords = {data plane analysis, boolean satisfiability, network troubleshooting}
+}
+
+@inproceedings{minesweeper,
+author = {Beckett, Ryan and Gupta, Aarti and Mahajan, Ratul and Walker, David},
+title = {A General Approach to Network Configuration Verification},
+year = {2017},
+isbn = {9781450346535},
+publisher = {Association for Computing Machinery},
+address = {New York, NY, USA},
+url = {https://doi.org/10.1145/3098822.3098834},
+doi = {10.1145/3098822.3098834},
+abstract = {We present Minesweeper, a tool to verify that a network satisfies a wide range of intended properties such as reachability or isolation among nodes, waypointing, black holes, bounded path length, load-balancing, functional equivalence of two routers, and fault-tolerance. Minesweeper translates network configuration files into a logical formula that captures the stable states to which the network forwarding will converge as a result of interactions between routing protocols such as OSPF, BGP and static routes. It then combines the formula with constraints that describe the intended property. If the combined formula is satisfiable, there exists a stable state of the network in which the property does not hold. Otherwise, no stable state (if any) violates the property. We used Minesweeper to check four properties of 152 real networks from a large cloud provider. We found 120 violations, some of which are potentially serious security vulnerabilities. We also evaluated Minesweeper on synthetic benchmarks, and found that it can verify rich properties for networks with hundreds of routers in under five minutes. This performance is due to a suite of model-slicing and hoisting optimizations that we developed, which reduce runtime by over 460x for large networks.},
+booktitle = {Proceedings of the Conference of the ACM Special Interest Group on Data Communication},
+pages = {155–168},
+numpages = {14},
+keywords = {Control plane analysis, Network verification},
+location = {Los Angeles, CA, USA},
+series = {SIGCOMM '17}
+}
+
+@inproceedings{batfish-lessons,
+  author       = {Matt Brown and
+                  Ari Fogel and
+                  Daniel Halperin and
+                  Victor Heorhiadi and
+                  Ratul Mahajan and
+                  Todd D. Millstein},
+  editor       = {Henning Schulzrinne and
+                  Vishal Misra and
+                  Eddie Kohler and
+                  David A. Maltz},
+  title        = {Lessons from the evolution of the Batfish configuration analysis tool},
+  booktitle    = {Proceedings of the {ACM} {SIGCOMM} 2023 Conference, {ACM} {SIGCOMM}
+                  2023, New York, NY, USA, 10-14 September 2023},
+  pages        = {122--135},
+  publisher    = {{ACM}},
+  year         = {2023},
+  url          = {https://doi.org/10.1145/3603269.3604866},
+  doi          = {10.1145/3603269.3604866},
+  timestamp    = {Sun, 24 Sep 2023 15:46:14 +0200},
+  biburl       = {https://dblp.org/rec/conf/sigcomm/BrownFHHMM23.bib},
+  bibsource    = {dblp computer science bibliography, https://dblp.org}
+}
+
+@inproceedings{batfish,
+  author       = {Ari Fogel and
+                  Stanley Fung and
+                  Luis Pedrosa and
+                  Meg Walraed{-}Sullivan and
+                  Ramesh Govindan and
+                  Ratul Mahajan and
+                  Todd D. Millstein},
+  title        = {A General Approach to Network Configuration Analysis},
+  booktitle    = {12th {USENIX} Symposium on Networked Systems Design and Implementation,
+                  {NSDI} 15, Oakland, CA, USA, May 4-6, 2015},
+  pages        = {469--483},
+  publisher    = {{USENIX} Association},
+  year         = {2015},
+  url          = {https://www.usenix.org/conference/nsdi15/technical-sessions/presentation/fogel},
+  timestamp    = {Thu, 23 Sep 2021 11:48:04 +0200},
+  biburl       = {https://dblp.org/rec/conf/nsdi/FogelFPWGMM15.bib},
+  bibsource    = {dblp computer science bibliography, https://dblp.org}
+}
+
+@inproceedings{lightyear,
+  author       = {Alan Tang and
+                  Ryan Beckett and
+                  Steven Benaloh and
+                  Karthick Jayaraman and
+                  Tejas Patil and
+                  Todd D. Millstein and
+                  George Varghese},
+  editor       = {Henning Schulzrinne and
+                  Vishal Misra and
+                  Eddie Kohler and
+                  David A. Maltz},
+  title        = {Lightyear: Using Modularity to Scale {BGP} Control Plane Verification},
+  booktitle    = {Proceedings of the {ACM} {SIGCOMM} 2023 Conference, {ACM} {SIGCOMM}
+                  2023, New York, NY, USA, 10-14 September 2023},
+  pages        = {94--107},
+  publisher    = {{ACM}},
+  year         = {2023},
+  url          = {https://doi.org/10.1145/3603269.3604842},
+  doi          = {10.1145/3603269.3604842},
+  timestamp    = {Sun, 24 Sep 2023 15:46:14 +0200},
+  biburl       = {https://dblp.org/rec/conf/sigcomm/TangBBJPMV23.bib},
+  bibsource    = {dblp computer science bibliography, https://dblp.org}
+}
+
+@article{modular-temporal,
+  author       = {Timothy Alberdingk Thijm and
+                  Ryan Beckett and
+                  Aarti Gupta and
+                  David Walker},
+  title        = {Modular Control Plane Verification via Temporal Invariants},
+  journal      = {Proc. {ACM} Program. Lang.},
+  volume       = {7},
+  number       = {{PLDI}},
+  pages        = {50--75},
+  year         = {2023},
+  url          = {https://doi.org/10.1145/3591222},
+  doi          = {10.1145/3591222},
+  timestamp    = {Mon, 28 Aug 2023 17:23:09 +0200},
+  biburl       = {https://dblp.org/rec/journals/pacmpl/ThijmBGW23.bib},
+  bibsource    = {dblp computer science bibliography, https://dblp.org}
+}
+
+@article{ai-control,
+  author       = {Ryan Beckett and
+                  Aarti Gupta and
+                  Ratul Mahajan and
+                  David Walker},
+  title        = {Abstract interpretation of distributed network control planes},
+  journal      = {Proc. {ACM} Program. Lang.},
+  volume       = {4},
+  number       = {{POPL}},
+  pages        = {42:1--42:27},
+  year         = {2020},
+  url          = {https://doi.org/10.1145/3371110},
+  doi          = {10.1145/3371110},
+  timestamp    = {Sat, 30 Sep 2023 10:23:23 +0200},
+  biburl       = {https://dblp.org/rec/journals/pacmpl/BeckettGMW20.bib},
+  bibsource    = {dblp computer science bibliography, https://dblp.org}
+}
+
+@inproceedings{compression,
+  author       = {Ryan Beckett and
+                  Aarti Gupta and
+                  Ratul Mahajan and
+                  David Walker},
+  editor       = {Sergey Gorinsky and
+                  J{\'{a}}nos Tapolcai},
+  title        = {Control plane compression},
+  booktitle    = {Proceedings of the 2018 Conference of the {ACM} Special Interest Group
+                  on Data Communication, {SIGCOMM} 2018, Budapest, Hungary, August 20-25,
+                  2018},
+  pages        = {476--489},
+  publisher    = {{ACM}},
+  year         = {2018},
+  url          = {https://doi.org/10.1145/3230543.3230583},
+  doi          = {10.1145/3230543.3230583},
+  timestamp    = {Sat, 30 Sep 2023 09:56:15 +0200},
+  biburl       = {https://dblp.org/rec/conf/sigcomm/BeckettGMW18.bib},
+  bibsource    = {dblp computer science bibliography, https://dblp.org}
+}
+
+@inproceedings{cantor-scott,
+ author = {Steffen Smolka and Praveen Kumar and Nate Foster and Dexter Kozen and  Alexandra Silva},
+ title = {Cantor Meets Scott: Semantic Foundations for Probabilistic Networks},
+ booktitle = {ACM SIGACT-SIGPLAN Symposium on Principles of Programming Languages (POPL)},
+ month = jan,
+ year = 2017,
+ conf = { http://www.cs.cornell.edu/~jnfoster/papers/cantor-scott.pdf },
+ pages = "557–-571",
+} 
+
+@InProceedings{probnetkat,
+  author = { Nate Foster and Dexter Kozen and Konstantinos Mamouras and Mark Reitblatt and Alexandra Silva}, 
+  title = { Probabilistic NetKAT },
+  booktitle = { European Symposium on Programming (ESOP), Eindhoven, Netherlands },
+  month = apr,
+  year = 2016,
+  jnf = "yes",
+  pages = "282--309",
+  conf = { http://www.cs.cornell.edu/~jnfoster/papers/probnetkat.pdf },
+}
+
+@inproceedings{mcnetkat,
+  author = { Steffen Smolka and
+             Praveen Kumar and
+             Nate Foster and 
+             Justin Hsu and 
+             Dexter Kozen and 
+             Alexandra Silva },
+   title = { Scalable Verification of Probabilistic Networks },
+  booktitle = { ACM SIGPLAN Conference on Programming Language Design and Implementation (PLDI), Phoenix, AZ },
+   year = 2019,
+   month = jun,
+   jnf = "yes",
+   recent = "yes",
+   conf = { https://www.cs.cornell.edu/~jnfoster/papers/mcnetkat.pdf },
+   pages = "190--203",
+}
+
+@article{bryant86,
+  author       = {Randal E. Bryant},
+  title        = {Graph-Based Algorithms for Boolean Function Manipulation},
+  journal      = {{IEEE} Trans. Computers},
+  volume       = {35},
+  number       = {8},
+  pages        = {677--691},
+  year         = {1986},
+  url          = {https://doi.org/10.1109/TC.1986.1676819},
+  doi          = {10.1109/TC.1986.1676819},
+  timestamp    = {Wed, 14 Nov 2018 10:48:32 +0100},
+  biburl       = {https://dblp.org/rec/journals/tc/Bryant86.bib},
+  bibsource    = {dblp computer science bibliography, https://dblp.org}
+}
+
+@inproceedings{mcmillan-symbolic,
+  author       = {Jerry R. Burch and
+                  Edmund M. Clarke and
+                  Kenneth L. McMillan and
+                  David L. Dill and
+                  L. J. Hwang},
+  title        = {Symbolic Model Checking: 10{\^{}}20 States and Beyond},
+  booktitle    = {Proceedings of the Fifth Annual Symposium on Logic in Computer Science
+                  {(LICS} '90), Philadelphia, Pennsylvania, USA, June 4-7, 1990},
+  pages        = {428--439},
+  publisher    = {{IEEE} Computer Society},
+  year         = {1990},
+  url          = {https://doi.org/10.1109/LICS.1990.113767},
+  doi          = {10.1109/LICS.1990.113767},
+  timestamp    = {Fri, 24 Mar 2023 00:01:49 +0100},
+  biburl       = {https://dblp.org/rec/conf/lics/BurchCMDH90.bib},
+  bibsource    = {dblp computer science bibliography, https://dblp.org}
+}
+
+@inproceedings{propane,
+author = {Beckett, Ryan and Mahajan, Ratul and Millstein, Todd and Padhye, Jitendra and Walker, David},
+title = {Don't Mind the Gap: Bridging Network-Wide Objectives and Device-Level Configurations},
+year = {2016},
+isbn = {9781450341936},
+publisher = {Association for Computing Machinery},
+address = {New York, NY, USA},
+url = {https://doi.org/10.1145/2934872.2934909},
+doi = {10.1145/2934872.2934909},
+abstract = {We develop Propane, a language and compiler to help network operators with a challenging, error-prone task—bridging the gap between network-wide routing objectives and low-level configurations of devices that run complex, distributed protocols. The language allows operators to specify their objectives naturally, using high-level constraints on both the shape and relative preference of traffic paths. The compiler automatically translates these specifications to router-level BGP configurations, using an effective intermediate representation that compactly encodes the flow of routing information along policy-compliant paths. It guarantees that the compiled configurations correctly implement the specified policy under all possible combinations of failures. We show that Propane can effectively express the policies of datacenter and backbone networks of a large cloud provider; and despite its strong guarantees, our compiler scales to networks with hundreds or thousands of routers.},
+booktitle = {Proceedings of the 2016 ACM SIGCOMM Conference},
+pages = {328–341},
+numpages = {14},
+keywords = {Distributed Systems, Compilation, Synthesis, Propane, BGP, Fault Tolerance, Domain-specific Language},
+location = {Florianopolis, Brazil},
+series = {SIGCOMM '16}
+}

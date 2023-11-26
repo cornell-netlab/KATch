@@ -1,0 +1,72 @@
+\begin{figure}[ht]
+  \begin{center}
+   \scalebox{0.8}{
+    \begin{tabular}{ |c|c|c|c|c|c|c|c|c|c|}
+
+      \hline
+        \bfseries Topology & \bfseries Query & \bfseries Nodes & \bfseries Edges & \bfseries Size (KB) & \bfseries Fwd & \bfseries WP & \bfseries WPPP & \bfseries A-Comp & \bfseries A-Fwd %& \bfseries A-Bwd & \bfseries A-WP
+        \csvreader{results.csv}{}
+        {\\\hline \csvcoli & \csvcolii & \csvcoliii & \csvcoliv & \csvcolv & \csvcolvi & \csvcolvii & \csvcolviii & \csvcolix & \csvcolx }%\csvcolxi  \csvcolxii
+        \\ \hline
+    \end{tabular}}
+    % MM: csvcolxi and csvcolxii were undefined for me so I removed them. Is
+  % ther ea way to fix this?
+  \end{center}
+\caption{Evaluation Results}
+\label{fig:eval-results}
+\end{figure}
+
+\begin{comment}
+\begin{figure}[ht]
+\begin{center}
+  \scalebox{0.65}{
+    \begin{tabular}{ |c|c|c|c|c|c|c|c|c|c|}
+    \hline
+    Topology & Query & \multicolumn{3}{|c|}{On-the-fly} & \multicolumn{5}{|c|}{Automata Compilation} \\ \hline
+             &       & Fwd & WP & WP + Opt & Comp & Fwd & Bwd & WP & WP + Opt \\\hline
+Airtel & reachability & 0.10 & 0.13 & 0.10 & 0.03 & 0.12 & 0.17 & 0.13 & 0.13 \\\hline
+Airtel & slicing & 1.92 & 0.27 & 0.27 & 0.05 & 0.57 & 0.40 & 0.18 & 0.18 \\\hline
+Airtel & unreachability & 0.37 & 0.12 & 0.11 & 0.03 & 0.22 & 0.12 & 0.12 & 0.12 \\\hline
+Arpa & reachability & 0.32 & 0.57 & 0.30 & 0.26 & 0.48 & 1.05 & 0.49 & 0.49 \\\hline
+Arpa & slicing & 46.63 & 1.68 & 2.31 & 0.44 & 7.31 & 5.61 & 0.89 & 0.90 \\\hline
+Arpa & unreachability & 6.70 & 0.53 & 0.50 & 0.26 & 1.96 & 0.49 & 0.50 & 0.50 \\\hline
+Belnet & reachability & 0.20 & 0.29 & 0.20 & 0.11 & 0.27 & 0.28 & 0.27 & 0.27 \\\hline
+Belnet & slicing & 12.90 & 0.82 & 0.95 & 0.18 & 3.31 & 1.85 & 0.46 & 0.46 \\\hline
+Belnet & unreachability & 1.61 & 0.30 & 0.25 & 0.11 & 0.68 & 0.27 & 0.28 & 0.28 \\\hline
+Compuserv & reachability & 0.07 & 0.08 & 0.06 & 0.02 & 0.08 & 0.08 & 0.08 & 0.08 \\\hline
+Compuserv & slicing & 1.01 & 0.16 & 0.16 & 0.03 & 0.31 & 0.23 & 0.11 & 0.11 \\\hline
+Compuserv & unreachability & 0.21 & 0.08 & 0.07 & 0.02 & 0.13 & 0.08 & 0.08 & 0.08 \\\hline
+Deltacom & reachability & 172.07 & 116.31 & 44.56 & 80.83 & 85.05 & 206.74 & 93.63 & 90.33 \\\hline
+Deltacom & slicing & * & 461.14 & * & 124.14 & * & * & 190.65 & 169.52 \\\hline
+Deltacom & unreachability & * & 106.36 & 103.63 & 79.62 & *  & 83.97 & 86.92 & 84.49 \\\hline
+Layer42 & reachability & 0.01 & 0.02 & 0.01 & 0.00 & 0.02 & 0.02 & 0.02 & 0.02 \\\hline
+Layer42 & slicing & 0.03 & 0.02 & 0.02 & 0.00 & 0.02 & 0.02 & 0.02 & 0.02 \\\hline
+Layer42 & unreachability & 0.02 & 0.02 & 0.01 & 0.00 & 0.02 & 0.02 & 0.02 & 0.02 \\\hline
+Missouri & reachability & 12.93 & 10.55 & 4.40 & 7.52 & 9.01 & 9.91 & 9.43 & 9.49 \\\hline
+Missouri & slicing & * & 50.42 & 107.82 & 12.96 & * & * & 20.62 & 19.46 \\\hline
+Missouri & unreachability & 641.43 & 10.59 & 10.03 & 7.61 & 61.16 & 9.09 & 9.19 & 9.21 \\\hline
+Sanet & reachability & 1.91 & 2.34 & 0.98 & 1.23 & 1.79 & 3.91 & 1.98 & 2.00 \\\hline
+Sanet & slicing & 501.94 & 7.36 & 13.19 & 2.09 & 63.35 & 155.44 & 3.59 & 3.60 \\\hline
+Sanet & unreachability & 49.61 & 1.98 & 1.85 & 1.23 & 9.36 & 1.79 & 1.81 & 1.82 \\\hline
+Shentel & reachability & 0.58 & 0.57 & 0.30 & 0.23 & 0.45 & 1.40 & 0.53 & 0.54 \\\hline
+Shentel & slicing & 39.69 & 1.48 & 1.98 & 0.38 & 6.23 & 4.71 & 0.80 & 0.81 \\\hline
+Shentel & unreachability & 6.45 & 0.48 & 0.48 & 0.23 & 2.02 & 0.44 & 0.45 & 0.46 \\\hline
+Telcove & reachability & 9.57 & 14.09 & 5.54 & 9.77 & 11.55 & 12.76 & 11.64 & 11.67 \\\hline
+Telcove & slicing & * & 61.01 & 143.48 & 16.29 & * & * & 24.97 & 23.92 \\\hline
+Telcove & unreachability & 552.72 & 14.22 & 9.80 & 9.83 & 46.53 & 11.48 & 11.69 & 11.70 \\\hline
+Uunet & reachability & 2.19 & 3.47 & 1.52 & 2.05 & 2.87 & 7.48 & 2.93 & 2.96 \\\hline
+Uunet & slicing & 1088.79 & 12.63 & 24.20 & 3.43 & 142.75 & 91.90 & 5.88 & 5.89 \\\hline
+Uunet & unreachability & 69.51 & 3.31 & 2.51 & 2.08 & 10.89 & 2.89 & 2.94 & 2.95 \\\hline
+ft2 & reachability & 0.01 & 0.01 & 0.01 & 0.00 & 0.01 & 0.01 & 0.01 & 0.01 \\\hline
+ft4 & reachability & 0.47 & 0.47 & 0.39 & 0.13 & 0.47 & 0.47 & 0.48 & 0.48  \\\hline
+ft4 & slicing & 18.43 & 1.05 & 1.43 & 0.23 & 3.06 & 2.36 & 0.69 & 0.69 \\\hline
+ft6 & reachability & 19.80 & 16.60 & 8.12 & 11.22 & 14.71 & 15.70 & 15.10 & 15.12 \\\hline
+ft6 & slicing & * & 68.28 & 210.98 & 19.86 & * & *  & 31.76 & 30.86 \\\hline
+ft6 & unreachability & * & 57.70 & 49.22 & 45.56 & 273.05 & 48.48 & 50.64 & 48.28 \\\hline
+ft8 & reachability & 642.28 & 474.65 & 217.40 & 391.13 & 404.44 & *  & 435.58 & 417.83 \\\hline
+  \end{tabular}}
+\end{center}
+\caption{Evaluation Results}
+\label{fig:eval-results}
+\end{figure}
+\end{comment}

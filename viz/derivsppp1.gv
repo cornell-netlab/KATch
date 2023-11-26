@@ -1,0 +1,15 @@
+
+    digraph G {
+       n16 [label="c", shape=circle, width=0.3, fixedsize=true, style=filled, fillcolor="peachpuff"]
+   n17 [label="", shape=diamond, width=0.15, height=0.15, style=filled, fillcolor="peachpuff"]
+   n16 -> n17 [arrowhead=normal, label=" 3 ", labelangle=-30, fontsize=12, arrowsize=0.5, color="#555", fontcolor="black"]
+   n17 -> n18 [arrowhead=normal, label=" 3 ", labelangle=-30, fontsize=12, arrowsize=0.5, color="#555", fontcolor="black"]
+   n18 [label="⊤", shape=box, width=0.3, height=0.3, fixedsize=true]
+   n19 [label="", shape=diamond, width=0.15, height=0.15, style=filled, fillcolor="peachpuff"]
+   n16 -> n19 [arrowhead=normal, arrowsize=0.5, style=dashed, color="#555"]
+   n19 -> n20 [arrowhead=normal, arrowsize=0.5, style=dashed, color="#555"]
+   n20 [label="⊥", shape=box, width=0.3, height=0.3, fixedsize=true]
+   {rank=same; n16}
+   {rank=same; n17; n19}
+
+    }

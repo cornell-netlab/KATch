@@ -1,0 +1,29 @@
+{\renewcommand{\arraystretch}{1.5}
+\begingroup\color{\colorMATH}\begin{gather*}\begin{array}{l
+  } \underline{\hspace{0.66em}}=\underline{\hspace{0.66em}}\mathrel{?}\underline{\hspace{0.66em}}\mathrel{\diamond }\underline{\hspace{0.66em}} \in  K \times  V \times  {\daraisModeRM{FDD}}_{K,V}(X) \times  {\daraisModeRM{FDD}}_{K,V}(X) \rightarrow  {\daraisModeRM{FDD}}_{K,V}(X)
+  \cr  k = v \mathrel{?} t^{L} \mathrel{\diamond } t^{R} \triangleq  
+  \cr  \daraisSTAX{cases}
+  \cr  \hspace*{1.00em} k < \lfloor t^{L}\rfloor \sqcap \lfloor t^{R}\rfloor  \implies  \left[k \mathrel{\overset{?}{=}}  \{ v\mapsto t^{L}\}  \mathrel{\diamond } t^{R}\right]
+  \cr  \hspace*{1.00em} k = \lfloor t^{L}\rfloor  < \lfloor t^{R}\rfloor  \implies  \left[k \mathrel{\overset{?}{=}}  \{ v \mapsto  {\daraisModeIT{vts}}^{L}[v] \mathrel{?} t^{L \prime}\}  \mathrel{\diamond } t^{R}\right]
+  % \cr  \hspace*{1.00em} k = \lfloor t^{R}\rfloor  < \lfloor t^{L}\rfloor  \implies  \left[k \mathrel{\overset{?}{=}}  \{ v \mapsto  t^{L}\}  \uplus  (vts^{R} \setminus  \{ v\} ) \mathrel{\diamond } t^{R \prime}\right]
+  \cr  \hspace*{1.00em} k = \lfloor t^{R}\rfloor  < \lfloor t^{L}\rfloor  \implies  \left[k \mathrel{\overset{?}{=}}  vts^{R}[v\mapsto t^{L}] \mathrel{\diamond } t^{R \prime}\right]
+  % \cr  \hspace*{1.00em} k = \lfloor t^{R}\rfloor  = \lceil t^{L}\rfloor  \implies  \left[k \mathrel{\overset{?}{=}}  \{ v \mapsto  {\daraisModeIT{vts}}^{L}[v] \mathrel{?} t^{L \prime}\}  \uplus  ({\daraisModeIT{vts}}^{R} \setminus  \{ v\} )\}  \mathrel{\diamond } t^{R \prime}\right]
+  \cr  \hspace*{1.00em} k = \lfloor t^{R}\rfloor  = \lceil t^{L}\rfloor  \implies  \left[k \mathrel{\overset{?}{=}}  {\daraisModeIT{vts}}^{R}[v\mapsto {\daraisModeIT{vts}}^{L}[v] \mathrel{?} t^{L \prime}] \mathrel{\diamond } t^{R \prime}\right]
+  \cr  \hspace*{1.00em} \lfloor t^{L}\rfloor  < k \sqcap  \lfloor t^{R}\rfloor  \implies  \left[k^{L} \mathrel{\overset{?}{=}}  \{ \overline {v_{i}^{L}\mapsto (k=v\mathrel{?}t_{i}^{L}\mathrel{\diamond }t^{R})}\}  \mathrel{\diamond } (k=v\mathrel{?}t^{L \prime}\mathrel{\diamond }t^{R}) \right]
+  \cr  \hspace*{1.00em} \lfloor t^{R}\rfloor  < k \sqcap  \lfloor t^{L}\rfloor  \implies  \left[ k^{R} \mathrel{\overset{?}{=}}  \{ \overline {v_{i}^{R}\mapsto (k=v\mathrel{?}t^{L}\mathrel{\diamond }t_{i}^{R})}\}  \mathrel{\diamond } (k=v\mathrel{?}t^{L}\mathrel{\diamond }t^{R \prime}) \right] 
+  \cr  \hspace*{1.00em} \lfloor t^{L}\rfloor  = \lfloor t^{R}\rfloor  < k \implies  \left[ k^{L} \mathrel{\overset{?}{=}}  
+                             \left\{ \begin{array}{l
+                               } v \mapsto  \langle {\daraisModeIT{vts}}^{L}[v] \mathrel{?} t^{L \prime},{\daraisModeIT{vts}}^{R}[v] \mathrel{?} t^{R \prime}\rangle  
+                               \cr  \mathrel{|} v \in  {\daraisModeRM{dom}}({\daraisModeIT{vts}}^{L}) \cup  {\daraisModeRM{dom}}({\daraisModeIT{vts}}^{R})
+                               \end{array}\right\} 
+                            \mathrel{\diamond } (k=v\mathrel{?}t^{L \prime}\mathrel{\diamond }t^{R \prime}) 
+                         \right]
+  \cr  \daraisSTAX{where}
+  \cr  \hspace*{1.00em} \begin{array}{lcl
+       } \left[k^{L} \mathrel{\overset{?}{=}}  \underbracketWith{{\daraisModeIT{vts}}^{L}}{\{ \overline {v_{i}^{L}\mapsto t_{i}^{L}}\} } \mathrel{\diamond } t^{L \prime}\right] &{}={}& t^{L} \hspace*{1.00em}\daraisTEXT{{\daraisModeIT{when}}}\hspace*{1.00em} k \geq  \lfloor t^{L}\rfloor 
+       \cr  \left[k^{R} \mathrel{\overset{?}{=}}  \underbracketWith{{\daraisModeIT{vts}}^{R}}{\{ \overline {v_{i}^{R}\mapsto t_{i}^{R}}\} } \mathrel{\diamond } t^{R \prime}\right] &{}={}& t^{R} \hspace*{1.00em}\daraisTEXT{{\daraisModeIT{when}}}\hspace*{1.00em} k \geq  \lfloor t^{R}\rfloor 
+       \end{array}
+  \end{array}
+\end{gather*}\endgroup
+}
+

@@ -1,0 +1,21 @@
+
+    digraph G {
+       n43 [label="a", shape=circle, width=0.3, fixedsize=true, style=filled, fillcolor="skyblue"]
+   n44 [label="", shape=diamond, width=0.15, height=0.15, style=filled, fillcolor="skyblue"]
+   n43 -> n44 [arrowhead=normal, label=" 1 ", labelangle=-30, fontsize=12, arrowsize=0.5, color="#555", fontcolor="black"]
+   n45 [label="", shape=diamond, width=0.15, height=0.15, style=filled, fillcolor="skyblue"]
+   n43 -> n45 [arrowhead=normal, arrowsize=0.5, style=dashed, color="#555"]
+   n45 -> n46 [arrowhead=normal, arrowsize=0.5, style=dashed, color="#555"]
+   n46 [label="b", shape=circle, width=0.3, fixedsize=true, style=filled, fillcolor="#C1E1C1"]
+   n47 [label="", shape=diamond, width=0.15, height=0.15, style=filled, fillcolor="#C1E1C1"]
+   n46 -> n47 [arrowhead=normal, label=" 2 ", labelangle=-30, fontsize=12, arrowsize=0.5, color="#555", fontcolor="black"]
+   n48 [label="", shape=diamond, width=0.15, height=0.15, style=filled, fillcolor="#C1E1C1"]
+   n46 -> n48 [arrowhead=normal, arrowsize=0.5, style=dashed, color="#555"]
+   n48 -> n49 [arrowhead=normal, arrowsize=0.5, style=dashed, color="#555"]
+   n49 [label="⊤", shape=box, width=0.3, height=0.3, fixedsize=true]
+   {rank=same; n43}
+   {rank=same; n45}
+   {rank=same; n46}
+   {rank=same; n48}
+
+    }
