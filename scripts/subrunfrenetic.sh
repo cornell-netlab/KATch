@@ -1,7 +1,7 @@
 #!/bin/bash
 
 if [ $# -ne 1 ]; then
-    printf "usage: ./subrunfrenetic.sh <kat-index> \n"
+    printf "usage: ./scripts/subrunfrenetic.sh <kat-index> \n"
     exit 1
 fi
 
