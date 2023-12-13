@@ -110,6 +110,9 @@ object SP {
       case _ => intersection(y, x)
     }
 
+  def xor(x: SP, y: SP): SP =
+    union(difference(x, y), difference(y, x)) // FIXME: optimize this
+
   def intersectionN(xs: Iterable[SP]): SP =
     xs.foldLeft(True: SP)(intersection(_, _))
 
