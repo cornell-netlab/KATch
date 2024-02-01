@@ -102,10 +102,10 @@ object Parser {
   // P(exprQ ~ ("-" | "∖") ~ exprQ).map { (e1, e2) => Difference(e1, e2) }
 
   // Parses a composition expression such as @dst←3 ⋅ @pt←0
-  def exprC[$: P]: P[NK] = P(exprZ.rep(1, sep = "⋅" | "∧").map(es => Seq(es.toList)))
+  def exprC[$: P]: P[NK] = P(exprZ.rep(1, sep = "⋅" | "∧" | ";").map(es => Seq(es.toList)))
 
   // Parses a union expression such as @dst←3 ∪ @dst←3 ⋅ @pt←0
-  def exprU[$: P]: P[NK] = P(exprC.rep(1, sep = "∪" | "∨" | "+").map(es => Sum(es.toSet)))
+  def exprU[$: P]: P[NK] = P(exprC.rep(1, sep = "|" | "∪" | "∨" | "+").map(es => Sum(es.toSet)))
 
   // Parses a netkat expression
   def exprNK[$: P]: P[NK] =
