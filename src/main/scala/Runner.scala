@@ -68,7 +68,10 @@ object Runner {
         if result == (op == "≡") then {
           println(s"\u001b[32mCheck passed in $path:${line + 1}\u001b[0m")
         } else {
-          throw new Throwable(s"\u001b[31m!!! Check failed in $path:${line + 1} !!!\u001b[0m" ++ s"\nOperands were $v1 and $v2\n")
+          def summarize(s: String): String =
+            if s.length > 100 then s.take(100) + "..."
+            else s
+          throw new Throwable(s"\u001b[31m!!! Check failed in $path:${line + 1} !!!\u001b[0m" ++ s"\nOperands were ${summarize(v1.toString)} and ${summarize(v2.toString)}\n")
         }
         env
       }
@@ -145,8 +148,7 @@ object Runner {
   def runTopLevel(path: String) =
     clearCaches()
     println("Running " + path)
-    if Options.convertToKat then
-      Files.deleteIfExists(Paths.get(Options.katIndex()))
+    if Options.convertToKat then Files.deleteIfExists(Paths.get(Options.katIndex()))
     val startTime = System.nanoTime()
     runFile(Map(), path)
     val endTime = System.nanoTime()
@@ -185,8 +187,7 @@ object Runner {
     val exitCode = cmd.!
     val endTime = System.nanoTime()
     var timedOut = false
-    if exitCode == 137 then
-      timedOut = true
+    if exitCode == 137 then timedOut = true
     else if exitCode != 0 then
       println("runfrenetic failed!")
       System.exit(exitCode)
@@ -194,10 +195,8 @@ object Runner {
     val filename = path.split("/").last
 
     var durationMsg = ""
-    if (timedOut) then
-      durationMsg = s"timeout (${Options.freneticTimeout})"
-    else
-      durationMsg = f"${duration}%.2f"
+    if (timedOut) then durationMsg = s"timeout (${Options.freneticTimeout})"
+    else durationMsg = f"${duration}%.2f"
     val msg = f"Execution time of Frenetic on $filename: $durationMsg s\n"
     println(msg)
 
@@ -215,6 +214,5 @@ object Runner {
     } finally {
       fw.close()
     }
-
 
 }
