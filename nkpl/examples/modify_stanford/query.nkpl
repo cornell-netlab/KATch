@@ -1,4 +1,4 @@
 import "routing.nkpl"
 
-check @switch=boza?⋅(routing⋅topo⋅δ)⋆⋅@switch=bozb ≢ ∅
--- check @switch=boza?⋅(routing⋅topo⋅δ)⋆⋅@switch=yozb ≢ ∅
+check @switch=coza⋅routing⋅topo⋅δ⋅(routing⋅topo⋅δ)⋆⋅@switch=coza ≢ ∅
+check @switch=doza⋅routing⋅topo⋅δ⋅(routing⋅topo⋅δ)⋆⋅@switch=doza ≢ ∅
