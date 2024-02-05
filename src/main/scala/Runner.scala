@@ -3,6 +3,11 @@ import java.nio.file.{Files, Path, Paths}
 import nkpl.Parser.Stmt
 import nkpl.Parser.Expr
 
+def summarize(obj: Any): String =
+  val s = obj.toString
+  if s.length > 100 then s.take(100) + "..."
+  else s
+
 object Runner {
   type Env = Map[String, Either[NK, Int]]
   def evalNK(env: Env, v: Parser.NK): NK =
@@ -68,9 +73,6 @@ object Runner {
         if result == (op == "≡") then {
           println(s"\u001b[32mCheck passed in $path:${line + 1}\u001b[0m")
         } else {
-          def summarize(s: String): String =
-            if s.length > 100 then s.take(100) + "..."
-            else s
           throw new Throwable(s"\u001b[31m!!! Check failed in $path:${line + 1} !!!\u001b[0m" ++ s"\nOperands were ${summarize(v1.toString)} and ${summarize(v2.toString)}\n")
         }
         env
@@ -80,10 +82,10 @@ object Runner {
         method match {
           case "forward" =>
             val result = Bisim.forward(v)
-            println(s"Forward at $path:${line + 1}: ${SP.pretty(result)}")
+            println(s"Forward at $path:${line + 1}: ${summarize(SP.pretty(result))}")
           case "backward" =>
             val result = Bisim.backward(v)
-            println(s"Backward at $path:${line + 1}: ${SP.pretty(result)}")
+            println(s"Backward at $path:${line + 1}: ${summarize(SP.pretty(result))}")
         }
         env
       case Stmt.Let(x, e) => env + (x -> eval(env, e))
@@ -93,7 +95,7 @@ object Runner {
         runFile(env, path3)
       case Stmt.Print(e) =>
         val v = eval(env, e)
-        println(s"Print at $path:${line + 1}: $v")
+        println(s"Print at $path:${line + 1}: ${summarize(v)}")
         env
       case Stmt.For(x, i0, i1, stmt) =>
         var env2 = env
