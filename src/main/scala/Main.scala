@@ -82,7 +82,7 @@ def prepCheckFreneticScript() =
 def cleanupFreneticScript() =
   val katDir = Paths.get("kat")
   deleteDirectory(katDir)
-  */
+   */
 
 @main def hello(cmd: String*): Unit =
   if cmd.isEmpty then error("No command specified")
@@ -108,6 +108,6 @@ def cleanupFreneticScript() =
       runFilesAndDirs(inputs.toList)
     case "bench" =>
       println("Benchmarking:")
-      for (i <- 0 to 1) runFilesAndDirs(List("scratch/bench.nkpl"))
+      for (i <- 0 to 1) runFilesAndDirs(List("nkpl/scratch/bench.nkpl"))
     case _ => error(s"Invalid command $command")
   }

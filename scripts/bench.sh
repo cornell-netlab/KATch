@@ -14,14 +14,15 @@
 # 3. Run jps to get the PID of the sbt process
 # 4. Run the profiler on the sbt process
 
+MEM=$1
 if [ $# -ne 1 ]; then
-  printf "usage: bench.s <memory>\n"
-  exit 1
+  # Set memory to 4GB by default
+  MEM="4g"
 fi
 
 sbt assembly
 # Here is the code:
-java -Xmx"$1" -jar target/scala-3.3.1/KATch-assembly-0.1.0-SNAPSHOT.jar bench &
+java -Xmx"$MEM" -Xss35m -jar target/scala-3.3.1/KATch-assembly-0.1.0-SNAPSHOT.jar bench &
 sleep 0.1
 PID=$(jps | grep SNAPSHOT.jar | cut -d ' ' -f 1)
 ./aprof/profiler.sh -d 60 -f flamegraph.html $PID

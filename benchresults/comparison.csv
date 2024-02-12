@@ -5267,3 +5267,7 @@ katch,nkpl/benchmarks/topo-zoo/linear-reachability/Xspedius.nkpl,0.065774797
 katch,nkpl/benchmarks/topo-zoo/linear-reachability/York.nkpl,0.034112803
 katch,nkpl/benchmarks/topo-zoo/linear-reachability/Zamren.nkpl,0.05776527
 frenetic,nkpl/benchmarks/large/Cogentco-slicing/Cogentco-slicing.nkpl,53066.82
+katch,nkpl/scratch/bench.nkpl,9.25052439
+katch,nkpl/scratch/bench.nkpl,7.615292296
+katch,nkpl/scratch/bench.nkpl,9.657673802
+katch,nkpl/scratch/bench.nkpl,8.310723951

@@ -1,0 +1,38 @@
+-- Routers:
+bbra_rtr = 0
+bbrb_rtr = 1
+boza_rtr = 2
+bozb_rtr = 3
+coza_rtr = 4
+cozb_rtr = 5
+goza_rtr = 6
+gozb_rtr = 7
+poza_rtr = 8
+pozb_rtr = 9
+roza_rtr = 10
+rozb_rtr = 11
+soza_rtr = 12
+sozb_rtr = 13
+yoza_rtr = 14
+yozb_rtr = 15
+
+-- Routing:
+coza_rtr_route = @port=500007 ⋅ @port←600007 ⋅ @sw←cozb_rtr + @port=500006 ⋅ @port←100015 ⋅ @sw←bbra_rtr + @port=500001 ⋅ @port←200008 ⋅ @sw←bbrb_rtr
+soza_rtr_route = @port=1300007 ⋅ @port←1400007 ⋅ @sw←sozb_rtr + @port=1300006 ⋅ @port←100021 ⋅ @sw←bbra_rtr + @port=1300001 ⋅ @port←200005 ⋅ @sw←bbrb_rtr
+bozb_rtr_route = @port=400001 ⋅ @port←100003 ⋅ @sw←bbra_rtr + @port=400008 ⋅ @port←200020 ⋅ @sw←bbrb_rtr + @port=400009 ⋅ @port←300008 ⋅ @sw←boza_rtr
+poza_rtr_route = @port=900007 ⋅ @port←1000008 ⋅ @sw←pozb_rtr + @port=900006 ⋅ @port←100021 ⋅ @sw←bbra_rtr + @port=900001 ⋅ @port←200005 ⋅ @sw←bbrb_rtr
+roza_rtr_route = @port=1100008 ⋅ @port←1200006 ⋅ @sw←rozb_rtr + @port=1100005 ⋅ @port←100003 ⋅ @sw←bbra_rtr + @port=1100001 ⋅ @port←200020 ⋅ @sw←bbrb_rtr
+bbra_rtr_route = @port=100021 ⋅ @port←600001 ⋅ @sw←cozb_rtr + @port=100016 ⋅ @port←1000001 ⋅ @sw←pozb_rtr + @port=100001 ⋅ @port←1200001 ⋅ @sw←rozb_rtr + @port=100003 ⋅ @port←1100005 ⋅ @sw←roza_rtr + @port=100022 ⋅ @port←1500003 ⋅ @sw←yoza_rtr + @port=100021 ⋅ @port←900006 ⋅ @sw←poza_rtr + @port=100021 ⋅ @port←800001 ⋅ @sw←gozb_rtr + @port=100003 ⋅ @port←1600006 ⋅ @sw←yozb_rtr + @port=100021 ⋅ @port←1300006 ⋅ @sw←soza_rtr + @port=100015 ⋅ @port←1400001 ⋅ @sw←sozb_rtr + @port=100014 ⋅ @port←200004 ⋅ @sw←bbrb_rtr + @port=100003 ⋅ @port←400001 ⋅ @sw←bozb_rtr + @port=100001 ⋅ @port←300007 ⋅ @sw←boza_rtr + @port=100016 ⋅ @port←700009 ⋅ @sw←goza_rtr + @port=100015 ⋅ @port←500006 ⋅ @sw←coza_rtr
+boza_rtr_route = @port=300007 ⋅ @port←100001 ⋅ @sw←bbra_rtr + @port=300001 ⋅ @port←200014 ⋅ @sw←bbrb_rtr + @port=300008 ⋅ @port←400009 ⋅ @sw←bozb_rtr
+bbrb_rtr_route = @port=200005 ⋅ @port←600006 ⋅ @sw←cozb_rtr + @port=200015 ⋅ @port←1000007 ⋅ @sw←pozb_rtr + @port=200014 ⋅ @port←1200005 ⋅ @sw←rozb_rtr + @port=200020 ⋅ @port←1100001 ⋅ @sw←roza_rtr + @port=200001 ⋅ @port←1500020 ⋅ @sw←yoza_rtr + @port=200005 ⋅ @port←900001 ⋅ @sw←poza_rtr + @port=200005 ⋅ @port←800009 ⋅ @sw←gozb_rtr + @port=200020 ⋅ @port←1600005 ⋅ @sw←yozb_rtr + @port=200005 ⋅ @port←1300001 ⋅ @sw←soza_rtr + @port=200008 ⋅ @port←1400006 ⋅ @sw←sozb_rtr + @port=200004 ⋅ @port←100014 ⋅ @sw←bbra_rtr + @port=200020 ⋅ @port←400008 ⋅ @sw←bozb_rtr + @port=200014 ⋅ @port←300001 ⋅ @sw←boza_rtr + @port=200015 ⋅ @port←700001 ⋅ @sw←goza_rtr + @port=200008 ⋅ @port←500001 ⋅ @sw←coza_rtr
+cozb_rtr_route = @port=600001 ⋅ @port←100021 ⋅ @sw←bbra_rtr + @port=600006 ⋅ @port←200005 ⋅ @sw←bbrb_rtr + @port=600007 ⋅ @port←500007 ⋅ @sw←coza_rtr
+goza_rtr_route = @port=700014 ⋅ @port←800010 ⋅ @sw←gozb_rtr + @port=700009 ⋅ @port←100016 ⋅ @sw←bbra_rtr + @port=700001 ⋅ @port←200015 ⋅ @sw←bbrb_rtr
+yoza_rtr_route = @port=1500004 ⋅ @port←1600004 ⋅ @sw←yozb_rtr + @port=1500003 ⋅ @port←100022 ⋅ @sw←bbra_rtr + @port=1500020 ⋅ @port←200001 ⋅ @sw←bbrb_rtr
+pozb_rtr_route = @port=1000008 ⋅ @port←900007 ⋅ @sw←poza_rtr + @port=1000001 ⋅ @port←100016 ⋅ @sw←bbra_rtr + @port=1000007 ⋅ @port←200015 ⋅ @sw←bbrb_rtr
+yozb_rtr_route = @port=1600004 ⋅ @port←1500004 ⋅ @sw←yoza_rtr + @port=1600006 ⋅ @port←100003 ⋅ @sw←bbra_rtr + @port=1600005 ⋅ @port←200020 ⋅ @sw←bbrb_rtr
+rozb_rtr_route = @port=1200006 ⋅ @port←1100008 ⋅ @sw←roza_rtr + @port=1200001 ⋅ @port←100001 ⋅ @sw←bbra_rtr + @port=1200005 ⋅ @port←200014 ⋅ @sw←bbrb_rtr
+gozb_rtr_route = @port=800001 ⋅ @port←100021 ⋅ @sw←bbra_rtr + @port=800009 ⋅ @port←200005 ⋅ @sw←bbrb_rtr + @port=800010 ⋅ @port←700014 ⋅ @sw←goza_rtr
+sozb_rtr_route = @port=1400007 ⋅ @port←1300007 ⋅ @sw←soza_rtr + @port=1400001 ⋅ @port←100015 ⋅ @sw←bbra_rtr + @port=1400006 ⋅ @port←200008 ⋅ @sw←bbrb_rtr
+
+-- Topology:
+topo = @sw=bbra_rtr ⋅ bbra_rtr_route + @sw=bbrb_rtr ⋅ bbrb_rtr_route + @sw=boza_rtr ⋅ boza_rtr_route + @sw=bozb_rtr ⋅ bozb_rtr_route + @sw=coza_rtr ⋅ coza_rtr_route + @sw=cozb_rtr ⋅ cozb_rtr_route + @sw=goza_rtr ⋅ goza_rtr_route + @sw=gozb_rtr ⋅ gozb_rtr_route + @sw=poza_rtr ⋅ poza_rtr_route + @sw=pozb_rtr ⋅ pozb_rtr_route + @sw=roza_rtr ⋅ roza_rtr_route + @sw=rozb_rtr ⋅ rozb_rtr_route + @sw=soza_rtr ⋅ soza_rtr_route + @sw=sozb_rtr ⋅ sozb_rtr_route + @sw=yoza_rtr ⋅ yoza_rtr_route + @sw=yozb_rtr ⋅ yozb_rtr_route

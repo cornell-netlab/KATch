@@ -7,9 +7,11 @@
 --
 -- import "../benchmarks/large/Cogentco_reachability.nkpl"
 
-import "../examples/topologyzoo/Kdl_topo.nkpl"
-import "../examples/topologyzoo/Kdl_routing.nkpl"
+-- import "../examples/topologyzoo/Kdl_topo.nkpl"
+-- import "../examples/topologyzoo/Kdl_routing.nkpl"
 
-net = (main⋅(top) ⋅ δ)⋆
-all = rangesum @sw 0..753
-for i ∈ 0..753 do check exists @pt (exists @dst (forward (@sw=i ⋅ net))) ≡ all
+-- net = (main⋅(top) ⋅ δ)⋆
+-- all = rangesum @sw 0..753
+-- for i ∈ 0..753 do check exists @pt (exists @dst (forward (@sw=i ⋅ net))) ≡ all
+
+import "../examples/nkpl_stanford/query.nkpl"
