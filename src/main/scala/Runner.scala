@@ -185,7 +185,7 @@ object Runner {
     val startTime = System.nanoTime()
     // do ./runfrenetic.sh ${Options.katIndex()}
     import sys.process._
-    val cmd = s"./runfrenetic.sh ${Options.katIndex()} ${Options.freneticTimeout}"
+    val cmd = s"./scripts/runfrenetic.sh ${Options.katIndex()} ${Options.freneticTimeout}"
     val exitCode = cmd.!
     val endTime = System.nanoTime()
     var timedOut = false
