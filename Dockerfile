@@ -33,7 +33,7 @@ RUN git clone https://www.github.com/frenetic-lang/frenetic.git
 WORKDIR /katch/frenetic
 RUN git checkout guarded
 
-RUN opam init --disable-sandboxing && opam switch create 4.13.0 && eval $(opam env)
+RUN opam init --disable-sandboxing && opam switch create 4.13.0
 RUN opam install --deps-only -y .
 RUN opam install -y dune
 
