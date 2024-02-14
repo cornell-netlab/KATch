@@ -14,22 +14,22 @@ object VarMap {
 object Parser {
   type SVal = Either[Val, String]
 
-  enum NK:
-    case Dup
-    case Test(x: Var, v: SVal)
-    case TestNE(x: Var, v: SVal)
-    case Mut(x: Var, v: SVal)
-    case Seq(es: List[NK])
-    case Sum(es: Set[NK])
-    case Difference(e1: NK, e2: NK)
-    case Intersection(e1: NK, e2: NK)
-    case XOR(e1: NK, e2: NK)
-    case Star(e: NK)
-    case Forward(e: NK, negate: Boolean = false)
-    case Backward(e: NK, negate: Boolean = false)
-    case Exists(x: Var, e: NK)
-    case Forall(x: Var, e: NK)
-    case VarName(x: String)
+  class NK
+  case object Dup extends NK
+  case class Test(x: Var, v: SVal) extends NK
+  case class TestNE(x: Var, v: SVal) extends NK
+  case class Mut(x: Var, v: SVal) extends NK
+  case class Seq(es: List[NK]) extends NK
+  case class Sum(es: Set[NK]) extends NK
+  case class Difference(e1: NK, e2: NK) extends NK
+  case class Intersection(e1: NK, e2: NK) extends NK
+  case class XOR(e1: NK, e2: NK) extends NK
+  case class Star(e: NK) extends NK
+  case class Forward(e: NK, negate: Boolean = false) extends NK
+  case class Backward(e: NK, negate: Boolean = false) extends NK
+  case class Exists(x: Var, e: NK) extends NK
+  case class Forall(x: Var, e: NK) extends NK
+  case class VarName(x: String) extends NK
 
   def negate(e: NK): NK =
     e match
