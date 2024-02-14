@@ -1,3 +1,3 @@
-import "/topologyzoo/Shentel_topo.nkpl"
-import "/topologyzoo/Shentel_routing.nkpl"
+import "../networks/topologyzoo/Shentel_topo.nkpl"
+import "../networks/topologyzoo/Shentel_routing.nkpl"
 check @sw=N25?⋅((main⋅(top⋅δ))⋆⋅@sw=100?) ≡ ∅

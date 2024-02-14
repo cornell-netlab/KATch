@@ -1,3 +1,3 @@
-import "topologyzoo/Cogentco_topo.nkpl"
-import "topologyzoo/Cogentco_routing.nkpl"
+import "../networks/topologyzoo/Cogentco_topo.nkpl"
+import "../networks/topologyzoo/Cogentco_routing.nkpl"
 check @sw=N193?⋅((main⋅(top⋅δ))⋆⋅@sw=N15?) ≢ ∅

@@ -1,3 +1,3 @@
-import "/topologyzoo/Uunet_topo.nkpl"
-import "/topologyzoo/Uunet_sliced_routing.nkpl"
+import "../networks/topologyzoo/Uunet_topo.nkpl"
+import "../networks/topologyzoo/Uunet_sliced_routing.nkpl"
 check ((main1∪main2)⋅(top⋅δ))⋆ ≡ (main1⋅(top⋅δ))⋆∪(main2⋅(top⋅δ))⋆
