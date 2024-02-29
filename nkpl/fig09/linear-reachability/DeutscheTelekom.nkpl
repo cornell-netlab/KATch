@@ -1,5 +1,21 @@
 import "../tops_and_routes/DeutscheTelekom-top.nkpl"
 import "../tops_and_routes/DeutscheTelekom-rt.nkpl"
 net = (main⋅(top) ⋅ δ)⋆
-all = rangesum @sw 0..38
-for i ∈ 0..38 do check exists @pt (exists @dst (forward (@sw=i ⋅ net))) ≡ all
+disconnected = @sw=22 ∪ @sw=27
+group1 = @sw=2 ∪ @sw=29 ∪ @sw=30 ∪ @sw=33 ∪ @sw=35 ∪ @sw=37 ∪ @sw=38
+group2 = (rangesum @sw 0..38) - group1 - disconnected
+
+for i ∈ 0..1 do check exists @pt (exists @dst (forward (@sw=i ⋅ net))) ≡ group2
+check exists @pt (exists @dst (forward (@sw=2 ⋅ net))) ≡ group1
+for i ∈ 3..21 do check exists @pt (exists @dst (forward (@sw=i ⋅ net))) ≡ group2
+-- skip 22
+for i ∈ 23..26 do check exists @pt (exists @dst (forward (@sw=i ⋅ net))) ≡ group2
+-- skip 27
+check exists @pt (exists @dst (forward (@sw=28 ⋅ net))) ≡ group2
+for i ∈ 29..30 do check exists @pt (exists @dst (forward (@sw=i ⋅ net))) ≡ group1
+for i ∈ 31..32 do check exists @pt (exists @dst (forward (@sw=i ⋅ net))) ≡ group2
+check exists @pt (exists @dst (forward (@sw=33 ⋅ net))) ≡ group1
+check exists @pt (exists @dst (forward (@sw=34 ⋅ net))) ≡ group2
+check exists @pt (exists @dst (forward (@sw=35 ⋅ net))) ≡ group1
+check exists @pt (exists @dst (forward (@sw=36 ⋅ net))) ≡ group2
+for i ∈ 37..38 do check exists @pt (exists @dst (forward (@sw=i ⋅ net))) ≡ group1

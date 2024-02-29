@@ -1,5 +1,11 @@
 import "../tops_and_routes/Tw-top.nkpl"
 import "../tops_and_routes/Tw-rt.nkpl"
 net = (main⋅(top) ⋅ δ)⋆
-all = rangesum @sw 0..75
-for i ∈ 0..75 do check exists @pt (exists @dst (forward (@sw=i ⋅ net))) ≡ all
+discon = @sw=39 ∪ @sw=50 ∪ @sw=52 ∪ @sw=65 ∪ @sw=74
+all = (rangesum @sw 0..75) - discon
+for i ∈ 0..38 do check exists @pt (exists @dst (forward (@sw=i ⋅ net))) ≡ all
+for i ∈ 40..49 do check exists @pt (exists @dst (forward (@sw=i ⋅ net))) ≡ all
+check exists @pt (exists @dst (forward (@sw=51 ⋅ net))) ≡ all
+for i ∈ 53..64 do check exists @pt (exists @dst (forward (@sw=i ⋅ net))) ≡ all
+for i ∈ 66..73 do check exists @pt (exists @dst (forward (@sw=i ⋅ net))) ≡ all
+check exists @pt (exists @dst (forward (@sw=75 ⋅ net))) ≡ all

@@ -1,5 +1,9 @@
 import "../tops_and_routes/JanetExternal-top.nkpl"
 import "../tops_and_routes/JanetExternal-rt.nkpl"
 net = (main⋅(top) ⋅ δ)⋆
-all = rangesum @sw 0..11
-for i ∈ 0..11 do check exists @pt (exists @dst (forward (@sw=i ⋅ net))) ≡ all
+group1 = @sw=0 ∪ @sw=4
+group2 = (rangesum @sw 0..11) - group1
+for i ∈ 1..3 do check exists @pt (exists @dst (forward (@sw=i ⋅ net))) ≡ group2
+for i ∈ 5..11 do check exists @pt (exists @dst (forward (@sw=i ⋅ net))) ≡ group2
+check exists @pt (exists @dst (forward (@sw=0 ⋅ net))) ≡ group1
+check exists @pt (exists @dst (forward (@sw=4 ⋅ net))) ≡ group1

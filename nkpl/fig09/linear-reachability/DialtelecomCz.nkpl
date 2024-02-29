@@ -1,5 +1,42 @@
 import "../tops_and_routes/DialtelecomCz-top.nkpl"
 import "../tops_and_routes/DialtelecomCz-rt.nkpl"
 net = (main⋅(top) ⋅ δ)⋆
-all = rangesum @sw 0..192
-for i ∈ 0..192 do check exists @pt (exists @dst (forward (@sw=i ⋅ net))) ≡ all
+disconnected = @sw=0 ∪ @sw=3 ∪ @sw=8 ∪ @sw=9 ∪ @sw=12 ∪ @sw=13 ∪ @sw=14 ∪ @sw=15 ∪ @sw=16 ∪ @sw=17 ∪ @sw=18 ∪ @sw=21 ∪ @sw=24 ∪ @sw=32 ∪ @sw=35 ∪ @sw=43 ∪ @sw=48 ∪ @sw=52 ∪ @sw=54 ∪ @sw=74 ∪ @sw=75 ∪ @sw=76 ∪ @sw=77 ∪ @sw=81 ∪ @sw=86 ∪ @sw=92 ∪ @sw=96 ∪ @sw=99 ∪ @sw=102 ∪ @sw=105 ∪ @sw=107 ∪ @sw=111 ∪ @sw=113 ∪ @sw=116 ∪ @sw=118 ∪ @sw=119 ∪ @sw=120 ∪ @sw=123 ∪ @sw=130 ∪ @sw=133 ∪ @sw=136 ∪ @sw=140 ∪ @sw=141 ∪ @sw=142 ∪ @sw=157 ∪ @sw=162 ∪ @sw=166 ∪ @sw=174 ∪ @sw=175 ∪ @sw=176 ∪ @sw=182 ∪ @sw=184 ∪ @sw=185 ∪ @sw=188 ∪ @sw=189
+all = (rangesum @sw 0..192) - disconnected
+-- for i ∈ 0..192 do check exists @pt (exists @dst (forward (@sw=i ⋅ net))) ≡ all
+for i ∈ 1..2 do check exists @pt (exists @dst (forward (@sw=i ⋅ net))) ≡ all
+for i ∈ 4..7 do check exists @pt (exists @dst (forward (@sw=i ⋅ net))) ≡ all
+for i ∈ 10..11 do check exists @pt (exists @dst (forward (@sw=i ⋅ net))) ≡ all
+for i ∈ 19..20 do check exists @pt (exists @dst (forward (@sw=i ⋅ net))) ≡ all
+for i ∈ 22..23 do check exists @pt (exists @dst (forward (@sw=i ⋅ net))) ≡ all
+for i ∈ 25..31 do check exists @pt (exists @dst (forward (@sw=i ⋅ net))) ≡ all
+for i ∈ 33..34 do check exists @pt (exists @dst (forward (@sw=i ⋅ net))) ≡ all
+for i ∈ 36..42 do check exists @pt (exists @dst (forward (@sw=i ⋅ net))) ≡ all
+for i ∈ 44..47 do check exists @pt (exists @dst (forward (@sw=i ⋅ net))) ≡ all
+for i ∈ 49..51 do check exists @pt (exists @dst (forward (@sw=i ⋅ net))) ≡ all
+check exists @pt (exists @dst (forward (@sw=53 ⋅ net))) ≡ all
+for i ∈ 55..73 do check exists @pt (exists @dst (forward (@sw=i ⋅ net))) ≡ all
+for i ∈ 78..80 do check exists @pt (exists @dst (forward (@sw=i ⋅ net))) ≡ all
+for i ∈ 82..85 do check exists @pt (exists @dst (forward (@sw=i ⋅ net))) ≡ all
+for i ∈ 87..91 do check exists @pt (exists @dst (forward (@sw=i ⋅ net))) ≡ all
+for i ∈ 93..95 do check exists @pt (exists @dst (forward (@sw=i ⋅ net))) ≡ all
+for i ∈ 97..98 do check exists @pt (exists @dst (forward (@sw=i ⋅ net))) ≡ all
+for i ∈ 100..101 do check exists @pt (exists @dst (forward (@sw=i ⋅ net))) ≡ all
+for i ∈ 103..104 do check exists @pt (exists @dst (forward (@sw=i ⋅ net))) ≡ all
+check exists @pt (exists @dst (forward (@sw=106 ⋅ net))) ≡ all
+for i ∈ 108..110 do check exists @pt (exists @dst (forward (@sw=i ⋅ net))) ≡ all
+check exists @pt (exists @dst (forward (@sw=112 ⋅ net))) ≡ all
+for i ∈ 114..115 do check exists @pt (exists @dst (forward (@sw=i ⋅ net))) ≡ all
+check exists @pt (exists @dst (forward (@sw=117 ⋅ net))) ≡ all
+for i ∈ 121..122 do check exists @pt (exists @dst (forward (@sw=i ⋅ net))) ≡ all
+for i ∈ 124..129 do check exists @pt (exists @dst (forward (@sw=i ⋅ net))) ≡ all
+for i ∈ 131..132 do check exists @pt (exists @dst (forward (@sw=i ⋅ net))) ≡ all
+for i ∈ 134..135 do check exists @pt (exists @dst (forward (@sw=i ⋅ net))) ≡ all
+for i ∈ 137..139 do check exists @pt (exists @dst (forward (@sw=i ⋅ net))) ≡ all
+for i ∈ 143..156 do check exists @pt (exists @dst (forward (@sw=i ⋅ net))) ≡ all
+for i ∈ 158..161 do check exists @pt (exists @dst (forward (@sw=i ⋅ net))) ≡ all
+for i ∈ 163..165 do check exists @pt (exists @dst (forward (@sw=i ⋅ net))) ≡ all
+for i ∈ 167..173 do check exists @pt (exists @dst (forward (@sw=i ⋅ net))) ≡ all
+for i ∈ 177..181 do check exists @pt (exists @dst (forward (@sw=i ⋅ net))) ≡ all
+check exists @pt (exists @dst (forward (@sw=183 ⋅ net))) ≡ all
+for i ∈ 190..192 do check exists @pt (exists @dst (forward (@sw=i ⋅ net))) ≡ all

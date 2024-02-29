@@ -1,5 +1,8 @@
 import "../tops_and_routes/BtLatinAmerica-top.nkpl"
 import "../tops_and_routes/BtLatinAmerica-rt.nkpl"
 net = (main⋅(top) ⋅ δ)⋆
-all = rangesum @sw 0..50
-for i ∈ 0..50 do check exists @pt (exists @dst (forward (@sw=i ⋅ net))) ≡ all
+all = (rangesum @sw 0..50) - (@sw=15 ∪ @sw=16 ∪ @sw=14 ∪ @sw=39 ∪ @sw=38 ∪ @sw=32)
+for i ∈ 0..13 do check exists @pt (exists @dst (forward (@sw=i ⋅ net))) ≡ all
+for i ∈ 17..31 do check exists @pt (exists @dst (forward (@sw=i ⋅ net))) ≡ all
+for i ∈ 33..37 do check exists @pt (exists @dst (forward (@sw=i ⋅ net))) ≡ all
+for i ∈ 40..50 do check exists @pt (exists @dst (forward (@sw=i ⋅ net))) ≡ all

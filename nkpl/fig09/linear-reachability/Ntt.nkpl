@@ -1,5 +1,11 @@
 import "../tops_and_routes/Ntt-top.nkpl"
 import "../tops_and_routes/Ntt-rt.nkpl"
 net = (main⋅(top) ⋅ δ)⋆
-all = rangesum @sw 0..46
-for i ∈ 0..46 do check exists @pt (exists @dst (forward (@sw=i ⋅ net))) ≡ all
+all = (rangesum @sw 0..46) - (@sw=10 ∪ @sw=11 ∪ @sw=12 ∪ @sw=14 ∪ @sw=15 ∪ @sw=16 ∪ @sw=17 ∪ @sw=18 ∪ @sw=19 ∪ @sw=21 ∪ @sw=22 ∪ @sw=23 ∪ @sw=25 ∪ @sw=27 ∪ @sw=33)
+for i ∈ 0..9 do check exists @pt (exists @dst (forward (@sw=i ⋅ net))) ≡ all
+check exists @pt (exists @dst (forward (@sw=13 ⋅ net))) ≡ all
+check exists @pt (exists @dst (forward (@sw=20 ⋅ net))) ≡ all
+check exists @pt (exists @dst (forward (@sw=24 ⋅ net))) ≡ all
+check exists @pt (exists @dst (forward (@sw=26 ⋅ net))) ≡ all
+for i ∈ 28..32 do check exists @pt (exists @dst (forward (@sw=i ⋅ net))) ≡ all
+for i ∈ 34..46 do check exists @pt (exists @dst (forward (@sw=i ⋅ net))) ≡ all
