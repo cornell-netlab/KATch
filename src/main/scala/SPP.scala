@@ -375,6 +375,7 @@ object SPP {
         SP.Test(x, unionMapSP(branches2, branches3).to(HashMap), toSPforward(id))
     }
 
+  // This is equivalent to SPP.run, but it is implemented differently (SPP.run is more efficient, but this is easier to understand).
   lazy val push: (SPP, SP) => SP = memoize2 { (spp, sp) => pushPrim(spp, sp) }
   def pushPrim(spp: SPP, sp: SP): SP =
     toSPforward(seq(fromSP(sp), spp))
