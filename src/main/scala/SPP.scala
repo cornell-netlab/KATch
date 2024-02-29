@@ -189,10 +189,19 @@ object SPP {
       var branches2 = branches.map { (v, muts) => v -> muts.filterNot { (v2, spp) => spp eq False } }
 
       // Now we remove muts that are False from other
-      // We have to be careful here, because removing a False mut from other may cause a packet to go to id instead of other.
-      for (v, spp) <- other do if (spp eq False) && !branches2.contains(v) then branches2 = branches2.updated(v, HashMap.empty)
+      // We have to be careful here, because removing a False mut from other may
+      // cause a packet to go to id instead of other.
+      for (v, spp) <- other do
+        if (spp eq False) && !branches2.contains(v)
+        then branches2 = branches2.updated(v, HashMap.empty)
       val other2 = other.filterNot { (v, spp) => spp eq False }
 
+      // Now we can check for and remove branches that are the semantically the same as the
+      // default case. Removing this branch means that packets that would follow
+      // this branch will go through the other branch. From here, the other
+      // branch either peforms a mutation or not. In other words, both the
+      // updates that change the packet value need to have the same effect as
+      // default, and those that do not change the packet value.
       val branches3 = branches2.filter { (v, muts) =>
         muts != (if other2.contains(v) || (id eq False) then other2 else other2 + (v -> id))
       }
@@ -562,7 +571,8 @@ object SPP {
           })
           val branches = (branchesL.keySet ++ branchesR.keySet ++ mutsL.keySet ++ mutsR.keySet ++ mutsA.keySet)
             .map { v =>
-              v -> unionMaps(get(x, v).map { (v2, spp) => get(y, v2).map { (v3, spp2) => v3 -> seq(spp, spp2) } })
+              v -> unionMaps(get(x, v).map { (v2, spp) =>
+                get(y, v2).map { (v3, spp2) => v3 -> seq(spp, spp2) } })
             }
             .to(HashMap)
           val mutsB = mutsR.map { (v2, spp) => v2 -> seq(idL, spp) }
