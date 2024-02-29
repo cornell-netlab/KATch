@@ -89,7 +89,7 @@ object Parser {
   // Parses an atomic expression possibly followed by one or more question marks
   def exprQ[$: P]: P[NK] = P(exprS ~ "?".!.rep).map { case (e, ss) => ss.foldLeft(e) { (e1, _) => e1 } }
 
-  def exprZ[$: P]: P[NK] = P(exprQ ~ (("⊕" | "^" | "∩" | "-" | "∖").! ~ exprZ).rep).map { (e1, es) =>
+  def exprZ[$: P]: P[NK] = P(exprQ ~ (("⊕" | "^" | "∩" | "-" | "∖").! ~ exprQ).rep).map { (e1, es) =>
     es.foldLeft(e1) { case (e1, (op, e2)) =>
       op match
         case "⊕" | "^" => XOR(e1, e2)
