@@ -427,3 +427,8 @@ def gvNK(e0: NK) =
 gvNK(e)
 GV.save("viz/deriv")
 GV.reset()
+
+val e2 = parse("(@a←1 + @b←2  + δ)⋆")
+gvNK(e2)
+GV.save("viz/deriv2")
+GV.reset()

@@ -358,10 +358,30 @@ object SPP {
         TestMut(x, ys.map { (v, sp) => v -> HashMap(v -> fromSP(sp)) }, HashMap.empty, fromSP(default))
     }
 
-  def toSPforward(spp: SPP): SP =
-    ??? // TODO: we already have SPP.run, but we could also implement it via this.
+  lazy val toSPforward: SPP => SP = memoize { spp => toSPforwardPrim(spp) }
+  def toSPforwardPrim(spp: SPP): SP =
+    spp match {
+      case False => SP.False
+      case Diag => SP.True
+      case TestMut(x, branches, other, id) =>
+        val branchesA = unionMapsSP(branches.map { (_, muts) =>
+          muts.map { (v, spp) => v -> toSPforward(spp) }
+        })
+        val branchesB = other.map { (v, spp) => v -> toSPforward(spp) }
+        var branchesC = unionMapSP(branchesA, branchesB)
+        // We go to id only if the input packet is not matched by branches or other.
+        for v <- (branches.keySet ++ other.keySet) -- branchesC.keySet do branchesC = branchesC.updated(v, SP.False)
+        val spid = toSPforward(id)
+        for v <- branchesC.keySet -- (branches.keySet ++ other.keySet) do branchesC = branchesC.updated(v, SP.union(branchesC(v), spid))
+        SP.Test(x, branchesC.to(HashMap), toSPforward(id))
+    }
 
-  def toSPbackward(spp: SPP): SP =
+  lazy val push: (SPP, SP) => SP = memoize2 { (spp, sp) => pushPrim(spp, sp) }
+  def pushPrim(spp: SPP, sp: SP): SP =
+    toSPforward(seq(fromSP(sp), spp))
+
+  lazy val toSPbackward: SPP => SP = memoize { spp => toSPbackwardPrim(spp) }
+  def toSPbackwardPrim(spp: SPP): SP =
     spp match {
       case False => SP.False
       case Diag => SP.True

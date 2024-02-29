@@ -384,3 +384,10 @@ T.check_SPP_SPP_P { (spp1, spp2, packet) =>
 T.check_SPP_SPP_P { (spp1, spp2, packet) =>
   SPP.run1(packet, SPP.seq(spp1, spp2)) == SPP.run1(packet, spp1).flatMap { p => SPP.run1(p, spp2) }
 }
+
+// Check that SPP.run is the same as SPP.push
+T.check_SPP_SP { (spp, sp) =>
+  val sp2 = SPP.run(sp, spp)
+  val sp3 = SPP.push(spp, sp)
+  sp2 eq sp3
+}
