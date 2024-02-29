@@ -364,16 +364,15 @@ object SPP {
       case False => SP.False
       case Diag => SP.True
       case TestMut(x, branches, other, id) =>
-        val branchesA = unionMapsSP(branches.map { (_, muts) =>
-          muts.map { (v, spp) => v -> toSPforward(spp) }
-        })
-        val branchesB = other.map { (v, spp) => v -> toSPforward(spp) }
-        var branchesC = unionMapSP(branchesA, branchesB)
-        // We go to id only if the input packet is not matched by branches or other.
-        for v <- (branches.keySet ++ other.keySet) -- branchesC.keySet do branchesC = branchesC.updated(v, SP.False)
-        val spid = toSPforward(id)
-        for v <- branchesC.keySet -- (branches.keySet ++ other.keySet) do branchesC = branchesC.updated(v, SP.union(branchesC(v), spid))
-        SP.Test(x, branchesC.to(HashMap), toSPforward(id))
+        val branches2 = unionMapSP(
+          unionMapsSP(branches.map { (_, muts) => muts.map { (v, spp) => v -> toSPforward(spp) } }),
+          other.map { (v, spp) => v -> toSPforward(spp) }
+        )
+        val branches3 = unionMapSP(
+          (branches2.keySet -- (branches.keySet ++ other.keySet)).map { v => v -> toSPforward(id) }.toMap,
+          ((branches.keySet ++ other.keySet) -- branches2.keySet).map { v => v -> SP.False }.toMap
+        )
+        SP.Test(x, unionMapSP(branches2, branches3).to(HashMap), toSPforward(id))
     }
 
   lazy val push: (SPP, SP) => SP = memoize2 { (spp, sp) => pushPrim(spp, sp) }
@@ -592,7 +591,8 @@ object SPP {
           val branches = (branchesL.keySet ++ branchesR.keySet ++ mutsL.keySet ++ mutsR.keySet ++ mutsA.keySet)
             .map { v =>
               v -> unionMaps(get(x, v).map { (v2, spp) =>
-                get(y, v2).map { (v3, spp2) => v3 -> seq(spp, spp2) } })
+                get(y, v2).map { (v3, spp2) => v3 -> seq(spp, spp2) }
+              })
             }
             .to(HashMap)
           val mutsB = mutsR.map { (v2, spp) => v2 -> seq(idL, spp) }
