@@ -15,6 +15,11 @@ RUN apt-get update && \
 
 # Copy the relevant contents into the container at /katch
 COPY nkpl/tutorial.nkpl nkpl/tutorial.nkpl
+COPY nkpl/fig09 nkpl/fig09
+COPY nkpl/fig10 nkpl/fig10
+COPY nkpl/fig11 nkpl/fig11
+COPY nkpl/fig10-less-cogentco nkpl/fig10-less-cogentco
+COPY scripts scripts
 COPY src src
 COPY project project
 COPY build.sbt build.sbt
