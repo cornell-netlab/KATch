@@ -98,6 +98,8 @@ def cleanupFreneticScript() =
       println("Comparing NKPL and KAT:")
       prepCheckFreneticScript()
       Options.convertToKat = true
+      Options.freneticTimeout = inputs(0)
+      inputs = inputs.tail
       runFilesAndDirs(inputs.toList)
       Options.convertToKat = false
       runFilesAndDirs(inputs.toList)
