@@ -1,0 +1,2 @@
+flip_x1 = (@x1=0 ⋅ @x1←1 + @x1=1 ⋅ @x1←0)
+check (flip_x1)⋆ ≡ (flip_x1)⋆

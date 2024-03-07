@@ -25,6 +25,8 @@ def deleteDirectory(path: Path): Unit = {
   )
 }
 
+val basedir = "nkpl/misc/combinatorial"
+
 // deleteDirectory(Paths.get("benchmarks/combinatorial"))
 // Files.createDirectory(Paths.get("benchmarks/combinatorial"))
 
@@ -52,7 +54,7 @@ for n <- 1 to nmax do {
 
   // Write to file benchmarks/combinatorial/flip{n}.nkpl
   import java.io._
-  val pw = new PrintWriter(new File(s"benchmarks/combinatorial/flip$n.nkpl"))
+  val pw = new PrintWriter(new File(s"$basedir/flip$n.nkpl"))
   pw.write(sb.toString)
   pw.close
 }
@@ -87,9 +89,9 @@ for n <- 1 to nmax do {
   // check zero ⋅ (inc)* ⋅ ≢  ∅
   sb.append(s"check zero ⋅ (inc)⋆ ⋅ max ≢  ∅\n")
 
-  // Write to file benchmarks/combinatorial/inc{n}.nkpl
+  // Write to file $basedir/inc{n}.nkpl
   import java.io._
-  val pw = new PrintWriter(new File(s"benchmarks/combinatorial/inc$n.nkpl"))
+  val pw = new PrintWriter(new File(s"$basedir/inc$n.nkpl"))
   pw.write(sb.toString)
   pw.close
 }
@@ -110,9 +112,61 @@ for n <- 1 to nmax do {
   sb.append(s"all = ${vars.map(v => s"${v}E").mkString(" ⋅ ")}\n")
   sb.append(s"check all ⋅ all ≡ all\n")
 
-  // Write to file benchmarks/combinatorial/nondet{n}.nkpl
+  // Write to file $basedir/nondet{n}.nkpl
   import java.io._
-  val pw = new PrintWriter(new File(s"benchmarks/combinatorial/nondet$n-${vars.mkString("")}.nkpl"))
+  val pw = new PrintWriter(new File(s"$basedir/nondet$n-${vars.mkString("")}.nkpl"))
+  pw.write(sb.toString)
+  pw.close
+}
+
+// FalseTrue (@x1=0 ⋅ @x1←1 + ... + @xk=0 ⋅ @xk←1)⋆
+
+def genFalseTrue(v: String, n: Int) =
+  s"""(${(1 to n).map(i => s"@$v$i=0 ⋅ @$v$i←1").mkString(" + ")})⋆"""
+
+// (@x1=0 ⋅ @x1←1 + ε)⋅  ... ⋅ (@xk=0 ⋅ @xk←1 + ε)
+def genFalseTrue2(v: String, n: Int) =
+  s"""${(1 to n).map(i => s"(@$v$i=0 ⋅ @$v$i←1 + ε)").mkString(" ⋅ ")}"""
+
+genFalseTrue("x", 3)
+genFalseTrue2("x", 3)
+
+// Generate equivalence tests
+
+for n <- 1 to nmax do {
+  val sb = new StringBuilder
+  sb.append(s"check ${genFalseTrue("x", n)} ≡ ${genFalseTrue2("x", n)}\n")
+
+  // Write to file $basedir/falsetrue{n}.nkpl
+  import java.io._
+  val pw = new PrintWriter(new File(s"$basedir/falsetrue$n.nkpl"))
+  pw.write(sb.toString)
+  pw.close
+}
+
+// FlipAll ((@x1=0 ⋅ @x1←1 + @x1=1 ⋅ @x1←0) + ... + (@xk=0 ⋅ @xk←1 + @xk=1 ⋅ @xk←0))⋆ ≡ (@x1=0 ⋅ @x1←1 + @x1=1 ⋅ @x1←0)⋆ ⋅ ... ⋅ (@xk=0 ⋅ @xk←1 + @xk=1 ⋅ @xk←0)⋆
+
+// @x1=0 ⋅ @x1←1 + @x1=1 ⋅ @x1←0
+def genFlip2(n: Int) =
+  s"""flip_x$n = (@x$n=0 ⋅ @x$n←1 + @x$n=1 ⋅ @x$n←0)"""
+
+def genFlipAll(n: Int) =
+  s"""(${(1 to n).map(i => s"flip_x$i").mkString(" + ")})⋆"""
+
+def genFlipAll2(n: Int) =
+  s"""${(1 to n).map(i => s"(flip_x$i)⋆").mkString("⋅")}"""
+
+for n <- 1 to nmax do {
+  val sb = new StringBuilder
+  for (i <- 1 to n) {
+    sb.append(genFlip2(i))
+    sb.append("\n")
+  }
+  sb.append(s"check ${genFlipAll(n)} ≡ ${genFlipAll2(n)}\n")
+
+  // Write to file $basedir/flipall{n}.nkpl
+  import java.io._
+  val pw = new PrintWriter(new File(s"$basedir/flipall$n.nkpl"))
   pw.write(sb.toString)
   pw.close
 }

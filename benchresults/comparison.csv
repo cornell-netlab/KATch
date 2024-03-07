@@ -5271,3 +5271,9 @@ katch,nkpl/scratch/bench.nkpl,9.25052439
 katch,nkpl/scratch/bench.nkpl,7.615292296
 katch,nkpl/scratch/bench.nkpl,9.657673802
 katch,nkpl/scratch/bench.nkpl,8.310723951
+katch,nkpl/misc/combinatorial/falsetrue10.nkpl,0.253800712
+katch,nkpl/misc/combinatorial/falsetrue100.nkpl,0.678827847
+katch,nkpl/misc/combinatorial/flipall1.nkpl,0.163937321
+katch,nkpl/misc/combinatorial/flipall2.nkpl,0.171149808
+katch,nkpl/misc/combinatorial/flipall100.nkpl,0.980152266
+katch,nkpl/misc/combinatorial/flipall100.nkpl,1.057918033

@@ -1,0 +1,5 @@
+flip_x1 = (@x1=0 ⋅ @x1←1) ∪ (@x1=1 ⋅ @x1←0) ∪ (@x1≠0 ⋅ @x1≠1 ⋅ ε)
+
+flip = flip_x1
+
+check flip ⋅ flip ≡ ε

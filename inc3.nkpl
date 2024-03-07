@@ -1,0 +1,9 @@
+inc_x1 = (@carry=0 ⋅ @x1=0 ⋅ @x1←1 ⋅ @carry←0) ∪ (@carry=0 ⋅ @x1=1 ⋅ @x1←0 ⋅ @carry←1) ∪ (@carry = 1 ⋅ @x1=0 ⋅ @x1←0 ⋅ @carry←1) ∪ (@carry = 1 ⋅ @x1=1 ⋅ @x1←1 ⋅ @carry←1)
+inc_x2 = (@carry=0 ⋅ @x2=0 ⋅ @x2←1 ⋅ @carry←0) ∪ (@carry=0 ⋅ @x2=1 ⋅ @x2←0 ⋅ @carry←1) ∪ (@carry = 1 ⋅ @x2=0 ⋅ @x2←0 ⋅ @carry←1) ∪ (@carry = 1 ⋅ @x2=1 ⋅ @x2←1 ⋅ @carry←1)
+inc_x3 = (@carry=0 ⋅ @x3=0 ⋅ @x3←1 ⋅ @carry←0) ∪ (@carry=0 ⋅ @x3=1 ⋅ @x3←0 ⋅ @carry←1) ∪ (@carry = 1 ⋅ @x3=0 ⋅ @x3←0 ⋅ @carry←1) ∪ (@carry = 1 ⋅ @x3=1 ⋅ @x3←1 ⋅ @carry←1)
+inc = inc_x1 ⋅ inc_x2 ⋅ inc_x3 ⋅ @carry←0
+
+zero = @x1=0 ⋅ @x2=0 ⋅ @x3=0
+max = @x1=1 ⋅ @x2=1 ⋅ @x3=1
+
+check zero ⋅ (inc)⋆ ⋅ max ≢  ∅

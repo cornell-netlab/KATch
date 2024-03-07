@@ -1,0 +1,5 @@
+swE = @sw←0 ∪ @sw←1
+ptE = @pt←0 ∪ @pt←1
+dstE = @dst←0 ∪ @dst←1
+all = swE ⋅ ptE ⋅ dstE
+check all ⋅ all ≡ all
