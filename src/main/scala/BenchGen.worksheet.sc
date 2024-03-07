@@ -122,11 +122,11 @@ for n <- 1 to nmax do {
 // FalseTrue (@x1=0 ⋅ @x1←1 + ... + @xk=0 ⋅ @xk←1)⋆
 
 def genFalseTrue(v: String, n: Int) =
-  s"""(${(1 to n).map(i => s"@$v$i=0 ⋅ @$v$i←1").mkString(" + ")})⋆"""
+  s"""(${(1 to n).map(i => s"@$v$i=0⋅@$v$i←1").mkString(" + ")})⋆"""
 
 // (@x1=0 ⋅ @x1←1 + ε)⋅  ... ⋅ (@xk=0 ⋅ @xk←1 + ε)
 def genFalseTrue2(v: String, n: Int) =
-  s"""${(1 to n).map(i => s"(@$v$i=0 ⋅ @$v$i←1 + ε)").mkString(" ⋅ ")}"""
+  s"""${(1 to n).map(i => s"(@$v$i=0⋅@$v$i←1 + ε)").mkString(" ⋅ ")}"""
 
 genFalseTrue("x", 3)
 genFalseTrue2("x", 3)
