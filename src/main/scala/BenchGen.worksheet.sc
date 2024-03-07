@@ -148,7 +148,7 @@ for n <- 1 to nmax do {
 
 // @x1=0 ⋅ @x1←1 + @x1=1 ⋅ @x1←0
 def genFlip2(n: Int) =
-  s"""flip_x$n = (@x$n=0 ⋅ @x$n←1 + @x$n=1 ⋅ @x$n←0)"""
+  s"""flip_x$n = @x$n=0 ⋅ @x$n←1 + @x$n=1 ⋅ @x$n←0"""
 
 def genFlipAll(n: Int) =
   s"""(${(1 to n).map(i => s"flip_x$i").mkString(" + ")})⋆"""

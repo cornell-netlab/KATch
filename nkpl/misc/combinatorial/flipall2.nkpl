@@ -1,3 +1,3 @@
-flip_x1 = (@x1=0 ⋅ @x1←1 + @x1=1 ⋅ @x1←0)
-flip_x2 = (@x2=0 ⋅ @x2←1 + @x2=1 ⋅ @x2←0)
+flip_x1 = @x1=0 ⋅ @x1←1 + @x1=1 ⋅ @x1←0
+flip_x2 = @x2=0 ⋅ @x2←1 + @x2=1 ⋅ @x2←0
 check (flip_x1 + flip_x2)⋆ ≡ (flip_x1)⋆⋅(flip_x2)⋆
