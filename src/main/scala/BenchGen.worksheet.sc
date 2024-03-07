@@ -6,6 +6,13 @@ import java.nio.file.SimpleFileVisitor
 import java.nio.file.Path
 import java.nio.file.Files
 
+import java.io._
+def writeToFile(filename: String, content: String): Unit = {
+  val pw = new PrintWriter(new File(filename))
+  pw.write(content)
+  pw.close()
+}
+
 def deleteDirectory(path: Path): Unit = {
   // Recursive deletion of files in the directory
   Files.walkFileTree(
@@ -53,10 +60,7 @@ for n <- 1 to nmax do {
   sb.append("check flip ⋅ flip ≡ ε")
 
   // Write to file benchmarks/combinatorial/flip{n}.nkpl
-  import java.io._
-  val pw = new PrintWriter(new File(s"$basedir/flip$n.nkpl"))
-  pw.write(sb.toString)
-  pw.close
+  writeToFile(s"$basedir/flip$n.nkpl", sb.toString)
 }
 
 // Binary number increment benchmarks
@@ -90,10 +94,7 @@ for n <- 1 to nmax do {
   sb.append(s"check zero ⋅ (inc)⋆ ⋅ max ≢  ∅\n")
 
   // Write to file $basedir/inc{n}.nkpl
-  import java.io._
-  val pw = new PrintWriter(new File(s"$basedir/inc$n.nkpl"))
-  pw.write(sb.toString)
-  pw.close
+  writeToFile(s"$basedir/inc$n.nkpl", sb.toString)
 }
 
 // Nondeterministic (@sw←0 ∪ @sw←1 ∪ ... ∪ @sw←n) ⋅ (@pt←0 ∪ @pt←1 ∪ ... v @pt←n) ⋅ (@dst←0 ∪ @dst←1 ∪ ... ∪ @dst←n)
@@ -113,10 +114,7 @@ for n <- 1 to nmax do {
   sb.append(s"check all ⋅ all ≡ all\n")
 
   // Write to file $basedir/nondet{n}.nkpl
-  import java.io._
-  val pw = new PrintWriter(new File(s"$basedir/nondet$n-${vars.mkString("")}.nkpl"))
-  pw.write(sb.toString)
-  pw.close
+  writeToFile(s"$basedir/nondet$n-${vars.mkString("")}.nkpl", sb.toString)
 }
 
 // FalseTrue (@x1=0 ⋅ @x1←1 + ... + @xk=0 ⋅ @xk←1)⋆
@@ -128,9 +126,6 @@ def genFalseTrue(v: String, n: Int) =
 def genFalseTrue2(v: String, n: Int) =
   s"""${(1 to n).map(i => s"(@$v$i=0⋅@$v$i←1 + ε)").mkString(" ⋅ ")}"""
 
-genFalseTrue("x", 3)
-genFalseTrue2("x", 3)
-
 // Generate equivalence tests
 
 for n <- 1 to nmax do {
@@ -138,10 +133,7 @@ for n <- 1 to nmax do {
   sb.append(s"check ${genFalseTrue("x", n)} ≡ ${genFalseTrue2("x", n)}\n")
 
   // Write to file $basedir/falsetrue{n}.nkpl
-  import java.io._
-  val pw = new PrintWriter(new File(s"$basedir/falsetrue$n.nkpl"))
-  pw.write(sb.toString)
-  pw.close
+  writeToFile(s"$basedir/falsetrue$n.nkpl", sb.toString)
 }
 
 // FlipAll ((@x1=0 ⋅ @x1←1 + @x1=1 ⋅ @x1←0) + ... + (@xk=0 ⋅ @xk←1 + @xk=1 ⋅ @xk←0))⋆ ≡ (@x1=0 ⋅ @x1←1 + @x1=1 ⋅ @x1←0)⋆ ⋅ ... ⋅ (@xk=0 ⋅ @xk←1 + @xk=1 ⋅ @xk←0)⋆
@@ -165,8 +157,5 @@ for n <- 1 to nmax do {
   sb.append(s"check ${genFlipAll(n)} ≡ ${genFlipAll2(n)}\n")
 
   // Write to file $basedir/flipall{n}.nkpl
-  import java.io._
-  val pw = new PrintWriter(new File(s"$basedir/flipall$n.nkpl"))
-  pw.write(sb.toString)
-  pw.close
+  writeToFile(s"$basedir/flipall$n.nkpl", sb.toString)
 }
