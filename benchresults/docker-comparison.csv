@@ -1,0 +1,925 @@
+katch,nkpl/fig09/naive-reachability/Aarnet-reachability.nkpl,0.290040949
+frenetic,nkpl/fig09/naive-reachability/Aarnet-reachability.nkpl,271.39
+katch,nkpl/fig09/naive-reachability/Abilene-reachability.nkpl,0.131730558
+frenetic,nkpl/fig09/naive-reachability/Abilene-reachability.nkpl,13.02
+katch,nkpl/fig09/naive-reachability/Abvt-reachability.nkpl,0.33656258
+frenetic,nkpl/fig09/naive-reachability/Abvt-reachability.nkpl,timeout (300s)
+katch,nkpl/fig09/naive-reachability/Aconet-reachability.nkpl,0.315191465
+frenetic,nkpl/fig09/naive-reachability/Aconet-reachability.nkpl,timeout (300s)
+katch,nkpl/fig09/naive-reachability/Agis-reachability.nkpl,0.388287702
+frenetic,nkpl/fig09/naive-reachability/Agis-reachability.nkpl,timeout (300s)
+katch,nkpl/fig09/naive-reachability/Ai3-reachability.nkpl,0.12089633
+frenetic,nkpl/fig09/naive-reachability/Ai3-reachability.nkpl,9.39
+katch,nkpl/fig09/naive-reachability/Airtel-reachability.nkpl,0.246573289
+frenetic,nkpl/fig09/naive-reachability/Airtel-reachability.nkpl,193.35
+katch,nkpl/fig09/naive-reachability/Amres-reachability.nkpl,0.44847288
+frenetic,nkpl/fig09/naive-reachability/Amres-reachability.nkpl,timeout (300s)
+katch,nkpl/fig09/naive-reachability/Ans-reachability.nkpl,0.251885201
+frenetic,nkpl/fig09/naive-reachability/Ans-reachability.nkpl,225.48
+katch,nkpl/fig09/naive-reachability/Arn-reachability.nkpl,0.55291223
+frenetic,nkpl/fig09/naive-reachability/Arn-reachability.nkpl,timeout (300s)
+katch,nkpl/fig09/naive-reachability/Arnes-reachability.nkpl,0.751866049
+frenetic,nkpl/fig09/naive-reachability/Arnes-reachability.nkpl,timeout (300s)
+katch,nkpl/fig09/naive-reachability/Arpanet196912-reachability.nkpl,0.056221396
+frenetic,nkpl/fig09/naive-reachability/Arpanet196912-reachability.nkpl,0.33
+katch,nkpl/fig09/naive-reachability/Arpanet19706-reachability.nkpl,0.127940328
+frenetic,nkpl/fig09/naive-reachability/Arpanet19706-reachability.nkpl,5.28
+katch,nkpl/fig09/naive-reachability/Arpanet19719-reachability.nkpl,0.275580719
+frenetic,nkpl/fig09/naive-reachability/Arpanet19719-reachability.nkpl,195.64
+katch,nkpl/fig09/naive-reachability/Arpanet19723-reachability.nkpl,0.437038221
+frenetic,nkpl/fig09/naive-reachability/Arpanet19723-reachability.nkpl,timeout (300s)
+katch,nkpl/fig09/naive-reachability/Arpanet19728-reachability.nkpl,0.708105638
+frenetic,nkpl/fig09/naive-reachability/Arpanet19728-reachability.nkpl,timeout (300s)
+katch,nkpl/fig09/naive-reachability/AsnetAm-reachability.nkpl,3.390854795
+frenetic,nkpl/fig09/naive-reachability/AsnetAm-reachability.nkpl,timeout (300s)
+katch,nkpl/fig09/naive-reachability/Atmnet-reachability.nkpl,0.364586847
+frenetic,nkpl/fig09/naive-reachability/Atmnet-reachability.nkpl,timeout (300s)
+katch,nkpl/fig09/naive-reachability/AttMpls-reachability.nkpl,0.362393886
+frenetic,nkpl/fig09/naive-reachability/AttMpls-reachability.nkpl,timeout (300s)
+katch,nkpl/fig09/naive-reachability/Azrena-reachability.nkpl,0.370629559
+frenetic,nkpl/fig09/naive-reachability/Azrena-reachability.nkpl,timeout (300s)
+katch,nkpl/fig09/naive-reachability/Bandcon-reachability.nkpl,0.388032941
+frenetic,nkpl/fig09/naive-reachability/Bandcon-reachability.nkpl,timeout (300s)
+katch,nkpl/fig09/naive-reachability/Basnet-reachability.nkpl,0.085502054
+frenetic,nkpl/fig09/naive-reachability/Basnet-reachability.nkpl,2.06
+katch,nkpl/fig09/naive-reachability/Bbnplanet-reachability.nkpl,0.462272926
+frenetic,nkpl/fig09/naive-reachability/Bbnplanet-reachability.nkpl,timeout (300s)
+katch,nkpl/fig09/naive-reachability/Bellcanada-reachability.nkpl,1.967803979
+frenetic,nkpl/fig09/naive-reachability/Bellcanada-reachability.nkpl,timeout (300s)
+katch,nkpl/fig09/naive-reachability/Bellsouth-reachability.nkpl,2.02556233
+frenetic,nkpl/fig09/naive-reachability/Bellsouth-reachability.nkpl,timeout (300s)
+katch,nkpl/fig09/naive-reachability/Belnet2003-reachability.nkpl,0.342915557
+frenetic,nkpl/fig09/naive-reachability/Belnet2003-reachability.nkpl,timeout (300s)
+katch,nkpl/fig09/naive-reachability/Belnet2004-reachability.nkpl,0.379972526
+frenetic,nkpl/fig09/naive-reachability/Belnet2004-reachability.nkpl,timeout (300s)
+katch,nkpl/fig09/naive-reachability/Belnet2005-reachability.nkpl,0.32931143
+frenetic,nkpl/fig09/naive-reachability/Belnet2005-reachability.nkpl,timeout (300s)
+katch,nkpl/fig09/naive-reachability/Belnet2006-reachability.nkpl,0.364100128
+frenetic,nkpl/fig09/naive-reachability/Belnet2006-reachability.nkpl,timeout (300s)
+katch,nkpl/fig09/naive-reachability/Belnet2007-reachability.nkpl,0.342224016
+frenetic,nkpl/fig09/naive-reachability/Belnet2007-reachability.nkpl,timeout (300s)
+katch,nkpl/fig09/naive-reachability/Belnet2008-reachability.nkpl,0.380609338
+frenetic,nkpl/fig09/naive-reachability/Belnet2008-reachability.nkpl,timeout (300s)
+katch,nkpl/fig09/naive-reachability/Belnet2009-reachability.nkpl,0.335275876
+frenetic,nkpl/fig09/naive-reachability/Belnet2009-reachability.nkpl,timeout (300s)
+katch,nkpl/fig09/naive-reachability/Belnet2010-reachability.nkpl,0.37238958
+frenetic,nkpl/fig09/naive-reachability/Belnet2010-reachability.nkpl,timeout (300s)
+katch,nkpl/fig09/naive-reachability/BeyondTheNetwork-reachability.nkpl,1.839725308
+frenetic,nkpl/fig09/naive-reachability/BeyondTheNetwork-reachability.nkpl,timeout (300s)
+katch,nkpl/fig09/naive-reachability/Bics-reachability.nkpl,1.013195875
+frenetic,nkpl/fig09/naive-reachability/Bics-reachability.nkpl,timeout (300s)
+katch,nkpl/fig09/naive-reachability/Biznet-reachability.nkpl,0.64346504
+frenetic,nkpl/fig09/naive-reachability/Biznet-reachability.nkpl,timeout (300s)
+katch,nkpl/fig09/naive-reachability/Bren-reachability.nkpl,1.102211054
+frenetic,nkpl/fig09/naive-reachability/Bren-reachability.nkpl,timeout (300s)
+katch,nkpl/fig09/naive-reachability/BsonetEurope-reachability.nkpl,0.262820065
+frenetic,nkpl/fig09/naive-reachability/BsonetEurope-reachability.nkpl,249.06
+katch,nkpl/fig09/naive-reachability/BtAsiaPac-reachability.nkpl,0.315451592
+frenetic,nkpl/fig09/naive-reachability/BtAsiaPac-reachability.nkpl,timeout (300s)
+katch,nkpl/fig09/naive-reachability/BtEurope-reachability.nkpl,0.357821703
+frenetic,nkpl/fig09/naive-reachability/BtEurope-reachability.nkpl,timeout (300s)
+katch,nkpl/fig09/naive-reachability/BtLatinAmerica-reachability.nkpl,2.695655854
+frenetic,nkpl/fig09/naive-reachability/BtLatinAmerica-reachability.nkpl,timeout (300s)
+katch,nkpl/fig09/naive-reachability/BtNorthAmerica-reachability.nkpl,0.903311724
+frenetic,nkpl/fig09/naive-reachability/BtNorthAmerica-reachability.nkpl,timeout (300s)
+katch,nkpl/fig09/naive-reachability/Canerie-reachability.nkpl,0.792423102
+frenetic,nkpl/fig09/naive-reachability/Canerie-reachability.nkpl,timeout (300s)
+katch,nkpl/fig09/naive-reachability/Carnet-reachability.nkpl,1.925800696
+frenetic,nkpl/fig09/naive-reachability/Carnet-reachability.nkpl,timeout (300s)
+katch,nkpl/fig09/naive-reachability/Cernet-reachability.nkpl,1.108967987
+frenetic,nkpl/fig09/naive-reachability/Cernet-reachability.nkpl,timeout (300s)
+katch,nkpl/fig09/naive-reachability/Cesnet1993-reachability.nkpl,0.115780159
+frenetic,nkpl/fig09/naive-reachability/Cesnet1993-reachability.nkpl,9.60
+katch,nkpl/fig09/naive-reachability/Cesnet1997-reachability.nkpl,0.182926696
+frenetic,nkpl/fig09/naive-reachability/Cesnet1997-reachability.nkpl,35.28
+katch,nkpl/fig09/naive-reachability/Cesnet1999-reachability.nkpl,0.174921448
+frenetic,nkpl/fig09/naive-reachability/Cesnet1999-reachability.nkpl,39.14
+katch,nkpl/fig09/naive-reachability/Cesnet2001-reachability.nkpl,0.317746304
+frenetic,nkpl/fig09/naive-reachability/Cesnet2001-reachability.nkpl,timeout (300s)
+katch,nkpl/fig09/naive-reachability/Cesnet200304-reachability.nkpl,0.521611313
+frenetic,nkpl/fig09/naive-reachability/Cesnet200304-reachability.nkpl,timeout (300s)
+katch,nkpl/fig09/naive-reachability/Cesnet200511-reachability.nkpl,1.209560642
+frenetic,nkpl/fig09/naive-reachability/Cesnet200511-reachability.nkpl,timeout (300s)
+katch,nkpl/fig09/naive-reachability/Cesnet200603-reachability.nkpl,0.999382214
+frenetic,nkpl/fig09/naive-reachability/Cesnet200603-reachability.nkpl,timeout (300s)
+katch,nkpl/fig09/naive-reachability/Cesnet200706-reachability.nkpl,1.576978633
+frenetic,nkpl/fig09/naive-reachability/Cesnet200706-reachability.nkpl,timeout (300s)
+katch,nkpl/fig09/naive-reachability/Cesnet201006-reachability.nkpl,1.977398768
+frenetic,nkpl/fig09/naive-reachability/Cesnet201006-reachability.nkpl,timeout (300s)
+katch,nkpl/fig09/naive-reachability/Chinanet-reachability.nkpl,1.536331903
+frenetic,nkpl/fig09/naive-reachability/Chinanet-reachability.nkpl,timeout (300s)
+katch,nkpl/fig09/naive-reachability/Claranet-reachability.nkpl,0.214983317
+frenetic,nkpl/fig09/naive-reachability/Claranet-reachability.nkpl,82.30
+katch,nkpl/fig09/naive-reachability/Cogentco-reachability.nkpl,69.882377006
+frenetic,nkpl/fig09/naive-reachability/Cogentco-reachability.nkpl,timeout (300s)
+katch,nkpl/fig09/naive-reachability/Colt-reachability.nkpl,32.483093831
+frenetic,nkpl/fig09/naive-reachability/Colt-reachability.nkpl,timeout (300s)
+katch,nkpl/fig09/naive-reachability/Columbus-reachability.nkpl,4.96137719
+frenetic,nkpl/fig09/naive-reachability/Columbus-reachability.nkpl,timeout (300s)
+katch,nkpl/fig09/naive-reachability/Compuserve-reachability.nkpl,0.187981108
+frenetic,nkpl/fig09/naive-reachability/Compuserve-reachability.nkpl,62.58
+katch,nkpl/fig09/naive-reachability/CrlNetworkServices-reachability.nkpl,1.009356062
+frenetic,nkpl/fig09/naive-reachability/CrlNetworkServices-reachability.nkpl,timeout (300s)
+katch,nkpl/fig09/naive-reachability/Cudi-reachability.nkpl,1.746647735
+frenetic,nkpl/fig09/naive-reachability/Cudi-reachability.nkpl,timeout (300s)
+katch,nkpl/fig09/naive-reachability/Cwix-reachability.nkpl,0.867153073
+frenetic,nkpl/fig09/naive-reachability/Cwix-reachability.nkpl,timeout (300s)
+katch,nkpl/fig09/naive-reachability/Cynet-reachability.nkpl,0.670007032
+frenetic,nkpl/fig09/naive-reachability/Cynet-reachability.nkpl,timeout (300s)
+katch,nkpl/fig09/naive-reachability/Darkstrand-reachability.nkpl,0.588378506
+frenetic,nkpl/fig09/naive-reachability/Darkstrand-reachability.nkpl,timeout (300s)
+katch,nkpl/fig09/naive-reachability/Dataxchange-reachability.nkpl,0.078447323
+frenetic,nkpl/fig09/naive-reachability/Dataxchange-reachability.nkpl,1.18
+katch,nkpl/fig09/naive-reachability/Deltacom-reachability.nkpl,13.298099117
+frenetic,nkpl/fig09/naive-reachability/Deltacom-reachability.nkpl,timeout (300s)
+katch,nkpl/fig09/naive-reachability/DeutscheTelekom-reachability.nkpl,0.977516727
+frenetic,nkpl/fig09/naive-reachability/DeutscheTelekom-reachability.nkpl,timeout (300s)
+katch,nkpl/fig09/naive-reachability/Dfn-reachability.nkpl,2.788835355
+frenetic,nkpl/fig09/naive-reachability/Dfn-reachability.nkpl,timeout (300s)
+katch,nkpl/fig09/naive-reachability/DialtelecomCz-reachability.nkpl,53.1769236
+frenetic,nkpl/fig09/naive-reachability/DialtelecomCz-reachability.nkpl,timeout (300s)
+katch,nkpl/fig09/naive-reachability/Digex-reachability.nkpl,0.667636214
+frenetic,nkpl/fig09/naive-reachability/Digex-reachability.nkpl,timeout (300s)
+katch,nkpl/fig09/naive-reachability/Easynet-reachability.nkpl,0.309092251
+frenetic,nkpl/fig09/naive-reachability/Easynet-reachability.nkpl,timeout (300s)
+katch,nkpl/fig09/naive-reachability/Eenet-reachability.nkpl,0.161856578
+frenetic,nkpl/fig09/naive-reachability/Eenet-reachability.nkpl,45.20
+katch,nkpl/fig09/naive-reachability/EliBackbone-reachability.nkpl,0.307476246
+frenetic,nkpl/fig09/naive-reachability/EliBackbone-reachability.nkpl,timeout (300s)
+katch,nkpl/fig09/naive-reachability/Epoch-reachability.nkpl,0.069759941
+frenetic,nkpl/fig09/naive-reachability/Epoch-reachability.nkpl,1.08
+katch,nkpl/fig09/naive-reachability/Ernet-reachability.nkpl,0.608689955
+frenetic,nkpl/fig09/naive-reachability/Ernet-reachability.nkpl,timeout (300s)
+katch,nkpl/fig09/naive-reachability/Esnet-reachability.nkpl,3.495748211
+frenetic,nkpl/fig09/naive-reachability/Esnet-reachability.nkpl,timeout (300s)
+katch,nkpl/fig09/naive-reachability/Eunetworks-reachability.nkpl,0.205558076
+frenetic,nkpl/fig09/naive-reachability/Eunetworks-reachability.nkpl,51.90
+katch,nkpl/fig09/naive-reachability/Evolink-reachability.nkpl,1.277993186
+frenetic,nkpl/fig09/naive-reachability/Evolink-reachability.nkpl,timeout (300s)
+katch,nkpl/fig09/naive-reachability/Fatman-reachability.nkpl,0.240021929
+frenetic,nkpl/fig09/naive-reachability/Fatman-reachability.nkpl,179.56
+katch,nkpl/fig09/naive-reachability/Fccn-reachability.nkpl,0.340851871
+frenetic,nkpl/fig09/naive-reachability/Fccn-reachability.nkpl,timeout (300s)
+katch,nkpl/fig09/naive-reachability/Forthnet-reachability.nkpl,3.268606121
+frenetic,nkpl/fig09/naive-reachability/Forthnet-reachability.nkpl,timeout (300s)
+katch,nkpl/fig09/naive-reachability/Funet-reachability.nkpl,0.464936835
+frenetic,nkpl/fig09/naive-reachability/Funet-reachability.nkpl,timeout (300s)
+katch,nkpl/fig09/naive-reachability/Gambia-reachability.nkpl,0.511771088
+frenetic,nkpl/fig09/naive-reachability/Gambia-reachability.nkpl,timeout (300s)
+katch,nkpl/fig09/naive-reachability/Garr199901-reachability.nkpl,0.212233303
+frenetic,nkpl/fig09/naive-reachability/Garr199901-reachability.nkpl,128.98
+katch,nkpl/fig09/naive-reachability/Garr199904-reachability.nkpl,0.329077491
+frenetic,nkpl/fig09/naive-reachability/Garr199904-reachability.nkpl,timeout (300s)
+katch,nkpl/fig09/naive-reachability/Garr199905-reachability.nkpl,0.317719406
+frenetic,nkpl/fig09/naive-reachability/Garr199905-reachability.nkpl,timeout (300s)
+katch,nkpl/fig09/naive-reachability/Garr200109-reachability.nkpl,0.330879035
+frenetic,nkpl/fig09/naive-reachability/Garr200109-reachability.nkpl,timeout (300s)
+katch,nkpl/fig09/naive-reachability/Garr200112-reachability.nkpl,0.324981809
+frenetic,nkpl/fig09/naive-reachability/Garr200112-reachability.nkpl,timeout (300s)
+katch,nkpl/fig09/naive-reachability/Garr200212-reachability.nkpl,0.456502806
+frenetic,nkpl/fig09/naive-reachability/Garr200212-reachability.nkpl,timeout (300s)
+katch,nkpl/fig09/naive-reachability/Garr200404-reachability.nkpl,0.367999989
+frenetic,nkpl/fig09/naive-reachability/Garr200404-reachability.nkpl,timeout (300s)
+katch,nkpl/fig09/naive-reachability/Garr200902-reachability.nkpl,2.225294654
+frenetic,nkpl/fig09/naive-reachability/Garr200902-reachability.nkpl,timeout (300s)
+katch,nkpl/fig09/naive-reachability/Garr200908-reachability.nkpl,2.038789428
+frenetic,nkpl/fig09/naive-reachability/Garr200908-reachability.nkpl,timeout (300s)
+katch,nkpl/fig09/naive-reachability/Garr200909-reachability.nkpl,2.204101366
+frenetic,nkpl/fig09/naive-reachability/Garr200909-reachability.nkpl,timeout (300s)
+katch,nkpl/fig09/naive-reachability/Garr200912-reachability.nkpl,1.847504974
+frenetic,nkpl/fig09/naive-reachability/Garr200912-reachability.nkpl,timeout (300s)
+katch,nkpl/fig09/naive-reachability/Garr201001-reachability.nkpl,1.719711915
+frenetic,nkpl/fig09/naive-reachability/Garr201001-reachability.nkpl,timeout (300s)
+katch,nkpl/fig09/naive-reachability/Garr201003-reachability.nkpl,1.860898008
+frenetic,nkpl/fig09/naive-reachability/Garr201003-reachability.nkpl,timeout (300s)
+katch,nkpl/fig09/naive-reachability/Garr201004-reachability.nkpl,2.055055598
+frenetic,nkpl/fig09/naive-reachability/Garr201004-reachability.nkpl,timeout (300s)
+katch,nkpl/fig09/naive-reachability/Garr201005-reachability.nkpl,1.911232223
+frenetic,nkpl/fig09/naive-reachability/Garr201005-reachability.nkpl,timeout (300s)
+katch,nkpl/fig09/naive-reachability/Garr201007-reachability.nkpl,2.399882992
+frenetic,nkpl/fig09/naive-reachability/Garr201007-reachability.nkpl,timeout (300s)
+katch,nkpl/fig09/naive-reachability/Garr201008-reachability.nkpl,1.95348329
+frenetic,nkpl/fig09/naive-reachability/Garr201008-reachability.nkpl,timeout (300s)
+katch,nkpl/fig09/naive-reachability/Garr201010-reachability.nkpl,2.628982762
+frenetic,nkpl/fig09/naive-reachability/Garr201010-reachability.nkpl,timeout (300s)
+katch,nkpl/fig09/naive-reachability/Garr201012-reachability.nkpl,2.556378905
+frenetic,nkpl/fig09/naive-reachability/Garr201012-reachability.nkpl,timeout (300s)
+katch,nkpl/fig09/naive-reachability/Garr201101-reachability.nkpl,2.33091183
+frenetic,nkpl/fig09/naive-reachability/Garr201101-reachability.nkpl,timeout (300s)
+katch,nkpl/fig09/naive-reachability/Garr201102-reachability.nkpl,2.664781449
+frenetic,nkpl/fig09/naive-reachability/Garr201102-reachability.nkpl,timeout (300s)
+katch,nkpl/fig09/naive-reachability/Garr201103-reachability.nkpl,2.95943289
+frenetic,nkpl/fig09/naive-reachability/Garr201103-reachability.nkpl,timeout (300s)
+katch,nkpl/fig09/naive-reachability/Garr201104-reachability.nkpl,2.734382465
+frenetic,nkpl/fig09/naive-reachability/Garr201104-reachability.nkpl,timeout (300s)
+katch,nkpl/fig09/naive-reachability/Garr201105-reachability.nkpl,2.585778227
+frenetic,nkpl/fig09/naive-reachability/Garr201105-reachability.nkpl,timeout (300s)
+katch,nkpl/fig09/naive-reachability/Garr201107-reachability.nkpl,2.792239251
+frenetic,nkpl/fig09/naive-reachability/Garr201107-reachability.nkpl,timeout (300s)
+katch,nkpl/fig09/naive-reachability/Garr201108-reachability.nkpl,3.150171185
+frenetic,nkpl/fig09/naive-reachability/Garr201108-reachability.nkpl,timeout (300s)
+katch,nkpl/fig09/naive-reachability/Garr201109-reachability.nkpl,2.812443361
+frenetic,nkpl/fig09/naive-reachability/Garr201109-reachability.nkpl,timeout (300s)
+katch,nkpl/fig09/naive-reachability/Garr201110-reachability.nkpl,2.825917278
+frenetic,nkpl/fig09/naive-reachability/Garr201110-reachability.nkpl,timeout (300s)
+katch,nkpl/fig09/naive-reachability/Garr201111-reachability.nkpl,2.627191794
+frenetic,nkpl/fig09/naive-reachability/Garr201111-reachability.nkpl,timeout (300s)
+katch,nkpl/fig09/naive-reachability/Garr201112-reachability.nkpl,2.68069153
+frenetic,nkpl/fig09/naive-reachability/Garr201112-reachability.nkpl,timeout (300s)
+katch,nkpl/fig09/naive-reachability/Garr201201-reachability.nkpl,2.392678465
+frenetic,nkpl/fig09/naive-reachability/Garr201201-reachability.nkpl,timeout (300s)
+katch,nkpl/fig09/naive-reachability/Gblnet-reachability.nkpl,0.099816683
+frenetic,nkpl/fig09/naive-reachability/Gblnet-reachability.nkpl,3.53
+katch,nkpl/fig09/naive-reachability/Geant2001-reachability.nkpl,0.459011276
+frenetic,nkpl/fig09/naive-reachability/Geant2001-reachability.nkpl,timeout (300s)
+katch,nkpl/fig09/naive-reachability/Geant2009-reachability.nkpl,0.775317278
+frenetic,nkpl/fig09/naive-reachability/Geant2009-reachability.nkpl,timeout (300s)
+katch,nkpl/fig09/naive-reachability/Geant2010-reachability.nkpl,1.024804602
+frenetic,nkpl/fig09/naive-reachability/Geant2010-reachability.nkpl,timeout (300s)
+katch,nkpl/fig09/naive-reachability/Geant2012-reachability.nkpl,1.17849926
+frenetic,nkpl/fig09/naive-reachability/Geant2012-reachability.nkpl,timeout (300s)
+katch,nkpl/fig09/naive-reachability/Getnet-reachability.nkpl,0.082327639
+frenetic,nkpl/fig09/naive-reachability/Getnet-reachability.nkpl,1.90
+katch,nkpl/fig09/naive-reachability/Globalcenter-reachability.nkpl,0.109286518
+frenetic,nkpl/fig09/naive-reachability/Globalcenter-reachability.nkpl,7.16
+katch,nkpl/fig09/naive-reachability/Globenet-reachability.nkpl,3.720177299
+frenetic,nkpl/fig09/naive-reachability/Globenet-reachability.nkpl,timeout (300s)
+katch,nkpl/fig09/naive-reachability/Goodnet-reachability.nkpl,0.231720125
+frenetic,nkpl/fig09/naive-reachability/Goodnet-reachability.nkpl,211.26
+katch,nkpl/fig09/naive-reachability/Grena-reachability.nkpl,0.243497415
+frenetic,nkpl/fig09/naive-reachability/Grena-reachability.nkpl,96.28
+katch,nkpl/fig09/naive-reachability/Gridnet-reachability.nkpl,0.098141317
+frenetic,nkpl/fig09/naive-reachability/Gridnet-reachability.nkpl,6.45
+katch,nkpl/fig09/naive-reachability/Grnet-reachability.nkpl,0.911957074
+frenetic,nkpl/fig09/naive-reachability/Grnet-reachability.nkpl,timeout (300s)
+katch,nkpl/fig09/naive-reachability/GtsCe-reachability.nkpl,29.136287548
+frenetic,nkpl/fig09/naive-reachability/GtsCe-reachability.nkpl,timeout (300s)
+katch,nkpl/fig09/naive-reachability/GtsCzechRepublic-reachability.nkpl,0.719407196
+frenetic,nkpl/fig09/naive-reachability/GtsCzechRepublic-reachability.nkpl,timeout (300s)
+katch,nkpl/fig09/naive-reachability/GtsHungary-reachability.nkpl,0.805822565
+frenetic,nkpl/fig09/naive-reachability/GtsHungary-reachability.nkpl,timeout (300s)
+katch,nkpl/fig09/naive-reachability/GtsPoland-reachability.nkpl,0.943352711
+frenetic,nkpl/fig09/naive-reachability/GtsPoland-reachability.nkpl,timeout (300s)
+katch,nkpl/fig09/naive-reachability/GtsRomania-reachability.nkpl,0.341284574
+frenetic,nkpl/fig09/naive-reachability/GtsRomania-reachability.nkpl,timeout (300s)
+katch,nkpl/fig09/naive-reachability/GtsSlovakia-reachability.nkpl,1.068202984
+frenetic,nkpl/fig09/naive-reachability/GtsSlovakia-reachability.nkpl,timeout (300s)
+katch,nkpl/fig09/naive-reachability/Harnet-reachability.nkpl,0.342893534
+frenetic,nkpl/fig09/naive-reachability/Harnet-reachability.nkpl,timeout (300s)
+katch,nkpl/fig09/naive-reachability/Heanet-reachability.nkpl,0.080126613
+frenetic,nkpl/fig09/naive-reachability/Heanet-reachability.nkpl,2.33
+katch,nkpl/fig09/naive-reachability/HiberniaCanada-reachability.nkpl,0.169141386
+frenetic,nkpl/fig09/naive-reachability/HiberniaCanada-reachability.nkpl,30.87
+katch,nkpl/fig09/naive-reachability/HiberniaGlobal-reachability.nkpl,2.369976131
+frenetic,nkpl/fig09/naive-reachability/HiberniaGlobal-reachability.nkpl,timeout (300s)
+katch,nkpl/fig09/naive-reachability/HiberniaIreland-reachability.nkpl,0.094022871
+frenetic,nkpl/fig09/naive-reachability/HiberniaIreland-reachability.nkpl,3.46
+katch,nkpl/fig09/naive-reachability/HiberniaNireland-reachability.nkpl,0.259624616
+frenetic,nkpl/fig09/naive-reachability/HiberniaNireland-reachability.nkpl,210.46
+katch,nkpl/fig09/naive-reachability/HiberniaUk-reachability.nkpl,0.216578086
+frenetic,nkpl/fig09/naive-reachability/HiberniaUk-reachability.nkpl,66.89
+katch,nkpl/fig09/naive-reachability/HiberniaUs-reachability.nkpl,0.37925825
+frenetic,nkpl/fig09/naive-reachability/HiberniaUs-reachability.nkpl,timeout (300s)
+katch,nkpl/fig09/naive-reachability/Highwinds-reachability.nkpl,0.260310334
+frenetic,nkpl/fig09/naive-reachability/Highwinds-reachability.nkpl,timeout (300s)
+katch,nkpl/fig09/naive-reachability/HostwayInternational-reachability.nkpl,0.227862518
+frenetic,nkpl/fig09/naive-reachability/HostwayInternational-reachability.nkpl,108.47
+katch,nkpl/fig09/naive-reachability/HurricaneElectric-reachability.nkpl,0.34019284
+frenetic,nkpl/fig09/naive-reachability/HurricaneElectric-reachability.nkpl,timeout (300s)
+katch,nkpl/fig09/naive-reachability/Ibm-reachability.nkpl,0.258590845
+frenetic,nkpl/fig09/naive-reachability/Ibm-reachability.nkpl,224.52
+katch,nkpl/fig09/naive-reachability/Iij-reachability.nkpl,1.055518945
+frenetic,nkpl/fig09/naive-reachability/Iij-reachability.nkpl,timeout (300s)
+katch,nkpl/fig09/naive-reachability/Iinet-reachability.nkpl,0.687885141
+frenetic,nkpl/fig09/naive-reachability/Iinet-reachability.nkpl,timeout (300s)
+katch,nkpl/fig09/naive-reachability/Ilan-reachability.nkpl,0.186883112
+frenetic,nkpl/fig09/naive-reachability/Ilan-reachability.nkpl,56.04
+katch,nkpl/fig09/naive-reachability/Integra-reachability.nkpl,0.461021309
+frenetic,nkpl/fig09/naive-reachability/Integra-reachability.nkpl,timeout (300s)
+katch,nkpl/fig09/naive-reachability/Intellifiber-reachability.nkpl,4.299218322
+frenetic,nkpl/fig09/naive-reachability/Intellifiber-reachability.nkpl,timeout (300s)
+katch,nkpl/fig09/naive-reachability/Internetmci-reachability.nkpl,0.269110525
+frenetic,nkpl/fig09/naive-reachability/Internetmci-reachability.nkpl,timeout (300s)
+katch,nkpl/fig09/naive-reachability/Internode-reachability.nkpl,3.009184198
+frenetic,nkpl/fig09/naive-reachability/Internode-reachability.nkpl,timeout (300s)
+katch,nkpl/fig09/naive-reachability/Interoute-reachability.nkpl,12.988503399
+frenetic,nkpl/fig09/naive-reachability/Interoute-reachability.nkpl,timeout (300s)
+katch,nkpl/fig09/naive-reachability/Intranetwork-reachability.nkpl,1.386329786
+frenetic,nkpl/fig09/naive-reachability/Intranetwork-reachability.nkpl,timeout (300s)
+katch,nkpl/fig09/naive-reachability/Ion-reachability.nkpl,20.531262428
+frenetic,nkpl/fig09/naive-reachability/Ion-reachability.nkpl,timeout (300s)
+katch,nkpl/fig09/naive-reachability/IowaStatewideFiberMap-reachability.nkpl,0.940695027
+frenetic,nkpl/fig09/naive-reachability/IowaStatewideFiberMap-reachability.nkpl,timeout (300s)
+katch,nkpl/fig09/naive-reachability/Iris-reachability.nkpl,2.014654945
+frenetic,nkpl/fig09/naive-reachability/Iris-reachability.nkpl,timeout (300s)
+katch,nkpl/fig09/naive-reachability/Istar-reachability.nkpl,0.353321386
+frenetic,nkpl/fig09/naive-reachability/Istar-reachability.nkpl,timeout (300s)
+katch,nkpl/fig09/naive-reachability/Itnet-reachability.nkpl,0.129977065
+frenetic,nkpl/fig09/naive-reachability/Itnet-reachability.nkpl,19.02
+katch,nkpl/fig09/naive-reachability/JanetExternal-reachability.nkpl,0.144459755
+frenetic,nkpl/fig09/naive-reachability/JanetExternal-reachability.nkpl,15.17
+katch,nkpl/fig09/naive-reachability/Janetbackbone-reachability.nkpl,0.502409425
+frenetic,nkpl/fig09/naive-reachability/Janetbackbone-reachability.nkpl,timeout (300s)
+katch,nkpl/fig09/naive-reachability/Janetlense-reachability.nkpl,0.331709553
+frenetic,nkpl/fig09/naive-reachability/Janetlense-reachability.nkpl,timeout (300s)
+katch,nkpl/fig09/naive-reachability/Jgn2Plus-reachability.nkpl,0.284311563
+frenetic,nkpl/fig09/naive-reachability/Jgn2Plus-reachability.nkpl,228.26
+katch,nkpl/fig09/naive-reachability/Karen-reachability.nkpl,0.40541647
+frenetic,nkpl/fig09/naive-reachability/Karen-reachability.nkpl,timeout (300s)
+katch,nkpl/fig09/naive-reachability/KentmanApr2007-reachability.nkpl,0.378618877
+frenetic,nkpl/fig09/naive-reachability/KentmanApr2007-reachability.nkpl,timeout (300s)
+katch,nkpl/fig09/naive-reachability/KentmanAug2005-reachability.nkpl,0.553755037
+frenetic,nkpl/fig09/naive-reachability/KentmanAug2005-reachability.nkpl,timeout (300s)
+katch,nkpl/fig09/naive-reachability/KentmanFeb2008-reachability.nkpl,0.414685489
+frenetic,nkpl/fig09/naive-reachability/KentmanFeb2008-reachability.nkpl,timeout (300s)
+katch,nkpl/fig09/naive-reachability/KentmanJan2011-reachability.nkpl,1.105090179
+frenetic,nkpl/fig09/naive-reachability/KentmanJan2011-reachability.nkpl,timeout (300s)
+katch,nkpl/fig09/naive-reachability/KentmanJul2005-reachability.nkpl,0.250281411
+frenetic,nkpl/fig09/naive-reachability/KentmanJul2005-reachability.nkpl,112.42
+katch,nkpl/fig09/naive-reachability/Kreonet-reachability.nkpl,0.168736328
+frenetic,nkpl/fig09/naive-reachability/Kreonet-reachability.nkpl,41.99
+katch,nkpl/fig09/naive-reachability/LambdaNet-reachability.nkpl,1.429571764
+frenetic,nkpl/fig09/naive-reachability/LambdaNet-reachability.nkpl,timeout (300s)
+katch,nkpl/fig09/naive-reachability/Latnet-reachability.nkpl,5.197269564
+frenetic,nkpl/fig09/naive-reachability/Latnet-reachability.nkpl,timeout (300s)
+katch,nkpl/fig09/naive-reachability/Layer42-reachability.nkpl,0.076076995
+frenetic,nkpl/fig09/naive-reachability/Layer42-reachability.nkpl,1.13
+katch,nkpl/fig09/naive-reachability/Litnet-reachability.nkpl,1.512730275
+frenetic,nkpl/fig09/naive-reachability/Litnet-reachability.nkpl,timeout (300s)
+katch,nkpl/fig09/naive-reachability/Marnet-reachability.nkpl,0.339375063
+frenetic,nkpl/fig09/naive-reachability/Marnet-reachability.nkpl,timeout (300s)
+katch,nkpl/fig09/naive-reachability/Marwan-reachability.nkpl,0.247780472
+frenetic,nkpl/fig09/naive-reachability/Marwan-reachability.nkpl,102.51
+katch,nkpl/fig09/naive-reachability/Missouri-reachability.nkpl,3.528579611
+frenetic,nkpl/fig09/naive-reachability/Missouri-reachability.nkpl,timeout (300s)
+katch,nkpl/fig09/naive-reachability/Mren-reachability.nkpl,0.085605097
+frenetic,nkpl/fig09/naive-reachability/Mren-reachability.nkpl,1.14
+katch,nkpl/fig09/naive-reachability/Myren-reachability.nkpl,1.265928843
+frenetic,nkpl/fig09/naive-reachability/Myren-reachability.nkpl,timeout (300s)
+katch,nkpl/fig09/naive-reachability/Napnet-reachability.nkpl,0.073720237
+frenetic,nkpl/fig09/naive-reachability/Napnet-reachability.nkpl,1.14
+katch,nkpl/fig09/naive-reachability/Navigata-reachability.nkpl,0.159178212
+frenetic,nkpl/fig09/naive-reachability/Navigata-reachability.nkpl,37.24
+katch,nkpl/fig09/naive-reachability/Netrail-reachability.nkpl,0.083951194
+frenetic,nkpl/fig09/naive-reachability/Netrail-reachability.nkpl,2.11
+katch,nkpl/fig09/naive-reachability/NetworkUsa-reachability.nkpl,1.027585793
+frenetic,nkpl/fig09/naive-reachability/NetworkUsa-reachability.nkpl,timeout (300s)
+katch,nkpl/fig09/naive-reachability/Nextgen-reachability.nkpl,0.251742972
+frenetic,nkpl/fig09/naive-reachability/Nextgen-reachability.nkpl,139.86
+katch,nkpl/fig09/naive-reachability/Niif-reachability.nkpl,1.270953158
+frenetic,nkpl/fig09/naive-reachability/Niif-reachability.nkpl,timeout (300s)
+katch,nkpl/fig09/naive-reachability/Noel-reachability.nkpl,0.268327767
+frenetic,nkpl/fig09/naive-reachability/Noel-reachability.nkpl,timeout (300s)
+katch,nkpl/fig09/naive-reachability/Nordu1989-reachability.nkpl,0.084712641
+frenetic,nkpl/fig09/naive-reachability/Nordu1989-reachability.nkpl,2.01
+katch,nkpl/fig09/naive-reachability/Nordu1997-reachability.nkpl,0.200126177
+frenetic,nkpl/fig09/naive-reachability/Nordu1997-reachability.nkpl,70.85
+katch,nkpl/fig09/naive-reachability/Nordu2005-reachability.nkpl,0.116031497
+frenetic,nkpl/fig09/naive-reachability/Nordu2005-reachability.nkpl,6.34
+katch,nkpl/fig09/naive-reachability/Nordu2010-reachability.nkpl,0.260346768
+frenetic,nkpl/fig09/naive-reachability/Nordu2010-reachability.nkpl,133.43
+katch,nkpl/fig09/naive-reachability/Nsfcnet-reachability.nkpl,0.116367275
+frenetic,nkpl/fig09/naive-reachability/Nsfcnet-reachability.nkpl,7.26
+katch,nkpl/fig09/naive-reachability/Nsfnet-reachability.nkpl,0.162949384
+frenetic,nkpl/fig09/naive-reachability/Nsfnet-reachability.nkpl,31.57
+katch,nkpl/fig09/naive-reachability/Ntelos-reachability.nkpl,1.859764825
+frenetic,nkpl/fig09/naive-reachability/Ntelos-reachability.nkpl,timeout (300s)
+katch,nkpl/fig09/naive-reachability/Ntt-reachability.nkpl,1.472383588
+frenetic,nkpl/fig09/naive-reachability/Ntt-reachability.nkpl,timeout (300s)
+katch,nkpl/fig09/naive-reachability/Oteglobe-reachability.nkpl,7.777780028
+frenetic,nkpl/fig09/naive-reachability/Oteglobe-reachability.nkpl,timeout (300s)
+katch,nkpl/fig09/naive-reachability/Oxford-reachability.nkpl,0.30025241
+frenetic,nkpl/fig09/naive-reachability/Oxford-reachability.nkpl,timeout (300s)
+katch,nkpl/fig09/naive-reachability/Pacificwave-reachability.nkpl,0.247715272
+frenetic,nkpl/fig09/naive-reachability/Pacificwave-reachability.nkpl,timeout (300s)
+katch,nkpl/fig09/naive-reachability/Packetexchange-reachability.nkpl,0.346087207
+frenetic,nkpl/fig09/naive-reachability/Packetexchange-reachability.nkpl,timeout (300s)
+katch,nkpl/fig09/naive-reachability/Padi-reachability.nkpl,0.148243844
+frenetic,nkpl/fig09/naive-reachability/Padi-reachability.nkpl,7.51
+katch,nkpl/fig09/naive-reachability/Palmetto-reachability.nkpl,1.795201392
+frenetic,nkpl/fig09/naive-reachability/Palmetto-reachability.nkpl,timeout (300s)
+katch,nkpl/fig09/naive-reachability/Peer1-reachability.nkpl,0.216030852
+frenetic,nkpl/fig09/naive-reachability/Peer1-reachability.nkpl,120.56
+katch,nkpl/fig09/naive-reachability/Pern-reachability.nkpl,19.444493773
+frenetic,nkpl/fig09/naive-reachability/Pern-reachability.nkpl,timeout (300s)
+katch,nkpl/fig09/naive-reachability/PionierL1-reachability.nkpl,0.939896358
+frenetic,nkpl/fig09/naive-reachability/PionierL1-reachability.nkpl,timeout (300s)
+katch,nkpl/fig09/naive-reachability/PionierL3-reachability.nkpl,1.132581022
+frenetic,nkpl/fig09/naive-reachability/PionierL3-reachability.nkpl,timeout (300s)
+katch,nkpl/fig09/naive-reachability/Psinet-reachability.nkpl,0.391198041
+frenetic,nkpl/fig09/naive-reachability/Psinet-reachability.nkpl,timeout (300s)
+katch,nkpl/fig09/naive-reachability/Quest-reachability.nkpl,0.299183519
+frenetic,nkpl/fig09/naive-reachability/Quest-reachability.nkpl,timeout (300s)
+katch,nkpl/fig09/naive-reachability/RedBestel-reachability.nkpl,8.410940334
+frenetic,nkpl/fig09/naive-reachability/RedBestel-reachability.nkpl,timeout (300s)
+katch,nkpl/fig09/naive-reachability/Rediris-reachability.nkpl,0.286431552
+frenetic,nkpl/fig09/naive-reachability/Rediris-reachability.nkpl,timeout (300s)
+katch,nkpl/fig09/naive-reachability/Renam-reachability.nkpl,0.063875196
+frenetic,nkpl/fig09/naive-reachability/Renam-reachability.nkpl,0.59
+katch,nkpl/fig09/naive-reachability/Renater1999-reachability.nkpl,0.353848912
+frenetic,nkpl/fig09/naive-reachability/Renater1999-reachability.nkpl,timeout (300s)
+katch,nkpl/fig09/naive-reachability/Renater2001-reachability.nkpl,0.362494639
+frenetic,nkpl/fig09/naive-reachability/Renater2001-reachability.nkpl,timeout (300s)
+katch,nkpl/fig09/naive-reachability/Renater2004-reachability.nkpl,0.597827356
+frenetic,nkpl/fig09/naive-reachability/Renater2004-reachability.nkpl,timeout (300s)
+katch,nkpl/fig09/naive-reachability/Renater2006-reachability.nkpl,0.643622802
+frenetic,nkpl/fig09/naive-reachability/Renater2006-reachability.nkpl,timeout (300s)
+katch,nkpl/fig09/naive-reachability/Renater2008-reachability.nkpl,1.289515568
+frenetic,nkpl/fig09/naive-reachability/Renater2008-reachability.nkpl,timeout (300s)
+katch,nkpl/fig09/naive-reachability/Renater2010-reachability.nkpl,1.678844989
+frenetic,nkpl/fig09/naive-reachability/Renater2010-reachability.nkpl,timeout (300s)
+katch,nkpl/fig09/naive-reachability/Restena-reachability.nkpl,0.281818235
+frenetic,nkpl/fig09/naive-reachability/Restena-reachability.nkpl,timeout (300s)
+katch,nkpl/fig09/naive-reachability/Reuna-reachability.nkpl,1.086406984
+frenetic,nkpl/fig09/naive-reachability/Reuna-reachability.nkpl,timeout (300s)
+katch,nkpl/fig09/naive-reachability/Rhnet-reachability.nkpl,0.228290411
+frenetic,nkpl/fig09/naive-reachability/Rhnet-reachability.nkpl,114.64
+katch,nkpl/fig09/naive-reachability/Rnp-reachability.nkpl,0.672006138
+frenetic,nkpl/fig09/naive-reachability/Rnp-reachability.nkpl,timeout (300s)
+katch,nkpl/fig09/naive-reachability/Roedunet-reachability.nkpl,1.17860436
+frenetic,nkpl/fig09/naive-reachability/Roedunet-reachability.nkpl,timeout (300s)
+katch,nkpl/fig09/naive-reachability/RoedunetFibre-reachability.nkpl,2.019931717
+frenetic,nkpl/fig09/naive-reachability/RoedunetFibre-reachability.nkpl,timeout (300s)
+katch,nkpl/fig09/naive-reachability/Sago-reachability.nkpl,0.307303481
+frenetic,nkpl/fig09/naive-reachability/Sago-reachability.nkpl,163.56
+katch,nkpl/fig09/naive-reachability/Sanet-reachability.nkpl,1.508853552
+frenetic,nkpl/fig09/naive-reachability/Sanet-reachability.nkpl,timeout (300s)
+katch,nkpl/fig09/naive-reachability/Sanren-reachability.nkpl,0.081593377
+frenetic,nkpl/fig09/naive-reachability/Sanren-reachability.nkpl,1.83
+katch,nkpl/fig09/naive-reachability/Savvis-reachability.nkpl,0.292028982
+frenetic,nkpl/fig09/naive-reachability/Savvis-reachability.nkpl,255.76
+katch,nkpl/fig09/naive-reachability/Shentel-reachability.nkpl,0.557352525
+frenetic,nkpl/fig09/naive-reachability/Shentel-reachability.nkpl,timeout (300s)
+katch,nkpl/fig09/naive-reachability/Sinet-reachability.nkpl,3.983634805
+frenetic,nkpl/fig09/naive-reachability/Sinet-reachability.nkpl,timeout (300s)
+katch,nkpl/fig09/naive-reachability/Singaren-reachability.nkpl,0.137058568
+frenetic,nkpl/fig09/naive-reachability/Singaren-reachability.nkpl,18.81
+katch,nkpl/fig09/naive-reachability/Spiralight-reachability.nkpl,0.222326025
+frenetic,nkpl/fig09/naive-reachability/Spiralight-reachability.nkpl,68.93
+katch,nkpl/fig09/naive-reachability/Sprint-reachability.nkpl,0.121658771
+frenetic,nkpl/fig09/naive-reachability/Sprint-reachability.nkpl,14.81
+katch,nkpl/fig09/naive-reachability/Sunet-reachability.nkpl,0.491138996
+frenetic,nkpl/fig09/naive-reachability/Sunet-reachability.nkpl,timeout (300s)
+katch,nkpl/fig09/naive-reachability/Surfnet-reachability.nkpl,1.870588528
+frenetic,nkpl/fig09/naive-reachability/Surfnet-reachability.nkpl,timeout (300s)
+katch,nkpl/fig09/naive-reachability/Switch-reachability.nkpl,4.724231643
+frenetic,nkpl/fig09/naive-reachability/Switch-reachability.nkpl,timeout (300s)
+katch,nkpl/fig09/naive-reachability/SwitchL3-reachability.nkpl,1.385622373
+frenetic,nkpl/fig09/naive-reachability/SwitchL3-reachability.nkpl,timeout (300s)
+katch,nkpl/fig09/naive-reachability/Syringa-reachability.nkpl,7.206373731
+frenetic,nkpl/fig09/naive-reachability/Syringa-reachability.nkpl,timeout (300s)
+katch,nkpl/fig09/naive-reachability/TLex-reachability.nkpl,0.141813519
+frenetic,nkpl/fig09/naive-reachability/TLex-reachability.nkpl,28.34
+katch,nkpl/fig09/naive-reachability/TataNld-reachability.nkpl,28.078005172
+frenetic,nkpl/fig09/naive-reachability/TataNld-reachability.nkpl,timeout (300s)
+katch,nkpl/fig09/naive-reachability/Telcove-reachability.nkpl,4.801476439
+frenetic,nkpl/fig09/naive-reachability/Telcove-reachability.nkpl,timeout (300s)
+katch,nkpl/fig09/naive-reachability/Telecomserbia-reachability.nkpl,0.072078983
+frenetic,nkpl/fig09/naive-reachability/Telecomserbia-reachability.nkpl,1.06
+katch,nkpl/fig09/naive-reachability/Tinet-reachability.nkpl,1.811802877
+frenetic,nkpl/fig09/naive-reachability/Tinet-reachability.nkpl,timeout (300s)
+katch,nkpl/fig09/naive-reachability/Tw-reachability.nkpl,4.094855073
+frenetic,nkpl/fig09/naive-reachability/Tw-reachability.nkpl,timeout (300s)
+katch,nkpl/fig09/naive-reachability/Twaren-reachability.nkpl,0.28473831
+frenetic,nkpl/fig09/naive-reachability/Twaren-reachability.nkpl,timeout (300s)
+katch,nkpl/fig09/naive-reachability/Ulaknet-reachability.nkpl,10.922993366
+frenetic,nkpl/fig09/naive-reachability/Ulaknet-reachability.nkpl,timeout (300s)
+katch,nkpl/fig09/naive-reachability/UniC-reachability.nkpl,0.440184784
+frenetic,nkpl/fig09/naive-reachability/UniC-reachability.nkpl,timeout (300s)
+katch,nkpl/fig09/naive-reachability/Uninet-reachability.nkpl,0.164920179
+frenetic,nkpl/fig09/naive-reachability/Uninet-reachability.nkpl,39.10
+katch,nkpl/fig09/naive-reachability/Uninett2010-reachability.nkpl,3.819165085
+frenetic,nkpl/fig09/naive-reachability/Uninett2010-reachability.nkpl,timeout (300s)
+katch,nkpl/fig09/naive-reachability/Uninett2011-reachability.nkpl,2.982820728
+frenetic,nkpl/fig09/naive-reachability/Uninett2011-reachability.nkpl,timeout (300s)
+katch,nkpl/fig09/naive-reachability/Uran-reachability.nkpl,0.386109565
+frenetic,nkpl/fig09/naive-reachability/Uran-reachability.nkpl,timeout (300s)
+katch,nkpl/fig09/naive-reachability/UsCarrier-reachability.nkpl,43.184553047
+frenetic,nkpl/fig09/naive-reachability/UsCarrier-reachability.nkpl,timeout (300s)
+katch,nkpl/fig09/naive-reachability/UsSignal-reachability.nkpl,3.257030528
+frenetic,nkpl/fig09/naive-reachability/UsSignal-reachability.nkpl,timeout (300s)
+katch,nkpl/fig09/naive-reachability/Uunet-reachability.nkpl,2.058050106
+frenetic,nkpl/fig09/naive-reachability/Uunet-reachability.nkpl,timeout (300s)
+katch,nkpl/fig09/naive-reachability/Vinaren-reachability.nkpl,0.454302038
+frenetic,nkpl/fig09/naive-reachability/Vinaren-reachability.nkpl,timeout (300s)
+katch,nkpl/fig09/naive-reachability/VisionNet-reachability.nkpl,0.436419306
+frenetic,nkpl/fig09/naive-reachability/VisionNet-reachability.nkpl,timeout (300s)
+katch,nkpl/fig09/naive-reachability/VtlWavenet2008-reachability.nkpl,10.845721259
+frenetic,nkpl/fig09/naive-reachability/VtlWavenet2008-reachability.nkpl,timeout (300s)
+katch,nkpl/fig09/naive-reachability/VtlWavenet2011-reachability.nkpl,13.16660189
+frenetic,nkpl/fig09/naive-reachability/VtlWavenet2011-reachability.nkpl,timeout (300s)
+katch,nkpl/fig09/naive-reachability/WideJpn-reachability.nkpl,0.547126205
+frenetic,nkpl/fig09/naive-reachability/WideJpn-reachability.nkpl,timeout (300s)
+katch,nkpl/fig09/naive-reachability/Xeex-reachability.nkpl,0.342372048
+frenetic,nkpl/fig09/naive-reachability/Xeex-reachability.nkpl,timeout (300s)
+katch,nkpl/fig09/naive-reachability/Xspedius-reachability.nkpl,0.855196408
+frenetic,nkpl/fig09/naive-reachability/Xspedius-reachability.nkpl,timeout (300s)
+katch,nkpl/fig09/naive-reachability/York-reachability.nkpl,0.431136209
+frenetic,nkpl/fig09/naive-reachability/York-reachability.nkpl,timeout (300s)
+katch,nkpl/fig09/naive-reachability/Zamren-reachability.nkpl,1.233850119
+frenetic,nkpl/fig09/naive-reachability/Zamren-reachability.nkpl,timeout (300s)
+katch,nkpl/fig09/linear-reachability/Aarnet.nkpl,0.551160351
+katch,nkpl/fig09/linear-reachability/Abilene.nkpl,0.0471902
+katch,nkpl/fig09/linear-reachability/Abvt.nkpl,0.103596676
+katch,nkpl/fig09/linear-reachability/Aconet.nkpl,0.080725123
+katch,nkpl/fig09/linear-reachability/Agis.nkpl,0.082710527
+katch,nkpl/fig09/linear-reachability/Ai3.nkpl,0.018595006
+katch,nkpl/fig09/linear-reachability/Airtel.nkpl,0.043499917
+katch,nkpl/fig09/linear-reachability/Amres.nkpl,0.060710864
+katch,nkpl/fig09/linear-reachability/Ans.nkpl,0.03810472
+katch,nkpl/fig09/linear-reachability/Arn.nkpl,0.10892287
+katch,nkpl/fig09/linear-reachability/Arnes.nkpl,0.12273704
+katch,nkpl/fig09/linear-reachability/Arpanet196912.nkpl,0.006323151
+katch,nkpl/fig09/linear-reachability/Arpanet19706.nkpl,0.012683749
+katch,nkpl/fig09/linear-reachability/Arpanet19719.nkpl,0.034457168
+katch,nkpl/fig09/linear-reachability/Arpanet19723.nkpl,0.054867724
+katch,nkpl/fig09/linear-reachability/Arpanet19728.nkpl,0.07996113
+katch,nkpl/fig09/linear-reachability/AsnetAm.nkpl,0.305400789
+katch,nkpl/fig09/linear-reachability/Atmnet.nkpl,0.026527202
+katch,nkpl/fig09/linear-reachability/AttMpls.nkpl,0.040108994
+katch,nkpl/fig09/linear-reachability/Azrena.nkpl,0.022290301
+katch,nkpl/fig09/linear-reachability/Bandcon.nkpl,0.031551357
+katch,nkpl/fig09/linear-reachability/Basnet.nkpl,0.006500952
+katch,nkpl/fig09/linear-reachability/Bbnplanet.nkpl,0.048232278
+katch,nkpl/fig09/linear-reachability/Bellcanada.nkpl,0.118487473
+katch,nkpl/fig09/linear-reachability/Bellsouth.nkpl,0.114285174
+katch,nkpl/fig09/linear-reachability/Belnet2003.nkpl,0.028114744
+katch,nkpl/fig09/linear-reachability/Belnet2004.nkpl,0.02915615
+katch,nkpl/fig09/linear-reachability/Belnet2005.nkpl,0.04225654
+katch,nkpl/fig09/linear-reachability/Belnet2006.nkpl,0.028652686
+katch,nkpl/fig09/linear-reachability/Belnet2007.nkpl,0.025379531
+katch,nkpl/fig09/linear-reachability/Belnet2008.nkpl,0.025895217
+katch,nkpl/fig09/linear-reachability/Belnet2009.nkpl,0.025141004
+katch,nkpl/fig09/linear-reachability/Belnet2010.nkpl,0.027011327
+katch,nkpl/fig09/linear-reachability/BeyondTheNetwork.nkpl,0.116095087
+katch,nkpl/fig09/linear-reachability/Bics.nkpl,0.054690434
+katch,nkpl/fig09/linear-reachability/Biznet.nkpl,0.041689321
+katch,nkpl/fig09/linear-reachability/Bren.nkpl,0.058024212
+katch,nkpl/fig09/linear-reachability/BsonetEurope.nkpl,0.018545556
+katch,nkpl/fig09/linear-reachability/BtAsiaPac.nkpl,0.022670336
+katch,nkpl/fig09/linear-reachability/BtEurope.nkpl,0.031863433
+katch,nkpl/fig09/linear-reachability/BtLatinAmerica.nkpl,0.097779358
+katch,nkpl/fig09/linear-reachability/BtNorthAmerica.nkpl,0.073849223
+katch,nkpl/fig09/linear-reachability/Canerie.nkpl,0.046377468
+katch,nkpl/fig09/linear-reachability/Carnet.nkpl,0.082520104
+katch,nkpl/fig09/linear-reachability/Cernet.nkpl,0.092758734
+katch,nkpl/fig09/linear-reachability/Cesnet1993.nkpl,0.007843682
+katch,nkpl/fig09/linear-reachability/Cesnet1997.nkpl,0.00945035
+katch,nkpl/fig09/linear-reachability/Cesnet1999.nkpl,0.009496514
+katch,nkpl/fig09/linear-reachability/Cesnet2001.nkpl,0.023519076
+katch,nkpl/fig09/linear-reachability/Cesnet200304.nkpl,0.039482348
+katch,nkpl/fig09/linear-reachability/Cesnet200511.nkpl,0.067300554
+katch,nkpl/fig09/linear-reachability/Cesnet200603.nkpl,0.066371082
+katch,nkpl/fig09/linear-reachability/Cesnet200706.nkpl,0.100798924
+katch,nkpl/fig09/linear-reachability/Cesnet201006.nkpl,0.12364107
+katch,nkpl/fig09/linear-reachability/Chinanet.nkpl,0.088656852
+katch,nkpl/fig09/linear-reachability/Claranet.nkpl,0.01283713
+katch,nkpl/fig09/linear-reachability/Cogentco.nkpl,2.384948419
+katch,nkpl/fig09/linear-reachability/Colt.nkpl,1.193937544
+katch,nkpl/fig09/linear-reachability/Columbus.nkpl,0.330729717
+katch,nkpl/fig09/linear-reachability/Compuserve.nkpl,0.017897889
+katch,nkpl/fig09/linear-reachability/CrlNetworkServices.nkpl,0.077521635
+katch,nkpl/fig09/linear-reachability/Cudi.nkpl,0.154308219
+katch,nkpl/fig09/linear-reachability/Cwix.nkpl,0.088095937
+katch,nkpl/fig09/linear-reachability/Cynet.nkpl,0.062012173
+katch,nkpl/fig09/linear-reachability/Darkstrand.nkpl,0.058433551
+katch,nkpl/fig09/linear-reachability/Dataxchange.nkpl,0.005565495
+katch,nkpl/fig09/linear-reachability/Deltacom.nkpl,0.791191894
+katch,nkpl/fig09/linear-reachability/DeutscheTelekom.nkpl,0.055377688
+katch,nkpl/fig09/linear-reachability/Dfn.nkpl,0.156762385
+katch,nkpl/fig09/linear-reachability/DialtelecomCz.nkpl,1.477340653
+katch,nkpl/fig09/linear-reachability/Digex.nkpl,0.066586291
+katch,nkpl/fig09/linear-reachability/Easynet.nkpl,0.025905683
+katch,nkpl/fig09/linear-reachability/Eenet.nkpl,0.013872116
+katch,nkpl/fig09/linear-reachability/EliBackbone.nkpl,0.033873726
+katch,nkpl/fig09/linear-reachability/Epoch.nkpl,0.004808529
+katch,nkpl/fig09/linear-reachability/Ernet.nkpl,0.050615828
+katch,nkpl/fig09/linear-reachability/Esnet.nkpl,0.259398121
+katch,nkpl/fig09/linear-reachability/Eunetworks.nkpl,0.017027514
+katch,nkpl/fig09/linear-reachability/Evolink.nkpl,0.089601459
+katch,nkpl/fig09/linear-reachability/Fatman.nkpl,0.021275675
+katch,nkpl/fig09/linear-reachability/Fccn.nkpl,0.089427023
+katch,nkpl/fig09/linear-reachability/Forthnet.nkpl,0.195905826
+katch,nkpl/fig09/linear-reachability/Funet.nkpl,0.046262727
+katch,nkpl/fig09/linear-reachability/Gambia.nkpl,0.047904317
+katch,nkpl/fig09/linear-reachability/Garr199901.nkpl,0.016877694
+katch,nkpl/fig09/linear-reachability/Garr199904.nkpl,0.028992486
+katch,nkpl/fig09/linear-reachability/Garr199905.nkpl,0.028750188
+katch,nkpl/fig09/linear-reachability/Garr200109.nkpl,0.026470164
+katch,nkpl/fig09/linear-reachability/Garr200112.nkpl,0.030789731
+katch,nkpl/fig09/linear-reachability/Garr200212.nkpl,0.039629325
+katch,nkpl/fig09/linear-reachability/Garr200404.nkpl,0.02687217
+katch,nkpl/fig09/linear-reachability/Garr200902.nkpl,0.161530702
+katch,nkpl/fig09/linear-reachability/Garr200908.nkpl,0.16480665
+katch,nkpl/fig09/linear-reachability/Garr200909.nkpl,0.172727494
+katch,nkpl/fig09/linear-reachability/Garr200912.nkpl,0.13300413
+katch,nkpl/fig09/linear-reachability/Garr201001.nkpl,0.135813745
+katch,nkpl/fig09/linear-reachability/Garr201003.nkpl,0.128735752
+katch,nkpl/fig09/linear-reachability/Garr201004.nkpl,0.127752787
+katch,nkpl/fig09/linear-reachability/Garr201005.nkpl,0.157973218
+katch,nkpl/fig09/linear-reachability/Garr201007.nkpl,0.129723384
+katch,nkpl/fig09/linear-reachability/Garr201008.nkpl,0.1336821
+katch,nkpl/fig09/linear-reachability/Garr201010.nkpl,0.13530075
+katch,nkpl/fig09/linear-reachability/Garr201012.nkpl,0.131485347
+katch,nkpl/fig09/linear-reachability/Garr201101.nkpl,0.142704063
+katch,nkpl/fig09/linear-reachability/Garr201102.nkpl,0.196232365
+katch,nkpl/fig09/linear-reachability/Garr201103.nkpl,0.234994739
+katch,nkpl/fig09/linear-reachability/Garr201104.nkpl,0.241409785
+katch,nkpl/fig09/linear-reachability/Garr201105.nkpl,0.242232183
+katch,nkpl/fig09/linear-reachability/Garr201107.nkpl,0.246507848
+katch,nkpl/fig09/linear-reachability/Garr201108.nkpl,0.24351131
+katch,nkpl/fig09/linear-reachability/Garr201109.nkpl,0.243753239
+katch,nkpl/fig09/linear-reachability/Garr201110.nkpl,0.240916982
+katch,nkpl/fig09/linear-reachability/Garr201111.nkpl,0.245805097
+katch,nkpl/fig09/linear-reachability/Garr201112.nkpl,0.258997803
+katch,nkpl/fig09/linear-reachability/Garr201201.nkpl,0.266346391
+katch,nkpl/fig09/linear-reachability/Gblnet.nkpl,0.00862235
+katch,nkpl/fig09/linear-reachability/Geant2001.nkpl,0.061321652
+katch,nkpl/fig09/linear-reachability/Geant2009.nkpl,0.09389792
+katch,nkpl/fig09/linear-reachability/Geant2010.nkpl,0.107799415
+katch,nkpl/fig09/linear-reachability/Geant2012.nkpl,0.126341561
+katch,nkpl/fig09/linear-reachability/Getnet.nkpl,0.007304092
+katch,nkpl/fig09/linear-reachability/Globalcenter.nkpl,0.012339329
+katch,nkpl/fig09/linear-reachability/Globenet.nkpl,0.375293605
+katch,nkpl/fig09/linear-reachability/Goodnet.nkpl,0.023153998
+katch,nkpl/fig09/linear-reachability/Grena.nkpl,0.016182693
+katch,nkpl/fig09/linear-reachability/Gridnet.nkpl,0.008578171
+katch,nkpl/fig09/linear-reachability/Grnet.nkpl,0.078406311
+katch,nkpl/fig09/linear-reachability/GtsCe.nkpl,1.432906789
+katch,nkpl/fig09/linear-reachability/GtsCzechRepublic.nkpl,0.093887292
+katch,nkpl/fig09/linear-reachability/GtsHungary.nkpl,0.093160673
+katch,nkpl/fig09/linear-reachability/GtsPoland.nkpl,0.066628688
+katch,nkpl/fig09/linear-reachability/GtsRomania.nkpl,0.027947282
+katch,nkpl/fig09/linear-reachability/GtsSlovakia.nkpl,0.068482517
+katch,nkpl/fig09/linear-reachability/Harnet.nkpl,0.025844024
+katch,nkpl/fig09/linear-reachability/Heanet.nkpl,0.005698138
+katch,nkpl/fig09/linear-reachability/HiberniaCanada.nkpl,0.012100309
+katch,nkpl/fig09/linear-reachability/HiberniaGlobal.nkpl,0.169169964
+katch,nkpl/fig09/linear-reachability/HiberniaIreland.nkpl,0.005877426
+katch,nkpl/fig09/linear-reachability/HiberniaNireland.nkpl,0.022047502
+katch,nkpl/fig09/linear-reachability/HiberniaUk.nkpl,0.016409346
+katch,nkpl/fig09/linear-reachability/HiberniaUs.nkpl,0.030533243
+katch,nkpl/fig09/linear-reachability/Highwinds.nkpl,0.027349084
+katch,nkpl/fig09/linear-reachability/HostwayInternational.nkpl,0.017590931
+katch,nkpl/fig09/linear-reachability/HurricaneElectric.nkpl,0.034364513
+katch,nkpl/fig09/linear-reachability/Ibm.nkpl,0.021128684
+katch,nkpl/fig09/linear-reachability/Iij.nkpl,0.100023758
+katch,nkpl/fig09/linear-reachability/Iinet.nkpl,0.053607297
+katch,nkpl/fig09/linear-reachability/Ilan.nkpl,0.012892736
+katch,nkpl/fig09/linear-reachability/Integra.nkpl,0.043859528
+katch,nkpl/fig09/linear-reachability/Intellifiber.nkpl,0.309099154
+katch,nkpl/fig09/linear-reachability/Internetmci.nkpl,0.029735834
+katch,nkpl/fig09/linear-reachability/Internode.nkpl,0.210953616
+katch,nkpl/fig09/linear-reachability/Interoute.nkpl,0.678869743
+katch,nkpl/fig09/linear-reachability/Intranetwork.nkpl,0.085226259
+katch,nkpl/fig09/linear-reachability/Ion.nkpl,0.762734438
+katch,nkpl/fig09/linear-reachability/IowaStatewideFiberMap.nkpl,0.049997243
+katch,nkpl/fig09/linear-reachability/Iris.nkpl,0.115285603
+katch,nkpl/fig09/linear-reachability/Istar.nkpl,0.025136485
+katch,nkpl/fig09/linear-reachability/Itnet.nkpl,0.007651897
+katch,nkpl/fig09/linear-reachability/JanetExternal.nkpl,0.008092366
+katch,nkpl/fig09/linear-reachability/Janetbackbone.nkpl,0.053393315
+katch,nkpl/fig09/linear-reachability/Janetlense.nkpl,0.033654206
+katch,nkpl/fig09/linear-reachability/Jgn2Plus.nkpl,0.01744366
+katch,nkpl/fig09/linear-reachability/Karen.nkpl,0.029122899
+katch,nkpl/fig09/linear-reachability/Kdl.nkpl,65.965852069
+katch,nkpl/fig09/linear-reachability/KentmanApr2007.nkpl,0.026430908
+katch,nkpl/fig09/linear-reachability/KentmanAug2005.nkpl,0.037415763
+katch,nkpl/fig09/linear-reachability/KentmanFeb2008.nkpl,0.035526842
+katch,nkpl/fig09/linear-reachability/KentmanJan2011.nkpl,0.067329144
+katch,nkpl/fig09/linear-reachability/KentmanJul2005.nkpl,0.013969458
+katch,nkpl/fig09/linear-reachability/Kreonet.nkpl,0.010185042
+katch,nkpl/fig09/linear-reachability/LambdaNet.nkpl,0.091991323
+katch,nkpl/fig09/linear-reachability/Latnet.nkpl,0.23675909
+katch,nkpl/fig09/linear-reachability/Layer42.nkpl,0.003654073
+katch,nkpl/fig09/linear-reachability/Litnet.nkpl,0.075676022
+katch,nkpl/fig09/linear-reachability/Marnet.nkpl,0.024118523
+katch,nkpl/fig09/linear-reachability/Marwan.nkpl,0.014423388
+katch,nkpl/fig09/linear-reachability/Missouri.nkpl,0.217355039
+katch,nkpl/fig09/linear-reachability/Mren.nkpl,0.003819572
+katch,nkpl/fig09/linear-reachability/Myren.nkpl,0.063472939
+katch,nkpl/fig09/linear-reachability/Napnet.nkpl,0.003635551
+katch,nkpl/fig09/linear-reachability/Navigata.nkpl,0.01169815
+katch,nkpl/fig09/linear-reachability/Netrail.nkpl,0.004583322
+katch,nkpl/fig09/linear-reachability/NetworkUsa.nkpl,0.065475025
+katch,nkpl/fig09/linear-reachability/Nextgen.nkpl,0.016250168
+katch,nkpl/fig09/linear-reachability/Niif.nkpl,0.066194267
+katch,nkpl/fig09/linear-reachability/Noel.nkpl,0.0213853
+katch,nkpl/fig09/linear-reachability/Nordu1989.nkpl,0.003968359
+katch,nkpl/fig09/linear-reachability/Nordu1997.nkpl,0.01230361
+katch,nkpl/fig09/linear-reachability/Nordu2005.nkpl,0.006181659
+katch,nkpl/fig09/linear-reachability/Nordu2010.nkpl,0.01379755
+katch,nkpl/fig09/linear-reachability/Nsfcnet.nkpl,0.006649503
+katch,nkpl/fig09/linear-reachability/Nsfnet.nkpl,0.015625547
+katch,nkpl/fig09/linear-reachability/Ntelos.nkpl,0.11263157
+katch,nkpl/fig09/linear-reachability/Ntt.nkpl,0.103154931
+katch,nkpl/fig09/linear-reachability/Oteglobe.nkpl,0.329958153
+katch,nkpl/fig09/linear-reachability/Oxford.nkpl,0.021738314
+katch,nkpl/fig09/linear-reachability/Pacificwave.nkpl,0.018718248
+katch,nkpl/fig09/linear-reachability/Packetexchange.nkpl,0.024140461
+katch,nkpl/fig09/linear-reachability/Padi.nkpl,0.004135232
+katch,nkpl/fig09/linear-reachability/Palmetto.nkpl,0.105332771
+katch,nkpl/fig09/linear-reachability/Peer1.nkpl,0.015169325
+katch,nkpl/fig09/linear-reachability/Pern.nkpl,0.673299742
+katch,nkpl/fig09/linear-reachability/PionierL1.nkpl,0.065881285
+katch,nkpl/fig09/linear-reachability/PionierL3.nkpl,0.078786866
+katch,nkpl/fig09/linear-reachability/Psinet.nkpl,0.030773893
+katch,nkpl/fig09/linear-reachability/Quest.nkpl,0.024567027
+katch,nkpl/fig09/linear-reachability/RedBestel.nkpl,0.35766241
+katch,nkpl/fig09/linear-reachability/Rediris.nkpl,0.025012166
+katch,nkpl/fig09/linear-reachability/Renam.nkpl,0.002719905
+katch,nkpl/fig09/linear-reachability/Renater1999.nkpl,0.028121588
+katch,nkpl/fig09/linear-reachability/Renater2001.nkpl,0.029552601
+katch,nkpl/fig09/linear-reachability/Renater2004.nkpl,0.055064182
+katch,nkpl/fig09/linear-reachability/Renater2006.nkpl,0.058869085
+katch,nkpl/fig09/linear-reachability/Renater2008.nkpl,0.057312068
+katch,nkpl/fig09/linear-reachability/Renater2010.nkpl,0.093221447
+katch,nkpl/fig09/linear-reachability/Restena.nkpl,0.020135842
+katch,nkpl/fig09/linear-reachability/Reuna.nkpl,0.075147688
+katch,nkpl/fig09/linear-reachability/Rhnet.nkpl,0.017547418
+katch,nkpl/fig09/linear-reachability/Rnp.nkpl,0.053505855
+katch,nkpl/fig09/linear-reachability/Roedunet.nkpl,0.092108098
+katch,nkpl/fig09/linear-reachability/RoedunetFibre.nkpl,0.126614195
+katch,nkpl/fig09/linear-reachability/Sago.nkpl,0.021149128
+katch,nkpl/fig09/linear-reachability/Sanet.nkpl,0.104702154
+katch,nkpl/fig09/linear-reachability/Sanren.nkpl,0.00489695
+katch,nkpl/fig09/linear-reachability/Savvis.nkpl,0.024176915
+katch,nkpl/fig09/linear-reachability/Shentel.nkpl,0.047621394
+katch,nkpl/fig09/linear-reachability/Sinet.nkpl,0.266827452
+katch,nkpl/fig09/linear-reachability/Singaren.nkpl,0.008894204
+katch,nkpl/fig09/linear-reachability/Spiralight.nkpl,0.016266562
+katch,nkpl/fig09/linear-reachability/Sprint.nkpl,0.014483088
+katch,nkpl/fig09/linear-reachability/Sunet.nkpl,0.044479255
+katch,nkpl/fig09/linear-reachability/Surfnet.nkpl,0.147864501
+katch,nkpl/fig09/linear-reachability/Switch.nkpl,0.302167833
+katch,nkpl/fig09/linear-reachability/SwitchL3.nkpl,0.105532431
+katch,nkpl/fig09/linear-reachability/Syringa.nkpl,0.352538845
+katch,nkpl/fig09/linear-reachability/TLex.nkpl,0.011388483
+katch,nkpl/fig09/linear-reachability/TataNld.nkpl,1.768736162
+katch,nkpl/fig09/linear-reachability/Telcove.nkpl,0.216520188
+katch,nkpl/fig09/linear-reachability/Telecomserbia.nkpl,0.003836507
+katch,nkpl/fig09/linear-reachability/Tinet.nkpl,0.149872525
+katch,nkpl/fig09/linear-reachability/Tw.nkpl,0.24966498
+katch,nkpl/fig09/linear-reachability/Twaren.nkpl,0.018668455
+katch,nkpl/fig09/linear-reachability/Ulaknet.nkpl,0.407088924
+katch,nkpl/fig09/linear-reachability/UniC.nkpl,0.031596383
+katch,nkpl/fig09/linear-reachability/Uninet.nkpl,0.011693209
+katch,nkpl/fig09/linear-reachability/Uninett2010.nkpl,0.248084261
+katch,nkpl/fig09/linear-reachability/Uninett2011.nkpl,0.230238854
+katch,nkpl/fig09/linear-reachability/Uran.nkpl,0.027432096
+katch,nkpl/fig09/linear-reachability/UsCarrier.nkpl,1.308254543
+katch,nkpl/fig09/linear-reachability/UsSignal.nkpl,0.182592853
+katch,nkpl/fig09/linear-reachability/Uunet.nkpl,0.136293747
+katch,nkpl/fig09/linear-reachability/Vinaren.nkpl,0.029249383
+katch,nkpl/fig09/linear-reachability/VisionNet.nkpl,0.028440957
+katch,nkpl/fig09/linear-reachability/VtlWavenet2008.nkpl,0.502003863
+katch,nkpl/fig09/linear-reachability/VtlWavenet2011.nkpl,0.558126273
+katch,nkpl/fig09/linear-reachability/WideJpn.nkpl,0.042229763
+katch,nkpl/fig09/linear-reachability/Xeex.nkpl,0.037912167
+katch,nkpl/fig09/linear-reachability/Xspedius.nkpl,0.062631491
+katch,nkpl/fig09/linear-reachability/York.nkpl,0.037054786
+katch,nkpl/fig09/linear-reachability/Zamren.nkpl,0.055044087
+katch,nkpl/fig10/Airtel_reachability.nkpl,0.011067615
+katch,nkpl/fig10/Airtel_slicing.nkpl,0.025323761
+katch,nkpl/fig10/Airtel_unreachability.nkpl,0.011414401
+katch,nkpl/fig10/Arpa_reachability.nkpl,0.018119831
+katch,nkpl/fig10/Arpa_slicing.nkpl,0.05298145
+katch,nkpl/fig10/Arpa_unreachability.nkpl,0.019257548
+katch,nkpl/fig10/Belnet_reachability.nkpl,0.017335902
+katch,nkpl/fig10/Belnet_slicing.nkpl,0.040953826
+katch,nkpl/fig10/Belnet_unreachability.nkpl,0.017533181
+katch,nkpl/fig10/Cogentco-slicing.nkpl,1.760444874
+katch,nkpl/fig10/Cogentco_reachability.nkpl,0.698781424
+katch,nkpl/fig10/Cogentco_unreachability.nkpl,0.56117861
+katch,nkpl/fig10/Compuserv_reachability.nkpl,0.005469487
+katch,nkpl/fig10/Compuserv_slicing.nkpl,0.009906181
+katch,nkpl/fig10/Compuserv_unreachability.nkpl,0.004898936
+katch,nkpl/fig10/Deltacom_reachability.nkpl,0.171814409
+katch,nkpl/fig10/Deltacom_slicing.nkpl,0.423949837
+katch,nkpl/fig10/Deltacom_unreachability.nkpl,0.175062127
+katch,nkpl/fig10/Layer42_reachability.nkpl,0.002144348
+katch,nkpl/fig10/Layer42_slicing.nkpl,0.004234603
+katch,nkpl/fig10/Layer42_unreachability.nkpl,0.002341604
+katch,nkpl/fig10/Missouri_reachability.nkpl,0.073073813
+katch,nkpl/fig10/Missouri_slicing.nkpl,0.194310153
+katch,nkpl/fig10/Missouri_unreachability.nkpl,0.07453353
+katch,nkpl/fig10/Sanet_reachability.nkpl,0.03156285
+katch,nkpl/fig10/Sanet_slicing.nkpl,0.080314951
+katch,nkpl/fig10/Sanet_unreachability.nkpl,0.031379104
+katch,nkpl/fig10/Shentel_reachability.nkpl,0.015898774
+katch,nkpl/fig10/Shentel_slicing.nkpl,0.038190101
+katch,nkpl/fig10/Shentel_unreachability.nkpl,0.016249878
+katch,nkpl/fig10/Telcove_reachability.nkpl,0.085030978
+katch,nkpl/fig10/Telcove_slicing.nkpl,0.264562439
+katch,nkpl/fig10/Telcove_unreachability.nkpl,0.103313983
+katch,nkpl/fig10/Uunet_reachability.nkpl,0.061071602
+katch,nkpl/fig10/Uunet_slicing.nkpl,0.14994185
+katch,nkpl/fig10/Uunet_unreachability.nkpl,0.055091369
+frenetic,nkpl/fig10/Airtel_reachability.nkpl,0.83
+frenetic,nkpl/fig10/Airtel_slicing.nkpl,2.00
+frenetic,nkpl/fig10/Airtel_unreachability.nkpl,0.85
+frenetic,nkpl/fig10/Arpa_reachability.nkpl,4.37
+frenetic,nkpl/fig10/Arpa_slicing.nkpl,10.70
+frenetic,nkpl/fig10/Arpa_unreachability.nkpl,4.23
+frenetic,nkpl/fig10/Belnet_reachability.nkpl,3.10
+frenetic,nkpl/fig10/Belnet_slicing.nkpl,8.28
+frenetic,nkpl/fig10/Belnet_unreachability.nkpl,3.14
+frenetic,nkpl/fig10/Cogentco-slicing.nkpl,53104.11
+frenetic,nkpl/fig10/Cogentco_reachability.nkpl,18830.44
+frenetic,nkpl/fig10/Cogentco_unreachability.nkpl,19884.00
+frenetic,nkpl/fig10/Compuserv_reachability.nkpl,0.36
+frenetic,nkpl/fig10/Compuserv_slicing.nkpl,0.82
+frenetic,nkpl/fig10/Compuserv_unreachability.nkpl,0.36
+frenetic,nkpl/fig10/Deltacom_reachability.nkpl,2181.20
+frenetic,nkpl/fig10/Deltacom_slicing.nkpl,5125.57
+frenetic,nkpl/fig10/Deltacom_unreachability.nkpl,1976.94
+frenetic,nkpl/fig10/Layer42_reachability.nkpl,0.05
+frenetic,nkpl/fig10/Layer42_slicing.nkpl,0.07
+frenetic,nkpl/fig10/Layer42_unreachability.nkpl,0.05
+frenetic,nkpl/fig10/Missouri_reachability.nkpl,166.85
+frenetic,nkpl/fig10/Missouri_slicing.nkpl,415.77
+frenetic,nkpl/fig10/Missouri_unreachability.nkpl,161.69
+frenetic,nkpl/fig10/Sanet_reachability.nkpl,24.10
+frenetic,nkpl/fig10/Sanet_slicing.nkpl,61.91
+frenetic,nkpl/fig10/Sanet_unreachability.nkpl,24.72
+frenetic,nkpl/fig10/Shentel_reachability.nkpl,3.97
+frenetic,nkpl/fig10/Shentel_slicing.nkpl,9.66
+frenetic,nkpl/fig10/Shentel_unreachability.nkpl,4.00
+frenetic,nkpl/fig10/Telcove_reachability.nkpl,439.36
+frenetic,nkpl/fig10/Telcove_slicing.nkpl,1109.08
+frenetic,nkpl/fig10/Telcove_unreachability.nkpl,440.14
+frenetic,nkpl/fig10/Uunet_reachability.nkpl,80.95
+frenetic,nkpl/fig10/Uunet_slicing.nkpl,203.51
+frenetic,nkpl/fig10/Uunet_unreachability.nkpl,80.46
+katch,nkpl/fig11/flip-first11/flip01.nkpl,0.002776327
+katch,nkpl/fig11/flip-first11/flip02.nkpl,0.003907118
+katch,nkpl/fig11/flip-first11/flip03.nkpl,0.003525895
+katch,nkpl/fig11/flip-first11/flip04.nkpl,0.004073285
+katch,nkpl/fig11/flip-first11/flip05.nkpl,0.005899725
+katch,nkpl/fig11/flip-first11/flip06.nkpl,0.005785401
+katch,nkpl/fig11/flip-first11/flip07.nkpl,0.005679439
+katch,nkpl/fig11/flip-first11/flip08.nkpl,0.006394181
+katch,nkpl/fig11/flip-first11/flip09.nkpl,0.006729601
+katch,nkpl/fig11/flip-first11/flip10.nkpl,0.008280328
+katch,nkpl/fig11/flip-first11/flip11.nkpl,0.011620533
+frenetic,nkpl/fig11/flip-first11/flip01.nkpl,0.05
+frenetic,nkpl/fig11/flip-first11/flip02.nkpl,0.03
+frenetic,nkpl/fig11/flip-first11/flip03.nkpl,0.03
+frenetic,nkpl/fig11/flip-first11/flip04.nkpl,0.04
+frenetic,nkpl/fig11/flip-first11/flip05.nkpl,0.05
+frenetic,nkpl/fig11/flip-first11/flip06.nkpl,0.14
+frenetic,nkpl/fig11/flip-first11/flip07.nkpl,0.37
+frenetic,nkpl/fig11/flip-first11/flip08.nkpl,1.71
+frenetic,nkpl/fig11/flip-first11/flip09.nkpl,6.56
+frenetic,nkpl/fig11/flip-first11/flip10.nkpl,26.27
+frenetic,nkpl/fig11/flip-first11/flip11.nkpl,85.15
+katch,nkpl/fig11/inc-first10/inc01.nkpl,0.00267728
+katch,nkpl/fig11/inc-first10/inc02.nkpl,0.003296796
+katch,nkpl/fig11/inc-first10/inc03.nkpl,0.004292339
+katch,nkpl/fig11/inc-first10/inc04.nkpl,0.005739856
+katch,nkpl/fig11/inc-first10/inc05.nkpl,0.007346933
+katch,nkpl/fig11/inc-first10/inc06.nkpl,0.009030581
+katch,nkpl/fig11/inc-first10/inc07.nkpl,0.010392351
+katch,nkpl/fig11/inc-first10/inc08.nkpl,0.012268279
+katch,nkpl/fig11/inc-first10/inc09.nkpl,0.014227173
+katch,nkpl/fig11/inc-first10/inc10.nkpl,0.016255705
+frenetic,nkpl/fig11/inc-first10/inc01.nkpl,0.06
+frenetic,nkpl/fig11/inc-first10/inc02.nkpl,0.04
+frenetic,nkpl/fig11/inc-first10/inc03.nkpl,0.03
+frenetic,nkpl/fig11/inc-first10/inc04.nkpl,0.04
+frenetic,nkpl/fig11/inc-first10/inc05.nkpl,0.06
+frenetic,nkpl/fig11/inc-first10/inc06.nkpl,0.20
+frenetic,nkpl/fig11/inc-first10/inc07.nkpl,0.99
+frenetic,nkpl/fig11/inc-first10/inc08.nkpl,7.53
+frenetic,nkpl/fig11/inc-first10/inc09.nkpl,67.77
+frenetic,nkpl/fig11/inc-first10/inc10.nkpl,563.47
+katch,nkpl/fig11/nondet-first15/nondet01.nkpl,0.003163269
+katch,nkpl/fig11/nondet-first15/nondet02.nkpl,0.002883322
+katch,nkpl/fig11/nondet-first15/nondet03.nkpl,0.003105486
+katch,nkpl/fig11/nondet-first15/nondet04.nkpl,0.003629158
+katch,nkpl/fig11/nondet-first15/nondet05.nkpl,0.004578046
+katch,nkpl/fig11/nondet-first15/nondet06.nkpl,0.004614412
+katch,nkpl/fig11/nondet-first15/nondet07.nkpl,0.004813995
+katch,nkpl/fig11/nondet-first15/nondet08.nkpl,0.005725669
+katch,nkpl/fig11/nondet-first15/nondet09.nkpl,0.007974846
+katch,nkpl/fig11/nondet-first15/nondet10.nkpl,0.006151932
+katch,nkpl/fig11/nondet-first15/nondet11.nkpl,0.006832643
+katch,nkpl/fig11/nondet-first15/nondet12.nkpl,0.007598893
+katch,nkpl/fig11/nondet-first15/nondet13.nkpl,0.008716088
+katch,nkpl/fig11/nondet-first15/nondet14.nkpl,0.010391113
+katch,nkpl/fig11/nondet-first15/nondet15.nkpl,0.011825718
+frenetic,nkpl/fig11/nondet-first15/nondet01.nkpl,0.05
+frenetic,nkpl/fig11/nondet-first15/nondet02.nkpl,0.03
+frenetic,nkpl/fig11/nondet-first15/nondet03.nkpl,0.05
+frenetic,nkpl/fig11/nondet-first15/nondet04.nkpl,0.07
+frenetic,nkpl/fig11/nondet-first15/nondet05.nkpl,0.16
+frenetic,nkpl/fig11/nondet-first15/nondet06.nkpl,0.36
+frenetic,nkpl/fig11/nondet-first15/nondet07.nkpl,0.83
+frenetic,nkpl/fig11/nondet-first15/nondet08.nkpl,1.72
+frenetic,nkpl/fig11/nondet-first15/nondet09.nkpl,3.25
+frenetic,nkpl/fig11/nondet-first15/nondet10.nkpl,5.88
+frenetic,nkpl/fig11/nondet-first15/nondet11.nkpl,9.71
+frenetic,nkpl/fig11/nondet-first15/nondet12.nkpl,15.94
+frenetic,nkpl/fig11/nondet-first15/nondet13.nkpl,24.50
+frenetic,nkpl/fig11/nondet-first15/nondet14.nkpl,37.67
+frenetic,nkpl/fig11/nondet-first15/nondet15.nkpl,54.66
