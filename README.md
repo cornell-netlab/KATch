@@ -27,6 +27,7 @@ This artifact is organised as follows:
   - `benchmarks`: All NKPL benchmarks used in the paper
   - `misc`: Miscellaneous NKPL files
 - `benchresults`: Results of the benchmarks
+- `scripts`: Various scripts to aid in running KATch and comparing to Frenetic
 
 ## Running KATch
 
@@ -64,3 +65,11 @@ To evaluate this artifact, you can follow these steps:
 3. Run the tests: Run the tests in the `nkpl/tests` directory to verify the correctness of KATch. You can use the `./katch run` command to run the tests.
 4. Run the benchmarks: Run the benchmarks in the `nkpl/benchmarks` directory to evaluate the performance of KATch. You can use the `./katch run` command to run the benchmarks.
 5. Analyse the results: Analyse the results of the benchmarks in the `benchresults` directory to evaluate the performance of KATch.
+
+## Reproduce Experiments from the Paper
+
+We have provided several additional scripts to run all of the experiments in the paper and generate the associated graphs. The esitimates for running time are on a machine running Ubuntu 22.04 with a 2.1GHz Xeon Silver 4216 CPU and 500G RAM. The scripts are:
+
+- `scripts/paper-exper.sh`: Runs all of the experiments from the paper and generates Figure 9, Figure 10, and Figure 11. This takes between 1-2 days.
+- `scripts/abridged.sh`: Runs all of the experiments from the paper, *except* the Cogentco benchmarks from Figure 11, and a 1 minute timeout is used for Figure 9. This takes 10 hours.
+- `scripts/katch-only.sh`: Runs all of the experiments from the paper with no timeouts, but only runs KATch (not Frenetic). This takes 1.5 hours.
