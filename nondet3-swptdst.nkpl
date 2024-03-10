@@ -1,5 +1,0 @@
-swE = @sw←0 ∪ @sw←1 ∪ @sw←2 ∪ @sw←3
-ptE = @pt←0 ∪ @pt←1 ∪ @pt←2 ∪ @pt←3
-dstE = @dst←0 ∪ @dst←1 ∪ @dst←2 ∪ @dst←3
-all = swE ⋅ ptE ⋅ dstE
-check all ⋅ all ≡ all
