@@ -718,4 +718,33 @@ object SPP {
   def equivAt(sp: SP, x: SPP, y: SPP): Boolean =
     // logSPP(s"equivAt($sp, $x, $y)")
     equiv(seqSP(sp, x), seqSP(sp, y))
+
+  lazy val toSP: SPP => Option[SP] = memoize { spp => toSPprim(spp) }
+  def toSPprim(spp: SPP): Option[SP] =
+    spp match {
+      case False => Some(SP.False)
+      case Diag => Some(SP.True)
+      case TestMut(x, branches, other, id) =>
+        var failed = false
+        // convert id
+        val id2 = toSP(id) match {
+          case None => { failed = true; SP.False }
+          case Some(sp) => sp
+        }
+        if !other.isEmpty then failed = true
+        // convert branches
+        val branches2 = branches
+          .map { (v, muts) =>
+            if muts.size == 1 && muts.contains(v) then
+              toSP(muts(v)) match {
+                case None => { failed = true; (v, SP.False) }
+                case Some(sp) => (v, sp)
+              }
+            else if muts.size == 0 then (v, SP.False)
+            else { failed = true; (v, SP.False) }
+          }
+          .to(HashMap)
+        if failed then None
+        else Some(SP.Test(x, branches2, id2))
+    }
 }

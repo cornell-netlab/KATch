@@ -131,6 +131,12 @@ object GV {
       GV.vizSPP(spp)
       GV.save(s"$path/transition${name}")
       GV.reset()
+      SPP.toSP(spp) match
+        case Some(sp) =>
+          GV.vizSP(sp)
+          GV.save(s"$path/transition${name}_SP")
+          GV.reset()
+        case None => ()
 
   def output() =
     val text = s"""

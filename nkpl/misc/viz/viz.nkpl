@@ -1,26 +1,26 @@
 fig3i = @a=3⋅@b=4 + @b≠5⋅@c=5
-graphviz "fig3i" fig3i
+graphviz "out/fig3i" fig3i
 
 fig3ii = @b=3⋅@c=4 + @a=5⋅@c≠5
-graphviz "fig3ii" fig3ii
+graphviz "out/fig3ii" fig3ii
 
 fig3iii = fig3i + fig3ii
-graphviz "fig3iii" fig3iii
+graphviz "out/fig3iii" fig3iii
 
 fig4i = (@a=5 + @b=2) ⋅ (@b←1 + @c=5)
-graphviz "fig4i" fig4i
+graphviz "out/fig4i" fig4i
 
 fig4ii = @b=1 + @c←4 + @a←1 ⋅ @b←1
-graphviz "fig4ii" fig4ii
+graphviz "out/fig4ii" fig4ii
 
 fig4iii = fig4i ⋅ fig4ii
-graphviz "fig4iii" fig4iii
+graphviz "out/fig4iii" fig4iii
 
 fig5i = fig4i ⊕ fig4ii
-graphviz "fig5i" fig5i
+graphviz "out/fig5i" fig5i
 
 fig5ii = fig5i⋆
-graphviz "fig5ii" fig5ii
+graphviz "out/fig5ii" fig5ii
 
 fig6 = (((@a←1 ⋅ @b←2 ⋅ @c←3 ⋅ δ)⋆) + ((@b=2 ⋅ @c=3 ⋅ δ)⋆))⋆
-graphviz "fig6" fig6
+graphviz "out/fig6" fig6
