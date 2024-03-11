@@ -82,6 +82,6 @@ This artifact is organised as follows:
   - `fig10`: Benchmarks for Figure 10
   - `fig10-less-cogentco`: Benchmarks for Figure 10, excluding Cogentco (the largest benchmark)
   - `fig11`: Benchmarks for Figure 11
-- `results`: Results of the benchmarks
+- `results`: Results of the benchmarks and graphviz visualisations
 - `scripts`: Various scripts to aid in running KATch and comparing to Frenetic
 - `Dockerfile`: The Dockerfile can be used to build the Docker image for KATch
