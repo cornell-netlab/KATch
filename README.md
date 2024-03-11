@@ -44,7 +44,7 @@ Run the tests in the `nkpl/tests` directory to verify the correctness of KATch. 
 
 ### 4. Reproduce Benchmarks from the Paper
 
-We have provided several additional scripts to run all of the experiments in the paper and generate the associated graphs. The estimates for running time are on a machine running Ubuntu 22.04 with a 2.1GHz Xeon Silver 4216 CPU and 500G RAM. The scripts are:
+We have provided several additional scripts to run all of the experiments in the paper and generate the associated graphs, including comparisons with [Frenetic](https://github.com/frenetic-lang/frenetic). The estimates for running time are on a machine running Ubuntu 22.04 with a 2.1GHz Xeon Silver 4216 CPU and 500G RAM. The scripts are:
 
 - `scripts/paper-exper.sh`: Runs all of the experiments from the paper and generates Figure 9, Figure 10, and Figure 11. This takes between 1-2 days.
 - `scripts/abridged.sh`: Runs all of the experiments from the paper, *except* the Cogentco benchmarks from Figure 11, and a 1 minute timeout is used for Figure 9. This takes 10 hours.
