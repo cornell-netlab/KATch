@@ -78,8 +78,10 @@ This artifact is organised as follows:
 - `nkpl`: NKPL files
   - `tutorial.nkpl`: Tutorial for NKPL
   - `tests`: Test cases for NKPL
-  - `benchmarks`: All NKPL benchmarks used in the paper
-  - `misc`: Miscellaneous NKPL files
+  - `fig09`: Benchmarks for Figure 9
+  - `fig10`: Benchmarks for Figure 10
+  - `fig10-less-cogentco`: Benchmarks for Figure 10, excluding Cogentco (the largest benchmark)
+  - `fig11`: Benchmarks for Figure 11
 - `benchresults`: Results of the benchmarks
 - `scripts`: Various scripts to aid in running KATch and comparing to Frenetic
 - `Dockerfile`: The Dockerfile can be used to build the Docker image for KATch
