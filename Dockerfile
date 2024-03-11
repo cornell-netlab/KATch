@@ -20,6 +20,7 @@ COPY nkpl/fig10 nkpl/fig10
 COPY nkpl/fig11 nkpl/fig11
 COPY nkpl/fig10-less-cogentco nkpl/fig10-less-cogentco
 COPY nkpl/networks nkpl/networks
+COPY nkpl/tests nkpl/tests
 COPY scripts scripts
 COPY src src
 COPY project project
