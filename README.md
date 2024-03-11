@@ -23,7 +23,7 @@ You can install and run KATch using Docker:
 1. Install [Docker](https://www.docker.com/get-started/).
 2. Run `docker run -it julesjacobs/katch:latest -v ./results:/katch/results` on your command line. You are now inside the KATch Docker image.
 3. Run `./katch run nkpl/tutorial.nkpl` to run KATch on the tutorial NKPL file.
-4. You can view the resulting graphviz visualisation and running time in your local `results` directory.
+4. You can view the resulting graphviz visualisation and running time in your local `results` directory, which was bound to the `/katch/results` directory in the Docker image in step 2.
 
 ## Evaluation instructions
 
