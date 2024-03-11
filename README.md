@@ -72,9 +72,9 @@ This artifact is organised as follows:
   - `SPP.scala`: Implementation of the symbolic policy representation
   - `Bisim.scala`: Implementation of the bisimulation algorithm
   - `Options.scala`: Configuration options for KATch
+  - `Viz.scala`: Implementation of the visualisation tool for NetKAT policies
   - `BenchGen.worksheet.sc`: Implementation of the benchmark generator
-  - `Fuzzer.worksheet.sc`: Implementation of the fuzzer for NetKAT policies
-  - `Viz.worksheet.sc`: Implementation of the visualisation tool for NetKAT policies
+  - `Fuzzer.worksheet.sc`: Implementation of the fuzzer for SPs and SPPs
 - `nkpl`: NKPL files
   - `tutorial.nkpl`: Tutorial for NKPL
   - `tests`: Test cases for NKPL
