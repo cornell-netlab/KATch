@@ -67,28 +67,28 @@ check (@b←1⋅@b=1)⋆⋆⋅(@e←3⋅@d←5) ≡ @b←1⋆⋆⋅(@d←5⋅@e�
 -- The following outputs the figures in the paper
 
 fig3i = @a=3⋅@b=4 + @b≠5⋅@c=5
-graphviz "out/fig3i" fig3i
+graphviz "../results/fig3i" fig3i
 
 fig3ii = @b=3⋅@c=4 + @a=5⋅@c≠5
-graphviz "out/fig3ii" fig3ii
+graphviz "../results/fig3ii" fig3ii
 
 fig3iii = fig3i + fig3ii
-graphviz "out/fig3iii" fig3iii
+graphviz "../results/fig3iii" fig3iii
 
 fig4i = (@a=5 + @b=2) ⋅ (@b←1 + @c=5)
-graphviz "out/fig4i" fig4i
+graphviz "../results/fig4i" fig4i
 
 fig4ii = @b=1 + @c←4 + @a←1 ⋅ @b←1
-graphviz "out/fig4ii" fig4ii
+graphviz "../results/fig4ii" fig4ii
 
 fig4iii = fig4i ⋅ fig4ii
-graphviz "out/fig4iii" fig4iii
+graphviz "../results/fig4iii" fig4iii
 
 fig5i = fig4i ⊕ fig4ii
-graphviz "out/fig5i" fig5i
+graphviz "../results/fig5i" fig5i
 
 fig5ii = fig5i⋆
-graphviz "out/fig5ii" fig5ii
+graphviz "../results/fig5ii" fig5ii
 
 fig6 = (((@a←1 ⋅ @b←2 ⋅ @c←3 ⋅ δ)⋆) + ((@b=2 ⋅ @c=3 ⋅ δ)⋆))⋆
-graphviz "out/fig6" fig6
+graphviz "../results/fig6" fig6
