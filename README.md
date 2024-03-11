@@ -1,4 +1,4 @@
-# Artifact for "KATch: A Fast Symbolic Verifier for NetKAT"
+# Artifact for "A Fast Symbolic Verifier for NetKAT"
 
 NetKAT is a language for programming and verifying software-defined networks. It is based on Kleene Algebra with Tests (KAT), a formalism for reasoning about programs with loops and conditionals. NetKAT is a high-level language for programming network policies, and it is designed to be amenable to formal verification. In this paper, we present KATch, a fast symbolic verifier for NetKAT. KATch is based on a novel symbolic representation of NetKAT policies, and it is designed to be fast and scalable. We have implemented KATch and evaluated it on a suite of benchmarks. Our results show that KATch is significantly faster than existing tools for verifying NetKAT policies.
 
