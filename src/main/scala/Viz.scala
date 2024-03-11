@@ -40,6 +40,12 @@ object GV {
     // dotted edge
     line(s"""${gensym(a)} -> ${gensym(b)} [arrowsize=0.5, style=dashed, color="$edgeColor"]""")
 
+  var outCounter = 0
+  def outputEdge(a: Any, label: String) =
+    outCounter += 1
+    line(s"invisibleNode$outCounter [style=invis];")
+    line(s"${gensym(a)} -> invisibleNode$outCounter [label=\"$label\", labelangle=-30, fontsize=12, arrowsize=0.5, color=\"$edgeColor\", arrowhead=odot];")
+
   def automatonNode(a: Any, label: String = "", start: Boolean) =
     val color = if !start then "#D4B0E6" else "#FF9999"
     line(s"""${gensym(a)} [label="$label", shape=circle, width=0.3, fixedsize=true, style=filled, fillcolor="$color"]""")
@@ -113,7 +119,7 @@ object GV {
     def iter(e: NK): Unit = {
       if seen.contains(e) then return
       seen += e
-      GV.automatonNode(e, "δ", e == e0)
+      GV.automatonNode(e, gensym(Bisim.ε(e)), e == e0)
       for (e2, spp) <- Bisim.δ(e) do
         iter(e2)
         GV.edgeNK(e, e2, gensym(spp))
