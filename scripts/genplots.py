@@ -6,6 +6,7 @@ import os
 import sys
 
 input_file = 'benchresults/comparison.csv' if len(sys.argv) == 1 else sys.argv[1]
+output_dir = 'results/plots'
 
 def size_fn(path):
     # Count the number of atoms (=, ≠, δ, ←) in the file
@@ -159,7 +160,7 @@ for group in merged_data['group'].unique():
         plt.xlabel("Time (Frenetic)")
         plt.ylabel("Time (KATch)")
         plt.grid(True)
-        plt.savefig(f'plots/{name}.pdf', bbox_inches='tight', format='pdf')
+        plt.savefig(f'{output_dir}/{name}.pdf', bbox_inches='tight', format='pdf')
 
     if group == 'Topology Zoo':
         mk_plot('Fig10a', (3,3))
@@ -201,7 +202,7 @@ for group in merged_data['group'].unique():
         plt.grid(True)
         plt.legend(title='System')
         # plt.savefig(f'plots/{group}_time_vs_size{sizename}.pdf', bbox_inches='tight', format='pdf')
-        plt.savefig(f'plots/{name}.pdf', bbox_inches='tight', format='pdf')
+        plt.savefig(f'{output_dir}/{name}.pdf', bbox_inches='tight', format='pdf')
 
     if group == 'Full reachability':
         mk_plot('Fig09', (10,4))
@@ -249,7 +250,7 @@ def mk_table(group, name):
 
     latex_table = final_table_df.to_latex(index=False, na_rep='n/a', float_format='%.2f')
 
-    with open(f'plots/{name}_table.tex', 'w') as f:
+    with open(f'{output_dir}/{name}_table.tex', 'w') as f:
         f.write(latex_table)
 
 mk_table('Topology Zoo', 'Fig10')

@@ -28,8 +28,8 @@ COPY build.sbt build.sbt
 COPY katch katch
 
 # Make benchresults/benchresults.txt
-RUN mkdir benchresults
-RUN touch benchresults/benchresults.txt
+RUN mkdir results
+RUN touch results/results.txt
 
 # Compile KATch and make a fat jar
 RUN sbt compile
@@ -58,7 +58,7 @@ WORKDIR /katch
 # Install dependencies to generate plots
 RUN apt-get install -y python3-pip
 RUN pip install matplotlib seaborn jinja2
-RUN mkdir plots
+RUN mkdir results/plots
 
 # Put the user in the shell
 # They have to run the image with the -it flag: `docker run -it katch`
