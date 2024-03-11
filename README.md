@@ -4,6 +4,48 @@ NetKAT is a language for programming and verifying software-defined networks. It
 
 We have designed a high-level DSL called NKPL (NetKAT programming language) for NetKAT verification. The expression language is based on the NetKAT language, whereas the statement language contains constructs for defining and verifying properties of NetKAT policies. A tutorial for NKPL is available in the `nkpl/tutorial.nkpl` file.
 
+## Quick start guide
+
+You can install and run KATch using Docker:
+
+1. Install [Docker](https://www.docker.com/get-started/).
+2. Run `docker run -it julesjacobs/katch:latest` on your command line. You are now inside the KATch Docker image.
+
+To run KATch on an NKPL source file, you can use the `./katch run <file>` command, where `<file>` is the path to the NKPL file you want to verify. For example, to run the `tutorial.nkpl` file, you can use the following command:
+
+```
+./katch run nkpl/tutorial.nkpl
+```
+
+This will run KATch on the `tutorial.nkpl` file and print the result to the console.
+
+You can also run an entire directory of NKPL files using the `./katch run <dir>` command, where `<dir>` is the path to the directory containing the NKPL files you want to verify. For example, to run all the benchmarks in the `benchmarks` directory, you can use the following command:
+
+```
+./katch run nkpl/benchmarks
+```
+
+This will run KATch on all the NKPL files in the `benchmarks` directory and print the results to the console.
+KATch will generate files with the results of the benchmarks in the `benchresults` directory.
+
+## Evaluation instructions
+
+To evaluate this artifact, you can follow these steps:
+
+1. Learn about NKPL: Read the `tutorial.nkpl` file to learn about the NKPL language and how to write NKPL programs.
+2. Write your own NKPL programs: Write your own NKPL programs to verify NetKAT policies. You can use the `tutorial.nkpl` file as a starting point.
+3. Run the tests: Run the tests in the `nkpl/tests` directory to verify the correctness of KATch. You can use the `./katch run nkpl/tests` command to run the tests.
+4. Run the benchmarks: Run the benchmarks in the `nkpl/benchmarks` directory to evaluate the performance of KATch. You can use the `./katch run` command to run the benchmarks.
+5. Analyse the results: Analyse the results of the benchmarks in the `benchresults` directory to evaluate the performance of KATch.
+
+## Reproduce Experiments from the Paper
+
+We have provided several additional scripts to run all of the experiments in the paper and generate the associated graphs. The estimates for running time are on a machine running Ubuntu 22.04 with a 2.1GHz Xeon Silver 4216 CPU and 500G RAM. The scripts are:
+
+- `scripts/paper-exper.sh`: Runs all of the experiments from the paper and generates Figure 9, Figure 10, and Figure 11. This takes between 1-2 days.
+- `scripts/abridged.sh`: Runs all of the experiments from the paper, *except* the Cogentco benchmarks from Figure 11, and a 1 minute timeout is used for Figure 9. This takes 10 hours.
+- `scripts/katch-only.sh`: Runs all of the experiments from the paper with no timeouts, but only runs KATch (not Frenetic). This takes 1.5 hours.
+
 
 ## File structure
 
@@ -28,48 +70,4 @@ This artifact is organised as follows:
   - `misc`: Miscellaneous NKPL files
 - `benchresults`: Results of the benchmarks
 - `scripts`: Various scripts to aid in running KATch and comparing to Frenetic
-
-## Running KATch
-
-To run KATch, you can use the `./katch run <file>` command, where `<file>` is the path to the NKPL file you want to verify. For example, to run the `tutorial.nkpl` file, you can use the following command:
-
-```
-./katch run nkpl/tutorial.nkpl
-```
-
-This will run KATch on the `tutorial.nkpl` file and print the result to the console.
-
-You can also run an entire directory of NKPL files using the `./katch run <dir>` command, where `<dir>` is the path to the directory containing the NKPL files you want to verify. For example, to run all the benchmarks in the `benchmarks` directory, you can use the following command:
-
-```
-./katch run nkpl/benchmarks
-```
-
-This will run KATch on all the NKPL files in the `benchmarks` directory and print the results to the console.
-KATch will generate files with the results of the benchmarks in the `benchresults` directory.
-
-## Building KATch
-
-You can use the provided docker image to run KATch, but if you want to build KATch from source, you can follow these steps:
-
-1. Install Scala and SBT: You can install Scala and SBT by following the instructions on the [Scala website](https://www.scala-lang.org/download/)
-2. Build KATch: Run the `sbt assembly` command in the root directory of the artifact to build KATch. This will create a JAR file in the `target/` directory.
-3. Run KATch: You can run KATch using the `java -jar` command, passing the path to the JAR file as an argument. Alternatively, you can use the `./katch` script in the root directory of the artifact to run KATch.
-
-## Evaluation instructions
-
-To evaluate this artifact, you can follow these steps:
-
-1. Learn about NKPL: Read the `tutorial.nkpl` file to learn about the NKPL language and how to write NKPL programs.
-2. Write your own NKPL programs: Write your own NKPL programs to verify NetKAT policies. You can use the `tutorial.nkpl` file as a starting point.
-3. Run the tests: Run the tests in the `nkpl/tests` directory to verify the correctness of KATch. You can use the `./katch run` command to run the tests.
-4. Run the benchmarks: Run the benchmarks in the `nkpl/benchmarks` directory to evaluate the performance of KATch. You can use the `./katch run` command to run the benchmarks.
-5. Analyse the results: Analyse the results of the benchmarks in the `benchresults` directory to evaluate the performance of KATch.
-
-## Reproduce Experiments from the Paper
-
-We have provided several additional scripts to run all of the experiments in the paper and generate the associated graphs. The esitimates for running time are on a machine running Ubuntu 22.04 with a 2.1GHz Xeon Silver 4216 CPU and 500G RAM. The scripts are:
-
-- `scripts/paper-exper.sh`: Runs all of the experiments from the paper and generates Figure 9, Figure 10, and Figure 11. This takes between 1-2 days.
-- `scripts/abridged.sh`: Runs all of the experiments from the paper, *except* the Cogentco benchmarks from Figure 11, and a 1 minute timeout is used for Figure 9. This takes 10 hours.
-- `scripts/katch-only.sh`: Runs all of the experiments from the paper with no timeouts, but only runs KATch (not Frenetic). This takes 1.5 hours.
+- `Dockerfile`: The Dockerfile can be used to build the Docker image for KATch
