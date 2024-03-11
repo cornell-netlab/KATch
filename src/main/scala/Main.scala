@@ -31,8 +31,8 @@ def runFilesAndDirs(dirsAndFiles: List[String]) =
     Options.inputFile = file.toString
     Runner.runTopLevel(file.toString)
   }
-  // Append msg to benchresults.txt
-  val fw = new FileWriter("benchresults/benchresults.txt", true) // true to append
+  // Append msg to results.txt
+  val fw = new FileWriter("results/results.txt", true) // true to append
   fw.write("\n")
   fw.close()
 
@@ -45,8 +45,8 @@ def runFilesAndDirsFrenetic(dirsAndFiles: List[String]) =
   for (file <- nkplFiles) {
     Runner.runTopLevelFrenetic(file.toString)
   }
-  // Append msg to benchresults.txt
-  val fw = new FileWriter("benchresults/benchresults.txt", true) // true to append
+  // Append msg to results.txt
+  val fw = new FileWriter("results/results.txt", true) // true to append
   fw.write("\n")
   fw.close()
 

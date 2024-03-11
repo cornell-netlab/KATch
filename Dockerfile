@@ -27,7 +27,7 @@ COPY project project
 COPY build.sbt build.sbt
 COPY katch katch
 
-# Make benchresults/benchresults.txt
+# Make results/results.txt
 RUN mkdir results
 RUN touch results/results.txt
 

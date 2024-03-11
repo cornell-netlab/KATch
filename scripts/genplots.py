@@ -5,7 +5,7 @@ import re
 import os
 import sys
 
-input_file = 'benchresults/comparison.csv' if len(sys.argv) == 1 else sys.argv[1]
+input_file = 'results/comparison.csv' if len(sys.argv) == 1 else sys.argv[1]
 output_dir = 'results/plots'
 
 def size_fn(path):
@@ -164,7 +164,7 @@ for group in merged_data['group'].unique():
 
     if group == 'Topology Zoo':
         mk_plot('Fig10a', (3,3))
-    
+
 
 print(f'timeout: {timeout_used}')
 

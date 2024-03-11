@@ -166,8 +166,8 @@ object Runner {
     val msg = f"Execution time of $filename: ${duration}%.2f s \n"
     println(msg)
 
-    // Append msg to benchresults.txt
-    var fw = new FileWriter("benchresults/benchresults.txt", true) // true to append
+    // Append msg to results.txt
+    var fw = new FileWriter("results/results.txt", true) // true to append
     try {
       fw.write(msg)
     } finally {
@@ -175,7 +175,7 @@ object Runner {
     }
 
     // Provided we are not in convert-to-kat mode, then
-    // append to benchresults/comparison.csv
+    // append to results/comparison.csv
     // system,file,time
     // katch,foo/bar.nkpl,2.23423
     if !Options.convertToKat then
@@ -209,8 +209,8 @@ object Runner {
     val msg = f"Execution time of Frenetic on $filename: $durationMsg s\n"
     println(msg)
 
-    // Append msg to benchresults.txt
-    var fw = new FileWriter("benchresults/benchresults.txt", true) // true to append
+    // Append msg to results.txt
+    var fw = new FileWriter("results/results.txt", true) // true to append
     try {
       fw.write(msg)
     } finally {

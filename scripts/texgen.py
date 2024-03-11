@@ -3,9 +3,9 @@ import numpy as np
 import os
 
 # Read input dir from the command line
-# If no input dir is given, use 'benchresults'
+# If no input dir is given, use 'results'
 import sys
-input_dir = sys.argv[1] if len(sys.argv) > 1 else 'benchresults'
+input_dir = sys.argv[1] if len(sys.argv) > 1 else 'results'
 
 # Read the CSV files
 performance_data = pd.read_csv(f'{input_dir}/comparison.csv')

@@ -57,7 +57,7 @@ def group_fn(path):
     sys.exit(1)
 
 # Sample data
-data = open('benchresults/comparison.csv').read()
+data = open('results/comparison.csv').read()
 
 
 # Initialize lists to hold the extracted data

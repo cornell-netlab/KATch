@@ -57,7 +57,7 @@ We have provided several additional scripts to run all of the experiments in the
 
 ### 5. Analyse the results
 
-Analyse the results of the benchmarks in the `benchresults` directory to evaluate the performance of KATch.
+Analyse the results of the benchmarks in the `results` directory to evaluate the performance of KATch.
 
 ## File structure
 
@@ -82,6 +82,6 @@ This artifact is organised as follows:
   - `fig10`: Benchmarks for Figure 10
   - `fig10-less-cogentco`: Benchmarks for Figure 10, excluding Cogentco (the largest benchmark)
   - `fig11`: Benchmarks for Figure 11
-- `benchresults`: Results of the benchmarks
+- `results`: Results of the benchmarks
 - `scripts`: Various scripts to aid in running KATch and comparing to Frenetic
 - `Dockerfile`: The Dockerfile can be used to build the Docker image for KATch
