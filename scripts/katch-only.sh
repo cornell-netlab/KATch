@@ -4,6 +4,4 @@
 ./katch run nkpl/fig10 && \
 ./katch run nkpl/fig11/flip-first11 && \
 ./katch run nkpl/fig11/inc-first10 && \
-./katch run nkpl/fig11/nondet-first15 && \
-mkdir -p plots
-python3 scripts/genplots.py
+./katch run nkpl/fig11/nondet-first15

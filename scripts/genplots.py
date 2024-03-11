@@ -13,6 +13,7 @@ def size_fn(path):
         contents = f.read()
     return contents.count('≠') + contents.count('=') + contents.count('δ') + contents.count('←')
 
+# Compute file sizes for the benchmarks
 def get_file_size(file):
     try:
         with open(file, 'r') as f:
@@ -22,7 +23,6 @@ def get_file_size(file):
         return 0
 
     total_size = 0
-    # if combinatorial in the name, include the file size itself
     if "inc" in file or "flip" in file or "nondet" in file:
         total_size += size_fn(file)
 
@@ -35,9 +35,6 @@ def get_file_size(file):
             total_size += size_fn(imported_file)
 
     return total_size
-
-# print(get_file_size("/Users/jules/git/netkat/KATch/nkpl/benchmarks/topo-zoo/linear-reachability/Kdl.nkpl"))
-# exit()
 
 def group_fn(path):
     if re.search("fig10", path):
@@ -58,11 +55,8 @@ def group_fn(path):
     return "misc"
     sys.exit(1)
 
-# Sample data
 data = open(input_file).read()
 
-
-# Initialize lists to hold the extracted data
 systems = []
 groups = []
 names = []
@@ -72,20 +66,16 @@ timeouts = []
 sizes = []
 algs = []
 
-# Process each line
 for line in data.split('\n'):
     if not line: continue
     system, path, time = line.split(',')
     size = get_file_size(path)
-    # If "linear-reachability" is in the path, replace system with "katch (linear)", and replace "linear-reachability" with "naive-reachability"
     alg = "naive"
     if "linear-reachability" in path:
         system = "katch"
         path = path.replace("linear-reachability", "naive-reachability")
         alg = "linear"
     path_parts = path.split('/')
-    # group = path_parts[2]
-    # path_parts[-1] on on "-"" and "_" using regex
     name_type = re.split(r'[-_]', path_parts[-1])
     name = name_type[0].split('.')[0]
     type = name_type[-1].split('.')[0]
@@ -94,7 +84,6 @@ for line in data.split('\n'):
     if type not in ['slicing', 'reachability', 'unreachability']:
         type = 'none'
 
-    # Handle timeout
     timeout = 'timeout' in time
     if timeout:
         # Extract the timeout value (assuming it's always in seconds)
@@ -102,7 +91,6 @@ for line in data.split('\n'):
     else:
         time = float(time)
 
-    # Append to lists
     systems.append(system)
     groups.append(group_fn(path))
     names.append(name)
@@ -111,11 +99,7 @@ for line in data.split('\n'):
     timeouts.append(timeout)
     sizes.append(size)
     algs.append(alg)
-    # if alg is linear, print all fields
-    # if alg == "linear":
-        # print(f"{system}, {group_fn(path)}, {name}, {type}, {size}, {time}, {timeout}, {alg}")
 
-# Create DataFrame
 df = pd.DataFrame({
     'group': groups,
     'name': names,
@@ -127,10 +111,7 @@ df = pd.DataFrame({
     'alg': algs
 })
 
-# write dataframe to csv out.csv
 df.to_csv('out.csv')
-
-# Display the DataFrame
 
 # Filter data for 'frenetic' and 'katch'
 frenetic_data = df[df['system'] == 'frenetic']
@@ -145,8 +126,6 @@ print(katch_avg['alg'].unique())
 merged_data = pd.merge(frenetic_avg, katch_avg, on=['name', 'type', 'group', 'size'], suffixes=('_frenetic', '_katch'))
 
 print(merged_data['alg_katch'].unique())
-# exit()
-# Plotting
 
 sizes = {'': (3,3), '_wide': (10, 4)}
 system_color_symbols = {
@@ -164,14 +143,18 @@ markers = {system: marker for system, (color, marker) in system_color_symbols.it
 for group in merged_data['group'].unique():
     group_data = merged_data[merged_data['group'] == group]
 
-    for sizename, size in sizes.items():
+    def mk_plot(name, size):
         plt.figure(figsize=size)
         sns.scatterplot(data=group_data, x='time_frenetic', y='time_katch')
         if group != "Topology Zoo": plt.title(f"{group}")
         plt.xlabel("Time (Frenetic)")
         plt.ylabel("Time (KATch)")
         plt.grid(True)
-        plt.savefig(f'plots/{group}_scatter{sizename}.pdf', bbox_inches='tight', format='pdf')
+        plt.savefig(f'plots/{name}.pdf', bbox_inches='tight', format='pdf')
+
+    if group == 'Topology Zoo':
+        mk_plot('Fig10a', (3,3))
+    
 
 # Scatterplots time vs size
 for group in merged_data['group'].unique():
@@ -188,26 +171,47 @@ for group in merged_data['group'].unique():
     # combine frenetic and katch data
     group_data_kf = pd.concat([frenetic_data, katch_data])
 
-    # keep only data with size <= 500
-    # group_data_kf = group_data_kf[group_data_kf['size'] <= 1500]
-
     # Add a separate system "frenetic (timeout)" for the timeouts
     group_data_kf['system'] = group_data_kf.apply(lambda row: f"{row['system']} (timeout)" if row['time'] == 300 else row['system'], axis=1)
     group_data_kf['system'] = group_data_kf.apply(lambda row: f"{row['system']} (linear)" if row['alg_katch'] == 'linear' else row['system'], axis=1)
 
-    for sizename, size in sizes.items():
+    def mk_plot(name, size):
         plt.figure(figsize=size)
-        # sns.scatterplot(data=group_data_kf, x='size', y='time', hue='system', style='system', markers=True)
         sns.scatterplot(data=group_data_kf, x='size', y='time', hue='system', style='system', palette=palette, markers=markers)
         if group != "Topology Zoo": plt.title(f"{group}")
         plt.xlabel("Size (atoms)")
         plt.ylabel("Time (s)")
         plt.grid(True)
         plt.legend(title='System')
-        plt.savefig(f'plots/{group}_time_vs_size{sizename}.pdf', bbox_inches='tight', format='pdf')
+        # plt.savefig(f'plots/{group}_time_vs_size{sizename}.pdf', bbox_inches='tight', format='pdf')
+        plt.savefig(f'plots/{name}.pdf', bbox_inches='tight', format='pdf')
+
+    if group == 'Full reachability':
+        mk_plot('Fig09', (10,4))
+    elif group == 'Topology Zoo':
+        mk_plot('Fig10b', (3,3))
+    elif group == 'Inc':
+        mk_plot('Fig11-inc', (3,3))
+    elif group == 'Flip':
+        mk_plot('Fig11-flip', (3,3))
+    elif group == 'Nondet':
+        mk_plot('Fig11-nondet', (3,3))
+
+# fig09:
+# Full reachability_time_vs_size_wide.pdf
+
+# fig10:
+# Topology Zoo_scatter.pdf
+# Topology Zoo_time_vs_size.pdf
+
+# fig11:
+# Inc_time_vs_size.pdf
+# Nondet_time_vs_size.pdf
+# Flip_time_vs_size.pdf
 
 # Latex tables for katch vs frenetic
-for group in merged_data['group'].unique():
+
+def mk_table(group, name):
     group_data = merged_data[merged_data['group'] == group]
 
     # Selecting and renaming columns for the final table
@@ -217,15 +221,8 @@ for group in merged_data['group'].unique():
     if list(final_table_df['type'].unique()) == ['none']:
         final_table_df = final_table_df.drop(columns=['type'])
 
-    # Remove rows with name ft2
-    final_table_df = final_table_df[final_table_df['name'] != 'ft2']
-
-    final_table_df['sort_key'] = final_table_df.apply(lambda row: row['name'].startswith("ft"), axis=1)
-
-    # print(final_table_df)
-
     # Sorting by 'size'
-    final_table_df = final_table_df.sort_values(by=['sort_key', 'size']).drop('sort_key', axis=1)
+    final_table_df = final_table_df.sort_values(by=['size'])
 
     # Make table headers read File, Size (KB), KATch, Frenetic
     final_table_df.rename(columns={'name': 'Name', 'type': 'Type', 'size': 'Size', 'time_katch': 'KATch (s)', 'time_frenetic': 'Frenetic (s)'}, inplace=True)
@@ -233,20 +230,9 @@ for group in merged_data['group'].unique():
     # Calculate speedup, round to integer
     final_table_df['Speedup'] = (final_table_df['Frenetic (s)'] / final_table_df['KATch (s)']).round().astype(int)
 
-    # print(final_table_df)
-
-    # Convert to LaTeX format
-    # latex_table = final_table_df.to_latex(index=False)
-
-    # Convert to LaTeX table
     latex_table = final_table_df.to_latex(index=False, na_rep='n/a', float_format='%.2f')
 
-    # Save the LaTeX table to a .tex file
-    with open(f'plots/{group}_comparison_table_old.tex', 'w') as f:
+    with open(f'plots/{name}_table.tex', 'w') as f:
         f.write(latex_table)
 
-# Get the current working directory
-cwd = os.getcwd()
-if "jules" in cwd:
-    # Copy the plots directory to /Users/jules/git/misc/5stars/writeups/pldi24/plots
-    os.system("cp -r plots /Users/jules/git/misc/5stars/writeups/pldi24/")
+mk_table('Topology Zoo', 'Fig10')
