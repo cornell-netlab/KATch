@@ -57,6 +57,7 @@ WORKDIR /katch
 # Install dependencies to generate plots
 RUN apt-get install -y python3-pip
 RUN pip install matplotlib seaborn jinja2
+RUN mkdir plots
 
 # Put the user in the shell
 # They have to run the image with the -it flag: `docker run -it katch`
