@@ -35,14 +35,15 @@ check ⊥ ≡ ⊥
 -- For more details, see the paper.
 
 -- NKPL supports the following statements:
--- s ::= check e1 ≡ e2 | check e1 ≢ e2 | print e | v = e | import "<file>" | for i ∈ 0..n do s
+-- s ::= check e1 ≡ e2 | check e1 ≢ e2 | v = e | import "<file>" | for i ∈ 0..n do s | print e | graphviz "path" e
 -- The meaning of these statements is as follows:
 --   check e1 ≡ e2  checks that e1 and e2 are equivalent
 --   check e1 ≢ e2  checks that e1 and e2 are not equivalent
---   print e  prints the value of e
 --   v = e  assigns the value of e to variable v
 --   import "<file>"  imports the contents of the file
 --   for i ∈ 0..n do s  repeats the statement s n times
+--   print e  prints the value of e
+--   graphviz "path" e  outputs graphviz files for the automaton of expression e and its SP/SPP transitions
 
 -- Example queries: checking for equivalence or inequivalence
 
