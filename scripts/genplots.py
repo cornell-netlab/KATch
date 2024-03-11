@@ -20,7 +20,7 @@ def get_file_size(file):
         with open(file, 'r') as f:
             contents = f.read()
     except IOError:
-        print(f"\033[91mError reading file: {file}")
+        print(f"\033[91mError reading file: {file}\033[0m")
         return 0
 
     total_size = 0
