@@ -23,7 +23,7 @@ You can install and run KATch using Docker:
 1. Install [Docker](https://www.docker.com/get-started/).
 2. Run `docker run -it julesjacobs/katch:latest -v ./results:/katch/results` on your command line. You are now inside the KATch Docker image.
 3. Run `./katch run nkpl/tutorial.nkpl` to run KATch on the tutorial NKPL file.
-4. You can view the resulting graphviz visualisation and running time in your local `results` directory, which was bound to the `/katch/results` directory in the Docker image in step 2.
+4. View the resulting graphviz visualisation and running time in your local `results` directory, which was bound to the `/katch/results` directory in the Docker image in step 2.
 
 ## Evaluation instructions
 
@@ -36,7 +36,6 @@ Read the `tutorial.nkpl` file to learn about the NKPL language and how to write 
 ### 2. Write your own NKPL programs
 
 Write your own NKPL programs to verify NetKAT policies. You can use the `tutorial.nkpl` file as a starting point.
-
 
 ### 3. Run the tests
 
@@ -59,13 +58,14 @@ We have provided several additional scripts to run all of the experiments in the
 ### 5. Analyse the results
 
 Analyse the results of the benchmarks in the `results` directory to evaluate the performance of KATch.
+The above scripts will reproduce the plots from Figures 9, 10, and 11 in the paper and place them in the `results` directory. The `results` directory will also contain the raw data from the experiments, as well as the graphviz visualisations of the NetKAT policies you have run.
 
 ## File structure
 
 This artifact contains the source code for KATch, as well as a suite of benchmarks and scripts for running the benchmarks. You can also find the entire source code (and Dockerfile) [on GitHub](https://github.com/julesjacobs/KATch/tree/master).
 This artifact is organised as follows:
 
-- `src/main/scala`: Source code for KATch 
+- `src/main/scala`: Source code for KATch
   - `Main.scala`: Main entry point for KATch
   - `Runner.scala`: Implementation of the runner for NKPL
   - `NK.scala`: Implementation of the NetKAT AST
