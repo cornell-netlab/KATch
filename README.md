@@ -1,7 +1,8 @@
 # Artifact for "A Fast Symbolic Verifier for NetKAT"
 
-*NetKAT* is a regular-expression-like language for specifying the trace behavior of networks. Network verification queries can be expressed as equivalence or containment queries between NetKAT policies. We present *KATch*, a fast symbolic verifier for NetKAT, which you can use via a high-level DSL called *NKPL* (NetKAT programming language):
+*NetKAT* is a regular-expression-like language for specifying the trace behavior of networks. Network verification queries can be expressed as equivalence or containment queries between NetKAT policies. We present *KATch*, which implements a DSL for for NetKAT verification queries called *NKPL* (NetKAT programming language).
 
+The following NKPL script verifies the equivalence of two NetKAT policies:
 ```
 -- Define two simple NetKAT policies
 net1 = (((@a←1 ⋅ @b←2 ⋅ @c←3 ⋅ δ)⋆) + ((@b=2 ⋅ @c=3 ⋅ δ)⋆))⋆
@@ -10,7 +11,7 @@ net2 = (((@b=2 ⋅ @c=3 ⋅ δ)⋆) + ((@a←1 ⋅ @b←2 ⋅ @c←3 ⋅ δ)⋆)
 -- Verify that net1 is equivalent to net2
 check net1 ≡ net2
 
--- Visualise the policy
+-- Visualise the policy in the given output directory
 graphviz "out/net1" net1
 ```
 A tutorial for NKPL is available in the `nkpl/tutorial.nkpl` file.
