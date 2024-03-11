@@ -66,6 +66,8 @@ timeouts = []
 sizes = []
 algs = []
 
+timeout_used = None
+
 for line in data.split('\n'):
     if not line: continue
     system, path, time = line.split(',')
@@ -88,6 +90,11 @@ for line in data.split('\n'):
     if timeout:
         # Extract the timeout value (assuming it's always in seconds)
         time = float(re.search(r'\((\d+)s\)', time).group(1))
+        if timeout_used and time != timeout_used:
+            print("Inconsistent timeouts! Restart with clean comparison.csv.")
+            sys.exit(1)
+        else:
+            timeout_used = time
     else:
         time = float(time)
 
@@ -131,8 +138,10 @@ sizes = {'': (3,3), '_wide': (10, 4)}
 system_color_symbols = {
     'frenetic': ('#1f77b4', 'o'),
     'frenetic (timeout)': ('#000', 'X'),
-    'katch': ('#ff7f0e', 'o'),
-    'katch (linear)': ('#2ca02c', 'o'),
+    'katch': ('#ff7f0e', 'D'),
+    'katch (linear)': ('#2ca02c', 'd'),
+    'katch (timeout)': ('#666666', '*'),
+    'katch (linear) (timeout)': ('#666666', '*'),
 }
 
 palette = {system: color for system, (color, marker) in system_color_symbols.items()}
@@ -156,6 +165,8 @@ for group in merged_data['group'].unique():
         mk_plot('Fig10a', (3,3))
     
 
+print(f'timeout: {timeout_used}')
+
 # Scatterplots time vs size
 for group in merged_data['group'].unique():
     group_data = merged_data[merged_data['group'] == group]
@@ -168,12 +179,18 @@ for group in merged_data['group'].unique():
     katch_data['system'] = 'katch'
     print(katch_data['alg_katch'].unique())
 
+    if group == 'Full reachability':
+        # Clip times for "katch" at the timeout
+        katch_data['time'] = katch_data.apply(lambda r: timeout_used if r['time'] >= timeout_used else r['time'], axis=1)
+
     # combine frenetic and katch data
     group_data_kf = pd.concat([frenetic_data, katch_data])
 
-    # Add a separate system "frenetic (timeout)" for the timeouts
-    group_data_kf['system'] = group_data_kf.apply(lambda row: f"{row['system']} (timeout)" if row['time'] == 300 else row['system'], axis=1)
-    group_data_kf['system'] = group_data_kf.apply(lambda row: f"{row['system']} (linear)" if row['alg_katch'] == 'linear' else row['system'], axis=1)
+    # Add a separate system "[system] (timeout)" for the timeouts (Full
+    # reachability only)
+    if group == 'Full reachability':
+        group_data_kf['system'] = group_data_kf.apply(lambda row: f"{row['system']} (linear)" if row['alg_katch'] == 'linear' else row['system'], axis=1)
+        group_data_kf['system'] = group_data_kf.apply(lambda row: f"{row['system']} (timeout)" if row['time'] >= timeout_used else row['system'], axis=1)
 
     def mk_plot(name, size):
         plt.figure(figsize=size)
