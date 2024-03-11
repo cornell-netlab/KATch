@@ -62,10 +62,10 @@ Analyse the results of the benchmarks in the `results` directory to evaluate the
 
 ## File structure
 
-This artifact contains the source code for KATch, as well as a suite of benchmarks and scripts for running the benchmarks.
+This artifact contains the source code for KATch, as well as a suite of benchmarks and scripts for running the benchmarks. You can also find the entire source code (and Dockerfile) [on GitHub](https://github.com/julesjacobs/KATch/tree/master).
 This artifact is organised as follows:
 
-- `src/main/scala`: Source code for KATch
+- `src/main/scala`: Source code for KATch 
   - `Main.scala`: Main entry point for KATch
   - `Runner.scala`: Implementation of the runner for NKPL
   - `NK.scala`: Implementation of the NetKAT AST
