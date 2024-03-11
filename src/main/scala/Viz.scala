@@ -28,23 +28,21 @@ object GV {
   def line(text: String) =
     sb.append("    " + text + "\n")
 
-  val edgeColor = "#555"
-
   def edge(a: Any, b: Any, label: String = "") =
-    line(s"""${gensym(a)} -> ${gensym(b)} [label=" $label ", labelangle=-30, fontsize=12, arrowsize=0.5, color="$edgeColor"]""")
+    line(s"""${gensym(a)} -> ${gensym(b)} [label=" $label ", labelangle=-30, fontsize=12, arrowsize=0.5]""")
 
   def edgeNK(a: Any, b: Any, label: String = "") =
-    line(s"""${gensym(a)} -> ${gensym(b)} [label=" $label ", labelangle=-30, fontsize=12, arrowsize=0.5, color="$edgeColor"]""")
+    line(s"""${gensym(a)} -> ${gensym(b)} [label=" $label ", labelangle=-30, fontsize=12, arrowsize=0.5]""")
 
   def defaultEdge(a: Any, b: Any, label: String = "") =
     // dotted edge
-    line(s"""${gensym(a)} -> ${gensym(b)} [arrowsize=0.5, style=dashed, color="$edgeColor"]""")
+    line(s"""${gensym(a)} -> ${gensym(b)} [arrowsize=0.5, style=dashed]""")
 
   var outCounter = 0
   def outputEdge(a: Any, label: String) =
     outCounter += 1
     line(s"invisibleNode$outCounter [style=invis];")
-    line(s"${gensym(a)} -> invisibleNode$outCounter [label=\"$label\", labelangle=-30, fontsize=12, arrowsize=0.5, color=\"$edgeColor\", arrowhead=odot];")
+    line(s"${gensym(a)} -> invisibleNode$outCounter [label=\"$label\", labelangle=-30, fontsize=12, arrowsize=0.5, arrowhead=odot];")
 
   def automatonNode(a: Any, label: String = "", start: Boolean) =
     val color = if !start then "#D4B0E6" else "#FF9999"
