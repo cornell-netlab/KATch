@@ -52,7 +52,7 @@ Run the tests in the `nkpl/tests` directory to verify the correctness of KATch. 
 We have provided several additional scripts to run all of the experiments in the paper and generate the associated graphs, including comparisons with [Frenetic](https://github.com/frenetic-lang/frenetic). The estimates for running time are on a machine running Ubuntu 22.04 with a 2.1GHz Xeon Silver 4216 CPU and 500G RAM. The scripts are:
 
 - `scripts/paper-exper.sh`: Runs all of the experiments from the paper and generates Figure 9, Figure 10, and Figure 11. This takes between 1-2 days.
-- `scripts/abridged.sh`: Runs all of the experiments from the paper, *except* the Cogentco benchmarks from Figure 11, and a 1 minute timeout is used for Figure 9. This takes 12-15 hours.
+- `scripts/abridged.sh`: Runs all of the experiments from the paper, *except* that a 1 minute timeout is used for Figure 9 (instead of 5 minute), and the Cogentco benchmarks from Figure 10 are omitted. This takes 12-15 hours.
 - `scripts/katch-only.sh`: Runs all of the experiments from the paper with no timeouts, but only runs KATch (not Frenetic). This takes 1.5 hours.
 
 Note that for the experiments plots to make sense, at most one of `paper-exper.sh` and `abridged.sh` should be run. One can reset and run the other by deleting `plots/comparison.csv` (or using a fresh instance of the docker image).
