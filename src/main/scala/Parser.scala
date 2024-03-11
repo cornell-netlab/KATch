@@ -122,6 +122,7 @@ object Parser {
 
   enum Stmt:
     case Check(op: String, e1: Expr, e2: Expr)
+    case Graphviz(path: String, e: Expr)
     case Print(e: Expr)
     case Run(method: String, e: Expr)
     case Let(x: String, e: Expr)
@@ -140,6 +141,9 @@ object Parser {
   def checkStmt[$: P]: P[Stmt.Check] = P("check" ~ exprNK ~ ("≡" | "≢").! ~ exprNK).map { case (e1, op, e2) =>
     Stmt.Check(op, Expr.NKExpr(e1), Expr.NKExpr(e2))
   }
+
+  // Parses a graphviz statement
+  def graphvizStmt[$: P]: P[Stmt.Graphviz] = P("graphviz" ~ "\"" ~ CharIn("a-zA-Z0-9./_\\-").rep(1).! ~ "\"" ~ exprNK).map { case (path, e) => Stmt.Graphviz(path, Expr.NKExpr(e)) }
 
   // Parses a forward/backward statement
   def runStmt[$: P]: P[Stmt] = P("forward" ~ exprNK).map { e => Stmt.Run("forward", Expr.NKExpr(e)) } | P("backward" ~ exprNK).map { e => Stmt.Run("backward", Expr.NKExpr(e)) }
@@ -163,7 +167,7 @@ object Parser {
   def forStmt[$: P]: P[Stmt.For] = P("for" ~ varName ~ ("=" | "in" | "∈") ~ integer ~ ".." ~ integer ~ "do" ~ stmt).map { case (x, i0, i1, s) => Stmt.For(x, i0, i1, s) }
 
   // Parses a statement
-  def stmt[$: P]: P[Stmt] = P(checkStmt | letStmt | importStmt | runStmt | printStmt | forStmt)
+  def stmt[$: P]: P[Stmt] = P(checkStmt | letStmt | importStmt | runStmt | printStmt | forStmt | graphvizStmt)
 
   def parseStmt(input: String) =
     parse(input, stmt(_)) match {

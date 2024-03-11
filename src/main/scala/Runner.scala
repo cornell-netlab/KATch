@@ -77,6 +77,13 @@ object Runner {
         }
         env
       }
+      case Stmt.Graphviz(path2, e) => {
+        val v = assertNK(e)
+        val path3 = path.split("/").dropRight(1).mkString("/") + "/" + path2
+        GV.saveNK(path3, v)
+        println(s"Graphviz at $path:${line + 1} saved in $path3: ${summarize(v)}")
+        env
+      }
       case Stmt.Run(method, e) =>
         val v = assertNK(e)
         method match {

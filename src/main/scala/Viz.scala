@@ -1,9 +1,4 @@
-import nkpl._
-
-def parse(s: String) =
-  Parser.parseExpr(s) match {
-    case Parser.Expr.NKExpr(nk) => Runner.evalNK(Map(), nk)
-  }
+package nkpl
 
 object GV {
   // graphviz construction helper object
@@ -109,7 +104,7 @@ object GV {
     gv(spp)
     for (k, xs) <- levels do sameRank(xs.toList)
 
-  def vizNK(e0: NK) =
+  def vizNK(path: String, e0: NK) =
     val seen = scala.collection.mutable.Set[NK]()
     val spps = scala.collection.mutable.Map[SPP, String]()
     def gensym(spp: SPP) =
@@ -124,11 +119,11 @@ object GV {
         GV.edgeNK(e, e2, gensym(spp))
     }
     iter(e0)
-    GV.save("viz/deriv/deriv")
+    GV.save(path + "/automaton")
     GV.reset()
     for (spp, name) <- spps do
       GV.vizSPP(spp)
-      GV.save(s"viz/deriv/derivspp${name}")
+      GV.save(s"$path/transition${name}")
       GV.reset()
 
   def output() =
@@ -150,44 +145,18 @@ ${sb.toString()}
     import sys.process._
     s"dot -Tpdf $file.gv -o ${file}.pdf".!
     // output tikz
-    s"dot -Ttikz $file.gv -o ${file}.tikz".!
+    s"dot $file.gv -o ${file}.tikz".!
+
+  def saveNK(path: String, e: NK) =
+    reset()
+    // Create directory at path if it doesn't exist
+    import java.io.File
+    val dir = new File(path)
+    if !dir.exists then dir.mkdirs()
+    vizNK(path, e)
 
   def show() =
     save("viz.gv")
     import sys.process._
     s"dot -Tpdf viz.gv -o viz.pdf".!
 }
-
-VarMap("a")
-VarMap("b")
-VarMap("c")
-
-def testS(x: String, y: Val) = SPP.test(VarMap(x), y)
-def testNES(x: String, y: Val) = SPP.testNE(VarMap(x), y)
-def mutS(x: String, y: Val) = SPP.mut(VarMap(x), y)
-
-def testSs(x: String, ys: List[Val]) = ys.foldRight(SPP.False: SPP) { case (y, sp) => SPP.union(testS(x, y), sp) }
-def mutSs(x: String, ys: List[Val]) = ys.foldRight(SPP.False: SPP) { case (y, sp) => SPP.union(mutS(x, y), sp) }
-
-val e = parse("(((@a←1 ⋅ @b←2 ⋅ @c←3 ⋅ δ)⋆) + ((@b=2 ⋅ @c=3 ⋅ δ)⋆))⋆")
-// val e = parse("(@a←4 + @a←2 ⋅ δ)⋆⋅(@a=2?⋅δ)")
-
-// Compute the derivatives of e
-
-val d1 = Bisim.δ(e)
-
-// for e <- seen do
-//    val spp = Bisim.ε(e)
-//    val name = gensym(spp)
-//    gvSPP(spp)
-//    GV.save(s"viz/deriv/derivspp${name}")
-//    GV.reset()
-
-GV.vizNK(e)
-GV.save("viz/deriv")
-GV.reset()
-
-val e2 = parse("(@a←1 + @b←2   + δ)⋆")
-GV.vizNK(e2)
-GV.save("viz/deriv2")
-GV.reset()

@@ -50,3 +50,6 @@ benchresults/comparison.csv
 benchresults/comparison_table.tex
 benchresults/katch_vs_frenetic_scatterplot.pdf
 benchresults/time_vs_size_combined.pdf
+*.tikz
+*.pdf
+*.gv

@@ -1,0 +1,5 @@
+p1 = (@a←1 + @b←2  + δ)⋆
+graphviz "tiny" p1
+
+fig6 = (((@a←1 ⋅ @b←2 ⋅ @c←3 ⋅ δ)⋆) + ((@b=2 ⋅ @c=3 ⋅ δ)⋆))⋆
+graphviz "fig6" fig6
