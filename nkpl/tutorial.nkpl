@@ -14,13 +14,13 @@ check ⊥ ≡ ⊥
 -- the empty network configuration that drops all packets.
 
 -- NKPL supports the following NetKAT expressions:
--- e ::= ⊥ | ⊤ | δ | v | @f=n? | @f←n | e⋆ | e1 ∪ e2 | e1 ∩ e2 | e1 ⋅ e2 | e1 ⊕ e2 | e1 ∖ e2 | forward e | backward e | forall f e | exists f e
+-- e ::= ⊥ | ⊤ | δ | v | @f=n | @f←n | e⋆ | e1 ∪ e2 | e1 ∩ e2 | e1 ⋅ e2 | e1 ⊕ e2 | e1 ∖ e2 | forward e | backward e | forall f e | exists f e
 -- The meaning of these expressions is as follows:
 --   ⊥  drops all packets
 --   ⊤  forwards all packets
 --   δ  adds the packet to the trace
 --   v  variable reference
---   @f=n?  matches packets with field f equal to n
+--   @f=n  matches packets with field f equal to n
 --   @f←n  sets the field f to n
 --   e⋆  sends the packets through the network zero or more times
 --   e1 ∪ e2  union of traces produced by e1 and e2
@@ -54,13 +54,13 @@ check (δ⋅δ)⋆ ≢ (δ⋆⋅δ)⋆
 check (δ⋅δ⋆)⋆ ≡ (δ⋆⋅δ)⋆
 
 -- Now with fields
-check @a=5? ≡ @a=5? ⋅ @a←5
-check @a=5? ≢ @a←5 ⋅ @a=5?
+check @a=5 ≡ @a=5 ⋅ @a←5
+check @a=5 ≢ @a←5 ⋅ @a=5
 
 -- Now with more complex expressions
-check δ⋅@d=3? ≡ @d=3?⋅δ
-check ∅∪((@b←5⋅ε∪@c←3⋅@a=3?)⋅(∅⋆⋅ε))⋆ ≡ ((@b←5⋅ε∪@a=3?⋅@c←3)⋅∅⋆)⋆
-check (@b←1⋅@b=1?)⋆⋆⋅(@e←3⋅@d←5) ≡ @b←1⋆⋆⋅(@d←5⋅@e←3)
+check δ⋅@d=3 ≡ @d=3⋅δ
+check ∅∪((@b←5⋅ε∪@c←3⋅@a=3)⋅(∅⋆⋅ε))⋆ ≡ ((@b←5⋅ε∪@a=3⋅@c←3)⋅∅⋆)⋆
+check (@b←1⋅@b=1)⋆⋆⋅(@e←3⋅@d←5) ≡ @b←1⋆⋆⋅(@d←5⋅@e←3)
 
 -- For more examples, see the other files in the nkpl subdirectories, or the paper.
 
