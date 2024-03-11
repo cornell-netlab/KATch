@@ -60,7 +60,7 @@ Note that for the experiments plots to make sense, at most one of `paper-exper.s
 ### 5. Analyse the results
 
 Analyse the results of the benchmarks in the `results` directory to evaluate the performance of KATch.
-The above scripts will reproduce the plots from Figures 9, 10, and 11 in the paper and place them in the `results/plots` directory. The `results` directory will also contain the raw data from the experiments (`results/comparison.csv`, as well as the graphviz visualisations of the NetKAT policies you have run (remaining subdirectories).
+The above scripts will reproduce the plots from Figures 9, 10, and 11 in the paper and place them in the `results/plots` directory. The `results` directory will also contain the raw data from the experiments (`results/comparison.csv`), as well as the graphviz visualisations of the NetKAT policies you have run (remaining subdirectories).
 
 ## File structure
 
