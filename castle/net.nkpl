@@ -1,0 +1,18 @@
+-- Define the network
+topology = @sw=0 ⋅ @pt=0 ⋅ @sw←1 + @sw=1 ⋅ (@pt=0 ⋅ @sw←2 + @pt=1 ⋅ @sw←0) + @sw=2 ⋅ @pt=1 ⋅ @sw←1
+routes = @sw=0 ⋅ (@dst=1 ⋅ @pt←0 + @dst=2 ⋅@pt←0) + @sw=1 ⋅ (@dst=0 ⋅ @pt←1 + @dst=2 ⋅@pt←0) + @sw=2 ⋅ (@dst=0 ⋅ @pt←1 + @dst=1 ⋅@pt←1)
+net = (routes ⋅ topology ⋅ δ)⋆
+
+-- Check reachability
+check @sw=0 ⋅ @src=0 ⋅ net ⋅ @sw=2 ≢ ∅
+
+-- Install firewall
+firewall = @sw≠2 + @src≠0
+net2 = (routes ⋅ topology ⋅ δ ⋅ firewall)⋆
+
+-- Check reachability
+check @sw=0 ⋅ @src=0 ⋅ net2 ⋅ @sw=1 ≢ ∅
+check @sw=0 ⋅ @src=0 ⋅ net2 ⋅ @sw=2 ≡ ∅
+
+-- Visualize problem
+graphviz "problem" (backward (@sw=0 ⋅ @src=0 ⋅ @dst=2 ⋅ net ⋅ @sw=2))
