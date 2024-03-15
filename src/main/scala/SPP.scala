@@ -52,9 +52,18 @@ object SP {
       case (True, _) => True
       case (Test(xL, ysL, defaultL), Test(xR, ysR, defaultR)) =>
         if xL == xR then
-          val keys = ysL.keySet ++ ysR.keySet
-          val ys = keys.map { v => v -> union(ysL.getOrElse(v, defaultL), ysR.getOrElse(v, defaultR)) }.to(HashMap)
-          Test(xL, ys, union(defaultL, defaultR))
+          if (defaultL eq False) && (defaultR eq False) then
+            var ys = ysL
+            for (v, sp) <- ysR do
+              val y = ys.getOrElse(v, null)
+              if y != null then ys = ys.updated(v, union(y, sp))
+              else ys = ys.updated(v, sp)
+            Test(xL, ys, False)
+          else
+            // println(s"unionPrim ${ysL.size} ${ysR.size} ${defaultL == False} ${defaultR == False}")
+            val keys = ysL.keySet ++ ysR.keySet
+            val ys = keys.map { v => v -> union(ysL.getOrElse(v, defaultL), ysR.getOrElse(v, defaultR)) }.to(HashMap)
+            Test(xL, ys, union(defaultL, defaultR))
         else if xL < xR then Test(xL, ysL.map { (v, a) => v -> union(a, y) }, union(defaultL, y))
         else union(y, x)
       case _ => union(y, x)
@@ -175,7 +184,10 @@ object SPP {
   case object False extends SPP
   case class TestMut(x: Var, branches: HashMap[Val, HashMap[Val, SPP]], other: HashMap[Val, SPP], id: SPP) extends SPP {
     // Cache the hashcode
-    override val hashCode = x.hashCode + branches.hashCode + other.hashCode + id.hashCode
+    override val hashCode = {
+      // println(s"${branches.size} ${other.size}");
+      x.hashCode + branches.hashCode + other.hashCode + id.hashCode
+    }
   }
   object TestMut {
     // FIXME: try the Java hashmap here, and use identity hash
@@ -259,7 +271,7 @@ object SPP {
       case SP.Test(x, ys, default) =>
         val ls = ys.size
         val lm = if default eq SP.False then "F" else if default eq SP.True then "T" else "?"
-        s"($x,$ls,$lm)"
+        s"(${VarMap(x)},$ls,$lm)"
     }
     val sppstr = spp match {
       case Diag => "D"
@@ -269,7 +281,7 @@ object SPP {
         val lls = branches.map { (_, a) => a.size }.sum
         val lm = other.size
         val idls = if id eq False then "F" else if id eq Diag then "D" else "?"
-        s"($x,$ls/$lls,$lm,$idls)"
+        s"(${VarMap(x)},$ls/$lls,$lm,$idls)"
     }
     println(s"$msg $spstr, $sppstr")
 
@@ -300,10 +312,11 @@ object SPP {
       case (SP.Test(x, ys, default), TestMut(x2, branches, other, id)) =>
         if x == x2 then
           if (default eq SP.False) && (id eq SPP.False) && other.isEmpty then
+            // logSummarySP("run/fast", sp, spp)
             var newbranches = HashMap.empty[Val, SP]
             for (v, sp) <- ys do
-              if branches.contains(v) then
-                val muts = branches(v)
+              val muts = branches.getOrElse(v, null)
+              if muts != null then
                 for (v2, spp) <- muts do
                   val sp2 = run(sp, spp)
                   if !(sp2 eq SP.False) then newbranches = newbranches.updated(v2, SP.union(sp2, newbranches.getOrElse(v2, SP.False)))

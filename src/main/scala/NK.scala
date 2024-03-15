@@ -20,11 +20,13 @@ case class Seq(es: List[NK]) extends NK {
   override def toString: String =
     if es.isEmpty then "ε"
     else "(" + es.mkString("⋅") + ")"
+  override val hashCode = es.hashCode()
 }
 case class Sum(es: Set[NK]) extends NK {
   override def toString: String =
     if es.isEmpty then "∅"
     else "(" + es.mkString("∪") + ")"
+  override val hashCode = es.hashCode()
 }
 case class Difference(e1: NK, e2: NK) extends NK {
   override def toString: String = s"(($e1)∖($e2))"

@@ -110,6 +110,6 @@ def cleanupFreneticScript() =
       runFilesAndDirs(inputs.toList)
     case "bench" =>
       println("Benchmarking:")
-      for (i <- 0 to 1) runFilesAndDirs(List("nkpl/scratch/bench.nkpl"))
+      for (i <- 0 to 0) runFilesAndDirs(List("nkpl/misc/scratch/bench.nkpl"))
     case _ => error(s"Invalid command $command")
   }

@@ -14,4 +14,9 @@
 -- all = rangesum @sw 0..753
 -- for i ∈ 0..753 do check exists @pt (exists @dst (forward (@sw=i ⋅ net))) ≡ all
 
-import "../examples/nkpl_stanford/query.nkpl"
+check @sw=0 ≡ @sw=0
+check @pt=0 ≡ @pt=0
+check @dst=0 ≡ @dst=0
+
+import "../../fig09/linear-reachability/Cogentco.nkpl"
+--import "../../fig09/linear-reachability/Kdl.nkpl"

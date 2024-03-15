@@ -1,5 +1,7 @@
 package nkpl
 
+import java.awt.image.SinglePixelPackedSampleModel
+
 // This represents an outgoing transition structure of the automaton.
 // In particular, a map Map(e1 -> spp1, e2 -> spp2, ...), where e1,e2,.. : NK and spp1,spp2,.. : SPP
 // represents spp1⋅δ⋅e1 + spp2⋅δ⋅e2 + ...
@@ -77,6 +79,13 @@ object SMap {
 def logBisim(msg: String): Unit = ()
 
 object Bisim {
+  def bigUnion(xs: Array[SPP], l: Int, r: Int): SPP =
+    val s = r - l
+    if s <= 0 then SPP.False
+    else if s == 1 then xs(l)
+    else
+      val m = l + s / 2
+      SPP.union(bigUnion(xs, l, m), bigUnion(xs, m, r))
   lazy val ε0: NK => SPP = memoize { e =>
     e match {
       case Dup => SPP.False
@@ -87,7 +96,9 @@ object Bisim {
       case Seq(es) =>
         if es.contains(Dup) then SPP.False
         else es.foldLeft(SPP.Diag: SPP) { (a, b) => SPP.seq(a, ε0(b)) }
-      case Sum(es) => es.foldLeft(SPP.False: SPP) { (a, b) => SPP.union(a, ε0(b)) }
+      case Sum(es) =>
+        val es2 = es.toArray.map(e => ε0(e))
+        bigUnion(es2, 0, es2.length)
       case Difference(e1, e2) => SPP.difference(ε0(e1), ε0(e2))
       case Intersection(e1, e2) => SPP.intersection(ε0(e1), ε0(e2))
       case XOR(e1, e2) => SPP.xor(ε0(e1), ε0(e2))
@@ -121,7 +132,7 @@ object Bisim {
     val start = System.nanoTime()
     val y = f
     val end = System.nanoTime()
-    println(f"  $msg: ${(end - start) / 1000.0}%.2f μs")
+    // println(f"  $msg: ${(end - start) / 1000.0}%.2f μs")
     y
   }
 
@@ -266,14 +277,17 @@ object Bisim {
     var i = 0
     val limit = 100000
     while (todo.nonEmpty && i < limit) {
-      println(s"\u001B[34mIteration $i \u001B[0m")
+      // println(s"\u001B[34mIteration $i \u001B[0m")
+      // benchmark(
+      // s"Iteration $i time", {
       i += 1
       val (e, sp) = deq()
       val done1 = done.getOrElse(e, SP.False)
       val spRest = SP.difference(sp, done1)
-      if !(spRest eq SP.False) then
-        done = done.updated(e, SP.union(done1, spRest))
-        for (e, spp) <- δ(e) do enq(e, SPP.run(spRest, spp))
+      if !(spRest eq SP.False) then done = done.updated(e, SP.union(done1, spRest))
+      for (e, spp) <- δ(e) do enq(e, SPP.run(spRest, spp))
+      // }
+      // )
     }
     SP.unionN(done.map { (e, sp) => SPP.run(sp, ε(e)) })
 
