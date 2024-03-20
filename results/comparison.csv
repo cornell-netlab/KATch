@@ -1,958 +1,925 @@
-katch,castle/net.nkpl,2.249636441
-katch,castle/net.nkpl,1.24149431
-katch,nkpl/fig09/linear-reachability/Kdl.nkpl,50.943114779
-katch,nkpl/fig09/linear-reachability/Kdl.nkpl,72.3869395
-katch,nkpl/misc/scratch/bench.nkpl,3.078778294
-katch,nkpl/misc/scratch/bench.nkpl,1.923159081
-katch,nkpl/misc/scratch/bench.nkpl,2.8703412
-katch,nkpl/misc/scratch/bench.nkpl,2.013770981
-katch,nkpl/misc/scratch/bench.nkpl,1.683750221
-katch,nkpl/misc/scratch/bench.nkpl,1.747704234
-katch,nkpl/misc/scratch/bench.nkpl,1.525866657
-katch,nkpl/misc/scratch/bench.nkpl,1.494267479
-katch,nkpl/misc/scratch/bench.nkpl,1.458225833
-katch,nkpl/misc/scratch/bench.nkpl,1.481614214
-katch,nkpl/misc/scratch/bench.nkpl,1.455728625
-katch,nkpl/misc/scratch/bench.nkpl,1.475081623
-katch,nkpl/misc/scratch/bench.nkpl,1.507270137
-katch,nkpl/misc/scratch/bench.nkpl,3.393452504
-katch,nkpl/misc/scratch/bench.nkpl,2.182462402
-katch,nkpl/misc/scratch/bench.nkpl,1.83267655
-katch,nkpl/misc/scratch/bench.nkpl,1.83156738
-katch,nkpl/misc/scratch/bench.nkpl,1.712460911
-katch,nkpl/misc/scratch/bench.nkpl,1.685291759
-katch,nkpl/misc/scratch/bench.nkpl,1.629033361
-katch,nkpl/misc/scratch/bench.nkpl,1.6375842
-katch,nkpl/misc/scratch/bench.nkpl,1.710849691
-katch,nkpl/misc/scratch/bench.nkpl,1.69187081
-katch,nkpl/misc/scratch/bench.nkpl,1.635894451
-katch,nkpl/misc/scratch/bench.nkpl,3.318506626
-katch,nkpl/misc/scratch/bench.nkpl,2.283883524
-katch,nkpl/misc/scratch/bench.nkpl,1.825587176
-katch,nkpl/misc/scratch/bench.nkpl,1.912101921
-katch,nkpl/misc/scratch/bench.nkpl,1.747022509
-katch,nkpl/misc/scratch/bench.nkpl,1.674321588
-katch,nkpl/misc/scratch/bench.nkpl,1.68950933
-katch,nkpl/misc/scratch/bench.nkpl,1.697788298
-katch,nkpl/misc/scratch/bench.nkpl,1.730680359
-katch,nkpl/misc/scratch/bench.nkpl,1.727981446
-katch,nkpl/misc/scratch/bench.nkpl,1.652847364
-katch,nkpl/misc/scratch/bench.nkpl,2.347729999
-katch,nkpl/misc/scratch/bench.nkpl,1.552729969
-katch,nkpl/misc/scratch/bench.nkpl,1.467771152
-katch,nkpl/misc/scratch/bench.nkpl,1.039616559
-katch,nkpl/misc/scratch/bench.nkpl,1.051237499
-katch,nkpl/misc/scratch/bench.nkpl,1.093799601
-katch,nkpl/misc/scratch/bench.nkpl,0.998075991
-katch,nkpl/misc/scratch/bench.nkpl,1.070381985
-katch,nkpl/misc/scratch/bench.nkpl,1.045083388
-katch,nkpl/misc/scratch/bench.nkpl,0.997880614
-katch,nkpl/misc/scratch/bench.nkpl,1.123815513
-katch,nkpl/misc/scratch/bench.nkpl,2.212948201
-katch,nkpl/misc/scratch/bench.nkpl,1.33380094
-katch,nkpl/misc/scratch/bench.nkpl,1.032764062
-katch,nkpl/misc/scratch/bench.nkpl,1.011485699
-katch,nkpl/misc/scratch/bench.nkpl,0.986146095
-katch,nkpl/misc/scratch/bench.nkpl,1.034538463
-katch,nkpl/misc/scratch/bench.nkpl,0.980519335
-katch,nkpl/misc/scratch/bench.nkpl,0.999713068
-katch,nkpl/misc/scratch/bench.nkpl,1.021919561
-katch,nkpl/misc/scratch/bench.nkpl,0.977850996
-katch,nkpl/misc/scratch/bench.nkpl,1.011911457
-katch,nkpl/misc/scratch/bench.nkpl,2.096818005
-katch,nkpl/misc/scratch/bench.nkpl,1.401180149
-katch,nkpl/misc/scratch/bench.nkpl,1.026041924
-katch,nkpl/misc/scratch/bench.nkpl,1.160926523
-katch,nkpl/misc/scratch/bench.nkpl,1.060741081
-katch,nkpl/misc/scratch/bench.nkpl,1.014218522
-katch,nkpl/misc/scratch/bench.nkpl,1.010291627
-katch,nkpl/misc/scratch/bench.nkpl,1.112946157
-katch,nkpl/misc/scratch/bench.nkpl,1.023445542
-katch,nkpl/misc/scratch/bench.nkpl,0.984865258
-katch,nkpl/misc/scratch/bench.nkpl,1.010296247
-katch,nkpl/misc/scratch/bench.nkpl,2.202037927
-katch,nkpl/misc/scratch/bench.nkpl,1.384285366
-katch,nkpl/misc/scratch/bench.nkpl,2.336310462
-katch,nkpl/misc/scratch/bench.nkpl,1.408023252
-katch,nkpl/misc/scratch/bench.nkpl,2.272779259
-katch,nkpl/misc/scratch/bench.nkpl,2.297743142
-katch,nkpl/misc/scratch/bench.nkpl,2.164973205
-katch,nkpl/misc/scratch/bench.nkpl,2.214404947
-katch,nkpl/misc/scratch/bench.nkpl,2.345088014
-katch,nkpl/misc/scratch/bench.nkpl,2.392024057
-katch,nkpl/misc/scratch/bench.nkpl,2.252726364
-katch,nkpl/misc/scratch/bench.nkpl,2.192983802
-katch,nkpl/misc/scratch/bench.nkpl,2.379817257
-katch,nkpl/misc/scratch/bench.nkpl,2.284225173
-katch,nkpl/misc/scratch/bench.nkpl,2.305039005
-katch,nkpl/misc/scratch/bench.nkpl,2.167586791
-katch,nkpl/misc/scratch/bench.nkpl,2.177427812
-katch,nkpl/misc/scratch/bench.nkpl,2.204483916
-katch,nkpl/misc/scratch/bench.nkpl,2.382596713
-katch,nkpl/misc/scratch/bench.nkpl,2.230530873
-katch,nkpl/misc/scratch/bench.nkpl,2.26657754
-katch,nkpl/misc/scratch/bench.nkpl,2.233249572
-katch,nkpl/misc/scratch/bench.nkpl,2.222964649
-katch,nkpl/misc/scratch/bench.nkpl,2.283498745
-katch,nkpl/misc/scratch/bench.nkpl,2.285825155
-katch,nkpl/misc/scratch/bench.nkpl,1.395039726
-katch,nkpl/misc/scratch/bench.nkpl,1.383511362
-katch,nkpl/misc/scratch/bench.nkpl,1.053733727
-katch,nkpl/misc/scratch/bench.nkpl,1.051143923
-katch,nkpl/misc/scratch/bench.nkpl,1.085951498
-katch,nkpl/misc/scratch/bench.nkpl,1.00692615
-katch,nkpl/misc/scratch/bench.nkpl,1.055600512
-katch,nkpl/misc/scratch/bench.nkpl,1.02103392
-katch,nkpl/misc/scratch/bench.nkpl,1.001936145
-katch,nkpl/misc/scratch/bench.nkpl,0.982592982
-katch,nkpl/misc/scratch/bench.nkpl,2.377439157
-katch,nkpl/misc/scratch/bench.nkpl,1.427847539
-katch,nkpl/misc/scratch/bench.nkpl,1.405316608
-katch,nkpl/misc/scratch/bench.nkpl,1.057541044
-katch,nkpl/misc/scratch/bench.nkpl,1.068805096
-katch,nkpl/misc/scratch/bench.nkpl,1.074390746
-katch,nkpl/misc/scratch/bench.nkpl,1.008030466
-katch,nkpl/misc/scratch/bench.nkpl,1.020256114
-katch,nkpl/misc/scratch/bench.nkpl,1.018693951
-katch,nkpl/misc/scratch/bench.nkpl,0.996153199
-katch,nkpl/misc/scratch/bench.nkpl,1.025042
-katch,nkpl/misc/scratch/bench.nkpl,2.25094566
-katch,nkpl/misc/scratch/bench.nkpl,1.375243529
-katch,nkpl/misc/scratch/bench.nkpl,1.341002024
-katch,nkpl/misc/scratch/bench.nkpl,1.051639186
-katch,nkpl/misc/scratch/bench.nkpl,1.06106798
-katch,nkpl/misc/scratch/bench.nkpl,1.063553406
-katch,nkpl/misc/scratch/bench.nkpl,1.002715717
-katch,nkpl/misc/scratch/bench.nkpl,1.008019263
-katch,nkpl/misc/scratch/bench.nkpl,1.022374447
-katch,nkpl/misc/scratch/bench.nkpl,1.003016928
-katch,nkpl/misc/scratch/bench.nkpl,1.012853582
-katch,nkpl/misc/scratch/bench.nkpl,1.033605418
-katch,nkpl/misc/scratch/bench.nkpl,1.012693355
-katch,nkpl/misc/scratch/bench.nkpl,0.974454964
-katch,nkpl/misc/scratch/bench.nkpl,0.99903061
-katch,nkpl/misc/scratch/bench.nkpl,1.004911334
-katch,nkpl/misc/scratch/bench.nkpl,1.013320783
-katch,nkpl/misc/scratch/bench.nkpl,1.005283918
-katch,nkpl/misc/scratch/bench.nkpl,1.001892948
-katch,nkpl/misc/scratch/bench.nkpl,0.958520536
-katch,nkpl/misc/scratch/bench.nkpl,1.047159495
-katch,nkpl/misc/scratch/bench.nkpl,2.224318173
-katch,nkpl/misc/scratch/bench.nkpl,29.87699599
-katch,nkpl/misc/scratch/bench.nkpl,30.262608885
-katch,nkpl/misc/scratch/bench.nkpl,40.440320114
-katch,nkpl/misc/scratch/bench.nkpl,38.567053698
-katch,nkpl/misc/scratch/bench.nkpl,43.745673734
-katch,nkpl/misc/scratch/bench.nkpl,21.57366264
-katch,nkpl/misc/scratch/bench.nkpl,2.218263067
-katch,nkpl/misc/scratch/bench.nkpl,2.244907007
-katch,nkpl/misc/scratch/bench.nkpl,2.116502959
-katch,nkpl/misc/scratch/bench.nkpl,2.265428125
-katch,nkpl/misc/scratch/bench.nkpl,2.143080034
-katch,nkpl/misc/scratch/bench.nkpl,2.086284746
-katch,nkpl/misc/scratch/bench.nkpl,2.105217868
-katch,nkpl/misc/scratch/bench.nkpl,2.631354271
-katch,nkpl/misc/scratch/bench.nkpl,2.291335522
-katch,nkpl/misc/scratch/bench.nkpl,2.154693422
-katch,nkpl/misc/scratch/bench.nkpl,1.325796016
-katch,nkpl/misc/scratch/bench.nkpl,0.908102975
-katch,nkpl/misc/scratch/bench.nkpl,1.481059053
-katch,nkpl/misc/scratch/bench.nkpl,1.029610468
-katch,nkpl/misc/scratch/bench.nkpl,0.886577025
-katch,nkpl/misc/scratch/bench.nkpl,1.085037447
-katch,nkpl/misc/scratch/bench.nkpl,1.090144499
-katch,nkpl/misc/scratch/bench.nkpl,1.003641365
-katch,nkpl/misc/scratch/bench.nkpl,0.844126487
-katch,nkpl/misc/scratch/bench.nkpl,0.834733367
-katch,nkpl/misc/scratch/bench.nkpl,0.843186204
-katch,nkpl/misc/scratch/bench.nkpl,0.939920907
-katch,nkpl/misc/scratch/bench.nkpl,0.905304265
-katch,nkpl/misc/scratch/bench.nkpl,1.114632428
-katch,nkpl/misc/scratch/bench.nkpl,1.132486678
-katch,nkpl/misc/scratch/bench.nkpl,0.817126987
-katch,nkpl/misc/scratch/bench.nkpl,0.844033523
-katch,nkpl/misc/scratch/bench.nkpl,0.889828523
-katch,nkpl/misc/scratch/bench.nkpl,0.848340442
-katch,nkpl/misc/scratch/bench.nkpl,0.832968835
-katch,nkpl/misc/scratch/bench.nkpl,2.204652819
-katch,nkpl/misc/scratch/bench.nkpl,1.259598142
-katch,nkpl/misc/scratch/bench.nkpl,1.028544201
-katch,nkpl/misc/scratch/bench.nkpl,1.244574715
-katch,nkpl/misc/scratch/bench.nkpl,0.992965234
-katch,nkpl/misc/scratch/bench.nkpl,0.992555846
-katch,nkpl/misc/scratch/bench.nkpl,1.020113119
-katch,nkpl/misc/scratch/bench.nkpl,0.938764513
-katch,nkpl/misc/scratch/bench.nkpl,0.963641961
-katch,nkpl/misc/scratch/bench.nkpl,0.958950108
-katch,nkpl/misc/scratch/bench.nkpl,0.979000181
-katch,nkpl/misc/scratch/bench.nkpl,0.942283068
-katch,nkpl/misc/scratch/bench.nkpl,0.98055244
-katch,nkpl/misc/scratch/bench.nkpl,0.994738207
-katch,nkpl/misc/scratch/bench.nkpl,1.054049855
-katch,nkpl/misc/scratch/bench.nkpl,0.995088604
-katch,nkpl/misc/scratch/bench.nkpl,1.104063597
-katch,nkpl/misc/scratch/bench.nkpl,0.907883101
-katch,nkpl/misc/scratch/bench.nkpl,0.937880935
-katch,nkpl/misc/scratch/bench.nkpl,0.876633851
-katch,nkpl/misc/scratch/bench.nkpl,0.922304253
-katch,nkpl/misc/scratch/bench.nkpl,2.08383144
-katch,nkpl/misc/scratch/bench.nkpl,1.256375824
-katch,nkpl/misc/scratch/bench.nkpl,0.965662585
-katch,nkpl/misc/scratch/bench.nkpl,1.282080564
-katch,nkpl/misc/scratch/bench.nkpl,0.921113791
-katch,nkpl/misc/scratch/bench.nkpl,0.904951669
-katch,nkpl/misc/scratch/bench.nkpl,1.000226596
-katch,nkpl/misc/scratch/bench.nkpl,0.903930838
-katch,nkpl/misc/scratch/bench.nkpl,0.970399054
-katch,nkpl/misc/scratch/bench.nkpl,0.855827232
-katch,nkpl/misc/scratch/bench.nkpl,0.885189555
-katch,nkpl/misc/scratch/bench.nkpl,0.964592888
-katch,nkpl/misc/scratch/bench.nkpl,0.922609638
-katch,nkpl/misc/scratch/bench.nkpl,0.908583034
-katch,nkpl/misc/scratch/bench.nkpl,0.890809673
-katch,nkpl/misc/scratch/bench.nkpl,0.849177649
-katch,nkpl/misc/scratch/bench.nkpl,0.882588745
-katch,nkpl/misc/scratch/bench.nkpl,0.87512796
-katch,nkpl/misc/scratch/bench.nkpl,0.876518052
-katch,nkpl/misc/scratch/bench.nkpl,0.898992625
-katch,nkpl/misc/scratch/bench.nkpl,0.852132504
-katch,nkpl/misc/scratch/bench.nkpl,2.100092438
-katch,nkpl/misc/scratch/bench.nkpl,1.294380941
-katch,nkpl/misc/scratch/bench.nkpl,0.952554204
-katch,nkpl/misc/scratch/bench.nkpl,1.206606623
-katch,nkpl/misc/scratch/bench.nkpl,0.897905779
-katch,nkpl/misc/scratch/bench.nkpl,0.946965754
-katch,nkpl/misc/scratch/bench.nkpl,0.993664628
-katch,nkpl/misc/scratch/bench.nkpl,0.949042006
-katch,nkpl/misc/scratch/bench.nkpl,0.870014108
-katch,nkpl/misc/scratch/bench.nkpl,0.877524516
-katch,nkpl/misc/scratch/bench.nkpl,0.859261657
-katch,nkpl/misc/scratch/bench.nkpl,0.889613571
-katch,nkpl/misc/scratch/bench.nkpl,0.914916601
-katch,nkpl/misc/scratch/bench.nkpl,0.862674706
-katch,nkpl/misc/scratch/bench.nkpl,0.919171367
-katch,nkpl/misc/scratch/bench.nkpl,0.885062509
-katch,nkpl/misc/scratch/bench.nkpl,0.843477869
-katch,nkpl/misc/scratch/bench.nkpl,0.895043974
-katch,nkpl/misc/scratch/bench.nkpl,0.838669582
-katch,nkpl/misc/scratch/bench.nkpl,0.868581505
-katch,nkpl/misc/scratch/bench.nkpl,0.872744312
-katch,nkpl/misc/scratch/bench.nkpl,2.029073272
-katch,nkpl/misc/scratch/bench.nkpl,1.359776443
-katch,nkpl/misc/scratch/bench.nkpl,0.935765181
-katch,nkpl/misc/scratch/bench.nkpl,1.177311642
-katch,nkpl/misc/scratch/bench.nkpl,0.923028469
-katch,nkpl/misc/scratch/bench.nkpl,0.871351206
-katch,nkpl/misc/scratch/bench.nkpl,0.970678468
-katch,nkpl/misc/scratch/bench.nkpl,0.959795349
-katch,nkpl/misc/scratch/bench.nkpl,0.853977314
-katch,nkpl/misc/scratch/bench.nkpl,0.885862725
-katch,nkpl/misc/scratch/bench.nkpl,0.853373368
-katch,nkpl/misc/scratch/bench.nkpl,0.91230765
-katch,nkpl/misc/scratch/bench.nkpl,0.993536596
-katch,nkpl/misc/scratch/bench.nkpl,0.887964711
-katch,nkpl/misc/scratch/bench.nkpl,0.887157582
-katch,nkpl/misc/scratch/bench.nkpl,0.874275466
-katch,nkpl/misc/scratch/bench.nkpl,0.838777293
-katch,nkpl/misc/scratch/bench.nkpl,0.880018316
-katch,nkpl/misc/scratch/bench.nkpl,0.857278077
-katch,nkpl/misc/scratch/bench.nkpl,0.876824807
-katch,nkpl/misc/scratch/bench.nkpl,0.928197548
-katch,nkpl/misc/scratch/bench.nkpl,2.202486115
-katch,nkpl/misc/scratch/bench.nkpl,1.258514336
-katch,nkpl/misc/scratch/bench.nkpl,0.924735426
-katch,nkpl/misc/scratch/bench.nkpl,1.284375846
-katch,nkpl/misc/scratch/bench.nkpl,0.97201601
-katch,nkpl/misc/scratch/bench.nkpl,0.940356292
-katch,nkpl/misc/scratch/bench.nkpl,1.064440839
-katch,nkpl/misc/scratch/bench.nkpl,0.885176466
-katch,nkpl/misc/scratch/bench.nkpl,0.883976456
-katch,nkpl/misc/scratch/bench.nkpl,0.902616829
-katch,nkpl/misc/scratch/bench.nkpl,0.898260833
-katch,nkpl/misc/scratch/bench.nkpl,0.883072264
-katch,nkpl/misc/scratch/bench.nkpl,0.916078246
-katch,nkpl/misc/scratch/bench.nkpl,0.908211025
-katch,nkpl/misc/scratch/bench.nkpl,0.898708038
-katch,nkpl/misc/scratch/bench.nkpl,0.881765819
-katch,nkpl/misc/scratch/bench.nkpl,0.865416415
-katch,nkpl/misc/scratch/bench.nkpl,0.894331958
-katch,nkpl/misc/scratch/bench.nkpl,0.875130183
-katch,nkpl/misc/scratch/bench.nkpl,0.883197857
-katch,nkpl/misc/scratch/bench.nkpl,0.872742871
-katch,nkpl/misc/scratch/bench.nkpl,2.775687473
-katch,nkpl/misc/scratch/bench.nkpl,1.949979156
-katch,nkpl/misc/scratch/bench.nkpl,1.799399879
-katch,nkpl/misc/scratch/bench.nkpl,1.625361213
-katch,nkpl/misc/scratch/bench.nkpl,1.536106824
-katch,nkpl/misc/scratch/bench.nkpl,1.732838139
-katch,nkpl/misc/scratch/bench.nkpl,1.483233416
-katch,nkpl/misc/scratch/bench.nkpl,1.602677152
-katch,nkpl/misc/scratch/bench.nkpl,1.516533192
-katch,nkpl/misc/scratch/bench.nkpl,1.592323788
-katch,nkpl/misc/scratch/bench.nkpl,1.494491553
-katch,nkpl/misc/scratch/bench.nkpl,1.557247269
-katch,nkpl/misc/scratch/bench.nkpl,1.510688547
-katch,nkpl/misc/scratch/bench.nkpl,1.592716669
-katch,nkpl/misc/scratch/bench.nkpl,1.541110643
-katch,nkpl/misc/scratch/bench.nkpl,1.538852702
-katch,nkpl/misc/scratch/bench.nkpl,1.512435039
-katch,nkpl/misc/scratch/bench.nkpl,1.497642925
-katch,nkpl/misc/scratch/bench.nkpl,1.450007964
-katch,nkpl/misc/scratch/bench.nkpl,1.527956749
-katch,nkpl/misc/scratch/bench.nkpl,1.487624298
-katch,nkpl/misc/scratch/bench.nkpl,2.854060714
-katch,nkpl/misc/scratch/bench.nkpl,2.116180249
-katch,nkpl/misc/scratch/bench.nkpl,2.012339584
-katch,nkpl/misc/scratch/bench.nkpl,1.639430112
-katch,nkpl/misc/scratch/bench.nkpl,1.580968621
-katch,nkpl/misc/scratch/bench.nkpl,1.585343433
-katch,nkpl/misc/scratch/bench.nkpl,1.644494042
-katch,nkpl/misc/scratch/bench.nkpl,1.610324218
-katch,nkpl/misc/scratch/bench.nkpl,1.636770879
-katch,nkpl/misc/scratch/bench.nkpl,1.562861879
-katch,nkpl/misc/scratch/bench.nkpl,1.588288553
-katch,nkpl/misc/scratch/bench.nkpl,1.681768708
-katch,nkpl/misc/scratch/bench.nkpl,1.651379376
-katch,nkpl/misc/scratch/bench.nkpl,1.652176774
-katch,nkpl/misc/scratch/bench.nkpl,1.66358925
-katch,nkpl/misc/scratch/bench.nkpl,1.671736046
-katch,nkpl/misc/scratch/bench.nkpl,1.713592927
-katch,nkpl/misc/scratch/bench.nkpl,1.666788481
-katch,nkpl/misc/scratch/bench.nkpl,1.717386221
-katch,nkpl/misc/scratch/bench.nkpl,1.681780197
-katch,nkpl/misc/scratch/bench.nkpl,1.66013818
-katch,nkpl/misc/scratch/bench.nkpl,2.367642286
-katch,nkpl/misc/scratch/bench.nkpl,1.392220616
-katch,nkpl/misc/scratch/bench.nkpl,0.962022985
-katch,nkpl/misc/scratch/bench.nkpl,1.315190137
-katch,nkpl/misc/scratch/bench.nkpl,0.893744731
-katch,nkpl/misc/scratch/bench.nkpl,0.948582894
-katch,nkpl/misc/scratch/bench.nkpl,1.008914267
-katch,nkpl/misc/scratch/bench.nkpl,0.886572601
-katch,nkpl/misc/scratch/bench.nkpl,0.904749576
-katch,nkpl/misc/scratch/bench.nkpl,0.896024242
-katch,nkpl/misc/scratch/bench.nkpl,0.872607489
-katch,nkpl/misc/scratch/bench.nkpl,0.952084252
-katch,nkpl/misc/scratch/bench.nkpl,0.867302666
-katch,nkpl/misc/scratch/bench.nkpl,0.90474839
-katch,nkpl/misc/scratch/bench.nkpl,0.902111293
-katch,nkpl/misc/scratch/bench.nkpl,0.86469274
-katch,nkpl/misc/scratch/bench.nkpl,0.934274352
-katch,nkpl/misc/scratch/bench.nkpl,0.902443328
-katch,nkpl/misc/scratch/bench.nkpl,0.935497981
-katch,nkpl/misc/scratch/bench.nkpl,0.888218467
-katch,nkpl/misc/scratch/bench.nkpl,0.861138955
-katch,nkpl/misc/scratch/bench.nkpl,1.907786713
-katch,nkpl/misc/scratch/bench.nkpl,1.055189952
-katch,nkpl/misc/scratch/bench.nkpl,0.820462974
-katch,nkpl/misc/scratch/bench.nkpl,0.817746463
-katch,nkpl/misc/scratch/bench.nkpl,0.902261364
-katch,nkpl/misc/scratch/bench.nkpl,0.744899962
-katch,nkpl/misc/scratch/bench.nkpl,0.717936833
-katch,nkpl/misc/scratch/bench.nkpl,0.746174727
-katch,nkpl/misc/scratch/bench.nkpl,0.816778385
-katch,nkpl/misc/scratch/bench.nkpl,0.736353311
-katch,nkpl/misc/scratch/bench.nkpl,0.702162879
-katch,nkpl/misc/scratch/bench.nkpl,2.01737807
-katch,nkpl/misc/scratch/bench.nkpl,1.187661601
-katch,nkpl/misc/scratch/bench.nkpl,0.887829164
-katch,nkpl/misc/scratch/bench.nkpl,1.075348826
-katch,nkpl/misc/scratch/bench.nkpl,0.863225458
-katch,nkpl/misc/scratch/bench.nkpl,0.817264363
-katch,nkpl/misc/scratch/bench.nkpl,0.982533044
-katch,nkpl/misc/scratch/bench.nkpl,0.820399803
-katch,nkpl/misc/scratch/bench.nkpl,0.883966625
-katch,nkpl/misc/scratch/bench.nkpl,0.809578936
-katch,nkpl/misc/scratch/bench.nkpl,0.839761486
-katch,nkpl/misc/scratch/bench.nkpl,4.19962458
-katch,nkpl/misc/scratch/bench.nkpl,3.285090952
-katch,nkpl/misc/scratch/bench.nkpl,2.850272328
-katch,nkpl/misc/scratch/bench.nkpl,3.133597373
-katch,nkpl/misc/scratch/bench.nkpl,2.811613963
-katch,nkpl/misc/scratch/bench.nkpl,3.024043952
-katch,nkpl/misc/scratch/bench.nkpl,2.832577455
-katch,nkpl/misc/scratch/bench.nkpl,2.735315497
-katch,nkpl/misc/scratch/bench.nkpl,2.73815508
-katch,nkpl/misc/scratch/bench.nkpl,2.822616472
-katch,nkpl/misc/scratch/bench.nkpl,2.713734139
-katch,nkpl/misc/scratch/bench.nkpl,2.094917566
-katch,nkpl/misc/scratch/bench.nkpl,1.329236028
-katch,nkpl/misc/scratch/bench.nkpl,0.892451098
-katch,nkpl/misc/scratch/bench.nkpl,1.216052934
-katch,nkpl/misc/scratch/bench.nkpl,0.89646826
-katch,nkpl/misc/scratch/bench.nkpl,0.903223052
-katch,nkpl/misc/scratch/bench.nkpl,0.860986677
-katch,nkpl/misc/scratch/bench.nkpl,0.898235081
-katch,nkpl/misc/scratch/bench.nkpl,0.934901065
-katch,nkpl/misc/scratch/bench.nkpl,0.841553152
-katch,nkpl/misc/scratch/bench.nkpl,0.891346714
-katch,nkpl/misc/scratch/bench.nkpl,1.988143488
-katch,nkpl/misc/scratch/bench.nkpl,1.138442558
-katch,nkpl/misc/scratch/bench.nkpl,0.775968591
-katch,nkpl/misc/scratch/bench.nkpl,0.845135721
-katch,nkpl/misc/scratch/bench.nkpl,0.897177219
-katch,nkpl/misc/scratch/bench.nkpl,0.788182774
-katch,nkpl/misc/scratch/bench.nkpl,0.718880155
-katch,nkpl/misc/scratch/bench.nkpl,0.785320831
-katch,nkpl/misc/scratch/bench.nkpl,0.858581866
-katch,nkpl/misc/scratch/bench.nkpl,0.730233225
-katch,nkpl/misc/scratch/bench.nkpl,0.761176541
-katch,nkpl/misc/scratch/bench.nkpl,15.417513725
-katch,nkpl/misc/scratch/bench.nkpl,16.981150801
-katch,nkpl/misc/scratch/bench.nkpl,15.475326535
-katch,nkpl/misc/scratch/bench.nkpl,15.956953552
-katch,nkpl/misc/scratch/bench.nkpl,16.156680959
-katch,nkpl/misc/scratch/bench.nkpl,15.382939566
-katch,nkpl/misc/scratch/bench.nkpl,16.748039828
-katch,nkpl/misc/scratch/bench.nkpl,18.470437986
-katch,nkpl/misc/scratch/bench.nkpl,0.936551996
-katch,nkpl/misc/scratch/bench.nkpl,0.904747211
-katch,nkpl/misc/scratch/bench.nkpl,0.884879467
-katch,nkpl/misc/scratch/bench.nkpl,2.039967356
-katch,nkpl/misc/scratch/bench.nkpl,1.271139952
-katch,nkpl/misc/scratch/bench.nkpl,1.117848682
-katch,nkpl/misc/scratch/bench.nkpl,1.01163051
-katch,nkpl/misc/scratch/bench.nkpl,0.914467357
-katch,nkpl/misc/scratch/bench.nkpl,0.824251187
-katch,nkpl/misc/scratch/bench.nkpl,0.784695304
-katch,nkpl/misc/scratch/bench.nkpl,0.83559026
-katch,nkpl/misc/scratch/bench.nkpl,0.838763891
-katch,nkpl/misc/scratch/bench.nkpl,0.826108596
-katch,nkpl/misc/scratch/bench.nkpl,0.756112676
-katch,nkpl/misc/scratch/bench.nkpl,1.782658203
-katch,nkpl/misc/scratch/bench.nkpl,0.909509774
-katch,nkpl/misc/scratch/bench.nkpl,0.833781788
-katch,nkpl/misc/scratch/bench.nkpl,0.706336517
-katch,nkpl/misc/scratch/bench.nkpl,0.967233695
-katch,nkpl/misc/scratch/bench.nkpl,0.71762686
-katch,nkpl/misc/scratch/bench.nkpl,1.942514259
-katch,nkpl/misc/scratch/bench.nkpl,1.06015718
-katch,nkpl/misc/scratch/bench.nkpl,0.758778024
-katch,nkpl/misc/scratch/bench.nkpl,0.893336264
-katch,nkpl/misc/scratch/bench.nkpl,0.865639944
-katch,nkpl/misc/scratch/bench.nkpl,0.732460976
-katch,nkpl/misc/scratch/bench.nkpl,1.837665868
-katch,nkpl/misc/scratch/bench.nkpl,1.042767087
-katch,nkpl/misc/scratch/bench.nkpl,0.747144678
-katch,nkpl/misc/scratch/bench.nkpl,0.753308603
-katch,nkpl/misc/scratch/bench.nkpl,0.907335438
-katch,nkpl/misc/scratch/bench.nkpl,0.792216762
-katch,nkpl/misc/scratch/bench.nkpl,1.714332705
-katch,nkpl/misc/scratch/bench.nkpl,1.04914997
-katch,nkpl/misc/scratch/bench.nkpl,0.732215845
-katch,nkpl/misc/scratch/bench.nkpl,0.756860319
-katch,nkpl/misc/scratch/bench.nkpl,0.873314488
-katch,nkpl/misc/scratch/bench.nkpl,0.662383878
-katch,nkpl/misc/scratch/bench.nkpl,1.760197161
-katch,nkpl/misc/scratch/bench.nkpl,2.271309702
-katch,nkpl/misc/scratch/bench.nkpl,2.092357216
-katch,nkpl/misc/scratch/bench.nkpl,1.168707001
-katch,nkpl/misc/scratch/bench.nkpl,0.824448883
-katch,nkpl/misc/scratch/bench.nkpl,0.715388431
-katch,nkpl/misc/scratch/bench.nkpl,0.588611737
-katch,nkpl/misc/scratch/bench.nkpl,0.602219418
-katch,nkpl/misc/scratch/bench.nkpl,0.673835625
-katch,nkpl/misc/scratch/bench.nkpl,0.60922297
-katch,nkpl/misc/scratch/bench.nkpl,0.569590969
-katch,nkpl/misc/scratch/bench.nkpl,0.571034875
-katch,nkpl/misc/scratch/bench.nkpl,0.596927674
-katch,nkpl/misc/scratch/bench.nkpl,2.07772465
-katch,nkpl/misc/scratch/bench.nkpl,1.183784777
-katch,nkpl/misc/scratch/bench.nkpl,0.681217117
-katch,nkpl/misc/scratch/bench.nkpl,0.630096093
-katch,nkpl/misc/scratch/bench.nkpl,0.616335093
-katch,nkpl/misc/scratch/bench.nkpl,0.601452728
-katch,nkpl/misc/scratch/bench.nkpl,0.540241587
-katch,nkpl/misc/scratch/bench.nkpl,0.5666074
-katch,nkpl/misc/scratch/bench.nkpl,0.530933692
-katch,nkpl/misc/scratch/bench.nkpl,0.529460176
-katch,nkpl/misc/scratch/bench.nkpl,0.592778116
-katch,nkpl/misc/scratch/bench.nkpl,0.593523258
-katch,nkpl/misc/scratch/bench.nkpl,0.538838192
-katch,nkpl/misc/scratch/bench.nkpl,0.527204337
-katch,nkpl/misc/scratch/bench.nkpl,0.51990943
-katch,nkpl/misc/scratch/bench.nkpl,0.541939334
-katch,nkpl/misc/scratch/bench.nkpl,0.575632937
-katch,nkpl/misc/scratch/bench.nkpl,0.530428934
-katch,nkpl/misc/scratch/bench.nkpl,0.524674649
-katch,nkpl/misc/scratch/bench.nkpl,0.52003803
-katch,nkpl/misc/scratch/bench.nkpl,0.558589959
-katch,nkpl/misc/scratch/bench.nkpl,14.773547517
-katch,nkpl/misc/scratch/bench.nkpl,12.133751423
-katch,nkpl/misc/scratch/bench.nkpl,11.915665714
-katch,nkpl/misc/scratch/bench.nkpl,11.67885449
-katch,nkpl/misc/scratch/bench.nkpl,11.738951436
-katch,nkpl/misc/scratch/bench.nkpl,12.333226952
-katch,nkpl/misc/scratch/bench.nkpl,11.304767648
-katch,nkpl/misc/scratch/bench.nkpl,10.760704669
-katch,nkpl/misc/scratch/bench.nkpl,11.019928133
-katch,nkpl/misc/scratch/bench.nkpl,11.692001965
-katch,nkpl/misc/scratch/bench.nkpl,12.536656929
-katch,nkpl/misc/scratch/bench.nkpl,10.842738959
-katch,nkpl/misc/scratch/bench.nkpl,11.025083341
-katch,nkpl/misc/scratch/bench.nkpl,11.464181511
-katch,nkpl/misc/scratch/bench.nkpl,11.262152116
-katch,nkpl/misc/scratch/bench.nkpl,11.376781575
-katch,nkpl/misc/scratch/bench.nkpl,11.434892126
-katch,nkpl/misc/scratch/bench.nkpl,10.528613748
-katch,nkpl/misc/scratch/bench.nkpl,11.34020669
-katch,nkpl/misc/scratch/bench.nkpl,11.909521052
-katch,nkpl/misc/scratch/bench.nkpl,11.20476101
-katch,nkpl/misc/scratch/bench.nkpl,13.215435104
-katch,nkpl/misc/scratch/bench.nkpl,13.586035471
-katch,nkpl/misc/scratch/bench.nkpl,11.614023517
-katch,nkpl/misc/scratch/bench.nkpl,11.179422112
-katch,nkpl/misc/scratch/bench.nkpl,11.737953007
-katch,nkpl/misc/scratch/bench.nkpl,11.774374032
-katch,nkpl/misc/scratch/bench.nkpl,11.397777999
-katch,nkpl/misc/scratch/bench.nkpl,12.188331253
-katch,nkpl/misc/scratch/bench.nkpl,1.80838337
-katch,nkpl/misc/scratch/bench.nkpl,0.915265551
-katch,nkpl/misc/scratch/bench.nkpl,0.664390707
-katch,nkpl/misc/scratch/bench.nkpl,0.540297514
-katch,nkpl/misc/scratch/bench.nkpl,0.560020934
-katch,nkpl/misc/scratch/bench.nkpl,0.610628516
-katch,nkpl/misc/scratch/bench.nkpl,0.520196673
-katch,nkpl/misc/scratch/bench.nkpl,0.546016253
-katch,nkpl/misc/scratch/bench.nkpl,0.532585905
-katch,nkpl/misc/scratch/bench.nkpl,0.522416751
-katch,nkpl/misc/scratch/bench.nkpl,0.527997808
-katch,nkpl/misc/scratch/bench.nkpl,0.522592057
-katch,nkpl/misc/scratch/bench.nkpl,0.5037003
-katch,nkpl/misc/scratch/bench.nkpl,0.465097781
-katch,nkpl/misc/scratch/bench.nkpl,0.584002503
-katch,nkpl/misc/scratch/bench.nkpl,0.476401422
-katch,nkpl/misc/scratch/bench.nkpl,0.534581571
-katch,nkpl/misc/scratch/bench.nkpl,0.488263647
-katch,nkpl/misc/scratch/bench.nkpl,0.492141065
-katch,nkpl/misc/scratch/bench.nkpl,0.534695555
-katch,nkpl/misc/scratch/bench.nkpl,0.571105571
-katch,nkpl/misc/scratch/bench.nkpl,1.962446854
-katch,nkpl/misc/scratch/bench.nkpl,0.984177236
-katch,nkpl/misc/scratch/bench.nkpl,0.643817112
-katch,nkpl/misc/scratch/bench.nkpl,0.570018363
-katch,nkpl/misc/scratch/bench.nkpl,0.58017934
-katch,nkpl/misc/scratch/bench.nkpl,0.558388625
-katch,nkpl/misc/scratch/bench.nkpl,0.618684224
-katch,nkpl/misc/scratch/bench.nkpl,0.562814466
-katch,nkpl/misc/scratch/bench.nkpl,0.574238145
-katch,nkpl/misc/scratch/bench.nkpl,0.525139381
-katch,nkpl/misc/scratch/bench.nkpl,0.568136526
-katch,nkpl/misc/scratch/bench.nkpl,0.532877645
-katch,nkpl/misc/scratch/bench.nkpl,0.53072364
-katch,nkpl/misc/scratch/bench.nkpl,0.551273205
-katch,nkpl/misc/scratch/bench.nkpl,0.537417612
-katch,nkpl/misc/scratch/bench.nkpl,0.588190252
-katch,nkpl/misc/scratch/bench.nkpl,0.591840247
-katch,nkpl/misc/scratch/bench.nkpl,0.533431105
-katch,nkpl/misc/scratch/bench.nkpl,0.528673958
-katch,nkpl/misc/scratch/bench.nkpl,0.556376945
-katch,nkpl/misc/scratch/bench.nkpl,0.599395376
-katch,nkpl/misc/scratch/bench.nkpl,1.943270067
-katch,nkpl/misc/scratch/bench.nkpl,1.013520147
-katch,nkpl/misc/scratch/bench.nkpl,0.61890456
-katch,nkpl/misc/scratch/bench.nkpl,0.560246569
-katch,nkpl/misc/scratch/bench.nkpl,0.528130642
-katch,nkpl/misc/scratch/bench.nkpl,0.60387737
-katch,nkpl/misc/scratch/bench.nkpl,0.59301495
-katch,nkpl/misc/scratch/bench.nkpl,0.552970766
-katch,nkpl/misc/scratch/bench.nkpl,0.530869046
-katch,nkpl/misc/scratch/bench.nkpl,0.491213102
-katch,nkpl/misc/scratch/bench.nkpl,0.540258205
-katch,nkpl/misc/scratch/bench.nkpl,0.576625243
-katch,nkpl/misc/scratch/bench.nkpl,0.542639427
-katch,nkpl/misc/scratch/bench.nkpl,0.53343915
-katch,nkpl/misc/scratch/bench.nkpl,0.588756671
-katch,nkpl/misc/scratch/bench.nkpl,0.533957945
-katch,nkpl/misc/scratch/bench.nkpl,0.514885019
-katch,nkpl/misc/scratch/bench.nkpl,0.580151519
-katch,nkpl/misc/scratch/bench.nkpl,0.587506887
-katch,nkpl/misc/scratch/bench.nkpl,0.583105968
-katch,nkpl/misc/scratch/bench.nkpl,0.558922489
-katch,nkpl/misc/scratch/bench.nkpl,1.888220295
-katch,nkpl/misc/scratch/bench.nkpl,1.034575827
-katch,nkpl/misc/scratch/bench.nkpl,0.593985849
-katch,nkpl/misc/scratch/bench.nkpl,0.542626903
-katch,nkpl/misc/scratch/bench.nkpl,0.50780846
-katch,nkpl/misc/scratch/bench.nkpl,0.539716756
-katch,nkpl/misc/scratch/bench.nkpl,0.626146568
-katch,nkpl/misc/scratch/bench.nkpl,0.537247697
-katch,nkpl/misc/scratch/bench.nkpl,0.580216945
-katch,nkpl/misc/scratch/bench.nkpl,0.591277502
-katch,nkpl/misc/scratch/bench.nkpl,0.551998396
-katch,nkpl/misc/scratch/bench.nkpl,0.504638465
-katch,nkpl/misc/scratch/bench.nkpl,0.529993253
-katch,nkpl/misc/scratch/bench.nkpl,0.524082666
-katch,nkpl/misc/scratch/bench.nkpl,0.552179403
-katch,nkpl/misc/scratch/bench.nkpl,0.51498812
-katch,nkpl/misc/scratch/bench.nkpl,0.526353444
-katch,nkpl/misc/scratch/bench.nkpl,0.522745923
-katch,nkpl/misc/scratch/bench.nkpl,0.523226962
-katch,nkpl/misc/scratch/bench.nkpl,0.454601859
-katch,nkpl/misc/scratch/bench.nkpl,0.50875325
-katch,nkpl/misc/scratch/bench.nkpl,2.003736942
-katch,nkpl/misc/scratch/bench.nkpl,0.98746568
-katch,nkpl/misc/scratch/bench.nkpl,0.652988582
-katch,nkpl/misc/scratch/bench.nkpl,0.564481902
-katch,nkpl/misc/scratch/bench.nkpl,0.572168486
-katch,nkpl/misc/scratch/bench.nkpl,0.59626341
-katch,nkpl/misc/scratch/bench.nkpl,0.619373028
-katch,nkpl/misc/scratch/bench.nkpl,0.549913757
-katch,nkpl/misc/scratch/bench.nkpl,0.558385169
-katch,nkpl/misc/scratch/bench.nkpl,0.592503133
-katch,nkpl/misc/scratch/bench.nkpl,0.543986557
-katch,nkpl/misc/scratch/bench.nkpl,0.542606703
-katch,nkpl/misc/scratch/bench.nkpl,0.508268992
-katch,nkpl/misc/scratch/bench.nkpl,0.64468849
-katch,nkpl/misc/scratch/bench.nkpl,0.534259173
-katch,nkpl/misc/scratch/bench.nkpl,0.501512173
-katch,nkpl/misc/scratch/bench.nkpl,0.496815088
-katch,nkpl/misc/scratch/bench.nkpl,0.5569267
-katch,nkpl/misc/scratch/bench.nkpl,0.515910704
-katch,nkpl/misc/scratch/bench.nkpl,0.528565391
-katch,nkpl/misc/scratch/bench.nkpl,0.551655425
-katch,nkpl/misc/scratch/bench.nkpl,1.695078901
-katch,nkpl/misc/scratch/bench.nkpl,0.85534936
-katch,nkpl/misc/scratch/bench.nkpl,0.516551022
-katch,nkpl/misc/scratch/bench.nkpl,0.454865346
-katch,nkpl/misc/scratch/bench.nkpl,0.413018775
-katch,nkpl/misc/scratch/bench.nkpl,0.492085488
-katch,nkpl/misc/scratch/bench.nkpl,0.452895262
-katch,nkpl/misc/scratch/bench.nkpl,0.421497811
-katch,nkpl/misc/scratch/bench.nkpl,0.494700754
-katch,nkpl/misc/scratch/bench.nkpl,0.544760012
-katch,nkpl/misc/scratch/bench.nkpl,0.591861492
-katch,nkpl/misc/scratch/bench.nkpl,0.413403284
-katch,nkpl/misc/scratch/bench.nkpl,0.415679105
-katch,nkpl/misc/scratch/bench.nkpl,0.526318587
-katch,nkpl/misc/scratch/bench.nkpl,0.445145419
-katch,nkpl/misc/scratch/bench.nkpl,0.424701102
-katch,nkpl/misc/scratch/bench.nkpl,0.42684332
-katch,nkpl/misc/scratch/bench.nkpl,0.423631796
-katch,nkpl/misc/scratch/bench.nkpl,0.456847361
-katch,nkpl/misc/scratch/bench.nkpl,0.498332442
-katch,nkpl/misc/scratch/bench.nkpl,0.413441291
-katch,nkpl/misc/scratch/bench.nkpl,2.081322428
-katch,nkpl/misc/scratch/bench.nkpl,1.061933249
-katch,nkpl/misc/scratch/bench.nkpl,0.714997861
-katch,nkpl/misc/scratch/bench.nkpl,0.66585359
-katch,nkpl/misc/scratch/bench.nkpl,0.54554566
-katch,nkpl/misc/scratch/bench.nkpl,0.550950753
-katch,nkpl/misc/scratch/bench.nkpl,2.180405722
-katch,nkpl/misc/scratch/bench.nkpl,1.127270134
-katch,nkpl/misc/scratch/bench.nkpl,0.765971137
-katch,nkpl/misc/scratch/bench.nkpl,0.605368364
-katch,nkpl/misc/scratch/bench.nkpl,0.576072481
-katch,nkpl/misc/scratch/bench.nkpl,0.646054235
-katch,nkpl/misc/scratch/bench.nkpl,0.603818604
-katch,nkpl/misc/scratch/bench.nkpl,0.539020513
-katch,nkpl/misc/scratch/bench.nkpl,0.576137122
-katch,nkpl/misc/scratch/bench.nkpl,0.546714461
-katch,nkpl/misc/scratch/bench.nkpl,0.539450704
-katch,nkpl/misc/scratch/bench.nkpl,0.574482982
-katch,nkpl/misc/scratch/bench.nkpl,0.547976672
-katch,nkpl/misc/scratch/bench.nkpl,0.624452117
-katch,nkpl/misc/scratch/bench.nkpl,0.539581805
-katch,nkpl/misc/scratch/bench.nkpl,0.590616651
-katch,nkpl/misc/scratch/bench.nkpl,0.553861075
-katch,nkpl/misc/scratch/bench.nkpl,0.566818545
-katch,nkpl/misc/scratch/bench.nkpl,0.547106372
-katch,nkpl/misc/scratch/bench.nkpl,0.519644922
-katch,nkpl/misc/scratch/bench.nkpl,0.561483854
-katch,nkpl/misc/scratch/bench.nkpl,1.762391788
-katch,nkpl/misc/scratch/bench.nkpl,1.01920021
-katch,nkpl/misc/scratch/bench.nkpl,0.630081276
-katch,nkpl/misc/scratch/bench.nkpl,0.573596281
-katch,nkpl/misc/scratch/bench.nkpl,0.555087767
-katch,nkpl/misc/scratch/bench.nkpl,0.573861276
-katch,nkpl/misc/scratch/bench.nkpl,0.650876314
-katch,nkpl/misc/scratch/bench.nkpl,0.568571393
-katch,nkpl/misc/scratch/bench.nkpl,0.572524498
-katch,nkpl/misc/scratch/bench.nkpl,0.54346066
-katch,nkpl/misc/scratch/bench.nkpl,0.577183408
-katch,nkpl/misc/scratch/bench.nkpl,0.536312395
-katch,nkpl/misc/scratch/bench.nkpl,0.552179832
-katch,nkpl/misc/scratch/bench.nkpl,0.544568553
-katch,nkpl/misc/scratch/bench.nkpl,0.549268542
-katch,nkpl/misc/scratch/bench.nkpl,0.623165844
-katch,nkpl/misc/scratch/bench.nkpl,0.609598788
-katch,nkpl/misc/scratch/bench.nkpl,0.598330608
-katch,nkpl/misc/scratch/bench.nkpl,0.566948008
-katch,nkpl/misc/scratch/bench.nkpl,0.584459292
-katch,nkpl/misc/scratch/bench.nkpl,0.576180013
-katch,nkpl/misc/scratch/bench.nkpl,2.008213403
-katch,nkpl/misc/scratch/bench.nkpl,1.024880657
-katch,nkpl/misc/scratch/bench.nkpl,0.650937347
-katch,nkpl/misc/scratch/bench.nkpl,0.57800858
-katch,nkpl/misc/scratch/bench.nkpl,0.60893841
-katch,nkpl/misc/scratch/bench.nkpl,0.63619242
-katch,nkpl/misc/scratch/bench.nkpl,0.504705591
-katch,nkpl/misc/scratch/bench.nkpl,0.55298716
-katch,nkpl/misc/scratch/bench.nkpl,0.600521178
-katch,nkpl/misc/scratch/bench.nkpl,0.546882656
-katch,nkpl/misc/scratch/bench.nkpl,0.550978059
-katch,nkpl/misc/scratch/bench.nkpl,0.54216646
-katch,nkpl/misc/scratch/bench.nkpl,0.571790809
-katch,nkpl/misc/scratch/bench.nkpl,0.506476296
-katch,nkpl/misc/scratch/bench.nkpl,0.639048744
-katch,nkpl/misc/scratch/bench.nkpl,0.511698496
-katch,nkpl/misc/scratch/bench.nkpl,0.499511143
-katch,nkpl/misc/scratch/bench.nkpl,0.569236457
-katch,nkpl/misc/scratch/bench.nkpl,0.526104936
-katch,nkpl/misc/scratch/bench.nkpl,0.516004291
-katch,nkpl/misc/scratch/bench.nkpl,0.534010818
-katch,nkpl/misc/scratch/bench.nkpl,1.860243671
-katch,nkpl/misc/scratch/bench.nkpl,1.017691312
-katch,nkpl/misc/scratch/bench.nkpl,0.653033697
-katch,nkpl/misc/scratch/bench.nkpl,0.594604969
-katch,nkpl/misc/scratch/bench.nkpl,0.580105862
-katch,nkpl/misc/scratch/bench.nkpl,0.713351209
-katch,nkpl/misc/scratch/bench.nkpl,0.545696868
-katch,nkpl/misc/scratch/bench.nkpl,0.548458271
-katch,nkpl/misc/scratch/bench.nkpl,0.577606074
-katch,nkpl/misc/scratch/bench.nkpl,0.520470855
-katch,nkpl/misc/scratch/bench.nkpl,0.511488953
-katch,nkpl/misc/scratch/bench.nkpl,0.529273797
-katch,nkpl/misc/scratch/bench.nkpl,0.546749915
-katch,nkpl/misc/scratch/bench.nkpl,0.565007248
-katch,nkpl/misc/scratch/bench.nkpl,0.556272188
-katch,nkpl/misc/scratch/bench.nkpl,0.599546223
-katch,nkpl/misc/scratch/bench.nkpl,0.615803556
-katch,nkpl/misc/scratch/bench.nkpl,0.799402453
-katch,nkpl/misc/scratch/bench.nkpl,0.594019227
-katch,nkpl/misc/scratch/bench.nkpl,0.508017562
-katch,nkpl/misc/scratch/bench.nkpl,0.574016505
-katch,nkpl/misc/scratch/bench.nkpl,1.726323159
-katch,nkpl/misc/scratch/bench.nkpl,0.906651133
-katch,nkpl/misc/scratch/bench.nkpl,0.662486648
-katch,nkpl/misc/scratch/bench.nkpl,0.668124893
-katch,nkpl/misc/scratch/bench.nkpl,0.748612622
-katch,nkpl/misc/scratch/bench.nkpl,0.674092211
-katch,nkpl/misc/scratch/bench.nkpl,0.615478801
-katch,nkpl/misc/scratch/bench.nkpl,0.682357992
-katch,nkpl/misc/scratch/bench.nkpl,0.70015627
-katch,nkpl/misc/scratch/bench.nkpl,0.616983327
-katch,nkpl/misc/scratch/bench.nkpl,0.70413908
-katch,nkpl/misc/scratch/bench.nkpl,0.637221121
-katch,nkpl/misc/scratch/bench.nkpl,0.641293069
-katch,nkpl/misc/scratch/bench.nkpl,0.654321582
-katch,nkpl/misc/scratch/bench.nkpl,0.623132469
-katch,nkpl/misc/scratch/bench.nkpl,0.588335795
-katch,nkpl/misc/scratch/bench.nkpl,0.665430194
-katch,nkpl/misc/scratch/bench.nkpl,0.62086446
-katch,nkpl/misc/scratch/bench.nkpl,0.584834341
-katch,nkpl/misc/scratch/bench.nkpl,0.624260819
-katch,nkpl/misc/scratch/bench.nkpl,0.67164013
-katch,nkpl/misc/scratch/bench.nkpl,1.752621655
-katch,nkpl/misc/scratch/bench.nkpl,1.937255191
-katch,nkpl/misc/scratch/bench.nkpl,2.12038513
-katch,nkpl/misc/scratch/bench.nkpl,2.028841835
-katch,nkpl/misc/scratch/bench.nkpl,1.059268562
-katch,nkpl/misc/scratch/bench.nkpl,0.747442838
-katch,nkpl/misc/scratch/bench.nkpl,0.645812237
-katch,nkpl/misc/scratch/bench.nkpl,0.618541838
-katch,nkpl/misc/scratch/bench.nkpl,0.582435318
-katch,nkpl/misc/scratch/bench.nkpl,0.520005364
-katch,nkpl/misc/scratch/bench.nkpl,0.564981853
-katch,nkpl/misc/scratch/bench.nkpl,0.595603557
-katch,nkpl/misc/scratch/bench.nkpl,0.631075816
-katch,nkpl/misc/scratch/bench.nkpl,0.573128638
-katch,nkpl/misc/scratch/bench.nkpl,1.893679156
-katch,nkpl/misc/scratch/bench.nkpl,0.986073609
-katch,nkpl/misc/scratch/bench.nkpl,0.650377835
-katch,nkpl/misc/scratch/bench.nkpl,0.570529251
-katch,nkpl/misc/scratch/bench.nkpl,0.585801072
-katch,nkpl/misc/scratch/bench.nkpl,0.59143924
-katch,nkpl/misc/scratch/bench.nkpl,0.589203751
-katch,nkpl/misc/scratch/bench.nkpl,0.556547256
-katch,nkpl/misc/scratch/bench.nkpl,0.584006466
-katch,nkpl/misc/scratch/bench.nkpl,0.533044791
-katch,nkpl/misc/scratch/bench.nkpl,0.541947802
-katch,nkpl/misc/scratch/bench.nkpl,14.436595645
-katch,nkpl/misc/scratch/bench.nkpl,12.479254105
-katch,nkpl/misc/scratch/bench.nkpl,12.553605879
-katch,nkpl/misc/scratch/bench.nkpl,13.351837059
-katch,nkpl/misc/scratch/bench.nkpl,12.149153779
-katch,nkpl/misc/scratch/bench.nkpl,12.868700848
-katch,nkpl/misc/scratch/bench.nkpl,12.247776253
-katch,nkpl/misc/scratch/bench.nkpl,11.991037152
-katch,nkpl/misc/scratch/bench.nkpl,14.172251141
-katch,nkpl/misc/scratch/bench.nkpl,12.995409991
-katch,nkpl/misc/scratch/bench.nkpl,12.955359465
-katch,nkpl/misc/scratch/bench.nkpl,13.263083649
-katch,nkpl/misc/scratch/bench.nkpl,11.853465095
-katch,nkpl/misc/scratch/bench.nkpl,12.206429929
-katch,nkpl/misc/scratch/bench.nkpl,11.523555205
-katch,nkpl/misc/scratch/bench.nkpl,10.555888325
-katch,nkpl/misc/scratch/bench.nkpl,10.617294296
-katch,nkpl/misc/scratch/bench.nkpl,11.088272289
-katch,nkpl/misc/scratch/bench.nkpl,12.301496721
-katch,nkpl/misc/scratch/bench.nkpl,14.445224702
-katch,nkpl/misc/scratch/bench.nkpl,14.533753396
-katch,nkpl/misc/scratch/bench.nkpl,1.9101183
-katch,nkpl/misc/scratch/bench.nkpl,1.178691961
-katch,nkpl/misc/scratch/bench.nkpl,0.69296804
-katch,nkpl/misc/scratch/bench.nkpl,0.695296578
-katch,nkpl/misc/scratch/bench.nkpl,0.656162304
-katch,nkpl/misc/scratch/bench.nkpl,0.637939012
-katch,nkpl/misc/scratch/bench.nkpl,0.656742333
-katch,nkpl/misc/scratch/bench.nkpl,0.651956782
-katch,nkpl/misc/scratch/bench.nkpl,0.634807558
-katch,nkpl/misc/scratch/bench.nkpl,0.630395932
-katch,nkpl/misc/scratch/bench.nkpl,0.621780661
-katch,nkpl/misc/scratch/bench.nkpl,1.794108442
-katch,nkpl/misc/scratch/bench.nkpl,1.214079955
-katch,nkpl/misc/scratch/bench.nkpl,0.700556275
-katch,nkpl/misc/scratch/bench.nkpl,0.681163996
-katch,nkpl/misc/scratch/bench.nkpl,0.659227421
-katch,nkpl/misc/scratch/bench.nkpl,0.672723651
-katch,nkpl/misc/scratch/bench.nkpl,0.658308344
-katch,nkpl/misc/scratch/bench.nkpl,0.662267884
-katch,nkpl/misc/scratch/bench.nkpl,0.66756677
-katch,nkpl/misc/scratch/bench.nkpl,0.673499711
-katch,nkpl/misc/scratch/bench.nkpl,0.692165821
-katch,nkpl/misc/scratch/bench.nkpl,1.62461893
-katch,nkpl/misc/scratch/bench.nkpl,0.777238639
-katch,nkpl/misc/scratch/bench.nkpl,0.661545468
-katch,nkpl/misc/scratch/bench.nkpl,0.611893273
-katch,nkpl/misc/scratch/bench.nkpl,0.610509944
-katch,nkpl/misc/scratch/bench.nkpl,0.66048976
-katch,nkpl/misc/scratch/bench.nkpl,0.639715187
-katch,nkpl/misc/scratch/bench.nkpl,0.605211104
-katch,nkpl/misc/scratch/bench.nkpl,0.592812522
-katch,nkpl/misc/scratch/bench.nkpl,0.574092599
-katch,nkpl/misc/scratch/bench.nkpl,0.618814654
-katch,nkpl/misc/scratch/bench.nkpl,1.63624132
-katch,nkpl/misc/scratch/bench.nkpl,0.780373254
-katch,nkpl/misc/scratch/bench.nkpl,0.622626407
-katch,nkpl/misc/scratch/bench.nkpl,0.657746171
-katch,nkpl/misc/scratch/bench.nkpl,0.59982738
-katch,nkpl/misc/scratch/bench.nkpl,0.605163099
-katch,nkpl/misc/scratch/bench.nkpl,0.642745308
-katch,nkpl/misc/scratch/bench.nkpl,0.610235473
-katch,nkpl/misc/scratch/bench.nkpl,0.618404947
-katch,nkpl/misc/scratch/bench.nkpl,0.59011743
-katch,nkpl/misc/scratch/bench.nkpl,0.601870299
-katch,nkpl/misc/scratch/bench.nkpl,1.650751515
-katch,nkpl/misc/scratch/bench.nkpl,0.801542565
-katch,nkpl/misc/scratch/bench.nkpl,0.61558987
-katch,nkpl/misc/scratch/bench.nkpl,0.600212137
-katch,nkpl/misc/scratch/bench.nkpl,0.587744426
-katch,nkpl/misc/scratch/bench.nkpl,0.650287967
-katch,nkpl/misc/scratch/bench.nkpl,0.631245651
-katch,nkpl/misc/scratch/bench.nkpl,0.586635855
-katch,nkpl/misc/scratch/bench.nkpl,0.606756377
-katch,nkpl/misc/scratch/bench.nkpl,0.570202002
-katch,nkpl/misc/scratch/bench.nkpl,0.604405352
-katch,nkpl/misc/scratch/bench.nkpl,1.908307263
-katch,nkpl/misc/scratch/bench.nkpl,0.957471157
-katch,nkpl/misc/scratch/bench.nkpl,0.618492312
-katch,nkpl/misc/scratch/bench.nkpl,0.536201298
-katch,nkpl/misc/scratch/bench.nkpl,0.512942414
-katch,nkpl/misc/scratch/bench.nkpl,0.56399159
-katch,nkpl/misc/scratch/bench.nkpl,0.522120793
-katch,nkpl/misc/scratch/bench.nkpl,0.519732739
-katch,nkpl/misc/scratch/bench.nkpl,0.515543403
-katch,nkpl/misc/scratch/bench.nkpl,0.522174596
-katch,nkpl/misc/scratch/bench.nkpl,0.471245857
-katch,nkpl/misc/scratch/bench.nkpl,2.330211481
-katch,nkpl/misc/scratch/bench.nkpl,1.212044003
-katch,nkpl/misc/scratch/bench.nkpl,0.861378904
-katch,nkpl/misc/scratch/bench.nkpl,0.757715377
-katch,nkpl/misc/scratch/bench.nkpl,0.646135101
-katch,nkpl/misc/scratch/bench.nkpl,0.625492629
-katch,nkpl/misc/scratch/bench.nkpl,0.724234884
-katch,nkpl/misc/scratch/bench.nkpl,0.564103155
-katch,nkpl/misc/scratch/bench.nkpl,0.581769341
-katch,nkpl/misc/scratch/bench.nkpl,0.588509994
-katch,nkpl/misc/scratch/bench.nkpl,0.69496239
-katch,nkpl/misc/scratch/bench.nkpl,1.915121162
-katch,nkpl/misc/scratch/bench.nkpl,0.881909703
-katch,nkpl/misc/scratch/bench.nkpl,0.633976826
-katch,nkpl/misc/scratch/bench.nkpl,0.530578418
-katch,nkpl/misc/scratch/bench.nkpl,0.52151366
-katch,nkpl/misc/scratch/bench.nkpl,0.604117583
-katch,nkpl/misc/scratch/bench.nkpl,0.542063921
-katch,nkpl/misc/scratch/bench.nkpl,0.577102259
-katch,nkpl/misc/scratch/bench.nkpl,0.521468494
-katch,nkpl/misc/scratch/bench.nkpl,0.51062353
-katch,nkpl/misc/scratch/bench.nkpl,0.489761137
-katch,nkpl/misc/scratch/bench.nkpl,1.705305602
-katch,nkpl/misc/scratch/bench.nkpl,0.813341406
-katch,nkpl/misc/scratch/bench.nkpl,0.628022328
-katch,nkpl/misc/scratch/bench.nkpl,0.611518375
-katch,nkpl/misc/scratch/bench.nkpl,0.642334696
-katch,nkpl/misc/scratch/bench.nkpl,0.618204126
-katch,nkpl/misc/scratch/bench.nkpl,0.62286159
-katch,nkpl/misc/scratch/bench.nkpl,0.60004934
-katch,nkpl/misc/scratch/bench.nkpl,0.605917125
-katch,nkpl/misc/scratch/bench.nkpl,0.646462663
-katch,nkpl/misc/scratch/bench.nkpl,0.612072242
-katch,nkpl/misc/scratch/bench.nkpl,1.667795459
-katch,nkpl/misc/scratch/bench.nkpl,0.796604317
-katch,nkpl/misc/scratch/bench.nkpl,0.625505088
-katch,nkpl/misc/scratch/bench.nkpl,0.623581268
-katch,nkpl/misc/scratch/bench.nkpl,0.596152577
-katch,nkpl/misc/scratch/bench.nkpl,0.605970665
-katch,nkpl/misc/scratch/bench.nkpl,0.600129909
-katch,nkpl/misc/scratch/bench.nkpl,0.575759059
-katch,nkpl/misc/scratch/bench.nkpl,0.631871267
-katch,nkpl/misc/scratch/bench.nkpl,0.585731644
-katch,nkpl/misc/scratch/bench.nkpl,0.628931722
-katch,nkpl/misc/scratch/bench.nkpl,1.759540153
-katch,nkpl/misc/scratch/bench.nkpl,0.801358622
-katch,nkpl/misc/scratch/bench.nkpl,0.639596759
-katch,nkpl/misc/scratch/bench.nkpl,0.623964946
-katch,nkpl/misc/scratch/bench.nkpl,0.602828554
-katch,nkpl/misc/scratch/bench.nkpl,0.607376446
-katch,nkpl/misc/scratch/bench.nkpl,0.731439618
-katch,nkpl/misc/scratch/bench.nkpl,0.65363851
-katch,nkpl/misc/scratch/bench.nkpl,0.631261645
-katch,nkpl/misc/scratch/bench.nkpl,0.643188108
-katch,nkpl/misc/scratch/bench.nkpl,0.643796927
-katch,nkpl/misc/scratch/bench.nkpl,35.561361077
-katch,nkpl/misc/scratch/bench.nkpl,2.665930529
-katch,nkpl/misc/scratch/bench.nkpl,1.164284127
-katch,nkpl/misc/scratch/bench.nkpl,0.793313768
-katch,nkpl/misc/scratch/bench.nkpl,0.775593981
-katch,nkpl/misc/scratch/bench.nkpl,0.797732058
-katch,nkpl/misc/scratch/bench.nkpl,0.784307267
-katch,nkpl/misc/scratch/bench.nkpl,0.733204854
-katch,nkpl/misc/scratch/bench.nkpl,0.691517011
-katch,nkpl/misc/scratch/bench.nkpl,0.733969889
-katch,nkpl/misc/scratch/bench.nkpl,0.708552562
-katch,nkpl/misc/scratch/bench.nkpl,0.711443094
-katch,nkpl/misc/scratch/bench.nkpl,2.61996397
-katch,nkpl/misc/scratch/bench.nkpl,1.013211631
-katch,nkpl/misc/scratch/bench.nkpl,0.779157391
-katch,nkpl/misc/scratch/bench.nkpl,0.796147516
-katch,nkpl/misc/scratch/bench.nkpl,0.766055359
-katch,nkpl/misc/scratch/bench.nkpl,0.734999989
-katch,nkpl/misc/scratch/bench.nkpl,0.786602456
-katch,nkpl/misc/scratch/bench.nkpl,0.781173628
-katch,nkpl/misc/scratch/bench.nkpl,0.77573724
-katch,nkpl/misc/scratch/bench.nkpl,0.790473492
-katch,nkpl/misc/scratch/bench.nkpl,0.792427976
-katch,nkpl/misc/scratch/bench.nkpl,1.684813072
-katch,nkpl/misc/scratch/bench.nkpl,0.961332855
-katch,nkpl/misc/scratch/bench.nkpl,0.663044777
-katch,nkpl/misc/scratch/bench.nkpl,0.593136013
-katch,nkpl/misc/scratch/bench.nkpl,0.663297755
-katch,nkpl/misc/scratch/bench.nkpl,0.711924224
-katch,nkpl/misc/scratch/bench.nkpl,0.647808943
-katch,nkpl/misc/scratch/bench.nkpl,0.579693643
-katch,nkpl/misc/scratch/bench.nkpl,0.603361246
-katch,nkpl/misc/scratch/bench.nkpl,0.665382472
-katch,nkpl/misc/scratch/bench.nkpl,0.658013874
-katch,nkpl/misc/scratch/bench.nkpl,1.730769047
-katch,nkpl/misc/scratch/bench.nkpl,0.956919291
-katch,nkpl/misc/scratch/bench.nkpl,0.712393049
-katch,nkpl/misc/scratch/bench.nkpl,0.701369021
-katch,nkpl/misc/scratch/bench.nkpl,0.73868313
-katch,nkpl/misc/scratch/bench.nkpl,0.690539976
-katch,nkpl/misc/scratch/bench.nkpl,0.716669464
-katch,nkpl/misc/scratch/bench.nkpl,0.627246112
-katch,nkpl/misc/scratch/bench.nkpl,0.582253075
-katch,nkpl/misc/scratch/bench.nkpl,0.6240422
-katch,nkpl/misc/scratch/bench.nkpl,0.658837973
-katch,nkpl/misc/scratch/bench.nkpl,1.722226454
+katch,nkpl/fig09/naive-reachability/Aarnet-reachability.nkpl,0.181799418
+frenetic,nkpl/fig09/naive-reachability/Aarnet-reachability.nkpl,271.47
+katch,nkpl/fig09/naive-reachability/Abilene-reachability.nkpl,0.126758391
+frenetic,nkpl/fig09/naive-reachability/Abilene-reachability.nkpl,12.66
+katch,nkpl/fig09/naive-reachability/Abvt-reachability.nkpl,0.237228
+frenetic,nkpl/fig09/naive-reachability/Abvt-reachability.nkpl,timeout (300s)
+katch,nkpl/fig09/naive-reachability/Aconet-reachability.nkpl,0.280928517
+frenetic,nkpl/fig09/naive-reachability/Aconet-reachability.nkpl,timeout (300s)
+katch,nkpl/fig09/naive-reachability/Agis-reachability.nkpl,0.2515288
+frenetic,nkpl/fig09/naive-reachability/Agis-reachability.nkpl,timeout (300s)
+katch,nkpl/fig09/naive-reachability/Ai3-reachability.nkpl,0.09691581
+frenetic,nkpl/fig09/naive-reachability/Ai3-reachability.nkpl,9.05
+katch,nkpl/fig09/naive-reachability/Airtel-reachability.nkpl,0.144504742
+frenetic,nkpl/fig09/naive-reachability/Airtel-reachability.nkpl,192.86
+katch,nkpl/fig09/naive-reachability/Amres-reachability.nkpl,0.267604278
+frenetic,nkpl/fig09/naive-reachability/Amres-reachability.nkpl,timeout (300s)
+katch,nkpl/fig09/naive-reachability/Ans-reachability.nkpl,0.164444469
+frenetic,nkpl/fig09/naive-reachability/Ans-reachability.nkpl,225.45
+katch,nkpl/fig09/naive-reachability/Arnes-reachability.nkpl,0.596855566
+frenetic,nkpl/fig09/naive-reachability/Arnes-reachability.nkpl,timeout (300s)
+katch,nkpl/fig09/naive-reachability/Arn-reachability.nkpl,0.478693739
+frenetic,nkpl/fig09/naive-reachability/Arn-reachability.nkpl,timeout (300s)
+katch,nkpl/fig09/naive-reachability/Arpanet196912-reachability.nkpl,0.048762551
+frenetic,nkpl/fig09/naive-reachability/Arpanet196912-reachability.nkpl,0.31
+katch,nkpl/fig09/naive-reachability/Arpanet19706-reachability.nkpl,0.087917047
+frenetic,nkpl/fig09/naive-reachability/Arpanet19706-reachability.nkpl,5.09
+katch,nkpl/fig09/naive-reachability/Arpanet19719-reachability.nkpl,0.155273786
+frenetic,nkpl/fig09/naive-reachability/Arpanet19719-reachability.nkpl,190.60
+katch,nkpl/fig09/naive-reachability/Arpanet19723-reachability.nkpl,0.25431496
+frenetic,nkpl/fig09/naive-reachability/Arpanet19723-reachability.nkpl,timeout (300s)
+katch,nkpl/fig09/naive-reachability/Arpanet19728-reachability.nkpl,0.428588009
+frenetic,nkpl/fig09/naive-reachability/Arpanet19728-reachability.nkpl,timeout (300s)
+katch,nkpl/fig09/naive-reachability/AsnetAm-reachability.nkpl,2.456326909
+frenetic,nkpl/fig09/naive-reachability/AsnetAm-reachability.nkpl,timeout (300s)
+katch,nkpl/fig09/naive-reachability/Atmnet-reachability.nkpl,0.193425999
+frenetic,nkpl/fig09/naive-reachability/Atmnet-reachability.nkpl,timeout (300s)
+katch,nkpl/fig09/naive-reachability/AttMpls-reachability.nkpl,0.28592517
+frenetic,nkpl/fig09/naive-reachability/AttMpls-reachability.nkpl,timeout (300s)
+katch,nkpl/fig09/naive-reachability/Azrena-reachability.nkpl,0.186537384
+frenetic,nkpl/fig09/naive-reachability/Azrena-reachability.nkpl,timeout (300s)
+katch,nkpl/fig09/naive-reachability/Bandcon-reachability.nkpl,0.20398667
+frenetic,nkpl/fig09/naive-reachability/Bandcon-reachability.nkpl,timeout (300s)
+katch,nkpl/fig09/naive-reachability/Basnet-reachability.nkpl,0.064359108
+frenetic,nkpl/fig09/naive-reachability/Basnet-reachability.nkpl,1.98
+katch,nkpl/fig09/naive-reachability/Bbnplanet-reachability.nkpl,0.310343809
+frenetic,nkpl/fig09/naive-reachability/Bbnplanet-reachability.nkpl,timeout (300s)
+katch,nkpl/fig09/naive-reachability/Bellcanada-reachability.nkpl,1.011131711
+frenetic,nkpl/fig09/naive-reachability/Bellcanada-reachability.nkpl,timeout (300s)
+katch,nkpl/fig09/naive-reachability/Bellsouth-reachability.nkpl,1.273701207
+frenetic,nkpl/fig09/naive-reachability/Bellsouth-reachability.nkpl,timeout (300s)
+katch,nkpl/fig09/naive-reachability/Belnet2003-reachability.nkpl,0.244961594
+frenetic,nkpl/fig09/naive-reachability/Belnet2003-reachability.nkpl,timeout (300s)
+katch,nkpl/fig09/naive-reachability/Belnet2004-reachability.nkpl,0.260670564
+frenetic,nkpl/fig09/naive-reachability/Belnet2004-reachability.nkpl,timeout (300s)
+katch,nkpl/fig09/naive-reachability/Belnet2005-reachability.nkpl,0.242914528
+frenetic,nkpl/fig09/naive-reachability/Belnet2005-reachability.nkpl,timeout (300s)
+katch,nkpl/fig09/naive-reachability/Belnet2006-reachability.nkpl,0.249521476
+frenetic,nkpl/fig09/naive-reachability/Belnet2006-reachability.nkpl,timeout (300s)
+katch,nkpl/fig09/naive-reachability/Belnet2007-reachability.nkpl,0.193306992
+frenetic,nkpl/fig09/naive-reachability/Belnet2007-reachability.nkpl,timeout (300s)
+katch,nkpl/fig09/naive-reachability/Belnet2008-reachability.nkpl,0.182485122
+frenetic,nkpl/fig09/naive-reachability/Belnet2008-reachability.nkpl,timeout (300s)
+katch,nkpl/fig09/naive-reachability/Belnet2009-reachability.nkpl,0.194114925
+frenetic,nkpl/fig09/naive-reachability/Belnet2009-reachability.nkpl,timeout (300s)
+katch,nkpl/fig09/naive-reachability/Belnet2010-reachability.nkpl,0.228515533
+frenetic,nkpl/fig09/naive-reachability/Belnet2010-reachability.nkpl,timeout (300s)
+katch,nkpl/fig09/naive-reachability/BeyondTheNetwork-reachability.nkpl,1.052235092
+frenetic,nkpl/fig09/naive-reachability/BeyondTheNetwork-reachability.nkpl,timeout (300s)
+katch,nkpl/fig09/naive-reachability/Bics-reachability.nkpl,0.490215755
+frenetic,nkpl/fig09/naive-reachability/Bics-reachability.nkpl,timeout (300s)
+katch,nkpl/fig09/naive-reachability/Biznet-reachability.nkpl,0.428815395
+frenetic,nkpl/fig09/naive-reachability/Biznet-reachability.nkpl,timeout (300s)
+katch,nkpl/fig09/naive-reachability/Bren-reachability.nkpl,0.633696475
+frenetic,nkpl/fig09/naive-reachability/Bren-reachability.nkpl,timeout (300s)
+katch,nkpl/fig09/naive-reachability/BsonetEurope-reachability.nkpl,0.176501069
+frenetic,nkpl/fig09/naive-reachability/BsonetEurope-reachability.nkpl,243.80
+katch,nkpl/fig09/naive-reachability/BtAsiaPac-reachability.nkpl,0.205815422
+frenetic,nkpl/fig09/naive-reachability/BtAsiaPac-reachability.nkpl,timeout (300s)
+katch,nkpl/fig09/naive-reachability/BtEurope-reachability.nkpl,0.253502265
+frenetic,nkpl/fig09/naive-reachability/BtEurope-reachability.nkpl,timeout (300s)
+katch,nkpl/fig09/naive-reachability/BtLatinAmerica-reachability.nkpl,1.208247584
+frenetic,nkpl/fig09/naive-reachability/BtLatinAmerica-reachability.nkpl,timeout (300s)
+katch,nkpl/fig09/naive-reachability/BtNorthAmerica-reachability.nkpl,0.628735508
+frenetic,nkpl/fig09/naive-reachability/BtNorthAmerica-reachability.nkpl,timeout (300s)
+katch,nkpl/fig09/naive-reachability/Canerie-reachability.nkpl,0.454150189
+frenetic,nkpl/fig09/naive-reachability/Canerie-reachability.nkpl,timeout (300s)
+katch,nkpl/fig09/naive-reachability/Carnet-reachability.nkpl,1.013725445
+frenetic,nkpl/fig09/naive-reachability/Carnet-reachability.nkpl,timeout (300s)
+katch,nkpl/fig09/naive-reachability/Cernet-reachability.nkpl,0.754243935
+frenetic,nkpl/fig09/naive-reachability/Cernet-reachability.nkpl,timeout (300s)
+katch,nkpl/fig09/naive-reachability/Cesnet1993-reachability.nkpl,0.098186833
+frenetic,nkpl/fig09/naive-reachability/Cesnet1993-reachability.nkpl,9.38
+katch,nkpl/fig09/naive-reachability/Cesnet1997-reachability.nkpl,0.115425815
+frenetic,nkpl/fig09/naive-reachability/Cesnet1997-reachability.nkpl,34.54
+katch,nkpl/fig09/naive-reachability/Cesnet1999-reachability.nkpl,0.159551133
+frenetic,nkpl/fig09/naive-reachability/Cesnet1999-reachability.nkpl,38.34
+katch,nkpl/fig09/naive-reachability/Cesnet2001-reachability.nkpl,0.211906984
+frenetic,nkpl/fig09/naive-reachability/Cesnet2001-reachability.nkpl,timeout (300s)
+katch,nkpl/fig09/naive-reachability/Cesnet200304-reachability.nkpl,0.525242129
+frenetic,nkpl/fig09/naive-reachability/Cesnet200304-reachability.nkpl,timeout (300s)
+katch,nkpl/fig09/naive-reachability/Cesnet200511-reachability.nkpl,0.910165183
+frenetic,nkpl/fig09/naive-reachability/Cesnet200511-reachability.nkpl,timeout (300s)
+katch,nkpl/fig09/naive-reachability/Cesnet200603-reachability.nkpl,0.882094109
+frenetic,nkpl/fig09/naive-reachability/Cesnet200603-reachability.nkpl,timeout (300s)
+katch,nkpl/fig09/naive-reachability/Cesnet200706-reachability.nkpl,1.141277273
+frenetic,nkpl/fig09/naive-reachability/Cesnet200706-reachability.nkpl,timeout (300s)
+katch,nkpl/fig09/naive-reachability/Cesnet201006-reachability.nkpl,1.510089647
+frenetic,nkpl/fig09/naive-reachability/Cesnet201006-reachability.nkpl,timeout (300s)
+katch,nkpl/fig09/naive-reachability/Chinanet-reachability.nkpl,0.899890035
+frenetic,nkpl/fig09/naive-reachability/Chinanet-reachability.nkpl,timeout (300s)
+katch,nkpl/fig09/naive-reachability/Claranet-reachability.nkpl,0.131707187
+frenetic,nkpl/fig09/naive-reachability/Claranet-reachability.nkpl,82.91
+katch,nkpl/fig09/naive-reachability/Cogentco-reachability.nkpl,28.072498711
+frenetic,nkpl/fig09/naive-reachability/Cogentco-reachability.nkpl,timeout (300s)
+katch,nkpl/fig09/naive-reachability/Colt-reachability.nkpl,15.921571554
+frenetic,nkpl/fig09/naive-reachability/Colt-reachability.nkpl,timeout (300s)
+katch,nkpl/fig09/naive-reachability/Columbus-reachability.nkpl,2.11571982
+frenetic,nkpl/fig09/naive-reachability/Columbus-reachability.nkpl,timeout (300s)
+katch,nkpl/fig09/naive-reachability/Compuserve-reachability.nkpl,0.121319348
+frenetic,nkpl/fig09/naive-reachability/Compuserve-reachability.nkpl,61.75
+katch,nkpl/fig09/naive-reachability/CrlNetworkServices-reachability.nkpl,0.452910269
+frenetic,nkpl/fig09/naive-reachability/CrlNetworkServices-reachability.nkpl,timeout (300s)
+katch,nkpl/fig09/naive-reachability/Cudi-reachability.nkpl,1.069118494
+frenetic,nkpl/fig09/naive-reachability/Cudi-reachability.nkpl,timeout (300s)
+katch,nkpl/fig09/naive-reachability/Cwix-reachability.nkpl,0.585510671
+frenetic,nkpl/fig09/naive-reachability/Cwix-reachability.nkpl,timeout (300s)
+katch,nkpl/fig09/naive-reachability/Cynet-reachability.nkpl,0.484031241
+frenetic,nkpl/fig09/naive-reachability/Cynet-reachability.nkpl,timeout (300s)
+katch,nkpl/fig09/naive-reachability/Darkstrand-reachability.nkpl,0.39554636
+frenetic,nkpl/fig09/naive-reachability/Darkstrand-reachability.nkpl,timeout (300s)
+katch,nkpl/fig09/naive-reachability/Dataxchange-reachability.nkpl,0.062261038
+frenetic,nkpl/fig09/naive-reachability/Dataxchange-reachability.nkpl,1.12
+katch,nkpl/fig09/naive-reachability/Deltacom-reachability.nkpl,6.980231639
+frenetic,nkpl/fig09/naive-reachability/Deltacom-reachability.nkpl,timeout (300s)
+katch,nkpl/fig09/naive-reachability/DeutscheTelekom-reachability.nkpl,0.581399751
+frenetic,nkpl/fig09/naive-reachability/DeutscheTelekom-reachability.nkpl,timeout (300s)
+katch,nkpl/fig09/naive-reachability/Dfn-reachability.nkpl,1.753581605
+frenetic,nkpl/fig09/naive-reachability/Dfn-reachability.nkpl,timeout (300s)
+katch,nkpl/fig09/naive-reachability/DialtelecomCz-reachability.nkpl,19.256099437
+frenetic,nkpl/fig09/naive-reachability/DialtelecomCz-reachability.nkpl,timeout (300s)
+katch,nkpl/fig09/naive-reachability/Digex-reachability.nkpl,0.391462188
+frenetic,nkpl/fig09/naive-reachability/Digex-reachability.nkpl,timeout (300s)
+katch,nkpl/fig09/naive-reachability/Easynet-reachability.nkpl,0.184629752
+frenetic,nkpl/fig09/naive-reachability/Easynet-reachability.nkpl,timeout (300s)
+katch,nkpl/fig09/naive-reachability/Eenet-reachability.nkpl,0.110853614
+frenetic,nkpl/fig09/naive-reachability/Eenet-reachability.nkpl,44.59
+katch,nkpl/fig09/naive-reachability/EliBackbone-reachability.nkpl,0.199137322
+frenetic,nkpl/fig09/naive-reachability/EliBackbone-reachability.nkpl,timeout (300s)
+katch,nkpl/fig09/naive-reachability/Epoch-reachability.nkpl,0.056293805
+frenetic,nkpl/fig09/naive-reachability/Epoch-reachability.nkpl,0.93
+katch,nkpl/fig09/naive-reachability/Ernet-reachability.nkpl,0.503673256
+frenetic,nkpl/fig09/naive-reachability/Ernet-reachability.nkpl,timeout (300s)
+katch,nkpl/fig09/naive-reachability/Esnet-reachability.nkpl,2.723972479
+frenetic,nkpl/fig09/naive-reachability/Esnet-reachability.nkpl,timeout (300s)
+katch,nkpl/fig09/naive-reachability/Eunetworks-reachability.nkpl,0.149945202
+frenetic,nkpl/fig09/naive-reachability/Eunetworks-reachability.nkpl,51.11
+katch,nkpl/fig09/naive-reachability/Evolink-reachability.nkpl,0.651050768
+frenetic,nkpl/fig09/naive-reachability/Evolink-reachability.nkpl,timeout (300s)
+katch,nkpl/fig09/naive-reachability/Fatman-reachability.nkpl,0.145083731
+frenetic,nkpl/fig09/naive-reachability/Fatman-reachability.nkpl,176.58
+katch,nkpl/fig09/naive-reachability/Fccn-reachability.nkpl,0.223233731
+frenetic,nkpl/fig09/naive-reachability/Fccn-reachability.nkpl,timeout (300s)
+katch,nkpl/fig09/naive-reachability/Forthnet-reachability.nkpl,1.917157283
+frenetic,nkpl/fig09/naive-reachability/Forthnet-reachability.nkpl,timeout (300s)
+katch,nkpl/fig09/naive-reachability/Funet-reachability.nkpl,0.291882121
+frenetic,nkpl/fig09/naive-reachability/Funet-reachability.nkpl,timeout (300s)
+katch,nkpl/fig09/naive-reachability/Gambia-reachability.nkpl,0.443794682
+frenetic,nkpl/fig09/naive-reachability/Gambia-reachability.nkpl,timeout (300s)
+katch,nkpl/fig09/naive-reachability/Garr199901-reachability.nkpl,0.147379186
+frenetic,nkpl/fig09/naive-reachability/Garr199901-reachability.nkpl,128.63
+katch,nkpl/fig09/naive-reachability/Garr199904-reachability.nkpl,0.259498158
+frenetic,nkpl/fig09/naive-reachability/Garr199904-reachability.nkpl,timeout (300s)
+katch,nkpl/fig09/naive-reachability/Garr199905-reachability.nkpl,0.207728832
+frenetic,nkpl/fig09/naive-reachability/Garr199905-reachability.nkpl,timeout (300s)
+katch,nkpl/fig09/naive-reachability/Garr200109-reachability.nkpl,0.201063586
+frenetic,nkpl/fig09/naive-reachability/Garr200109-reachability.nkpl,timeout (300s)
+katch,nkpl/fig09/naive-reachability/Garr200112-reachability.nkpl,0.261135909
+frenetic,nkpl/fig09/naive-reachability/Garr200112-reachability.nkpl,timeout (300s)
+katch,nkpl/fig09/naive-reachability/Garr200212-reachability.nkpl,0.336688791
+frenetic,nkpl/fig09/naive-reachability/Garr200212-reachability.nkpl,timeout (300s)
+katch,nkpl/fig09/naive-reachability/Garr200404-reachability.nkpl,0.19023659
+frenetic,nkpl/fig09/naive-reachability/Garr200404-reachability.nkpl,timeout (300s)
+katch,nkpl/fig09/naive-reachability/Garr200902-reachability.nkpl,1.156850316
+frenetic,nkpl/fig09/naive-reachability/Garr200902-reachability.nkpl,timeout (300s)
+katch,nkpl/fig09/naive-reachability/Garr200908-reachability.nkpl,1.220900856
+frenetic,nkpl/fig09/naive-reachability/Garr200908-reachability.nkpl,timeout (300s)
+katch,nkpl/fig09/naive-reachability/Garr200909-reachability.nkpl,1.299266827
+frenetic,nkpl/fig09/naive-reachability/Garr200909-reachability.nkpl,timeout (300s)
+katch,nkpl/fig09/naive-reachability/Garr200912-reachability.nkpl,1.135587087
+frenetic,nkpl/fig09/naive-reachability/Garr200912-reachability.nkpl,timeout (300s)
+katch,nkpl/fig09/naive-reachability/Garr201001-reachability.nkpl,1.216560405
+frenetic,nkpl/fig09/naive-reachability/Garr201001-reachability.nkpl,timeout (300s)
+katch,nkpl/fig09/naive-reachability/Garr201003-reachability.nkpl,1.342118413
+frenetic,nkpl/fig09/naive-reachability/Garr201003-reachability.nkpl,timeout (300s)
+katch,nkpl/fig09/naive-reachability/Garr201004-reachability.nkpl,1.200839399
+frenetic,nkpl/fig09/naive-reachability/Garr201004-reachability.nkpl,timeout (300s)
+katch,nkpl/fig09/naive-reachability/Garr201005-reachability.nkpl,1.408842166
+frenetic,nkpl/fig09/naive-reachability/Garr201005-reachability.nkpl,timeout (300s)
+katch,nkpl/fig09/naive-reachability/Garr201007-reachability.nkpl,1.273241329
+frenetic,nkpl/fig09/naive-reachability/Garr201007-reachability.nkpl,timeout (300s)
+katch,nkpl/fig09/naive-reachability/Garr201008-reachability.nkpl,1.268033851
+frenetic,nkpl/fig09/naive-reachability/Garr201008-reachability.nkpl,timeout (300s)
+katch,nkpl/fig09/naive-reachability/Garr201010-reachability.nkpl,1.312982072
+frenetic,nkpl/fig09/naive-reachability/Garr201010-reachability.nkpl,timeout (300s)
+katch,nkpl/fig09/naive-reachability/Garr201012-reachability.nkpl,1.347718374
+frenetic,nkpl/fig09/naive-reachability/Garr201012-reachability.nkpl,timeout (300s)
+katch,nkpl/fig09/naive-reachability/Garr201101-reachability.nkpl,1.26218014
+frenetic,nkpl/fig09/naive-reachability/Garr201101-reachability.nkpl,timeout (300s)
+katch,nkpl/fig09/naive-reachability/Garr201102-reachability.nkpl,1.724913548
+frenetic,nkpl/fig09/naive-reachability/Garr201102-reachability.nkpl,timeout (300s)
+katch,nkpl/fig09/naive-reachability/Garr201103-reachability.nkpl,1.58389045
+frenetic,nkpl/fig09/naive-reachability/Garr201103-reachability.nkpl,timeout (300s)
+katch,nkpl/fig09/naive-reachability/Garr201104-reachability.nkpl,1.758044241
+frenetic,nkpl/fig09/naive-reachability/Garr201104-reachability.nkpl,timeout (300s)
+katch,nkpl/fig09/naive-reachability/Garr201105-reachability.nkpl,1.794794271
+frenetic,nkpl/fig09/naive-reachability/Garr201105-reachability.nkpl,timeout (300s)
+katch,nkpl/fig09/naive-reachability/Garr201107-reachability.nkpl,1.88732962
+frenetic,nkpl/fig09/naive-reachability/Garr201107-reachability.nkpl,timeout (300s)
+katch,nkpl/fig09/naive-reachability/Garr201108-reachability.nkpl,2.215446086
+frenetic,nkpl/fig09/naive-reachability/Garr201108-reachability.nkpl,timeout (300s)
+katch,nkpl/fig09/naive-reachability/Garr201109-reachability.nkpl,1.901860332
+frenetic,nkpl/fig09/naive-reachability/Garr201109-reachability.nkpl,timeout (300s)
+katch,nkpl/fig09/naive-reachability/Garr201110-reachability.nkpl,2.116017236
+frenetic,nkpl/fig09/naive-reachability/Garr201110-reachability.nkpl,timeout (300s)
+katch,nkpl/fig09/naive-reachability/Garr201111-reachability.nkpl,2.014943885
+frenetic,nkpl/fig09/naive-reachability/Garr201111-reachability.nkpl,timeout (300s)
+katch,nkpl/fig09/naive-reachability/Garr201112-reachability.nkpl,1.674337418
+frenetic,nkpl/fig09/naive-reachability/Garr201112-reachability.nkpl,timeout (300s)
+katch,nkpl/fig09/naive-reachability/Garr201201-reachability.nkpl,1.661170474
+frenetic,nkpl/fig09/naive-reachability/Garr201201-reachability.nkpl,timeout (300s)
+katch,nkpl/fig09/naive-reachability/Gblnet-reachability.nkpl,0.076080845
+frenetic,nkpl/fig09/naive-reachability/Gblnet-reachability.nkpl,3.33
+katch,nkpl/fig09/naive-reachability/Geant2001-reachability.nkpl,0.318703253
+frenetic,nkpl/fig09/naive-reachability/Geant2001-reachability.nkpl,timeout (300s)
+katch,nkpl/fig09/naive-reachability/Geant2009-reachability.nkpl,0.537421517
+frenetic,nkpl/fig09/naive-reachability/Geant2009-reachability.nkpl,timeout (300s)
+katch,nkpl/fig09/naive-reachability/Geant2010-reachability.nkpl,0.714926981
+frenetic,nkpl/fig09/naive-reachability/Geant2010-reachability.nkpl,timeout (300s)
+katch,nkpl/fig09/naive-reachability/Geant2012-reachability.nkpl,0.6402481
+frenetic,nkpl/fig09/naive-reachability/Geant2012-reachability.nkpl,timeout (300s)
+katch,nkpl/fig09/naive-reachability/Getnet-reachability.nkpl,0.065469999
+frenetic,nkpl/fig09/naive-reachability/Getnet-reachability.nkpl,1.80
+katch,nkpl/fig09/naive-reachability/Globalcenter-reachability.nkpl,0.087137961
+frenetic,nkpl/fig09/naive-reachability/Globalcenter-reachability.nkpl,6.84
+katch,nkpl/fig09/naive-reachability/Globenet-reachability.nkpl,2.477394871
+frenetic,nkpl/fig09/naive-reachability/Globenet-reachability.nkpl,timeout (300s)
+katch,nkpl/fig09/naive-reachability/Goodnet-reachability.nkpl,0.158979661
+frenetic,nkpl/fig09/naive-reachability/Goodnet-reachability.nkpl,209.14
+katch,nkpl/fig09/naive-reachability/Grena-reachability.nkpl,0.151922904
+frenetic,nkpl/fig09/naive-reachability/Grena-reachability.nkpl,94.87
+katch,nkpl/fig09/naive-reachability/Gridnet-reachability.nkpl,0.08488139
+frenetic,nkpl/fig09/naive-reachability/Gridnet-reachability.nkpl,6.22
+katch,nkpl/fig09/naive-reachability/Grnet-reachability.nkpl,0.765212348
+frenetic,nkpl/fig09/naive-reachability/Grnet-reachability.nkpl,timeout (300s)
+katch,nkpl/fig09/naive-reachability/GtsCe-reachability.nkpl,14.635152292
+frenetic,nkpl/fig09/naive-reachability/GtsCe-reachability.nkpl,timeout (300s)
+katch,nkpl/fig09/naive-reachability/GtsCzechRepublic-reachability.nkpl,0.452904264
+frenetic,nkpl/fig09/naive-reachability/GtsCzechRepublic-reachability.nkpl,timeout (300s)
+katch,nkpl/fig09/naive-reachability/GtsHungary-reachability.nkpl,0.487802822
+frenetic,nkpl/fig09/naive-reachability/GtsHungary-reachability.nkpl,timeout (300s)
+katch,nkpl/fig09/naive-reachability/GtsPoland-reachability.nkpl,0.503546999
+frenetic,nkpl/fig09/naive-reachability/GtsPoland-reachability.nkpl,timeout (300s)
+katch,nkpl/fig09/naive-reachability/GtsRomania-reachability.nkpl,0.191314065
+frenetic,nkpl/fig09/naive-reachability/GtsRomania-reachability.nkpl,timeout (300s)
+katch,nkpl/fig09/naive-reachability/GtsSlovakia-reachability.nkpl,0.797790852
+frenetic,nkpl/fig09/naive-reachability/GtsSlovakia-reachability.nkpl,timeout (300s)
+katch,nkpl/fig09/naive-reachability/Harnet-reachability.nkpl,0.1968651
+frenetic,nkpl/fig09/naive-reachability/Harnet-reachability.nkpl,timeout (300s)
+katch,nkpl/fig09/naive-reachability/Heanet-reachability.nkpl,0.068528351
+frenetic,nkpl/fig09/naive-reachability/Heanet-reachability.nkpl,2.24
+katch,nkpl/fig09/naive-reachability/HiberniaCanada-reachability.nkpl,0.115002773
+frenetic,nkpl/fig09/naive-reachability/HiberniaCanada-reachability.nkpl,30.64
+katch,nkpl/fig09/naive-reachability/HiberniaGlobal-reachability.nkpl,1.159214186
+frenetic,nkpl/fig09/naive-reachability/HiberniaGlobal-reachability.nkpl,timeout (300s)
+katch,nkpl/fig09/naive-reachability/HiberniaIreland-reachability.nkpl,0.07523495
+frenetic,nkpl/fig09/naive-reachability/HiberniaIreland-reachability.nkpl,3.33
+katch,nkpl/fig09/naive-reachability/HiberniaNireland-reachability.nkpl,0.170483781
+frenetic,nkpl/fig09/naive-reachability/HiberniaNireland-reachability.nkpl,206.88
+katch,nkpl/fig09/naive-reachability/HiberniaUk-reachability.nkpl,0.166832367
+frenetic,nkpl/fig09/naive-reachability/HiberniaUk-reachability.nkpl,67.13
+katch,nkpl/fig09/naive-reachability/HiberniaUs-reachability.nkpl,0.182397082
+frenetic,nkpl/fig09/naive-reachability/HiberniaUs-reachability.nkpl,timeout (300s)
+katch,nkpl/fig09/naive-reachability/Highwinds-reachability.nkpl,0.199917305
+frenetic,nkpl/fig09/naive-reachability/Highwinds-reachability.nkpl,timeout (300s)
+katch,nkpl/fig09/naive-reachability/HostwayInternational-reachability.nkpl,0.143589548
+frenetic,nkpl/fig09/naive-reachability/HostwayInternational-reachability.nkpl,108.42
+katch,nkpl/fig09/naive-reachability/HurricaneElectric-reachability.nkpl,0.227209019
+frenetic,nkpl/fig09/naive-reachability/HurricaneElectric-reachability.nkpl,timeout (300s)
+katch,nkpl/fig09/naive-reachability/Ibm-reachability.nkpl,0.1847103
+frenetic,nkpl/fig09/naive-reachability/Ibm-reachability.nkpl,224.05
+katch,nkpl/fig09/naive-reachability/Iij-reachability.nkpl,0.878607322
+frenetic,nkpl/fig09/naive-reachability/Iij-reachability.nkpl,timeout (300s)
+katch,nkpl/fig09/naive-reachability/Iinet-reachability.nkpl,0.509638916
+frenetic,nkpl/fig09/naive-reachability/Iinet-reachability.nkpl,timeout (300s)
+katch,nkpl/fig09/naive-reachability/Ilan-reachability.nkpl,0.117234725
+frenetic,nkpl/fig09/naive-reachability/Ilan-reachability.nkpl,55.12
+katch,nkpl/fig09/naive-reachability/Integra-reachability.nkpl,0.289377654
+frenetic,nkpl/fig09/naive-reachability/Integra-reachability.nkpl,timeout (300s)
+katch,nkpl/fig09/naive-reachability/Intellifiber-reachability.nkpl,2.633155248
+frenetic,nkpl/fig09/naive-reachability/Intellifiber-reachability.nkpl,timeout (300s)
+katch,nkpl/fig09/naive-reachability/Internetmci-reachability.nkpl,0.199509971
+frenetic,nkpl/fig09/naive-reachability/Internetmci-reachability.nkpl,timeout (300s)
+katch,nkpl/fig09/naive-reachability/Internode-reachability.nkpl,1.751914051
+frenetic,nkpl/fig09/naive-reachability/Internode-reachability.nkpl,timeout (300s)
+katch,nkpl/fig09/naive-reachability/Interoute-reachability.nkpl,5.740312595
+frenetic,nkpl/fig09/naive-reachability/Interoute-reachability.nkpl,timeout (300s)
+katch,nkpl/fig09/naive-reachability/Intranetwork-reachability.nkpl,0.789281149
+frenetic,nkpl/fig09/naive-reachability/Intranetwork-reachability.nkpl,timeout (300s)
+katch,nkpl/fig09/naive-reachability/Ion-reachability.nkpl,9.537229404
+frenetic,nkpl/fig09/naive-reachability/Ion-reachability.nkpl,timeout (300s)
+katch,nkpl/fig09/naive-reachability/IowaStatewideFiberMap-reachability.nkpl,0.477694113
+frenetic,nkpl/fig09/naive-reachability/IowaStatewideFiberMap-reachability.nkpl,timeout (300s)
+katch,nkpl/fig09/naive-reachability/Iris-reachability.nkpl,1.046796376
+frenetic,nkpl/fig09/naive-reachability/Iris-reachability.nkpl,timeout (300s)
+katch,nkpl/fig09/naive-reachability/Istar-reachability.nkpl,0.271566651
+frenetic,nkpl/fig09/naive-reachability/Istar-reachability.nkpl,timeout (300s)
+katch,nkpl/fig09/naive-reachability/Itnet-reachability.nkpl,0.132476295
+frenetic,nkpl/fig09/naive-reachability/Itnet-reachability.nkpl,18.47
+katch,nkpl/fig09/naive-reachability/Janetbackbone-reachability.nkpl,0.435803911
+frenetic,nkpl/fig09/naive-reachability/Janetbackbone-reachability.nkpl,timeout (300s)
+katch,nkpl/fig09/naive-reachability/JanetExternal-reachability.nkpl,0.137051546
+frenetic,nkpl/fig09/naive-reachability/JanetExternal-reachability.nkpl,14.70
+katch,nkpl/fig09/naive-reachability/Janetlense-reachability.nkpl,0.20534276
+frenetic,nkpl/fig09/naive-reachability/Janetlense-reachability.nkpl,timeout (300s)
+katch,nkpl/fig09/naive-reachability/Jgn2Plus-reachability.nkpl,0.185553463
+frenetic,nkpl/fig09/naive-reachability/Jgn2Plus-reachability.nkpl,228.49
+katch,nkpl/fig09/naive-reachability/Karen-reachability.nkpl,0.268980392
+frenetic,nkpl/fig09/naive-reachability/Karen-reachability.nkpl,timeout (300s)
+katch,nkpl/fig09/naive-reachability/KentmanApr2007-reachability.nkpl,0.247726211
+frenetic,nkpl/fig09/naive-reachability/KentmanApr2007-reachability.nkpl,timeout (300s)
+katch,nkpl/fig09/naive-reachability/KentmanAug2005-reachability.nkpl,0.456146731
+frenetic,nkpl/fig09/naive-reachability/KentmanAug2005-reachability.nkpl,timeout (300s)
+katch,nkpl/fig09/naive-reachability/KentmanFeb2008-reachability.nkpl,0.324039909
+frenetic,nkpl/fig09/naive-reachability/KentmanFeb2008-reachability.nkpl,timeout (300s)
+katch,nkpl/fig09/naive-reachability/KentmanJan2011-reachability.nkpl,0.759911376
+frenetic,nkpl/fig09/naive-reachability/KentmanJan2011-reachability.nkpl,timeout (300s)
+katch,nkpl/fig09/naive-reachability/KentmanJul2005-reachability.nkpl,0.185930234
+frenetic,nkpl/fig09/naive-reachability/KentmanJul2005-reachability.nkpl,112.68
+katch,nkpl/fig09/naive-reachability/Kreonet-reachability.nkpl,0.114708533
+frenetic,nkpl/fig09/naive-reachability/Kreonet-reachability.nkpl,40.55
+katch,nkpl/fig09/naive-reachability/LambdaNet-reachability.nkpl,0.754405247
+frenetic,nkpl/fig09/naive-reachability/LambdaNet-reachability.nkpl,timeout (300s)
+katch,nkpl/fig09/naive-reachability/Latnet-reachability.nkpl,4.539541624
+frenetic,nkpl/fig09/naive-reachability/Latnet-reachability.nkpl,timeout (300s)
+katch,nkpl/fig09/naive-reachability/Layer42-reachability.nkpl,0.057224933
+frenetic,nkpl/fig09/naive-reachability/Layer42-reachability.nkpl,1.08
+katch,nkpl/fig09/naive-reachability/Litnet-reachability.nkpl,0.963532453
+frenetic,nkpl/fig09/naive-reachability/Litnet-reachability.nkpl,timeout (300s)
+katch,nkpl/fig09/naive-reachability/Marnet-reachability.nkpl,0.205736889
+frenetic,nkpl/fig09/naive-reachability/Marnet-reachability.nkpl,timeout (300s)
+katch,nkpl/fig09/naive-reachability/Marwan-reachability.nkpl,0.147324119
+frenetic,nkpl/fig09/naive-reachability/Marwan-reachability.nkpl,100.80
+katch,nkpl/fig09/naive-reachability/Missouri-reachability.nkpl,1.830511789
+frenetic,nkpl/fig09/naive-reachability/Missouri-reachability.nkpl,timeout (300s)
+katch,nkpl/fig09/naive-reachability/Mren-reachability.nkpl,0.059226421
+frenetic,nkpl/fig09/naive-reachability/Mren-reachability.nkpl,1.05
+katch,nkpl/fig09/naive-reachability/Myren-reachability.nkpl,0.653108244
+frenetic,nkpl/fig09/naive-reachability/Myren-reachability.nkpl,timeout (300s)
+katch,nkpl/fig09/naive-reachability/Napnet-reachability.nkpl,0.062489119
+frenetic,nkpl/fig09/naive-reachability/Napnet-reachability.nkpl,1.06
+katch,nkpl/fig09/naive-reachability/Navigata-reachability.nkpl,0.115550059
+frenetic,nkpl/fig09/naive-reachability/Navigata-reachability.nkpl,36.88
+katch,nkpl/fig09/naive-reachability/Netrail-reachability.nkpl,0.065225919
+frenetic,nkpl/fig09/naive-reachability/Netrail-reachability.nkpl,2.00
+katch,nkpl/fig09/naive-reachability/NetworkUsa-reachability.nkpl,0.747815894
+frenetic,nkpl/fig09/naive-reachability/NetworkUsa-reachability.nkpl,timeout (300s)
+katch,nkpl/fig09/naive-reachability/Nextgen-reachability.nkpl,0.145022668
+frenetic,nkpl/fig09/naive-reachability/Nextgen-reachability.nkpl,139.61
+katch,nkpl/fig09/naive-reachability/Niif-reachability.nkpl,0.636366868
+frenetic,nkpl/fig09/naive-reachability/Niif-reachability.nkpl,timeout (300s)
+katch,nkpl/fig09/naive-reachability/Noel-reachability.nkpl,0.188148925
+frenetic,nkpl/fig09/naive-reachability/Noel-reachability.nkpl,timeout (300s)
+katch,nkpl/fig09/naive-reachability/Nordu1989-reachability.nkpl,0.076673776
+frenetic,nkpl/fig09/naive-reachability/Nordu1989-reachability.nkpl,1.78
+katch,nkpl/fig09/naive-reachability/Nordu1997-reachability.nkpl,0.127734075
+frenetic,nkpl/fig09/naive-reachability/Nordu1997-reachability.nkpl,69.77
+katch,nkpl/fig09/naive-reachability/Nordu2005-reachability.nkpl,0.092543775
+frenetic,nkpl/fig09/naive-reachability/Nordu2005-reachability.nkpl,6.14
+katch,nkpl/fig09/naive-reachability/Nordu2010-reachability.nkpl,0.159983942
+frenetic,nkpl/fig09/naive-reachability/Nordu2010-reachability.nkpl,132.12
+katch,nkpl/fig09/naive-reachability/Nsfcnet-reachability.nkpl,0.094337702
+frenetic,nkpl/fig09/naive-reachability/Nsfcnet-reachability.nkpl,6.95
+katch,nkpl/fig09/naive-reachability/Nsfnet-reachability.nkpl,0.113768693
+frenetic,nkpl/fig09/naive-reachability/Nsfnet-reachability.nkpl,30.82
+katch,nkpl/fig09/naive-reachability/Ntelos-reachability.nkpl,1.206054526
+frenetic,nkpl/fig09/naive-reachability/Ntelos-reachability.nkpl,timeout (300s)
+katch,nkpl/fig09/naive-reachability/Ntt-reachability.nkpl,0.901594003
+frenetic,nkpl/fig09/naive-reachability/Ntt-reachability.nkpl,timeout (300s)
+katch,nkpl/fig09/naive-reachability/Oteglobe-reachability.nkpl,4.220508236
+frenetic,nkpl/fig09/naive-reachability/Oteglobe-reachability.nkpl,timeout (300s)
+katch,nkpl/fig09/naive-reachability/Oxford-reachability.nkpl,0.205158647
+frenetic,nkpl/fig09/naive-reachability/Oxford-reachability.nkpl,timeout (300s)
+katch,nkpl/fig09/naive-reachability/Pacificwave-reachability.nkpl,0.23699218
+frenetic,nkpl/fig09/naive-reachability/Pacificwave-reachability.nkpl,timeout (300s)
+katch,nkpl/fig09/naive-reachability/Packetexchange-reachability.nkpl,0.19733953
+frenetic,nkpl/fig09/naive-reachability/Packetexchange-reachability.nkpl,timeout (300s)
+katch,nkpl/fig09/naive-reachability/Padi-reachability.nkpl,0.131110024
+frenetic,nkpl/fig09/naive-reachability/Padi-reachability.nkpl,7.35
+katch,nkpl/fig09/naive-reachability/Palmetto-reachability.nkpl,0.801579267
+frenetic,nkpl/fig09/naive-reachability/Palmetto-reachability.nkpl,timeout (300s)
+katch,nkpl/fig09/naive-reachability/Peer1-reachability.nkpl,0.141944717
+frenetic,nkpl/fig09/naive-reachability/Peer1-reachability.nkpl,118.38
+katch,nkpl/fig09/naive-reachability/Pern-reachability.nkpl,15.55200222
+frenetic,nkpl/fig09/naive-reachability/Pern-reachability.nkpl,timeout (300s)
+katch,nkpl/fig09/naive-reachability/PionierL1-reachability.nkpl,0.619009704
+frenetic,nkpl/fig09/naive-reachability/PionierL1-reachability.nkpl,timeout (300s)
+katch,nkpl/fig09/naive-reachability/PionierL3-reachability.nkpl,0.834940756
+frenetic,nkpl/fig09/naive-reachability/PionierL3-reachability.nkpl,timeout (300s)
+katch,nkpl/fig09/naive-reachability/Psinet-reachability.nkpl,0.343969184
+frenetic,nkpl/fig09/naive-reachability/Psinet-reachability.nkpl,timeout (300s)
+katch,nkpl/fig09/naive-reachability/Quest-reachability.nkpl,0.209980409
+frenetic,nkpl/fig09/naive-reachability/Quest-reachability.nkpl,timeout (300s)
+katch,nkpl/fig09/naive-reachability/RedBestel-reachability.nkpl,3.432000913
+frenetic,nkpl/fig09/naive-reachability/RedBestel-reachability.nkpl,timeout (300s)
+katch,nkpl/fig09/naive-reachability/Rediris-reachability.nkpl,0.214832116
+frenetic,nkpl/fig09/naive-reachability/Rediris-reachability.nkpl,timeout (300s)
+katch,nkpl/fig09/naive-reachability/Renam-reachability.nkpl,0.048988576
+frenetic,nkpl/fig09/naive-reachability/Renam-reachability.nkpl,0.52
+katch,nkpl/fig09/naive-reachability/Renater1999-reachability.nkpl,0.275752501
+frenetic,nkpl/fig09/naive-reachability/Renater1999-reachability.nkpl,timeout (300s)
+katch,nkpl/fig09/naive-reachability/Renater2001-reachability.nkpl,0.231447274
+frenetic,nkpl/fig09/naive-reachability/Renater2001-reachability.nkpl,timeout (300s)
+katch,nkpl/fig09/naive-reachability/Renater2004-reachability.nkpl,0.47174137
+frenetic,nkpl/fig09/naive-reachability/Renater2004-reachability.nkpl,timeout (300s)
+katch,nkpl/fig09/naive-reachability/Renater2006-reachability.nkpl,0.515622993
+frenetic,nkpl/fig09/naive-reachability/Renater2006-reachability.nkpl,timeout (300s)
+katch,nkpl/fig09/naive-reachability/Renater2008-reachability.nkpl,0.469313113
+frenetic,nkpl/fig09/naive-reachability/Renater2008-reachability.nkpl,timeout (300s)
+katch,nkpl/fig09/naive-reachability/Renater2010-reachability.nkpl,0.826364765
+frenetic,nkpl/fig09/naive-reachability/Renater2010-reachability.nkpl,timeout (300s)
+katch,nkpl/fig09/naive-reachability/Restena-reachability.nkpl,0.192590496
+frenetic,nkpl/fig09/naive-reachability/Restena-reachability.nkpl,timeout (300s)
+katch,nkpl/fig09/naive-reachability/Reuna-reachability.nkpl,0.802858375
+frenetic,nkpl/fig09/naive-reachability/Reuna-reachability.nkpl,timeout (300s)
+katch,nkpl/fig09/naive-reachability/Rhnet-reachability.nkpl,0.148641427
+frenetic,nkpl/fig09/naive-reachability/Rhnet-reachability.nkpl,112.79
+katch,nkpl/fig09/naive-reachability/Rnp-reachability.nkpl,0.407767616
+frenetic,nkpl/fig09/naive-reachability/Rnp-reachability.nkpl,timeout (300s)
+katch,nkpl/fig09/naive-reachability/RoedunetFibre-reachability.nkpl,1.223538698
+frenetic,nkpl/fig09/naive-reachability/RoedunetFibre-reachability.nkpl,timeout (300s)
+katch,nkpl/fig09/naive-reachability/Roedunet-reachability.nkpl,0.809752207
+frenetic,nkpl/fig09/naive-reachability/Roedunet-reachability.nkpl,timeout (300s)
+katch,nkpl/fig09/naive-reachability/Sago-reachability.nkpl,0.173034275
+frenetic,nkpl/fig09/naive-reachability/Sago-reachability.nkpl,164.50
+katch,nkpl/fig09/naive-reachability/Sanet-reachability.nkpl,0.782957973
+frenetic,nkpl/fig09/naive-reachability/Sanet-reachability.nkpl,timeout (300s)
+katch,nkpl/fig09/naive-reachability/Sanren-reachability.nkpl,0.065418445
+frenetic,nkpl/fig09/naive-reachability/Sanren-reachability.nkpl,1.62
+katch,nkpl/fig09/naive-reachability/Savvis-reachability.nkpl,0.200977182
+frenetic,nkpl/fig09/naive-reachability/Savvis-reachability.nkpl,251.07
+katch,nkpl/fig09/naive-reachability/Shentel-reachability.nkpl,0.418076031
+frenetic,nkpl/fig09/naive-reachability/Shentel-reachability.nkpl,timeout (300s)
+katch,nkpl/fig09/naive-reachability/Sinet-reachability.nkpl,2.515762303
+frenetic,nkpl/fig09/naive-reachability/Sinet-reachability.nkpl,timeout (300s)
+katch,nkpl/fig09/naive-reachability/Singaren-reachability.nkpl,0.134778125
+frenetic,nkpl/fig09/naive-reachability/Singaren-reachability.nkpl,18.42
+katch,nkpl/fig09/naive-reachability/Spiralight-reachability.nkpl,0.154570842
+frenetic,nkpl/fig09/naive-reachability/Spiralight-reachability.nkpl,67.66
+katch,nkpl/fig09/naive-reachability/Sprint-reachability.nkpl,0.12677533
+frenetic,nkpl/fig09/naive-reachability/Sprint-reachability.nkpl,14.44
+katch,nkpl/fig09/naive-reachability/Sunet-reachability.nkpl,0.289804568
+frenetic,nkpl/fig09/naive-reachability/Sunet-reachability.nkpl,timeout (300s)
+katch,nkpl/fig09/naive-reachability/Surfnet-reachability.nkpl,0.993084256
+frenetic,nkpl/fig09/naive-reachability/Surfnet-reachability.nkpl,timeout (300s)
+katch,nkpl/fig09/naive-reachability/SwitchL3-reachability.nkpl,1.042503523
+frenetic,nkpl/fig09/naive-reachability/SwitchL3-reachability.nkpl,timeout (300s)
+katch,nkpl/fig09/naive-reachability/Switch-reachability.nkpl,2.81162312
+frenetic,nkpl/fig09/naive-reachability/Switch-reachability.nkpl,timeout (300s)
+katch,nkpl/fig09/naive-reachability/Syringa-reachability.nkpl,3.574394938
+frenetic,nkpl/fig09/naive-reachability/Syringa-reachability.nkpl,timeout (300s)
+katch,nkpl/fig09/naive-reachability/TataNld-reachability.nkpl,12.466223154
+frenetic,nkpl/fig09/naive-reachability/TataNld-reachability.nkpl,timeout (300s)
+katch,nkpl/fig09/naive-reachability/Telcove-reachability.nkpl,2.960929184
+frenetic,nkpl/fig09/naive-reachability/Telcove-reachability.nkpl,timeout (300s)
+katch,nkpl/fig09/naive-reachability/Telecomserbia-reachability.nkpl,0.056679821
+frenetic,nkpl/fig09/naive-reachability/Telecomserbia-reachability.nkpl,0.92
+katch,nkpl/fig09/naive-reachability/Tinet-reachability.nkpl,1.175956228
+frenetic,nkpl/fig09/naive-reachability/Tinet-reachability.nkpl,timeout (300s)
+katch,nkpl/fig09/naive-reachability/TLex-reachability.nkpl,0.123819694
+frenetic,nkpl/fig09/naive-reachability/TLex-reachability.nkpl,27.22
+katch,nkpl/fig09/naive-reachability/Twaren-reachability.nkpl,0.222900708
+frenetic,nkpl/fig09/naive-reachability/Twaren-reachability.nkpl,timeout (300s)
+katch,nkpl/fig09/naive-reachability/Tw-reachability.nkpl,2.764495909
+frenetic,nkpl/fig09/naive-reachability/Tw-reachability.nkpl,timeout (300s)
+katch,nkpl/fig09/naive-reachability/Ulaknet-reachability.nkpl,11.706043689
+frenetic,nkpl/fig09/naive-reachability/Ulaknet-reachability.nkpl,timeout (300s)
+katch,nkpl/fig09/naive-reachability/UniC-reachability.nkpl,0.26148602
+frenetic,nkpl/fig09/naive-reachability/UniC-reachability.nkpl,timeout (300s)
+katch,nkpl/fig09/naive-reachability/Uninet-reachability.nkpl,0.118276542
+frenetic,nkpl/fig09/naive-reachability/Uninet-reachability.nkpl,38.83
+katch,nkpl/fig09/naive-reachability/Uninett2010-reachability.nkpl,2.050022986
+frenetic,nkpl/fig09/naive-reachability/Uninett2010-reachability.nkpl,timeout (300s)
+katch,nkpl/fig09/naive-reachability/Uninett2011-reachability.nkpl,2.077460149
+frenetic,nkpl/fig09/naive-reachability/Uninett2011-reachability.nkpl,timeout (300s)
+katch,nkpl/fig09/naive-reachability/Uran-reachability.nkpl,0.229271341
+frenetic,nkpl/fig09/naive-reachability/Uran-reachability.nkpl,timeout (300s)
+katch,nkpl/fig09/naive-reachability/UsCarrier-reachability.nkpl,16.500900757
+frenetic,nkpl/fig09/naive-reachability/UsCarrier-reachability.nkpl,timeout (300s)
+katch,nkpl/fig09/naive-reachability/UsSignal-reachability.nkpl,1.917942207
+frenetic,nkpl/fig09/naive-reachability/UsSignal-reachability.nkpl,timeout (300s)
+katch,nkpl/fig09/naive-reachability/Uunet-reachability.nkpl,1.284192229
+frenetic,nkpl/fig09/naive-reachability/Uunet-reachability.nkpl,timeout (300s)
+katch,nkpl/fig09/naive-reachability/Vinaren-reachability.nkpl,0.276537657
+frenetic,nkpl/fig09/naive-reachability/Vinaren-reachability.nkpl,timeout (300s)
+katch,nkpl/fig09/naive-reachability/VisionNet-reachability.nkpl,0.307107672
+frenetic,nkpl/fig09/naive-reachability/VisionNet-reachability.nkpl,timeout (300s)
+katch,nkpl/fig09/naive-reachability/VtlWavenet2008-reachability.nkpl,4.101253725
+frenetic,nkpl/fig09/naive-reachability/VtlWavenet2008-reachability.nkpl,timeout (300s)
+katch,nkpl/fig09/naive-reachability/VtlWavenet2011-reachability.nkpl,4.970202061
+frenetic,nkpl/fig09/naive-reachability/VtlWavenet2011-reachability.nkpl,timeout (300s)
+katch,nkpl/fig09/naive-reachability/WideJpn-reachability.nkpl,0.456139911
+frenetic,nkpl/fig09/naive-reachability/WideJpn-reachability.nkpl,timeout (300s)
+katch,nkpl/fig09/naive-reachability/Xeex-reachability.nkpl,0.236897125
+frenetic,nkpl/fig09/naive-reachability/Xeex-reachability.nkpl,timeout (300s)
+katch,nkpl/fig09/naive-reachability/Xspedius-reachability.nkpl,0.558776105
+frenetic,nkpl/fig09/naive-reachability/Xspedius-reachability.nkpl,timeout (300s)
+katch,nkpl/fig09/naive-reachability/York-reachability.nkpl,0.212870184
+frenetic,nkpl/fig09/naive-reachability/York-reachability.nkpl,timeout (300s)
+katch,nkpl/fig09/naive-reachability/Zamren-reachability.nkpl,0.715832509
+frenetic,nkpl/fig09/naive-reachability/Zamren-reachability.nkpl,timeout (300s)
+katch,nkpl/fig09/linear-reachability/Aarnet.nkpl,0.46552575
+katch,nkpl/fig09/linear-reachability/Abilene.nkpl,0.034123104
+katch,nkpl/fig09/linear-reachability/Abvt.nkpl,0.085273735
+katch,nkpl/fig09/linear-reachability/Aconet.nkpl,0.075698636
+katch,nkpl/fig09/linear-reachability/Agis.nkpl,0.058626303
+katch,nkpl/fig09/linear-reachability/Ai3.nkpl,0.012563255
+katch,nkpl/fig09/linear-reachability/Airtel.nkpl,0.028261927
+katch,nkpl/fig09/linear-reachability/Amres.nkpl,0.045018878
+katch,nkpl/fig09/linear-reachability/Ans.nkpl,0.023711398
+katch,nkpl/fig09/linear-reachability/Arn.nkpl,0.079080964
+katch,nkpl/fig09/linear-reachability/Arnes.nkpl,0.116657988
+katch,nkpl/fig09/linear-reachability/Arpanet196912.nkpl,0.005501413
+katch,nkpl/fig09/linear-reachability/Arpanet19706.nkpl,0.011075965
+katch,nkpl/fig09/linear-reachability/Arpanet19719.nkpl,0.030358236
+katch,nkpl/fig09/linear-reachability/Arpanet19723.nkpl,0.047569576
+katch,nkpl/fig09/linear-reachability/Arpanet19728.nkpl,0.06391355
+katch,nkpl/fig09/linear-reachability/AsnetAm.nkpl,0.249713026
+katch,nkpl/fig09/linear-reachability/Atmnet.nkpl,0.020461105
+katch,nkpl/fig09/linear-reachability/AttMpls.nkpl,0.03458254
+katch,nkpl/fig09/linear-reachability/Azrena.nkpl,0.017718253
+katch,nkpl/fig09/linear-reachability/Bandcon.nkpl,0.026927044
+katch,nkpl/fig09/linear-reachability/Basnet.nkpl,0.005667357
+katch,nkpl/fig09/linear-reachability/Bbnplanet.nkpl,0.048283648
+katch,nkpl/fig09/linear-reachability/Bellcanada.nkpl,0.091874615
+katch,nkpl/fig09/linear-reachability/Bellsouth.nkpl,0.114138394
+katch,nkpl/fig09/linear-reachability/Belnet2003.nkpl,0.034263513
+katch,nkpl/fig09/linear-reachability/Belnet2004.nkpl,0.035323818
+katch,nkpl/fig09/linear-reachability/Belnet2005.nkpl,0.04020181
+katch,nkpl/fig09/linear-reachability/Belnet2006.nkpl,0.053767973
+katch,nkpl/fig09/linear-reachability/Belnet2007.nkpl,0.031976845
+katch,nkpl/fig09/linear-reachability/Belnet2008.nkpl,0.031449398
+katch,nkpl/fig09/linear-reachability/Belnet2009.nkpl,0.030085122
+katch,nkpl/fig09/linear-reachability/Belnet2010.nkpl,0.034043697
+katch,nkpl/fig09/linear-reachability/BeyondTheNetwork.nkpl,0.145016328
+katch,nkpl/fig09/linear-reachability/Bics.nkpl,0.068560025
+katch,nkpl/fig09/linear-reachability/Biznet.nkpl,0.047965403
+katch,nkpl/fig09/linear-reachability/Bren.nkpl,0.076992684
+katch,nkpl/fig09/linear-reachability/BsonetEurope.nkpl,0.01522619
+katch,nkpl/fig09/linear-reachability/BtAsiaPac.nkpl,0.019786561
+katch,nkpl/fig09/linear-reachability/BtEurope.nkpl,0.026058485
+katch,nkpl/fig09/linear-reachability/BtLatinAmerica.nkpl,0.0659361
+katch,nkpl/fig09/linear-reachability/BtNorthAmerica.nkpl,0.062712441
+katch,nkpl/fig09/linear-reachability/Canerie.nkpl,0.03769183
+katch,nkpl/fig09/linear-reachability/Carnet.nkpl,0.068647726
+katch,nkpl/fig09/linear-reachability/Cernet.nkpl,0.112605581
+katch,nkpl/fig09/linear-reachability/Cesnet1993.nkpl,0.005918655
+katch,nkpl/fig09/linear-reachability/Cesnet1997.nkpl,0.007761102
+katch,nkpl/fig09/linear-reachability/Cesnet1999.nkpl,0.009358119
+katch,nkpl/fig09/linear-reachability/Cesnet2001.nkpl,0.020060877
+katch,nkpl/fig09/linear-reachability/Cesnet200304.nkpl,0.032482262
+katch,nkpl/fig09/linear-reachability/Cesnet200511.nkpl,0.056264117
+katch,nkpl/fig09/linear-reachability/Cesnet200603.nkpl,0.055026275
+katch,nkpl/fig09/linear-reachability/Cesnet200706.nkpl,0.074367221
+katch,nkpl/fig09/linear-reachability/Cesnet201006.nkpl,0.134600862
+katch,nkpl/fig09/linear-reachability/Chinanet.nkpl,0.075849888
+katch,nkpl/fig09/linear-reachability/Claranet.nkpl,0.010479894
+katch,nkpl/fig09/linear-reachability/Cogentco.nkpl,1.605083486
+katch,nkpl/fig09/linear-reachability/Colt.nkpl,0.862710474
+katch,nkpl/fig09/linear-reachability/Columbus.nkpl,0.258628709
+katch,nkpl/fig09/linear-reachability/Compuserve.nkpl,0.02310561
+katch,nkpl/fig09/linear-reachability/CrlNetworkServices.nkpl,0.052582151
+katch,nkpl/fig09/linear-reachability/Cudi.nkpl,0.105432288
+katch,nkpl/fig09/linear-reachability/Cwix.nkpl,0.061450364
+katch,nkpl/fig09/linear-reachability/Cynet.nkpl,0.044209942
+katch,nkpl/fig09/linear-reachability/Darkstrand.nkpl,0.037426123
+katch,nkpl/fig09/linear-reachability/Dataxchange.nkpl,0.00400906
+katch,nkpl/fig09/linear-reachability/Deltacom.nkpl,0.469165378
+katch,nkpl/fig09/linear-reachability/DeutscheTelekom.nkpl,0.048474221
+katch,nkpl/fig09/linear-reachability/Dfn.nkpl,0.179417203
+katch,nkpl/fig09/linear-reachability/DialtelecomCz.nkpl,1.073048143
+katch,nkpl/fig09/linear-reachability/Digex.nkpl,0.059043423
+katch,nkpl/fig09/linear-reachability/Easynet.nkpl,0.027587317
+katch,nkpl/fig09/linear-reachability/Eenet.nkpl,0.013175007
+katch,nkpl/fig09/linear-reachability/EliBackbone.nkpl,0.026974783
+katch,nkpl/fig09/linear-reachability/Epoch.nkpl,0.004202323
+katch,nkpl/fig09/linear-reachability/Ernet.nkpl,0.047368112
+katch,nkpl/fig09/linear-reachability/Esnet.nkpl,0.228041277
+katch,nkpl/fig09/linear-reachability/Eunetworks.nkpl,0.015780471
+katch,nkpl/fig09/linear-reachability/Evolink.nkpl,0.09153178
+katch,nkpl/fig09/linear-reachability/Fatman.nkpl,0.020373324
+katch,nkpl/fig09/linear-reachability/Fccn.nkpl,0.032328595
+katch,nkpl/fig09/linear-reachability/Forthnet.nkpl,0.156351594
+katch,nkpl/fig09/linear-reachability/Funet.nkpl,0.0323533
+katch,nkpl/fig09/linear-reachability/Gambia.nkpl,0.029976876
+katch,nkpl/fig09/linear-reachability/Garr199901.nkpl,0.010833791
+katch,nkpl/fig09/linear-reachability/Garr199904.nkpl,0.01818578
+katch,nkpl/fig09/linear-reachability/Garr199905.nkpl,0.018131483
+katch,nkpl/fig09/linear-reachability/Garr200109.nkpl,0.017473024
+katch,nkpl/fig09/linear-reachability/Garr200112.nkpl,0.019837927
+katch,nkpl/fig09/linear-reachability/Garr200212.nkpl,0.02552586
+katch,nkpl/fig09/linear-reachability/Garr200404.nkpl,0.017297018
+katch,nkpl/fig09/linear-reachability/Garr200902.nkpl,0.10199466
+katch,nkpl/fig09/linear-reachability/Garr200908.nkpl,0.097782037
+katch,nkpl/fig09/linear-reachability/Garr200909.nkpl,0.104150154
+katch,nkpl/fig09/linear-reachability/Garr200912.nkpl,0.101822037
+katch,nkpl/fig09/linear-reachability/Garr201001.nkpl,0.107795625
+katch,nkpl/fig09/linear-reachability/Garr201003.nkpl,0.100326766
+katch,nkpl/fig09/linear-reachability/Garr201004.nkpl,0.097794751
+katch,nkpl/fig09/linear-reachability/Garr201005.nkpl,0.172452823
+katch,nkpl/fig09/linear-reachability/Garr201007.nkpl,0.153816056
+katch,nkpl/fig09/linear-reachability/Garr201008.nkpl,0.159926387
+katch,nkpl/fig09/linear-reachability/Garr201010.nkpl,0.156534111
+katch,nkpl/fig09/linear-reachability/Garr201012.nkpl,0.162510003
+katch,nkpl/fig09/linear-reachability/Garr201101.nkpl,0.157056285
+katch,nkpl/fig09/linear-reachability/Garr201102.nkpl,0.137625288
+katch,nkpl/fig09/linear-reachability/Garr201103.nkpl,0.142232266
+katch,nkpl/fig09/linear-reachability/Garr201104.nkpl,0.147628757
+katch,nkpl/fig09/linear-reachability/Garr201105.nkpl,0.156940469
+katch,nkpl/fig09/linear-reachability/Garr201107.nkpl,0.171224927
+katch,nkpl/fig09/linear-reachability/Garr201108.nkpl,0.154013664
+katch,nkpl/fig09/linear-reachability/Garr201109.nkpl,0.150603734
+katch,nkpl/fig09/linear-reachability/Garr201110.nkpl,0.174202203
+katch,nkpl/fig09/linear-reachability/Garr201111.nkpl,0.157570603
+katch,nkpl/fig09/linear-reachability/Garr201112.nkpl,0.164683308
+katch,nkpl/fig09/linear-reachability/Garr201201.nkpl,0.185026959
+katch,nkpl/fig09/linear-reachability/Gblnet.nkpl,0.005316764
+katch,nkpl/fig09/linear-reachability/Geant2001.nkpl,0.036491652
+katch,nkpl/fig09/linear-reachability/Geant2009.nkpl,0.061842553
+katch,nkpl/fig09/linear-reachability/Geant2010.nkpl,0.096856069
+katch,nkpl/fig09/linear-reachability/Geant2012.nkpl,0.081652743
+katch,nkpl/fig09/linear-reachability/Getnet.nkpl,0.004255225
+katch,nkpl/fig09/linear-reachability/Globalcenter.nkpl,0.009023159
+katch,nkpl/fig09/linear-reachability/Globenet.nkpl,0.199058272
+katch,nkpl/fig09/linear-reachability/Goodnet.nkpl,0.019079593
+katch,nkpl/fig09/linear-reachability/Grena.nkpl,0.012219253
+katch,nkpl/fig09/linear-reachability/Gridnet.nkpl,0.006951559
+katch,nkpl/fig09/linear-reachability/Grnet.nkpl,0.063089582
+katch,nkpl/fig09/linear-reachability/GtsCe.nkpl,0.9637522
+katch,nkpl/fig09/linear-reachability/GtsCzechRepublic.nkpl,0.044242169
+katch,nkpl/fig09/linear-reachability/GtsHungary.nkpl,0.048413619
+katch,nkpl/fig09/linear-reachability/GtsPoland.nkpl,0.041573749
+katch,nkpl/fig09/linear-reachability/GtsRomania.nkpl,0.018085892
+katch,nkpl/fig09/linear-reachability/GtsSlovakia.nkpl,0.044126407
+katch,nkpl/fig09/linear-reachability/Harnet.nkpl,0.016498229
+katch,nkpl/fig09/linear-reachability/Heanet.nkpl,0.003924908
+katch,nkpl/fig09/linear-reachability/HiberniaCanada.nkpl,0.007595051
+katch,nkpl/fig09/linear-reachability/HiberniaGlobal.nkpl,0.104674044
+katch,nkpl/fig09/linear-reachability/HiberniaIreland.nkpl,0.003746998
+katch,nkpl/fig09/linear-reachability/HiberniaNireland.nkpl,0.013470368
+katch,nkpl/fig09/linear-reachability/HiberniaUk.nkpl,0.009607869
+katch,nkpl/fig09/linear-reachability/HiberniaUs.nkpl,0.018190165
+katch,nkpl/fig09/linear-reachability/Highwinds.nkpl,0.018231362
+katch,nkpl/fig09/linear-reachability/HostwayInternational.nkpl,0.010884717
+katch,nkpl/fig09/linear-reachability/HurricaneElectric.nkpl,0.021907273
+katch,nkpl/fig09/linear-reachability/Ibm.nkpl,0.013505375
+katch,nkpl/fig09/linear-reachability/Iij.nkpl,0.060622898
+katch,nkpl/fig09/linear-reachability/Iinet.nkpl,0.03415659
+katch,nkpl/fig09/linear-reachability/Ilan.nkpl,0.008570602
+katch,nkpl/fig09/linear-reachability/Integra.nkpl,0.028053125
+katch,nkpl/fig09/linear-reachability/Intellifiber.nkpl,0.178439263
+katch,nkpl/fig09/linear-reachability/Internetmci.nkpl,0.018989811
+katch,nkpl/fig09/linear-reachability/Internode.nkpl,0.125760666
+katch,nkpl/fig09/linear-reachability/Interoute.nkpl,0.401330235
+katch,nkpl/fig09/linear-reachability/Intranetwork.nkpl,0.052497416
+katch,nkpl/fig09/linear-reachability/Ion.nkpl,0.540550554
+katch,nkpl/fig09/linear-reachability/IowaStatewideFiberMap.nkpl,0.058628329
+katch,nkpl/fig09/linear-reachability/Iris.nkpl,0.088985959
+katch,nkpl/fig09/linear-reachability/Istar.nkpl,0.017251456
+katch,nkpl/fig09/linear-reachability/Itnet.nkpl,0.005718931
+katch,nkpl/fig09/linear-reachability/JanetExternal.nkpl,0.005575779
+katch,nkpl/fig09/linear-reachability/Janetbackbone.nkpl,0.042704447
+katch,nkpl/fig09/linear-reachability/Janetlense.nkpl,0.021032771
+katch,nkpl/fig09/linear-reachability/Jgn2Plus.nkpl,0.012019077
+katch,nkpl/fig09/linear-reachability/Karen.nkpl,0.020904208
+katch,nkpl/fig09/linear-reachability/Kdl.nkpl,28.901745907
+katch,nkpl/fig09/linear-reachability/KentmanApr2007.nkpl,0.024352407
+katch,nkpl/fig09/linear-reachability/KentmanAug2005.nkpl,0.026810113
+katch,nkpl/fig09/linear-reachability/KentmanFeb2008.nkpl,0.023410778
+katch,nkpl/fig09/linear-reachability/KentmanJan2011.nkpl,0.047206715
+katch,nkpl/fig09/linear-reachability/KentmanJul2005.nkpl,0.010378425
+katch,nkpl/fig09/linear-reachability/Kreonet.nkpl,0.008188406
+katch,nkpl/fig09/linear-reachability/LambdaNet.nkpl,0.065746172
+katch,nkpl/fig09/linear-reachability/Latnet.nkpl,0.215958144
+katch,nkpl/fig09/linear-reachability/Layer42.nkpl,0.003368117
+katch,nkpl/fig09/linear-reachability/Litnet.nkpl,0.080651234
+katch,nkpl/fig09/linear-reachability/Marnet.nkpl,0.031556313
+katch,nkpl/fig09/linear-reachability/Marwan.nkpl,0.016052441
+katch,nkpl/fig09/linear-reachability/Missouri.nkpl,0.232643665
+katch,nkpl/fig09/linear-reachability/Mren.nkpl,0.003163957
+katch,nkpl/fig09/linear-reachability/Myren.nkpl,0.062922144
+katch,nkpl/fig09/linear-reachability/Napnet.nkpl,0.00321537
+katch,nkpl/fig09/linear-reachability/Navigata.nkpl,0.010693676
+katch,nkpl/fig09/linear-reachability/Netrail.nkpl,0.004386237
+katch,nkpl/fig09/linear-reachability/NetworkUsa.nkpl,0.060446728
+katch,nkpl/fig09/linear-reachability/Nextgen.nkpl,0.019634496
+katch,nkpl/fig09/linear-reachability/Niif.nkpl,0.065400288
+katch,nkpl/fig09/linear-reachability/Noel.nkpl,0.019300187
+katch,nkpl/fig09/linear-reachability/Nordu1989.nkpl,0.003881818
+katch,nkpl/fig09/linear-reachability/Nordu1997.nkpl,0.011309095
+katch,nkpl/fig09/linear-reachability/Nordu2005.nkpl,0.006061152
+katch,nkpl/fig09/linear-reachability/Nordu2010.nkpl,0.013960822
+katch,nkpl/fig09/linear-reachability/Nsfcnet.nkpl,0.006047885
+katch,nkpl/fig09/linear-reachability/Nsfnet.nkpl,0.010058622
+katch,nkpl/fig09/linear-reachability/Ntelos.nkpl,0.103398567
+katch,nkpl/fig09/linear-reachability/Ntt.nkpl,0.117380776
+katch,nkpl/fig09/linear-reachability/Oteglobe.nkpl,0.310198153
+katch,nkpl/fig09/linear-reachability/Oxford.nkpl,0.025571847
+katch,nkpl/fig09/linear-reachability/Pacificwave.nkpl,0.021654544
+katch,nkpl/fig09/linear-reachability/Packetexchange.nkpl,0.025927567
+katch,nkpl/fig09/linear-reachability/Padi.nkpl,0.004842229
+katch,nkpl/fig09/linear-reachability/Palmetto.nkpl,0.200359816
+katch,nkpl/fig09/linear-reachability/Peer1.nkpl,0.013252814
+katch,nkpl/fig09/linear-reachability/Pern.nkpl,0.516748967
+katch,nkpl/fig09/linear-reachability/PionierL1.nkpl,0.056104265
+katch,nkpl/fig09/linear-reachability/PionierL3.nkpl,0.069246652
+katch,nkpl/fig09/linear-reachability/Psinet.nkpl,0.027893773
+katch,nkpl/fig09/linear-reachability/Quest.nkpl,0.022852884
+katch,nkpl/fig09/linear-reachability/RedBestel.nkpl,0.28926385
+katch,nkpl/fig09/linear-reachability/Rediris.nkpl,0.01957138
+katch,nkpl/fig09/linear-reachability/Renam.nkpl,0.002515913
+katch,nkpl/fig09/linear-reachability/Renater1999.nkpl,0.020529855
+katch,nkpl/fig09/linear-reachability/Renater2001.nkpl,0.021951052
+katch,nkpl/fig09/linear-reachability/Renater2004.nkpl,0.038393757
+katch,nkpl/fig09/linear-reachability/Renater2006.nkpl,0.043556862
+katch,nkpl/fig09/linear-reachability/Renater2008.nkpl,0.043356657
+katch,nkpl/fig09/linear-reachability/Renater2010.nkpl,0.069884713
+katch,nkpl/fig09/linear-reachability/Restena.nkpl,0.014398065
+katch,nkpl/fig09/linear-reachability/Reuna.nkpl,0.045408321
+katch,nkpl/fig09/linear-reachability/Rhnet.nkpl,0.010738523
+katch,nkpl/fig09/linear-reachability/Rnp.nkpl,0.033482335
+katch,nkpl/fig09/linear-reachability/Roedunet.nkpl,0.060953839
+katch,nkpl/fig09/linear-reachability/RoedunetFibre.nkpl,0.076009079
+katch,nkpl/fig09/linear-reachability/Sago.nkpl,0.012177837
+katch,nkpl/fig09/linear-reachability/Sanet.nkpl,0.064513075
+katch,nkpl/fig09/linear-reachability/Sanren.nkpl,0.002963497
+katch,nkpl/fig09/linear-reachability/Savvis.nkpl,0.014494117
+katch,nkpl/fig09/linear-reachability/Shentel.nkpl,0.028633725
+katch,nkpl/fig09/linear-reachability/Sinet.nkpl,0.153074901
+katch,nkpl/fig09/linear-reachability/Singaren.nkpl,0.005912231
+katch,nkpl/fig09/linear-reachability/Spiralight.nkpl,0.009931743
+katch,nkpl/fig09/linear-reachability/Sprint.nkpl,0.006904823
+katch,nkpl/fig09/linear-reachability/Sunet.nkpl,0.027472409
+katch,nkpl/fig09/linear-reachability/Surfnet.nkpl,0.094321266
+katch,nkpl/fig09/linear-reachability/Switch.nkpl,0.181867378
+katch,nkpl/fig09/linear-reachability/SwitchL3.nkpl,0.073894351
+katch,nkpl/fig09/linear-reachability/Syringa.nkpl,0.317094545
+katch,nkpl/fig09/linear-reachability/TLex.nkpl,0.010936336
+katch,nkpl/fig09/linear-reachability/TataNld.nkpl,1.082188324
+katch,nkpl/fig09/linear-reachability/Telcove.nkpl,0.237028839
+katch,nkpl/fig09/linear-reachability/Telecomserbia.nkpl,0.004413303
+katch,nkpl/fig09/linear-reachability/Tinet.nkpl,0.175825738
+katch,nkpl/fig09/linear-reachability/Tw.nkpl,0.282217193
+katch,nkpl/fig09/linear-reachability/Twaren.nkpl,0.021785694
+katch,nkpl/fig09/linear-reachability/Ulaknet.nkpl,0.531990561
+katch,nkpl/fig09/linear-reachability/UniC.nkpl,0.033119513
+katch,nkpl/fig09/linear-reachability/Uninet.nkpl,0.014143171
+katch,nkpl/fig09/linear-reachability/Uninett2010.nkpl,0.272392536
+katch,nkpl/fig09/linear-reachability/Uninett2011.nkpl,0.249059379
+katch,nkpl/fig09/linear-reachability/Uran.nkpl,0.031171801
+katch,nkpl/fig09/linear-reachability/UsCarrier.nkpl,1.019373241
+katch,nkpl/fig09/linear-reachability/UsSignal.nkpl,0.12738058
+katch,nkpl/fig09/linear-reachability/Uunet.nkpl,0.097303467
+katch,nkpl/fig09/linear-reachability/Vinaren.nkpl,0.020627
+katch,nkpl/fig09/linear-reachability/VisionNet.nkpl,0.018144337
+katch,nkpl/fig09/linear-reachability/VtlWavenet2008.nkpl,0.302262165
+katch,nkpl/fig09/linear-reachability/VtlWavenet2011.nkpl,0.33282362
+katch,nkpl/fig09/linear-reachability/WideJpn.nkpl,0.035398126
+katch,nkpl/fig09/linear-reachability/Xeex.nkpl,0.024330657
+katch,nkpl/fig09/linear-reachability/Xspedius.nkpl,0.045987867
+katch,nkpl/fig09/linear-reachability/York.nkpl,0.02161717
+katch,nkpl/fig09/linear-reachability/Zamren.nkpl,0.039533384
+katch,nkpl/fig10/Airtel_reachability.nkpl,0.012828624
+katch,nkpl/fig10/Airtel_slicing.nkpl,0.027800073
+katch,nkpl/fig10/Airtel_unreachability.nkpl,0.011809623
+katch,nkpl/fig10/Arpa_reachability.nkpl,0.02100314
+katch,nkpl/fig10/Arpa_slicing.nkpl,0.056197582
+katch,nkpl/fig10/Arpa_unreachability.nkpl,0.021293573
+katch,nkpl/fig10/Belnet_reachability.nkpl,0.018801619
+katch,nkpl/fig10/Belnet_slicing.nkpl,0.044062482
+katch,nkpl/fig10/Belnet_unreachability.nkpl,0.018515946
+katch,nkpl/fig10/Cogentco-slicing.nkpl,1.540614307
+katch,nkpl/fig10/Cogentco_reachability.nkpl,0.624803367
+katch,nkpl/fig10/Cogentco_unreachability.nkpl,0.593465896
+katch,nkpl/fig10/Compuserv_reachability.nkpl,0.006646333
+katch,nkpl/fig10/Compuserv_slicing.nkpl,0.013680551
+katch,nkpl/fig10/Compuserv_unreachability.nkpl,0.006333558
+katch,nkpl/fig10/Deltacom_reachability.nkpl,0.218038866
+katch,nkpl/fig10/Deltacom_slicing.nkpl,0.482994963
+katch,nkpl/fig10/Deltacom_unreachability.nkpl,0.202086487
+katch,nkpl/fig10/Layer42_reachability.nkpl,0.002847387
+katch,nkpl/fig10/Layer42_slicing.nkpl,0.005551288
+katch,nkpl/fig10/Layer42_unreachability.nkpl,0.002887446
+katch,nkpl/fig10/Missouri_reachability.nkpl,0.106678066
+katch,nkpl/fig10/Missouri_slicing.nkpl,0.221737022
+katch,nkpl/fig10/Missouri_unreachability.nkpl,0.068677797
+katch,nkpl/fig10/Sanet_reachability.nkpl,0.030335011
+katch,nkpl/fig10/Sanet_slicing.nkpl,0.067819543
+katch,nkpl/fig10/Sanet_unreachability.nkpl,0.027406756
+katch,nkpl/fig10/Shentel_reachability.nkpl,0.014028523
+katch,nkpl/fig10/Shentel_slicing.nkpl,0.039278603
+katch,nkpl/fig10/Shentel_unreachability.nkpl,0.01630093
+katch,nkpl/fig10/Telcove_reachability.nkpl,0.096832003
+katch,nkpl/fig10/Telcove_slicing.nkpl,0.251167701
+katch,nkpl/fig10/Telcove_unreachability.nkpl,0.067029342
+katch,nkpl/fig10/Uunet_reachability.nkpl,0.048622977
+katch,nkpl/fig10/Uunet_slicing.nkpl,0.152224312
+katch,nkpl/fig10/Uunet_unreachability.nkpl,0.054427478
+frenetic,nkpl/fig10/Airtel_reachability.nkpl,0.83
+frenetic,nkpl/fig10/Airtel_slicing.nkpl,1.98
+frenetic,nkpl/fig10/Airtel_unreachability.nkpl,0.82
+frenetic,nkpl/fig10/Arpa_reachability.nkpl,4.23
+frenetic,nkpl/fig10/Arpa_slicing.nkpl,10.42
+frenetic,nkpl/fig10/Arpa_unreachability.nkpl,4.23
+frenetic,nkpl/fig10/Belnet_reachability.nkpl,3.18
+frenetic,nkpl/fig10/Belnet_slicing.nkpl,7.99
+frenetic,nkpl/fig10/Belnet_unreachability.nkpl,3.20
+frenetic,nkpl/fig10/Cogentco-slicing.nkpl,54247.73
+frenetic,nkpl/fig10/Cogentco_reachability.nkpl,18894.99
+frenetic,nkpl/fig10/Cogentco_unreachability.nkpl,18926.65
+frenetic,nkpl/fig10/Compuserv_reachability.nkpl,0.35
+frenetic,nkpl/fig10/Compuserv_slicing.nkpl,0.81
+frenetic,nkpl/fig10/Compuserv_unreachability.nkpl,0.35
+frenetic,nkpl/fig10/Deltacom_reachability.nkpl,2210.27
+frenetic,nkpl/fig10/Deltacom_slicing.nkpl,5098.57
+frenetic,nkpl/fig10/Deltacom_unreachability.nkpl,1964.41
+frenetic,nkpl/fig10/Layer42_reachability.nkpl,0.05
+frenetic,nkpl/fig10/Layer42_slicing.nkpl,0.07
+frenetic,nkpl/fig10/Layer42_unreachability.nkpl,0.04
+frenetic,nkpl/fig10/Missouri_reachability.nkpl,168.15
+frenetic,nkpl/fig10/Missouri_slicing.nkpl,441.72
+frenetic,nkpl/fig10/Missouri_unreachability.nkpl,165.59
+frenetic,nkpl/fig10/Sanet_reachability.nkpl,23.30
+frenetic,nkpl/fig10/Sanet_slicing.nkpl,62.21
+frenetic,nkpl/fig10/Sanet_unreachability.nkpl,23.54
+frenetic,nkpl/fig10/Shentel_reachability.nkpl,3.90
+frenetic,nkpl/fig10/Shentel_slicing.nkpl,9.76
+frenetic,nkpl/fig10/Shentel_unreachability.nkpl,3.96
+frenetic,nkpl/fig10/Telcove_reachability.nkpl,441.47
+frenetic,nkpl/fig10/Telcove_slicing.nkpl,1121.30
+frenetic,nkpl/fig10/Telcove_unreachability.nkpl,441.46
+frenetic,nkpl/fig10/Uunet_reachability.nkpl,81.03
+frenetic,nkpl/fig10/Uunet_slicing.nkpl,203.80
+frenetic,nkpl/fig10/Uunet_unreachability.nkpl,80.67
+katch,nkpl/fig11/flip-first11/flip01.nkpl,0.002398918
+katch,nkpl/fig11/flip-first11/flip02.nkpl,0.002600636
+katch,nkpl/fig11/flip-first11/flip03.nkpl,0.002925807
+katch,nkpl/fig11/flip-first11/flip04.nkpl,0.003708277
+katch,nkpl/fig11/flip-first11/flip05.nkpl,0.005209057
+katch,nkpl/fig11/flip-first11/flip06.nkpl,0.005897297
+katch,nkpl/fig11/flip-first11/flip07.nkpl,0.00577993
+katch,nkpl/fig11/flip-first11/flip08.nkpl,0.006185545
+katch,nkpl/fig11/flip-first11/flip09.nkpl,0.005702615
+katch,nkpl/fig11/flip-first11/flip10.nkpl,0.006971267
+katch,nkpl/fig11/flip-first11/flip11.nkpl,0.006738025
+frenetic,nkpl/fig11/flip-first11/flip01.nkpl,0.05
+frenetic,nkpl/fig11/flip-first11/flip02.nkpl,0.03
+frenetic,nkpl/fig11/flip-first11/flip03.nkpl,0.03
+frenetic,nkpl/fig11/flip-first11/flip04.nkpl,0.03
+frenetic,nkpl/fig11/flip-first11/flip05.nkpl,0.05
+frenetic,nkpl/fig11/flip-first11/flip06.nkpl,0.14
+frenetic,nkpl/fig11/flip-first11/flip07.nkpl,0.38
+frenetic,nkpl/fig11/flip-first11/flip08.nkpl,1.82
+frenetic,nkpl/fig11/flip-first11/flip09.nkpl,6.41
+frenetic,nkpl/fig11/flip-first11/flip10.nkpl,25.25
+frenetic,nkpl/fig11/flip-first11/flip11.nkpl,85.42
+katch,nkpl/fig11/inc-first10/inc01.nkpl,0.003097481
+katch,nkpl/fig11/inc-first10/inc02.nkpl,0.002755923
+katch,nkpl/fig11/inc-first10/inc03.nkpl,0.003715633
+katch,nkpl/fig11/inc-first10/inc04.nkpl,0.005562059
+katch,nkpl/fig11/inc-first10/inc05.nkpl,0.006448854
+katch,nkpl/fig11/inc-first10/inc06.nkpl,0.008166083
+katch,nkpl/fig11/inc-first10/inc07.nkpl,0.009865701
+katch,nkpl/fig11/inc-first10/inc08.nkpl,0.011544474
+katch,nkpl/fig11/inc-first10/inc09.nkpl,0.014284859
+katch,nkpl/fig11/inc-first10/inc10.nkpl,0.029007899
+frenetic,nkpl/fig11/inc-first10/inc01.nkpl,0.05
+frenetic,nkpl/fig11/inc-first10/inc02.nkpl,0.03
+frenetic,nkpl/fig11/inc-first10/inc03.nkpl,0.03
+frenetic,nkpl/fig11/inc-first10/inc04.nkpl,0.03
+frenetic,nkpl/fig11/inc-first10/inc05.nkpl,0.05
+frenetic,nkpl/fig11/inc-first10/inc06.nkpl,0.19
+frenetic,nkpl/fig11/inc-first10/inc07.nkpl,1.03
+frenetic,nkpl/fig11/inc-first10/inc08.nkpl,7.67
+frenetic,nkpl/fig11/inc-first10/inc09.nkpl,66.87
+frenetic,nkpl/fig11/inc-first10/inc10.nkpl,580.80
+katch,nkpl/fig11/nondet-first15/nondet01.nkpl,0.002403622
+katch,nkpl/fig11/nondet-first15/nondet02.nkpl,0.002119155
+katch,nkpl/fig11/nondet-first15/nondet03.nkpl,0.002488766
+katch,nkpl/fig11/nondet-first15/nondet04.nkpl,0.003062591
+katch,nkpl/fig11/nondet-first15/nondet05.nkpl,0.003933581
+katch,nkpl/fig11/nondet-first15/nondet06.nkpl,0.00389343
+katch,nkpl/fig11/nondet-first15/nondet07.nkpl,0.004341293
+katch,nkpl/fig11/nondet-first15/nondet08.nkpl,0.005001506
+katch,nkpl/fig11/nondet-first15/nondet09.nkpl,0.005687481
+katch,nkpl/fig11/nondet-first15/nondet10.nkpl,0.006673469
+katch,nkpl/fig11/nondet-first15/nondet11.nkpl,0.020300395
+katch,nkpl/fig11/nondet-first15/nondet12.nkpl,0.005886635
+katch,nkpl/fig11/nondet-first15/nondet13.nkpl,0.006660975
+katch,nkpl/fig11/nondet-first15/nondet14.nkpl,0.006411807
+katch,nkpl/fig11/nondet-first15/nondet15.nkpl,0.007797385
+frenetic,nkpl/fig11/nondet-first15/nondet01.nkpl,0.04
+frenetic,nkpl/fig11/nondet-first15/nondet02.nkpl,0.03
+frenetic,nkpl/fig11/nondet-first15/nondet03.nkpl,0.04
+frenetic,nkpl/fig11/nondet-first15/nondet04.nkpl,0.08
+frenetic,nkpl/fig11/nondet-first15/nondet05.nkpl,0.17
+frenetic,nkpl/fig11/nondet-first15/nondet06.nkpl,0.36
+frenetic,nkpl/fig11/nondet-first15/nondet07.nkpl,0.89
+frenetic,nkpl/fig11/nondet-first15/nondet08.nkpl,1.72
+frenetic,nkpl/fig11/nondet-first15/nondet09.nkpl,3.19
+frenetic,nkpl/fig11/nondet-first15/nondet10.nkpl,5.73
+frenetic,nkpl/fig11/nondet-first15/nondet11.nkpl,9.57
+frenetic,nkpl/fig11/nondet-first15/nondet12.nkpl,15.76
+frenetic,nkpl/fig11/nondet-first15/nondet13.nkpl,24.47
+frenetic,nkpl/fig11/nondet-first15/nondet14.nkpl,37.17
+frenetic,nkpl/fig11/nondet-first15/nondet15.nkpl,54.94
