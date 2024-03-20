@@ -3964,3 +3964,4 @@ Execution time of Frenetic on nondet13.nkpl: 24.47 s
 Execution time of Frenetic on nondet14.nkpl: 37.17 s
 Execution time of Frenetic on nondet15.nkpl: 54.94 s
 
+Execution time of Kdl-reachability.nkpl: 1280.89 s 
