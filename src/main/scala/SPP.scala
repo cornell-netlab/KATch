@@ -484,8 +484,8 @@ object SPP {
         if branches.contains(v) then branches(v)
         else if other.contains(v) || (id eq False) then other
         else other + (v -> id)
-      case False => HashMap.empty
-      case Diag => HashMap(v -> Diag)
+      case False => assert { false }
+      case Diag => assert { false }
     }
 
   def logSummary(msg: String, spp1: SPP, spp2: SPP): Unit =

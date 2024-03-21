@@ -1,0 +1,6 @@
+- fwd aggregation-9 167773696 31 Serial1 31
+- fwd aggregation-9 167773696 32 Serial1 32
+- fwd aggregation-9 1174407680 24 Serial1 24
++ fwd aggregation-9 1174407680 24 Serial2 24
+- fwd edge-10 167773696 31 Serial1 31
+- fwd edge-10 167773697 32 Serial1 32

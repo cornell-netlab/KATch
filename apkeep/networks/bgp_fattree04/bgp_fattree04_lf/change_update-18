@@ -1,0 +1,8 @@
+- fwd aggregation-5 167779328 31 Serial1 31
+- fwd aggregation-5 167779329 32 Serial1 32
+- fwd core-3 167779328 31 Serial2 31
+- fwd core-3 167779328 32 Serial2 32
++ fwd core-3 1174406656 24 Serial0 24
+- fwd core-3 1174406656 24 Serial2 24
++ fwd core-3 1174406912 24 Serial0 24
+- fwd core-3 1174406912 24 Serial2 24

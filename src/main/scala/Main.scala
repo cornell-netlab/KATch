@@ -84,7 +84,13 @@ def cleanupFreneticScript() =
   deleteDirectory(katDir)
    */
 
+def init() =
+  VarMap("sw")
+  VarMap("pt")
+  VarMap("dst")
+
 @main def hello(cmd: String*): Unit =
+  init()
   if cmd.isEmpty then error("No command specified")
   val command = cmd(0)
   var inputs = cmd.tail
@@ -110,6 +116,41 @@ def cleanupFreneticScript() =
       runFilesAndDirs(inputs.toList)
     case "bench" =>
       println("Benchmarking:")
-      for (i <- 0 to 0) runFilesAndDirs(List("nkpl/misc/scratch/bench.nkpl"))
+      for (i <- 0 to 10) runFilesAndDirs(List("nkpl/misc/scratch/bench.nkpl"))
+    case "apk" =>
+      println("APK benchmarks:")
+      // get all files "nkpl/fig09/linear-reachability/$net.nkpl" from that directory
+      val nets = findFiles(Paths.get("nkpl/fig09/linear-reachability"), ".nkpl")
+        .map(_.getFileName.toString.stripSuffix(".nkpl"))
+      println(nets)
+      Options.supressOutput = true
+      var results = Map[String, Double]()
+      for (net <- nets) {
+        try {
+          var total_time = 0.0
+          var total_runs = 0
+          for (i <- 0 to 110) {
+            val start = System.nanoTime()
+            runFilesAndDirs(List(s"nkpl/fig09/linear-reachability/$net.nkpl"))
+            val end = System.nanoTime()
+            if (!(i < 10)) {
+              total_time += (end - start) / 1e6
+              total_runs += 1
+            }
+          }
+          results += (net -> (total_time / total_runs))
+        } catch {
+          case e: Throwable => println(s"Skipping $net")
+        }
+      }
+      for ((net, time) <- results) {
+        println(s"$net & $time")
+      }
+      // write the same to apk_results.txt
+      val fw = new FileWriter("results/apk_results.txt")
+      for ((net, time) <- results) {
+        fw.write(s"$net & $time\n")
+      }
+      fw.close()
     case _ => error(s"Invalid command $command")
   }

@@ -1,6 +1,7 @@
 package nkpl
 
 object Options {
+  var supressOutput = false
   var convertToKat = false
   var inputFile = ""
   def katIndex() = s"kat/${inputFile.replace('/', '_')}_index.txt"

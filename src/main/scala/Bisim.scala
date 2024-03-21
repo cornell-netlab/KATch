@@ -228,7 +228,7 @@ object Bisim {
     var i = 0
     val limit = 100000
     while (todo.nonEmpty && i < limit) {
-      println(s"\u001B[34mIteration $i \u001B[0m")
+      if (!Options.supressOutput && false) println(s"\u001B[34mIteration $i \u001B[0m")
       i += 1
       val (e1, sp, e2) = deq()
       // println(s"Testing equivalence of ($e1, $sp, $e2)")
@@ -277,7 +277,7 @@ object Bisim {
     var i = 0
     val limit = 100000
     while (todo.nonEmpty && i < limit) {
-      // println(s"\u001B[34mIteration $i \u001B[0m")
+      if (!Options.supressOutput && false) println(s"\u001B[34mIteration $i \u001B[0m")
       // benchmark(
       // s"Iteration $i time", {
       i += 1
@@ -324,7 +324,7 @@ object Bisim {
     var i = 0
     val limit = 100000
     while (todo.nonEmpty && i < limit) {
-      println(s"\u001B[34mIteration $i \u001B[0m")
+      if (!Options.supressOutput && false) println(s"\u001B[34mIteration $i \u001B[0m")
       i += 1
       val (e, sp) = deq()
       val done1 = done.getOrElse(e, SP.False)

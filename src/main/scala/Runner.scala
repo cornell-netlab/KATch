@@ -71,7 +71,7 @@ object Runner {
         val result = Bisim.bisim(v1, v2)
         assert(op == "≡" || op == "≢")
         if result == (op == "≡") then {
-          println(s"\u001b[32mCheck passed in $path:${line + 1}\u001b[0m")
+          if (!Options.supressOutput) println(s"\u001b[32mCheck passed in $path:${line + 1}\u001b[0m")
         } else {
           throw new Throwable(s"\u001b[31m!!! Check failed in $path:${line + 1} !!!\u001b[0m" ++ s"\nOperands were ${summarize(v1.toString)} and ${summarize(v2.toString)}\n")
         }
@@ -81,7 +81,7 @@ object Runner {
         val v = assertNK(e)
         val path3 = path.split("/").dropRight(1).mkString("/") + "/" + path2
         GV.saveNK(path3, v)
-        println(s"Graphviz at $path:${line + 1} saved in $path3: ${summarize(v)}")
+        if (!Options.supressOutput) println(s"Graphviz at $path:${line + 1} saved in $path3: ${summarize(v)}")
         env
       }
       case Stmt.Run(method, e) =>
@@ -89,10 +89,10 @@ object Runner {
         method match {
           case "forward" =>
             val result = Bisim.forward(v)
-            println(s"Forward at $path:${line + 1}: ${summarize(SP.pretty(result))}")
+            if (!Options.supressOutput) println(s"Forward at $path:${line + 1}: ${summarize(SP.pretty(result))}")
           case "backward" =>
             val result = Bisim.backward(v)
-            println(s"Backward at $path:${line + 1}: ${summarize(SP.pretty(result))}")
+            if (!Options.supressOutput) println(s"Backward at $path:${line + 1}: ${summarize(SP.pretty(result))}")
         }
         env
       case Stmt.Let(x, e) => env + (x -> eval(env, e))
