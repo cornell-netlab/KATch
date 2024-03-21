@@ -1,3 +1,4 @@
+Network & Computation time (ms)
 Uninett2010 & 727.3447364554453
 Atmnet & 12.848389049504949
 Geant2012 & 33.81650256435642
