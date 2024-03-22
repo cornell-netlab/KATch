@@ -195,7 +195,7 @@ public class DPVerifier {
 			}
 			System.out.println(sb.toString());
 			// write the results to a file
-			java.io.FileWriter fw = new java.io.FileWriter("apkeep_bench.txt");
+			java.io.FileWriter fw = new java.io.FileWriter("apkeep_bench.txt", true);
 			fw.write(sb.toString());
 			fw.close();
 		} catch (java.io.IOException exc) {

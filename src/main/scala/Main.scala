@@ -160,7 +160,7 @@ def init() =
         println(s"$net & $time")
       }
       // write the same to apk_results.txt
-      val fw = new FileWriter("results/apk_results.txt")
+      val fw = new FileWriter("results/apk_results.txt", true)
       for ((net, time) <- results) {
         fw.write(s"$net & $time\n")
       }
