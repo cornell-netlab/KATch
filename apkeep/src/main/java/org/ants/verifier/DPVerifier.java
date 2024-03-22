@@ -135,22 +135,26 @@ public class DPVerifier {
 			String dir = System.getProperty("user.dir");
 			ArrayList<String> nets = new ArrayList<String>();
 			// Determine all networks to be tested by iterating over the apk files
-			// for(String file : new java.io.File(dir + "/apk").list()) {
-			// 	if(file.endsWith("_topo.apk")) {
-			// 		nets.add(file.substring(0, file.length() - "_topo.apk".length()));
-			// 	}
-			// }
-			nets.add("Layer42");
-			nets.add("Compuserve");
-			nets.add("Airtel");
-			nets.add("Shentel");
-			nets.add("Sanet");
-			nets.add("Uunet");
-			nets.add("Telcove");
-			nets.add("Missouri");
-			nets.add("Deltacom");
-			nets.add("Cogentco");
-			nets.add("Kdl");
+			for(String file : new java.io.File(dir + "/apk").list()) {
+				if(file.endsWith("_topo.apk")) {
+					String name = file.substring(0, file.length() - "_topo.apk".length());
+					if(name == "Layer42" || name == "Compuserve" || name == "Airtel" || name == "Shentel" || name == "Sanet" || name == "Uunet" || name == "Telcove" || name == "Missouri" || name == "Deltacom" || name == "Cogentco" || name == "Kdl") {
+						continue;
+					}
+					nets.add(file.substring(0, file.length() - "_topo.apk".length()));
+				}
+			}
+			// nets.add("Layer42");
+			// nets.add("Compuserve");
+			// nets.add("Airtel");
+			// nets.add("Shentel");
+			// nets.add("Sanet");
+			// nets.add("Uunet");
+			// nets.add("Telcove");
+			// nets.add("Missouri");
+			// nets.add("Deltacom");
+			// nets.add("Cogentco");
+			// nets.add("Kdl");
 			System.out.println(nets);
 			StringBuilder sb = new StringBuilder();
 			for(String net : nets) {

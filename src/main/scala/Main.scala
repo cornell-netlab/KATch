@@ -120,9 +120,9 @@ def init() =
     case "apk" =>
       println("APK benchmarks:")
       // get all files "nkpl/fig09/linear-reachability/$net.nkpl" from that directory
-      // val nets = findFiles(Paths.get("nkpl/fig09/linear-reachability"), ".nkpl")
-      // .map(_.getFileName.toString.stripSuffix(".nkpl"))
-      val nets = List(
+      var nets = findFiles(Paths.get("nkpl/fig09/linear-reachability"), ".nkpl")
+        .map(_.getFileName.toString.stripSuffix(".nkpl"))
+      val nets1 = List(
         "Layer42",
         "Compuserve",
         "Airtel",
@@ -135,7 +135,7 @@ def init() =
         "Cogentco",
         "Kdl"
       )
-      println(nets)
+      nets = nets.filter(n => !nets1.contains(n))
       Options.supressOutput = true
       var results = Map[String, Double]()
       for (net <- nets) {
