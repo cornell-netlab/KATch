@@ -163,7 +163,7 @@ for group in merged_data['group'].unique():
         plt.savefig(f'{output_dir}/{name}.pdf', bbox_inches='tight', format='pdf')
 
     if group == 'Topology Zoo':
-        mk_plot('Fig10a', (3,3))
+        mk_plot('selected-zoo-vs', (3,3))
 
 
 print(f'timeout: {timeout_used}')
@@ -213,25 +213,13 @@ for group in merged_data['group'].unique():
     if group == 'Full reachability':
         mk_plot('full-reachability', (10,4))
     elif group == 'Topology Zoo':
-        mk_plot('Fig10b', (3,3))
+        mk_plot('selected-zoo-time-size', (3,3))
     elif group == 'Inc':
-        mk_plot('Fig11-inc', (3,3))
+        mk_plot('inc', (3,3))
     elif group == 'Flip':
-        mk_plot('Fig11-flip', (3,3))
+        mk_plot('flip', (3,3))
     elif group == 'Nondet':
-        mk_plot('Fig11-nondet', (3,3))
-
-# fig09:
-# Full reachability_time_vs_size_wide.pdf
-
-# fig10:
-# Topology Zoo_scatter.pdf
-# Topology Zoo_time_vs_size.pdf
-
-# fig11:
-# Inc_time_vs_size.pdf
-# Nondet_time_vs_size.pdf
-# Flip_time_vs_size.pdf
+        mk_plot('nondet', (3,3))
 
 # Latex tables for katch vs frenetic
 
