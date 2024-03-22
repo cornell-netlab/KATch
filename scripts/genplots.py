@@ -196,7 +196,13 @@ for group in merged_data['group'].unique():
     def mk_plot(name, size):
         plt.figure(figsize=size)
         sns.scatterplot(data=group_data_kf, x='size', y='time', hue='system', style='system', palette=palette, markers=markers)
-        if group != "Topology Zoo": plt.title(f"{group}")
+        # if group == "Full reachability":
+            # plt.yscale('log')
+            # plt.xscale('log')
+        if group != 'Topology Zoo':
+            plt.title(f"{group}")
+        plt.yscale('log')
+        plt.xscale('log')
         plt.xlabel("Size (atoms)")
         plt.ylabel("Time (s)")
         plt.grid(True)
@@ -205,7 +211,7 @@ for group in merged_data['group'].unique():
         plt.savefig(f'{output_dir}/{name}.pdf', bbox_inches='tight', format='pdf')
 
     if group == 'Full reachability':
-        mk_plot('Fig09', (10,4))
+        mk_plot('full-reachability', (10,4))
     elif group == 'Topology Zoo':
         mk_plot('Fig10b', (3,3))
     elif group == 'Inc':
