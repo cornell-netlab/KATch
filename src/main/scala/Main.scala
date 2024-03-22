@@ -132,7 +132,8 @@ def init() =
         "Telcove",
         "Missouri",
         "Deltacom",
-        "Cogentco"
+        "Cogentco",
+        "Kdl"
       )
       println(nets)
       Options.supressOutput = true
