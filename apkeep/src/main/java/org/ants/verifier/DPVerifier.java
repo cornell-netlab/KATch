@@ -138,9 +138,20 @@ public class DPVerifier {
 			for(String file : new java.io.File(dir + "/apk").list()) {
 				if(file.endsWith("_topo.apk")) {
 					String name = file.substring(0, file.length() - "_topo.apk".length());
-					if(name == "Layer42" || name == "Compuserve" || name == "Airtel" || name == "Shentel" || name == "Sanet" || name == "Uunet" || name == "Telcove" || name == "Missouri" || name == "Deltacom" || name == "Cogentco" || name == "Kdl") {
-						continue;
-					}
+					/*
+					switch(name) {
+						case "Layer42":
+						case "Compuserve":
+						case "Airtel":
+						case "Shentel":
+						case "Sanet":
+						case "Uunet":
+						case "Telcove":
+						case "Missouri":
+						case "Deltacom":
+						case "Cogentco":
+						case "Kdl": continue;
+					} */
 					nets.add(file.substring(0, file.length() - "_topo.apk".length()));
 				}
 			}
