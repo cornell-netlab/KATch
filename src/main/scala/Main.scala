@@ -114,6 +114,11 @@ def init() =
       println("Running NKPL:")
       Options.convertToKat = false
       runFilesAndDirs(inputs.toList)
+    case "run+warmup" =>
+      println("Running NKPL:")
+      Options.convertToKat = false
+      Options.warmup = true
+      runFilesAndDirs(inputs.toList)
     case "bench" =>
       println("Benchmarking:")
       for (i <- 0 to 10) runFilesAndDirs(List("nkpl/misc/scratch/bench.nkpl"))

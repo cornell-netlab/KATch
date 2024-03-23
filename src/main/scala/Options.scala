@@ -1,6 +1,7 @@
 package nkpl
 
 object Options {
+  var warmup = false
   var supressOutput = false
   var convertToKat = false
   var inputFile = ""

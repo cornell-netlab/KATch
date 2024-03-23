@@ -158,10 +158,11 @@ object Runner {
     clearCaches()
     println("Running " + path)
     if Options.convertToKat then Files.deleteIfExists(Paths.get(Options.katIndex()))
+    if Options.warmup then for (i <- 0 to 10) runFile(Map(), path)
     val startTime = System.nanoTime()
-    runFile(Map(), path)
+    if Options.warmup then for (i <- 0 to 100) runFile(Map(), path)
     val endTime = System.nanoTime()
-    val duration = (endTime - startTime) / 1_000_000_000.0
+    val duration = (endTime - startTime) / 1_000_000_000.0 / (if Options.warmup then 100 else 1)
     val filename = path.split("/").last
     val msg = f"Execution time of $filename: ${duration}%.2f s \n"
     println(msg)
