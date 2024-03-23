@@ -152,9 +152,9 @@ system_color_symbols = {
     'frenetic': ('#1f77b4', 'o'),
     'frenetic (timeout)': ('#000', 'X'),
     'katch-naive': ('#ff7f0e', 'D'),
-    'katch-opt': ('#2ca02c', 'd'),
+    'katch': ('#2ca02c', 'd'),
     'katch-naive (timeout)': ('#666666', '*'),
-    'katch-opt (timeout)': ('#666666', '*'),
+    'katch (timeout)': ('#666666', '*'),
     'apkeep': ('tab:red','P'),
 }
 
@@ -212,7 +212,8 @@ for group in merged_data['group'].unique():
             name = row['system']
             if name == 'katch':
                 if row['alg_katch'] == 'linear':
-                    name += '-opt'
+                    # name += '-opt'
+                    pass
                 else:
                     name += '-naive'
             if row['time'] >= timeout_used:
@@ -220,7 +221,7 @@ for group in merged_data['group'].unique():
             return name
 
         group_data_kf['system'] = group_data_kf.apply(name_xform, axis=1)
-        # group_data_kf['system'] = group_data_kf.apply(lambda row: f"{row['system']}-opt" if row['system'] == 'katch' and row['alg_katch'] == 'linear' else f"{row['system']}-naive", axis=1)
+        # group_data_kf['system'] = group_data_kf.apply(lambda row: f"{row['system']}" if row['system'] == 'katch' and row['alg_katch'] == 'linear' else f"{row['system']}-naive", axis=1)
 
     def mk_plot(name, size):
         plt.figure(figsize=size)
