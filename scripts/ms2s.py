@@ -1,5 +1,7 @@
+#!/usr/bin/env python3
+
 import sys
 
 for line in sys.stdin.readlines():
-    sp = line.split(',')
-    print(','.join(sp[:-1]) + ',' + str(float(sp[-1])/1000))
+    n = float(line)/1000
+    print(f'{n:.2f}')
