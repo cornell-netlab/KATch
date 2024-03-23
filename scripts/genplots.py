@@ -75,7 +75,7 @@ for line in data.split('\n'):
     size = get_file_size(path)
     alg = "naive"
     if "linear-reachability" in path:
-        system = "katch"
+        # system = "katch"
         path = path.replace("linear-reachability", "naive-reachability")
         alg = "linear"
     path_parts = path.split('/')
@@ -121,19 +121,30 @@ df = pd.DataFrame({
 
 df.to_csv('out.csv')
 
-# Filter data for 'frenetic' and 'katch'
+# Filter data for 'frenetic', 'katch', 'apkeep'
 frenetic_data = df[df['system'] == 'frenetic']
 katch_data = df[df['system'] == 'katch']
-print(katch_data['alg'].unique())
+apkeep_data = df[df['system'] == 'apkeep']
+print('katch',katch_data['alg'].unique())
+print('apkeep',apkeep_data['alg'].unique())
 
 # Group by 'name', 'type', and 'group', then calculate the mean time
 frenetic_avg = frenetic_data.groupby(['name', 'type', 'group', 'size', 'alg'])['time'].mean().reset_index()
 katch_avg = katch_data.groupby(['name', 'type', 'group', 'size', 'alg'])['time'].mean().reset_index()
+apkeep_avg = apkeep_data.groupby(['name', 'type', 'group', 'size', 'alg'])['time'].mean().reset_index()
 print(katch_avg['alg'].unique())
+print(apkeep_avg['alg'].unique())
 
-merged_data = pd.merge(frenetic_avg, katch_avg, on=['name', 'type', 'group', 'size'], suffixes=('_frenetic', '_katch'))
+print(len(frenetic_avg), len(katch_avg), len(apkeep_avg))
+
+merged_data = pd.merge(frenetic_avg, katch_avg, on=['name', 'type', 'group', 'size'], suffixes=('_frenetic', None))
+merged_data = pd.merge(merged_data, apkeep_avg, on=['name', 'type', 'group', 'size'], suffixes=('_katch', '_apkeep'))
+
+merged_data.to_csv('out.csv')
 
 print(merged_data['alg_katch'].unique())
+print(merged_data['alg_apkeep'].unique())
+# print(merged_data['time_apkeep'])
 
 sizes = {'': (3,3), '_wide': (10, 4)}
 system_color_symbols = {
@@ -143,6 +154,7 @@ system_color_symbols = {
     'katch (linear)': ('#2ca02c', 'd'),
     'katch (timeout)': ('#666666', '*'),
     'katch (linear) (timeout)': ('#666666', '*'),
+    'apkeep': ('tab:red','P'),
 }
 
 palette = {system: color for system, (color, marker) in system_color_symbols.items()}
@@ -171,21 +183,26 @@ print(f'timeout: {timeout_used}')
 # Scatterplots time vs size
 for group in merged_data['group'].unique():
     group_data = merged_data[merged_data['group'] == group]
-    # split group_data into separate rows for frenetic and katch
+    # split group_data into separate rows for frenetic, katch, and apkeep
     frenetic_data = group_data[['size', 'time_frenetic']].copy()
     frenetic_data.rename(columns={'time_frenetic': 'time'}, inplace=True)
     frenetic_data['system'] = 'frenetic'
     katch_data = group_data[['size', 'time_katch', 'alg_katch']].copy()
     katch_data.rename(columns={'time_katch': 'time'}, inplace=True)
     katch_data['system'] = 'katch'
-    print(katch_data['alg_katch'].unique())
+    apkeep_data = group_data[['size', 'time_apkeep', 'alg_apkeep']].copy()
+    apkeep_data.rename(columns={'time_apkeep': 'time'}, inplace=True)
+    apkeep_data['system'] = 'apkeep'
+    print(len(frenetic_data), len(katch_data), len(apkeep_data))
 
     if group == 'Full reachability':
         # Clip times for "katch" at the timeout
         katch_data['time'] = katch_data.apply(lambda r: timeout_used if r['time'] >= timeout_used else r['time'], axis=1)
 
-    # combine frenetic and katch data
-    group_data_kf = pd.concat([frenetic_data, katch_data])
+    # combine frenetic, katch, and apkeep data
+    group_data_kf = pd.concat([frenetic_data, katch_data, apkeep_data])
+
+    group_data_kf.to_csv('out.csv')
 
     # Add a separate system "[system] (timeout)" for the timeouts (Full
     # reachability only)
