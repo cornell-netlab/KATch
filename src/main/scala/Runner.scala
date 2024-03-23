@@ -161,6 +161,7 @@ object Runner {
     if Options.warmup then for (i <- 0 to 10) runFile(Map(), path)
     val startTime = System.nanoTime()
     if Options.warmup then for (i <- 0 to 100) runFile(Map(), path)
+    else runFile(Map(), path)
     val endTime = System.nanoTime()
     val duration = (endTime - startTime) / 1_000_000_000.0 / (if Options.warmup then 100 else 1)
     val filename = path.split("/").last
