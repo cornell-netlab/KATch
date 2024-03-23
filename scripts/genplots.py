@@ -1,4 +1,5 @@
 import matplotlib.pyplot as plt
+import matplotlib.axes as ax
 import seaborn as sns
 import pandas as pd
 import re
@@ -150,10 +151,10 @@ sizes = {'': (3,3), '_wide': (10, 4)}
 system_color_symbols = {
     'frenetic': ('#1f77b4', 'o'),
     'frenetic (timeout)': ('#000', 'X'),
-    'katch': ('#ff7f0e', 'D'),
-    'katch (linear)': ('#2ca02c', 'd'),
-    'katch (timeout)': ('#666666', '*'),
-    'katch (linear) (timeout)': ('#666666', '*'),
+    'katch-naive': ('#ff7f0e', 'D'),
+    'katch-opt': ('#2ca02c', 'd'),
+    'katch-naive (timeout)': ('#666666', '*'),
+    'katch-opt (timeout)': ('#666666', '*'),
     'apkeep': ('tab:red','P'),
 }
 
@@ -207,12 +208,25 @@ for group in merged_data['group'].unique():
     # Add a separate system "[system] (timeout)" for the timeouts (Full
     # reachability only)
     if group == 'Full reachability':
-        group_data_kf['system'] = group_data_kf.apply(lambda row: f"{row['system']} (linear)" if row['alg_katch'] == 'linear' else row['system'], axis=1)
-        group_data_kf['system'] = group_data_kf.apply(lambda row: f"{row['system']} (timeout)" if row['time'] >= timeout_used else row['system'], axis=1)
+        def name_xform(row):
+            name = row['system']
+            if name == 'katch':
+                if row['alg_katch'] == 'linear':
+                    name += '-opt'
+                else:
+                    name += '-naive'
+            if row['time'] >= timeout_used:
+                name += ' (timeout)'
+            return name
+
+        group_data_kf['system'] = group_data_kf.apply(name_xform, axis=1)
+        # group_data_kf['system'] = group_data_kf.apply(lambda row: f"{row['system']}-opt" if row['system'] == 'katch' and row['alg_katch'] == 'linear' else f"{row['system']}-naive", axis=1)
 
     def mk_plot(name, size):
         plt.figure(figsize=size)
-        sns.scatterplot(data=group_data_kf, x='size', y='time', hue='system', style='system', palette=palette, markers=markers)
+        hue_order = sorted(list(group_data_kf['system'].unique()))
+        sns.scatterplot(data=group_data_kf, x='size', y='time', hue='system',
+                        hue_order=hue_order, style='system', palette=palette, markers=markers)
         # if group == "Full reachability":
             # plt.yscale('log')
             # plt.xscale('log')
@@ -229,6 +243,7 @@ for group in merged_data['group'].unique():
 
     if group == 'Full reachability':
         mk_plot('full-reachability', (10,4))
+        sys.exit(0)
     elif group == 'Topology Zoo':
         mk_plot('selected-zoo-time-size', (3,3))
     elif group == 'Inc':
