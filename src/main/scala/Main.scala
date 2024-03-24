@@ -127,6 +127,7 @@ def init() =
       // get all files "nkpl/fig09/linear-reachability/$net.nkpl" from that directory
       var nets = findFiles(Paths.get("nkpl/fig09/linear-reachability"), ".nkpl")
         .map(_.getFileName.toString.stripSuffix(".nkpl"))
+      nets = nets.filter(n => n.contains("Cogentco"))
       Options.supressOutput = true
       var results = Map[String, Double]()
       for (net <- nets) {
