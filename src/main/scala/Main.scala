@@ -116,6 +116,7 @@ def init() =
       runFilesAndDirs(inputs.toList)
     case "run+warmup" =>
       println("Running NKPL:")
+      Options.supressOutput = true
       Options.convertToKat = false
       Options.warmup = true
       runFilesAndDirs(inputs.toList)
