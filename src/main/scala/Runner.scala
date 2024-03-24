@@ -158,7 +158,7 @@ object Runner {
     clearCaches()
     println("Running " + path)
     if Options.convertToKat then Files.deleteIfExists(Paths.get(Options.katIndex()))
-    if Options.warmup then for (i <- 0 to 10) runFile(Map(), path)
+    if Options.warmup then for (i <- 0 to 10) { runFile(Map(), path); clearCaches() }
     val reps = if Options.warmup then 100 else 1
     var time = 0.0
     for (i <- 0 to reps) {
