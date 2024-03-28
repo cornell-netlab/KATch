@@ -1,14 +1,13 @@
 import matplotlib.pyplot as plt
+import matplotlib.axes as ax
 import seaborn as sns
 import pandas as pd
 import re
 import os
 import sys
-import subprocess
 
 input_file = 'results/comparison.csv' if len(sys.argv) == 1 else sys.argv[1]
 output_dir = 'results/plots'
-subprocess.run(['mkdir','-p',output_dir])
 
 def size_fn(path):
     # Count the number of atoms (=, ≠, δ, ←) in the file
@@ -77,7 +76,7 @@ for line in data.split('\n'):
     size = get_file_size(path)
     alg = "naive"
     if "linear-reachability" in path:
-        system = "katch"
+        # system = "katch"
         path = path.replace("linear-reachability", "naive-reachability")
         alg = "linear"
     path_parts = path.split('/')
@@ -123,28 +122,40 @@ df = pd.DataFrame({
 
 df.to_csv('out.csv')
 
-# Filter data for 'frenetic' and 'katch'
+# Filter data for 'frenetic', 'katch', 'apkeep'
 frenetic_data = df[df['system'] == 'frenetic']
 katch_data = df[df['system'] == 'katch']
-print(katch_data['alg'].unique())
+apkeep_data = df[df['system'] == 'apkeep']
+print('katch',katch_data['alg'].unique())
+print('apkeep',apkeep_data['alg'].unique())
 
 # Group by 'name', 'type', and 'group', then calculate the mean time
 frenetic_avg = frenetic_data.groupby(['name', 'type', 'group', 'size', 'alg'])['time'].mean().reset_index()
 katch_avg = katch_data.groupby(['name', 'type', 'group', 'size', 'alg'])['time'].mean().reset_index()
+apkeep_avg = apkeep_data.groupby(['name', 'type', 'group', 'size', 'alg'])['time'].mean().reset_index()
 print(katch_avg['alg'].unique())
+print(apkeep_avg['alg'].unique())
 
-merged_data = pd.merge(frenetic_avg, katch_avg, on=['name', 'type', 'group', 'size'], suffixes=('_frenetic', '_katch'))
+print(len(frenetic_avg), len(katch_avg), len(apkeep_avg))
+
+merged_data = pd.merge(frenetic_avg, katch_avg, on=['name', 'type', 'group', 'size'], suffixes=('_frenetic', None))
+merged_data = pd.merge(merged_data, apkeep_avg, on=['name', 'type', 'group', 'size'], suffixes=('_katch', '_apkeep'))
+
+merged_data.to_csv('out.csv')
 
 print(merged_data['alg_katch'].unique())
+print(merged_data['alg_apkeep'].unique())
+# print(merged_data['time_apkeep'])
 
 sizes = {'': (3,3), '_wide': (10, 4)}
 system_color_symbols = {
     'frenetic': ('#1f77b4', 'o'),
     'frenetic (timeout)': ('#000', 'X'),
-    'katch': ('#ff7f0e', 'D'),
-    'katch (linear)': ('#2ca02c', 'd'),
+    'katch-naive': ('#ff7f0e', 'D'),
+    'katch': ('#2ca02c', 'd'),
+    'katch-naive (timeout)': ('#666666', '*'),
     'katch (timeout)': ('#666666', '*'),
-    'katch (linear) (timeout)': ('#666666', '*'),
+    'apkeep': ('tab:red','P'),
 }
 
 palette = {system: color for system, (color, marker) in system_color_symbols.items()}
@@ -165,7 +176,7 @@ for group in merged_data['group'].unique():
         plt.savefig(f'{output_dir}/{name}.pdf', bbox_inches='tight', format='pdf')
 
     if group == 'Topology Zoo':
-        mk_plot('Fig10a', (3,3))
+        mk_plot('selected-zoo-vs', (3,3))
 
 
 print(f'timeout: {timeout_used}')
@@ -173,32 +184,57 @@ print(f'timeout: {timeout_used}')
 # Scatterplots time vs size
 for group in merged_data['group'].unique():
     group_data = merged_data[merged_data['group'] == group]
-    # split group_data into separate rows for frenetic and katch
+    # split group_data into separate rows for frenetic, katch, and apkeep
     frenetic_data = group_data[['size', 'time_frenetic']].copy()
     frenetic_data.rename(columns={'time_frenetic': 'time'}, inplace=True)
     frenetic_data['system'] = 'frenetic'
     katch_data = group_data[['size', 'time_katch', 'alg_katch']].copy()
     katch_data.rename(columns={'time_katch': 'time'}, inplace=True)
     katch_data['system'] = 'katch'
-    print(katch_data['alg_katch'].unique())
+    apkeep_data = group_data[['size', 'time_apkeep', 'alg_apkeep']].copy()
+    apkeep_data.rename(columns={'time_apkeep': 'time'}, inplace=True)
+    apkeep_data['system'] = 'apkeep'
+    print(len(frenetic_data), len(katch_data), len(apkeep_data))
 
     if group == 'Full reachability':
         # Clip times for "katch" at the timeout
         katch_data['time'] = katch_data.apply(lambda r: timeout_used if r['time'] >= timeout_used else r['time'], axis=1)
 
-    # combine frenetic and katch data
-    group_data_kf = pd.concat([frenetic_data, katch_data])
+    # combine frenetic, katch, and apkeep data
+    group_data_kf = pd.concat([frenetic_data, katch_data, apkeep_data])
+
+    group_data_kf.to_csv('out.csv')
 
     # Add a separate system "[system] (timeout)" for the timeouts (Full
     # reachability only)
     if group == 'Full reachability':
-        group_data_kf['system'] = group_data_kf.apply(lambda row: f"{row['system']} (linear)" if row['alg_katch'] == 'linear' else row['system'], axis=1)
-        group_data_kf['system'] = group_data_kf.apply(lambda row: f"{row['system']} (timeout)" if row['time'] >= timeout_used else row['system'], axis=1)
+        def name_xform(row):
+            name = row['system']
+            if name == 'katch':
+                if row['alg_katch'] == 'linear':
+                    # name += '-opt'
+                    pass
+                else:
+                    name += '-naive'
+            if row['time'] >= timeout_used:
+                name += ' (timeout)'
+            return name
+
+        group_data_kf['system'] = group_data_kf.apply(name_xform, axis=1)
+        # group_data_kf['system'] = group_data_kf.apply(lambda row: f"{row['system']}" if row['system'] == 'katch' and row['alg_katch'] == 'linear' else f"{row['system']}-naive", axis=1)
 
     def mk_plot(name, size):
         plt.figure(figsize=size)
-        sns.scatterplot(data=group_data_kf, x='size', y='time', hue='system', style='system', palette=palette, markers=markers)
-        if group != "Topology Zoo": plt.title(f"{group}")
+        hue_order = sorted(list(group_data_kf['system'].unique()))
+        sns.scatterplot(data=group_data_kf, x='size', y='time', hue='system',
+                        hue_order=hue_order, style='system', palette=palette, markers=markers)
+        # if group == "Full reachability":
+            # plt.yscale('log')
+            # plt.xscale('log')
+        if group != 'Topology Zoo':
+            plt.title(f"{group}")
+        plt.yscale('log')
+        plt.xscale('log')
         plt.xlabel("Size (atoms)")
         plt.ylabel("Time (s)")
         plt.grid(True)
@@ -207,27 +243,16 @@ for group in merged_data['group'].unique():
         plt.savefig(f'{output_dir}/{name}.pdf', bbox_inches='tight', format='pdf')
 
     if group == 'Full reachability':
-        mk_plot('Fig09', (10,4))
+        mk_plot('full-reachability', (10,4))
+        sys.exit(0)
     elif group == 'Topology Zoo':
-        mk_plot('Fig10b', (3,3))
+        mk_plot('selected-zoo-time-size', (3,3))
     elif group == 'Inc':
-        mk_plot('Fig11-inc', (3,3))
+        mk_plot('inc', (3,3))
     elif group == 'Flip':
-        mk_plot('Fig11-flip', (3,3))
+        mk_plot('flip', (3,3))
     elif group == 'Nondet':
-        mk_plot('Fig11-nondet', (3,3))
-
-# fig09:
-# Full reachability_time_vs_size_wide.pdf
-
-# fig10:
-# Topology Zoo_scatter.pdf
-# Topology Zoo_time_vs_size.pdf
-
-# fig11:
-# Inc_time_vs_size.pdf
-# Nondet_time_vs_size.pdf
-# Flip_time_vs_size.pdf
+        mk_plot('nondet', (3,3))
 
 # Latex tables for katch vs frenetic
 
