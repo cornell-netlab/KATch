@@ -1,4 +1,4 @@
-import nkpl._
+package nkpl
 import java.nio.file.{Files, Path, Paths}
 import scala.jdk.CollectionConverters.*
 import java.io.FileWriter
@@ -7,6 +7,15 @@ import java.nio.file.attribute.BasicFileAttributes
 import java.nio.file.SimpleFileVisitor
 import java.io.IOException
 
+/** Finds all files with a specific extension in a given directory and its subdirectories.
+  *
+  * @param startDir
+  *   The directory to start the search from.
+  * @param extension
+  *   The file extension to search for.
+  * @return
+  *   A list of paths to the found files.
+  */
 def findFiles(startDir: Path, extension: String): List[Path] = {
   Files
     .walk(startDir)
@@ -16,11 +25,23 @@ def findFiles(startDir: Path, extension: String): List[Path] = {
     .toList
 }
 
+/** Prints an error message and exits the program.
+  *
+  * @param msg
+  *   the error message to be printed
+  * @return
+  *   Nothing
+  */
 def error(msg: String): Nothing = {
   println(msg)
   sys.exit(1)
 }
 
+/** Recursively runs KATch on all .nkpl files in the given list of files and directories.
+  *
+  * @param dirsAndFiles
+  *   The list of files and directories to process.
+  */
 def runFilesAndDirs(dirsAndFiles: List[String]) =
   val nkplFiles = dirsAndFiles.flatMap { dirOrFile =>
     if dirOrFile.endsWith(".nkpl") then List(Paths.get(dirOrFile))
@@ -36,6 +57,11 @@ def runFilesAndDirs(dirsAndFiles: List[String]) =
   fw.write("\n")
   fw.close()
 
+/** Recursively runs KATch on all .nkpl files in the given list of files and directories. This first converts the .nkpl files to Frenetic and then runs Frenetic on them.
+  *
+  * @param dirsAndFiles
+  *   The list of files and directories to process.
+  */
 def runFilesAndDirsFrenetic(dirsAndFiles: List[String]) =
   val nkplFiles = dirsAndFiles.flatMap { dirOrFile =>
     if dirOrFile.endsWith(".nkpl") then List(Paths.get(dirOrFile))
@@ -50,8 +76,9 @@ def runFilesAndDirsFrenetic(dirsAndFiles: List[String]) =
   fw.write("\n")
   fw.close()
 
+/** Recursive deletion of files in the directory.
+  */
 def deleteDirectory(path: Path): Unit = {
-  // Recursive deletion of files in the directory
   try {
     Files.walkFileTree(
       path,
@@ -73,23 +100,23 @@ def deleteDirectory(path: Path): Unit = {
   }
 }
 
+/** Prepares and checks the Frenetic script. Deletes the `kat` directory and its contents if it exists, and recreates it.
+  */
 def prepCheckFreneticScript() =
-  // Delete the `kat` dir and its contents and recreate it
   val katDir = Paths.get("kat")
   if Files.notExists(katDir) then Files.createDirectory(katDir)
-
-  /*
-def cleanupFreneticScript() =
-  val katDir = Paths.get("kat")
-  deleteDirectory(katDir)
-   */
 
 def init() =
   VarMap("sw")
   VarMap("pt")
   VarMap("dst")
 
-@main def hello(cmd: String*): Unit =
+/** Entry point of the program.
+  *
+  * @param cmd
+  *   The command line arguments.
+  */
+@main def main(cmd: String*): Unit =
   init()
   if cmd.isEmpty then error("No command specified")
   val command = cmd(0)
