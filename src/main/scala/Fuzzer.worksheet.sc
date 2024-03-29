@@ -93,6 +93,13 @@ class Tester(vals: Map[Var, Set[Val]], random: Boolean = false):
       case SP.Test(x, branches, other) =>
         1 + branches.values.map(sizeSP).sum + sizeSP(other)
 
+  /** Checks if a given function `f` returns `true` for all combinations of packets and SPs.
+    *
+    * @param f
+    *   The function to be checked.
+    * @return
+    *   `true` if `f` returns `true` for all combinations of packets and SPs, `false` otherwise.
+    */
   def checkSP1(f: (Map[Var, Val], SP) => Boolean): Boolean =
     for
       sp <- sps
@@ -103,6 +110,13 @@ class Tester(vals: Map[Var, Set[Val]], random: Boolean = false):
         return false
     true
 
+  /** Checks if a given function `f` returns `true` for all combinations of `sp1`, `sp2`, and `packet`.
+    *
+    * @param f
+    *   The function to be checked.
+    * @return
+    *   `true` if `f` returns `true` for all combinations of `sp1`, `sp2`, and `packet`, `false` otherwise.
+    */
   def checkSP2(f: (Map[Var, Val], SP, SP) => Boolean): Boolean =
     for
       sp1 <- sps
