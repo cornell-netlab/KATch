@@ -3,11 +3,16 @@ import java.nio.file.{Files, Path, Paths}
 import nkpl.Parser.Stmt
 import nkpl.Parser.Expr
 
+/** Print the first 100 characters of any object to be printed to the screen,
+ *  for brevity.
+ */
 def summarize(obj: Any): String =
   val s = obj.toString
   if s.length > 100 then s.take(100) + "..."
   else s
 
+/** Runner provides the functions and the environment needed for evaluating an NKPL program.
+ */
 object Runner {
   type Env = Map[String, Either[NK, Int]]
   def evalNK(env: Env, v: Parser.NK): NK =
@@ -34,6 +39,7 @@ object Runner {
         }
     }
 
+  /** Convert a test-only NetKAT expression into an SP. */
   def toSP(e: NK): SP =
     e match
       case TestSP(sp) => sp
@@ -41,6 +47,7 @@ object Runner {
       case TestNE(x, v) => SP.testNE(x, v)
       case _ => throw new Throwable(s"Expected a test, but got $e\n")
 
+  /** Lookup a variable in the environment. */
   def evalVal(env: Env, v: Parser.SVal): Int =
     v match {
       case Left(v) => v
@@ -52,12 +59,14 @@ object Runner {
         }
     }
 
+  /** Evaluate (recursively) a parse tree of an NKPL program. */
   def eval(env: Env, e: Parser.Expr): Either[NK, Int] =
     e match {
       case Parser.Expr.NKExpr(e) => Left(evalNK(env, e))
       case Parser.Expr.ValExpr(v) => Right(evalVal(env, v))
     }
 
+  /** Evaluate a statement in NKPL. */
   def runStmt(env: Env, stmt: Parser.Stmt, path: String, line: Int): Env =
     def assertNK(e: Parser.Expr): NK =
       e match {
@@ -112,9 +121,12 @@ object Runner {
         env2
     }
 
-  // Runs a whole file
-  // Checks if the whole input was parsed, and gives an error otherwise
-  // Also returns an error if the file could not be read
+  /* Parse and evaluate a file specified by path. 
+   * @param path
+   * The path of the file.
+   * @throws Throwable
+   * in the event of parsing errors.
+   */
   def runFile(env: Env, path: String): Env =
     var env2 = env
     try {
@@ -154,6 +166,7 @@ object Runner {
 
   import java.io.FileWriter
 
+  /** Run and measure the running time for an NKPL file. */
   def runTopLevel(path: String) =
     clearCaches()
     println("Running " + path)
@@ -193,6 +206,10 @@ object Runner {
         fw.close()
       }
 
+  /** Run and measure, for comparison purposes, a query using `frenetic`. The
+   *  implementation assumes we have already computed a query in frenetic's
+   *  format.
+   */
   def runTopLevelFrenetic(path: String) =
     println("Running Frenetic " + path)
     Options.inputFile = path
