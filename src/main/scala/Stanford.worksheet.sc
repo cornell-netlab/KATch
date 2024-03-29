@@ -62,10 +62,13 @@ def parseIntList(s: String): List[Int] = {
   }
 }
 
-val rules = rulePattern.findAllMatchIn(rulesContent).map { m =>
-  try {
-    Rule(parseIntList(m.group(1)), m.group(2).toInt, parseIntList(m.group(3)), m.group(4).toLong)
-  } catch {
-    case e: Exception => throw new Exception(s"Failed to parse rule: ${m.matched}", e)
+val rules = rulePattern
+  .findAllMatchIn(rulesContent)
+  .map { m =>
+    try {
+      Rule(parseIntList(m.group(1)), m.group(2).toInt, parseIntList(m.group(3)), m.group(4).toLong)
+    } catch {
+      case e: Exception => throw new Exception(s"Failed to parse rule: ${m.matched}", e)
+    }
   }
-}.toList
+  .toList

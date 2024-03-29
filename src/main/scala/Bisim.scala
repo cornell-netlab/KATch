@@ -137,7 +137,7 @@ object Bisim {
   /** Performs an n-ary union using a divide and conquer approach.
     *
     * @param xs
-    *   The array of SPP (Subset Predicate Pair) objects to perform the union on.
+    *   The array of SPP objects to perform the union on.
     * @param l
     *   The left index of the range to consider in the array.
     * @param r
@@ -311,7 +311,7 @@ object Bisim {
     toKatPrim(e, s)
     s.toString()
 
-  /** Determines if two NK expressions are bisimilar. This also converts the expressions to KAT and writes them to files if the `convertToKat` option is set.
+  /** Determines if two NK expressions are bisimilar. This also converts the expressions to KAT and writes them to files if the `convertToKat` option is set. The same goal can be achieved using forward/backward, but this can be more efficient, as it avoids the need to compute the forward/backward sets, and can do early stopping.
     *
     * @param e1
     *   The first NK expression.
