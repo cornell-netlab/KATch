@@ -2,16 +2,26 @@ package nkpl
 
 import java.awt.image.SinglePixelPackedSampleModel
 
-// This represents an outgoing transition structure of the automaton.
-// In particular, a map Map(e1 -> spp1, e2 -> spp2, ...), where e1,e2,.. : NK and spp1,spp2,.. : SPP
-// represents spp1⋅δ⋅e1 + spp2⋅δ⋅e2 + ...
-// We maintain the invariant that the spp's are disjoint, in the sense that they are
-// disjoint when seen as a subsets of Pk*Pk.
+/** Represents an outgoing transition structure of the automaton. In particular, a map `Map(e1 -> spp1, e2 -> spp2, ...)`, where `e1,e2,...` are of type `NK` and `spp1,spp2,...` are of type `SPP`, represents `spp1⋅δ⋅e1 + spp2⋅δ⋅e2 + ...`.
+  *
+  * We maintain the invariant that the `spp`'s are disjoint, in the sense that they are disjoint when seen as subsets of `Pk*Pk`.
+  */
 type SMap = Map[NK, SPP]
 object SMap {
   val SDup: SMap = Map(One -> SPP.Diag)
   val SZero: SMap = Map()
 
+  /** Adds a new element to the SMap and canonicalizes it.
+    *
+    * @param x
+    *   The original SMap.
+    * @param e
+    *   The element to be added.
+    * @param spp
+    *   The SPP value.
+    * @return
+    *   The updated SMap.
+    */
   def add(x: SMap, e: NK, spp: SPP): SMap =
     // When adding an entry to a SMap, the main difficulty is to maintain the invariant that the spp's are disjoint
     // We first handle some simple cases here, which are special cased for speed
@@ -32,16 +42,41 @@ object SMap {
     addEntry(e, s)
     z
 
+  /** Reconstructs and returns a canonical representation of the given map `x`.
+    *
+    * @param x
+    *   The map to be canonicalized.
+    * @return
+    *   The canonical representation of the map.
+    */
   def canonicalize(x: Map[NK, SPP]): SMap =
     var z: SMap = SZero
     for (e, spp) <- x do z = add(z, e, spp)
     z
 
+  /** Computes the union of two SMap objects.
+    *
+    * @param x
+    *   The first SMap object.
+    * @param y
+    *   The second SMap object.
+    * @return
+    *   The union of the two SMap objects.
+    */
   def union(x: SMap, y: SMap): SMap =
     var z: SMap = x
     for (e, spp) <- y do z = add(z, e, spp)
     z
 
+  /** Computes the intersection of two SMaps.
+    *
+    * @param x
+    *   The first SMap.
+    * @param y
+    *   The second SMap.
+    * @return
+    *   The intersection of x and y as a new SMap.
+    */
   def intersection(x: SMap, y: SMap): SMap =
     var s: SMap = Map()
     for (e1, spp1) <- x do
@@ -49,6 +84,16 @@ object SMap {
         val inter = SPP.intersection(spp1, spp2)
         s = add(s, Intersection(e1, e2), inter)
     s
+
+  /** Computes the difference between two SMap objects.
+    *
+    * @param x
+    *   The first SMap object.
+    * @param y
+    *   The second SMap object.
+    * @return
+    *   The difference between x and y as an SMap object.
+    */
   def difference(x: SMap, y: SMap): SMap =
     var s: SMap = Map()
     for (e1, spp1) <- x do
@@ -60,6 +105,15 @@ object SMap {
     s
   def xor(x: SMap, y: SMap): SMap = union(difference(x, y), difference(y, x))
 
+  /** Applies sequential composition of a state map and a netkat expression. We may need to merge entries in the state map, if they are not disjoint after the composition.
+    *
+    * @param x
+    *   The state map.
+    * @param y
+    *   The netkat expression.
+    * @return
+    *   The resulting state map after applying sequential composition.
+    */
   def seqNK(x: SMap, y: NK): SMap =
     // We replace each mapping e -> spp with Seq(List(e, y)) -> spp
     // This can potentially cause merging of entries, e.g. if y is ∅
@@ -76,9 +130,21 @@ object SMap {
     for (e1, spp1) <- x do for (e2, spp2) <- x do if e1 != e2 then assert(SPP.intersection(spp1, spp2) eq SPP.False)
 }
 
-def logBisim(msg: String): Unit = ()
-
+/** Bisimilarity algorithms.
+  */
 object Bisim {
+
+  /** Performs an n-ary union using a divide and conquer approach.
+    *
+    * @param xs
+    *   The array of SPP (Subset Predicate Pair) objects to perform the union on.
+    * @param l
+    *   The left index of the range to consider in the array.
+    * @param r
+    *   The right index of the range to consider in the array.
+    * @return
+    *   The result of the n-ary union operation.
+    */
   def bigUnion(xs: Array[SPP], l: Int, r: Int): SPP =
     val s = r - l
     if s <= 0 then SPP.False
@@ -86,6 +152,14 @@ object Bisim {
     else
       val m = l + s / 2
       SPP.union(bigUnion(xs, l, m), bigUnion(xs, m, r))
+
+  /** Computes and returns the dup-free component SPP for the given NK (NetKAT) expression.
+    *
+    * @param e
+    *   The NK expression for which to compute the dup-free component.
+    * @return
+    *   The dup-free component of the given NK expression.
+    */
   lazy val ε0: NK => SPP = memoize { e =>
     e match {
       case Dup => SPP.False
@@ -106,6 +180,13 @@ object Bisim {
     }
   }
 
+  /** Calculates the derivative of the NK expression, represented as an SMap.
+    *
+    * @param e
+    *   The NK expression for which to calculate the derivative.
+    * @return
+    *   The derivative of the NK expression as an SMap.
+    */
   lazy val δ0: NK => SMap = memoize { e =>
     e match {
       case Dup => SMap.SDup
@@ -128,24 +209,54 @@ object Bisim {
     }
   }
 
+  /** A utility method for benchmarking the execution time of a function.
+    *
+    * @param msg
+    *   The message to display when benchmarking.
+    * @param f
+    *   The function to be benchmarked.
+    * @return
+    *   The result of the function.
+    */
   def benchmark[T](msg: String, f: => T): T = {
     val start = System.nanoTime()
     val y = f
     val end = System.nanoTime()
-    // println(f"  $msg: ${(end - start) / 1000.0}%.2f μs")
     y
   }
 
+  /** Applies the δ function to the given NK expression and benchmarks the execution time.
+    *
+    * @param e
+    *   the input NK expression
+    * @return
+    *   the result of applying the δ function
+    */
   def δ(e: NK): SMap =
     val result = benchmark(s"δ", { δ0(e) })
-    // SMap.assertDisjoint(result) // FIXME: remove this when we are sure that the invariant is maintained
     result
 
+  /** Applies the ε operation to the given NK expression and benchmarks the execution time.
+    *
+    * @param e
+    *   The input NK expression.
+    * @return
+    *   The result of applying the ε operation to the input expression.
+    */
   def ε(e: NK): SPP =
     benchmark(s"ε", { ε0(e) })
 
+  /** Array containing the names of frenetic variables. This is needed because Frenetic only supports a limited set of variables. When converting NKPL expressions to Frenentic, we choose variables from this set.
+    */
   val freneticVars = Array("switch", "port", "vswitch", "vport", "vfabric", "ethSrc", "ethDst", "vlanId", "vlanPcp", "ethTyp", "ipProto", "ip4Src", "ip4Dst", "tcpSrcPort", "tcpDstPort")
 
+  /** Converts a NetKAT expression to Frenetic.
+    *
+    * @param e
+    *   The NetKAT expression to be converted.
+    * @param s
+    *   The StringBuilder to store the converted expression.
+    */
   def toKatPrim(e: NK, s: StringBuilder): Unit =
     def getVar(n: Int): String =
       if n < freneticVars.length then freneticVars(n)
@@ -188,11 +299,27 @@ object Bisim {
       case _ => throw new Throwable(s"Unsupported expression: $e")
     s.append(")")
 
+  /** Converts an NK expression to a Frenetic KAT representation.
+    *
+    * @param e
+    *   the NK expression to convert
+    * @return
+    *   the KAT string representation of the expression
+    */
   def toKat(e: NK): String =
     val s = new StringBuilder()
     toKatPrim(e, s)
     s.toString()
 
+  /** Determines if two NK expressions are bisimilar. This also converts the expressions to KAT and writes them to files if the `convertToKat` option is set.
+    *
+    * @param e1
+    *   The first NK expression.
+    * @param e2
+    *   The second NK expression.
+    * @return
+    *   `true` if the expressions are bisimilar, `false` otherwise.
+    */
   def bisim(e1: NK, e2: NK): Boolean =
     val result = bisimPrim(e1, e2)
     if !Options.convertToKat then return result
@@ -213,6 +340,15 @@ object Bisim {
     fw.close()
     result
 
+  /** Checks if two given NK expressions are bisimilar.
+    *
+    * @param e1
+    *   The first NK expression.
+    * @param e2
+    *   The second NK expression.
+    * @return
+    *   `true` if the expressions are bisimilar, `false` otherwise.
+    */
   def bisimPrim(e1: NK, e2: NK): Boolean = {
     import scala.collection.mutable.Queue
     var todo: Queue[(NK, SP, NK)] = Queue((e1, SP.True, e2))
@@ -228,7 +364,7 @@ object Bisim {
     var i = 0
     val limit = 100000
     while (todo.nonEmpty && i < limit) {
-      if (!Options.supressOutput && false) println(s"\u001B[34mIteration $i \u001B[0m")
+      if (!Options.suppressOutput && false) println(s"\u001B[34mIteration $i \u001B[0m")
       i += 1
       val (e1, sp, e2) = deq()
       // println(s"Testing equivalence of ($e1, $sp, $e2)")

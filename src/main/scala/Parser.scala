@@ -2,18 +2,35 @@ package nkpl
 
 import fastparse._, SingleLineWhitespace._
 
+/** This object represents a variable map that maps strings to integers and vice versa. This is so that source code can refer to variables by name, but the verifier can refer to them by integer, which is more efficient.
+  */
 object VarMap {
   var n = -1
   val varMap = collection.mutable.Map[String, Int]()
   val revMap = collection.mutable.Map[Int, String]()
+
+  /** Retrieves the integer representation of a string. If the string is not already in the map, it adds it to the map and assigns a new integer value to it.
+    * @param x
+    *   The string to retrieve the integer representation for.
+    * @return
+    *   The integer representation of the string.
+    */
   def apply(x: String): Int =
     varMap.getOrElseUpdate(x, { n += 1; revMap(n) = x; n })
+
+  /** Retrieves the string representation of an integer.
+    * @param i
+    *   The integer to retrieve the string representation for.
+    * @return
+    *   The string representation of the integer.
+    */
   def apply(i: Int): String = revMap(i)
 }
 
 object Parser {
   type SVal = Either[Val, String]
 
+  /** NetKAT expressions AST. */
   class NK
   case object Dup extends NK
   case class Test(x: Var, v: SVal) extends NK
@@ -31,6 +48,15 @@ object Parser {
   case class Forall(x: Var, e: NK) extends NK
   case class VarName(x: String) extends NK
 
+  /** Negates the given NetKAT expression.
+    *
+    * @param e
+    *   The NetKAT expression to be negated.
+    * @return
+    *   The negated NetKAT expression.
+    * @throws Throwable
+    *   if the expression is outside of the test fragment.
+    */
   def negate(e: NK): NK =
     e match
       case Test(x, v) => TestNE(x, v)
