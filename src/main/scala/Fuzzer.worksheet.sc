@@ -1,8 +1,15 @@
 import nkpl._
 import scala.collection.immutable.HashMap
 
+/** Controls the size of the mutations/tests */
 val n = 20
 
+/** Tester class to generate random packets, SPs and SPPs
+  * @param vals
+  *   A map from variables to their possible values
+  * @param random
+  *   If true, generate random SPs and SPPs
+  */
 class Tester(vals: Map[Var, Set[Val]], random: Boolean = false):
   val sortedVals = vals.toList.sortBy { (v, s) => v }
   val packets =
@@ -126,6 +133,13 @@ class Tester(vals: Map[Var, Set[Val]], random: Boolean = false):
       case SPP.TestMut(x, branches, other, id) =>
         1 + branches.values.map { muts => muts.values.map(sizeSPP).sum + 1 }.sum + other.values.map(sizeSPP).sum + sizeSPP(id)
 
+  /** Checks if a given function `f` returns `true` for all combinations of `SPP` and `SP` objects.
+    *
+    * @param f
+    *   The function to be checked.
+    * @return
+    *   `true` if `f` returns `true` for all combinations of `SPP` and `SP` objects, `false` otherwise.
+    */
   def check_SPP_SP(f: (SPP, SP) => Boolean): Boolean =
     for
       spp <- spps
@@ -136,6 +150,13 @@ class Tester(vals: Map[Var, Set[Val]], random: Boolean = false):
         return false
     true
 
+  /** Checks if a given function `f` returns `true` for all combinations of `SPP` objects.
+    *
+    * @param f
+    *   The function to be checked.
+    * @return
+    *   `true` if `f` returns `true` for all combinations of `SPP` objects, `false` otherwise.
+    */
   def check_SPP_SPP(f: (SPP, SPP) => Boolean): Boolean =
     for
       spp1 <- spps
@@ -146,6 +167,13 @@ class Tester(vals: Map[Var, Set[Val]], random: Boolean = false):
         return false
     true
 
+  /** Checks if the given function `f` returns `true` for all combinations of `SPP` objects and `packet` objects.
+    *
+    * @param f
+    *   The function to be checked.
+    * @return
+    *   `true` if `f` returns `true` for all combinations, `false` otherwise.
+    */
   def check_SPP_SPP_P(f: (SPP, SPP, Map[Var, Val]) => Boolean): Boolean =
     for
       spp1 <- spps
@@ -157,6 +185,13 @@ class Tester(vals: Map[Var, Set[Val]], random: Boolean = false):
         return false
     true
 
+  /** Checks if a given function `f` returns `true` for all combinations of `SPP`, `SP`, and `packet`.
+    *
+    * @param f
+    *   The function to be checked.
+    * @return
+    *   `true` if `f` returns `true` for all combinations of `SPP`, `SP`, and `packet`, `false` otherwise.
+    */
   def check_SPP_SP_P(f: (SPP, SP, Map[Var, Val]) => Boolean): Boolean =
     for
       spp <- spps
@@ -168,6 +203,13 @@ class Tester(vals: Map[Var, Set[Val]], random: Boolean = false):
         return false
     true
 
+  /** Checks if a given function `f` returns `true` for all combinations of `SPP`, `SP`, and packets.
+    *
+    * @param f
+    *   The function to be checked.
+    * @return
+    *   `true` if `f` returns `true` for all combinations, `false` otherwise.
+    */
   def check_SPP_SP_P_P(f: (SPP, SP, Map[Var, Val], Map[Var, Val]) => Boolean): Boolean =
     for
       spp <- spps
@@ -180,6 +222,13 @@ class Tester(vals: Map[Var, Set[Val]], random: Boolean = false):
         return false
     true
 
+  /** Checks if the given function `f` returns `true` for all combinations of `SP` objects.
+    *
+    * @param f
+    *   The function to be checked.
+    * @return
+    *   `true` if `f` returns `true` for all combinations of `SP` objects, `false` otherwise.
+    */
   def check_SP_SP(f: (SP, SP) => Boolean): Boolean =
     for
       sp1 <- sps
@@ -190,6 +239,13 @@ class Tester(vals: Map[Var, Set[Val]], random: Boolean = false):
         return false
     true
 
+  /** Checks if a given function `f` returns `true` for all combinations of `SP`, `SP`, and packets.
+    *
+    * @param f
+    *   The function to be checked.
+    * @return
+    *   `true` if `f` returns `true` for all combinations, `false` otherwise.
+    */
   def check_SP_SP_P(f: (SP, SP, Map[Var, Val]) => Boolean): Boolean =
     for
       sp1 <- sps
@@ -201,6 +257,13 @@ class Tester(vals: Map[Var, Set[Val]], random: Boolean = false):
         return false
     true
 
+  /** Checks if a given function `f` returns `true` for all combinations of `SP` and packets.
+    *
+    * @param f
+    *   The function to be checked.
+    * @return
+    *   `true` if `f` returns `true` for all combinations of `SP` and packets, `false` otherwise.
+    */
   def check_SP_P(f: (SP, Map[Var, Val]) => Boolean): Boolean =
     for
       sp <- sps
@@ -211,6 +274,13 @@ class Tester(vals: Map[Var, Set[Val]], random: Boolean = false):
         return false
     true
 
+  /** Checks if a given function `f` returns `true` for all combinations of `SPP` and packets.
+    *
+    * @param f
+    *   The function to be checked.
+    * @return
+    *   `true` if `f` returns `true` for all combinations of `SPP` and `packet`, `false` otherwise.
+    */
   def check_SPP_P(f: (SPP, Map[Var, Val]) => Boolean): Boolean =
     for
       spp <- spps
@@ -227,7 +297,7 @@ class Tester(vals: Map[Var, Set[Val]], random: Boolean = false):
 
 import SPP._
 
-val T = Tester(Map(0 -> Set(0, 1), 1 -> Set(0, 1)), random = true)
+val T = Tester(Map(0 -> Set(0, 1, 2), 1 -> Set(0, 1, 3), 2 -> Set(2, 3, 4)), random = true)
 // val T = Tester(Map("x" -> Set(0, 1), "y" -> Set(0, 1), "z" -> Set(3, 5)), random = true)
 // val T = Tester(Map("x" -> Set(0, 1), "y" -> Set(0)), random = true)
 // val T = Tester(Map("x" -> Set(0), "y" -> Set(0)))
@@ -294,23 +364,6 @@ T.check_SPP_SP { (spp, sp) =>
   results1.toSet == results2.toSet
 }
 
-// val sp = SP.Test(0, HashMap(0 -> SP.True, 1 -> SP.True), SP.False)
-// val spp = TestMut(
-//   0,
-//   HashMap(
-//     0 -> HashMap(0 -> TestMut(1, HashMap(0 -> HashMap(), 1 -> HashMap(0 -> Diag)), HashMap(), Diag)),
-//     1 -> HashMap(0 -> TestMut(1, HashMap(0 -> HashMap(1 -> Diag)), HashMap(), False), 1 -> TestMut(1, HashMap(1 -> HashMap()), HashMap(0 -> Diag), Diag))
-//   ),
-//   HashMap(),
-//   False
-// )
-// val sp2 = SPP.run(sp, spp)
-// val results1 = T.packets.filter { p => SP.elemOf(p, sp) }.flatMap { p => SPP.run1(p, spp) }
-// val results2 = T.packets.filter { p => SP.elemOf(p, sp2) }
-// results1.toSet == results2.toSet
-// results1
-// results2
-
 // Check SPP.toSPbackward
 T.check_SPP_P { (spp, packet) =>
   val sp = SPP.toSPbackward(spp)
@@ -330,15 +383,6 @@ T.check_SPP_SP_P { (spp, sp, p) =>
   SPP.run1(p, spp2) == SPP.run1(p, spp).filter { p => SP.elemOf(p, sp) }
 }
 
-// val spp = TestMut(x, Map(), Map(0 -> TestMut(y, Map(1 -> Map()), Map(), Diag), 1 -> TestMut(y, Map(0 -> Map(), 1 -> Map()), Map(1 -> Diag), False)), False)
-// val sp = SP.Test(y, Map(0 -> SP.True), SP.False)
-// val packet = Map(y -> 0, x -> 1)
-// val spp1 = SPP.fromSP(sp)
-// val spp2 = SPP.seq(spp, spp1)
-// SPP.run1(packet, spp2)
-// SPP.run1(packet, spp)
-// SPP.run1(packet, spp).flatMap { p => SPP.run1(p, spp1) }
-
 // Check SPP.pull
 T.check_SPP_SP { (spp, sp) =>
   val sp2 = SPP.pull(spp, sp)
@@ -353,10 +397,6 @@ T.check_SPP_SP_P { (spp, sp, p) =>
   if SP.elemOf(p, sp2) then SPP.run1(p, spp).exists(q => SP.elemOf(q, sp))
   else SPP.run1(p, spp).forall(q => !SP.elemOf(q, sp))
 }
-
-// val spp = TestMut(x, Map(), Map(0 -> TestMut(y, Map(), Map(1 -> Diag), False), 1 -> TestMut(y, Map(1 -> Map()), Map(), Diag)), False)
-// val sp = SP.Test(y, Map(1 -> SP.True), SP.False)
-// val p = Map(y -> -1, x -> 1)
 
 // Check SPP.seqSP
 T.check_SPP_SP_P { (spp, sp, p) =>
