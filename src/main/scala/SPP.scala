@@ -1,32 +1,69 @@
 package nkpl
 import scala.collection.immutable.HashMap
 
+/** Represents symbolic packet set
+  */
 class SP
 
 object SP {
+
+  /** Represents accepting a packet.
+    */
   case object True extends SP
+
+  /** Represents a dropping a packet.
+    */
   case object False extends SP
+
+  /** Represents an n-ary test on a variable `x`, a map of cases `ys`, and a default case `default`.
+    *
+    * @param x
+    *   The variable to be tested.
+    * @param ys
+    *   The map of cases. Each case is a value `v` and a sub-policy `sp`.
+    * @param default
+    *   The default case if none of the values match.
+    */
   case class Test(x: Var, ys: HashMap[Val, SP], default: SP) extends SP {
     // Cache the hashcode
     override val hashCode = x.hashCode + ys.hashCode + default.hashCode
   }
 
+  /** Smart constructors for the Test class.
+    */
   object Test {
+    // Cache to store instances of Test
     val cache = scala.collection.mutable.HashMap.empty[Test, Test]
-    def apply(x: Var, ys: HashMap[Val, SP], default: SP) =
+
+    /** Creates a new Test instance with the given parameters. If the given ys map contains any entries with the value equal to default, those entries are filtered out. If the resulting ys2 map is empty, the default value is returned. Otherwise, a new Test instance is created with the filtered ys2 map and the default value, and it is either retrieved from the cache or added to the cache.
+      */
+    def apply(x: Var, ys: HashMap[Val, SP], default: SP) = {
       val ys2 = ys.filterNot { (v, y) => y eq default }
       if ys2.isEmpty then default
-      else
+      else {
         val sp = new Test(x, ys2, default)
         cache.getOrElseUpdate(sp, sp)
+      }
+    }
 
-    def mk(x: Var, ys: HashMap[Val, SP], default: SP) =
+    /** Creates a new Test instance with the given parameters. This skips some of the optimizations in the apply method; the user is responsible for ensuring that the invariant is maintained.
+      */
+    def mk(x: Var, ys: HashMap[Val, SP], default: SP) = {
       if ys.isEmpty then default
-      else
+      else {
         val sp = new Test(x, ys, default)
         cache.getOrElseUpdate(sp, sp)
+      }
+    }
   }
 
+  /** Converts a given SP to a pretty string representation.
+    *
+    * @param sp
+    *   The SP to convert.
+    * @return
+    *   The pretty string representation of the SP.
+    */
   def pretty(sp: SP): String =
     var n = 0
     val sb = new StringBuilder
@@ -44,7 +81,19 @@ object SP {
     sb.append(pp(sp))
     sb.toString
 
+  /** Represents the union operation on two SP (Set of Predicates) objects. Memoized for efficiency. The `union` function takes two SP objects `x` and `y` and returns their union. The `unionPrim` function is the helper function that performs the actual union operation.
+    *
+    * @param x
+    *   The first SP object.
+    * @param y
+    *   The second SP object.
+    * @return
+    *   The union of `x` and `y`.
+    */
   lazy val union: (SP, SP) => SP = memoize2 { (x, y) => unionPrim(x, y) }
+
+  /** Helper function that performs the actual union operation on two SP objects.
+    */
   def unionPrim(x: SP, y: SP): SP =
     if x eq y then return x
     (x, y) match {
@@ -69,9 +118,23 @@ object SP {
       case _ => union(y, x)
     }
 
+  /** Takes an iterable collection of SP objects and performs a union operation on them.
+    *
+    * @param xs
+    *   The iterable collection of SP objects.
+    * @return
+    *   The result of the union operation.
+    */
   def unionN(xs: Iterable[SP]): SP =
     xs.foldLeft(False: SP)(union(_, _))
 
+  /** Negates a given SP (Structured Predicate).
+    *
+    * @param x
+    *   The SP to be negated.
+    * @return
+    *   The negated SP.
+    */
   lazy val negate: SP => SP = memoize { x => negatePrim(x) }
   def negatePrim(x: SP): SP =
     x match {
@@ -80,6 +143,15 @@ object SP {
       case Test(x, ys, default) => Test(x, ys.map { (v, a) => v -> negate(a) }, negate(default))
     }
 
+  /** Calculates the difference between two symbolic packets (SP).
+    *
+    * @param x
+    *   The first symbolic packet.
+    * @param y
+    *   The second symbolic packet.
+    * @return
+    *   The difference between the two symbolic packets.
+    */
   lazy val difference: (SP, SP) => SP = memoize2 { (x, y) => differencePrim(x, y) }
   def differencePrim(x: SP, y: SP): SP =
     (x, y) match {
@@ -104,6 +176,15 @@ object SP {
         else Test(xR, ysR.map { (v, a) => v -> difference(x, a) }, difference(x, defaultR))
     }
 
+  /** Calculates the intersection of two SPs.
+    *
+    * @param x
+    *   The first SP object.
+    * @param y
+    *   The second SP object.
+    * @return
+    *   The intersection of x and y.
+    */
   lazy val intersection: (SP, SP) => SP = memoize2 { (x, y) => intersectionPrim(x, y) }
   def intersectionPrim(x: SP, y: SP): SP =
     (x, y) match {
@@ -119,12 +200,37 @@ object SP {
       case _ => intersection(y, x)
     }
 
+  /** Computes the exclusive OR (XOR) of two SP objects.
+    *
+    * @param x
+    *   The first SP object.
+    * @param y
+    *   The second SP object.
+    * @return
+    *   The result of the XOR operation.
+    */
   def xor(x: SP, y: SP): SP =
-    union(difference(x, y), difference(y, x)) // FIXME: optimize this
+    union(difference(x, y), difference(y, x))
 
+  /** Calculates the intersection of a collection of SP objects.
+    *
+    * @param xs
+    *   The collection of SP objects to intersect.
+    * @return
+    *   The intersection of the SP objects in the collection.
+    */
   def intersectionN(xs: Iterable[SP]): SP =
     xs.foldLeft(True: SP)(intersection(_, _))
 
+  /** Checks if a given packet satisfies a given SP.
+    *
+    * @param packet
+    *   The packet to be checked, represented as a map of variable-value pairs.
+    * @param x
+    *   The SP to be checked against the packet.
+    * @return
+    *   `true` if the packet satisfies the SP, `false` otherwise.
+    */
   def elemOf(packet: Map[Var, Val], x: SP): Boolean =
     x match {
       case SP.True => true
@@ -138,6 +244,15 @@ object SP {
         else elemOf(packet, default)
     }
 
+  /** Removes one variable `x` by checking if a packet with any value for `x` exists in the given SP `sp`.
+    *
+    * @param x
+    *   The variable to remove.
+    * @param sp
+    *   The SP to remove the variable from.
+    * @return
+    *   The SP with the variable `x` removed.
+    */
   lazy val exists: (Var, SP) => SP = memoize2 { (x, sp) => existsPrim(x, sp) }
   def existsPrim(x: Var, sp: SP): SP =
     sp match {
@@ -148,6 +263,15 @@ object SP {
         else Test(y, ys.map { (v, sp) => v -> exists(x, sp) }, exists(x, default))
     }
 
+  /** Removes one variable `x` by checking if for every value of `x`, a packets with that value exists in the given SP `sp`.
+    *
+    * @param x
+    *   The variable to remove.
+    * @param sp
+    *   The SP to remove the variable from.
+    * @return
+    *   The SP with the variable `x` removed.
+    */
   lazy val forall: (Var, SP) => SP = memoize2 { (x, sp) => forallPrim(x, sp) }
   def forallPrim(x: Var, sp: SP): SP =
     sp match {
@@ -158,30 +282,53 @@ object SP {
         else Test(y, ys.map { (v, sp) => v -> forall(x, sp) }, forall(x, default))
     }
 
+  /** Creates a test SP with the given variable and value.
+    * @param x
+    *   The variable to test.
+    * @param y
+    *   The value to compare against.
+    * @return
+    *   The test SP.
+    */
   def test(x: Var, y: Val): SP = Test(x, HashMap(y -> True), False)
-  def testNE(x: Var, y: Val): SP = Test(x, HashMap(y -> False), True)
 
-  def logSumSP(msg: String, sp1: SP, sp2: SP): Unit =
-    def spStr(sp: SP) =
-      sp match
-        case SP.False => "F"
-        case SP.True => "T"
-        case SP.Test(x, ys, default) =>
-          val ls = ys.size
-          val lm = if default eq SP.False then "F" else if default eq SP.True then "T" else "?"
-          s"($x,$ls,$lm)"
-    println(s"$msg ${spStr(sp1)} ${spStr(sp2)}")
+  /** Creates a negated test SP with the given variable and value.
+    * @param x
+    *   The variable to test.
+    * @param y
+    *   The value to compare against.
+    * @return
+    *   The negated test SP.
+    */
+  def testNE(x: Var, y: Val): SP = Test(x, HashMap(y -> False), True)
 }
 
+/** Represents a Symbolic Packet Program (SPP). This is a symbolic representation of a dup-free NetKAT expression.
+  */
+class SPP
 class SPP
 
 object SPP {
-  def logSPP(x: String): Unit =
-    // println(x)
-    ()
 
+  /** Represents a symbolic packet program that doesn't change the packet.
+    */
   case object Diag extends SPP
+
+  /** Represents the False case in SPP. This case indicates that the packet should be dropped.
+    */
   case object False extends SPP
+
+  /** Represents a test and mutation in SPP. This case indicates that the packet should be tested and possibly mutated.
+    *
+    * @param x
+    *   The variable to be tested.
+    * @param branches
+    *   The map of cases. Each case is a value `v` and a map of mutations.
+    * @param other
+    *   The map of default mutations if the value of `x` is not in branches.
+    * @param id
+    *   The default case if none of the values match branches, and the value is not mutated.
+    */
   case class TestMut(x: Var, branches: HashMap[Val, HashMap[Val, SPP]], other: HashMap[Val, SPP], id: SPP) extends SPP {
     // Cache the hashcode
     override val hashCode = {
@@ -190,9 +337,10 @@ object SPP {
     }
   }
   object TestMut {
-    // FIXME: try the Java hashmap here, and use identity hash
     val cache = scala.collection.mutable.HashMap.empty[TestMut, TestMut]
-    // val cache = scala.collection.mutable.HashMap.empty[TestMut, TestMut]
+
+    /** Smart constructor for the TestMut class. This constructor removes redundant branches. It also removes mutations that are False from branches and other. The function uses a cache to store instances of TestMut.
+      */
     def apply(x: Var, branches: HashMap[Val, HashMap[Val, SPP]], other: HashMap[Val, SPP], id: SPP): SPP =
       // Remove redundant branches
       // A branch is redundant if sending the value to other/id would do the same thing
@@ -220,23 +368,24 @@ object SPP {
       if branches3.isEmpty && other2.isEmpty then return id
       val v = new TestMut(x, branches3, other2, id)
       cache.getOrElseUpdate(v, v)
+
+    /** Creates a new TestMut instance with the given parameters. This skips some of the optimizations in the apply method; the user is responsible for ensuring that the invariant is maintained.
+      */
     def mk(x: Var, branches: HashMap[Val, HashMap[Val, SPP]], other: HashMap[Val, SPP], id: SPP): SPP =
       val v = new TestMut(x, branches, other, id)
       cache.getOrElseUpdate(v, v)
   }
 
-  // Semantics:
-  // Let the value of field x in the incoming packet be v.
-  // If v is in branches.keySet, then we nondeterministically mutate x to one of the values in branches(x).keySet and continue with the SPP in branches(x)(v).
-  // If the value of x is not in branches.keySet, then we nondeterministically
-  // either mutate x to one of the values in other.keySet and continue with the SPP in other(v),
-  // or we do not mutate x and continue with the SPP in id.
-
-  // The function below implements the semantics of SPPs.
-  // It is only used for testing / explanation purposes.
-
+  /** Runs a packet through an SPP and returns the resulting packets.
+    *
+    * @param p
+    *   The packet to run through the SPP.
+    * @param spp
+    *   The SPP to run the packet through.
+    * @return
+    *   The resulting packets.
+    */
   def run1(p: Map[Var, Val], spp: SPP): Set[Map[Var, Val]] =
-    // logSPP(s"run1($p, $spp)")
     spp match {
       case Diag => Set(p)
       case False => Set()
@@ -254,16 +403,44 @@ object SPP {
       //   } ++ run1(p, id)
     }
 
+  /** A test SPP that matches a packet with a given variable and value.
+    *
+    * @param x
+    *   The variable to test.
+    * @param y
+    *   The value to compare against.
+    * @return
+    *   The test SPP.
+    */
   def test(x: Var, y: Val): SPP =
     TestMut(x, HashMap(y -> HashMap(y -> Diag)), HashMap.empty, False)
 
+  /** A negated test SPP that matches a packet with a given variable and value.
+    *
+    * @param x
+    *   The variable to test.
+    * @param y
+    *   The value to compare against.
+    * @return
+    *   The negated test SPP.
+    */
   def testNE(x: Var, y: Val): SPP =
     TestMut(x, HashMap(y -> HashMap.empty), HashMap.empty, Diag)
 
+  /** A mutation of a given packet field to a given value.
+    *
+    * @param x
+    *   The variable to mutate.
+    * @param y
+    *   The value to mutate to.
+    * @return
+    *   The mutation SPP.
+    */
   def mut(x: Var, y: Val): SPP =
     TestMut(x, HashMap.empty, HashMap(y -> Diag), False)
-    // TestMut(x, Map(y -> Map(y -> Diag)), Map(y -> Diag), False)
 
+  /** Log a summary of the given SP/SPP. Useful for debugging.
+    */
   def logSummarySP(msg: String, sp: SP, spp: SPP): Unit =
     val spstr = sp match {
       case SP.False => "F"
@@ -285,7 +462,13 @@ object SPP {
     }
     println(s"$msg $spstr, $sppstr")
 
-  // Runs a symbolic packet through an SPP, and returns the symbolic packet that results.
+  /** Runs a symbolic packet through an SPP (Symbolic Packet Processor) and returns the resulting symbolic packet.
+    *
+    * @param packet
+    *   The symbolic packet to be processed.
+    * @return
+    *   The symbolic packet that results from processing the input packet.
+    */
   lazy val run: (SP, SPP) => SP = memoize2 { (sp, spp) => runPrim(sp, spp) }
   def runPrim(sp: SP, spp: SPP): SP =
     // logSPP(s"run($sp, $spp)")
@@ -363,6 +546,13 @@ object SPP {
           SP.union(branchesB, branchesC)
     }
 
+  /** Converts an SP to an SPP.
+    *
+    * @param sp
+    *   The SP to convert.
+    * @return
+    *   The converted SPP.
+    */
   def fromSP(sp: SP): SPP =
     sp match {
       case SP.False => False
@@ -371,6 +561,13 @@ object SPP {
         TestMut(x, ys.map { (v, sp) => v -> HashMap(v -> fromSP(sp)) }, HashMap.empty, fromSP(default))
     }
 
+  /** Converts a given SPP to an SP by computing the set of packets the SPP can produce.
+    *
+    * @param spp
+    *   The SPP to convert.
+    * @return
+    *   The corresponding SP.
+    */
   lazy val toSPforward: SPP => SP = memoize { spp => toSPforwardPrim(spp) }
   def toSPforwardPrim(spp: SPP): SP =
     spp match {
@@ -388,11 +585,19 @@ object SPP {
         SP.Test(x, unionMapSP(branches2, branches3).to(HashMap), toSPforward(id))
     }
 
-  // This is equivalent to SPP.run, but it is implemented differently (SPP.run is more efficient, but this is easier to understand).
+  /** This code block represents an alternative implementation of the `SPP.run` method. While `SPP.run` is more efficient, this implementation is easier to understand.
+    */
   lazy val push: (SPP, SP) => SP = memoize2 { (spp, sp) => pushPrim(spp, sp) }
   def pushPrim(spp: SPP, sp: SP): SP =
     toSPforward(seq(fromSP(sp), spp))
 
+  /** Converts an SPP to an SP by computing the set of packets that can produce an output when run through the SPP
+    *
+    * @param spp
+    *   The SPP to convert.
+    * @return
+    *   The corresponding SP.
+    */
   lazy val toSPbackward: SPP => SP = memoize { spp => toSPbackwardPrim(spp) }
   def toSPbackwardPrim(spp: SPP): SP =
     spp match {
@@ -406,23 +611,22 @@ object SPP {
         SP.Test(x, ys1 ++ ys2, default)
     }
 
-  // Runs a symbolic packet through an SPP backward, and returns the symbolic input packet that results.
-  // We want all input packets that can result in the given output packet being produced.
+  /** Runs a symbolic packet through an SPP backward and returns the symbolic input packet that results. This method aims to find all input packets that can produce the given output packet.
+    *
+    * @return
+    *   The symbolic input packet that results in the given output packet being produced.
+    */
   lazy val pull: (SPP, SP) => SP = memoize2 { (spp, sp) => pullPrim(spp, sp) }
   def pullPrim(spp: SPP, sp: SP): SP =
     toSPbackward(seq(spp, fromSP(sp)))
-    // (spp, sp) match
-    //   case (_, SP.False) => SP.False
-    //   case (False, _) => SP.False
-    //   case (Diag, _) => sp
-    //   case (TestMut(x, branches, muts, id), SP.True) => pull(spp, new SP.Test(x, HashMap.empty, SP.True))
-    //   case (TestMut(x, branches, muts, id), SP.Test(y, branchesR, default)) =>
-    //     if x == y then
-    //       ???
-    //       ???
-    //     else if x < y then pull(spp, new SP.Test(y, HashMap.empty, sp))
-    //     else pull(new TestMut(y, HashMap.empty, HashMap.empty, spp), sp)
 
+  /** Takes an Iterable of Maps and returns a Map that represents the union of all the Maps. If a key is present in multiple Maps, the corresponding values are merged using the SP.union method.
+    *
+    * @param xs
+    *   The Iterable of Maps to be unioned.
+    * @return
+    *   The resulting Map after unioning all the Maps.
+    */
   def unionMapsSP(xs: Iterable[Map[Val, SP]]): Map[Val, SP] =
     var m = scala.collection.mutable.Map[Val, SP]()
     for x <- xs; (v, sp) <- x do
@@ -430,6 +634,15 @@ object SPP {
       else m(v) = sp
     m.to(HashMap)
 
+  /** Combines two maps of values and corresponding SPs into a single map. If a value exists in both maps, the corresponding SPs are combined using the `SP.union` method. If a value exists in only one map, it is added to the resulting map as is.
+    *
+    * @param xs
+    *   The first map of values to SPs.
+    * @param ys
+    *   The second map of values to SPs.
+    * @return
+    *   A new map containing the combined values and SPs from both input maps.
+    */
   def unionMapSP(xs: Map[Val, SP], ys: Map[Val, SP]): Map[Val, SP] =
     var m = scala.collection.mutable.Map.from(xs)
     for (v, sp) <- ys do
@@ -437,7 +650,13 @@ object SPP {
       else m(v) = sp
     m.to(HashMap)
 
-  // Converts a symbolic packet into a test SPP
+  /** Converts an SP to an SPP by interpreting it as a test.
+    *
+    * @param sp
+    *   The SP to convert.
+    * @return
+    *   The converted SPP.
+    */
   def toTest(sp: SP): SPP =
     sp match
       case SP.False => SPP.False
@@ -445,8 +664,15 @@ object SPP {
       case SP.Test(x, ys, default) =>
         SPP.TestMut(x, ys.map { (v, sp) => v -> HashMap(v -> toTest(sp)) }, HashMap.empty, toTest(default))
 
-  // Composes a test represented as a SP with a SPP.
-  // We could implement this by converting the SP to a SPP and then composing the SPPs.
+  /** Composes a test represented as a SP with a SPP. We could implement this by converting the SP to a SPP and then composing the SPPs, but this is more efficient.
+    *
+    * @param sp
+    *   The test represented as a SP.
+    * @param spp
+    *   The SPP to be composed with the SP.
+    * @return
+    *   The composed test as a SPP.
+    */
   def seqSP(sp: SP, spp: SPP): SPP =
     // logSPP(s"seqSP($sp, $spp)")
     (sp, spp) match {
@@ -466,18 +692,19 @@ object SPP {
           val other2 = other.map { (v2, spp) => v2 -> seqSP(default, spp) }
           val id2 = seqSP(default, id)
           TestMut(x, branches2, other2, id2)
-        else if x < x2 then
-          seqSP(sp, new TestMut(x, HashMap.empty, HashMap.empty, spp))
-          // val branches2 = ys.map { (v, sp) => v -> Map(v -> seqSP(sp, spp)) }
-          // TestMut(x, branches2, HashMap.empty, seqSP(default, spp))
+        else if x < x2 then seqSP(sp, new TestMut(x, HashMap.empty, HashMap.empty, spp))
         else seqSP(new SP.Test(x2, HashMap.empty, sp), spp)
-      // val branches2 = branches.map { (v, muts) =>
-      //   v -> muts.map { (v2, spp) => v2 -> seqSP(sp, spp) }
-      // }
-      // val other2 = other.map { (v, spp) => v -> seqSP(sp, spp) }
-      // TestMut(x2, branches2, other2, seqSP(sp, id))
     }
 
+  /** Gets a representation of what happens to a packet where the top level variable has value `v`.
+    *
+    * @param x
+    *   The SPP to get the representation from.
+    * @param v
+    *   The value of the top level variable.
+    * @return
+    *   The representation of what happens to a packet where the top level variable has value `v`.
+    */
   def get(x: SPP, v: Val): HashMap[Val, SPP] =
     x match {
       case TestMut(x, branches, other, id) =>
@@ -488,6 +715,8 @@ object SPP {
       case Diag => assert { false }
     }
 
+  /** Print a summary of the given SPPs. Useful for debugging.
+    */
   def logSummary(msg: String, spp1: SPP, spp2: SPP): Unit =
     (spp1, spp2) match {
       case (TestMut(xL, branchesL, mutsL, idL), TestMut(xR, branchesR, mutsR, idR)) =>
@@ -504,7 +733,15 @@ object SPP {
       case _ => ()
     }
 
-  // def union(x: SPP, y: SPP): SPP =
+  /** Computes the union of two SPPs.
+    *
+    * @param x
+    *   The first SPP.
+    * @param y
+    *   The second SPP.
+    * @return
+    *   The union of the two SPPs.
+    */
   lazy val union: (SPP, SPP) => SPP = memoize2 { (x, y) => unionPrim(x, y) }
   def unionPrim(x: SPP, y: SPP): SPP =
     // logSPP(s"union($x, $y)")
@@ -556,27 +793,44 @@ object SPP {
       case _ => union(y, x)
     }
 
+  /** Takes an Iterable of HashMaps and returns a single HashMap that is the union of all the input HashMaps.
+    *
+    * @param xs
+    *   The Iterable of HashMaps to be unioned.
+    * @return
+    *   The union of all the input HashMaps.
+    */
   def unionMaps(xs: Iterable[HashMap[Val, SPP]]): HashMap[Val, SPP] =
-    // println(xs.map(_.size))
     if xs.isEmpty then return HashMap.empty
     xs.reduce(unionMap)
-    // var m = HashMap[Val, SPP]()
-    // for x <- xs; (v, spp) <- x do
-    //   if m.contains(v) then m = m.updated(v, union(m(v), spp))
-    //   else m = m.updated(v, spp)
-    // m
 
+  /** Takes two HashMaps of type [Val, SPP] and returns a new HashMap that represents the union of the two input HashMaps. If either of the input HashMaps is empty, the non-empty HashMap is returned as the result. If a key exists in both input HashMaps, the corresponding values are combined using the `union` function. If a key exists only in one of the input HashMaps, the corresponding value is added to the result HashMap as is.
+    *
+    * @param xs
+    *   The first input HashMap.
+    * @param ys
+    *   The second input HashMap.
+    * @return
+    *   A new HashMap representing the union of the input HashMaps.
+    */
   def unionMap(xs: HashMap[Val, SPP], ys: HashMap[Val, SPP]): HashMap[Val, SPP] =
     if ys.isEmpty then return xs
     if xs.isEmpty then return ys
-    // println(s"unionMap(${xs.size}, ${ys.size})")
-    // var m = scala.collection.mutable.Map.from(xs)
     var m = xs
     for (v, spp) <- ys do
       if m.contains(v) then m = m.updated(v, union(m(v), spp))
       else m = m.updated(v, spp)
     m
 
+  /** Sequential composition of two SPPs.
+    *
+    * @param x
+    *   the first SPP
+    * @param y
+    *   the second SPP
+    * @return
+    *   the result of the sequential composition
+    */
   lazy val seq: (SPP, SPP) => SPP = memoize2 { (x, y) => seqPrim(x, y) }
   def seqPrim(x: SPP, y: SPP): SPP =
     (x, y) match {
@@ -634,6 +888,15 @@ object SPP {
       // SPP.TestMut(xR, branches, mutsB, seq(x, idR))
     }
 
+  /** Calculates the intersection of two SPPs.
+    *
+    * @param x
+    *   The first SPP.
+    * @param y
+    *   The second SPP.
+    * @return
+    *   The intersection of the two SPPs.
+    */
   lazy val intersection: (SPP, SPP) => SPP = memoize2 { (x, y) => intersectionPrim(x, y) }
   def intersectionPrim(x: SPP, y: SPP): SPP =
     // logSPP(s"intersection($x, $y)")
@@ -671,9 +934,27 @@ object SPP {
       case _ => intersection(y, x)
     }
 
+  /** Computes the intersection of two maps of SPPs, where the keys are of type Val and the values are of type SPP. If a key is present in both HashMaps, the intersection of the corresponding values is computed. If a key is present in only one HashMap, the corresponding value is treated as False.
+    *
+    * @param xs
+    *   The first HashMap.
+    * @param ys
+    *   The second HashMap.
+    * @return
+    *   A new HashMap containing the intersection of xs and ys.
+    */
   def intersectionMap(xs: HashMap[Val, SPP], ys: HashMap[Val, SPP]): HashMap[Val, SPP] =
     (xs.keySet ++ ys.keySet).map { v => v -> intersection(xs.getOrElse(v, False), ys.getOrElse(v, False)) }.to(HashMap)
 
+  /** Calculates the difference of two SPPs.
+    *
+    * @param x
+    *   The first SPP.
+    * @param y
+    *   The second SPP.
+    * @return
+    *   The difference of the two SPPs.
+    */
   lazy val difference: (SPP, SPP) => SPP = memoize2 { (x, y) => differencePrim(x, y) }
   def differencePrim(x: SPP, y: SPP): SPP =
     // logSPP(s"difference($x, $y)")
@@ -697,24 +978,37 @@ object SPP {
         else difference(new TestMut(xR, HashMap.empty, HashMap.empty, x), y)
     }
 
+  /** Computes the difference between two HashMaps of Val and SPP.
+    *
+    * @param xs
+    *   The first HashMap.
+    * @param ys
+    *   The second HashMap.
+    * @return
+    *   A new HashMap containing the difference between xs and ys.
+    */
   def differenceMap(xs: HashMap[Val, SPP], ys: HashMap[Val, SPP]): HashMap[Val, SPP] =
     (xs.keySet ++ ys.keySet).map { v => v -> difference(xs.getOrElse(v, False), ys.getOrElse(v, False)) }.to(HashMap)
 
+  /** Computes the exclusive OR (XOR) of two SPPs.
+    *
+    * @param x
+    *   The first SPP.
+    * @param y
+    *   The second SPP.
+    * @return
+    *   The XOR of the two SPPs.
+    */
   def xor(x: SPP, y: SPP): SPP =
     union(difference(x, y), difference(y, x)) // FIXME: optimize this
 
-  // def star(spp: SPP): SPP =
-  //   // logSPP(s"star($spp)")
-  //   var x: SPP = False
-  //   var y: SPP = Diag
-  //   while (true) {
-  //     val xnew = union(x, y)
-  //     if x eq xnew then return x
-  //     x = xnew
-  //     y = seq(y, spp)
-  //   }
-  //   return x // dummy to make compiler happy
-
+  /** Returns a new instance of `SPP` that represents the star operation on the given `spp`. The star represents repetition of the given `spp` zero or more times. The implementation uses repeated squaring to compute the star operation efficiently.
+    *
+    * @param spp
+    *   The `SPP` object to apply the star operation on.
+    * @return
+    *   A new instance of `SPP` representing the star operation on `spp`.
+    */
   def star(spp: SPP): SPP =
     var x = union(spp, Diag)
     while (true) {
@@ -724,14 +1018,39 @@ object SPP {
     }
     return x // dummy to make compiler happy
 
+  /** Checks if two SPP objects are equivalent. This is the same as object identity.
+    *
+    * @param x
+    *   The first SPP object.
+    * @param y
+    *   The second SPP object.
+    * @return
+    *   True if the two SPP objects are equivalent, false otherwise.
+    */
   def equiv(x: SPP, y: SPP): Boolean =
     x eq y
 
-  // TODO: optimize this by not constructing intermediate SPPs
+  /** Checks if two SPPs are equivalent under a given SP input packets.
+    *
+    * @param sp
+    *   The SP to evaluate the equivalence under.
+    * @param x
+    *   The first SPP.
+    * @param y
+    *   The second SPP.
+    * @return
+    *   True if the two SPPs are equivalent, false otherwise.
+    */
   def equivAt(sp: SP, x: SPP, y: SPP): Boolean =
-    // logSPP(s"equivAt($sp, $x, $y)")
     equiv(seqSP(sp, x), seqSP(sp, y))
 
+  /** Converts an instance of SPP to an SP if the SPP doesn't do any mutation. Otherwise, returns None.
+    *
+    * @param spp
+    *   The SPP instance to convert.
+    * @return
+    *   An optional SP instance if the conversion is successful, otherwise None.
+    */
   lazy val toSP: SPP => Option[SP] = memoize { spp => toSPprim(spp) }
   def toSPprim(spp: SPP): Option[SP] =
     spp match {
