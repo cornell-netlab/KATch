@@ -1,7 +1,7 @@
 package nkpl
 
+/** Graphviz object, used for generating visualizations of SPPs and Automata. */
 object GV {
-  // graphviz construction helper object
 
   def genColor2(y: String) = {
     val x = y + "arsotienaorisetnarstadtt"
@@ -28,12 +28,15 @@ object GV {
   def line(text: String) =
     sb.append("    " + text + "\n")
 
+  /** Add a normal test or mutation branch edge for an SPP. */
   def edge(a: Any, b: Any, label: String = "") =
     line(s"""${gensym(a)} -> ${gensym(b)} [label=" $label ", labelangle=-30, fontsize=12, arrowsize=0.5]""")
 
+  /** Add an automaton transition. */
   def edgeNK(a: Any, b: Any, label: String = "") =
     line(s"""${gensym(a)} -> ${gensym(b)} [label=" $label ", labelangle=-30, fontsize=12, arrowsize=0.5]""")
 
+  /** Add a ``default case'' edge for an SPP. */
   def defaultEdge(a: Any, b: Any, label: String = "") =
     // dotted edge
     line(s"""${gensym(a)} -> ${gensym(b)} [arrowsize=0.5, style=dashed]""")
@@ -44,20 +47,24 @@ object GV {
     line(s"invisibleNode$outCounter [style=invis];")
     line(s"${gensym(a)} -> invisibleNode$outCounter [label=\"$label\", labelangle=-30, fontsize=12, arrowsize=0.5, arrowhead=odot];")
 
+  /** Make a node for an automaton state for a NetKAT expression. */
   def automatonNode(a: Any, label: String = "", start: Boolean) =
     val color = if !start then "#D4B0E6" else "#FF9999"
     line(s"""${gensym(a)} [label="$label", shape=circle, width=0.3, fixedsize=true, style=filled, fillcolor="$color"]""")
 
+  /** Build a circle node for the test branch of an SPP. */
   def testNode(a: Any, label: String = "") =
     if (label == "⊤") || (label == "⊥") then line(s"""${gensym(a)} [label="$label", shape=box, width=0.3, height=0.3, fixedsize=true]""")
     else line(s"""${gensym(a)} [label="$label", shape=circle, width=0.3, fixedsize=true, style=filled, fillcolor="${genColor2(label)}"]""")
 
+  /** Build a diamond node for the mutation branch of an SPP. */
   def mutNode(a: Any, label: String) =
     line(s"""${gensym(a)} [label="", shape=diamond, width=0.15, height=0.15, style=filled, fillcolor="${genColor2(label)}"]""")
 
   def sameRank(xs: List[Any]) =
     line(s"""{rank=same; ${xs.map(gensym).mkString("; ")}}""")
 
+  /** Build a visualization (pdf) of an SP. */
   def vizSP(sp: SP) =
     lazy val gv: SP => Unit = memoize { sp =>
       sp match
@@ -75,6 +82,7 @@ object GV {
     }
     gv(sp)
 
+  /** Build a visualization (pdf) of an SPP. */
   def vizSPP(spp: SPP) =
     var levels = Map[Any, Set[Any]]()
     lazy val gv: SPP => Unit = memoize { spp =>
@@ -108,6 +116,7 @@ object GV {
     gv(spp)
     for (k, xs) <- levels do sameRank(xs.toList)
 
+  /** Builds a graph visualization of the automaton for a NetKAT expression. */
   def vizNK(path: String, e0: NK) =
     val seen = scala.collection.mutable.Set[NK]()
     val spps = scala.collection.mutable.Map[SPP, String]()
@@ -144,6 +153,7 @@ ${sb.toString()}
     sb.clear()
     text
 
+  /** Run dot to generate a pdf and write the pdf to disk. */
   def save(file: String) =
     import java.io.File
     import java.time.Instant
