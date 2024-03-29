@@ -143,7 +143,7 @@ def init() =
       runFilesAndDirs(inputs.toList)
     case "run+warmup" =>
       println("Running NKPL:")
-      Options.supressOutput = true
+      Options.suppressOutput = true
       Options.convertToKat = false
       Options.warmup = true
       runFilesAndDirs(inputs.toList)
@@ -156,7 +156,7 @@ def init() =
       var nets = findFiles(Paths.get("nkpl/fig09/linear-reachability"), ".nkpl")
         .map(_.getFileName.toString.stripSuffix(".nkpl"))
       nets = nets.filter(n => n.contains("Cogentco"))
-      Options.supressOutput = true
+      Options.suppressOutput = true
       var results = Map[String, Double]()
       for (net <- nets) {
         try {
