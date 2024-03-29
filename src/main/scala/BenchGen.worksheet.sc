@@ -6,6 +6,9 @@ import java.nio.file.SimpleFileVisitor
 import java.nio.file.Path
 import java.nio.file.Files
 
+/** This file contains functions for generating the combinatorial benchmarks in the paper.
+  */
+
 import java.io._
 def writeToFile(filename: String, content: String): Unit = {
   val pw = new PrintWriter(new File(filename))

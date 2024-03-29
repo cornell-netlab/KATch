@@ -81,7 +81,7 @@ object SP {
     sb.append(pp(sp))
     sb.toString
 
-  /** Represents the union operation on two SP (Set of Predicates) objects. Memoized for efficiency. The `union` function takes two SP objects `x` and `y` and returns their union. The `unionPrim` function is the helper function that performs the actual union operation.
+  /** Represents the union operation on two SP objects. Memoized for efficiency. The `union` function takes two SP objects `x` and `y` and returns their union. The `unionPrim` function is the helper function that performs the actual union operation.
     *
     * @param x
     *   The first SP object.
@@ -128,7 +128,7 @@ object SP {
   def unionN(xs: Iterable[SP]): SP =
     xs.foldLeft(False: SP)(union(_, _))
 
-  /** Negates a given SP (Structured Predicate).
+  /** Negates a given SP.
     *
     * @param x
     *   The SP to be negated.
@@ -461,7 +461,7 @@ object SPP {
     }
     println(s"$msg $spstr, $sppstr")
 
-  /** Runs a symbolic packet through an SPP (Symbolic Packet Processor) and returns the resulting symbolic packet.
+  /** Runs a symbolic packet through an SPP and returns the resulting symbolic packet.
     *
     * @param packet
     *   The symbolic packet to be processed.
