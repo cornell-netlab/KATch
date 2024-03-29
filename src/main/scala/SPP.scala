@@ -306,7 +306,6 @@ object SP {
 /** Represents a Symbolic Packet Program (SPP). This is a symbolic representation of a dup-free NetKAT expression.
   */
 class SPP
-class SPP
 
 object SPP {
 
