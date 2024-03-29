@@ -398,6 +398,13 @@ object Bisim {
     true
   }
 
+  /** Determines the possible output packets that a NK expression can produce.
+    *
+    * @param e
+    *   the NK expression to evaluate
+    * @return
+    *   the set of possible output packets
+    */
   def forward(e: NK): SP =
     import scala.collection.mutable.Queue
     var todo: Queue[(NK, SP)] = Queue((e, SP.True))
@@ -413,7 +420,7 @@ object Bisim {
     var i = 0
     val limit = 100000
     while (todo.nonEmpty && i < limit) {
-      if (!Options.supressOutput && false) println(s"\u001B[34mIteration $i \u001B[0m")
+      if (!Options.suppressOutput && false) println(s"\u001B[34mIteration $i \u001B[0m")
       // benchmark(
       // s"Iteration $i time", {
       i += 1
@@ -427,6 +434,13 @@ object Bisim {
     }
     SP.unionN(done.map { (e, sp) => SPP.run(sp, ε(e)) })
 
+  /** Produces reverse transitions of an automaton.
+    *
+    * @param e
+    *   The automaton to compute reverse transitions for.
+    * @return
+    *   A map representing the reverse transitions, where the keys are the source states, and the values are maps representing the target states and the corresponding SPPs.
+    */
   def revTrans(e: NK): Map[NK, Map[NK, SPP]] =
     // find the set of reverse transitions in the automaton
     var states = Set[NK]()
@@ -443,6 +457,13 @@ object Bisim {
     }
     trans
 
+  /** Determines the set of input packets that aren't dropped by the NK expression.
+    *
+    * @param e
+    *   The NK expression to evaluate.
+    * @return
+    *   The set of input packets that aren't dropped.
+    */
   def backward(e: NK): SP =
     import scala.collection.mutable.Queue
     // first, we find all the reverse transitions in the automaton
@@ -460,7 +481,7 @@ object Bisim {
     var i = 0
     val limit = 100000
     while (todo.nonEmpty && i < limit) {
-      if (!Options.supressOutput && false) println(s"\u001B[34mIteration $i \u001B[0m")
+      if (!Options.suppressOutput && false) println(s"\u001B[34mIteration $i \u001B[0m")
       i += 1
       val (e, sp) = deq()
       val done1 = done.getOrElse(e, SP.False)
