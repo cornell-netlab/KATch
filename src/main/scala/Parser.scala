@@ -195,12 +195,28 @@ object Parser {
   // Parses a statement
   def stmt[$: P]: P[Stmt] = P(checkStmt | letStmt | importStmt | runStmt | printStmt | forStmt | graphvizStmt)
 
+  /** Parses a statement from the given input string.
+    *
+    * @param input
+    *   The input string to parse.
+    * @return
+    *   Either a tuple containing the parsed statement and the number of characters consumed, or a string representing the failure message if parsing fails.
+    */
   def parseStmt(input: String) =
     parse(input, stmt(_)) match {
       case Parsed.Success(stmt, n) => Left((stmt, n))
       case f: Parsed.Failure => Right(f.msg)
     }
 
+  /** Parses an expression from the given input string.
+    *
+    * @param input
+    *   The input string to parse.
+    * @return
+    *   The parsed expression.
+    * @throws Throwable
+    *   if there is an error during parsing.
+    */
   def parseExpr(input: String) =
     parse(input, expr(_)) match {
       case Parsed.Success(expr, n) =>
