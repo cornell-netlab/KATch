@@ -71,7 +71,7 @@ for n <- 1 to nmax do {
 // inc_x1 = (@carry=0 ⋅ @x1=0 ⋅ @x1←1 ⋅ @carry←0) ∪ (@carry=0 ⋅ @x1=1 ⋅ @x1←0 ⋅ @carry←1) ∪ (@carry = 1 ⋅ @x1=0 ⋅ @x1←0 ⋅ @carry←1) ∪ (@carry = 1 ⋅ @x1=1 ⋅ @x1←1 ⋅ @carry←1)
 
 def genInc(n: Int): String =
-  s"""inc_x$n = (@carry=0 ⋅ @x$n=0 ⋅ @x$n←1 ⋅ @carry←0) ∪ (@carry=0 ⋅ @x$n=1 ⋅ @x$n←0 ⋅ @carry←1) ∪ (@carry = 1 ⋅ @x$n=0 ⋅ @x$n←0 ⋅ @carry←1) ∪ (@carry = 1 ⋅ @x$n=1 ⋅ @x$n←1 ⋅ @carry←1)"""
+  s"""inc_x$n = (@carry=1 ⋅ @x$n=0 ⋅ @x$n←1 ⋅ @carry←0) ∪ (@carry=1 ⋅ @x$n=1 ⋅ @x$n←0 ⋅ @carry←1) ∪ @carry=0 """
 
 for n <- 1 to nmax do {
   val sb = new StringBuilder
@@ -83,7 +83,7 @@ for n <- 1 to nmax do {
 
   // inc = inc_x1 ⋅ inc_x2 ⋅ ... ⋅ inc_xn ⋅ @carry←0
   val inc = (1 to n).map(i => s"inc_x$i").mkString(" ⋅ ")
-  sb.append(s"inc = $inc ⋅ @carry←0\n")
+  sb.append(s"inc = @carry←1 ⋅ $inc ⋅ @carry←0\n")
 
   // zero = @x1=0 ⋅ @x2=0 ⋅ ... ⋅ @xn=0
   val zero = (1 to n).map(i => s"@x$i=0").mkString(" ⋅ ")

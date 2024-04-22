@@ -8,3 +8,5 @@ zero = @x1=0 ⋅ @x2=0 ⋅ @x3=0 ⋅ @x4=0
 max = @x1=1 ⋅ @x2=1 ⋅ @x3=1 ⋅ @x4=1
 
 check zero ⋅ (inc)⋆ ⋅ max ≢  ∅
+check zero ⋅ inc ⋅ max ≡ ∅
+check max ⋅ (inc)⋆ ⋅ zero ≡ ∅
