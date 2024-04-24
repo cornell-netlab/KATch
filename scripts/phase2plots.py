@@ -1,3 +1,4 @@
+import matplotlib as mpl
 import matplotlib.pyplot as plt
 import matplotlib.axes as ax
 import seaborn as sns
@@ -5,6 +6,8 @@ import pandas as pd
 import re
 import os
 import sys
+
+mpl.rcParams['pdf.fonttype'] = 42
 
 input_file = 'results/comparison.csv' if len(sys.argv) == 1 else sys.argv[1]
 output_dir = 'results/plots'
