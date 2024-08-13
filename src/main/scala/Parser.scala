@@ -87,7 +87,7 @@ object Parser {
   def field[$: P]: P[Int] = P("@" ~~ (CharIn("a-zA-Z") ~~ CharIn("a-zA-Z0-9").repX).!).map { x => VarMap(x) }
 
   // Parse a test such as @dst=3?
-  def test[$: P]: P[NK] = P(field ~ "=" ~ value ~ "?".rep).map { case (x, v) => Test(x, v) } | P(field ~ "≠" ~ value ~ "?".rep).map { case (x, v) => TestNE(x, v) }
+  def test[$: P]: P[NK] = P(field ~ "=" ~ value ~ "?".rep).map { case (x, v) => Test(x, v) } | P(field ~ ("≠" | "!=") ~ value ~ "?".rep).map { case (x, v) => TestNE(x, v) }
 
   // Parse a mut such as @dst←3
   def mut[$: P]: P[NK] = P(field ~ ("←" | ":=") ~ value).map { case (x, v) => Mut(x, v) }
@@ -164,10 +164,10 @@ object Parser {
   // import "../../examples/trees/ft6_topo.nkpl"
 
   // Parses a check statement
-  def checkStmt[$: P]: P[Stmt.Check] = P("check" ~ exprNK ~ ("≡" | "==" | "≢" | "!=").! ~ exprNK).map { case (e1, op, e2) =>
+  def checkStmt[$: P]: P[Stmt.Check] = P("check" ~ exprNK ~ ("≡" | "==" | "≢" | "!==").! ~ exprNK).map { case (e1, op, e2) =>
     val normalized_op = op match {
       case "≡" | "==" => "≡"
-      case "≢" | "!=" => "≢"
+      case "≢" | "!==" => "≢"
       case _ => op
     }
     Stmt.Check(normalized_op, Expr.NKExpr(e1), Expr.NKExpr(e2))
