@@ -344,16 +344,20 @@ object SPP {
       // Remove redundant branches
       // A branch is redundant if sending the value to other/id would do the same thing
 
-      // First, we remove muts that are False from branches
-      var branches2 = branches.map { (v, muts) => v -> muts.filterNot { (v2, spp) => spp eq False } }
+      var branches2 = branches
 
       // Now we remove muts that are False from other
       // We have to be careful here, because removing a False mut from other may
       // cause a packet to go to id instead of other.
       for (v, spp) <- other do
         if (spp eq False) && !branches2.contains(v)
-        then branches2 = branches2.updated(v, HashMap.empty)
+        then
+          val muts = other + (v -> id)
+          branches2 = branches2.updated(v, muts)
       val other2 = other.filterNot { (v, spp) => spp eq False }
+
+      // Remove muts that are False from branches
+      branches2 = branches.map { (v, muts) => v -> muts.filterNot { (v2, spp) => spp eq False } }
 
       // Now we can check for and remove branches that are the semantically the same as the
       // default case. Removing this branch means that packets that would follow
