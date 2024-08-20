@@ -341,23 +341,22 @@ object SPP {
     /** Smart constructor for the TestMut class. This constructor removes redundant branches. It also removes mutations that are False from branches and other. The function uses a cache to store instances of TestMut.
       */
     def apply(x: Var, branches: HashMap[Val, HashMap[Val, SPP]], other: HashMap[Val, SPP], id: SPP): SPP =
-      // Remove redundant branches
-      // A branch is redundant if sending the value to other/id would do the same thing
-
-      var branches2 = branches
 
       // Now we remove muts that are False from other
       // We have to be careful here, because removing a False mut from other may
       // cause a packet to go to id instead of other.
+      var branches2 = branches
+
       for (v, spp) <- other do
         if (spp eq False) && !branches2.contains(v)
         then
           val muts = other + (v -> id)
           branches2 = branches2.updated(v, muts)
+
       val other2 = other.filterNot { (v, spp) => spp eq False }
 
       // Remove muts that are False from branches
-      branches2 = branches.map { (v, muts) => v -> muts.filterNot { (v2, spp) => spp eq False } }
+      val branches3 = branches2.map { (v, muts) => v -> muts.filterNot { (v2, spp) => spp eq False } }
 
       // Now we can check for and remove branches that are the semantically the same as the
       // default case. Removing this branch means that packets that would follow
@@ -365,11 +364,11 @@ object SPP {
       // branch either peforms a mutation or not. In other words, both the
       // updates that change the packet value need to have the same effect as
       // default, and those that do not change the packet value.
-      val branches3 = branches2.filter { (v, muts) =>
+      val branches4 = branches3.filter { (v, muts) =>
         muts != (if other2.contains(v) || (id eq False) then other2 else other2 + (v -> id))
       }
-      if branches3.isEmpty && other2.isEmpty then return id
-      val v = new TestMut(x, branches3, other2, id)
+      if branches4.isEmpty && other2.isEmpty then return id
+      val v = new TestMut(x, branches4, other2, id)
       cache.getOrElseUpdate(v, v)
 
     /** Creates a new TestMut instance with the given parameters. This skips some of the optimizations in the apply method; the user is responsible for ensuring that the invariant is maintained.
