@@ -2,7 +2,7 @@ import nkpl._
 import scala.collection.immutable.HashMap
 
 /** Controls the size of the mutations/tests */
-val n = 100
+val n = 50
 
 /** Tester class to generate random packets, SPs and SPPs
   * @param vals

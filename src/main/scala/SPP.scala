@@ -349,9 +349,7 @@ object SPP {
 
       for (v, spp) <- other do
         if (spp eq False) && !branches2.contains(v)
-        then
-          val muts = other + (v -> id)
-          branches2 = branches2.updated(v, muts)
+        then branches2 = branches2.updated(v, other)
 
       val other2 = other.filterNot { (v, spp) => spp eq False }
 
