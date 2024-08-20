@@ -87,39 +87,39 @@ object Parser {
   def field[$: P]: P[Int] = P("@" ~~ (CharIn("a-zA-Z") ~~ CharIn("a-zA-Z0-9").repX).!).map { x => VarMap(x) }
 
   // Parse a test such as @dst=3?
-  def test[$: P]: P[NK] = P(field ~ "=" ~ value ~ "?".rep).map { case (x, v) => Test(x, v) } | P(field ~ "≠" ~ value ~ "?".rep).map { case (x, v) => TestNE(x, v) }
+  def test[$: P]: P[NK] = P(field ~ "=" ~ value ~ "?".rep).map { case (x, v) => Test(x, v) } | P(field ~ ("≠" | "!=") ~ value ~ "?".rep).map { case (x, v) => TestNE(x, v) }
 
   // Parse a mut such as @dst←3
-  def mut[$: P]: P[NK] = P(field ~ "←" ~ value).map { case (x, v) => Mut(x, v) }
+  def mut[$: P]: P[NK] = P(field ~ ("←" | ":=") ~ value).map { case (x, v) => Mut(x, v) }
 
   // Parses ε
-  def one[$: P]: P[NK] = P("ε" | "⊤").map(_ => Seq(List()))
+  def one[$: P]: P[NK] = P("ε" | "⊤" | "skip").map(_ => Seq(List()))
 
   // Parses empty ∅
-  def empty[$: P]: P[NK] = P("∅" | "⊥").map(_ => Sum(Set()))
+  def empty[$: P]: P[NK] = P("∅" | "⊥" | "drop").map(_ => Sum(Set()))
 
   // Parses dup δ
-  def dup[$: P]: P[NK] = P("δ").map(_ => Dup)
+  def dup[$: P]: P[NK] = P("δ" | "dup").map(_ => Dup)
 
   // An expression is either a test, a mut, a composition using ⋅, or a union using ∪.
   // Operator precedence is such that ⋅ binds tighter than ∪. This can be overridden using parentheses.
 
   // Parses an atomic expression, such as a test, a mut, or a parenthesised expression
-  def exprA[$: P]: P[NK] = P(varName.map(VarName.apply) | empty | one | dup | test | mut | "(" ~/ exprNK ~ ")")
+  def exprA[$: P]: P[NK] = P(empty | one | dup | test | mut | "(" ~/ exprNK ~ ")" | varName.map(VarName.apply))
 
-  def exprN[$: P]: P[NK] = P("¬".!.rep ~ exprA).map { case (ss, e) => ss.foldLeft(e) { (e1, _) => negate(e1) } }
+  def exprN[$: P]: P[NK] = P(("¬" | "!").!.rep ~ exprA).map { case (ss, e) => ss.foldLeft(e) { (e1, _) => negate(e1) } }
 
   // Parses an atomic expression possibly followed by one or more stars
-  def exprS[$: P]: P[NK] = P(exprN ~ "⋆".!.rep).map { case (e, ss) => ss.foldLeft(e) { (e1, _) => Star(e1) } }
+  def exprS[$: P]: P[NK] = P(exprN ~ ("⋆" | "*").!.rep).map { case (e, ss) => ss.foldLeft(e) { (e1, _) => Star(e1) } }
 
   // Parses an atomic expression possibly followed by one or more question marks
   def exprQ[$: P]: P[NK] = P(exprS ~ "?".!.rep).map { case (e, ss) => ss.foldLeft(e) { (e1, _) => e1 } }
 
-  def exprZ[$: P]: P[NK] = P(exprQ ~ (("⊕" | "^" | "∩" | "-" | "∖").! ~ exprQ).rep).map { (e1, es) =>
+  def exprZ[$: P]: P[NK] = P(exprQ ~ (("⊕" | "^" | "xor" | "∩" | "intersect" | "-" | "∖").! ~ exprQ).rep).map { (e1, es) =>
     es.foldLeft(e1) { case (e1, (op, e2)) =>
       op match
-        case "⊕" | "^" => XOR(e1, e2)
-        case "∩" => Intersection(e1, e2)
+        case "⊕" | "^" | "xor" => XOR(e1, e2)
+        case "∩" | "intersect" => Intersection(e1, e2)
         case "-" | "∖" => Difference(e1, e2)
     }
   }
@@ -164,8 +164,13 @@ object Parser {
   // import "../../examples/trees/ft6_topo.nkpl"
 
   // Parses a check statement
-  def checkStmt[$: P]: P[Stmt.Check] = P("check" ~ exprNK ~ ("≡" | "≢").! ~ exprNK).map { case (e1, op, e2) =>
-    Stmt.Check(op, Expr.NKExpr(e1), Expr.NKExpr(e2))
+  def checkStmt[$: P]: P[Stmt.Check] = P("check" ~ exprNK ~ ("≡" | "==" | "≢" | "!==").! ~ exprNK).map { case (e1, op, e2) =>
+    val normalized_op = op match {
+      case "≡" | "==" => "≡"
+      case "≢" | "!==" => "≢"
+      case _ => op
+    }
+    Stmt.Check(normalized_op, Expr.NKExpr(e1), Expr.NKExpr(e2))
   }
 
   // Parses a graphviz statement
