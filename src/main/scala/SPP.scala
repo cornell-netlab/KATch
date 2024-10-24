@@ -35,6 +35,14 @@ object SP {
     // Cache to store instances of Test
     val cache = scala.collection.mutable.HashMap.empty[Test, Test]
 
+    def printStats(): Unit =
+      println(s"Test cache size: ${cache.size}")
+      println(s"Number with default=False: ${cache.values.count(_.default eq False)}")
+      println(s"Number with default=True: ${cache.values.count(_.default eq True)}")
+      println(s"Number with default=Test: ${cache.values.count(_.default.isInstanceOf[Test])}")
+      println(s"Number with ys empty: ${cache.values.count(_.ys.isEmpty)}")
+      println(s"Number with ys non-empty: ${cache.values.count(_.ys.nonEmpty)}")
+
     /** Creates a new Test instance with the given parameters. If the given ys map contains any entries with the value equal to default, those entries are filtered out. If the resulting ys2 map is empty, the default value is returned. Otherwise, a new Test instance is created with the filtered ys2 map and the default value, and it is either retrieved from the cache or added to the cache.
       */
     def apply(x: Var, ys: HashMap[Val, SP], default: SP) = {
@@ -337,6 +345,42 @@ object SPP {
   }
   object TestMut {
     val cache = scala.collection.mutable.HashMap.empty[TestMut, TestMut]
+
+    def printStats(): Unit =
+      println(s"TestMut cache size: ${cache.size}")
+      println(s"Number with id=False: ${cache.values.count(_.id eq False)}")
+      println(s"Number with id=Diag: ${cache.values.count(_.id eq Diag)}")
+      println(s"Number with id=TestMut: ${cache.values.count(_.id.isInstanceOf[TestMut])}")
+      println(s"Number with other empty: ${cache.values.count(_.other.isEmpty)}")
+      println(s"Number with branches empty: ${cache.values.count(_.branches.isEmpty)}")
+      // now count the number of cases where all branches on key k map to a singleton map with key k
+      val branchesSingleton = cache.values.count { v =>
+        v.branches.forall { (k, m) => m.size == 1 && m.contains(k) } && v.branches.size > 0
+      }
+      val branchesNonempty = cache.values.count(_.branches.nonEmpty)
+      println(s"Number with branches matching singleton: $branchesSingleton / $branchesNonempty")
+      def countsToString(counts: Map[Int, Int]): String =
+        counts.toList.sortBy(_._2).reverse.map { (k, v) => s"$k: $v" }.mkString(", ")
+      // for each possible size of other, how many have that size
+      val otherSizes = cache.values.groupBy(_.other.size).map { (k, v) => k -> v.size }
+      println(s"Other sizes: ${countsToString(otherSizes)}")
+      // for each possible size of branches, how many have that size
+      val branchSizes = cache.values.groupBy(_.branches.size).map { (k, v) => k -> v.size }
+      if false then
+        println(s"Branch sizes: ${countsToString(branchSizes)}")
+        // now do it but count nested branches
+        val branchSizes2 = cache.values.groupBy(_.branches.map { (_, m) => m.size }.sum).map { (k, v) => k -> v.size }
+        println(s"Branch sizes2: ${countsToString(branchSizes2)}")
+        // now count by total size (nested branches + other)
+        val totalSizes = cache.values.map { v => v.branches.map { (_, m) => m.size }.sum + v.other.size }.groupBy(identity).map { (k, v) => k -> v.size }
+        println(s"Total sizes: ${countsToString(totalSizes)}")
+        // print 100 random entries
+        val entries = cache.values.toList
+        for _ <- 1 to 100 do
+          val v = entries(scala.util.Random.nextInt(entries.size))
+          // print only the structure, not recursively
+          val size2 = v.branches.map { (_, m) => m.size }.sum
+          println(s"TestMut(${VarMap(v.x)}, ${v.branches.size}/${size2}, ${v.other.size}, ${v.id})")
 
     /** Smart constructor for the TestMut class. This constructor removes redundant branches. It also removes mutations that are False from branches and other. The function uses a cache to store instances of TestMut.
       */

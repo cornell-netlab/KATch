@@ -5,4 +5,5 @@ y = @a=5
   ⋅ 
   @a←5 
 
-check x ≡ y
+check x 
+  ≡ y
