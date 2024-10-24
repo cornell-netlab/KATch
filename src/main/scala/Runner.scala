@@ -3,16 +3,15 @@ import java.nio.file.{Files, Path, Paths}
 import nkpl.Parser.Stmt
 import nkpl.Parser.Expr
 
-/** Print the first 100 characters of any object to be printed to the screen,
- *  for brevity.
- */
+/** Print the first 100 characters of any object to be printed to the screen, for brevity.
+  */
 def summarize(obj: Any): String =
   val s = obj.toString
   if s.length > 100 then s.take(100) + "..."
   else s
 
 /** Runner provides the functions and the environment needed for evaluating an NKPL program.
- */
+  */
 object Runner {
   type Env = Map[String, Either[NK, Int]]
   def evalNK(env: Env, v: Parser.NK): NK =
@@ -121,7 +120,7 @@ object Runner {
         env2
     }
 
-  /* Parse and evaluate a file specified by path. 
+  /* Parse and evaluate a file specified by path.
    * @param path
    * The path of the file.
    * @throws Throwable
@@ -130,10 +129,19 @@ object Runner {
   def runFile(env: Env, path: String): Env =
     var env2 = env
     try {
-      val input = scala.io.Source.fromFile(path).mkString.split("\n")
+      val input = scala.io.Source.fromFile(path).mkString
+      val statements = input.split("\n").foldLeft(List[String]()) { (acc, line) =>
+        if (line.trim.isEmpty || line.trim.startsWith("--")) {
+          acc
+        } else if (line.startsWith(" ") || line.startsWith("\t")) {
+          acc.init :+ (acc.last + "\n" + line)
+        } else {
+          acc :+ line
+        }
+      }
       // Iterate over each line
-      for (i <- input.indices) {
-        val line = input(i)
+      for (i <- statements.indices) {
+        val line = statements(i)
         if line.startsWith("--") || line.trim.isEmpty then ()
         else
           // Parse the line
@@ -179,6 +187,8 @@ object Runner {
       runFile(Map(), path)
       val endTime = System.nanoTime()
       time += (endTime - startTime) / 1_000_000_000.0
+      SP.Test.printStats()
+      SPP.TestMut.printStats()
       clearCaches()
     }
     val duration = time / (if Options.warmup then (0 to reps).length else 1)
@@ -206,10 +216,8 @@ object Runner {
         fw.close()
       }
 
-  /** Run and measure, for comparison purposes, a query using `frenetic`. The
-   *  implementation assumes we have already computed a query in frenetic's
-   *  format.
-   */
+  /** Run and measure, for comparison purposes, a query using `frenetic`. The implementation assumes we have already computed a query in frenetic's format.
+    */
   def runTopLevelFrenetic(path: String) =
     println("Running Frenetic " + path)
     Options.inputFile = path

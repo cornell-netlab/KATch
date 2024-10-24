@@ -1,6 +1,6 @@
 package nkpl
 
-import fastparse._, SingleLineWhitespace._
+import fastparse._, MultiLineWhitespace._
 
 /** This object represents a variable map that maps strings to integers and vice versa. This is so that source code can refer to variables by name, but the verifier can refer to them by integer, which is more efficient.
   */
